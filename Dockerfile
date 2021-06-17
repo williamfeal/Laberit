@@ -11,10 +11,10 @@ RUN ng build --prod
 
 FROM nginx
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=compile-image /opt/ng/dist/harmonia-tasklist/ /usr/share/nginx/html
+COPY --from=compile-image /opt/ng/dist/sede-angular/ /usr/share/nginx/html/
 
 RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 # Cuando el contenedor arranca, reemplaza los valores de env.js por los valores de las variables de entorno
-#CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
+CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]

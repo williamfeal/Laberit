@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "moges-angular": {
+    "sede-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/moges-angular",
+            "outputPath": "dist/sede-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "moges-angular:build"
+            "browserTarget": "sede-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "moges-angular:build:production"
+              "browserTarget": "sede-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "moges-angular:build"
+            "browserTarget": "sede-angular:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "moges-angular:serve"
+            "devServerTarget": "sede-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "moges-angular:serve:production"
+              "devServerTarget": "sede-angular:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "moges-angular"
+  "defaultProject": "sede-angular"
 }

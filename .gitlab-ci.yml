@@ -1,11 +1,11 @@
 stages:
-  - package
+  - build
 
 Docker Build:
-  image: docker:latest
+  image: jaweewo/docker:custom
   services:
     - docker:dind
-  stage: package
+  stage: build
   tags:
     - shell
   script:
@@ -14,4 +14,3 @@ Docker Build:
     - docker push $CI_REGISTRY_IMAGE:latest
   only:
     - dev
-
