@@ -11,6 +11,18 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
+import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
+import { ElectronicServicesComponent } from './components/electronic-services/electronic-services.component';
+import { ValideComponent } from './components/electronic-services/valide/valide.component';
+import { ElectronicInvoiceComponent } from './components/electronic-services/electronic-invoice/electronic-invoice.component';
+import { DocumentVerificationComponent } from './components/electronic-services/document-verification/document-verification.component';
+import { NotificationsComponent } from './components/electronic-services/notifications/notifications.component';
+import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
+import { ProcedimentDetailComponent } from './components/procediments/procediment-detail/procediment-detail.component';
+import { HelpHomeComponent } from './components/home/help-home/help-home.component';
+import { SliderHomeComponent } from './components/home/slider-home/slider-home.component';
+import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -18,7 +30,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    TranslationComponent
+    TranslationComponent,
+    AdvertisementDetailComponent,
+    ContractorProfileComponent,
+    ElectronicServicesComponent,
+    ValideComponent,
+    ElectronicInvoiceComponent,
+    DocumentVerificationComponent,
+    NotificationsComponent,
+    ProcedimentsSearchComponent,
+    ProcedimentDetailComponent,
+    HelpHomeComponent,
+    SliderHomeComponent,
+    ProcedimentsHomeComponent
   ],
   imports: [
     BrowserModule,
