@@ -1,0 +1,17 @@
+stages:
+  - package
+
+Docker Build:
+  image: docker:latest
+  services:
+    - docker:dind
+  stage: package
+  tags:
+    - shell
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN hub.alfatecsistemas.es
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - dev
+
