@@ -25,14 +25,16 @@ import { SliderHomeComponent } from './components/home/slider-home/slider-home.c
 import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 import { HomeComponent } from './components/home/home.component';
+import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
 import { WeatherComponent } from './shared/header/weather/weather.component';
 
-/* Services */
+/* Services */ 
 import { WeatherService } from './services/moges-services/weather.service';
 import { AuthService } from './services/moges-services/auth.service';
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -56,7 +58,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CarpetaCiudadanaComponent,
     HeaderComponent,
     WeatherComponent,
-    HomeComponent
+    HomeComponent,
+    AdvertisementsListComponent
   ],
   imports: [
     BrowserModule,
