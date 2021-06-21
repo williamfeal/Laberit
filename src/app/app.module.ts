@@ -23,6 +23,7 @@ import { ProcedimentDetailComponent } from './components/procediments/procedimen
 import { HelpHomeComponent } from './components/home/help-home/help-home.component';
 import { SliderHomeComponent } from './components/home/slider-home/slider-home.component';
 import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
+import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ProcedimentDetailComponent,
     HelpHomeComponent,
     SliderHomeComponent,
-    ProcedimentsHomeComponent
+    ProcedimentsHomeComponent,
+    CarpetaCiudadanaComponent
   ],
   imports: [
     BrowserModule,
