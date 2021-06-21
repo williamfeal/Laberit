@@ -1,0 +1,63 @@
+@import "../../utils/styles/inputs.scss";
+
+.header {
+  -webkit-box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+  -moz-box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+  box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+}
+
+.header-logo {
+  height: 66px;
+}
+
+.header-nav {
+  background-color: $body-background;
+}
+
+// Responsive rules
+
+@media screen and (max-width: 770px) {
+  .weather-data {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .date-data {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .hour-data {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .header-logo {
+    margin-top: 2rem;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .header-logo {
+    margin-top: 2rem;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .header-logo {
+    margin-top: 2rem;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-logo {
+    margin-top: 2rem;
+    height: 45px;
+  }
+}
