@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 border-right-solid-gray">
+            <a href="#" class="navbar-brand">
+                <img alt="Puerto de Cartagena" src="assets/img/logo-apc.png" class="mr-3 header-logo" />
+            </a>
+        </div>
+        <div class="col-sm-2 col-md-3">
+            <h4 class="mt-4-7 color-medium-gray font-weight-light"> {{ 'TITLE' | translate }} </h4>
+        </div>
+        <div class="col-sm-4 col-md-5">
+            <div class="mt-4-7 text-right">
+              <span class="pr-3 border-right-solid-gray font-size-13 date-data">
+                <i class="far fa-calendar text-primary mr-1"></i> FECHA
+              </span>
+              <span class="pr-3 pl-3 border-right-solid-gray font-size-13 hour-data">
+                <i class="far fa-clock text-primary mr-1"></i> <span id="horas"></span>
+              </span>
+              <span class="pl-3 weather-data">
+                <app-weather></app-weather>
+              </span>
+            </div>
+          </div>
+    </div>
+</div>

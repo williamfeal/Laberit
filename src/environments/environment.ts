@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  mogesUrl : 'http://lavenganza.apc.alfatecsistemas.es',
   production: false
 };
 
