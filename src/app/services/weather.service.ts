@@ -14,7 +14,7 @@ export class WeatherService {
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
   };
-  private API_URL = environment.mogesUrl + UrlConstants.API_SUFFIX;
+  private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_WEATHER_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_UTIL + UrlConstants.ENDPOINT_WEATHER;
 
   private static buildWeatherFromResponse(response: any): Weather {
