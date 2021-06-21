@@ -1,0 +1,13 @@
+<div *ngIf="weatherData" class="d-inline-flex text-right">
+    <div>
+      <img src="{{ weatherData.icon }}" alt=""/>
+    </div>
+    <div class="info-weather text-center">
+      {{ weatherData.description }} {{ weatherData.temperature }} ºC
+      <div class="other-items-weather">
+        <i class="fas fa-tint mx-1"></i>{{ weatherData.humidity }} %
+        <i class="fas fa-wind mx-1"></i> {{ weatherData.wind }} km/h
+        <i class="fas fa-cloud-rain mx-1"></i> {{ weatherData.clouds }} %
+      </div>
+    </div>
+  </div>

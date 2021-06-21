@@ -24,6 +24,10 @@ import { HelpHomeComponent } from './components/home/help-home/help-home.compone
 import { SliderHomeComponent } from './components/home/slider-home/slider-home.component';
 import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { WeatherComponent } from './shared/header/weather/weather.component';
+import { WeatherService } from './services/weather.service';
+import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -46,6 +50,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SliderHomeComponent,
     ProcedimentsHomeComponent,
     CarpetaCiudadanaComponent,
+    HeaderComponent,
+    WeatherComponent,
+    HomeComponent,
     AdvertisementsListComponent
   ],
   imports: [
@@ -61,7 +68,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
     })
   ],
-  providers: [],
+  providers: [
+    WeatherService
+  ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
 })
