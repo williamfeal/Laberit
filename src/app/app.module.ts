@@ -29,6 +29,7 @@ import { WeatherComponent } from './shared/header/weather/weather.component';
 import { WeatherService } from './services/weather.service';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
+import { HeaderCategoryComponent } from './shared/header/header-category/header-category.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HeaderComponent,
     WeatherComponent,
     HomeComponent,
-    AdvertisementsListComponent
+    AdvertisementsListComponent,
+    HeaderCategoryComponent
   ],
   imports: [
     BrowserModule,

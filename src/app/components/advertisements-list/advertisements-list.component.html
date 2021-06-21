@@ -1,8 +1,4 @@
-<app-translation></app-translation>
-<div class="titulo-1-container mb-3">
-    <!-- <h1 class="titulo-1">{{advertisements.title | translate}}</h1> -->
-    <h1 class="titulo-1">advertisements.title </h1>
-</div>
+<app-header-category [title]="title"></app-header-category>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -12,7 +8,7 @@
                 <label class="ml-4 mt-2 primary-color">
                     {{anuncio.author}}
                     <br />
-                    <!-- {{advertisements.created | translate}}--> {{anuncio.releaseDate}}
+                    {{'advertisements.created' | translate}} 
                 </label>
             </div>
             <div class="card-body " style="height:100%">
@@ -24,7 +20,7 @@
                 </div>
                 <div class="mt-2">
                     <a class="position-relative float-right mb-2 mr-2 primary-color" (click)="verAnuncio()">
-                        Leer más <!-- {{advertisements.seeMore | translate}} -->
+                         {{'advertisements.seeMore' | translate}}
                     </a>
                 </div>
             </div>
