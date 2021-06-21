@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'web/guest/carpeta-del-ciudadano', component: CarpetaCiudadanaComponent }
+  { path: 'carpeta', component: CarpetaCiudadanaComponent },
+  { path: 'anuncio', component: AdvertisementsListComponent }
 ];
 
 @NgModule({

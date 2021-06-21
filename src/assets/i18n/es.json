@@ -1,7 +1,7 @@
 {
-    "hola" : "holiii",
-    "AREAS": {
-        "HOLA": "HOLA A TODOS"
-    },
-    "principal.texto" : "Lista de frutas"
+    "advertisements":{
+        "title": "TABLÓN DE ANUNCIOS",
+        "created": "Fecha creación:",
+        "seeMore": "Leer más"
+    }
 }
