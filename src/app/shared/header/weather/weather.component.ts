@@ -24,7 +24,6 @@ export class WeatherComponent {
   private getWeatherData(): void {
     this.authService.getToken().subscribe(
       data => {
-        console.log(data)
         this.weatherService.getWeather(data).subscribe((weather: Weather) => {
           this.weatherData = weather;
         }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_WEATHER, 'info'));
