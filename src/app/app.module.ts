@@ -28,6 +28,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { WeatherComponent } from './shared/header/weather/weather.component';
 import { WeatherService } from './services/weather.service';
 import { HomeComponent } from './components/home/home.component';
+import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -51,7 +52,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CarpetaCiudadanaComponent,
     HeaderComponent,
     WeatherComponent,
-    HomeComponent
+    HomeComponent,
+    AdvertisementsListComponent
   ],
   imports: [
     BrowserModule,
