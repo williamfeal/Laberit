@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  envName: 'default',
+  moges_url: 'http://lavenganza.apc.alfatecsistemas.es/api/v1',
+  trex_url: 'http://trex-sede.apc.alfatecsistemas.es/api/v1',
+  keycloak: {
+    issuer: 'http://keycloak.apc.alfatecsistemas.es/auth/',
+    realm: 'Angular2',
+    clientId: 'angular-tasklist'
+  }
 };
 
 /*
