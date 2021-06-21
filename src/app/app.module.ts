@@ -24,6 +24,7 @@ import { HelpHomeComponent } from './components/home/help-home/help-home.compone
 import { SliderHomeComponent } from './components/home/slider-home/slider-home.component';
 import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
+import { HomeComponent } from './components/home/home.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HelpHomeComponent,
     SliderHomeComponent,
     ProcedimentsHomeComponent,
-    CarpetaCiudadanaComponent
+    CarpetaCiudadanaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
