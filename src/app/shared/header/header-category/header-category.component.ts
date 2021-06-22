@@ -13,5 +13,8 @@ export class HeaderCategoryComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        let header = document.getElementById("header-title");
+        header.innerHTML = this.title;
+    }
 }
