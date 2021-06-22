@@ -1,0 +1,64 @@
+<footer class="col-10 mx-auto mt-5 font-size-12" id="footer" role="contentinfo">
+	<div class="row auto-margin">
+        <div class="col-md-1"></div>
+		<div class="col-md-2 centered">
+			<img alt="Logo Puerto de Cartagena" width="100%" height="" class="auto-margin" src="../../../assets/img/logo-apc.png" />
+			<p class="auto-margin text-center">www.apc.es</p>
+			<div class="row justify-content-center">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+			
+		</div>
+        <div class="col-md-1"></div>
+		<div class="col-md-2">
+			<ul class="list-inline">
+				<li><a [routerLink]="'/carpeta-del-ciudadano'" class="text-dark"> Carpeta del ciudadano </a> </li>
+				<li><a [routerLink]="'/quejas-y-sugerencias'" class="text-dark"> Quejas y sugerencias </a> </li>
+				<li><a [routerLink]="'/conoce-la-sede#seccion7'" class="text-dark"> Fecha y hora oficial </a> </li>
+				<li><a [routerLink]="'/tablon-de-anuncios'" class="text-dark"> Tablón de anuncios </a> </li>
+				<li><a [routerLink]="'/verifirma'" class="text-dark"> Verificación de documentos </a> </li>
+			</ul>
+			<div style="padding-left: 40px;">
+				<img alt="ISO" width="110" src="../../../assets/img/thumb-146411.png" />
+			</div>
+		</div>
+		<div class="col-md-2">
+			<ul class="list-inline">
+				<li><a [routerLink]="'/validacion'" class="text-dark"> Validación de firmas y certificados </a> </li>
+				<li><a [routerLink]="'factura-electronica'" class="text-dark"> Factura electrónica </a> </li>
+        		<li><a [routerLink]="''" class="text-dark"> Trámites </a> </li>
+				<li><a [routerLink]="'/perfil-de-contratante'" class="text-dark"> Perfil de contratante </a> </li>
+			</ul>
+			<div style="padding-left: 40px;">
+				<a href="http://www.apc.es/webapc/compromiso/rsc" target="_blank">
+					<img alt="EMAS" width="70" height="" src="../../../assets/img/thumb-146414.png" />
+				</a>
+			</div>
+		</div>
+		<div class="col-md-2 col-footer">
+			<ul class="list-inline">
+				<li>
+                    <strong class="text-uppercase"> {{ 'footer.contacts' | translate }} </strong>
+                </li>
+				<li><a href="'/contacto'" class="text-dark" class="text-dark">  {{ 'footer.ask_for_information' | translate }} </a> </li>
+				<li><strong>{{ 'footer.help' | translate }}</strong></li>
+				<li><a [routerLink]="'/requisitos-tecnicos'" class="text-dark">{{ 'footer.technical_requirements' | translate }}</a></li>
+				<li><a href="/o/theme-APC/documents/Guia_Sede_Electronica_v2.0.2.pdf" target="_blank" class="text-dark">{{ 'footer.user_guide' | translate }}</a></li>
+			</ul>
+		</div>
+		<div class="col-md-2 col-footer">
+			<ul class="list-inline">
+			<strong class="text-uppercase"> {{ 'footer.access' | translate }}</strong>
+				<li><a [routerLink]="'/accesibilidad'" class="text-dark"> {{ 'accesibility.title' | translate }} </a> </li>
+                <li><a [routerLink]="'/mapa-web'" class="text-dark"> {{ 'web_map.title' | translate }} </a> </li>
+				<li><a [routerLink]="'/aviso-legal'" class="text-dark">{{ 'legal_warning.title' | translate }}</a></li>
+			</ul>
+			<div class="d-flex justify-content-end align-items-end" style="height: 100px">
+			</div>
+		</div>
+
+	</div>
+</footer>
