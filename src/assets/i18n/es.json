@@ -43,5 +43,34 @@
         "technical_requirements": "Requisitos técnicos",
         "user_guide": "Guía de usuario",
         "access" : "Accesos"
+    },
+    "header":{
+        "carpeta": "Carpeta Ciudadana"
+    },
+    "electronic-services":{
+        "document-verification": {
+            "title": "SERVICIOS ELECTRÓNICOS: <br> VERIFICACIÓN DE DOCUMENTOS POR CSV",
+            "text": "Los documentos electrónicos generados por la Autoridad Portuaria de Cartagena en su Sede Electrónica incluyen en sus páginas un código que se denomina Código Seguro de Verificación (o CSV). Este código es el que permite comprobar la autenticidad del documento impreso en papel por un tercero interesado. <br><br> Para verificar un documento con CSV deberá introducir su código en la casilla siguiente y pulsar el botón \"Verificar documento\". El resultado será un documento electrónico, fiel reflejo del documento a cotejar, que podrá usar para verificar la coincidencia de los datos que tiene la Autoridad Portuaria de Cartagena con el documento en papel del que se dispone.",
+            "button": "Aceptar",
+            "placeholder_csv": "Introduzca el CSV",
+            "placeholder_img": "Introduzca el valor que aparece en la imagen",
+            "where_title": "Dónde se encuentra el Código Seguro de Verificación",
+            "where_text": "El código CSV es el se encuentra impreso en la parte inferior de los documentos electrónicos generados por la Autoridad Portuaria de Cartagena, justo debajo de \"Código seguro de validación\"."
+        },
+        "electronic-invoice":{
+            "title": "SERVICIOS ELECTRÓNICOS: <br>  FACTURA ELECTRÓNICA",
+            "text": "La Autoridad Portuaria de Cartagena se encuentra adherida al Punto General de Entrada de Facturas Electrónicas (FACe) de la Administración General del Estado. La plataforma FACe permite a proveeodres la remisión de facturas electrónicas, simplificando el envío de las mismas. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a FACe.",
+            "button": "Ir a FACe"
+        },
+        "notifications":{
+            "title": "SERVICIOS ELECTRÓNICOS: <br>  BUZÓN DE COMUNICACIONES",
+            "text": "El buzón de comunicaciones es el lugar donde gestionar sus notificaciones electrónicas recibidas, o aquellas de terceros a las que haya sido autorizado. Puede consultar el detalle de las notificaciones electrónicas recibidas accediendo a la Carpeta Ciudadana, empleando para ello su certificado electrónico. <br> Una vez en la Carpeta Ciudadana, diríjase al apartado \"Tus notificaciones y comunicaciones\"",
+            "button": "Ir a Carpeta"
+        },
+        "valide":{
+            "title": "SERVICIOS ELECTRÓNICOS: <br>  VALIDACIÓN DE FIRMAS Y CERTIFICADOS",
+            "text": "El objetivo de este servicio es permitir comprobar que el certificado electrónico utilizado es un certificado válido y que no ha sido revocado. También permite comprobar la validez de una firma electrónica realizada mediante certificado digital emitido por un prestador de servicios de certificación reconocido, y realizar firmas mediante certificado digital del que se disponga de la clave privada correspondiente. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a VALIDe, servicio on-line ofrecido por el Ministerio de Política Territorial y Función Pública para la validación de Firmas y Certificados electrónicos.",
+            "button": "Ir a VALIDe"
+        }
     }
 }

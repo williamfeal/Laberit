@@ -61,3 +61,22 @@
     height: 45px;
   }
 }
+
+.dropdown-toggle {
+  width: 300px;
+  display: block;
+}
+.dropdown-menu {
+  top: -5px;
+}
+.css-dropdown .css-dropdown-menu {
+  margin-top: -5px;
+  display: none;
+  width: 22%;
+}
+.css-dropdown:hover .css-dropdown-menu {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  background-color: #F9F9F9;
+}

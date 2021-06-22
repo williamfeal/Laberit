@@ -13,7 +13,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
-import { ElectronicServicesComponent } from './components/electronic-services/electronic-services.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
 import { ElectronicInvoiceComponent } from './components/electronic-services/electronic-invoice/electronic-invoice.component';
 import { DocumentVerificationComponent } from './components/electronic-services/document-verification/document-verification.component';
@@ -35,6 +34,7 @@ import { WeatherComponent } from './shared/header/weather/weather.component';
 /* Services */ 
 import { WeatherService } from './services/moges-services/weather.service';
 import { AuthService } from './services/moges-services/auth.service';
+import { GenericStaticViewComponent } from './shared/generic-static-view/generic-static-view.component';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { FooterComponent } from './shared/footer/footer.component';
 
@@ -48,7 +48,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TranslationComponent,
     AdvertisementDetailComponent,
     ContractorProfileComponent,
-    ElectronicServicesComponent,
     ValideComponent,
     ElectronicInvoiceComponent,
     DocumentVerificationComponent,
@@ -64,7 +63,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HomeComponent,
     AdvertisementsListComponent,
     HeaderCategoryComponent,
-    FooterComponent
+    FooterComponent,
+    GenericStaticViewComponent
   ],
   imports: [
     BrowserModule,
