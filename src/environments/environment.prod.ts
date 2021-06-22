@@ -3,6 +3,7 @@ export const environment = {
   envName: 'default',
   moges_url: window["env"]["mogesUrl"] || "error-moges-url-env",
   trex_url: window["env"]["trexUrl"] || "error-trex-url-env",
+  carpeta_url: window["env"]["carpetaUrl"] || "error-carpeta-url-env",
   keycloak: {
     issuer: window["env"]["keycloakUrl"] || "error-keycloak-url-env",
     realm: window["env"]["keycloakRealm"] || "error-keycloak-realm-env",
