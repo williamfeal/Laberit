@@ -26,6 +26,7 @@ import { ProcedimentsHomeComponent } from './components/home/procediments-home/p
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
+import { HeaderCategoryComponent } from './shared/header/header-category/header-category.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
@@ -59,7 +60,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HeaderComponent,
     WeatherComponent,
     HomeComponent,
-    AdvertisementsListComponent
+    AdvertisementsListComponent,
+    HeaderCategoryComponent
   ],
   imports: [
     BrowserModule,
