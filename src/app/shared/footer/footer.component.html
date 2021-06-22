@@ -1,9 +1,9 @@
-<footer class="col-10 mx-auto mt-5 font-size-12" id="footer" role="contentinfo">
+<footer class="col-10 mx-auto mt-5 font-size-12">
 	<div class="row auto-margin">
         <div class="col-md-1"></div>
 		<div class="col-md-2 centered">
 			<img alt="Logo Puerto de Cartagena" width="100%" height="" class="auto-margin" src="../../../assets/img/logo-apc.png" />
-			<p class="auto-margin text-center">www.apc.es</p>
+			<p class="auto-margin text-center"> {{ 'footer.apc_web' | translate }} </p>
 			<div class="row justify-content-center">
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-twitter"></i>
@@ -15,11 +15,11 @@
         <div class="col-md-1"></div>
 		<div class="col-md-2">
 			<ul class="list-inline">
-				<li><a [routerLink]="'/carpeta-del-ciudadano'" class="text-dark"> Carpeta del ciudadano </a> </li>
-				<li><a [routerLink]="'/quejas-y-sugerencias'" class="text-dark"> Quejas y sugerencias </a> </li>
-				<li><a [routerLink]="'/conoce-la-sede#seccion7'" class="text-dark"> Fecha y hora oficial </a> </li>
-				<li><a [routerLink]="'/tablon-de-anuncios'" class="text-dark"> Tablón de anuncios </a> </li>
-				<li><a [routerLink]="'/verifirma'" class="text-dark"> Verificación de documentos </a> </li>
+				<li><a [routerLink]="'/carpeta-del-ciudadano'" class="text-dark"> {{ 'footer.carpeta' | translate }} </a> </li>
+				<li><a [routerLink]="'/quejas-y-sugerencias'" class="text-dark"> {{ 'footer.complaints_and_suggestions' | translate }} </a> </li>
+				<li><a [routerLink]="'/conoce-la-sede#seccion7'" class="text-dark"> {{ 'footer.date_and_time' | translate }} </a> </li>
+				<li><a [routerLink]="'/tablon-de-anuncios'" class="text-dark"> {{ 'footer.advertisements' | translate }} </a> </li>
+				<li><a [routerLink]="'/verifirma'" class="text-dark"> {{ 'footer.document_verification' | translate }} </a> </li>
 			</ul>
 			<div style="padding-left: 40px;">
 				<img alt="ISO" width="110" src="../../../assets/img/thumb-146411.png" />
@@ -27,10 +27,10 @@
 		</div>
 		<div class="col-md-2">
 			<ul class="list-inline">
-				<li><a [routerLink]="'/validacion'" class="text-dark"> Validación de firmas y certificados </a> </li>
-				<li><a [routerLink]="'factura-electronica'" class="text-dark"> Factura electrónica </a> </li>
-        		<li><a [routerLink]="''" class="text-dark"> Trámites </a> </li>
-				<li><a [routerLink]="'/perfil-de-contratante'" class="text-dark"> Perfil de contratante </a> </li>
+				<li><a [routerLink]="'/validacion'" class="text-dark"> {{ 'footer.valide' | translate }} </a> </li>
+				<li><a [routerLink]="'factura-electronica'" class="text-dark"> {{ 'footer.electronic_invoice' | translate }} </a> </li>
+        		<li><a [routerLink]="''" class="text-dark"> {{ 'footer.procediments' | translate }} </a> </li>
+				<li><a [routerLink]="'/perfil-de-contratante'" class="text-dark">  {{ 'footer.contractor_profile' | translate }}  </a> </li>
 			</ul>
 			<div style="padding-left: 40px;">
 				<a href="http://www.apc.es/webapc/compromiso/rsc" target="_blank">

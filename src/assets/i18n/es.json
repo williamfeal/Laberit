@@ -37,13 +37,24 @@
         "title" : "Aviso Legal"
     },
     "footer": {
+        "apc_web": "www.apc.es",
         "contacts" : "Contactos",
         "ask_for_information": "Solicitar información",
         "help": "Ayuda",
         "technical_requirements": "Requisitos técnicos",
         "user_guide": "Guía de usuario",
-        "access" : "Accesos"
+        "access" : "Accesos",
+        "carpeta": "Carpeta del Ciudadano",
+        "complaints_and_suggestions": "Quejas y sugerencias",
+        "date_and_time": "Fecha y hora oficial",
+        "advertisements" : "Tablón de anuncios",
+        "document_verification": "Verificación de documentos",
+        "valide": "Validación de firmas y certificados",
+        "electronic_invoice": "Factura electrónica",
+        "procediments":"Trámites",
+        "contractor_profile": "Perfil de contratante"
     },
+
     "header":{
         "carpeta": "Carpeta Ciudadana"
     },
