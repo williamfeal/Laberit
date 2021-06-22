@@ -36,6 +36,7 @@ import { WeatherService } from './services/moges-services/weather.service';
 import { AuthService } from './services/moges-services/auth.service';
 import { GenericStaticViewComponent } from './shared/generic-static-view/generic-static-view.component';
 import { CategoriesService } from './services/moges-services/categories.service';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HomeComponent,
     AdvertisementsListComponent,
     HeaderCategoryComponent,
+    FooterComponent,
     GenericStaticViewComponent
   ],
   imports: [
