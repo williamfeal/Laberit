@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-valide',
@@ -7,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValideComponent implements OnInit {
 
-  constructor() { }
+  title = '';
+  text = '';
+  button = '';
+  link = 'https://valide.redsara.es/valide/';
+  enviar = false;
 
+  constructor(public translate: TranslateService) {
+    this.translate.get('electronic-services.valide').subscribe((texts: any) => {
+      this.text = texts.text;
+      this.title = texts.title;
+      this.button = texts.button;
+      this.enviar = true;
+    });
+  }
   ngOnInit(): void {
   }
 
