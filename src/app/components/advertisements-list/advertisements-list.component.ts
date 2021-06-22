@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 
 export class AdvertisementsListComponent implements OnInit {
 
+  title = 'TABLÓN DE ANUNCIOS'
     
     anunciosMoges;
     constructor() { }

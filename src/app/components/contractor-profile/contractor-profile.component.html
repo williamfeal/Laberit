@@ -1,1 +1,12 @@
-<p>contractor-profile works!</p>
+<app-header-category [title]="title"></app-header-category>
+<div class="col-md-8 mx-auto">
+    <p class="p-3 text-justify">
+        {{'contractor-profile.text' | translate}}
+    </p>
+    <div class="text-center">
+        <a class="btn btn-primary mx-auto" target="_blank"
+            href="https://contrataciondelestado.es/wps/poc?uri=deeplink%3AperfilContratante&idBp=4m5FtivXttEQK2TEfXGy%2BA%3D%3D">
+            {{'contractor-profile.button' | translate}}
+        </a>
+    </div>
+</div>
