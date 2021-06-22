@@ -6,8 +6,7 @@ export const environment = {
   production: false,
   envName: 'default',
   moges_url: 'http://lavenganza.apc.alfatecsistemas.es',
- // moges_url: 'http://localhost:8083',
-  trex_url: 'http://trex-sede.apc.alfatecsistemas.es/api/v1',
+  trex_url: 'http://trex-sede.apc.alfatecsistemas.es',
   keycloak: {
     issuer: 'http://keycloak.apc.alfatecsistemas.es/auth/',
     realm: 'Angular2',

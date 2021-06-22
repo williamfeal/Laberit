@@ -1,0 +1,17 @@
+<div class="container-procediments-home f">
+    <h2 class="m-2 font-size-20 text-uppercase"> {{ 'PROCEDIMENTS_HOME.TITLE' | translate }} </h2>
+    <a [routerLink]="'/procediments'" class="float-right text-dark text-uppercase">
+        <span>{{ 'PROCEDIMENTS_HOME.SEE_ALL' | translate }}</span>
+    </a>
+    <ul class="list-group row w-100 list-group-horizontal">
+        <li *ngFor="let category of categories" class="col-md-3 list-group-item text-center mb-3" >
+            <a href="#" title="Ver todos los procedimientos de este área" class="text-dark text-uppercase">
+            <!-- <img alt="Icono {{ category.name }}" [src]="category.logo" />-->
+            <img alt="Icono {{ category.name }}" src="assets/img/rrhh.png" />
+            <div class="link-container">
+                <span>{{category.name}}</span>
+            </div>
+            </a>
+        </li>
+    </ul>
+</div>

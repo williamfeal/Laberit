@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category.model';
+import { AuthService } from 'src/app/services/moges-services/auth.service';
+import { CategoriesService } from 'src/app/services/moges-services/categories.service';
+import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
   selector: 'app-procediments-home',
@@ -7,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcedimentsHomeComponent implements OnInit {
 
-  constructor() { }
+  public categories:Category[];
+
+  constructor(
+    private authService:AuthService,
+    private categoriesService:CategoriesService
+  ) { }
 
   ngOnInit(): void {
+    this.getCategories();   
+  }
+
+  private getCategories(): void {
+    this.authService.getToken().subscribe(
+      data => {
+        this.categoriesService.getAllCategories(data).subscribe((categories: Category[]) => {
+          this.categories = categories;
+        }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_WEATHER, 'info'));
+      })
   }
 
 }
