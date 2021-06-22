@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-carpeta-ciudadana',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  constructor() { }
+  url_carpeta;
+  iframe_carpeta;
+  constructor() {
+  this.url_carpeta = environment.carpeta_url;
+   }
 
   ngOnInit(): void {
+    let iframe_carpeta =  document.getElementById("iframe_carpeta");
+    iframe_carpeta.setAttribute("src", this.url_carpeta)
+
   }
 
 }
