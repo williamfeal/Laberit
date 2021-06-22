@@ -26,24 +26,24 @@
 <div class="navbar-nav w-100 header-nav">
   <ul class="navbar-nav navbar-expand-lg nav-fill">
     <li class="nav-item py-2">
-      <a href="#" class="nav-link text-dark">{{ 'HOME.TITLE' | translate }}</a>
+      <a href="#" class="nav-link text-dark">{{ 'home.TITLE' | translate }}</a>
     </li>
     <li class="nav-item py-2">
-      <a href="#/carpeta-del-ciudadano" class="nav-link text-dark">Carpeta Ciudadana</a>
+      <a href="#/carpeta-del-ciudadano" class="nav-link text-dark">{{'home.carpeta' | translate}}</a>
     </li>
     <li class="nav-item py-2">
-      <a href="#/tablon-de-anuncios" class="nav-link text-dark">Tablón de Anuncios</a>
+      <a href="#/tablon-de-anuncios" class="nav-link text-dark">{{'home.advertisements' | translate}}</a>
     </li>
     <li class="nav-item py-2">
-      <a href="#/perfil-de-contratante" class="nav-link text-dark">Perfil de contratante</a>
+      <a href="#/perfil-de-contratante" class="nav-link text-dark">{{'home.contractor_profile' | translate}}</a>
     </li>
     <li ng-controller="DropdownCtrl" class="nav-item py-2 css-dropdown">
-      <a href="#" class="nav-link text-dark">Servicios Electrónicos
+      <a class="nav-link text-dark">{{'home.electronic_services' | translate}}
         <div class="css-dropdown-menu mt-3">
-          <a href="#/validacion" class="nav-link text-dark">Validación de Firmas y Certificados</a>
-          <a href="#/factura-electronica" class="nav-link text-dark">Factura electrónica</a>
-          <a href="#/verifirma" class="nav-link text-dark">Verificación de Documentos</a>
-          <a href="#/notificaciones" class="nav-link text-dark">Notificaciones</a>
+          <a href="#/validacion" class="nav-link text-dark">{{'home.valide' | translate}}</a>
+          <a href="#/factura-electronica" class="nav-link text-dark">{{'home.electronic_invoice' | translate}}</a>
+          <a href="#/verifirma" class="nav-link text-dark">{{'home.document_verification' | translate}}</a>
+          <a href="#/notificaciones" class="nav-link text-dark">{{'home.notifications' | translate}}</a>
         </div>
       </a>
     </li>

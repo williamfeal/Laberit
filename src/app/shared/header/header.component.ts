@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/moges-services/auth.service';
 import * as DateConstants from 'src/app/utils/constants/date-constants';
 
 @Component({
@@ -13,12 +14,14 @@ export class HeaderComponent implements OnInit {
 
   private currentDate = new Date();
   
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
     this.loadDate();
     this.loadHour();
+    this.loadToken();
     setInterval(this.loadHour, 1000);
+    setInterval(this.loadToken, 5000);
   }
 
   private loadDate(): void {
@@ -34,5 +37,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  private loadToken(): void {
+    this.authService.getToken().subscribe(
+      data => {
+        sessionStorage.setItem('token', data);
+      });
+  }
 
 }
