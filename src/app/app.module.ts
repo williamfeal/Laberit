@@ -34,6 +34,7 @@ import { WeatherComponent } from './shared/header/weather/weather.component';
 /* Services */ 
 import { WeatherService } from './services/moges-services/weather.service';
 import { AuthService } from './services/moges-services/auth.service';
+import { CategoriesService } from './services/moges-services/categories.service';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -76,7 +77,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     WeatherService,
-    AuthService
+    AuthService,
+    CategoriesService
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

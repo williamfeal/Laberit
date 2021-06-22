@@ -5,4 +5,6 @@ export class UrlConstants {
     public static readonly ENDPOINT_TOKEN = '/token'
 
     public static readonly ENDPOINT_ADVERTISEMENTS = '/noticeboards';
+    public static readonly ENDPOINT_CATEGORIES = '/categories';
+
 }

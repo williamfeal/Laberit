@@ -1,8 +1,13 @@
 {
     "advertisements":{
-        "title": "TABL�N DE ANUNCIOS",
-        "created": "Fecha creaci�n:",
-        "seeMore": "Leer m�s"
+        "title": "TABLÓN DE ANUNCIOS",
+        "created": "Fecha creación:",
+        "seeMore": "Leer más"
     },
-    "TITLE": "SEDE ELECTRÓNICA"
+    "TITLE": "SEDE ELECTRÓNICA",
+    
+    "PROCEDIMENTS_HOME": {
+        "TITLE": "TRÁMITES",
+        "SEE_ALL": "Ver todos"
+    }
 }
