@@ -1,27 +1,27 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 col-md-2 border-right-solid-gray">
-            <a href="#" class="navbar-brand">
-                <img alt="Puerto de Cartagena" src="assets/img/logo-apc.png" class="mr-3 header-logo" />
-            </a>
-        </div>
-        <div class="col-sm-2 col-md-3">
-            <h4 class="mt-4 color-medium-gray font-weight-light"> {{ 'TITLE' | translate }} </h4>
-        </div>
-        <div class="col-sm-4 col-md-5">
-            <div class="mt-4 text-right  d-flex">
-              <span class="pr-3 border-right-solid-gray font-size-13">
-                <i class="far fa-calendar text-primary mr-1"></i>  {{ currentDateHeader }}
-              </span>
-              <span class="pr-3 pl-3 border-right-solid-gray font-size-13">
-                <i class="far fa-clock text-primary mr-1"></i> <span id="horas"></span>
-              </span>
-              <span class="pl-3 weather-data">
-                <app-weather></app-weather>
-              </span>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-sm-2 col-md-2 border-right-solid-gray">
+      <a href="#" class="navbar-brand">
+        <img alt="Puerto de Cartagena" src="assets/img/logo-apc.png" class="mr-3 header-logo" />
+      </a>
     </div>
+    <div class="col-sm-2 col-md-3">
+      <h4 class="mt-4 color-medium-gray font-weight-light"> {{ 'TITLE' | translate }} </h4>
+    </div>
+    <div class="col-sm-4 col-md-5">
+      <div class="mt-4 text-right  d-flex">
+        <span class="pr-3 border-right-solid-gray font-size-13">
+          <i class="far fa-calendar text-primary mr-1"></i> {{ currentDateHeader }}
+        </span>
+        <span class="pr-3 pl-3 border-right-solid-gray font-size-13">
+          <i class="far fa-clock text-primary mr-1"></i> <span id="horas"></span>
+        </span>
+        <span class="pl-3 weather-data">
+          <app-weather></app-weather>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="navbar-nav w-100 header-nav">
   <ul class="navbar-nav navbar-expand-lg nav-fill">
@@ -37,8 +37,15 @@
     <li class="nav-item py-2">
       <a href="#/perfil-de-contratante" class="nav-link text-dark">Perfil de contratante</a>
     </li>
-    <li class="nav-item py-2">
-      <a href="#" class="nav-link text-dark">Servicios Electrónicos</a>
+    <li ng-controller="DropdownCtrl" class="nav-item py-2 css-dropdown">
+      <a href="#" class="nav-link text-dark">Servicios Electrónicos
+        <div class="css-dropdown-menu mt-3">
+          <a href="#/validacion" class="nav-link text-dark">Validación de Firmas y Certificados</a>
+          <a href="#/factura-electronica" class="nav-link text-dark">Factura electrónica</a>
+          <a href="#/verifirma" class="nav-link text-dark">Verificación de Documentos</a>
+          <a href="#/notificaciones" class="nav-link text-dark">Notificaciones</a>
+        </div>
+      </a>
     </li>
   </ul>
 </div>

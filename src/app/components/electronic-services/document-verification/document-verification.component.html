@@ -1,1 +1,13 @@
-<p>document-verification works!</p>
+<app-header-category *ngIf="enviar" [title]="title"></app-header-category>
+
+<div class="col-md-8 mx-auto">
+    <p class="p-3 text-justify" id="text"></p>
+    <div style="display:grid; justify-items: center;">
+        <input type="text" id="placeholder_csv" class="mt-3 col-sm-5">
+        <input type="text" id="placeholder_img" class="mt-3 col-sm-5">
+        <div nbRecaptcha key="public key" formControlName="captcha"></div>
+        <button class="btn btn-primary mx-auto mt-3" target="_blank" id="button"></button>
+    </div>
+    <p class="text-justify font-weight-bold" id="where_title"></p>
+    <p class="text-justify" id="where_text"></p>
+</div>
