@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { Procediment } from 'src/app/models/procediment.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
@@ -45,5 +45,4 @@ export class ProcedimentsComponent implements OnInit {
           });
       });
   }
-
 }

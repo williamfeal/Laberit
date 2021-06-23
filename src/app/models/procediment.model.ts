@@ -8,6 +8,6 @@ export class Procediment {
     status: boolean 
     publicado:  boolean 
     category : Category
-    infoprocedimiento : InfoProcediment
+    languages : InfoProcediment[]
     tramitarElectronicamente:  boolean
 }

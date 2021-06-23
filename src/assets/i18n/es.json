@@ -65,7 +65,29 @@
         "procediments":"Trámites",
         "contractor_profile": "Perfil de contratante"
     },
-
+    "procediment_detail": {
+        "info": "Información",
+        "online": "Online",
+        "face": "Presencial",
+        "description": "Descripción",
+        "destinataries": "Destinatarios",
+        "observations": "Observaciones",
+        "start": "Fecha de inicio",
+        "faqs": "Preguntas frecuentes",
+        "cost": "Coste",
+        "associatedDocs": "Documentos asociados",
+        "contact": "Contacto",
+        "online_transaction": "Tramitación Online",
+        "online_transaction_text": "Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve",
+        "transact": "Tramitar",
+        "procediment_not_available": "Trámite no disponible",
+        "procediment_not_available_text1": "Esta opción no está disponible en estos momentos.",
+        "procediment_not_available_text2": "Para cualquier trámite con la Sede Electrónica puede utilizar una",
+        "general_instance": "Instancia general",
+        "face_transaction": "Tramitación presencial",
+        "face_transaction_text": "A continuación encontrará el formulario de solicitud para el procedimiento Solicitud de Bonificación sobre Buques (Medioambiental, calidad...). Se trata de un PDF rellenable, que una vez correctamente rellenado e impreso podrá entregar en el registro de la entidad. Los trámites registrados de forma presencial solo afectan a personas físicas y no jurídicas",
+        "download_application_form": "Descargar modelo de solciitud"
+    },
     "header":{
         "carpeta": "Carpeta Ciudadana"
     },

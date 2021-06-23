@@ -1,19 +1,21 @@
 export class InfoProcediment{
     id: number
+    codigo: string
     name: string
     silence: string
     cost: string
     faqs: string
     resource: string
+    description:string
     legalbase: string
     contact: string
     start: string
     observations: string
-    presential_channel: string
-    telematic_channel: string
+    presentialChannel: string
+    telematicChannel: string
     telephonic_channel: string
     start_date: string
     destinataries: string
-    doc_associated: string
+    associatedDocs: string
     request_model: string
 }
