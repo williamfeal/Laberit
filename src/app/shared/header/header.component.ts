@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     this.loadHour();
     this.loadToken();
     setInterval(this.loadHour, 1000);
-    setInterval(this.loadToken, 5000);
+    setInterval(this.loadToken, 300000);
   }
 
   private loadDate(): void {
