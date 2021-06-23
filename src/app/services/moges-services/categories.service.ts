@@ -13,6 +13,7 @@ export class CategoriesService {
 
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_CATEGORIES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_CATEGORIES;
+  private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
 
   constructor(
     private http:HttpClient
@@ -30,6 +31,22 @@ export class CategoriesService {
       return response;
     })).pipe(catchError((err: Error) => {
       console.error('Error obteniendo las categorías', err);
+        throw err;
+    }));   
+  }
+
+  public getCategoryProcediments(id:string, token) {
+    const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/?idCategory=${id}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'Content-Language':'es'
+      }),
+    });
+    return procedures.pipe(map((response:any) => {
+      return response;
+    })).pipe(catchError((err: Error) => {
+      console.error('Error obteniendo los procedimientos', err);
         throw err;
     }));   
   }

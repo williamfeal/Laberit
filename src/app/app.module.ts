@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {  NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
@@ -70,6 +72,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

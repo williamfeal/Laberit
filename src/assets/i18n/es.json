@@ -25,6 +25,9 @@
         "TECHNICAL_REQUIREMENTS" : "Requisitos técnicos",
         "PROCEDIMENTS_SEARCH": "Buscador de trámites"
     },
+    "procediments-search": {
+        "title": "Buscador de trámites"
+    },
     "advertisements":{
         "title": "TABLÓN DE ANUNCIOS",
         "created": "Fecha creación:",

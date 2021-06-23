@@ -1,1 +1,25 @@
-<p>procediments-search works!</p>
+<app-header-category *ngIf="title" [title]="title"></app-header-category>
+<div class="col-md-8 m-auto">		
+    <form #searchForm (ngSubmit)="onSearch()">
+        <div class="form-group input-group  mt-5">
+            <input class="search-input form-control pl-3" [(ngModel)]="keywords" id="keywords" name="keywords" placeholder="{{ title }}" type="text" >
+            <button class="btn btn-search" name="search" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+    <div class="card mt-4" *ngFor="let category of categoriesShow">
+        <div class="card-header">
+            <img height="50px" alt="{{ category.name }}" src="../../../../assets/img/rrhh.png"/>
+            <span class="text-uppercase ml-2">{{ category.name }}</span>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let procedure of category.procedimientos" class="list-group-item"> 
+                {{ procedure.name }}
+            </li>
+        </ul>
+  </div>
+</div>
+
+    
+  
