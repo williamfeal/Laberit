@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'factura-electronica', component: ElectronicInvoiceComponent},
   { path: 'verifirma', component: DocumentVerificationComponent},
   { path: 'notificaciones', component: NotificationsComponent},
+  { path: 'categories/:idCategory', component: ProcedimentsComponent}
 ];
 
 @NgModule({

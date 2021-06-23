@@ -1,0 +1,16 @@
+.category-header {
+    background-image: url(../../../assets/img/header-categoria-tramite.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 250px;
+    img {
+        color: white;
+    }
+}
+
+.table {
+    box-shadow: 0 2px 9px 0 rgb(209 209 209 / 47%);
+    thead {
+        background-color:#FAF9F9 !important;
+    }
+}
