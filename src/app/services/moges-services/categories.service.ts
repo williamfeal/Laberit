@@ -19,11 +19,11 @@ export class CategoriesService {
     private http:HttpClient
   ) { }
 
-  public getAllCategories(token):Observable<Category[]> {
+  public getAllCategories():Observable<Category[]> {
     const categories = this.http.get(this.API_CATEGORIES_ENDPOINT, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${sessionStorage.token}`,
         'Content-Language':'es'
       }),
     });
@@ -35,11 +35,11 @@ export class CategoriesService {
     }));   
   }
 
-  public getCategoryProcediments(id:string, token) {
+  public getCategoryProcediments(id:string) {
     const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/?idCategory=${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${sessionStorage.token}`,
         'Content-Language':'es'
       }),
     });

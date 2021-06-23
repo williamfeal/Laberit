@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule
+ } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslationComponent } from './translation/translation.component';
@@ -28,6 +29,7 @@ import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpet
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { HeaderCategoryComponent } from './shared/header/header-category/header-category.component';
+import { ProcedimentsComponent } from './components/procediments/procediments.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
@@ -57,6 +59,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NotificationsComponent,
     ProcedimentsSearchComponent,
     ProcedimentDetailComponent,
+    ProcedimentsComponent,
     HelpHomeComponent,
     SliderHomeComponent,
     ProcedimentsHomeComponent,
@@ -72,6 +75,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({

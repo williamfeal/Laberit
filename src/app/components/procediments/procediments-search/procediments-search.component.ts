@@ -32,12 +32,12 @@ export class ProcedimentsSearchComponent implements OnInit {
   }
 
   private loadData() {
-    this.categoriesService.getAllCategories(sessionStorage.token).subscribe(
+    this.categoriesService.getAllCategories().subscribe(
       categories => {
         this.categories = categories;
         this.categories.forEach(
           (category) => {
-            this.categoriesService.getCategoryProcediments(category.id, sessionStorage.token).subscribe(
+            this.categoriesService.getCategoryProcediments(category.id).subscribe(
               procedures => category.procedimientos = procedures
             )
           });
