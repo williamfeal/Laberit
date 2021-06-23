@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {  NgModule } from '@angular/core';
-
+import { NgModule } from '@angular/core';
+import { CommonModule
+ } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslationComponent } from './translation/translation.component';
@@ -11,6 +12,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
@@ -26,6 +29,7 @@ import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpet
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { HeaderCategoryComponent } from './shared/header/header-category/header-category.component';
+import { ProcedimentsComponent } from './components/procediments/procediments.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
@@ -55,6 +59,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NotificationsComponent,
     ProcedimentsSearchComponent,
     ProcedimentDetailComponent,
+    ProcedimentsComponent,
     HelpHomeComponent,
     SliderHomeComponent,
     ProcedimentsHomeComponent,
@@ -70,6 +75,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
+    FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

@@ -15,7 +15,6 @@ export class ProcedimentsHomeComponent implements OnInit {
   public categories:Category[];
 
   constructor(
-    private authService:AuthService,
     private categoriesService:CategoriesService
   ) { }
 
@@ -24,12 +23,9 @@ export class ProcedimentsHomeComponent implements OnInit {
   }
 
   private getCategories(): void {
-    this.authService.getToken().subscribe(
-      data => {
-        this.categoriesService.getAllCategories(data).subscribe((categories: Category[]) => {
-          this.categories = categories;
-        }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_WEATHER, 'info'));
-      })
+    this.categoriesService.getAllCategories().subscribe((categories: Category[]) => {
+      this.categories = categories;
+    }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_CATEGORIES, 'info'));
   }
 
 }

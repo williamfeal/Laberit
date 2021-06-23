@@ -9,12 +9,14 @@ import { ElectronicInvoiceComponent } from './components/electronic-services/ele
 import { NotificationsComponent } from './components/electronic-services/notifications/notifications.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'inicio', component: HomeComponent},
-  { path: 'procediments', component: ProcedimentsComponent },
+  { path: 'areas', component: ProcedimentsComponent },
+  { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'factura-electronica', component: ElectronicInvoiceComponent},
   { path: 'verifirma', component: DocumentVerificationComponent},
   { path: 'notificaciones', component: NotificationsComponent},
+  { path: 'categories/:idCategory', component: ProcedimentsComponent}
 ];
 
 @NgModule({
