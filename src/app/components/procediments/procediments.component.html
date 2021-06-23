@@ -14,7 +14,7 @@
 				<tbody class="table-bordered">
 					<tr *ngFor="let procediment of selectedCategory.procedimientos">
 						<td class="col-sm-9">
-							<a href="#" class="text-dark" >
+							<a [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}" class="text-dark" >
 								{{procediment.name}}
 							</a>
 						</td>
