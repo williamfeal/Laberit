@@ -1,28 +1,26 @@
-<app-header-category [title]="title"></app-header-category>
+<app-header-category *ngIf="title" [title]="title"></app-header-category>
 
-<div class="container">
-    <div class="row justify-content-center">
+<div class="row justify-content-center">
 
-        <div *ngFor="let anuncio of anunciosMoges" class="col-md-3 card shadow p-0 m-2">
-            <div class="bg-light">
-                <label class="ml-4 mt-2 primary-color">
-                    {{anuncio.author}}
-                    <br />
-                    {{'advertisements.created' | translate}}  {{anuncio.releaseDate}}
-                </label>
+    <div *ngFor="let anuncio of anunciosMoges" class="col-md-3 card shadow p-0 m-2">
+        <div class="bg-light">
+            <label class="ml-4 mt-2 primary-color">
+                {{anuncio.author}}
+                <br />
+                {{'advertisements.created' | translate}} {{anuncio.releaseDate}}
+            </label>
+        </div>
+        <div class="card-body " style="height:100%">
+            <div class="titulo-anuncio mb-3">
+                {{anuncio.name}}
             </div>
-            <div class="card-body " style="height:100%">
-                <div class="titulo-anuncio mb-3">
-                    {{anuncio.name}}
-                </div>
-                <div class="card-text limit-descripction">
-                    {{anuncio.description}}
-                </div>
-                <div class="mt-2">
-                    <a class="position-relative float-right mb-2 mr-2 primary-color" routerLink="{{anuncio.id}}">
-                         {{'advertisements.seeMore' | translate}}
-                    </a>
-                </div>
+            <div class="card-text limit-descripction">
+                {{anuncio.description}}
+            </div>
+            <div class="mt-2">
+                <a class="position-relative float-right mb-2 mr-2 primary-color" routerLink="{{anuncio.id}}">
+                    {{'advertisements.seeMore' | translate}}
+                </a>
             </div>
         </div>
     </div>

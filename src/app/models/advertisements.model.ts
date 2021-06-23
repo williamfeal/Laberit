@@ -9,7 +9,7 @@ export class AdvertisementsModel {
     entity: EntityModel;
     id: string;
     idAux: IdAuxModel[];
-    lenguage: LenguageModel[];
+    languages: LenguageModel[];
     name: string;
     publicarEnSede: boolean;
     releaseDate: string;

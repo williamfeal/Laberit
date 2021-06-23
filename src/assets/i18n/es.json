@@ -30,6 +30,16 @@
         "created": "Fecha creación:",
         "seeMore": "Leer más"
     },
+    "advertisements_detail":{
+        "title": "TABLÓN DE ANUNCIOS",
+        "back":"Volver",
+        "validity":"Vigencia: ",
+        "since":"Desde",
+        "until":"hasta el",
+        "created":"Creado el:",
+        "show": "Ver documento",
+        "no_document": "No hay documentación descargable"
+    },
     "contractor-profile":{
         "title": "PERFIL DE CONTRATANTE",
         "text": "El perfil del contratante es la herramienta a través de la cual se facilita a los interesados, a través de internet, información sobre la actividad contractual de la Autoridad Portuaria de Cartagena, asegurando así la transparencia y el acceso público a la información en esta materia. Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, donde podrá consultar información acerca de las licitaciones de la Autoridad Portuaria de Cartagena.",
