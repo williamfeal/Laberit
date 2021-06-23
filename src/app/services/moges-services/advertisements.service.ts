@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { catchError, map } from 'rxjs/operators';
 import { environment } from "src/environments/environment";
-import { AdvertisementsModel } from "../models/advertisements.model";
-import { UrlConstants } from "../utils/constants/url-constants";
+import { AdvertisementsModel } from "../../models/advertisements.model";
+import { UrlConstants } from "../../utils/constants/url-constants";
 
 @Injectable()
 export class AdvertisementsService {
@@ -22,6 +22,23 @@ export class AdvertisementsService {
     public getAllAdvertisement(token): Observable<AdvertisementsModel[]> {
 
         const data = this.http.get(this.API_ADVERTISEMENTS, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Language':'es'
+            })
+        });
+        return data.pipe(map((response: any) => {
+            return response;
+        })).pipe(catchError((err: Error) => {
+            console.error('Error obteniendo los roles', err);
+            throw err;
+        }));
+    }
+
+    public getAdvertisementById(token, id): Observable<AdvertisementsModel> {
+
+        const data = this.http.get(this.API_ADVERTISEMENTS + '/' + id, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
