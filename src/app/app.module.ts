@@ -39,6 +39,7 @@ import { AuthService } from './services/moges-services/auth.service';
 import { GenericStaticViewComponent } from './shared/generic-static-view/generic-static-view.component';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { FooterComponent } from './shared/footer/footer.component';
+import { AdvertisementsService } from './services/advertisements.service';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -85,7 +86,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     WeatherService,
     AuthService,
-    CategoriesService
+    CategoriesService,
+    AdvertisementsService
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

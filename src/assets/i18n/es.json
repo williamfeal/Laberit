@@ -1,7 +1,15 @@
 {
     "TITLE": "SEDE ELECTRÓNICA",
-    "HOME": {
-        "TITLE": "Inicio"
+    "home": {
+        "TITLE": "Inicio",
+        "carpeta": "Carpeta Ciudadana",
+        "advertisements" : "Tablón de anuncios",
+        "contractor_profile": "Perfil de contratante",
+        "electronic_services": "Servicios Electrónicos",
+        "valide": "Validación de firmas y certificados",
+        "electronic_invoice": "Factura electrónica",
+        "document_verification": "Verificación de Documentos",
+        "notifications": "Notificaciones"
     },
     "SLIDER_HOME": {
         "TITLE": "¿Qué puedes hacer?"

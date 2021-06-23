@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
+  { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},
   { path: 'perfil-de-contratante', component: ContractorProfileComponent},
   { path: 'validacion', component: ValideComponent},
