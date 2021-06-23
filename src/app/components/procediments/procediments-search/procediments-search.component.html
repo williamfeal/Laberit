@@ -1,4 +1,4 @@
-<app-header-category [title]="title"></app-header-category>
+<app-header-category *ngIf="title" [title]="title"></app-header-category>
 <div class="col-md-8 m-auto">		
     <form #searchForm (ngSubmit)="onSearch()">
         <div class="form-group input-group  mt-5">

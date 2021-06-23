@@ -19,7 +19,6 @@ export class ProcedimentsSearchComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
-    private authService:AuthService,
     private categoriesService:CategoriesService
   ) { }
 
@@ -33,33 +32,34 @@ export class ProcedimentsSearchComponent implements OnInit {
   }
 
   private loadData() {
-    this.authService.getToken().subscribe(
-      token => {
-        this.categoriesService.getAllCategories(token).subscribe(
-          categories => {
-            this.categories = categories;
-            this.categories.forEach(
-              (category) => {
-                this.categoriesService.getCategoryProcediments(category.id, token).subscribe(
-                  procedures => category.procedimientos = procedures
-                )
-              });
-              this.categoriesShow = categories;
-          }
-        )
+    this.categoriesService.getAllCategories(sessionStorage.token).subscribe(
+      categories => {
+        this.categories = categories;
+        this.categories.forEach(
+          (category) => {
+            this.categoriesService.getCategoryProcediments(category.id, sessionStorage.token).subscribe(
+              procedures => category.procedimientos = procedures
+            )
+          });
+          this.categoriesShow = categories;
       });
   }
 
   private searchProcediments(procediments:Procediment[]) {
-   
+      return procediments?.find(
+        procediment => {
+          return procediment.name ?
+             procediment.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase()) : false  
+        });
   }
 
   public onSearch() {
     this.categoriesShow = this.categories.filter(
       category => {
-        if (category.name && category.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase()) || 
-          this.searchProcediments(category?.procedimientos))
-          return category
+        if ((category.name && category.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase())) || 
+          this.searchProcediments(category?.procedimientos)) {
+            return category;
+          }
       } 
     );
   }
