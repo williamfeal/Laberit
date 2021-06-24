@@ -14,6 +14,12 @@
   background-color: $body-background;
 }
 
+.header-search {
+  right: 0;
+  top: 15px;
+  width: 50%;
+}
+
 // Responsive rules
 
 @media screen and (max-width: 770px) {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { resolve } from 'dns';
 import { Category } from 'src/app/models/category.model';
 import { Procediment } from 'src/app/models/procediment.model';
 import { AuthService } from 'src/app/services/moges-services/auth.service';
@@ -16,13 +18,16 @@ export class ProcedimentsSearchComponent implements OnInit {
   public categories:Category[];
   public categoriesShow:Category[];
   public keywords:string;
+  public loading:boolean;
 
   constructor(
     private translateService: TranslateService,
-    private categoriesService:CategoriesService
+    private categoriesService:CategoriesService,
+    private activatedRoute:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.keywords = this.activatedRoute.snapshot.queryParams.keywords;
     this.translateService.get('procediments-search').subscribe(
       data => {
         this.title = data.title
@@ -33,16 +38,24 @@ export class ProcedimentsSearchComponent implements OnInit {
 
   private loadData() {
     this.categoriesService.getAllCategories().subscribe(
-      categories => {
+      async categories => {
+        this.loading = true;
         this.categories = categories;
-        this.categories.forEach(
-          (category) => {
-            this.categoriesService.getCategoryProcediments(category.id).subscribe(
-              procedures => category.procedimientos = procedures
-            )
-          });
-          this.categoriesShow = categories;
-      });
+        Promise.all(
+          categories.map(async(category) => {
+            const procedures = await this.categoriesService.getCategoryProcediments(category.id).toPromise();
+            category.procedimientos = procedures;
+          })
+        ).then(
+          () => {
+            this.categoriesShow = categories;
+            if(this.keywords.length) this.onSearch();
+            this.loading = false;
+          }
+        )
+      
+      }
+    );
   }
 
   private searchProcediments(procediments:Procediment[]) {
