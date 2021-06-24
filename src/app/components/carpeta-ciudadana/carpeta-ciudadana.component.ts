@@ -10,9 +10,10 @@ export class CarpetaCiudadanaComponent implements OnInit {
 
   url_carpeta;
   iframe_carpeta;
+
   constructor() {
-  this.url_carpeta = environment.carpeta_url;
-   }
+    this.url_carpeta = environment.carpeta_url + '/index';
+  }
 
   ngOnInit(): void {
     let iframe_carpeta =  document.getElementById("iframe_carpeta");

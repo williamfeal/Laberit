@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -32,5 +32,11 @@ export class ProceduresService {
       console.error('Error obteniendo el procedimiento', err);
         throw err;
     }));   
+  }
+
+  public getTransactionRequest() {
+    this.http.get('/', { observe: 'response' }).subscribe(response => {
+      console.log(response)
+   });
   }
 }

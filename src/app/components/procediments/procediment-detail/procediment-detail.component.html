@@ -103,7 +103,7 @@
                         {{ 'procediment_detail.online_transaction_text' | translate }}
                     </div>
                     <div class="row justify-content-center" *ngIf="infoProcediment.telematicChannel">
-                        <a class="btn btn-app-primary mx-auto my-3"
+                        <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/transact/' + procediment.id ]" 
                             href="#" role="button">
                             {{ 'procediment_detail.transact' | translate }}
                         </a>
