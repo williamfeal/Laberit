@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
+import { Procediment } from 'src/app/models/procediment.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
@@ -35,7 +36,7 @@ export class CategoriesService {
     }));   
   }
 
-  public getCategoryProcediments(id:string) {
+  public getCategoryProcediments(id:string): Observable<Procediment[]> {
     const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/?idCategory=${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

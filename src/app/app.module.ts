@@ -41,6 +41,8 @@ import { CategoriesService } from './services/moges-services/categories.service'
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ProceduresService } from './services/moges-services/procedures.service';
+import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -69,7 +71,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AdvertisementsListComponent,
     HeaderCategoryComponent,
     FooterComponent,
-    GenericStaticViewComponent
+    GenericStaticViewComponent,
+    TransactProcedimentComponent,
+    HeaderSearchComponent
   ],
   imports: [
     BrowserModule,

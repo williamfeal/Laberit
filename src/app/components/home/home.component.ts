@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+
+    public token;
+
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.token = sessionStorage.token;
+    }
 }
