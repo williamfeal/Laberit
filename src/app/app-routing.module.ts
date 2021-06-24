@@ -9,8 +9,10 @@ import { ElectronicInvoiceComponent } from './components/electronic-services/ele
 import { NotificationsComponent } from './components/electronic-services/notifications/notifications.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProcedimentDetailComponent } from './components/procediments/procediment-detail/procediment-detail.component';
 import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
+import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -26,7 +28,9 @@ const routes: Routes = [
   { path: 'factura-electronica', component: ElectronicInvoiceComponent},
   { path: 'verifirma', component: DocumentVerificationComponent},
   { path: 'notificaciones', component: NotificationsComponent},
-  { path: 'categories/:idCategory', component: ProcedimentsComponent}
+  { path: 'categories/:idCategory', component: ProcedimentsComponent},
+  { path: 'procedures/:idProcedure', component: ProcedimentDetailComponent },
+  { path: 'transact/:idProcedure', component: TransactProcedimentComponent}
 ];
 
 @NgModule({

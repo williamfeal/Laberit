@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule
- } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslationComponent } from './translation/translation.component';
@@ -44,6 +42,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { ProceduresService } from './services/moges-services/procedures.service';
+import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -71,12 +73,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AdvertisementsListComponent,
     HeaderCategoryComponent,
     FooterComponent,
-    GenericStaticViewComponent
+    GenericStaticViewComponent,
+    TransactProcedimentComponent,
+    HeaderSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -94,7 +97,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     WeatherService,
     AuthService,
     CategoriesService,
-    AdvertisementsService
+    AdvertisementsService,
+    ProceduresService
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

@@ -1,0 +1,4 @@
+@import "../../../utils/styles/colors.scss";
+.nav-link.active {
+    border-bottom: 1px solid $yellow-100
+}

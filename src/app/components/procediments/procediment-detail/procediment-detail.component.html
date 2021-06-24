@@ -1,1 +1,137 @@
-<p>procediment-detail works!</p>
+	<div class="col-md-11 mx-auto mt-5" *ngIf="infoProcediment">
+        <div class="card mb-4">
+            <div class="Rectangle card-body w-100 d-web-box">
+                {{ infoProcediment.name }}
+		    </div>
+        </div>
+		<div id="tramitacion" class="card card-tramite-shadow">
+			<nav>
+				<div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
+					<a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
+                        [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">									
+                        <i class="fas fa-info-circle color-yellow-100 mr-4"></i>
+                        {{ 'procediment_detail.info' | translate }}
+                    </a>
+					<a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
+                        [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">                                    
+                        <i class="fas fa-at color-yellow-100 mr-4"></i>
+                        {{ 'procediment_detail.online' | translate }}
+                        </a>
+					<a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
+                        [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">									
+                        <i class="fas fa-download color-yellow-100 mr-4"></i>
+                        {{ 'procediment_detail.face' | translate }}
+                    </a>
+				</div>
+			</nav>
+            <div class="tab-content" id="nav-tab-content">
+                <div class="tab-pane fade {{ active.info }}" id="nav-home" role="tabpanel" aria-labelledby="nav-informacion-tab">
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.description' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.description }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.destinataries' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.destinataries }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.associatedDocs' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.associatedDocs }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.cost' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.cost }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.faqs' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.faqs }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.start' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.start }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.observations' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.observations }}
+                        </div>
+                    </div>
+                    <div class="card m-3 border-0">
+                        <div class="card-header border-0">
+                            {{ 'procediment_detail.contact' | translate }}
+                        </div>
+                        <div class="card-body ">
+                            {{ infoProcediment.contact }}
+                        </div>
+                    </div>
+                 </div>   
+            </div>
+            <div class="tab-content" id="nav-tab-content">
+                <div class="tab-pane fade {{ active.online }}" id="nav-home" role="tabpanel" aria-labelledby="nav-online-tab">
+                    <div class="card-header border-0 my-2">
+						<h4 class="mb-0">
+							{{ 'procediment_detail.online_transaction' | translate }}
+						</h4>
+					</div>
+                    <div class="card-body">
+                        {{ 'procediment_detail.online_transaction_text' | translate }}
+                    </div>
+                    <div class="row justify-content-center" *ngIf="infoProcediment.telematicChannel">
+                        <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/transact/' + procediment.id ]" 
+                            href="#" role="button">
+                            {{ 'procediment_detail.transact' | translate }}
+                        </a>
+                    </div>		
+                    <div class="centered-item-dad mb-4"  *ngIf="!infoProcediment.telematicChannel">
+                        <div class="alert alert-danger col-md-8 mx-auto">
+                        <h4> {{ 'procediment_detail.procediment_not_available' | translate }}  </h4>
+                        <p class="mb-0">{{ 'procediment_detail.procediment_not_available_text1' | translate }}  </p>
+                        <p>{{ 'procediment_detail.procediment_not_available_text2' | translate }} <a href='#'>{{ 'procediment_detail.general_instance' | translate }}</a></p>
+                        </div>		
+					</div>
+                </div>
+            </div>
+            <div class="tab-content" id="nav-tab-content">
+                <div class="tab-pane fade {{ active.presencial }}" id="nav-presencial" role="tabpanel" aria-labelledby="nav-presencial-tab">
+                    <div class="card-header border-0 my-2">
+						<h4 class="mb-0">
+							{{ 'procediment_detail.face_transaction' | translate }}
+						</h4>
+					</div>
+                    <div class="card-body">
+                        {{ 'procediment_detail.face_transaction_text' | translate }}
+                    </div>
+                    <div class="row justify-content-center">
+                        <a class="btn btn-app-primary text-center my-3" href="#"
+                        target="_blank" role="button">DESCARGAR MODELO DE SOLICITUD</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+</div>

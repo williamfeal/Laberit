@@ -1,0 +1,56 @@
+@import '../../../utils/styles/colors.scss';
+.header-search {
+    .icon-container {
+        width: 81px;
+        border-left: 1px solid #d8d8d8;
+    }
+
+    .search-input {
+        height: 60px;
+        font-size: 16px;
+        display: inline-block;
+        font-weight: 100;
+        border: none;
+        background: none;
+        outline: none;
+        color: #818181;
+        padding: 3px;
+        padding-right: 60px;
+        width: 0px;
+        right: 0;
+        z-index: 3;
+        transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+        cursor: pointer;
+
+        &:hover {
+            border-bottom: 1px solid #BBB;
+            border-radius: 28px;
+            box-shadow: 0 2px 7px 0 rgba(129, 129, 129, 0.37);
+            background: white;
+            z-index: 1;
+            cursor: text;
+        }
+
+        &:focus {
+            border-bottom: 1px solid #BBB;
+            border-radius: 28px;
+            box-shadow: 0 2px 7px 0 rgba(129, 129, 129, 0.37);
+            background: white;
+            width: 100%;
+            z-index: 1;
+            cursor: text;
+        }
+    }
+
+    .open-search {
+		background: transparent;
+		border: none;
+		top: 15px;
+		right: 15px;
+		z-index: 2;
+		cursor: pointer;
+        position:absolute;
+	//	transition: opacity .4s ease;
+		color: $blue-70 ;
+	}
+}
