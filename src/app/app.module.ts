@@ -26,7 +26,7 @@ import { ProcedimentsHomeComponent } from './components/home/procediments-home/p
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
-import { HeaderCategoryComponent } from './shared/header/header-category/header-category.component';
+import { HeaderCategoryComponent } from './shared/header-category/header-category.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 
 /* Shared */
@@ -40,6 +40,8 @@ import { GenericStaticViewComponent } from './shared/generic-static-view/generic
 import { CategoriesService } from './services/moges-services/categories.service';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { ProceduresService } from './services/moges-services/procedures.service';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
 import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
@@ -80,6 +82,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
