@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { resolve } from 'dns';
 import { Category } from 'src/app/models/category.model';
 import { Procediment } from 'src/app/models/procediment.model';
-import { AuthService } from 'src/app/services/moges-services/auth.service';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
 
 @Component({
