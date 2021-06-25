@@ -34,9 +34,4 @@ export class ProceduresService {
     }));   
   }
 
-  public getTransactionRequest() {
-    this.http.get('/', { observe: 'response' }).subscribe(response => {
-      console.log(response)
-   });
-  }
 }
