@@ -62,7 +62,16 @@ export class DocumentVerificationComponent implements OnInit {
     }
     if (this.captcha) {
       this.csvService.checkCSVDocument(this.csv).subscribe((documento: any) => {
-        console.log('documento :>> ', documento);
+
+        if(documento == null){
+
+        }else{
+
+          const byteArray = new Uint8Array(atob(documento).split('').map(char => char.charCodeAt(0)));
+          const byte = new Blob([byteArray], { type: 'application/pdf' });
+          const urlPdf = URL.createObjectURL(byte);
+          window.open(urlPdf);
+        }
       });
     } else {
       this.errorCaptcha = true;

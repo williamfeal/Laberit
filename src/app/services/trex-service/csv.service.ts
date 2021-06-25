@@ -11,7 +11,7 @@ export class CsvService {
     private API_GRAPH: string;
 
     private httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/graphql', 'Authorization': `Bearer${sessionStorage.token}}`, })
+        headers: new HttpHeaders({ 'Content-Type': 'application/graphql', 'Authorization': `Bearer ${sessionStorage.token}`, })
     };
 
     constructor(private http: HttpClient) {
@@ -23,8 +23,6 @@ export class CsvService {
         const checkCSVDocument = `{
             checkCSVDocument(CSV:"`+ csv + `")
         }`;
-        console.log('checkCSVDocument :>> ', checkCSVDocument);
-        console.log('this.httpOptions :>> ', this.httpOptions);
         const obs = this.http.post<any>(this.API_GRAPH, checkCSVDocument, this.httpOptions);
         return obs.pipe(map((resp: any) => {
             return resp.data['checkCSVDocument'];

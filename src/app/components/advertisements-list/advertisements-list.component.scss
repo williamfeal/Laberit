@@ -1,0 +1,9 @@
+.limit-descripction {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 15px;
+    max-height: 137px;
+    height: 137px;
+    -webkit-line-clamp: 2;
+}
