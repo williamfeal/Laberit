@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
+import { ConoceLaSedeComponent } from './components/conoce-sede/conoce-la-sede.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
 import { DocumentVerificationComponent } from './components/electronic-services/document-verification/document-verification.component';
@@ -31,6 +32,8 @@ const routes: Routes = [
   { path: 'notificaciones', component: NotificationsComponent},
   { path: 'categories/:idCategory', component: ProcedimentsComponent},
   { path: 'procedures/:idProcedure', component: ProcedimentDetailComponent },
+  { path: 'transact/:idProcedure', component: TransactProcedimentComponent},
+  { path: 'conoce-la-sede', component: ConoceLaSedeComponent},
   { path: 'transact/:idProcedure', component: TransactProcedimentComponent },
   { path: 'contact', component: ContactComponent }
 ];

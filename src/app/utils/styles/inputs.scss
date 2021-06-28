@@ -596,3 +596,15 @@ input:-webkit-autofill:active
     cursor: not-allowed;
   }
 }
+.bg-color-blue {
+  background-color: $blue-100;
+}
+.limit-descripction {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 15px;
+  max-height: 137px;
+  height: 137px;
+  -webkit-line-clamp: 2;
+}

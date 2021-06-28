@@ -33,6 +33,8 @@ import { HeaderCategoryComponent } from './shared/header-category/header-categor
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { ConoceLaSedeComponent } from './components/conoce-sede/conoce-la-sede.component';
+import { HeaderKnowSedeComponent } from './components/conoce-sede/header/header-know-sede.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
@@ -48,6 +50,7 @@ import { AuthService } from './services/moges-services/auth.service';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ProceduresService } from './services/moges-services/procedures.service';
+
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -79,6 +82,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     GenericStaticViewComponent,
     TransactProcedimentComponent,
     HeaderSearchComponent,
+    ConoceLaSedeComponent,
+    HeaderKnowSedeComponent,
     ContactComponent,
     ContactPopoverComponent
   ],
