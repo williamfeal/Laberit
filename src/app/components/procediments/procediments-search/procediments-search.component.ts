@@ -49,11 +49,8 @@ export class ProcedimentsSearchComponent implements OnInit {
             this.categoriesShow = categories;
             if(this.keywords.length) this.onSearch();
             this.loading = false;
-          }
-        )
-      
-      }
-    );
+          });      
+      });
   }
 
   private searchProcediments(procediments:Procediment[]) {
