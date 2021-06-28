@@ -45,6 +45,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { ProceduresService } from './services/moges-services/procedures.service';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
 import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
+import { ConoceLaSedeComponent } from './components/conoce-sede/conoce-la-sede.component';
+import { HeaderKnowSedeComponent } from './components/conoce-sede/header/header-know-sede.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -75,7 +77,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FooterComponent,
     GenericStaticViewComponent,
     TransactProcedimentComponent,
-    HeaderSearchComponent
+    HeaderSearchComponent,
+    ConoceLaSedeComponent,
+    HeaderKnowSedeComponent
   ],
   imports: [
     BrowserModule,

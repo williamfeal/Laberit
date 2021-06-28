@@ -1,0 +1,16 @@
+.centrar-izquierda {
+    text-align: justify;  /* For Edge */
+  text-align-last: left;
+}
+
+.activado {
+  color: blue !important
+}
+
+button {
+  background: none!important;
+  border: none;
+  font-family: arial, sans-serif;
+  color: #069;
+  cursor: pointer;
+}
