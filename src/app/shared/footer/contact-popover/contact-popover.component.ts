@@ -23,7 +23,6 @@ export class ContactPopoverComponent implements OnInit {
       text => {
         this.body = text.body;
         this.config.placement = 'top';
-        this.config.popoverClass = 'position-relative'
       }
     )
  
