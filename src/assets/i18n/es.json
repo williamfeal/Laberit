@@ -100,7 +100,11 @@
         "valide": "Validación de firmas y certificados",
         "electronic_invoice": "Factura electrónica",
         "procediments":"Trámites",
-        "contractor_profile": "Perfil de contratante"
+        "contractor_profile": "Perfil de contratante",
+        "contact_popover": {
+            "title": "¿Necesitas ayuda?",
+            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contacto'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
+        }
     },
     "procediment_detail": {
         "info": "Información",

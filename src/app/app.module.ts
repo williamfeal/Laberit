@@ -11,6 +11,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
@@ -28,24 +31,23 @@ import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { HeaderCategoryComponent } from './shared/header-category/header-category.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
 
 /* Shared */
 import { HeaderComponent } from './shared/header/header.component';
 import { WeatherComponent } from './shared/header/weather/weather.component';
+import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
+import { ContactPopoverComponent } from './shared/footer/contact-popover/contact-popover.component';
+import { GenericStaticViewComponent } from './shared/generic-static-view/generic-static-view.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 /* Services */ 
 import { WeatherService } from './services/moges-services/weather.service';
 import { AuthService } from './services/moges-services/auth.service';
-import { GenericStaticViewComponent } from './shared/generic-static-view/generic-static-view.component';
 import { CategoriesService } from './services/moges-services/categories.service';
-import { FooterComponent } from './shared/footer/footer.component';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgxCaptchaModule } from 'ngx-captcha';
 import { ProceduresService } from './services/moges-services/procedures.service';
-import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
-import { HeaderSearchComponent } from './shared/header/header-search/header-search.component';
-import { ContactComponent } from './components/contact/contact.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -77,7 +79,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     GenericStaticViewComponent,
     TransactProcedimentComponent,
     HeaderSearchComponent,
-    ContactComponent
+    ContactComponent,
+    ContactPopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +89,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
