@@ -16,15 +16,14 @@
 
     li {
         list-style: none;
-			width: 25%;
-			text-align: center;
-			border-left: 1px solid $white;
-			padding: 0 .5%;
-			a {
-				&:hover {
-					text-decoration: none;
-				}
+		text-align: center;
+		border-left: 1px solid $white;
+		padding: 0 .5%;
+		a {
+			&:hover {
+				text-decoration: none;
 			}
+		}
         &:first-child {
             border-left: none;
         }

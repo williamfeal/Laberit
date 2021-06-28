@@ -43,6 +43,33 @@
         "show": "Ver documento",
         "no_document": "No hay documentación descargable"
     },
+    "contact": {
+        "title": "Contacta con nosotros",
+        "name": "Nombre",
+        "email": "Email",
+        "message": "Mensaje",
+        "policy": "He leído y acepto la Política de Privacidad y Protección de Datos de Carácter Personal",
+        "send": "Enviar",
+        "info": {
+            "title": "Información básica sobre la protección de sus datos",
+            "responsable": "Responsable",
+            "responsable_text": "AUTORIDAD PORTUARIA DE CARTAGENA",
+            "purpose": "Finalidad",
+            "purpose_text": "Incorporar sus datos a una base de datos de usuarios para registrar su mensaje.",
+            "legitimation": "Legitimación",
+            "legitimation_text": "Consentimiento del interesado.",
+            "destinataries": "Destinatarios",
+            "destinataries_text": "AUTORIDAD PORTUARIA DE CARTAGENA No se cederán datos a terceros, salvo obligación legal.",
+            "rights": "Derechos",
+            "rights_text": "Acceso, rectificación, supresión, oposición, limitación del tratamiento y, en su caso oposición portabilidad de los datos.",
+            "rights_exercises": "Ejercicios de derecho",
+            "rights_exercises_text": "pdatos@apc.es",
+            "origin": "Procedencia",
+            "origin_text": "El propio interesado, su representante legal.",
+            "consult_legal_notice": "Consulte nuestro Aviso Legal y Política de Privacidad en el siguiente",
+            "consult_legal_notice_link": "enlace"
+        }
+    },
     "contractor-profile":{
         "title": "PERFIL DE CONTRATANTE",
         "text": "El perfil del contratante es la herramienta a través de la cual se facilita a los interesados, a través de internet, información sobre la actividad contractual de la Autoridad Portuaria de Cartagena, asegurando así la transparencia y el acceso público a la información en esta materia. Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, donde podrá consultar información acerca de las licitaciones de la Autoridad Portuaria de Cartagena.",
@@ -58,7 +85,6 @@
         "title" : "Aviso Legal"
     },
     "footer": {
-        "apc_web": "www.apc.es",
         "contacts" : "Contactos",
         "ask_for_information": "Solicitar información",
         "help": "Ayuda",
@@ -73,7 +99,11 @@
         "valide": "Validación de firmas y certificados",
         "electronic_invoice": "Factura electrónica",
         "procediments":"Trámites",
-        "contractor_profile": "Perfil de contratante"
+        "contractor_profile": "Perfil de contratante",
+        "contact_popover": {
+            "title": "¿Necesitas ayuda?",
+            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/#/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
+        }
     },
     "procediment_detail": {
         "info": "Información",

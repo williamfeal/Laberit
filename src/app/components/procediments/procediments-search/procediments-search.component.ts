@@ -47,13 +47,12 @@ export class ProcedimentsSearchComponent implements OnInit {
         ).then(
           () => {
             this.categoriesShow = categories;
-            if(this.keywords.length) this.onSearch();
             this.loading = false;
-          }
-        )
-      
-      }
-    );
+            if(this.keywords.length) {
+              this.onSearch();
+            } 
+          });
+      });
   }
 
   private searchProcediments(procediments:Procediment[]) {

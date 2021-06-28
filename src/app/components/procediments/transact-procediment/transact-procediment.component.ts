@@ -23,7 +23,6 @@ export class TransactProcedimentComponent implements OnInit {
     this.transaction_url = environment.carpeta_url + '/solicitudes?proc=' + id;
     let iframe_carpeta =  document.getElementById("iframe-transact");
     iframe_carpeta.setAttribute("src", this.transaction_url);
-    this.proceduresService.getTransactionRequest();
   }
 
 }
