@@ -50,6 +50,9 @@ import { AuthService } from './services/moges-services/auth.service';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ProceduresService } from './services/moges-services/procedures.service';
+import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
+import { GenericStaticHelpComponent } from './shared/generic-static-help/generic-static-help.component';
+import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
 
 
 
@@ -85,7 +88,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ConoceLaSedeComponent,
     HeaderKnowSedeComponent,
     ContactComponent,
-    ContactPopoverComponent
+    ContactPopoverComponent,
+    TechnicalRequirementsComponent,
+    GenericStaticHelpComponent,
+    HowElectronicCertificateComponent
   ],
   imports: [
     BrowserModule,

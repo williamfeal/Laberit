@@ -15,6 +15,8 @@ import { ProcedimentDetailComponent } from './components/procediments/procedimen
 import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
+import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -35,7 +37,9 @@ const routes: Routes = [
   { path: 'transact/:idProcedure', component: TransactProcedimentComponent},
   { path: 'conoce-la-sede', component: ConoceLaSedeComponent},
   { path: 'transact/:idProcedure', component: TransactProcedimentComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'requisitos-tecnicos', component: TechnicalRequirementsComponent },
+  { path: 'certificado-electronico', component: HowElectronicCertificateComponent }
 ];
 
 @NgModule({
