@@ -15,7 +15,7 @@ export class ContractorProfileComponent implements OnInit {
   enviar = false;
 
   constructor(public translate: TranslateService) {
-    this.translate.get('electronic-services.notifications').subscribe((texts: any) => {
+    this.translate.get('contractor-profile').subscribe((texts: any) => {
       this.text = texts.text;
       this.title = texts.title;
       this.button = texts.button;
