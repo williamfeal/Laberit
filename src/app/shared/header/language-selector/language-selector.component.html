@@ -1,4 +1,4 @@
-<select class="centrarDiv" (change)="changeLang($event.target)">
+<select (change)="changeLang($event.target)">
     <option id="0" value=0 disabled>Seleccione idioma</option>
     <option *ngFor="let a of language" value="{{a.code}}" > {{a.name}}</option>
 </select>
