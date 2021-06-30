@@ -90,3 +90,14 @@
 .border-right-solid-gray{
   border-right: 1px solid silver;
 }
+
+.centrarDivHorizontal {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; 
+}
+
+.centrarDivVertical {
+   display: flex;
+   align-items: center;
+}
