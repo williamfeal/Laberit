@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
@@ -15,9 +16,10 @@ export class CategoriesService {
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_CATEGORIES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_CATEGORIES;
   private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
-
+  lang = this.translate.getDefaultLang();
   constructor(
-    private http:HttpClient
+    private http:HttpClient,
+    private translate: TranslateService
   ) { }
 
   public getAllCategories():Observable<Category[]> {
@@ -25,7 +27,7 @@ export class CategoriesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`,
-        'Content-Language':'es'
+        'Content-Language': this.lang
       }),
     });
     return categories.pipe(map((response:any) => {
@@ -41,7 +43,7 @@ export class CategoriesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`,
-        'Content-Language':'es'
+        'Content-Language': this.lang
       }),
     });
     return procedures.pipe(map((response:any) => {
