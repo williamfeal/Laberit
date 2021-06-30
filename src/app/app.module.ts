@@ -50,11 +50,13 @@ import { AuthService } from './services/moges-services/auth.service';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ProceduresService } from './services/moges-services/procedures.service';
-import { LanguagesService } from './services/moges-services/language.service';
 import { GenericStaticHelpComponent } from './shared/generic-static-help/generic-static-help.component';
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
 import { LanguageSelectorComponent } from './shared/header/language-selector/language-selector.component';
+import { AccesibilityComponent } from './shared/footer/accesibility/accesibility.component';
+import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
+import { LanguagesService } from './services/moges-services/language.service';
 
 
 
@@ -94,7 +96,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
     HowElectronicCertificateComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    AccesibilityComponent,
+    LegalWarningComponent
   ],
   imports: [
     BrowserModule,

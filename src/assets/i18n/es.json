@@ -75,14 +75,8 @@
         "text": "El perfil del contratante es la herramienta a través de la cual se facilita a los interesados, a través de internet, información sobre la actividad contractual de la Autoridad Portuaria de Cartagena, asegurando así la transparencia y el acceso público a la información en esta materia. Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, donde podrá consultar información acerca de las licitaciones de la Autoridad Portuaria de Cartagena.",
         "button": "Ir a Plataforma Contratación"
     },
-    "accesibility": {
-        "title": "Accesibilidad"
-    },
     "web_map": {
         "title": "Mapa Web"
-    },
-    "legal_warning": {
-        "title" : "Aviso Legal"
     },
     "footer": {
         "contacts" : "Contactos",
@@ -216,5 +210,15 @@
         "title":"CÓMO OBTENER EL CERTIFICADO ELECTRÓNICO",
         "header_card": "DNI ELECTRÓNICO",
         "text": "El nuevo Documento Nacional de Identidad electrónico (<b>DNIe</b>), es el documento similar al tradicional DNI y que acredita -desde hace más de 50 años- la identidad, los datos personales que en él aparecen y la nacionalidad española de su titular. La principal novedad del nuevo DNIe es que incorpora un microchip capaz de guardar de forma segura información y de procesarla internamente.<br><br> El nuevo DNIe contiene en el interior de su microchip dos certificados electrónicos que sirven para realizar sendas funciones, dentro del ámbito de la tramitación electrónica: <br><br> <ol><li><b>Acreditar la identidad de la persona </b> electrónicamente y de forma indubitada</li><li><b>Firmar digitalmente documentos electrónicos</b>, otorgándoles una validez jurídica equivalente a la que les proporciona la firma manuscrita </li> </ol><br> Si usted dispone del nuevo DNI Electrónico, debe asegurarse de que tiene activados los certificados electrónicos anteriormente mencionados, para lo que deberá acreditar su identidad mediante la huella digital en cualquier sede física de la Oficina del DNI en Territorio Español: <a href=\"https://www.policia.es/_es/dependencias_localizador_accesible.php\">https://www.policia.es/_es/dependencias_localizador_accesible.php</a> <br><br> Si no dispone del nuevo DNI Electrónico, tiene la opción de expedir uno nuevo en cualquier oficina del DNI en Territorio Español u optar por el uso de los otros tipos de certificados que se mencionan más adelante en esta página."
-    } 
+    },
+    "accesibility": {
+        "title": "Accesibilidad",
+        "header_card": "COMPONENTES DE SOFTWARE",
+        "text": "Es nuestro objetivo poner toda la información de esta Sede a disposición del mayor número de ciudadanos, evitando la exclusión y promoviendo la accesibilidad para conseguir la universalización de la información. El objetivo es que el mayor número posible de personas puedan navegar por sus páginas sin encontrar dificultades de acceso. <br><br> El tamaño de las fuentes utilizadas es adaptable y el visitante puede cambiarlo conforme a sus necesidades. La mayoría de los navegadores dispone de una opción de menú (Ver - Tamaño de texto) que le permitirá agrandar y reducir las fuentes, y puede conseguir el mismo efecto girando la rueda del ratón mientras pulsa la tecla Control. <br><br> Esta Sede Electrónica ha sido desarrollada siguiendo la norma UNE 139803:2012 y se ajusta a las pautas definidas por el grupo de trabajo permanente <a href=\"https://www.w3.org/WAI/\">Web Accessibility Initiative (WAI)</a> del Consorcio para la World Wide Web (W3C) para su <a href=\"https://www.w3.org/TR/WCAG20/\"> nivel AA.</a> <br><br> Nuestro trabajo y nuestro esfuerzo van encaminados a seguir mejorando de forma continua la accesibilidad de esta Sede. Por ello esperamos su colaboración y les invitamos a ayudarnos a continuar mejorando este sitio web mediante el envío de sus comentarios y sugerencias en la sección de \"Contacto\" que figura al pie de página de esta Sede. "
+    },
+    "legal_warning": {
+        "title": "Aviso legal",
+        "header_card": "INTRODUCCIÓN",
+        "text": "<p dir=\"ltr\">La titularidad del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es&nbsp; la Autoridad Portuaria de Cartagena, con domicilio en Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">La Autoridad Portuaria de Cartagena es un organismo de derecho p&uacute;blico dependiente del Ministerio de Fomento, y se rige fundamentalmente por el Real Decreto Legislativo 2/2011, de 5 de Septiembre, por el que se aprueba el Texto Refundido de la Ley de Puertos del Estado y de la Marina Mercante.</p><p dir=\"ltr\"><strong>POL&Iacute;TICAS DE ACCESO Y USO DEL PORTAL</strong></p><p dir=\"ltr\">El presente aviso e informaci&oacute;n legal regula el uso del servicio de la p&aacute;gina web de Internet&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;(en adelante, el \"Portal\") que la APC pone a disposici&oacute;n de los usuarios de Internet en las siguientes condiciones:</p><p dir=\"ltr\"><strong>A) DATOS IDENTIFICATIVOS DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">El titular del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es la Autoridad Portuaria de Cartagena, con domicilio Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">Datos de Contacto</p><p dir=\"ltr\">Denominaci&oacute;n Social: AUTORITAD PORTUARIA DE CARTAGENA, SL.</p><p dir=\"ltr\">Domicilio Social: Plaza H&eacute;roes de Cavite,30201 Cartagena</p><p dir=\"ltr\">Tel&eacute;fono: (+34) 968 32 58 00</p><p dir=\"ltr\">Fax: (+34) 968 32 58 15</p><p dir=\"ltr\">Correo electr&oacute;nico: cartagena@apc.es</p><p dir=\"ltr\"><strong>B) OBJETO DEL PORTAL</strong></p><p dir=\"ltr\">El portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es una iniciativa de la Autoridad Portuaria de Cartagena que persigue un doble objetivo: por un lado, constituye una herramienta de difusi&oacute;n de la informaci&oacute;n y actividades que realizan las diferentes &aacute;reas de este Organismo P&uacute;blico&nbsp; y, por otro, es un instrumento para la modernizaci&oacute;n de la gesti&oacute;n del propio Organismo.</p>"
+    }
 }
