@@ -608,3 +608,11 @@ input:-webkit-autofill:active
   height: 137px;
   -webkit-line-clamp: 2;
 }
+
+.centrarDiv{
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+}

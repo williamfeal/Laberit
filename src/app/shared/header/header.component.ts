@@ -11,10 +11,10 @@ export class HeaderComponent implements OnInit {
 
   public currentDateHeader = '';
   public currentHourHeader = '';
-
+  public token: boolean = false;
   private currentDate = new Date();
-  
-  constructor(private authService:AuthService) { }
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadDate();
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private loadDate(): void {
-    this.currentDateHeader = DateConstants.weekDays[this.currentDate.getDay()-1] + ' ' + this.currentDate.getDate() + ' de ' +
+    this.currentDateHeader = DateConstants.weekDays[this.currentDate.getDay() - 1] + ' ' + this.currentDate.getDate() + ' de ' +
       DateConstants.monthList[this.currentDate.getMonth()] + ' de ' + this.currentDate.getFullYear();
   }
 
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
     this.authService.getToken().subscribe(
       data => {
         sessionStorage.setItem('token', data);
+        this.token = true;
       });
   }
-
 }
