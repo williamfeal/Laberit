@@ -7,5 +7,5 @@ export class UrlConstants {
     public static readonly ENDPOINT_ADVERTISEMENTS = '/noticeboards';
     public static readonly ENDPOINT_CATEGORIES = '/categories';
     public static readonly ENDPOINT_PROCEDURES = '/procedures';
-
+    public static readonly ENDPOINT_LANGUAGES = '/i18n';
 }

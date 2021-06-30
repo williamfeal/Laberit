@@ -1,0 +1,14 @@
+{
+    "TITLE": "SEDE ELECTRÓNICA VAL",
+    "home": {
+        "TITLE": "Inicio VAL",
+        "carpeta": "Carpeta Ciudadana VAL",
+        "advertisements" : "Tablón de anuncios VAL",
+        "contractor_profile": "Perfil de contratante VAL",
+        "electronic_services": "Servicios Electrónicos VAL",
+        "valide": "Validación de firmas y certificados VAL",
+        "electronic_invoice": "Factura electrónica VAL",
+        "document_verification": "Verificación de Documentos VAL",
+        "notifications": "Notificaciones VAL"
+    }
+}

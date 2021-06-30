@@ -50,9 +50,11 @@ import { AuthService } from './services/moges-services/auth.service';
 import { CategoriesService } from './services/moges-services/categories.service';
 import { AdvertisementsService } from './services/moges-services/advertisements.service';
 import { ProceduresService } from './services/moges-services/procedures.service';
-import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
+import { LanguagesService } from './services/moges-services/language.service';
 import { GenericStaticHelpComponent } from './shared/generic-static-help/generic-static-help.component';
+import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
+import { LanguageSelectorComponent } from './shared/header/language-selector/language-selector.component';
 
 
 
@@ -91,7 +93,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContactPopoverComponent,
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
-    HowElectronicCertificateComponent
+    HowElectronicCertificateComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +118,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AuthService,
     CategoriesService,
     AdvertisementsService,
-    ProceduresService
+    ProceduresService,
+    LanguagesService
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
