@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
     public token;
-
+    interval;
     constructor() { }
 
-    ngOnInit() { 
-        this.token = sessionStorage.token;
+    ngOnInit() {
+        this.interval = setInterval(() => {
+            if(sessionStorage.token != ''  )
+            this.token = sessionStorage.token, 1000;
+            clearInterval(this.interval);
+        }, 1000);
     }
+
 }
