@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
 import { Observable } from "rxjs";
 import { catchError, map } from 'rxjs/operators';
 import { environment } from "src/environments/environment";
@@ -13,11 +14,11 @@ export class AdvertisementsService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         params: {}
     };
-
+    lang = this.translate.getDefaultLang();
     private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
     private API_ADVERTISEMENTS = this.API_URL + UrlConstants.ENDPOINT_ADVERTISEMENTS;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private translate: TranslateService) { }
 
     public getAllAdvertisement(token): Observable<AdvertisementsModel[]> {
 
@@ -25,7 +26,7 @@ export class AdvertisementsService {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-                'Content-Language':'es'
+                'Content-Language': this.lang
             })
         });
         return data.pipe(map((response: any) => {
@@ -42,7 +43,7 @@ export class AdvertisementsService {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-                'Content-Language':'es'
+                'Content-Language': this.lang
             })
         });
         return data.pipe(map((response: any) => {
