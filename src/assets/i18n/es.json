@@ -133,6 +133,7 @@
             "placeholder_csv": "Introduzca el CSV",
             "error_captcha": "Ha de marcar el captcha.",
             "error_csv": "Este campo es obligatorio.",
+            "error_csv_mal": "Este csv no existe.",
             "where_title": "Dónde se encuentra el Código Seguro de Verificación",
             "where_text": "El código CSV es el se encuentra impreso en la parte inferior de los documentos electrónicos generados por la Autoridad Portuaria de Cartagena, justo debajo de \"Código seguro de validación\"."
         },
