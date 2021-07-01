@@ -19,6 +19,9 @@ export class DocumentVerificationComponent implements OnInit {
   captcha: boolean = false;
   errorCaptcha: boolean = false;
   errorCsv: boolean = false;
+  error_csv: string;
+  errorCsv_mal: string;
+  csv_mal;
   csv: string = ''
   constructor(public translate: TranslateService, public csvService: CsvService, private formBuilder: FormBuilder) {
     this.aFormGroup = this.formBuilder.group({
@@ -34,12 +37,15 @@ export class DocumentVerificationComponent implements OnInit {
       let button = document.getElementById("button");
       let where_text = document.getElementById("where_text");
       let where_title = document.getElementById("where_title");
+      this.csv_mal = document.getElementById("errorCsv");
       text.innerHTML = texts.text;
       button.innerHTML = texts.button;
       where_title.innerHTML = texts.where_title;
       where_text.innerHTML = texts.where_text;
       button.setAttribute("href", this.link);
       csv.setAttribute("placeholder", texts.placeholder_csv);
+      this.errorCsv_mal = texts.error_csv_mal;
+      this.error_csv = texts.error_csv;
       this.enviar = true;
     })
   }
@@ -51,22 +57,24 @@ export class DocumentVerificationComponent implements OnInit {
 
   captruarCsv(value) {
     this.csv = value;
+    this.csv_mal.innerHTML = '';
     this.errorCsv = false;
-
   }
   showCsv() {
     if (this.csv.trim() == '') {
+      this.csv_mal.innerHTML = this.error_csv;
       this.errorCsv = true;
     } else {
+      this.csv_mal.innerHTML = '';
       this.errorCsv = false;
     }
     if (this.captcha) {
       this.csvService.checkCSVDocument(this.csv).subscribe((documento: any) => {
 
-        if(documento == null){
-
-        }else{
-
+        if (documento == null) {
+          this.csv_mal.innerHTML = this.errorCsv_mal;
+          this.errorCsv = true;
+        } else {
           const byteArray = new Uint8Array(atob(documento).split('').map(char => char.charCodeAt(0)));
           const byte = new Blob([byteArray], { type: 'application/pdf' });
           const urlPdf = URL.createObjectURL(byte);
