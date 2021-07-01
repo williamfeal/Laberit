@@ -14,9 +14,11 @@ import { environment } from 'src/environments/environment';
 export class CategoriesService {
 
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
-  private API_CATEGORIES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_CATEGORIES;
+  private API_CATEGORIES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_CATEGORIES_BY_STATE;
   private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
+  
   lang = this.translate.getDefaultLang();
+  
   constructor(
     private http:HttpClient,
     private translate: TranslateService
