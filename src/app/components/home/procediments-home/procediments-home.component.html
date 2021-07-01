@@ -6,11 +6,10 @@
     <ul class="list-group row w-100 list-group-horizontal">
         <li *ngFor="let category of categories" class="col-md-3 list-group-item text-center mb-3" >
             <a routerLink="/categories/{{category.id}}" title="Ver todos los procedimientos de este área" class="text-dark text-uppercase">
-                <!-- <img alt="Icono {{ category.name }}" [src]="category.logo" />-->
-                <img alt="Icono {{ category.name }}" src="assets/img/rrhh.png" />
+                <img alt="Icono {{ category.name }}" [src]="category.logo" />
                 <div class="link-container">
-                    <span>{{category.name}}</span>
-            </div>
+                    <span> {{category.name}} </span>
+                </div>
             </a>
         </li>
     </ul>

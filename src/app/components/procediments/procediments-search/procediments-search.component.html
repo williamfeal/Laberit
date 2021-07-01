@@ -19,7 +19,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <li *ngFor="let procedure of category.procedimientos" class="list-group-item"> 
-                {{ procedure.name }}
+                <a [routerLink]="['/procedures/' + procedure.id ]">{{ procedure.name }}</a>
             </li>
         </ul>
   </div>
