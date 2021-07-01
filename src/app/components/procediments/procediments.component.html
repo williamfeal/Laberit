@@ -1,3 +1,11 @@
+
+<nav aria-label="breadcrumb" >
+	<ol class="breadcrumb background-transparent-white ml-5 mt-1">
+		<li class="breadcrumb-item"><a [routerLink]="['/inicio']">Home</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{{ 'areas.title' | translate }}</li>
+	</ol>
+</nav>
+
 <div class="col-md-12 d-flex mb-4 category-header align-items-center" *ngIf="selectedCategory">
 	<img height="100px" class="mr-3 ml-3" [src]="selectedCategory.logo2"> 
 	<h1 class="text-white">{{ selectedCategory.name }}</h1>
@@ -22,13 +30,13 @@
 							<div class="d-flex mx-2">
 								<a title="Ir al trámite" [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">
 									<em class="fas fa-info-circle color-yellow-100 mr-4"></em>
-                                </a>
+								</a>
 								<a href="#" title="Tramitar online" [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">
-                                    <em class="fas fa-at color-yellow-100 mr-4"></em>
+									<em class="fas fa-at color-yellow-100 mr-4"></em>
 								</a>
 								<a href="#" title="Tramitar presencialmente" [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">
 									<em class="fas fa-download color-yellow-100"></em>
-                                </a>
+								</a>
 							</div>
 						</td>
 					</tr>
