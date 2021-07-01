@@ -49,7 +49,6 @@ export class ProcedimentDetailComponent implements OnInit {
     this.proceduresService.getProcedimentById(this.idProcediment).subscribe(
       (procediment:Procediment) => {
         this.procediment = procediment;
-        console.log(this.procediment)
         this.infoProcediment = procediment.languages.find(
           language => language.codigo === this.translate.getDefaultLang()
         );
