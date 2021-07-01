@@ -131,6 +131,10 @@ $transparent-white-70: rgba(255, 255, 255, .7);
   color: $black-150;
 }
 
+.color-primary {
+  color: $primaryColor;
+}
+
 .background-body {
   background-color: #F9F9F9;
 }
@@ -153,6 +157,10 @@ $transparent-white-70: rgba(255, 255, 255, .7);
 
 .border-bottom-light-gray {
   border-bottom: 1px solid $light-gray-100;
+}
+
+.border-bottom-primary {
+  border-bottom: 1px solid $primaryColor;
 }
 
 .border-top-light-gray {

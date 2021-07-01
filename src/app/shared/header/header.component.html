@@ -29,17 +29,33 @@
 </div>
 <div class="navbar-nav w-100 header-nav">
   <ul class="navbar-nav navbar-expand-lg nav-fill">
-    <li class="nav-item py-2">
-      <a href="#" class="nav-link text-dark">{{ 'home.TITLE' | translate }}</a>
+    <li class="nav-item">
+      <a [routerLink]="['/inicio']" routerLinkActive="color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+        <span class="mt-2 text-dark">
+          {{ 'home.TITLE' | translate }}
+        </span>
+      </a>
     </li>
-    <li class="nav-item py-2">
-      <a href="#/carpeta-del-ciudadano" class="nav-link text-dark">{{'home.carpeta' | translate}}</a>
+    <li class="nav-item">
+      <a [routerLink]="['/carpeta-del-ciudadano']" routerLinkActive="color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+        <span class="mt-2 text-dark">
+          {{'home.carpeta' | translate}}
+        </span>
+      </a>
     </li>
-    <li class="nav-item py-2">
-      <a href="#/tablon-de-anuncios" class="nav-link text-dark">{{'home.advertisements' | translate}}</a>
+    <li class="nav-item">
+      <a [routerLink]="['/tablon-de-anuncios']" routerLinkActive="color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+        <span class="mt-2 text-dark">
+          {{'home.advertisements' | translate}}
+        </span>
+      </a>
     </li>
-    <li class="nav-item py-2">
-      <a href="#/perfil-de-contratante" class="nav-link text-dark">{{'home.contractor_profile' | translate}}</a>
+    <li class="nav-item">
+      <a [routerLink]="['/perfil-de-contratante']" routerLinkActive="color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+        <span class="mt-2 text-dark">
+          {{'home.contractor_profile' | translate}}
+        </span>
+      </a>
     </li>
     <li ng-controller="DropdownCtrl" class="nav-item py-2 css-dropdown">
       <a class="nav-link text-dark">{{'home.electronic_services' | translate}}
