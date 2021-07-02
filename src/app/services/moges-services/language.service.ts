@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Procediment } from 'src/app/models/procediment.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
@@ -14,12 +14,15 @@ export class LanguagesService {
 
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_LANGUAGES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_LANGUAGES;
-  lang = this.translate.getDefaultLang();
+  
+  public lang:Subject<any> = new Subject<any>();
 
   constructor(
     private http:HttpClient,
     private translate: TranslateService
-  ) { }
+  ) {
+    this.lang.next(translate.currentLang);
+   }
 
   public getLanguages() : Observable<Procediment> {
     const procedure = this.http.get(this.API_LANGUAGES_ENDPOINT, {

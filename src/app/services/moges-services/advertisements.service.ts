@@ -20,13 +20,13 @@ export class AdvertisementsService {
 
     constructor(private http: HttpClient, private translate: TranslateService) { }
 
-    public getAllAdvertisement(token): Observable<AdvertisementsModel[]> {
+    public getAllAdvertisement(token, lang): Observable<AdvertisementsModel[]> {
 
         const data = this.http.get(this.API_ADVERTISEMENTS, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-                'Content-Language': this.lang
+                'Content-Language': lang
             })
         });
         return data.pipe(map((response: any) => {
