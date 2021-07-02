@@ -36,8 +36,8 @@
     "advertisements_detail":{
         "title": "TABLÓN DE ANUNCIOS",
         "back":"Volver",
-        "validity":"Vigencia: ",
-        "since":"Desde",
+        "validity":"Vigencia",
+        "since":" Desde",
         "until":"hasta el",
         "created":"Creado el:",
         "show": "Ver documento",

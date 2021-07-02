@@ -12,10 +12,10 @@
         </div>
         <div class="card-body " style="height:100%">
             <div class="titulo-anuncio mb-3">
-                {{anuncio.name}}
+                <span [innerHTML]="anuncio.name"></span>
             </div>
             <div class="card-text limit-descripction">
-                {{anuncio.description}}
+                <span [innerHTML]="anuncio.description"></span>
             </div>
             <div class="mt-2">
                 <a class="position-relative float-right mb-2 mr-2 primary-color" routerLink="{{anuncio.id}}">

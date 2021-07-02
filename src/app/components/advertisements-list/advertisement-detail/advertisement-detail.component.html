@@ -1,18 +1,22 @@
 <app-header-category *ngIf="title" [title]="title"></app-header-category>
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <a href="/tablon-de-anuncios">{{'advertisements_detail.back' | translate}}</a>
+        <a [routerLink]="['/tablon-de-anuncios']">{{'advertisements_detail.back' | translate}}</a>
     </div>
 
     <div *ngIf="datosAnuncio && anuncio" class="col-md-10 card bg-light mb-3">
         <div class="card-body">
-            <h5 class="card-title"> {{datosAnuncio.name}}</h5>
+            <h5 class="card-title" [innerHTML]="datosAnuncio.name"></h5>
             <h6 class="card-subtitle mb-2 text-muted">{{anuncio.author}}</h6>
             <div class="card-text">
-                {{datosAnuncio.description}}
+                <span [innerHTML]="datosAnuncio.description"></span>
             </div>
             <div *ngIf="anuncio.validDate;else created">
-                <span> <strong> <u>{{'advertisements_detail.validity' | translate}} </u></strong>{{'advertisements_detail.since' | translate}}
+                <span> 
+                    <strong> 
+                        <u>{{'advertisements_detail.validity' | translate}}</u>:
+                    </strong>
+                    {{'advertisements_detail.since' | translate}}
                     {{anuncio.releaseDate | date: "dd-MM-yyyy"}} {{'advertisements_detail.until' | translate}}
                     {{anuncio.validDate | date: "dd-MM-yyyy"}}
                 </span>
