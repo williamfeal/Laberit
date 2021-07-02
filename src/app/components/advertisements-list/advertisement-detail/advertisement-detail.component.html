@@ -1,7 +1,7 @@
 <app-header-category *ngIf="title" [title]="title"></app-header-category>
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <a href="/tablon-de-anuncios">{{'advertisements_detail.back' | translate}}</a>
+        <a [routerLink]="['/tablon-de-anuncios']">{{'advertisements_detail.back' | translate}}</a>
     </div>
 
     <div *ngIf="datosAnuncio && anuncio" class="col-md-10 card bg-light mb-3">
