@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Category } from 'src/app/models/category.model';
 import { Procediment } from 'src/app/models/procediment.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
+import { LanguagesService } from 'src/app/services/moges-services/language.service';
 
 @Component({
   selector: 'app-procediments-search',
@@ -18,10 +19,13 @@ export class ProcedimentsSearchComponent implements OnInit {
   public keywords:string;
   public loading:boolean;
 
+  private lang = this.translateService.currentLang;
+
   constructor(
     private translateService: TranslateService,
     private categoriesService:CategoriesService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private languageService:LanguagesService
   ) { }
 
   ngOnInit(): void {
@@ -31,17 +35,23 @@ export class ProcedimentsSearchComponent implements OnInit {
         this.title = data.title
       }
     );
+    this.languageService.lang.subscribe(
+      lang => {
+        this.lang = lang;
+        this.loadData();
+      }
+    )
     this.loadData();
   }
 
   private loadData() {
-    this.categoriesService.getAllCategories().subscribe(
+    this.categoriesService.getAllCategories(this.lang).subscribe(
       async categories => {
         this.loading = true;
         this.categories = categories;
         Promise.all(
           categories.map(async(category) => {
-            const procedures = await this.categoriesService.getCategoryProcediments(category.id).toPromise();
+            const procedures = await this.categoriesService.getCategoryProcediments(category.id, this.lang).toPromise();
             category.procedimientos = procedures;
           })
         ).then(

@@ -20,6 +20,6 @@ export class LanguageSelectorComponent implements OnInit {
 
     changeLang(ev) {
         this.translate.use(ev.value);
-
+        this.languagesService.lang.next(ev.value);
     }
 }

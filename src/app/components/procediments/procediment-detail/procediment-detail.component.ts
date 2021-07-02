@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { InfoProcediment } from 'src/app/models/info-procediment.model';
 import { Procediment } from 'src/app/models/procediment.model';
+import { LanguagesService } from 'src/app/services/moges-services/language.service';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 
 @Component({
@@ -17,6 +18,9 @@ export class ProcedimentDetailComponent implements OnInit {
   public procediment:Procediment;
   public infoProcediment:InfoProcediment;
   public action;
+  
+  private lang = this.translate.currentLang;
+
   public active = {
     info: '',
     online: '',
@@ -26,7 +30,8 @@ export class ProcedimentDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private proceduresService:ProceduresService,
-    private translate:TranslateService
+    private translate:TranslateService,
+    private languageService:LanguagesService
   ) { }
 
   ngOnInit(): void {
@@ -42,18 +47,27 @@ export class ProcedimentDetailComponent implements OnInit {
         this.active[this.action] = 'show active'
       }
     );
+    this.languageService.lang.subscribe(
+      lang => {
+        this.lang = lang;
+        this.getInfoProcediment();
+      }
+    )
     this.loadData();
   }
 
-  loadData() {
+  private loadData() {
     this.proceduresService.getProcedimentById(this.idProcediment).subscribe(
       (procediment:Procediment) => {
         this.procediment = procediment;
-        this.infoProcediment = procediment.languages.find(
-          language => language.codigo === this.translate.getDefaultLang()
-        );
-      }
-    )
+        this.getInfoProcediment();
+      })
+  }
+
+  private getInfoProcediment() {
+    this.infoProcediment = this.procediment.languages.find(
+      language => language.codigo === this.lang
+    );
   }
 
 }
