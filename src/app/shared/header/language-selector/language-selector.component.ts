@@ -9,17 +9,28 @@ import { LanguagesService } from 'src/app/services/moges-services/language.servi
 
 export class LanguageSelectorComponent implements OnInit {
 
-    language;
+    public language;
+    public selectedLang;
+
     constructor(private languagesService: LanguagesService, public translate: TranslateService) {
         this.languagesService.getLanguages().subscribe((lang: any) => {
             this.language = lang;
         })
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        if(localStorage.getItem('lang')) {
+            this.selectedLang = localStorage.getItem('lang');
+            this.translate.use(localStorage.getItem('lang'));
+            this.languagesService.lang.next(localStorage.getItem('lang'));
+        } else {
+            this.selectedLang = this.translate.defaultLang;
+        }
+    }
 
     changeLang(ev) {
         this.translate.use(ev.value);
+        localStorage.setItem('lang', ev.value)
         this.languagesService.lang.next(ev.value);
     }
 }
