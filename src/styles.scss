@@ -2,3 +2,8 @@
 @import "app/utils/styles/inputs";
 @import "app/utils/styles/colors";
 @import "app/utils/styles/fonts";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+    font-family: var(--font-family);
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StyleService } from 'src/app/services/moges-services/style.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public src_logo;
+
+  constructor(
+    private styleService:StyleService
+  ) { }
 
   ngOnInit(): void {
+    this.styleService.getStyles().subscribe(
+      data => {
+        this.src_logo = data.logo2;
+      }
+    )
   }
 
 }
