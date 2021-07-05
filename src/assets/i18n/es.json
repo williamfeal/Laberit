@@ -100,6 +100,7 @@
         }
     },
     "procediment_detail": {
+        "procediment_name": "Nombre del trámite",
         "info": "Información",
         "online": "Online",
         "face": "Presencial",

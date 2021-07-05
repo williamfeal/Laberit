@@ -6,7 +6,7 @@
 	</ol>
 </nav>
 <div class="col-md-12 d-flex mb-4 category-header align-items-center" *ngIf="selectedCategory">
-	<img height="100px" class="mr-3 ml-3" [src]="selectedCategory.logo2"> 
+	<img height="100px" class="mr-3 ml-3" alt="logo" [src]="selectedCategory.logo2"> 
 	<h1 class="text-white">{{ selectedCategory.name }}</h1>
 </div>
 <div class="col-md-11 m-auto" *ngIf="selectedCategory">
@@ -15,7 +15,7 @@
 			<table class="table mt-0 mb-3">
 				<thead>
 					<tr>
-						<th scope="col" colspan="2" class="header-table">Nombre del trámite</th>
+						<th scope="col" colspan="2" class="header-table">{{ 'procediment_detail.procediment_name' | translate }}</th>
 					</tr>
 				</thead>
 				<tbody class="table-bordered">
