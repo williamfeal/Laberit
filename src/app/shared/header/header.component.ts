@@ -25,9 +25,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.loadDate();
     this.loadHour();
-    this.loadToken();
+    this.loadStyles();
     setInterval(this.loadHour, 1000);
-    setInterval(this.loadToken, 300000);
   }
 
   private loadDate(): void {
@@ -41,15 +40,6 @@ export class HeaderComponent implements OnInit {
     this.currentHourHeader = currentDate.getHours() + ':' + minutes + 'h';
     document.getElementById("horas").innerHTML = this.currentHourHeader;
 
-  }
-
-  private loadToken(): void {
-    this.authService.getToken().subscribe(
-      data => {
-        sessionStorage.setItem('token', data);
-        this.token = true;
-        this.loadStyles();
-      });
   }
 
   private loadStyles() {
