@@ -9,4 +9,5 @@
     window["env"]["keycloakUrl"] = "${KEYCLOAK_URL}";
     window["env"]["keycloakRealm"] = "${KEYCLOAK_REALM}";
     window["env"]["keycloakClientId"] = "${KEYCLOAK_CLIENT_ID}";
+    window["env"]["entity_uuid"] = "${ENTITY_UUID}"
 })(this);
