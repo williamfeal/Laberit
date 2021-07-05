@@ -6,9 +6,6 @@
   box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
 }
 
-.header-logo {
-  height: 66px;
-}
 
 .header-nav {
   background-color: $body-background;
@@ -40,33 +37,6 @@
   }
 }
 
-@media screen and (max-width: 930px) {
-  .header-logo {
-    margin-top: 2rem;
-    height: 50px;
-  }
-}
-
-@media screen and (max-width: 735px) {
-  .header-logo {
-    margin-top: 2rem;
-    height: 40px;
-  }
-}
-
-@media screen and (max-width: 605px) {
-  .header-logo {
-    margin-top: 2rem;
-    height: 35px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header-logo {
-    margin-top: 2rem;
-    height: 45px;
-  }
-}
 
 .dropdown-toggle {
   width: 300px;
