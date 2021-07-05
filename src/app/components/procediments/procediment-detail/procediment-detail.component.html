@@ -12,25 +12,23 @@
         </div>
     </div>
     <div id="tramitacion" class="card card-tramite-shadow">
-        <nav>
-            <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
-                <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
-                    [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">									
-                    <i class="fas fa-info-circle color-yellow-100 mr-4"></i>
-                    {{ 'procediment_detail.info' | translate }}
+        <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
+            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
+                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">									
+                <em class="fas fa-info-circle color-primary mr-4"></em>
+                {{ 'procediment_detail.info' | translate }}
+            </a>
+            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
+                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">                                    
+                <em class="fas fa-at color-primary mr-4"></em>
+                {{ 'procediment_detail.online' | translate }}
                 </a>
-                <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
-                    [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">                                    
-                    <i class="fas fa-at color-yellow-100 mr-4"></i>
-                    {{ 'procediment_detail.online' | translate }}
-                    </a>
-                <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
-                    [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">									
-                    <i class="fas fa-download color-yellow-100 mr-4"></i>
-                    {{ 'procediment_detail.face' | translate }}
-                </a>
-            </div>
-        </nav>
+            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
+                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">									
+                <em class="fas fa-download color-primary mr-4"></em>
+                {{ 'procediment_detail.face' | translate }}
+            </a>
+        </div>
         <div class="tab-content" id="nav-tab-content">
             <div class="tab-pane fade {{ active.info }}" id="nav-home" role="tabpanel" aria-labelledby="nav-informacion-tab">
                 <div class="card m-3 border-0">

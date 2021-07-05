@@ -12,7 +12,8 @@ export const environment = {
     issuer: 'http://keycloak.apc.alfatecsistemas.es/auth/',
     realm: 'Angular2',
     clientId: 'angular-tasklist'
-  }
+  },
+  entity_uuid: 'ca807322-5bcb-11eb-87b5-c4fba02e0591'
 };
 
 /*

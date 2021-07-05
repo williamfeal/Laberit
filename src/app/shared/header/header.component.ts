@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/moges-services/auth.service';
+import { StyleService } from 'src/app/services/moges-services/style.service';
 import * as DateConstants from 'src/app/utils/constants/date-constants';
 
 @Component({
@@ -12,9 +13,14 @@ export class HeaderComponent implements OnInit {
   public currentDateHeader = '';
   public currentHourHeader = '';
   public token: boolean = false;
+  public src_logo:string;
+
   private currentDate = new Date();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private styleService:StyleService
+    ) { }
 
   ngOnInit(): void {
     this.loadDate();
@@ -42,6 +48,16 @@ export class HeaderComponent implements OnInit {
       data => {
         sessionStorage.setItem('token', data);
         this.token = true;
+        this.loadStyles();
       });
+  }
+
+  private loadStyles() {
+    this.styleService.getStyles().subscribe(
+      data => {
+        document.documentElement.style.setProperty('--primary-color', data.primaryColor);
+        document.documentElement.style.setProperty('--button-edit-color', data.buttonEditColor);
+        this.src_logo = data.logo;
+     });
   }
 }

@@ -8,7 +8,8 @@
 
 $input-border: #CED4DA;
 
-$primaryColor: #a30000;
+$primaryColor: var(--primary-color);
+$button-edit-color: var(--button-edit-color);
 
 $green-50: #53812F;
 $green-70: #6CA241;
