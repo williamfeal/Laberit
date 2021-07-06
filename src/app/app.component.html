@@ -1,4 +1,4 @@
-<app-header></app-header>
-<app-translation></app-translation>
+<app-header *ngIf="token"></app-header>
+<app-translation *ngIf="token"></app-translation>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer *ngIf="token"></app-footer>
