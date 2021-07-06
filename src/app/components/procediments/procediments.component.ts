@@ -36,7 +36,7 @@ export class ProcedimentsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(
       params => {
         this.selectedId = params.get('idCategory');
-        this.loadData();
+        if(this.lang) this.loadData();
         window.scrollTo({top: 0});
       }
     )

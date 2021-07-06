@@ -11,11 +11,12 @@ import { AdvertisementsService } from 'src/app/services/moges-services/advertise
 })
 export class AdvertisementDetailComponent implements OnInit {
 
-  idAnuncio;
-  anuncio: AdvertisementsModel;
-  documento = false;
-  datosAnuncio;
-  title;
+  public idAnuncio;
+  public anuncio: AdvertisementsModel;
+  public documento = false;
+  public datosAnuncio;
+  public title;
+  
   constructor(private advertisementsService: AdvertisementsService,
     private route: ActivatedRoute,
     public translate: TranslateService) {
