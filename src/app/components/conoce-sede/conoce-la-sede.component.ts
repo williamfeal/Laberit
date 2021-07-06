@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
     templateUrl: './conoce-la-sede.component.html',
     styleUrls: ['./conoce-la-sede.component.scss']
 })
-export class ConoceLaSedeComponent implements OnInit {
+export class ConoceLaSedeComponent {
 
     title: string;
     components;
@@ -15,25 +15,22 @@ export class ConoceLaSedeComponent implements OnInit {
     categoria;
     lista = ['know_sede', 'normative', 'contents', 'services', 'electronic_record', 'signature_certificates', 'document_veriication', 'date', 'calendars', 'records_offices', 'programs_stops'];
     menuList = [];
-    constructor(public translate: TranslateService) {
+    constructor(
+        public translate: TranslateService
+        ) {
 
         this.translate.get('know_sede').subscribe((texts: any) => {
-            let em = 'this';
             this.title = texts.title;
             this.components = texts.components;
-            for (let index = 0; index < this.lista.length; index++) {
-                let holi = this.lista[index];
-                const element = this.components[holi];
-                this.menuList.push(element);
+            for (let element of this.lista) {
+                this.menuList.push(this.components[element]);
             }
-            this.categoria = this.menuList[0]
-        })
-    }
+            this.categoria = this.menuList[0];
+        });
+    }   
+    
 
-    ngOnInit(): void {
-    }
-
-    changeKnow(categoria) {
+    public changeKnow(categoria) {
         this.categoria = categoria;
     }
 
