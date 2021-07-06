@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
 
   public currentDateHeader = '';
   public currentHourHeader = '';
-  public token:string;
   public src_logo:string;
 
   private currentDate = new Date();
@@ -25,12 +24,7 @@ export class HeaderComponent implements OnInit {
     this.loadDate();
     this.loadHour();
     this.loadStyles();
-    this.token = this.readSessionStorageValue('token')
     setInterval(this.loadHour, 1000);
-  }
-
-  readSessionStorageValue(key: string): string {
-      return sessionStorage.getItem(key);
   }
 
   private loadDate(): void {
