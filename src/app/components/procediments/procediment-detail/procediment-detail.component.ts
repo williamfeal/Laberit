@@ -19,7 +19,7 @@ export class ProcedimentDetailComponent implements OnInit {
   public infoProcediment:InfoProcediment;
   public action;
   
-  private lang = this.translate.currentLang;
+  private lang = this.translate.getBrowserLang();
 
   public active = {
     info: '',
@@ -50,14 +50,15 @@ export class ProcedimentDetailComponent implements OnInit {
     this.languageService.lang.subscribe(
       lang => {
         this.lang = lang;
-        this.getInfoProcediment();
-      }
+        this.loadData();
+      },
+      err => console.log(err)
     )
     this.loadData();
   }
 
   private loadData() {
-    this.proceduresService.getProcedimentById(this.idProcediment).subscribe(
+    this.proceduresService.getProcedimentById(this.idProcediment, this.lang).subscribe(
       (procediment:Procediment) => {
         this.procediment = procediment;
         this.getInfoProcediment();

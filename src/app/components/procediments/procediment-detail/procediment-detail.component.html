@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" *ngIf="procediment && infoProcediment">
 	<ol class="breadcrumb background-transparent-white ml-5 mt-1">
         <li class="breadcrumb-item"><a [routerLink]="['/inicio']">Home</a></li>
         <li class="breadcrumb-item"><a [routerLink]="['/categories/' + procediment.category.id ]">{{ 'areas.title' | translate }}</a></li>
@@ -13,17 +13,17 @@
     </div>
     <div id="tramitacion" class="card card-tramite-shadow">
         <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
-            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
+            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
                 [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">									
                 <em class="fas fa-info-circle color-primary mr-4"></em>
                 {{ 'procediment_detail.info' | translate }}
             </a>
-            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
+            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
                 [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">                                    
                 <em class="fas fa-at color-primary mr-4"></em>
                 {{ 'procediment_detail.online' | translate }}
                 </a>
-            <a class="nav-item nav-link col-sm-12 col-md-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
+            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
                 [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">									
                 <em class="fas fa-download color-primary mr-4"></em>
                 {{ 'procediment_detail.face' | translate }}
