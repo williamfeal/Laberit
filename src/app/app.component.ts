@@ -6,8 +6,9 @@ import { AuthService } from './services/moges-services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sede-angular';
-  token: boolean;
+  public title = 'sede-angular';
+  public token: boolean;
+  
   constructor(    
     private authService: AuthService
   ) {

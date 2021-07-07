@@ -10,7 +10,7 @@
         </div>
     </form>
     <div class="d-flex justify-content-center" *ngIf="loading" >
-        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"></div>
+        <app-spinner></app-spinner>
     </div>
     <div class="card mt-4" *ngFor="let category of categoriesShow">
         <div class="card-header">
