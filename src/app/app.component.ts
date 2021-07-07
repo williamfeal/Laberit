@@ -8,9 +8,11 @@ import { AuthService } from './services/moges-services/auth.service';
 export class AppComponent {
   title = 'sede-angular';
   token: boolean;
-  constructor(    private authService: AuthService    ) {
+  constructor(    
+    private authService: AuthService
+  ) {
     this.loadToken();
-    setInterval(this.loadToken, 300000);
+    setInterval(() => { this.loadToken(); }, 300000);
   }
 
   private loadToken() {

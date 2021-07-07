@@ -44,7 +44,7 @@ export class CategoriesService {
   }
 
   public getCategoryProcediments(id:string, lang): Observable<Procediment[]> {
-    const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/?idCategory=${id}`, {
+    const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}?idCategory=${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`,

@@ -14,19 +14,20 @@ export class ProceduresService {
 
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
-  lang = this.translate.getDefaultLang();
+  
+  lang = this.translate.currentLang;
 
   constructor(
     private http:HttpClient,
     private translate: TranslateService
   ) { }
 
-  public getProcedimentById(id:string) : Observable<Procediment> {
+  public getProcedimentById(id:string, lang:string) : Observable<Procediment> {
     const procedure = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`,
-        'Content-Language': this.lang
+        'Content-Language': lang
       }),
     });
     return procedure.pipe(map((response:any) => {

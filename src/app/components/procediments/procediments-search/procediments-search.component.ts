@@ -35,13 +35,15 @@ export class ProcedimentsSearchComponent implements OnInit {
         this.title = data.title
       }
     );
+    if(this.lang) 
+      this.loadData();
+    
     this.languageService.lang.subscribe(
       lang => {
         this.lang = lang;
         this.loadData();
       }
     )
-    this.loadData();
   }
 
   private loadData() {
@@ -58,7 +60,7 @@ export class ProcedimentsSearchComponent implements OnInit {
           () => {
             this.categoriesShow = categories;
             this.loading = false;
-            if(this.keywords.length) {
+            if(this.keywords && this.keywords.length) {
               this.onSearch();
             } 
           });

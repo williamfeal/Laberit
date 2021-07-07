@@ -17,6 +17,12 @@
   width: 50%;
 }
 
+.link-color-primary {
+  span {
+    color: $primaryColor !important;
+  }
+}
+
 // Responsive rules
 
 @media screen and (max-width: 770px) {

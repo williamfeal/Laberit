@@ -13,7 +13,7 @@ export class AdvertisementsListComponent implements OnInit {
 
   public title:string;
   public anunciosMoges:AdvertisementsModel[];
-
+  public loading = true;
   private lang = this.translate.currentLang;
 
   constructor(
@@ -27,18 +27,21 @@ export class AdvertisementsListComponent implements OnInit {
 
   ngOnInit() { 
     this.languageService.lang.subscribe(
-      lang => {
+      lang => {    
+        this.loading = true;
         this.lang = lang;
         this.loadData();
       }
     )
-    this.loadData();
+    if(this.lang)
+      this.loadData();
   }
 
   
   private loadData() {
     this.advertisementsService.getAllAdvertisement(sessionStorage.token, this.lang).subscribe((advertisementslList: AdvertisementsModel[]) => {
       this.anunciosMoges = advertisementslList;
+      this.loading = false;
     });
   }
 
