@@ -60,9 +60,6 @@ import { LanguagesService } from './services/moges-services/language.service';
 
 
 
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient);
-} 
 @NgModule({
   declarations: [
     AppComponent,
@@ -130,3 +127,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 })
 export class AppModule { }
 registerLocaleData(localeEs, 'es')
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+} 

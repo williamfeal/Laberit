@@ -20,12 +20,13 @@ export class AdvertisementsListComponent implements OnInit {
     private advertisementsService: AdvertisementsService, 
     public translate: TranslateService,
     public languageService:LanguagesService) {
-    this.translate.get('advertisements').subscribe((texts: any) => {
-      this.title = texts.title;
-    });    
+   
   }
 
   ngOnInit() { 
+    this.translate.get("advertisements").subscribe((texts: any) => {
+      this.title = this.translate.instant('advertisements.title'); 
+    });    
     this.languageService.lang.subscribe(
       lang => {    
         this.loading = true;
