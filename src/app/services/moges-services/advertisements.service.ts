@@ -37,13 +37,12 @@ export class AdvertisementsService {
         }));
     }
 
-    public getAdvertisementById(token, id): Observable<AdvertisementsModel> {
-
+    public getAdvertisementById(token, id, lang): Observable<AdvertisementsModel> {
         const data = this.http.get(this.API_ADVERTISEMENTS + '/' + id, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-                'Content-Language': this.lang
+                'Content-Language': lang
             })
         });
         return data.pipe(map((response: any) => {
