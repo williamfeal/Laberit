@@ -45,7 +45,7 @@
 		<div class="col-md-3 m-auto ml-3">
 			<ul class="list-group">
 				<li class="list-group-item" *ngFor="let category of categories">
-					<img alt="Icono" class="img-tramite-logo text-departamentos mr-4" [src]="category.logo">
+					<img alt="Icono" class="img-tramite-logo text-departamentos mr-4 tramite-img-size" [src]="category.logo">
 					<a class="text-departamentos color-primary" *ngIf="category === selectedCategory"> {{ category.name }} </a>
 					<a class="text-departamentos text-dark" routerLink="/categories/{{category.id}}" *ngIf="category !== selectedCategory"> {{ category.name }}</a>
 				</li>
