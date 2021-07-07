@@ -1,4 +1,9 @@
-<app-header *ngIf="token"></app-header>
-<app-translation *ngIf="token"></app-translation>
-<router-outlet></router-outlet>
-<app-footer *ngIf="token"></app-footer>
+<div *ngIf="token">
+    <app-header></app-header>
+    <app-translation></app-translation>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>
+<div *ngIf="!token" class="d-flex justify-content-center">
+   <app-spinner></app-spinner>
+</div>

@@ -8,13 +8,15 @@ import { LanguagesService } from '../services/moges-services/language.service';
 })
 export class TranslationComponent implements OnInit {
 
-  private activeLang = 'es';
+  private activeLang = this.translate.getBrowserLang() ? 
+      this.translate.getBrowserLang() : 'es';
   languages;
+
   constructor(
     public translate: TranslateService,
     private languagesService: LanguagesService
   ) {
-    this.translate.setDefaultLang(this.activeLang);
+    this.translate.use(this.activeLang);
     this.languagesService.getLanguages().subscribe((lang: any) => {
       this.languages = lang;
       this.languages.forEach(element => {
@@ -24,8 +26,9 @@ export class TranslationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cambiarLenguaje('es');
-  }
+    localStorage.getItem('lang') ? 
+      this.cambiarLenguaje(localStorage.getItem('lang')) : this.cambiarLenguaje(this.translate.defaultLang);
+    }
 
   public cambiarLenguaje(lang) {
     this.activeLang = lang;

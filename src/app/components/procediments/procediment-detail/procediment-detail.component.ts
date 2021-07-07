@@ -51,8 +51,7 @@ export class ProcedimentDetailComponent implements OnInit {
       lang => {
         this.lang = lang;
         this.loadData();
-      },
-      err => console.log(err)
+      }
     )
     this.loadData();
   }
