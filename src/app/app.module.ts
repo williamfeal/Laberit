@@ -57,6 +57,7 @@ import { LanguageSelectorComponent } from './shared/header/language-selector/lan
 import { AccesibilityComponent } from './shared/footer/accesibility/accesibility.component';
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { LanguagesService } from './services/moges-services/language.service';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 
 
@@ -95,7 +96,8 @@ import { LanguagesService } from './services/moges-services/language.service';
     HowElectronicCertificateComponent,
     LanguageSelectorComponent,
     AccesibilityComponent,
-    LegalWarningComponent
+    LegalWarningComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
