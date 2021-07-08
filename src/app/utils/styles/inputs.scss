@@ -416,6 +416,46 @@
   color: $green-100;
 }
 
+.btn-app-orange {
+  background-color: $orange-100;
+  border-radius: 3px;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  padding: 11px 40px;
+  transition: all .25s linear;
+  outline: none;
+
+  &:hover {
+    background-color: $orange-100;
+    transition: all .25s linear;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+    -moz-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+  }
+
+  &:active {
+    background-color: $orange-100;
+    transition: all .25s linear;
+    outline: none;
+    -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+  }
+
+  &:focus {
+    transition: all .25s linear;
+    outline: none;
+  }
+  &:disabled {
+    background-color: $orange-100;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
 .btn-danger {
   background-color: transparent;
   border: 1.9px solid $red-100;
