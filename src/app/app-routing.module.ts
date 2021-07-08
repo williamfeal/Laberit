@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
@@ -15,6 +16,7 @@ import { ProcedimentDetailComponent } from './components/procediments/procedimen
 import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 import { AccesibilityComponent } from './shared/footer/accesibility/accesibility.component';
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'areas', component: ProcedimentsComponent },
   { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/identificacion', component: UserIdentificationComponent, canActivate: [AuthGuardService]},
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},

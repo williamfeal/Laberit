@@ -10,8 +10,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -58,6 +57,7 @@ import { AccesibilityComponent } from './shared/footer/accesibility/accesibility
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { LanguagesService } from './services/moges-services/language.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
 
 
 
@@ -97,7 +97,8 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     LanguageSelectorComponent,
     AccesibilityComponent,
     LegalWarningComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UserIdentificationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,95 @@
+<div class="background-img jumbotron rounded-0">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="text-white text-uppercase font-weight-bold" id="header-title">
+                {{ 'carpeta_ciudadana.title' | translate }}
+            </h4>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end text-white">
+            <div class="mr-1"><i class="fas fa-user"></i></div>
+            <div><strong>Nombre Apellido Apellido</strong></div>
+        </div>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: transparent !important;">
+          <li class="breadcrumb-item">
+                <a href="#" class="text-white">
+                    {{ 'carpeta_ciudadana.title' | translate }}
+                </a>
+            </li>
+          <li class="breadcrumb-item active text-white font-weight-bold" aria-current="page">
+              Identificación de Usuario
+          </li>
+        </ol>
+    </nav>
+    <div class="row justify-content-end">
+        <a class="text-white mr-4"><i class="fas fa-id-card-alt"></i> Tus Solicitudes </a>
+        <a class="text-white"><i class="fas fa-envelope"></i> Tus Notificaciones y Comunicaciones </a>
+    </div>
+</div>
+<div class="row px-3">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header background-card-header pb-0">
+                <div class="card-title text-white">
+                    <i class="fas fa-user"></i>
+                    {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}
+                </div>
+            </div>
+            <div class="card-body row">
+                <div class="form-group col-md-8 col-sm-12">
+                    <label for="name_and_surname">{{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }} <b>*</b></label>
+                    <input id="name_and_surname" name="name_and_surname" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4 col-sm-12">
+                    <label for="nif">{{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }} <b>*</b></label>
+                    <input id="nif" name="nif" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header background-card-header pb-0">
+                <div class="card-title text-white">
+                    <i class="fas fa-envelope"></i>
+                    {{ 'carpeta_ciudadana.identification.means_of_notification.title' | translate }}
+                </div>
+            </div>
+            <div class="card-body row">
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="means">{{ 'carpeta_ciudadana.identification.means_of_notification.means' | translate }} </label>
+                    <input id="means" name="means" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="email">{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }} <b>*</b></label>
+                    <input id="email" name="email" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row px-3">
+    <div class="col-md-12 mt-2">
+        <div class="card">
+            <div class="card-header background-card-header pb-0">
+                <div class="card-title text-white">
+                    <i class="fas fa-envelope"></i>
+                    {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}
+                </div>
+            </div>
+            <div class="card-body row">
+                <div class="form-group col-md-2">
+                    <label for="actuation">{{ 'carpeta_ciudadana.identification.requester_data.actuation' | translate }} </label>
+                    <input id="actuation" name="actuation" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="representation_power">{{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} <b>*</b></label>
+                    <input id="representation_power" name="representation_power" type="text" class="form-control">
+                </div>
+                <button class="btn-app-outline-primary button-round text"> {{ 'carpeta_ciudadana.identification.requester_data.check' | translate }} </button>
+            </div>
+        </div>
+    </div>
+</div>

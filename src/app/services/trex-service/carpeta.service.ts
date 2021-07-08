@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class CarpetaService {
 
   constructor() { }
+
+  public isAuthenticated() {
+    return true;
+  }
 }

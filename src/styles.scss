@@ -7,3 +7,8 @@
 body {
     font-family: var(--font-family);
 }
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: white !important;
+    content: ">" !important;
+}
