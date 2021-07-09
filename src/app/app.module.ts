@@ -59,8 +59,6 @@ import { LanguagesService } from './services/moges-services/language.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

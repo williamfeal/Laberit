@@ -28,28 +28,33 @@
         <a class="text-white"><i class="fas fa-envelope"></i> Tus Notificaciones y Comunicaciones </a>
     </div>
 </div>
-<div class="row px-3">
+<div class="row mx-0 px-3">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card mb-2" >
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
                     <i class="fas fa-user"></i>
-                    {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}
+                    <span *ngIf="isInteresado()"> {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</span>
+                    <span *ngIf="!isInteresado()"> {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}</span>
                 </div>
             </div>
             <div class="card-body row">
                 <div class="form-group col-md-8 col-sm-12">
-                    <label for="name_and_surname">{{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }} <b>*</b></label>
+                    <label for="name_and_surname">
+                        {{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }} <b>*</b>
+                    </label>
                     <input id="name_and_surname" name="name_and_surname" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-4 col-sm-12">
-                    <label for="nif">{{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }} <b>*</b></label>
+                    <label for="nif">
+                        {{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }} <b>*</b>
+                    </label>
                     <input id="nif" name="nif" type="text" class="form-control">
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" >
         <div class="card">
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
@@ -60,7 +65,10 @@
             <div class="card-body row">
                 <div class="form-group col-md-6 mx-auto">
                     <label for="means">{{ 'carpeta_ciudadana.identification.means_of_notification.means' | translate }} </label>
-                    <input id="means" name="means" type="text" class="form-control">
+                    <select id="means" name="means" class="form-select form-control" aria-label="">
+                        <option selected value="1"> {{ 'carpeta_ciudadana.identification.means_of_notification.electronic' | translate }}</option>
+                        <option value="2">{{ 'carpeta_ciudadana.identification.means_of_notification.paper' | translate }}</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6 mx-auto">
                     <label for="email">{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }} <b>*</b></label>
@@ -69,27 +77,413 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row px-3">
-    <div class="col-md-12 mt-2">
+    <div class="col-md-6" *ngIf="isInteresado()">
         <div class="card">
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-info-circle"></i>
                     {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}
                 </div>
             </div>
             <div class="card-body row">
-                <div class="form-group col-md-2">
-                    <label for="actuation">{{ 'carpeta_ciudadana.identification.requester_data.actuation' | translate }} </label>
-                    <input id="actuation" name="actuation" type="text" class="form-control">
+                <div class="form-group col-md-6">
+                    <label for="type">{{ 'carpeta_ciudadana.identification.requester_data.type' | translate }} </label>
+                    <select id="type" name="type" class="form-select form-control" aria-label="Tipo">
+                        <option selected value="1"> {{ 'carpeta_ciudadana.identification.requester_data.type_interested' | translate }}</option>
+                        <option value="2">{{ 'carpeta_ciudadana.identification.requester_data.type_representative' | translate }}</option>
+                    </select>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="representation_power">{{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} <b>*</b></label>
-                    <input id="representation_power" name="representation_power" type="text" class="form-control">
-                </div>
-                <button class="btn-app-outline-primary button-round text"> {{ 'carpeta_ciudadana.identification.requester_data.check' | translate }} </button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="px-3">
+    <div class="col-md-12 mt-2" *ngIf="isRepresentativeAutonomo() || isRepresentativeEmpresa() || isUserAutonomo()">
+        <div class="card">
+            <div class="card-header background-card-header pb-0">
+                <div class="card-title text-white">
+                    <i class="fas fa-envelope"></i>
+                    {{ 'carpeta_ciudadana.identification.actuation_data.title' | translate }}
+                </div>
+            </div>
+            <div class="card-body d-flex">
+                <div class="form-group col-md-2">
+                    <label for="actuation">{{ 'carpeta_ciudadana.identification.actuation_data.actuation' | translate }} </label>
+                    <input id="actuation" name="actuation" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4" *ngIf="!isUserAutonomo()">
+                    <label for="representation_power">
+                        {{ 'carpeta_ciudadana.identification.actuation_data.representation_power' | translate }} <b>*</b></label>
+                    <input id="representation_power" name="representation_power" type="text" class="form-control">
+                </div>
+                <div class="col-md-2 mt-4" *ngIf="!isUserAutonomo()">
+                    <button class="btn-app-outline-primary button-round text"> {{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="px-3">
+        <div class="col-md-12 mt-2" *ngIf="isRepresentativeAutonomo() || isRepresentativeEmpresa() || isUserAutonomo()">
+            <div class="card">
+                <div class="card-header background-card-header pb-0">
+                    <div class="card-title text-white">
+                        <i class="fas fa-id-card"></i>
+                        <span *ngIf="!isUserAutonomo()"> {{ 'carpeta_ciudadana.identification.represented_data.title' | translate }}</span>
+                        <span *ngIf="isUserAutonomo()"> {{ 'carpeta_ciudadana.identification.interested_data.title' | translate }}</span>
+                    </div>
+                </div>
+                <div class="card-body row mx-0">
+                    <div class="form-group col-md-3" *ngIf="!isUserAutonomo()">
+                        <label for="type">{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }} </label>
+                        <input id="type" name="type" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="isRepresentativeEmpresa()">
+                        <label for="social_reason">{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }} </label>
+                        <input id="social_reason" name="social_reason" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="isRepresentativeAutonomo() || isUserAutonomo()">
+                        <label for="name">{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }} </label>
+                        <input id="name" name="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="isRepresentativeAutonomo() || isUserAutonomo()">
+                        <label for="surname1">{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }} </label>
+                        <input id="surname1" name="surname1" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="isRepresentativeAutonomo() || isUserAutonomo()">
+                        <label for="surname2">{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }} </label>
+                        <input id="surname2" name="surname2" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nif">{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }} </label>
+                        <input id="nif" name="nif" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cnae">{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }} </label>
+                        <input id="cnae" name="cnae" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="iae">{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }} </label>
+                        <input id="iae" name="iae" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3  px-0 d-flex">
+                        <div class="form-group col-md-6">
+                            <label for="iae_date">{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }} </label>
+                            <input id="iae_date" name="iae_date" type="date" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="employees_number">{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }} </label>
+                            <input id="employees_number" name="employees_number" type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="ambit">{{ 'carpeta_ciudadana.identification.represented_data.ambit' | translate }} </label>
+                        <input id="ambit" name="ambit" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="isRepresentativeAutonomo() || isUserAutonomo()">
+                        <label for="residence_country">{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }} </label>
+                        <input id="residence_country" name="residence_country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0 d-flex" *ngIf="isRepresentativeAutonomo() || isUserAutonomo()">
+                        <div class="form-group col-md-6">
+                            <label for="birth_date">{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }} </label>
+                            <input id="birth_date" name="birth_date" type="date" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="genre">{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }} </label>
+                            <input id="genre" name="genre" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 px-0" *ngIf="!isUserAutonomo()">
+                        <div class="form-group col-md-6" *ngIf="isRepresentativeEmpresa()">
+                            <label for="constitution_date">{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }} </label>
+                            <input id="constitution_date" name="constitution_date" type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="active">{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }} </label>
+                        <input id="active" name="active" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="turnover">{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }} </label>
+                        <input id="turnover" name="turnover" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="group_belong">{{ 'carpeta_ciudadana.identification.represented_data.group_belong' | translate }} </label>
+                        <input id="group_belong" name="group_belong" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <div class="card">
+                <div class="card-header background-card-header pb-0">
+                    <div class="card-title text-white">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ 'carpeta_ciudadana.identification.social_address.title' | translate }}
+                    </div>
+                </div>
+                <div class="card-body row mx-0">
+                    <div class="form-group col-md-3">
+                        <label for="via_type">{{ 'carpeta_ciudadana.identification.social_address.via_type' | translate }} </label>
+                        <input id="via_type" name="via_type" type="via_type" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">{{ 'carpeta_ciudadana.identification.social_address.address' | translate }} </label>
+                        <input id="address" name="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="number">{{ 'carpeta_ciudadana.identification.social_address.number' | translate }} </label>
+                            <input id="number" name="number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="extra">{{ 'carpeta_ciudadana.identification.social_address.extra' | translate }} </label>
+                        <input id="extra" name="extra" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="CP">{{ 'carpeta_ciudadana.identification.social_address.CP' | translate }} </label>
+                            <input id="CP" name="CP" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="form-group col-md-3">
+                        <label for="country">{{ 'carpeta_ciudadana.identification.social_address.country' | translate }} </label>
+                        <input id="country" name="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="province">{{ 'carpeta_ciudadana.identification.social_address.province' | translate }} </label>
+                        <input id="province" name="province" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="municipality">{{ 'carpeta_ciudadana.identification.social_address.municipality' | translate }} </label>
+                        <input id="municipality" name="municipality" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <div class="card">
+                <div class="card-header background-card-header pb-0">
+                    <div class="card-title text-white">
+                        <i class="fas fa-building"></i>
+                        {{ 'carpeta_ciudadana.identification.productive_establishment_address.title' | translate }}
+                    </div>
+                </div>
+                <div class="card-body row mx-0">
+                    <div class="form-group col-md-3">
+                        <label for="via_type">{{ 'carpeta_ciudadana.identification.productive_establishment_address.via_type' | translate }} </label>
+                        <input id="via_type" name="via_type" type="via_type" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">{{ 'carpeta_ciudadana.identification.productive_establishment_address.address' | translate }} </label>
+                        <input id="address" name="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="number">{{ 'carpeta_ciudadana.identification.productive_establishment_address.number' | translate }} </label>
+                            <input id="number" name="number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="extra">{{ 'carpeta_ciudadana.identification.productive_establishment_address.extra' | translate }} </label>
+                        <input id="extra" name="extra" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="CP">{{ 'carpeta_ciudadana.identification.productive_establishment_address.CP' | translate }} </label>
+                            <input id="CP" name="CP" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="form-group col-md-3">
+                        <label for="country">{{ 'carpeta_ciudadana.identification.productive_establishment_address.country' | translate }} </label>
+                        <input id="country" name="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="province">{{ 'carpeta_ciudadana.identification.productive_establishment_address.province' | translate }} </label>
+                        <input id="province" name="province" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="municipality">{{ 'carpeta_ciudadana.identification.productive_establishment_address.municipality' | translate }} </label>
+                        <input id="municipality" name="municipality" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3">
+        <div class="col-md-12 mt-2" *ngIf="isRepresentativeAutonomo()  || isRepresentativeEmpresa()">
+            <div class="card">
+                <div class="card-header background-card-header pb-0">
+                    <div class="card-title text-white">
+                        <i class="fas fa-building"></i>
+                        {{ 'carpeta_ciudadana.identification.legal_representative.title' | translate }}
+                    </div>
+                </div>
+                <div class="card-body row mx-0">
+                    <div class="form-group col-md-3">
+                        <label for="name">{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }} </label>
+                        <input id="name" name="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="surname1">{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }} </label>
+                        <input id="surname1" name="surname1" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="surname2">{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }} </label>
+                        <input id="surname2" name="surname2" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nif">{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }} </label>
+                        <input id="nif" name="nif" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="position">{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }} </label>
+                        <input id="position" name="position" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="telephone">{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }} </label>
+                        <input id="telephone" name="telephone" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="email">{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }} </label>
+                        <input id="email" name="email" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="form-group col-md-3">
+                        <label for="via_type">{{ 'carpeta_ciudadana.identification.legal_representative.via_type' | translate }} </label>
+                        <input id="via_type" name="via_type" type="via_type" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">{{ 'carpeta_ciudadana.identification.legal_representative.address' | translate }} </label>
+                        <input id="address" name="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="number">{{ 'carpeta_ciudadana.identification.legal_representative.number' | translate }} </label>
+                            <input id="number" name="number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="extra">{{ 'carpeta_ciudadana.identification.legal_representative.extra' | translate }} </label>
+                        <input id="extra" name="extra" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="CP">{{ 'carpeta_ciudadana.identification.legal_representative.CP' | translate }} </label>
+                            <input id="CP" name="CP" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="form-group col-md-3">
+                        <label for="country">{{ 'carpeta_ciudadana.identification.legal_representative.country' | translate }} </label>
+                        <input id="country" name="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="province">{{ 'carpeta_ciudadana.identification.legal_representative.province' | translate }} </label>
+                        <input id="province" name="province" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="municipality">{{ 'carpeta_ciudadana.identification.legal_representative.municipality' | translate }} </label>
+                        <input id="municipality" name="municipality" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <div class="card">
+                <div class="card-header background-card-header pb-0">
+                    <div class="card-title text-white">
+                        <i class="fas fa-phone-alt"></i>
+                        {{ 'carpeta_ciudadana.identification.contact_data.title' | translate }}
+                    </div>
+                </div>
+                <div class="card-body row mx-0">
+                    <div class="mx-3 w-100 mb-2" *ngIf="!isUserAutonomo()" >
+                        <input type="checkbox" name="check" id="check" />
+                        {{ 'carpeta_ciudadana.identification.contact_data.check' | translate }}
+                    </div>
+                    <div class="mx-3 w-100 mb-2"  *ngIf="isUserAutonomo()" >
+                        <input type="checkbox" name="check" id="check" />
+                        {{ 'carpeta_ciudadana.identification.contact_data.check_user' | translate }}
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="name">{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }} </label>
+                        <input id="name" name="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="surname1">{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }} </label>
+                        <input id="surname1" name="surname1" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="surname2">{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }} </label>
+                        <input id="surname2" name="surname2" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nif">{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }} </label>
+                        <input id="nif" name="nif" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="position">{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }} </label>
+                        <input id="position" name="position" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="telephone">{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }} </label>
+                        <input id="telephone" name="telephone" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="email">{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }} </label>
+                        <input id="email" name="email" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="form-group col-md-3">
+                        <label for="via_type">{{ 'carpeta_ciudadana.identification.legal_representative.via_type' | translate }} </label>
+                        <input id="via_type" name="via_type" type="via_type" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">{{ 'carpeta_ciudadana.identification.legal_representative.address' | translate }} </label>
+                        <input id="address" name="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="number">{{ 'carpeta_ciudadana.identification.legal_representative.number' | translate }} </label>
+                            <input id="number" name="number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="extra">{{ 'carpeta_ciudadana.identification.legal_representative.extra' | translate }} </label>
+                        <input id="extra" name="extra" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <label for="CP">{{ 'carpeta_ciudadana.identification.legal_representative.CP' | translate }} </label>
+                            <input id="CP" name="CP" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="form-group col-md-3">
+                        <label for="country">{{ 'carpeta_ciudadana.identification.legal_representative.country' | translate }} </label>
+                        <input id="country" name="country" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="province">{{ 'carpeta_ciudadana.identification.legal_representative.province' | translate }} </label>
+                        <input id="province" name="province" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="municipality">{{ 'carpeta_ciudadana.identification.legal_representative.municipality' | translate }} </label>
+                        <input id="municipality" name="municipality" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
