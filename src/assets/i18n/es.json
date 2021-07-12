@@ -357,7 +357,19 @@
             }
         },
         "documentation": {
-            "title": "Documentación"
+            "title": "Documentación",
+            "identity_data": {
+                "title": "Datos de identidad",
+                "name_and_surname": "Nombre y Apellidos",
+                "nif": "NIF"
+            },
+            "notification_means": {
+                "title": "Medio de notificación",
+                "email": "Email a efecto de notificación"
+            },
+            "documents": {
+                "title": "Documentos"
+            }
         }
     }
 }
