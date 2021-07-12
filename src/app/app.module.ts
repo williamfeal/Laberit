@@ -59,6 +59,8 @@ import { LanguagesService } from './services/moges-services/language.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
+import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
+import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudadana/header-carpeta-ciudadana.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { RequestInfoComponent } from './components/carpeta-ciudadana/request-inf
     LegalWarningComponent,
     SpinnerComponent,
     UserIdentificationComponent,
-    RequestInfoComponent
+    RequestInfoComponent,
+    DocumentationComponent,
+    HeaderCarpetaCiudadanaComponent
   ],
   imports: [
     BrowserModule,
@@ -114,8 +118,7 @@ import { RequestInfoComponent } from './components/carpeta-ciudadana/request-inf
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-
-    })
+    }),
   ],
   providers: [
     WeatherService,

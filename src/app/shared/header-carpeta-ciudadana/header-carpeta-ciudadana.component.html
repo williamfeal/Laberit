@@ -1,0 +1,41 @@
+<div class="background-img jumbotron rounded-0">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="text-white text-uppercase font-weight-bold" id="header-title">
+                {{ 'carpeta_ciudadana.title' | translate }}
+            </h4>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end text-white">
+            <div class="mr-1"><em class="fas fa-user"></em></div>
+            <div><strong>Nombre Apellido Apellido</strong></div>
+        </div>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: transparent !important;">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['carpeta_ciudadana']" class="text-white">
+                    {{ 'carpeta_ciudadana.title' | translate }}
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a [routerLink]="['carpeta_ciudadana/identification']" class="text-white">
+                    {{ 'carpeta_ciudadana.identification.title' | translate }}
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a [routerLink]="['carpeta_ciudadana/request-info']" class="text-white">
+                    {{ 'carpeta_ciudadana.request_info.title' | translate }}
+                </a>
+            </li>
+            <li class="breadcrumb-item active text-white font-weight-bold"  aria-current="page">
+                {{ 'carpeta_ciudadana.documentation.title' | translate }}
+            </li>
+
+        </ol>
+    </nav>
+    <div class="row justify-content-end">
+        <a class="text-white mr-4"><em class="fas fa-id-card-alt"></em> Tus Solicitudes </a>
+        <a class="text-white"><em class="fas fa-envelope"></em> Tus Notificaciones y Comunicaciones </a>
+    </div>
+</div>

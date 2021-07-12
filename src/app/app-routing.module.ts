@@ -22,15 +22,13 @@ import { HowElectronicCertificateComponent } from './shared/footer/how-electroni
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
+import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'inicio', component: HomeComponent},
   { path: 'areas', component: ProcedimentsComponent },
   { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
-  { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
-  { path: 'carpeta-del-ciudadano/identificacion', component: UserIdentificationComponent, canActivate: [AuthGuardService]},
-  { path: 'carpeta-del-ciudadano/request-info', component: RequestInfoComponent, canActivate: [AuthGuardService]},
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},
@@ -49,6 +47,10 @@ const routes: Routes = [
   { path: 'certificado-electronico', component: HowElectronicCertificateComponent },
   { path: 'accesibilidad', component: AccesibilityComponent },
   { path: 'aviso-legal', component: LegalWarningComponent },
+  { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/identificacion', component: UserIdentificationComponent, canActivate: [AuthGuardService]},
+  { path: 'carpeta-del-ciudadano/request-info', component: RequestInfoComponent, canActivate: [AuthGuardService]},
+  { path: 'carpeta-del-ciudadano/documentation', component: DocumentationComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
