@@ -343,6 +343,18 @@
                 "province": "Provincia",
                 "municipality": "Municipio"
             }
+        },
+        "request_info": {
+            "title": "Información de la solicitud",
+            "procedure_info": {
+                "title": "Información del trámite",
+                "import": "Importe",
+                "term": "Plazo (años)",
+                "lack": "Carencia (meses)",
+                "modality": "Modalidad tipo de interés",
+                "company_type": "Tipo de empresa",
+                "project_definition": "Definición del proyecto"
+            }
         }
     }
 }

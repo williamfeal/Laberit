@@ -1,0 +1,154 @@
+<div class="background-img jumbotron rounded-0">
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="text-white text-uppercase font-weight-bold" id="header-title">
+                {{ 'carpeta_ciudadana.title' | translate }}
+            </h4>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end text-white">
+            <div class="mr-1"><em class="fas fa-user"></em></div>
+            <div><strong>Nombre Apellido Apellido</strong></div>
+        </div>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: transparent !important;">
+            <li class="breadcrumb-item">
+                <a [routerLink]="['carpeta_ciudadana']" class="text-white">
+                    {{ 'carpeta_ciudadana.title' | translate }}
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a [routerLink]="['carpeta_ciudadana/identification']" class="text-white">
+                    {{ 'carpeta_ciudadana.identification.title' | translate }}
+                </a>
+            </li>
+            <li class="breadcrumb-item active text-white font-weight-bold" aria-current="page">
+                {{ 'carpeta_ciudadana.request_info.title' | translate }}
+            </li>
+        </ol>
+    </nav>
+    <div class="row justify-content-end">
+        <a class="text-white mr-4"><em class="fas fa-id-card-alt"></em> Tus Solicitudes </a>
+        <a class="text-white"><em class="fas fa-envelope"></em> Tus Notificaciones y Comunicaciones </a>
+    </div>
+</div>
+<div class="row mx-0">
+    <div class="col-md-12 card">
+        <div class="card-header background-card-header pb-0">
+            <div class="card-title text-white">
+                <em class="fas fa-info-circle"></em>
+                {{ 'carpeta_ciudadana.request_info.procedure_info.title' | translate }}
+            </div>
+        </div>
+        <div class="card-body row">
+            <div class="form-group col-md-3 mx-auto">
+                <label for="import">{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }} </label>
+                <input type="text" name="import" id="import" class="form-control">
+            </div>
+            <div class="col-md-3 d-flex mx-0">
+                <div class="col-md-6 form-group">
+                    <label for="term">{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }} </label>
+                    <input type="number" name="term" id="term" class="form-control">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="lack">{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }} </label>
+                    <input type="number" name="lack" id="lack" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-3 mx-auto">
+                <label for="modality">{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }} </label>
+                <input type="text" name="modality" id="modality" class="form-control">
+            </div>
+            <div class="form-group col-md-3 mx-auto">
+                <label for="company_type">{{ 'carpeta_ciudadana.request_info.procedure_info.company_type' | translate }} </label>
+                <input type="text" name="company_type" id="company_type" class="form-control">
+            </div>
+            <div class="form-group col-md-12 mx-auto">
+                <label for="project_definition">{{ 'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }} </label>
+                <textarea type="text" name="project_definition" id="project_definition" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mx-0">
+    <div class="col-md-12 mt-2 card">
+        <div class="card-header background-card-header pb-0">
+            <div class="card-title text-white">
+                <i class="fas fa-file-invoice-dollar"></i>
+                Detalle de los costes a financiar
+            </div>
+        </div>
+        <div class="card-body">
+            <span class="ml-3">
+                <strong>Inversión en activos fijos</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality"> G1 - Terrenos  </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> G1 - Inmuebles y construcciones </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> G1 - Maquinaria y utillaje </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> G1 - Instalaciones </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> G1 - Otros </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+            </div>
+            <hr>
+            <span class="ml-3">
+                <strong>Financiación prevista en activos fijos</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality"> Recursos propios </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> Subvenciones </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> Otra financiación bancaria </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> Financiable IVF activo </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+            </div>
+            <hr>
+            <span class="ml-3">
+                <strong>Financiazión prevista en activos circulantes</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality"> G2 - Importe a financiar activo circulante </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> G2 - Financiable activo circulante </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mx-0 mt-4">
+    <div class="col-md-6 text-left">
+        <button class="btn-app-outline-primary">Anterior</button>
+    </div>
+    <div class="col-md-6 text-right">
+        <button class="btn-app-primary">Continuar</button>
+    </div>
+</div>

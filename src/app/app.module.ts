@@ -58,6 +58,7 @@ import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warni
 import { LanguagesService } from './services/moges-services/language.service';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
+import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { UserIdentificationComponent } from './components/carpeta-ciudadana/user
     AccesibilityComponent,
     LegalWarningComponent,
     SpinnerComponent,
-    UserIdentificationComponent
+    UserIdentificationComponent,
+    RequestInfoComponent
   ],
   imports: [
     BrowserModule,

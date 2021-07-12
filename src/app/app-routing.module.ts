@@ -21,6 +21,7 @@ import { AccesibilityComponent } from './shared/footer/accesibility/accesibility
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
+import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/identificacion', component: UserIdentificationComponent, canActivate: [AuthGuardService]},
+  { path: 'carpeta-del-ciudadano/request-info', component: RequestInfoComponent, canActivate: [AuthGuardService]},
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},

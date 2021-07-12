@@ -6,7 +6,7 @@
             </h4>
         </div>
         <div class="col-md-6 d-flex justify-content-end text-white">
-            <div class="mr-1"><i class="fas fa-user"></i></div>
+            <div class="mr-1"><em class="fas fa-user"></em></div>
             <div><strong>Nombre Apellido Apellido</strong></div>
         </div>
     </div>
@@ -19,13 +19,13 @@
                 </a>
             </li>
           <li class="breadcrumb-item active text-white font-weight-bold" aria-current="page">
-              Identificación de Usuario
-          </li>
+            {{ 'carpeta_ciudadana.identification.title' | translate }}
+        </li>
         </ol>
     </nav>
     <div class="row justify-content-end">
-        <a class="text-white mr-4"><i class="fas fa-id-card-alt"></i> Tus Solicitudes </a>
-        <a class="text-white"><i class="fas fa-envelope"></i> Tus Notificaciones y Comunicaciones </a>
+        <a class="text-white mr-4"><em class="fas fa-id-card-alt"></em> Tus Solicitudes </a>
+        <a class="text-white"><em class="fas fa-envelope"></em> Tus Notificaciones y Comunicaciones </a>
     </div>
 </div>
 <div class="row mx-0 px-3">
@@ -33,7 +33,7 @@
         <div class="card mb-2" >
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
-                    <i class="fas fa-user"></i>
+                    <em class="fas fa-user"></em>
                     <span *ngIf="isInteresado()"> {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</span>
                     <span *ngIf="!isInteresado()"> {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}</span>
                 </div>
@@ -58,7 +58,7 @@
         <div class="card">
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
-                    <i class="fas fa-envelope"></i>
+                    <em class="fas fa-envelope"></em>
                     {{ 'carpeta_ciudadana.identification.means_of_notification.title' | translate }}
                 </div>
             </div>
@@ -81,7 +81,7 @@
         <div class="card">
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
-                    <i class="fas fa-info-circle"></i>
+                    <em class="fas fa-info-circle"></em>
                     {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}
                 </div>
             </div>
@@ -103,7 +103,7 @@
         <div class="card">
             <div class="card-header background-card-header pb-0">
                 <div class="card-title text-white">
-                    <i class="fas fa-envelope"></i>
+                    <em class="fas fa-envelope"></em>
                     {{ 'carpeta_ciudadana.identification.actuation_data.title' | translate }}
                 </div>
             </div>
@@ -129,7 +129,7 @@
             <div class="card">
                 <div class="card-header background-card-header pb-0">
                     <div class="card-title text-white">
-                        <i class="fas fa-id-card"></i>
+                        <em class="fas fa-id-card"></em>
                         <span *ngIf="!isUserAutonomo()"> {{ 'carpeta_ciudadana.identification.represented_data.title' | translate }}</span>
                         <span *ngIf="isUserAutonomo()"> {{ 'carpeta_ciudadana.identification.interested_data.title' | translate }}</span>
                     </div>
@@ -222,7 +222,7 @@
             <div class="card">
                 <div class="card-header background-card-header pb-0">
                     <div class="card-title text-white">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <em class="fas fa-map-marker-alt"></em>
                         {{ 'carpeta_ciudadana.identification.social_address.title' | translate }}
                     </div>
                 </div>
@@ -273,7 +273,7 @@
             <div class="card">
                 <div class="card-header background-card-header pb-0">
                     <div class="card-title text-white">
-                        <i class="fas fa-building"></i>
+                        <em class="fas fa-building"></em>
                         {{ 'carpeta_ciudadana.identification.productive_establishment_address.title' | translate }}
                     </div>
                 </div>
@@ -324,7 +324,7 @@
             <div class="card">
                 <div class="card-header background-card-header pb-0">
                     <div class="card-title text-white">
-                        <i class="fas fa-user-shield"></i>
+                        <em class="fas fa-user-shield"></em>
                         {{ 'carpeta_ciudadana.identification.legal_representative.title' | translate }}
                     </div>
                 </div>
@@ -404,7 +404,7 @@
             <div class="card">
                 <div class="card-header background-card-header pb-0">
                     <div class="card-title text-white">
-                        <i class="fas fa-phone-alt"></i>
+                        <em class="fas fa-phone-alt"></em>
                         {{ 'carpeta_ciudadana.identification.contact_data.title' | translate }}
                     </div>
                 </div>
