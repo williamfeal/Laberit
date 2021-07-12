@@ -1,5 +1,9 @@
 {
     "TITLE": "SEDE ELECTRÓNICA",
+    "buttons": {
+        "back": "Atrás",
+        "continue": "Continuar"
+    },
     "home": {
         "TITLE": "Inicio",
         "carpeta": "Carpeta Ciudadana",
@@ -225,5 +229,151 @@
     },
     "areas": {
         "title": "Áreas"
+    },
+    "carpeta_ciudadana": {
+        "title": "Carpeta Ciudadana",
+        "init_page": {
+            "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
+            "btn_electronic_certificate": "Acceso con certificado electrónico",
+            "btn_clave": "Acceso con clave" 
+        },
+        "identification": {
+            "title": "Identificación de Usuario",
+            "identity_data": {
+                "title": "Datos de identificación",
+                "name_and_surname": "Nombre y Apellidos",
+                "nif": "NIF"
+            },
+            "means_of_notification": {
+                "title": "Medio de comunicación",
+                "means": "Medio de comunicación",
+                "email": "Email a efecto de notificación",
+                "electronic": "Electrónico",
+                "paper": "Papel"
+            },
+            "interested_data": {
+                "title": "Datos del interesado"
+            },
+            "requester_data": {
+                "title": "Datos del solicitante",
+                "type": "Tipo",
+                "type_interested": "Interesado",
+                "type_representative": "Representante"
+            },
+            "actuation_data": {
+                "title":"Datos de actuación",
+                "actuation": "Actuación en el trámite",
+                "representation_power": "Poder de representación",
+                "check":"Comprobar"
+            },
+            "represented_data": {
+                "title":"Datos del representado",
+                "type":"Tipo",
+                "social_reason": "Razón Social",
+                "name": "Nombre",
+                "surname1": "Apellido 1",
+                "surname2": "Apellido 2",
+                "nif": "NIF",
+                "cnae": "CNAE",
+                "iae": "IAE",
+                "iae_date": "Fecha de alta en la IAE",
+                "employees_number": "Número de empleados",
+                "ambit":"Ámbito",
+                "residence_country": "País de residencia",
+                "birth_date": "Fecha de nacimiento",
+                "constitution_date": "Fecha de constitución",
+                "genre": "Género",
+                "active": "Activo",
+                "turnover": "Cifra de negocio",
+                "group_belong": "Pertenece a grupo"
+            },
+            "social_address": {
+                "title": "Domicilio Social",
+                "via_type": "Tipo de vía",
+                "address":"Dirección",
+                "number": "Número",
+                "extra": "Extra",
+                "CP": "Código Postal",
+                "country": "País",
+                "province": "Provincia",
+                "municipality": "Municipio"
+            }, 
+            "productive_establishment_address": {
+                "title": "Domicilio establecimiento productivo",
+                "via_type": "Tipo de vía",
+                "address":"Dirección",
+                "number": "Número",
+                "extra": "Extra",
+                "CP": "Código Postal",
+                "country": "País",
+                "province": "Provincia",
+                "municipality": "Municipio"
+            },
+            "legal_representative": {
+                "title": "Representante Legal",
+                "name": "Nombre",
+                "surname1": "Apellido 1",
+                "surname2": "Apellido 2",
+                "nif": "NIF",
+                "position": "Cargo",
+                "telephone": "Teléfono",
+                "email": "Email",
+                "via_type": "Tipo de vía",
+                "address":"Dirección",
+                "number": "Número",
+                "extra": "Extra",
+                "CP": "Código Postal",
+                "country": "País",
+                "province": "Provincia",
+                "municipality": "Municipio"
+            },
+            "contact_data": {
+                "title": "Datos de contacto",
+                "check": "Los datos de contacto coinciden con los de Representante Legal",
+                "check_user": "Los datos de contacto coinciden con los del interesado",
+                "name": "Nombre",
+                "surname1": "Apellido 1",
+                "surname2": "Apellido 2",
+                "nif": "NIF",
+                "position": "Cargo",
+                "telephone": "Teléfono",
+                "email": "Email",
+                "via_type": "Tipo de vía",
+                "address":"Dirección",
+                "number": "Número",
+                "extra": "Extra",
+                "CP": "Código Postal",
+                "country": "País",
+                "province": "Provincia",
+                "municipality": "Municipio"
+            }
+        },
+        "request_info": {
+            "title": "Información de la solicitud",
+            "procedure_info": {
+                "title": "Información del trámite",
+                "import": "Importe",
+                "term": "Plazo (años)",
+                "lack": "Carencia (meses)",
+                "modality": "Modalidad tipo de interés",
+                "company_type": "Tipo de empresa",
+                "project_definition": "Definición del proyecto"
+            }
+        },
+        "documentation": {
+            "title": "Documentación",
+            "identity_data": {
+                "title": "Datos de identidad",
+                "name_and_surname": "Nombre y Apellidos",
+                "nif": "NIF"
+            },
+            "notification_means": {
+                "title": "Medio de notificación",
+                "email": "Email a efecto de notificación"
+            },
+            "documents": {
+                "title": "Documentos"
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserIdentificationComponent } from './components/carpeta-ciudadana/user-identification/user-identification.component';
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
@@ -15,17 +16,20 @@ import { ProcedimentDetailComponent } from './components/procediments/procedimen
 import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
 import { ProcedimentsComponent } from './components/procediments/procediments.component';
 import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 import { AccesibilityComponent } from './shared/footer/accesibility/accesibility.component';
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
+import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
+import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
+import { TranslateService } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'inicio', component: HomeComponent},
   { path: 'areas', component: ProcedimentsComponent },
   { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
-  { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},
@@ -44,10 +48,39 @@ const routes: Routes = [
   { path: 'certificado-electronico', component: HowElectronicCertificateComponent },
   { path: 'accesibilidad', component: AccesibilityComponent },
   { path: 'aviso-legal', component: LegalWarningComponent },
+  { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/identificacion', 
+    component: UserIdentificationComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '', terminal: true }
+    ]},
+  },
+  { path: 'carpeta-del-ciudadano/request-info', 
+    component: RequestInfoComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb: [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.request_info.title', url: '', terminal: true}] }
+  },
+  { path: 'carpeta-del-ciudadano/documentation', 
+    component: DocumentationComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.request_info.title', url: '/carpeta-del-ciudadano/request-info', terminal: false},
+      { title: 'carpeta_ciudadana.documentation.title', url: '', terminal: true} 
+    ]}
+    },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor( private translateService:TranslateService) { }
+}

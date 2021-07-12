@@ -10,4 +10,7 @@ export class UrlConstants {
     public static readonly ENDPOINT_PROCEDURES = '/procedures';
     public static readonly ENDPOINT_LANGUAGES = '/i18n';
     public static readonly ENDPOINT_STYLES = '/styles'
+
+    public static readonly URL_REDIRECT_CLAVE = '';
+    public static readonly URL_RECEPTION_CLAVE = '';
 }

@@ -16,8 +16,6 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let iframe_carpeta =  document.getElementById("iframe_carpeta");
-    iframe_carpeta.setAttribute("src", this.url_carpeta)
 
   }
 
