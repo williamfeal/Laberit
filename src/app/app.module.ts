@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BreadcrumbModule} from 'angular-crumbs';
 
 import { AdvertisementDetailComponent } from './components/advertisements-list/advertisement-detail/advertisement-detail.component';
 import { ContractorProfileComponent } from './components/contractor-profile/contractor-profile.component';
@@ -106,7 +107,8 @@ import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudada
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,     
+    BreadcrumbModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -10,30 +10,15 @@
             <div><strong>Nombre Apellido Apellido</strong></div>
         </div>
     </div>
-    
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb" style="background-color: transparent !important;">
-            <li class="breadcrumb-item">
-                <a [routerLink]="['carpeta_ciudadana']" class="text-white">
-                    {{ 'carpeta_ciudadana.title' | translate }}
-                </a>
+      
+    <ol class="breadcrumb" *ngIf="breadcrumbs">
+        <div *ngFor="let breadcrumb of breadcrumbs" >
+            <li *ngIf="!breadcrumb.terminal" class="breadcrumb-item">
+                <a [routerLink]="[breadcrumb.url]">{{ breadcrumb.title }}</a> > 
             </li>
-            <li class="breadcrumb-item">
-                <a [routerLink]="['carpeta_ciudadana/identification']" class="text-white">
-                    {{ 'carpeta_ciudadana.identification.title' | translate }}
-                </a>
-            </li>
-            <li class="breadcrumb-item">
-                <a [routerLink]="['carpeta_ciudadana/request-info']" class="text-white">
-                    {{ 'carpeta_ciudadana.request_info.title' | translate }}
-                </a>
-            </li>
-            <li class="breadcrumb-item active text-white font-weight-bold"  aria-current="page">
-                {{ 'carpeta_ciudadana.documentation.title' | translate }}
-            </li>
-
-        </ol>
-    </nav>
+            <li *ngIf="breadcrumb.terminal" class="breadcrumb-item active" aria-current="page"> {{ breadcrumb.title }}</li>
+        </div>
+    </ol>
     <div class="row justify-content-end">
         <a class="text-white mr-4"><em class="fas fa-id-card-alt"></em> Tus Solicitudes </a>
         <a class="text-white"><em class="fas fa-envelope"></em> Tus Notificaciones y Comunicaciones </a>
