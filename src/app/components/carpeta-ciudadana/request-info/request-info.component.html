@@ -1,6 +1,11 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<div class="row mr-0 ml-4">
+    <a [routerLink]="['/carpeta-del-ciudadano/identificacion']">
+        <em class="fas fa-chevron-left"></em>  {{ 'buttons.back' | translate}}
+    </a>
+</div>
 <div class="row mx-0">
-    <div class="col-md-12 card">
+    <div class="col-md-12 mt-2 card">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
                 <em class="fas fa-info-circle"></em>
@@ -117,6 +122,6 @@
         <button class="btn-app-outline-primary">Anterior</button>
     </div>
     <div class="col-md-6 text-right">
-        <button class="btn-app-primary">Continuar</button>
+        <button class="btn-app-primary">{{ 'buttons.continue' | translate}}</button>
     </div>
 </div>

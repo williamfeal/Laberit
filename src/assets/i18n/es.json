@@ -1,5 +1,9 @@
 {
     "TITLE": "SEDE ELECTRÓNICA",
+    "buttons": {
+        "back": "Atrás",
+        "continue": "Continuar"
+    },
     "home": {
         "TITLE": "Inicio",
         "carpeta": "Carpeta Ciudadana",
