@@ -374,6 +374,9 @@
             "documents": {
                 "title": "Documentos"
             }
+        },
+        "requests-list": {
+            "title": "Mis Solicitudes"
         }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
@@ -12,7 +13,7 @@ export class CarpetaCiudadanaComponent implements OnInit {
   url_carpeta;
 
   constructor(
-
+    private router:Router
   ) {
     this.url_carpeta = environment.carpeta_url + '/index';
   }
@@ -22,7 +23,12 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   public getClave() {
-    window.location.href = UrlConstants.URL_REDIRECT_CLAVE;
+    sessionStorage.setItem('dni', '32715798');
+    sessionStorage.setItem('nombre', 'Sabela');
+    sessionStorage.setItem('apellido1', 'Yáñez');
+    sessionStorage.setItem('apellido2', 'López');
+
+    this.router.navigate(['carpeta-del-ciudadano/requests-list']);
   }
 
 }

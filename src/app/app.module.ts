@@ -62,6 +62,7 @@ import { UserIdentificationComponent } from './components/carpeta-ciudadana/user
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudadana/header-carpeta-ciudadana.component';
+import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudada
     UserIdentificationComponent,
     RequestInfoComponent,
     DocumentationComponent,
-    HeaderCarpetaCiudadanaComponent
+    HeaderCarpetaCiudadanaComponent,
+    RequestsListComponent
   ],
   imports: [
     BrowserModule,
