@@ -11,6 +11,6 @@ export class UrlConstants {
     public static readonly ENDPOINT_LANGUAGES = '/i18n';
     public static readonly ENDPOINT_STYLES = '/styles'
 
-    public static readonly URL_REDIRECT_CLAVE = '';
+    public static readonly URL_REDIRECT_CLAVE = 'http://clave.apc.alfatecsistemas.es/SPClave/TokenServlet?urlvuelta=http://localhost:4200/carpeta-del-ciudadano';
     public static readonly URL_RECEPTION_CLAVE = '';
 }
