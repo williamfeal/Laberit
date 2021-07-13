@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-user-identification',
@@ -8,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class UserIdentificationComponent implements OnInit {
 
   public interesado:boolean = false;
+  public user;
 
-  constructor() { }
+  constructor(
+  ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public isInteresado(): boolean {
     return false;

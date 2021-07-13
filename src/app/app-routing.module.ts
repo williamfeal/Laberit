@@ -24,6 +24,7 @@ import { TechnicalRequirementsComponent } from './shared/footer/technical-requir
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 import { TranslateService } from '@ngx-translate/core';
+import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -65,14 +66,12 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
       { title: 'carpeta_ciudadana.request_info.title', url: '', terminal: true}] }
   },
-  { path: 'carpeta-del-ciudadano/documentation', 
-    component: DocumentationComponent, 
+  { path: 'carpeta-del-ciudadano/requests-list', 
+    component: RequestsListComponent, 
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
-      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
-      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
-      { title: 'carpeta_ciudadana.request_info.title', url: '/carpeta-del-ciudadano/request-info', terminal: false},
-      { title: 'carpeta_ciudadana.documentation.title', url: '', terminal: true} 
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false },
+      { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true} 
     ]}
     },
 ];

@@ -7,7 +7,8 @@
         </div>
         <div class="col-md-6 d-flex justify-content-end text-white">
             <div class="mr-1"><em class="fas fa-user"></em></div>
-            <div><strong>Nombre Apellido Apellido</strong></div>
+            <div *ngIf="user">
+                <strong>{{ user.nombre }} {{ user.apellido1 }} {{ user.apellido2 }}</strong></div>
         </div>
     </div>
       
@@ -20,7 +21,7 @@
         </div>
     </ol>
     <div class="row justify-content-end">
-        <a class="text-white mr-4"><em class="fas fa-id-card-alt"></em> Mis Solicitudes </a>
-        <a class="text-white"><em class="fas fa-envelope"></em> Mis Notificaciones y Comunicaciones </a>
+        <a class="text-white mr-4" [routerLink]="['/carpeta-del-ciudadano/requests-list']" ><em class="fas fa-id-card-alt"></em> Mis Solicitudes </a>
+        <a class="text-white" [routerLink]="['/#']"><em class="fas fa-envelope"></em> Mis Notificaciones y Comunicaciones </a>
     </div>
 </div>
