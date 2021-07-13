@@ -6,6 +6,8 @@
         <button class="button-round btn-app-primary text-uppercase">
             {{ 'carpeta_ciudadana.init_page.btn_electronic_certificate' | translate }}
         </button>
-        <button class="button-round btn-app-orange text-uppercase my-2">{{ 'carpeta_ciudadana.init_page.btn_clave' | translate }}</button>
+        <button class="button-round btn-app-orange text-uppercase my-2" (click)="getClave()">
+            {{ 'carpeta_ciudadana.init_page.btn_clave' | translate }}
+        </button>
     </div>
 </div>

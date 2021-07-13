@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,14 +10,19 @@ import { environment } from 'src/environments/environment';
 export class CarpetaCiudadanaComponent implements OnInit {
 
   url_carpeta;
-  iframe_carpeta;
 
-  constructor() {
+  constructor(
+
+  ) {
     this.url_carpeta = environment.carpeta_url + '/index';
   }
 
   ngOnInit(): void {
 
+  }
+
+  public getClave() {
+    window.location.href = UrlConstants.URL_REDIRECT_CLAVE;
   }
 
 }

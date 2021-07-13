@@ -2,7 +2,7 @@
     "TITLE": "SEDE ELECTRÓNICA VAL",
     "home": {
         "TITLE": "Inicio VAL",
-        "carpeta": "Carpeta Ciudadana VAL",
+        "carpeta": "Área de Cliente VAL",
         "advertisements" : "Tablón de anuncios VAL",
         "contractor_profile": "Perfil de contratante VAL",
         "electronic_services": "Servicios Electrónicos VAL",
@@ -96,7 +96,7 @@
         "contractor_profile": "Perfil de contratante",
         "contact_popover": {
             "title": "¿Necesitas ayuda?",
-            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/#/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
+            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
         }
     },
     "procediment_detail": {
@@ -124,7 +124,7 @@
         "download_application_form": "Descargar modelo de solicitud"
     },
     "header":{
-        "carpeta": "Carpeta Ciudadana"
+        "carpeta": "Área de Cliente"
     },
     "electronic-services":{
         "document-verification": {
