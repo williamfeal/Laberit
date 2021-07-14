@@ -22,10 +22,9 @@ import { HowElectronicCertificateComponent } from './shared/footer/how-electroni
 import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warning.component';
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
-import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DatosInteresadoComponent } from './components/carpeta-ciudadana/includes/datos-interesado/datos-interesado.component';
 import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
+import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -51,6 +50,7 @@ const routes: Routes = [
   { path: 'accesibilidad', component: AccesibilityComponent },
   { path: 'aviso-legal', component: LegalWarningComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
     canActivate: [AuthGuardService],
@@ -67,17 +67,15 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
       { title: 'carpeta_ciudadana.request_info.title', url: '', terminal: true}] }
   },
-  { path: 'carpeta-del-ciudadano/documentation', 
-    component: DocumentationComponent, 
+  { path: 'carpeta-del-ciudadano/requests-list', 
+    component: RequestsListComponent, 
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
-      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
-      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
-      { title: 'carpeta_ciudadana.request_info.title', url: '/carpeta-del-ciudadano/request-info', terminal: false},
-      { title: 'carpeta_ciudadana.documentation.title', url: '', terminal: true} 
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false },
+      { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
     ]}
     },
-    { path: 'carpeta-del-ciudadano/identificacion/instanciaGeneral', 
+    { path: 'carpeta-del-ciudadano/instanciaGeneral', 
     component: InstanciaGeneralComponent, 
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
@@ -89,7 +87,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -6,7 +6,7 @@
     },
     "home": {
         "TITLE": "Inicio",
-        "carpeta": "Carpeta Ciudadana",
+        "carpeta": "Área de Cliente",
         "advertisements" : "Tablón de anuncios",
         "contractor_profile": "Perfil de contratante",
         "electronic_services": "Servicios Electrónicos",
@@ -100,7 +100,7 @@
         "contractor_profile": "Perfil de contratante",
         "contact_popover": {
             "title": "¿Necesitas ayuda?",
-            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/#/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
+            "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
         }
     },
     "procediment_detail": {
@@ -128,7 +128,7 @@
         "download_application_form": "Descargar modelo de solicitud"
     },
     "header":{
-        "carpeta": "Carpeta Ciudadana"
+        "carpeta": "Área de Cliente"
     },
     "electronic-services":{
         "document-verification": {
@@ -231,7 +231,7 @@
         "title": "Áreas"
     },
     "carpeta_ciudadana": {
-        "title": "Carpeta Ciudadana",
+        "title": "Área de Cliente",
         "init_page": {
             "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
             "btn_electronic_certificate": "Acceso con certificado electrónico",
@@ -386,20 +386,25 @@
                 "project_definition": "Definición del proyecto"
             }
         },
+        "notification_means": {
+            "title": "Medio de notificación",
+            "email": "Email a efecto de notificación"
+        },
         "documentation": {
             "title": "Documentación",
-            "identity_data": {
-                "title": "Datos de identidad",
-                "name_and_surname": "Nombre y Apellidos",
-                "nif": "NIF"
-            },
-            "notification_means": {
-                "title": "Medio de notificación",
-                "email": "Email a efecto de notificación"
-            },
-            "documents": {
-                "title": "Documentos"
+            "documents":"Documentos"
+        },
+        "requests-list": {
+            "title": "Mis Solicitudes"
+        },
+        "general_instance": {
+            "title":"Instancia General",
+            "request_info": {
+                "summary":"Resumen",
+                "expose": "Expone",
+                "request": "Solicita"
             }
         }
+
     }
 }

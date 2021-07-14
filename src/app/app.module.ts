@@ -65,6 +65,7 @@ import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudada
 import { DatosInteresadoComponent } from './components/carpeta-ciudadana/includes/datos-interesado/datos-interesado.component';
 import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
 import { DatosNotificacionComponent } from './components/carpeta-ciudadana/includes/datos-notificacion/datos-notificacion.component';
+import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { DatosNotificacionComponent } from './components/carpeta-ciudadana/inclu
     HeaderCarpetaCiudadanaComponent,
     DatosInteresadoComponent,
     InstanciaGeneralComponent,
-    DatosNotificacionComponent
+    DatosNotificacionComponent,
+    RequestsListComponent
   ],
   imports: [
     BrowserModule,

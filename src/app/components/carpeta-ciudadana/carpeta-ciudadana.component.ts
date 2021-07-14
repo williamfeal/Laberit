@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,14 +11,32 @@ import { environment } from 'src/environments/environment';
 export class CarpetaCiudadanaComponent implements OnInit {
 
   url_carpeta;
-  iframe_carpeta;
 
-  constructor() {
+  constructor(
+    private router:Router,
+    private activatedRoute:ActivatedRoute
+  ) {
     this.url_carpeta = environment.carpeta_url + '/index';
   }
 
   ngOnInit(): void {
 
+  }
+
+  public getClave() {
+    sessionStorage.setItem('dni', '32715798');
+    sessionStorage.setItem('nombre', 'Sabela');
+    sessionStorage.setItem('apellido1', 'Yáñez');
+    sessionStorage.setItem('apellido2', 'López');
+    if(this.activatedRoute.snapshot.params.idProcedure) {
+      this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
+        queryParams: {
+          idProcedure: this.activatedRoute.snapshot.params.idProcedure
+        }
+      });
+    } else {
+      this.router.navigate(['carpeta-del-ciudadano/requests-list']);
+    }
   }
 
 }
