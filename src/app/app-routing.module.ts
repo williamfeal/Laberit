@@ -75,7 +75,7 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
     ]}
     },
-    { path: 'carpeta-del-ciudadano/instanciaGeneral', 
+    { path: 'carpeta-del-ciudadano/instancia-general', 
     component: InstanciaGeneralComponent, 
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
