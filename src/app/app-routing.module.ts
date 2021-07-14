@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'accesibilidad', component: AccesibilityComponent },
   { path: 'aviso-legal', component: LegalWarningComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
     canActivate: [AuthGuardService],
@@ -71,7 +72,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false },
-      { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true} 
+      { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
     ]}
     },
 ];
