@@ -12,7 +12,7 @@
         </div>
     </div>
       
-    <ol class="breadcrumb" *ngIf="breadcrumbs">
+    <ol class="breadcrumb breadcrumb-header-carpeta" *ngIf="breadcrumbs">
         <div *ngFor="let breadcrumb of breadcrumbs" >
             <li *ngIf="!breadcrumb.terminal" class="breadcrumb-item">
                 <a [routerLink]="[breadcrumb.url]">{{ breadcrumb.title }}</a> >
