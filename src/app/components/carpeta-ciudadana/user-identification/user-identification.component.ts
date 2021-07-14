@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -13,11 +13,12 @@ export class UserIdentificationComponent implements OnInit {
   public user;
   public idProcedure;
   constructor(
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
-    this.idProcedure = this.activatedRoute.snapshot.params.idProcedure;
+    this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
   }
 
   public isInteresado(): boolean {
@@ -34,6 +35,22 @@ export class UserIdentificationComponent implements OnInit {
 
   public isUserAutonomo(): boolean {
     return false;
+  }
+
+  public goToRequestInfo() {
+    console.log(this.idProcedure)
+    switch(this.idProcedure) {
+      case "8e69e3dd-638b-4a0b-84b5-84b81b572304": 
+        this.router.navigate(['carpeta-del-ciudadano/general-instance']);
+        break;
+      default: 
+        this.router.navigate(['carpeta-del-ciudadano/request-info'], {
+          queryParams: {
+            idProcedure: this.idProcedure
+          }
+        });
+    }
+    
   }
 
 }
