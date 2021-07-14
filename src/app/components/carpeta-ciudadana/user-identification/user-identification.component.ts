@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -10,14 +11,17 @@ export class UserIdentificationComponent implements OnInit {
 
   public interesado:boolean = false;
   public user;
-
+  public idProcedure;
   constructor(
+    private activatedRoute:ActivatedRoute
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.idProcedure = this.activatedRoute.snapshot.params.idProcedure;
+  }
 
   public isInteresado(): boolean {
-    return false;
+    return true;
   }
 
   public isRepresentativeEmpresa(): boolean {
@@ -25,7 +29,7 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public isRepresentativeAutonomo(): boolean {
-    return true;
+    return false;
   }
 
   public isUserAutonomo(): boolean {

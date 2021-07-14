@@ -28,10 +28,12 @@ export class CarpetaCiudadanaComponent implements OnInit {
     sessionStorage.setItem('nombre', 'Sabela');
     sessionStorage.setItem('apellido1', 'Yáñez');
     sessionStorage.setItem('apellido2', 'López');
-
-    console.log(this.activatedRoute.snapshot.params)
     if(this.activatedRoute.snapshot.params.idProcedure) {
-      this.router.navigate(['carpeta-del-ciudadano/identificacion']);
+      this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
+        queryParams: {
+          idProcedure: this.activatedRoute.snapshot.params.idProcedure
+        }
+      });
     } else {
       this.router.navigate(['carpeta-del-ciudadano/requests-list']);
     }
