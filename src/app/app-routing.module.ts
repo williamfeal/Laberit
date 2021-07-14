@@ -24,6 +24,8 @@ import { TechnicalRequirementsComponent } from './shared/footer/technical-requir
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 import { TranslateService } from '@ngx-translate/core';
+import { DatosInteresadoComponent } from './components/carpeta-ciudadana/includes/datos-interesado/datos-interesado.component';
+import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -75,6 +77,15 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.documentation.title', url: '', terminal: true} 
     ]}
     },
+    { path: 'carpeta-del-ciudadano/identificacion/instanciaGeneral', 
+    component: InstanciaGeneralComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.instance.title', url: '', terminal: true }
+    ]},
+  },
 ];
 
 @NgModule({

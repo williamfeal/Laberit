@@ -237,6 +237,29 @@
             "btn_electronic_certificate": "Acceso con certificado electrónico",
             "btn_clave": "Acceso con clave" 
         },
+        "instance":{
+            "title":"Instancia General",
+            "interested":{
+                "title":"Datos Interesado",
+                "name_and_surname": "Nombre y Apellidos",
+                "nifCif": "NIF o CIF",
+                "telephone":"Teléfono",
+                "email": "E-mail",
+                "linkDates": "Puede editar sus datos personales en ",
+                "link": "este enlace"
+            },
+            "notification":{
+                "title":"Datos a Efecto de Notificación",
+                "type": "Tipo de via",
+                "direction": "Dirección",
+                "number":"Número",
+                "extra": "Extra",
+                "CP": "Código Postal",
+                "country": "País",
+                "province": "Provincia",
+                "municipality": "Municipio"
+            }
+        },
         "identification": {
             "title": "Identificación de Usuario",
             "identity_data": {

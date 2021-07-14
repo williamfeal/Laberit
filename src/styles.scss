@@ -24,3 +24,9 @@ body {
 .background-card-header {
     background-color: $card-header !important;
 }
+.card-text{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
