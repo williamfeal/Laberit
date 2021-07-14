@@ -5,7 +5,7 @@
     </a>
 </div>
 <div class="row mx-0">
-    <div class="col-md-6 card mt-2">
+    <div class="col-md-6 col-sm-12 card mt-2">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
                 <em class="fas fa-user"></em>
@@ -15,17 +15,17 @@
         <div class="card-body">
             <div class="row">
                 <div class="form-group col-md-8 mx-auto">
-                    <label for="import">{{ 'carpeta_ciudadana.documentation.identification.identity_data.name_and_surname' | translate }} </label>
+                    <label for="import">{{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }} </label>
                     <input type="text" name="import" id="import" class="form-control">
                 </div>
                 <div class="form-group col-md-4 mx-auto">
-                    <label for="modality">{{ 'carpeta_ciudadana.documentation.identification.identity_data.nif' | translate }} </label>
+                    <label for="modality">{{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }} </label>
                     <input type="text" name="modality" id="modality" class="form-control">
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6 card">
+    <div class="col-md-6 col-sm-12 card mt-2">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
                 <em class="fas fa-info-circle"></em>
@@ -47,22 +47,30 @@
     </div>
 </div>
 <div class="row mx-0">
-    <div class="col-md-12 mt-2 card">
+    <div class="col-md-12 card mt-2">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
-                <em class="fas fa-file"></em>
-                {{ 'carpeta_ciudadana.documentation.documents' | translate }}
+                <em class="fas fa-info-circle"></em>
+                {{ 'carpeta_ciudadana.request_info.title' | translate }}
             </div>
         </div>
         <div class="card-body">
+            <div class="row justify-content-start">
+                <div class="form-group col-md-6">
+                    <label for="import">{{ 'carpeta_ciudadana.general_instance.request_info.summary' | translate }} </label>
+                    <input type="text" name="import" id="import" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="import">{{ 'carpeta_ciudadana.general_instance.request_info.expose' | translate }} </label>
+                    <textarea type="text" name="import" id="import" class="form-control"></textarea>
+                </div>
+                <div class="form-group col-md-6 mx-auto">
+                    <label for="import">{{ 'carpeta_ciudadana.general_instance.request_info.request' | translate }} </label>
+                    <textarea type="text" name="import" id="import" class="form-control"></textarea>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<div class="row mx-0 mt-4">
-    <div class="col-md-6 text-left">
-        <button class="btn-app-outline-primary">Anterior</button>
-    </div>
-    <div class="col-md-6 text-right">
-        <button class="btn-app-primary">{{ 'buttons.continue' | translate}}</button>
     </div>
 </div>
