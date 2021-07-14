@@ -1,0 +1,42 @@
+<div class="card mb-2">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title text-white">
+            <em class="fas fa-user"></em>
+            <label>{{ 'carpeta_ciudadana.instance.interested.title' | translate }}</label>
+        </div>
+    </div>
+    <div class="card-text row pt-3">
+        <div class="form-group col-md-8">
+            <label for="name_and_surname">
+                {{ 'carpeta_ciudadana.instance.interested.name_and_surname' | translate }} <b>*</b>
+            </label>
+            <input id="name_and_surname" name="name_and_surname" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="nifCif">
+                {{ 'carpeta_ciudadana.instance.interested.nifCif' | translate }} <b>*</b>
+            </label>
+            <input id="nif" name="nif" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-5">
+            <label for="telephone">
+                {{ 'carpeta_ciudadana.instance.interested.telephone' | translate }} <b>*</b>
+            </label>
+            <input id="telephone" name="telephone" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-7">
+            <label for="email">
+                {{ 'carpeta_ciudadana.instance.interested.email' | translate }} <b>*</b>
+            </label>
+            <input id="email" name="email" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-12">
+            <label> {{ 'carpeta_ciudadana.instance.interested.linkDates' | translate }} <a href="">{{
+                    'carpeta_ciudadana.instance.interested.link' | translate }}</a> </label>
+        </div>
+    </div>
+</div>

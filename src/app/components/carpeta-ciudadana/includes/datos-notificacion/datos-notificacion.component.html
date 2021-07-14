@@ -1,0 +1,76 @@
+<div class="card mb-2">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title text-white">
+            <em class="fas fa-user"></em>
+            <label>{{ 'carpeta_ciudadana.instance.notification.title' | translate }}</label>
+        </div>
+    </div>
+    <div class="card-text row pt-3">
+        <div class="form-group col-md-3">
+            <label for="type">
+                {{ 'carpeta_ciudadana.instance.notification.type' | translate }} <b>*</b>
+            </label>
+            <select id="type" name="type" class="form-control">
+                <option value="">Calle</option>
+                <option value="">Avenida</option>
+                <option value="">Plaza</option>
+                <option value="">Paseo</option>
+                <option value="">Camino</option>
+                <option value="">Rambla</option>
+                <option value="">Pasaje</option>
+            </select>
+        </div>
+        <div class="form-group col-md-9">
+            <label for="direction">
+                {{ 'carpeta_ciudadana.instance.notification.direction' | translate }} <b>*</b>
+            </label>
+            <input id="direction" name="direction" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-2">
+            <label for="number">
+                {{ 'carpeta_ciudadana.instance.notification.number' | translate }} <b>*</b>
+            </label>
+            <input id="nomber" name="number" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-7">
+            <label for="extra">
+                {{ 'carpeta_ciudadana.instance.notification.extra' | translate }} <b>*</b>
+            </label>
+            <input id="extra" name="extra" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="CP">
+                {{ 'carpeta_ciudadana.instance.notification.CP' | translate }} <b>*</b>
+            </label>
+            <input id="CP" name="CP" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-4">
+            <label for="country">
+                {{ 'carpeta_ciudadana.instance.notification.country' | translate }} <b>*</b>
+            </label>
+            <select id="country" name="type" class="form-control">
+                <option value="">Selecciona</option>
+            </select>        
+        </div>
+        <div class="form-group col-md-4">
+            <label for="province">
+                {{ 'carpeta_ciudadana.instance.notification.province' | translate }} <b>*</b>
+            </label>
+            <select id="province" name="type" class="form-control">
+                <option value="">Selecciona</option>
+            </select>        
+        </div>
+        <div class="form-group col-md-4">
+            <label for="municipality">
+                {{ 'carpeta_ciudadana.instance.notification.municipality' | translate }} <b>*</b>
+            </label>
+            <select id="municipality" name="type" class="form-control">
+                <option value="">Selecciona</option>
+            </select>        
+        </div>
+    </div>
+</div>
