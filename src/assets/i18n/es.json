@@ -257,7 +257,10 @@
                 "CP": "Código Postal",
                 "country": "País",
                 "province": "Provincia",
-                "municipality": "Municipio"
+                "municipality": "Municipio",
+                "resum": "Resumen",
+                "expone": "Expone",
+                "request": "Solicita"
             }
         },
         "identification": {
