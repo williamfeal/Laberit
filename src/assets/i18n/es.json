@@ -287,7 +287,8 @@
                 "title": "Datos del solicitante",
                 "type": "Tipo",
                 "type_interested": "Interesado",
-                "type_representative": "Representante"
+                "type_representative": "Representante",
+                "representation_power": "Poder de representación"
             },
             "actuation_data": {
                 "title":"Datos de actuación",
@@ -317,26 +318,10 @@
                 "group_belong": "Pertenece a grupo"
             },
             "social_address": {
-                "title": "Domicilio Social",
-                "via_type": "Tipo de vía",
-                "address":"Dirección",
-                "number": "Número",
-                "extra": "Extra",
-                "CP": "Código Postal",
-                "country": "País",
-                "province": "Provincia",
-                "municipality": "Municipio"
+                "title": "Domicilio Social"
             }, 
             "productive_establishment_address": {
-                "title": "Domicilio establecimiento productivo",
-                "via_type": "Tipo de vía",
-                "address":"Dirección",
-                "number": "Número",
-                "extra": "Extra",
-                "CP": "Código Postal",
-                "country": "País",
-                "province": "Provincia",
-                "municipality": "Municipio"
+                "title": "Domicilio establecimiento productivo"
             },
             "legal_representative": {
                 "title": "Representante Legal",
@@ -346,15 +331,7 @@
                 "nif": "NIF",
                 "position": "Cargo",
                 "telephone": "Teléfono",
-                "email": "Email",
-                "via_type": "Tipo de vía",
-                "address":"Dirección",
-                "number": "Número",
-                "extra": "Extra",
-                "CP": "Código Postal",
-                "country": "País",
-                "province": "Provincia",
-                "municipality": "Municipio"
+                "email": "Email"
             },
             "contact_data": {
                 "title": "Datos de contacto",
@@ -366,7 +343,9 @@
                 "nif": "NIF",
                 "position": "Cargo",
                 "telephone": "Teléfono",
-                "email": "Email",
+                "email": "Email"
+            },
+            "address": {
                 "via_type": "Tipo de vía",
                 "address":"Dirección",
                 "number": "Número",

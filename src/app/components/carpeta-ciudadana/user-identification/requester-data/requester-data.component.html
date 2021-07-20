@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title text-white">
+            <em class="fas fa-info-circle"></em>
+            {{ 'carpeta_ciudadana.identification.requester_data.title' | translate }}
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-3">
+            <label for="type">{{ 'carpeta_ciudadana.identification.requester_data.type' | translate }} </label>
+            <select id="type" name="type" [(ngModel)]="type" class="form-select form-control" (change)="onChangeType()" aria-label="Tipo">
+                <option selected value="interested"> {{ 'carpeta_ciudadana.identification.requester_data.type_interested' | translate }}</option>
+                <option value="representative">{{ 'carpeta_ciudadana.identification.requester_data.type_representative' | translate }}</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6" *ngIf="type == 'representative'">
+            <label for="type">{{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} </label>
+            <select id="representation_power" name="representation_power" class="form-select form-control" aria-label="Tipo">
+                <option selected value=""> Selecciona </option>
+            </select>
+        </div>
+    </div>
+</div>

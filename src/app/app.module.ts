@@ -68,6 +68,16 @@ import { DatosNotificacionComponent } from './components/carpeta-ciudadana/inclu
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
 import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
+import { IdentityDataComponent } from './components/carpeta-ciudadana/user-identification/identity-data/identity-data.component';
+import { NotificationMeansComponent } from './components/carpeta-ciudadana/user-identification/notification-means/notification-means.component';
+import { RequesterDataComponent } from './components/carpeta-ciudadana/user-identification/requester-data/requester-data.component';
+import { ActuationDataComponent } from './components/carpeta-ciudadana/user-identification/actuation-data/actuation-data.component';
+import { SocialAddressComponent } from './components/carpeta-ciudadana/user-identification/social-address/social-address.component';
+import { ProductiveEstablishmentAddressComponent } from './components/carpeta-ciudadana/user-identification/productive-establishment-address/productive-establishment-address.component';
+import { LegalRepresentativeComponent } from './components/carpeta-ciudadana/user-identification/legal-representative/legal-representative.component';
+import { RepresentativeDataComponent } from './components/carpeta-ciudadana/user-identification/representative-data/representative-data.component';
+import { InterestedDataComponent } from './components/carpeta-ciudadana/user-identification/interested-data/interested-data.component';
+import { ContactDataComponent } from './components/carpeta-ciudadana/user-identification/contact-data/contact-data.component';
 
 @NgModule({
   declarations: [
@@ -115,8 +125,18 @@ import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/incl
     DatosNotificacionComponent,
     RequestsListComponent,
     AdjuntarDocComponent,
-    PresentarSolicitudComponent
-  ],
+    PresentarSolicitudComponent,
+    IdentityDataComponent,
+    NotificationMeansComponent,
+    RequesterDataComponent,
+    ActuationDataComponent,
+    SocialAddressComponent,
+    ProductiveEstablishmentAddressComponent,
+    LegalRepresentativeComponent,
+    RepresentativeDataComponent,
+    InterestedDataComponent,
+    ContactDataComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,     

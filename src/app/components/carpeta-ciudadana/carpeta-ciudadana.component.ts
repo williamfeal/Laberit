@@ -24,10 +24,10 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   public getClave() {
-    sessionStorage.setItem('dni', '32715798');
-    sessionStorage.setItem('nombre', 'Sabela');
-    sessionStorage.setItem('apellido1', 'Yáñez');
-    sessionStorage.setItem('apellido2', 'López');
+    sessionStorage.setItem('dni', '11111111h');
+    sessionStorage.setItem('nombre', 'Test');
+    sessionStorage.setItem('apellido1', 'tEST');
+    sessionStorage.setItem('apellido2', 'TEst');
     if(this.activatedRoute.snapshot.params.idProcedure) {
       this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
         queryParams: {

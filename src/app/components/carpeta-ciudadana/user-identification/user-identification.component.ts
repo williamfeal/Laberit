@@ -9,9 +9,11 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 })
 export class UserIdentificationComponent implements OnInit {
 
-  public interesado:boolean = false;
+  public requesterType = 'interested';
+
   public user;
   public idProcedure;
+
   constructor(
     private activatedRoute:ActivatedRoute,
     private router:Router
@@ -22,35 +24,29 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public isInteresado(): boolean {
-    return true;
+    return this.requesterType === 'interested';
   }
 
-  public isRepresentativeEmpresa(): boolean {
-    return false;
-  }
-
-  public isRepresentativeAutonomo(): boolean {
-    return false;
+  public isRepresentative(): boolean {
+    return this.requesterType === 'representative';
   }
 
   public isUserAutonomo(): boolean {
     return false;
   }
 
+  onChangeTypeRequester(event) {
+    this.requesterType = event;
+  }
+
   public goToRequestInfo() {
-    console.log(this.idProcedure)
-    switch(this.idProcedure) {
-      case "8e69e3dd-638b-4a0b-84b5-84b81b572304": 
-        this.router.navigate(['carpeta-del-ciudadano/general-instance']);
-        break;
-      default: 
-        this.router.navigate(['carpeta-del-ciudadano/request-info'], {
-          queryParams: {
-            idProcedure: this.idProcedure
+        this.router.navigate(['carpeta-del-ciudadano/instancia-general'], {
+          state: {
+            data: {
+              holi:'holi'
+            }
           }
-        });
-    }
-    
+    });
   }
 
 }
