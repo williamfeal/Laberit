@@ -25,6 +25,7 @@ import { RequestInfoComponent } from './components/carpeta-ciudadana/request-inf
 import { TranslateService } from '@ngx-translate/core';
 import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
+import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },

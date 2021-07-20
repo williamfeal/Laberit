@@ -1,0 +1,18 @@
+<div class="input-group mb-3">
+      <div class="input-group-prepend">
+         <label for="fileUploader" class="m-0" id="lblArchivo">
+           <span class="btn btn-primary primary-background btn-add-file" id="btnArchivo">
+               <i class="fa fa-file-pdf-o"></i>
+           </span>
+         </label>
+         <input type="text" class="borderless form-control file-name-text" id="archivoName" (change)="saveName($event)"
+         placeholder="Seleccione un archivo" disabled="true" #archivoName>
+         <input type="file" #fileUploader (change)="editInput($event)" name="" id="fileUploader"
+         accept=".doc,.docx,application/msword,application/pdf" hidden>
+      </div>
+      <div class="input-group-prepend">
+        <a class="btn btn-danger btn-remove-file" (click)="removeFile()">
+           <i class="fa fa-remove"></i>
+        </a>
+      </div>
+</div>
