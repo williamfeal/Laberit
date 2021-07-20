@@ -1,4 +1,15 @@
-<div class="input-group mb-3">
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<div class="card mb-2">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title text-white">
+            <em class="fas fa-user"></em>
+            <label>{{ 'carpeta_ciudadana.instance.docAdd' | translate }}</label>
+        </div>
+    </div>
+<label class="m-4">Adjuntar documentación adicional <span (click)="createCompo()" class="btn btn-primary primary-background" id="btnArchivo">
+    <i class="fa fa-plus-circle text-white"></i>
+</span></label>
+<div class="input-group mb-3 m-4">
       <div class="input-group-prepend">
          <label for="fileUploader" class="m-0" id="lblArchivo">
            <span class="btn btn-primary primary-background btn-add-file" id="btnArchivo">
@@ -15,4 +26,8 @@
            <i class="fa fa-remove"></i>
         </a>
       </div>
+</div>
+</div>
+<div class="text-right px-3 py-3">
+    <button class="btn-app-primary mr-2">{{ 'buttons.continue' | translate}}</button>
 </div>

@@ -61,4 +61,7 @@ removeFile(){
     // @ts-ignore
     this.fileUploader?.nativeElement.value = '';
 }
+createCompo(){
+ 
+}
 }

@@ -248,6 +248,7 @@
                 "linkDates": "Puede editar sus datos personales en ",
                 "link": "este enlace"
             },
+            "docAdd":"Documentación adicional",
             "notification":{
                 "title":"Datos a Efecto de Notificación",
                 "type": "Tipo de via",

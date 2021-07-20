@@ -52,6 +52,7 @@ const routes: Routes = [
   { path: 'aviso-legal', component: LegalWarningComponent },
   { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/adjuntar', component: AdjuntarDocComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
     canActivate: [AuthGuardService],
