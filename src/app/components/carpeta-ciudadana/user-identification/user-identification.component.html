@@ -11,8 +11,8 @@
     <div class="col-md-6" >
         <app-notification-means></app-notification-means>
     </div>
-    <div class="col-md-6">
-        <app-requester-data></app-requester-data>
+    <div class="col-md-12">
+        <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
     </div>
 </div>
 

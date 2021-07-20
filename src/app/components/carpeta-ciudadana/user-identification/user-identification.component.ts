@@ -9,7 +9,8 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 })
 export class UserIdentificationComponent implements OnInit {
 
-  public interesado:boolean = false;
+  public requesterType = 'interested';
+
   public user;
   public idProcedure;
 
@@ -23,15 +24,19 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public isInteresado(): boolean {
-    return false;
+    return this.requesterType === 'interested';
   }
 
   public isRepresentative(): boolean {
-    return true;
+    return this.requesterType === 'representative';
   }
 
   public isUserAutonomo(): boolean {
     return false;
+  }
+
+  onChangeTypeRequester(event) {
+    this.requesterType = event;
   }
 
   public goToRequestInfo() {

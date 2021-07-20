@@ -284,7 +284,8 @@
                 "title": "Datos del solicitante",
                 "type": "Tipo",
                 "type_interested": "Interesado",
-                "type_representative": "Representante"
+                "type_representative": "Representante",
+                "representation_power": "Poder de representación"
             },
             "actuation_data": {
                 "title":"Datos de actuación",

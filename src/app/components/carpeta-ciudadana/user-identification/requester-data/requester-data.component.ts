@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-requester-data',
@@ -6,9 +6,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequesterDataComponent implements OnInit {
 
+  public type = 'interested';
+  @Output() public typeOutput = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onChangeType() {
+    this.typeOutput.emit(this.type);
   }
 
 }
