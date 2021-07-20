@@ -12,10 +12,9 @@ import { ElectronicInvoiceComponent } from './components/electronic-services/ele
 import { NotificationsComponent } from './components/electronic-services/notifications/notifications.component';
 import { ValideComponent } from './components/electronic-services/valide/valide.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProcedimentDetailComponent } from './components/procediments/procediment-detail/procediment-detail.component';
-import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
-import { ProcedimentsComponent } from './components/procediments/procediments.component';
-import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
+import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
+import { ProceduresSearchComponent } from './components/procedures/procedures-search/procedures-search.component';
+import { ProceduresComponent } from './components/procedures/procedures.component';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 import { AccesibilityComponent } from './shared/footer/accesibility/accesibility.component';
 import { HowElectronicCertificateComponent } from './shared/footer/how-electronic-certificate/how-electronic-certificate.component';
@@ -29,8 +28,8 @@ import { RequestsListComponent } from './components/carpeta-ciudadana/requests-l
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'inicio', component: HomeComponent},
-  { path: 'areas', component: ProcedimentsComponent },
-  { path: 'catalogo-de-procedimientos', component: ProcedimentsSearchComponent },
+  { path: 'areas', component: ProceduresComponent },
+  { path: 'catalogo-de-procedimientos', component: ProceduresSearchComponent },
   { path: 'tablon-de-anuncios', component: AdvertisementsListComponent },
   { path: 'tablon-de-anuncios/:idAnuncio', component: AdvertisementDetailComponent },
   { path: 'inicio', component: HomeComponent},
@@ -39,11 +38,9 @@ const routes: Routes = [
   { path: 'factura-electronica', component: ElectronicInvoiceComponent},
   { path: 'verifirma', component: DocumentVerificationComponent},
   { path: 'notificaciones', component: NotificationsComponent},
-  { path: 'categories/:idCategory', component: ProcedimentsComponent},
-  { path: 'procedures/:idProcedure', component: ProcedimentDetailComponent },
-  { path: 'transact/:idProcedure', component: TransactProcedimentComponent},
+  { path: 'categories/:idCategory', component: ProceduresComponent},
+  { path: 'procedures/:idProcedure', component: ProcedureDetailComponent },
   { path: 'conoce-la-sede', component: ConoceLaSedeComponent},
-  { path: 'transact/:idProcedure', component: TransactProcedimentComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'requisitos-tecnicos', component: TechnicalRequirementsComponent },
   { path: 'certificado-electronico', component: HowElectronicCertificateComponent },

@@ -1,4 +1,4 @@
-import { Procediment } from "./procediment.model"
+import { Procedure } from "./procedure.model"
 
 export class Category {
     id: string
@@ -8,6 +8,6 @@ export class Category {
     descriptionVal: string
     logo: string
     logo2: string
-    procedimientos: Procediment[]
+    procedimientos: Procedure[]
 
 }

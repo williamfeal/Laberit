@@ -21,18 +21,15 @@ import { ValideComponent } from './components/electronic-services/valide/valide.
 import { ElectronicInvoiceComponent } from './components/electronic-services/electronic-invoice/electronic-invoice.component';
 import { DocumentVerificationComponent } from './components/electronic-services/document-verification/document-verification.component';
 import { NotificationsComponent } from './components/electronic-services/notifications/notifications.component';
-import { ProcedimentsSearchComponent } from './components/procediments/procediments-search/procediments-search.component';
-import { ProcedimentDetailComponent } from './components/procediments/procediment-detail/procediment-detail.component';
+import { ProceduresSearchComponent } from './components/procedures/procedures-search/procedures-search.component';
 import { HelpHomeComponent } from './components/home/help-home/help-home.component';
 import { SliderHomeComponent } from './components/home/slider-home/slider-home.component';
-import { ProcedimentsHomeComponent } from './components/home/procediments-home/procediments-home.component';
 import { CarpetaCiudadanaComponent } from './components/carpeta-ciudadana/carpeta-ciudadana.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertisementsListComponent } from './components/advertisements-list/advertisements-list.component';
 import { HeaderCategoryComponent } from './shared/header-category/header-category.component';
-import { ProcedimentsComponent } from './components/procediments/procediments.component';
+import { ProceduresComponent } from './components/procedures/procedures.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { TransactProcedimentComponent } from './components/procediments/transact-procediment/transact-procediment.component';
 import { ConoceLaSedeComponent } from './components/conoce-sede/conoce-la-sede.component';
 import { HeaderKnowSedeComponent } from './components/conoce-sede/header/header-know-sede.component';
 
@@ -76,6 +73,8 @@ import { LegalRepresentativeComponent } from './components/carpeta-ciudadana/use
 import { RepresentativeDataComponent } from './components/carpeta-ciudadana/user-identification/representative-data/representative-data.component';
 import { InterestedDataComponent } from './components/carpeta-ciudadana/user-identification/interested-data/interested-data.component';
 import { ContactDataComponent } from './components/carpeta-ciudadana/user-identification/contact-data/contact-data.component';
+import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
+import { ProceduresHomeComponent } from './components/home/procedures-home/procedures-home.component';
 
 @NgModule({
   declarations: [
@@ -87,12 +86,12 @@ import { ContactDataComponent } from './components/carpeta-ciudadana/user-identi
     ElectronicInvoiceComponent,
     DocumentVerificationComponent,
     NotificationsComponent,
-    ProcedimentsSearchComponent,
-    ProcedimentDetailComponent,
-    ProcedimentsComponent,
+    ProceduresSearchComponent,
+    ProcedureDetailComponent,
+    ProceduresComponent,
     HelpHomeComponent,
     SliderHomeComponent,
-    ProcedimentsHomeComponent,
+    ProceduresHomeComponent,
     CarpetaCiudadanaComponent,
     HeaderComponent,
     WeatherComponent,
@@ -101,7 +100,6 @@ import { ContactDataComponent } from './components/carpeta-ciudadana/user-identi
     HeaderCategoryComponent,
     FooterComponent,
     GenericStaticViewComponent,
-    TransactProcedimentComponent,
     HeaderSearchComponent,
     ConoceLaSedeComponent,
     HeaderKnowSedeComponent,

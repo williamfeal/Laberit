@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Category } from 'src/app/models/category.model';
-import { Procediment } from 'src/app/models/procediment.model';
+import { Procedure } from 'src/app/models/procedure.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
 
 @Component({
-  selector: 'app-procediments-search',
-  templateUrl: './procediments-search.component.html',
-  styleUrls: ['./procediments-search.component.scss']
+  selector: 'app-procedures-search',
+  templateUrl: './procedures-search.component.html',
+  styleUrls: ['./procedures-search.component.scss']
 })
-export class ProcedimentsSearchComponent implements OnInit {
+export class ProceduresSearchComponent implements OnInit {
 
   public title:string;
   public categories:Category[];
@@ -30,7 +30,7 @@ export class ProcedimentsSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.keywords = this.activatedRoute.snapshot.queryParams.keywords;
-    this.translateService.get('procediments-search').subscribe(
+    this.translateService.get('procedures-search').subscribe(
       data => {
         this.title = data.title
       }
@@ -53,7 +53,7 @@ export class ProcedimentsSearchComponent implements OnInit {
         this.categories = categories;
         Promise.all(
           categories.map(async(category) => {
-            const procedures = await this.categoriesService.getCategoryProcediments(category.id, this.lang).toPromise();
+            const procedures = await this.categoriesService.getCategoryProcedures(category.id, this.lang).toPromise();
             category.procedimientos = procedures;
           })
         ).then(
@@ -67,11 +67,11 @@ export class ProcedimentsSearchComponent implements OnInit {
       });
   }
 
-  private searchProcediments(procediments:Procediment[]) {
-      return procediments?.find(
-        procediment => {
-          return procediment.name ?
-             procediment.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase()) : false  
+  private searchProcedures(procedures:Procedure[]) {
+      return procedures?.find(
+        procedure => {
+          return procedure.name ?
+             procedure.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase()) : false  
         });
   }
 
@@ -79,7 +79,7 @@ export class ProcedimentsSearchComponent implements OnInit {
     this.categoriesShow = this.categories.filter(
       category => {
         if ((category.name && category.name.toLocaleLowerCase().includes(this.keywords.toLocaleLowerCase())) || 
-          this.searchProcediments(category?.procedimientos)) {
+          this.searchProcedures(category?.procedimientos)) {
             return category;
           }
       } 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Procediment } from 'src/app/models/procediment.model';
+import { Procedure } from 'src/app/models/procedure.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
@@ -22,7 +22,7 @@ export class ProceduresService {
     private translate: TranslateService
   ) { }
 
-  public getProcedimentById(id:string, lang:string) : Observable<Procediment> {
+  public getProcedureById(id:string, lang:string) : Observable<Procedure> {
     const procedure = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
