@@ -2,7 +2,8 @@
     "TITLE": "SEDE ELECTRÓNICA",
     "buttons": {
         "back": "Atrás",
-        "continue": "Continuar"
+        "continue": "Continuar",
+        "presentSign":"Firmar y presentar"
     },
     "home": {
         "TITLE": "Inicio",
@@ -249,6 +250,7 @@
                 "link": "este enlace"
             },
             "docAdd":"Documentación adicional",
+            "presentarSolicitud": "Presentar solicitud",
             "notification":{
                 "title":"Datos a Efecto de Notificación",
                 "type": "Tipo de via",

@@ -67,6 +67,7 @@ import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instan
 import { DatosNotificacionComponent } from './components/carpeta-ciudadana/includes/datos-notificacion/datos-notificacion.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
+import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/ad
     InstanciaGeneralComponent,
     DatosNotificacionComponent,
     RequestsListComponent,
-    AdjuntarDocComponent
+    AdjuntarDocComponent,
+    PresentarSolicitudComponent
   ],
   imports: [
     BrowserModule,
