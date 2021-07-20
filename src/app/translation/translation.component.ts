@@ -10,7 +10,7 @@ export class TranslationComponent implements OnInit {
 
   private activeLang = this.translate.getBrowserLang() ? 
       this.translate.getBrowserLang() : 'es';
-  languages;
+  private languages;
 
   constructor(
     public translate: TranslateService,
