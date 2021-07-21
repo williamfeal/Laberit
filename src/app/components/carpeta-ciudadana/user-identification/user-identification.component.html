@@ -1,7 +1,7 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
 <div class="row mr-0 ml-4">
     <a [routerLink]="['/carpeta-del-ciudadano']">
-        <em class="fas fa-chevron-left"></em>  {{ 'buttons.back' | translate}}
+        <em class="fas fa-chevron-left"></em> {{ 'buttons.back' | translate}}
     </a>
 </div>
 <form  [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
