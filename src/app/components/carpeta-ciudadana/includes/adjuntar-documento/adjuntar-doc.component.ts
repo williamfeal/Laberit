@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { FileModel } from 'src/app/models/file.model';
 import Swal from 'sweetalert2';
 
@@ -19,7 +20,7 @@ export class AdjuntarDocComponent implements OnInit {
 
   private fileReader = new FileReader();
 
-  constructor() { }
+  constructor(private router:Router) { }
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.loadedFileList.currentValue !== undefined) {
       this.fileList = changes.loadedFileList.currentValue;
@@ -58,6 +59,14 @@ export class AdjuntarDocComponent implements OnInit {
     const fileIndex = this.fileList.indexOf(fileToDelete);
     this.fileList.splice(fileIndex);
     this.uploadFileDocument.emit(this.fileList);
-
   }
+  public goToRequestInfo() {
+    this.router.navigate(['carpeta-del-ciudadano/firmar'], {
+      state: {
+        data: {
+          holi:'holi'
+        }
+      }
+});
+}
 }
