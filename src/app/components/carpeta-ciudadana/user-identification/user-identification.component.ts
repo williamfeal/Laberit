@@ -25,10 +25,8 @@ export class UserIdentificationComponent implements OnInit {
   ngOnInit(): void {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.formUserIdentification = new FormGroup({
-      identity_data: new FormGroup({
-        name_and_surname: new FormControl('', Validators.required),
-        nif: new FormControl('', Validators.required)
-      })
+      identity_data: new FormGroup({ }),
+      notification_means: new FormGroup({ })
     });
   }
 
@@ -59,7 +57,6 @@ export class UserIdentificationComponent implements OnInit {
       });
     } else {
       this.showErrors = true;
-      console.log(this.formUserIdentification.controls)
     }
 
     

@@ -75,6 +75,7 @@ import { ContactDataComponent } from './components/carpeta-ciudadana/user-identi
 import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
 import { ProceduresHomeComponent } from './components/home/procedures-home/procedures-home.component';
 import { InputTextComponent } from './shared/form/fields/input-text/input-text.component';
+import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { InputTextComponent } from './shared/form/fields/input-text/input-text.c
     RepresentativeDataComponent,
     InterestedDataComponent,
     ContactDataComponent,
-    InputTextComponent
+    InputTextComponent,
+    InputSelectComponent
     ],
   imports: [
     BrowserModule,

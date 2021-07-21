@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
 @Component({

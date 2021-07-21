@@ -20,10 +20,7 @@ export class IdentityDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      data => {
-        this.user = data;
-        console.log(data)
-      } 
+      data => this.user = data 
     )
   }
 
