@@ -4,52 +4,54 @@
         <em class="fas fa-chevron-left"></em>  {{ 'buttons.back' | translate}}
     </a>
 </div>
-<div class="row mx-0 mt-2">
-    <div class="col-md-6">
-        <app-identity-data></app-identity-data>
+<form  [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
+    <div class="row mx-0 mt-2">
+        <div class="col-md-6">
+            <app-identity-data readOnly="true" [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
+        </div>
+        <div class="col-md-6" >
+            <app-notification-means></app-notification-means>
+        </div>
+        <div class="col-md-12">
+            <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
+        </div>
     </div>
-    <div class="col-md-6" >
-        <app-notification-means></app-notification-means>
-    </div>
-    <div class="col-md-12">
-        <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
-    </div>
-</div>
 
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
-        <app-actuation-data></app-actuation-data>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
+            <app-actuation-data></app-actuation-data>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
-        <app-representative-data></app-representative-data>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
+            <app-representative-data></app-representative-data>
+        </div>
+        <div class="col-md-12 mt-2" *ngIf="isUserAutonomo()">
+            <app-interested-data></app-interested-data>
+        </div>
     </div>
-    <div class="col-md-12 mt-2" *ngIf="isUserAutonomo()">
-        <app-interested-data></app-interested-data>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <app-social-address></app-social-address>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-social-address></app-social-address>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <app-productive-establishment-address></app-productive-establishment-address>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-productive-establishment-address></app-productive-establishment-address>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <app-legal-representative></app-legal-representative>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-legal-representative></app-legal-representative>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+            <app-contact-data></app-contact-data>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-contact-data></app-contact-data>
+    <br>
+    <div class="text-right px-3">
+        <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
     </div>
-</div>
-<br>
-<div class="text-right px-3">
-    <button class="btn-app-primary mr-2" (click)="goToRequestInfo()">{{ 'buttons.continue' | translate}}</button>
-</div>
+</form>
