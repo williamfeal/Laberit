@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 
 @Component({
   selector: 'app-user-identification',
@@ -16,11 +17,17 @@ export class UserIdentificationComponent implements OnInit {
 
   constructor(
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private proceduresService: ProceduresService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
+    this.proceduresService.getAllProcedure().subscribe(
+      (procedures: Procedure[]) => {
+       let procedure = procedures.find(element => element.id == this.idProcedure);
+       console.log('procedure :>> ', procedure);
+      })
   }
 
   public isInteresado(): boolean {
