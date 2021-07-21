@@ -9,5 +9,5 @@ export class Procedure {
     publicado:  boolean 
     category : Category
     languages : InfoProcedure[]
-    tramitarElectronicamente:  boolean
+    tramitacionElectronica:  boolean
 }
