@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
-import { Procediment } from 'src/app/models/procediment.model';
+import { Procedure } from 'src/app/models/procedure.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 import { LanguagesService } from './language.service';
@@ -43,7 +43,7 @@ export class CategoriesService {
     }));   
   }
 
-  public getCategoryProcediments(id:string, lang): Observable<Procediment[]> {
+  public getCategoryProcedures(id:string, lang): Observable<Procedure[]> {
     const procedures = this.http.get(`${this.API_PROCEDURES_ENDPOINT}?idCategory=${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

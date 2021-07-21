@@ -6,8 +6,6 @@
   200 - Lighter
  */
 
-$input-border: #CED4DA;
-
 $primaryColor: var(--primary-color);
 $button-edit-color: var(--button-edit-color);
 
@@ -16,25 +14,11 @@ $green-70: #6CA241;
 $green-100: #79B24B;
 $green-200: #a8db79;
 
-$yellow-100: #EF9613;
-$yellow-150: #EFCA13;
-
-$light-blue-100: #deebfa;
-
 $blue-50: #235B9B;
 $blue-70: #397CCA;
 $blue-100: #4A90E2;
 $blue-200: #84BDFF;
 $blue-300: #D1E7FF;
-
-$dark-blue-20: #000056;
-$dark-blue-50: #010166;
-$dark-blue-100: #000073;
-$dark-blue-300: #a3a3ba;
-
-$indigo-50: #333377;
-$indigo-100: #3E3E8A;
-$indigo-200: #5353BA;
 
 $body-background: #F9F9F9;
 
@@ -44,21 +28,12 @@ $black-150: #292929;
 
 $disabled-gray: #F8F7F8;
 
-$light-gray-100: #D1D1D1;
-$light-gray-120: #EEEEEE;
-$light-gray-150: #faf9f9;
-
-$medium-gray-20: #4E4E4E;
-$medium-gray-50: #696969;
-$medium-gray-100: #888888;
-$medium-gray-110: #818181;
-$medium-gray-150: #8A888A;
-$medium-gray-200: #B8B8B8;
-$medium-gray-300: #F5F5F5;
-
 $dark-gray-50: #393939;
 $dark-gray-100: #585858;
 $dark-gray-150: #7e7e7e;
+
+$medium-gray-100: #888888;
+
 
 $red-50: #9F2B2B;
 $red-70: #c13c3c;
@@ -76,64 +51,13 @@ $white: #FFFFFF;
 
 $transparent-white-70: rgba(255, 255, 255, .7);
 
-.background-light-blue-100 {
-  background-color: $light-blue-100;
-}
-
-.color-dark-gray-50 {
-  color: $dark-gray-50;
-}
-
-.color-warning-150 {
-  color: $warning-150;
-}
-
-.background-warning-150 {
-  background-color: $warning-150;
-}
-
-.color-indigo-50 {
-  color: $indigo-50;
-}
-
-.color-indigo-100 {
-  color: $indigo-100;
-}
-
-.color-indigo-200 {
-  color: $indigo-200;
-}
-
-.color-blue-100 {
-  color: $blue-100;
-}
-
-.color-blue-200 {
-  color: $blue-200;
-}
 
 .color-green-100 {
   color: $green-100;
 }
 
-.color-yellow-100 {
-  color: $yellow-100;
-}
-
-.color-dark-gray-150 {
-  color: $dark-gray-150;
-}
-
 .color-medium-gray {
   color: $medium-gray-100;
-}
-
-.color-medium-gray-110 {
-  color: $medium-gray-110;
-}
-
-.color-black-150 {
-  color: $black-150;
 }
 
 .color-primary {
@@ -156,26 +80,7 @@ $transparent-white-70: rgba(255, 255, 255, .7);
   border-left: 10px solid $blue-100;
 }
 
-.border-light-gray {
-  border: 1px solid $light-gray-100;
-}
-
-.border-bottom-light-gray {
-  border-bottom: 1px solid $light-gray-100;
-}
-
 .border-bottom-primary {
   border-bottom: 1px solid $primaryColor;
 }
 
-.border-top-light-gray {
-  border-top: 1px solid $light-gray-100;
-}
-
-.background-light-gray-120 {
-  background-color: $light-gray-120;
-}
-
-.background-light-gray-150 {
-  background-color: $light-gray-150;
-}

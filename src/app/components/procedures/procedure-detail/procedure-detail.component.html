@@ -1,98 +1,98 @@
-<nav aria-label="breadcrumb" *ngIf="procediment && infoProcediment">
+<nav aria-label="breadcrumb" *ngIf="procedure && infoProcedure">
 	<ol class="breadcrumb background-transparent-white ml-5 mt-1">
         <li class="breadcrumb-item"><a [routerLink]="['/inicio']">Home</a></li>
-        <li class="breadcrumb-item"><a [routerLink]="['/categories/' + procediment.category.id ]">{{ 'areas.title' | translate }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ infoProcediment.name }}</li>
+        <li class="breadcrumb-item"><a [routerLink]="['/categories/' + procedure.category.id ]">{{ 'areas.title' | translate }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ infoProcedure.name }}</li>
     </ol>
 </nav>
-<div class="col-md-11 mx-auto mt-5" *ngIf="infoProcediment">
+<div class="col-md-11 mx-auto mt-5" *ngIf="infoProcedure">
     <div class="card mb-4">
         <div class="Rectangle card-body w-100 d-web-box">
-            {{ infoProcediment.name }}
+            {{ infoProcedure.name }}
         </div>
     </div>
     <div id="tramitacion" class="card card-tramite-shadow">
         <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
             <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
-                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'info'}">									
+                [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}">									
                 <em class="fas fa-info-circle color-primary mr-4"></em>
-                {{ 'procediment_detail.info' | translate }}
+                {{ 'procedure_detail.info' | translate }}
             </a>
             <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
-                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'online'}">                                    
+                [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'online'}">                                    
                 <em class="fas fa-at color-primary mr-4"></em>
-                {{ 'procediment_detail.online' | translate }}
+                {{ 'procedure_detail.online' | translate }}
                 </a>
             <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
-                [routerLink]="['/procedures/' + procediment.id]" [queryParams]="{action: 'presencial'}">									
+                [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'presencial'}">									
                 <em class="fas fa-download color-primary mr-4"></em>
-                {{ 'procediment_detail.face' | translate }}
+                {{ 'procedure_detail.face' | translate }}
             </a>
         </div>
         <div class="tab-content" id="nav-tab-content">
             <div class="tab-pane fade {{ active.info }}" id="nav-home" role="tabpanel" aria-labelledby="nav-informacion-tab">
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.description' | translate }}
+                        {{ 'procedure_detail.description' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.description }}
+                        {{ infoProcedure.description }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.destinataries' | translate }}
+                        {{ 'procedure_detail.destinataries' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.destinataries }}
+                        {{ infoProcedure.destinataries }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.associatedDocs' | translate }}
+                        {{ 'procedure_detail.associatedDocs' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.associatedDocs }}
+                        {{ infoProcedure.associatedDocs }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.cost' | translate }}
+                        {{ 'procedure_detail.cost' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.cost }}
+                        {{ infoProcedure.cost }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.faqs' | translate }}
+                        {{ 'procedure_detail.faqs' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.faqs }}
+                        {{ infoProcedure.faqs }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.start' | translate }}
+                        {{ 'procedure_detail.start' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.start }}
+                        {{ infoProcedure.start }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.observations' | translate }}
+                        {{ 'procedure_detail.observations' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.observations }}
+                        {{ infoProcedure.observations }}
                     </div>
                 </div>
                 <div class="card m-3 border-0">
                     <div class="card-header border-0">
-                        {{ 'procediment_detail.contact' | translate }}
+                        {{ 'procedure_detail.contact' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcediment.contact }}
+                        {{ infoProcedure.contact }}
                     </div>
                 </div>
                 </div>   
@@ -101,23 +101,23 @@
             <div class="tab-pane fade {{ active.online }}" id="nav-home" role="tabpanel" aria-labelledby="nav-online-tab">
                 <div class="card-header border-0 my-2">
                     <h4 class="mb-0">
-                        {{ 'procediment_detail.online_transaction' | translate }}
+                        {{ 'procedure_detail.online_transaction' | translate }}
                     </h4>
                 </div>
                 <div class="card-body">
-                    {{ 'procediment_detail.online_transaction_text' | translate }}
+                    {{ 'procedure_detail.online_transaction_text' | translate }}
                 </div>
-                <div class="row justify-content-center" *ngIf="infoProcediment.telematicChannel">
-                    <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/carpeta-del-ciudadano/transact/' + procediment.id ]" 
+                <div class="row justify-content-center" *ngIf="infoProcedure.telematicChannel">
+                    <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/carpeta-del-ciudadano/transact/' + procedure.id ]" 
                         href="#" role="button">
-                        {{ 'procediment_detail.transact' | translate }}
+                        {{ 'procedure_detail.transact' | translate }}
                     </a>
                 </div>		
-                <div class="centered-item-dad mb-4"  *ngIf="!infoProcediment.telematicChannel">
+                <div class="centered-item-dad mb-4"  *ngIf="!infoProcedure.telematicChannel">
                     <div class="alert alert-danger col-md-8 mx-auto">
-                    <h4> {{ 'procediment_detail.procediment_not_available' | translate }}  </h4>
-                    <p class="mb-0">{{ 'procediment_detail.procediment_not_available_text1' | translate }}  </p>
-                    <p>{{ 'procediment_detail.procediment_not_available_text2' | translate }} <a href='#'>{{ 'procediment_detail.general_instance' | translate }}</a></p>
+                    <h4> {{ 'procedure_detail.procedure_not_available' | translate }}  </h4>
+                    <p class="mb-0">{{ 'procedure_detail.procedure_not_available_text1' | translate }}  </p>
+                    <p>{{ 'procedure_detail.procedure_not_available_text2' | translate }} <a href='#'>{{ 'procedure_detail.general_instance' | translate }}</a></p>
                     </div>		
                 </div>
             </div>
@@ -126,15 +126,15 @@
             <div class="tab-pane fade {{ active.presencial }}" id="nav-presencial" role="tabpanel" aria-labelledby="nav-presencial-tab">
                 <div class="card-header border-0 my-2">
                     <h4 class="mb-0">
-                        {{ 'procediment_detail.face_transaction' | translate }}
+                        {{ 'procedure_detail.face_transaction' | translate }}
                     </h4>
                 </div>
                 <div class="card-body">
-                    {{ 'procediment_detail.face_transaction_text' | translate }}
+                    {{ 'procedure_detail.face_transaction_text' | translate }}
                 </div>
                 <div class="row justify-content-center">
                     <a class="btn btn-app-primary text-center text-uppercase my-3 button-round" href="../../../../assets/docs/PRUEBITA.pdf"
-                        target="_blank" role="button">{{ 'procediment_detail.download_application_form' | translate }}</a>
+                        target="_blank" role="button">{{ 'procedure_detail.download_application_form' | translate }}</a>
                 </div>
             </div>
         </div>  
