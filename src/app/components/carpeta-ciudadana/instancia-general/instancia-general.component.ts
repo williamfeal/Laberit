@@ -14,5 +14,13 @@ export class InstanciaGeneralComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {  }
-
+  public goToRequestInfo() {
+    this.router.navigate(['carpeta-del-ciudadano/adjuntar'], {
+      state: {
+        data: {
+          holi:'holi'
+        }
+      }
+});
+}
 }
