@@ -97,7 +97,7 @@
                 </div>
                 </div>   
         </div>
-        <div class="tab-content" id="nav-tab-content">
+        <div class="tab-content" id="nav-tab-content" *ngIf="procedure">
             <div class="tab-pane fade {{ active.online }}" id="nav-home" role="tabpanel" aria-labelledby="nav-online-tab">
                 <div class="card-header border-0 my-2">
                     <h4 class="mb-0">
@@ -107,13 +107,13 @@
                 <div class="card-body">
                     {{ 'procedure_detail.online_transaction_text' | translate }}
                 </div>
-                <div class="row justify-content-center" *ngIf="infoProcedure.telematicChannel">
+                <div class="row justify-content-center" *ngIf="procedure.tramitacionElectronica == true">
                     <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/carpeta-del-ciudadano/transact/' + procedure.id ]" 
                         href="#" role="button">
                         {{ 'procedure_detail.transact' | translate }}
                     </a>
                 </div>		
-                <div class="centered-item-dad mb-4"  *ngIf="!infoProcedure.telematicChannel">
+                <div class="centered-item-dad mb-4"  *ngIf="!procedure.tramitacionElectronica">
                     <div class="alert alert-danger col-md-8 mx-auto">
                     <h4> {{ 'procedure_detail.procedure_not_available' | translate }}  </h4>
                     <p class="mb-0">{{ 'procedure_detail.procedure_not_available_text1' | translate }}  </p>

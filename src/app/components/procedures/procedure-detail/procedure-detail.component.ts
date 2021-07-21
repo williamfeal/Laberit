@@ -51,9 +51,7 @@ export class ProcedureDetailComponent implements OnInit {
       lang => {
         this.lang = lang;
         this.loadData();
-      }
-    )
-    this.loadData();
+      });
   }
 
   private loadData() {
