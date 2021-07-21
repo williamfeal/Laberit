@@ -6,26 +6,27 @@
             <label>{{ 'carpeta_ciudadana.instance.docAdd' | translate }}</label>
         </div>
     </div>
-<div class="file-container">
-    <div class="color-dark-gray-50">
-      <input type="file" #fileUploader (change)="uploadFile($event)" name="fileUploader" id="fileUploader"
-        accept=".doc,.docx,application/msword,application/pdf" class="cursor-pointer" multiple>
+    <div class="file-container adj-margins">
+        <input type="file" #fileUploader (change)="uploadFile($event)" name="fileUploader" id="fileUploader"
+               accept=".doc,.docx,application/msword,application/pdf" class="cursor-pointer" multiple>
+        <i class="fas fa-cloud-upload-alt mr-2"></i>
         <span>
-      <i class="fas fa-cloud-upload-alt" data-toggle="tooltip" data-placement="top" title="Subir"></i></span>
-      <span>
-        Arrastre aquí el archivo para adjuntarlo o <label class="primary-link" for="fileUploader"><u>explorar</u>.</label>
-      </span>
+          Arrastre aquí el archivo para adjuntarlo o <label class="primary-link" for="fileUploader"><u>explorar</u>.</label>
+        </span>
+      </div>
+
+  <div class="my-3 file position-relative input-file-border adj-margins" *ngFor="let file of fileList">
+  <div *ngIf="!file.eliminado">
+    <div class="row p-3">
+      <div class="col-md-6 file-name">
+        <span class="color-dark-gray-50"> {{ file.naturalName }} </span>
+      </div>
+      <div class="col-md-6 text-right ">
+        <button class="btn-danger" (click)="removeFile(file)">
+          <em class="fas fa-trash"></em>
+        </button>
+      </div>
     </div>
-  
-  </div>
-  <div class="file-container file mt-2" *ngIf="hasFile">
-    <span class="color-dark-gray-50"> 
-        <i *ngIf="documentIcon == 'pdf'" data-toggle="tooltip" data-placement="top" title="Subir" class="fas fa-file-pdf"></i>
-        <i *ngIf="documentIcon != 'pdf'" data-toggle="tooltip" data-placement="top" title="Subir" class="fas fa-file-word"></i>
-       {{ fileName }}</span>
-    <span class="ml-2">
-      <i data-toggle="tooltip" data-placement="top" title="Eliminar" (click)="removeFile()" class="fas fa-times"></i>
-    </span>
   </div>
 </div>
 <div class="text-right px-3 py-3">
