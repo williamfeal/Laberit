@@ -1,3 +1,37 @@
-.file-name-text {
-	width: 400px;
-}
+.file-container {
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	padding: 2rem;
+	width: 100%;
+	border: dashed 1px gray;
+  
+	i {
+	  color: grayscale($color: #353535);
+	}
+  
+	input {
+	  opacity: 0;
+	  position: absolute;
+	  z-index: 2;
+	  width: 100%;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	}
+  }
+  
+  .input-file-border {
+	border: dashed 1px gray;
+  }
+  
+  .file-name {
+	padding-top: 5px;
+  }
+  .adj-margins{
+	height: 17%;
+    width: 26%;
+    margin-left: 1%;
+    margin-top: 1%;
+  }
+  
