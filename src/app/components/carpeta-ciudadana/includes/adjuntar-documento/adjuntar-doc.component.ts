@@ -24,44 +24,43 @@ export class AdjuntarDocComponent implements OnInit {
 
   ngOnInit(): void {
   }
-editInput(event: any){
+  public uploadFile(event: any): void {
     const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
-      const fileExtension = file.name.split('.').pop();
+    const fileExtension = file.name.split('.').pop();
+
+    if (!file.name || fileExtension !== 'pdf' && fileExtension !== 'doc' && fileExtension !== 'docx') {
+      Swal.fire('Extensión no permitida', 'Las extensiones de archivo permitidas son: .pdf, .doc, .docx', 'info').then();
+      return;
+    }
+    if (file.size > 52428800) {
+      Swal.fire('Tamaño inválido', 'Archivo demasiado grande. Máximo permitido: 50 MB.', 'info').then();
+      return;
+    }
   
-      if (!file.name || fileExtension !== 'pdf' && fileExtension !== 'doc' && fileExtension !== 'docx') {
-        Swal.fire('Extensión no permitida', 'Las extensiones de archivo permitidas son: .pdf, .doc, .docx', 'info').then();
-        return;
-      }
-      if (file.size > 52428800) {
-        Swal.fire('Tamaño inválido', 'Archivo demasiado grande. Máximo permitido: 50 MB.', 'info').then();
-        return;
-      }
-    
-      this.fileReader.readAsDataURL(file);
-      this.fileReader.onload = () => {
-        this.fileName = file.name;
-        this.fileSize = file.size;
-        this.fileContent = this.fileReader.result as string;
-        this.uploadFileDocument.emit(this.fileReader.result);
-        this.fileContentBase.emit(this.fileContent);
-        this.documentIcon = fileExtension;
-        this.archivoName.nativeElement.value = this.fileName;
-      };
-      this.hasFile = true;
-      this.canDelete = true;
-}
+    this.fileReader.readAsDataURL(file);
+    this.fileReader.onload = () => {
+      this.fileName = file.name;
+      this.fileSize = file.size;
+      this.fileContent = this.fileReader.result as string;
+      this.uploadFileDocument.emit(this.fileReader.result);
+      this.fileContentBase.emit(this.fileContent);
+      this.documentIcon = fileExtension;
+    };
+    this.hasFile = true;
+    this.canDelete = true;
+  }
 saveName(e:any){
     let label = e.target;
     console.log(label);
 }
-removeFile(){
-    this.archivoName.nativeElement.value = '';
-    this.hasFile = false;
-    this.canDelete = false;
-    // @ts-ignore
-    this.fileUploader?.nativeElement.value = '';
+public removeFile(): void {
+  this.fileName = '';
+  this.hasFile = false;
+  this.canDelete = false;
+  // @ts-ignore
+  this.fileUploader?.nativeElement.value = '';
 }
 createCompo(){
- 
+ this.fileUploader.nativeElement.cloneNode(true);
 }
 }

@@ -6,27 +6,27 @@
             <label>{{ 'carpeta_ciudadana.instance.docAdd' | translate }}</label>
         </div>
     </div>
-<label class="m-4">Adjuntar documentación adicional <span (click)="createCompo()" class="btn btn-primary primary-background" id="btnArchivo">
-    <i class="fa fa-plus-circle text-white"></i>
-</span></label>
-<div class="input-group mb-3 m-4">
-      <div class="input-group-prepend">
-         <label for="fileUploader" class="m-0" id="lblArchivo">
-           <span class="btn btn-primary primary-background btn-add-file" id="btnArchivo">
-               <i class="fa fa-file-pdf-o"></i>
-           </span>
-         </label>
-         <input type="text" class="borderless form-control file-name-text" id="archivoName" (change)="saveName($event)"
-         placeholder="Seleccione un archivo" disabled="true" #archivoName>
-         <input type="file" #fileUploader (change)="editInput($event)" name="" id="fileUploader"
-         accept=".doc,.docx,application/msword,application/pdf" hidden>
-      </div>
-      <div class="input-group-prepend">
-        <a class="btn btn-danger btn-remove-file" (click)="removeFile()">
-           <i class="fa fa-remove"></i>
-        </a>
-      </div>
-</div>
+<div class="file-container">
+    <div class="color-dark-gray-50">
+      <input type="file" #fileUploader (change)="uploadFile($event)" name="fileUploader" id="fileUploader"
+        accept=".doc,.docx,application/msword,application/pdf" class="cursor-pointer" multiple>
+        <span>
+      <i class="fas fa-cloud-upload-alt" data-toggle="tooltip" data-placement="top" title="Subir"></i></span>
+      <span>
+        Arrastre aquí el archivo para adjuntarlo o <label class="primary-link" for="fileUploader"><u>explorar</u>.</label>
+      </span>
+    </div>
+  
+  </div>
+  <div class="file-container file mt-2" *ngIf="hasFile">
+    <span class="color-dark-gray-50"> 
+        <i *ngIf="documentIcon == 'pdf'" data-toggle="tooltip" data-placement="top" title="Subir" class="fas fa-file-pdf"></i>
+        <i *ngIf="documentIcon != 'pdf'" data-toggle="tooltip" data-placement="top" title="Subir" class="fas fa-file-word"></i>
+       {{ fileName }}</span>
+    <span class="ml-2">
+      <i data-toggle="tooltip" data-placement="top" title="Eliminar" (click)="removeFile()" class="fas fa-times"></i>
+    </span>
+  </div>
 </div>
 <div class="text-right px-3 py-3">
     <button class="btn-app-primary mr-2">{{ 'buttons.continue' | translate}}</button>
