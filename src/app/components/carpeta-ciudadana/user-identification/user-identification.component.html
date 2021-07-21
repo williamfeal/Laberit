@@ -1,14 +1,14 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
 <div class="row mr-0 ml-4">
     <a [routerLink]="['/carpeta-del-ciudadano']">
-        <em class="fas fa-chevron-left"></em>  {{ 'buttons.back' | translate}}
+        <em class="fas fa-chevron-left"></em> {{ 'buttons.back' | translate}}
     </a>
 </div>
 <div class="row mx-0 mt-2">
     <div class="col-md-6">
         <app-identity-data></app-identity-data>
     </div>
-    <div class="col-md-6" >
+    <div class="col-md-6">
         <app-notification-means></app-notification-means>
     </div>
     <div class="col-md-12">
@@ -29,24 +29,26 @@
         <app-interested-data></app-interested-data>
     </div>
 </div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-social-address></app-social-address>
+<div *ngIf="!isInteresado()">
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2">
+            <app-social-address></app-social-address>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-productive-establishment-address></app-productive-establishment-address>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2">
+            <app-productive-establishment-address></app-productive-establishment-address>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-legal-representative></app-legal-representative>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2">
+            <app-legal-representative></app-legal-representative>
+        </div>
     </div>
-</div>
-<div class="row mx-0">
-    <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-        <app-contact-data></app-contact-data>
+    <div class="row mx-0">
+        <div class="col-md-12 mt-2">
+            <app-contact-data></app-contact-data>
+        </div>
     </div>
 </div>
 <br>
