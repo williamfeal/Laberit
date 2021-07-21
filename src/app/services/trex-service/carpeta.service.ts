@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CarpetaService {
     return sessionStorage.getItem('dni') !== null;
   }
 
-  public getLoggedUser() {
+  public getLoggedUser():Observable<User> {
     let user = {
       dni : sessionStorage.getItem('dni'),
       nombre : sessionStorage.getItem('nombre'),

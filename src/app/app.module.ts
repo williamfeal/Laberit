@@ -76,6 +76,8 @@ import { InterestedDataComponent } from './components/carpeta-ciudadana/user-ide
 import { ContactDataComponent } from './components/carpeta-ciudadana/user-identification/contact-data/contact-data.component';
 import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
 import { ProceduresHomeComponent } from './components/home/procedures-home/procedures-home.component';
+import { InputTextComponent } from './shared/form/fields/input-text/input-text.component';
+import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +133,9 @@ import { ProceduresHomeComponent } from './components/home/procedures-home/proce
     LegalRepresentativeComponent,
     RepresentativeDataComponent,
     InterestedDataComponent,
-    ContactDataComponent
+    ContactDataComponent,
+    InputTextComponent,
+    InputSelectComponent
     ],
   imports: [
     BrowserModule,
