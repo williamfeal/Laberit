@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TranslationComponent } from './translation/translation.component';
 
 import localeEs from '@angular/common/locales/es-PY';
 
@@ -79,7 +78,6 @@ import { ProceduresHomeComponent } from './components/home/procedures-home/proce
 @NgModule({
   declarations: [
     AppComponent,
-    TranslationComponent,
     AdvertisementDetailComponent,
     ContractorProfileComponent,
     ValideComponent,

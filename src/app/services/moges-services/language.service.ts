@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Procedure } from 'src/app/models/procedure.model';
+import { Language } from 'src/app/models/language.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +24,7 @@ export class LanguagesService {
     this.lang.next(translate.currentLang);
    }
 
-  public getLanguages() : Observable<Procedure> {
+  public getLanguages() : Observable<Language[]> {
     const procedure = this.http.get(this.API_LANGUAGES_ENDPOINT, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
