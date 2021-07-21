@@ -14,7 +14,7 @@
     "SLIDER_HOME": {
         "TITLE": "¿Qué puedes hacer? VAL"
     },
-    "PROCEDIMENTS_HOME": {
+    "PROCEDURES_HOME": {
         "TITLE": "Trámites VAL",
         "SEE_ALL": "Ver todos"
     },
@@ -23,9 +23,9 @@
         "INFO_SEDE": "Conoce la Sede Electrónica",
         "ELECTRONIC_CERTIFICATE": "Cómo obtener el certificado electrónico",
         "TECHNICAL_REQUIREMENTS" : "Requisitos técnicos",
-        "PROCEDIMENTS_SEARCH": "Buscador de trámites"
+        "PROCEDURES_SEARCH": "Buscador de trámites"
     },
-    "procediments-search": {
+    "procedures-search": {
         "title": "Buscador de trámites"
     },
     "advertisements":{
@@ -92,15 +92,15 @@
         "document_verification": "Verificación de documentos",
         "valide": "Validación de firmas y certificados",
         "electronic_invoice": "Factura electrónica",
-        "procediments":"Trámites",
+        "procedures":"Trámites",
         "contractor_profile": "Perfil de contratante",
         "contact_popover": {
             "title": "¿Necesitas ayuda?",
             "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
         }
     },
-    "procediment_detail": {
-        "procediment_name": "Nombre del trámite",
+    "procedure_detail": {
+        "procedure_name": "Nombre del trámite",
         "info": "Información",
         "online": "Online",
         "face": "Presencial",
@@ -115,9 +115,9 @@
         "online_transaction": "Tramitación Online",
         "online_transaction_text": "Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve",
         "transact": "Tramitar",
-        "procediment_not_available": "Trámite no disponible",
-        "procediment_not_available_text1": "Esta opción no está disponible en estos momentos.",
-        "procediment_not_available_text2": "Para cualquier trámite con la Sede Electrónica puede utilizar una",
+        "procedure_not_available": "Trámite no disponible",
+        "procedure_not_available_text1": "Esta opción no está disponible en estos momentos.",
+        "procedure_not_available_text2": "Para cualquier trámite con la Sede Electrónica puede utilizar una",
         "general_instance": "Instancia general",
         "face_transaction": "Tramitación presencial",
         "face_transaction_text": "A continuación encontrará el formulario de solicitud para el procedimiento Solicitud de Bonificación sobre Buques (Medioambiental, calidad...). Se trata de un PDF rellenable, que una vez correctamente rellenado e impreso podrá entregar en el registro de la entidad. Los trámites registrados de forma presencial solo afectan a personas físicas y no jurídicas",

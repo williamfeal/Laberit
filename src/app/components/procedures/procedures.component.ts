@@ -2,16 +2,16 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Category } from 'src/app/models/category.model';
-import { Procediment } from 'src/app/models/procediment.model';
+import { Procedure } from 'src/app/models/procedure.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
 
 @Component({
-  selector: 'app-procediments',
-  templateUrl: './procediments.component.html',
-  styleUrls: ['./procediments.component.scss']
+  selector: 'app-procedures',
+  templateUrl: './procedures.component.html',
+  styleUrls: ['./procedures.component.scss']
 })
-export class ProcedimentsComponent implements OnInit {
+export class ProceduresComponent implements OnInit {
 
   public categories:Category[];
   public selectedCategory:Category;
@@ -48,8 +48,8 @@ export class ProcedimentsComponent implements OnInit {
         this.categories = categories;
         this.categories.forEach(  
           (category:Category) => {
-            this.categoriesService.getCategoryProcediments(category.id, this.lang).subscribe(
-              (procedures:Procediment[]) => category.procedimientos = procedures
+            this.categoriesService.getCategoryProcedures(category.id, this.lang).subscribe(
+              (procedures:Procedure[]) => category.procedimientos = procedures
             )
             if(category.id === this.selectedId) this.selectedCategory = category;
           });

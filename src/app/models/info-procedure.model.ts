@@ -1,4 +1,4 @@
-export class InfoProcediment{
+export class InfoProcedure{
     id: number
     codigo: string
     name: string
