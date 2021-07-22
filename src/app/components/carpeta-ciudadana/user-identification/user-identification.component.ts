@@ -26,7 +26,9 @@ export class UserIdentificationComponent implements OnInit {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.formUserIdentification = new FormGroup({
       identity_data: new FormGroup({ }),
-      notification_means: new FormGroup({ })
+      notification_means: new FormGroup({ }),
+      actuation_data: new FormGroup({ }),
+      contact_data: new FormGroup({})
     });
   }
 

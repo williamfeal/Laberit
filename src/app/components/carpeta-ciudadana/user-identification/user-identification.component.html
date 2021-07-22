@@ -19,7 +19,7 @@
 
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
-            <app-actuation-data></app-actuation-data>
+            <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false"></app-actuation-data>
         </div>
     </div>
     <div class="row mx-0">
@@ -47,7 +47,7 @@
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-contact-data></app-contact-data>
+            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [readOnly]="false"></app-contact-data>
         </div>
     </div>
     <br>
