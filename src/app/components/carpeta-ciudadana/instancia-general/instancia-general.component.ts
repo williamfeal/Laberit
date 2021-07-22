@@ -10,17 +10,12 @@ import { Router } from '@angular/router';
 export class InstanciaGeneralComponent implements OnInit {
 
   constructor(
-    private router:Router
-  ) {  }
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
+
   public goToRequestInfo() {
-    this.router.navigate(['carpeta-del-ciudadano/adjuntar'], {
-      state: {
-        data: {
-          holi:'holi'
-        }
-      }
-});
-}
+    this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+  }
 }

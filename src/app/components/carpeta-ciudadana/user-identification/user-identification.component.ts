@@ -55,23 +55,19 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
-    //Si es electrónico es necesario el correo
-    if (this.formUserIdentification.value.notification_means.notification_means == 1 && (this.formUserIdentification.value.notification_means.email == '' || this.formUserIdentification.value.notification_means.email == undefined)) {
-      //cambiar clases a los inputs erroneos
-      error++;
-    } else {
-      //comprobar formato de correo
-      if (this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
+    //Si es electrónico es necesario el corre con buen formato
+    if (this.formUserIdentification.value.notification_means.notification_means != 2 && this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
         //cambiar clases a los inputs erroneos
         error++;
-      }
     }
     //Si es reprsentante es necesaria más información
     if (this.requesterType == 'representative') {
       //cambiar clases a los inputs erroneos
       error++;
     }
+    //si no hay errores
     if (error == 0) {
+      //llamada al back para mandar los datos
       this.router.navigate(['carpeta-del-ciudadano/instancia-general']);
     } else {
       //saber como notificar al usuario
