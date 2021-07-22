@@ -29,8 +29,8 @@ export class InputTextComponent implements OnInit {
 
       this.value ? 
           this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
-      console.log(this.form)
       
+      if ( this.placeholder == undefined ) this.placeholder = '';
   }
 
   onChangeValue(){
