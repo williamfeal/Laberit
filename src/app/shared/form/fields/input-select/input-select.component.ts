@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SelectFieldObject } from './input-select';
 
@@ -18,7 +18,7 @@ export class InputSelectComponent implements OnInit {
   @Input() isRequired!: boolean;
   @Input() fieldOptions!: SelectFieldObject[];
   @Input() placeholder!: string;
-    
+  @Output() onclick = new EventEmitter<string>(); 
   selectedValue!: any;
 
   ngOnInit(): void {
@@ -37,6 +37,7 @@ export class InputSelectComponent implements OnInit {
 
   onChangeValue(){
       console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value);
+      this.onclick.emit(this.form.get(this.controlName)?.value);
   }
 
 

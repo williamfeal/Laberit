@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
+import { selectMeans } from 'src/app/utils/constants/app-constants';
 
 @Component({
   selector: 'app-notification-means',
@@ -8,29 +9,25 @@ import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input
 })
 export class NotificationMeansComponent implements OnInit, OnChanges {
 
-  @Input() formNotificationMeans:FormGroup;
-  @Input() readOnly:boolean;
-  
-  public selectMeans:SelectFieldObject[];
+  @Input() formNotificationMeans: FormGroup;
+  @Input() readOnly: boolean;
 
-  constructor(    
+  public selectMeans: SelectFieldObject[];
+  public select;
+
+  constructor(
     private ref: ChangeDetectorRef
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    this.selectMeans = [{
-      id: '1',
-      val: 'Electrónico',
-      selected: true
-    }, {
-      id: '2',
-      val: 'Papel',
-      selected: false
-    }]
+    this.selectMeans = selectMeans;
   }
-  
+
   ngOnChanges() {
     this.ref.detectChanges();
+  }
+  capturarCampo(value) {
+    this.select = value;
   }
 
 }

@@ -6,8 +6,8 @@
         </div>
     </div>
     <div class="card-body row" *ngIf="selectMeans">
-        <div class="form-group col-md-6 mx-auto">
-            <app-input-select
+        <div class="form-group col-md-6">
+            <app-input-select (onclick)="capturarCampo($event)"
                 [form] = "formNotificationMeans"
                 label = "{{ 'carpeta_ciudadana.identification.means_of_notification.means' | translate }}"
                 controlName = "notification_means"
@@ -19,7 +19,7 @@
             >
             </app-input-select>
         </div>
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto" *ngIf="select == 1">
             <app-input-text 
             [form]="formNotificationMeans"
             label="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
