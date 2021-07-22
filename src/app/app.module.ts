@@ -77,6 +77,8 @@ import { ProcedureDetailComponent } from './components/procedures/procedure-deta
 import { ProceduresHomeComponent } from './components/home/procedures-home/procedures-home.component';
 import { AppUtils } from './utils/app-utils';
 import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
+import { InputTextComponent } from './shared/form/fields/input-text/input-text.component';
+import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +134,9 @@ import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/incl
     LegalRepresentativeComponent,
     RepresentativeDataComponent,
     InterestedDataComponent,
-    ContactDataComponent
+    ContactDataComponent,
+    InputTextComponent,
+    InputSelectComponent
     ],
   imports: [
     BrowserModule,

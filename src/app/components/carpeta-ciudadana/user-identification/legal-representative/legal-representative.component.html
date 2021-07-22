@@ -7,70 +7,175 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <label for="name">{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }} </label>
-            <input id="name" name="name" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }}"
+                    controlName="legal_representative_name"
+                    idValue="legal_representative_name"
+                    nameValue="legal_representative_name"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="surname1">{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }} </label>
-            <input id="surname1" name="surname1" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }}"
+                    controlName="legal_representative_surname1"
+                    idValue="legal_representative_surname1"
+                    nameValue="legal_representative_surname1"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="surname2">{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }} </label>
-            <input id="surname2" name="surname2" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
+                    controlName="legal_representative_surname2"
+                    idValue="legal_representative_surname2"
+                    nameValue="legal_representative_surname2"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="nif">{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }} </label>
-            <input id="nif" name="nif" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
+                    controlName="legal_representative_nif"
+                    idValue="legal_representative_nif"
+                    nameValue="legal_representative_nif"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="position">{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }} </label>
-            <input id="position" name="position" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
+                    controlName="legal_representative_position"
+                    idValue="legal_representative_position"
+                    nameValue="legal_representative_position"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="telephone">{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }} </label>
-            <input id="telephone" name="telephone" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formLegalRepresentative"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }}"
+                    controlName="legal_representative_telephone"
+                    idValue="legal_representative_telephone"
+                    nameValue="legal_representative_telephone"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="email">{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }} </label>
-            <input id="email" name="email" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
+                controlName="legal_representative_email"
+                idValue="legal_representative_email"
+                nameValue="legal_representative_email"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="col-md-3"></div>
         <div class="form-group col-md-3">
-            <label for="via_type">{{ 'carpeta_ciudadana.identification.address.via_type' | translate }} </label>
-            <input id="via_type" name="via_type" type="via_type" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.via_type' | translate }}"
+                controlName="legal_representative_via_type"
+                idValue="legal_representative_via_type"
+                nameValue="legal_representative_via_type"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-6">
-            <label for="address">{{ 'carpeta_ciudadana.identification.address.address' | translate }} </label>
-            <input id="address" name="address" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                controlName="legal_representative_address"
+                idValue="legal_representative_address"
+                nameValue="legal_representative_address"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <label for="number">{{ 'carpeta_ciudadana.identification.address.number' | translate }} </label>
-                <input id="number" name="number" type="text" class="form-control">
+                <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                controlName="legal_representative_number"
+                idValue="legal_representative_number"
+                nameValue="legal_representative_number"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <label for="extra">{{ 'carpeta_ciudadana.identification.address.extra' | translate }} </label>
-            <input id="extra" name="extra" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
+                controlName="legal_representative_extra"
+                idValue="legal_representative_extra"
+                nameValue="legal_representative_extra"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <label for="CP">{{ 'carpeta_ciudadana.identification.address.CP' | translate }} </label>
-                <input id="CP" name="CP" type="text" class="form-control">
+                <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                controlName="legal_representative_CP"
+                idValue="legal_representative_CP"
+                nameValue="legal_representative_CP"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
             </div>
         </div>
         <div class="col-md-6"></div>
         <div class="form-group col-md-3">
-            <label for="country">{{ 'carpeta_ciudadana.identification.address.country' | translate }} </label>
-            <input id="country" name="country" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.country' | translate }}"
+                controlName="legal_representative_country"
+                idValue="legal_representative_country"
+                nameValue="legal_representative_country"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="province">{{ 'carpeta_ciudadana.identification.address.province' | translate }} </label>
-            <input id="province" name="province" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.province' | translate }}"
+                controlName="legal_representative_province"
+                idValue="legal_representative_province"
+                nameValue="legal_representative_province"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="municipality">{{ 'carpeta_ciudadana.identification.address.municipality' | translate }} </label>
-            <input id="municipality" name="municipality" type="text" class="form-control">
+            <app-input-text 
+                [form]="formLegalRepresentative"
+                label="{{ 'carpeta_ciudadana.identification.address.municipality' | translate }}"
+                controlName="legal_representative_municipality"
+                idValue="legal_representative_municipality"
+                nameValue="legal_representative_municipality"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
     </div>
 </div>

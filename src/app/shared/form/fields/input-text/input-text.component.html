@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+<label for="nameValue">{{ label }} <span *ngIf="isRequired" class="requiredField">*</span> </label>
+<input 
+    type="text" 
+    class="form-control" 
+    [id]="idValue" 
+    [name]="nameValue" 
+    (change)="onChangeValue()" 
+    [formControlName]="controlName" 
+    [placeholder]="placeholder"
+    [readonly]="isReadOnly">        
+</form>

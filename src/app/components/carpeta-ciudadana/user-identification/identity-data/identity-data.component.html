@@ -1,22 +1,36 @@
 <div class="card mb-2" >
-    <div class="card-header background-card-header pb-0">
-        <div class="card-title text-white">
-            <em class="fas fa-user"></em>
-            <span> {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</span>
+    <form [formGroup]="formIdentityData">
+        <div class="card-header background-card-header pb-0">
+            <div class="card-title text-white">
+                <em class="fas fa-user"></em>
+                <span> {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</span>
+            </div>
         </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-8 col-sm-12">
-            <label for="name_and_surname">
-                {{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }} <b>*</b>
-            </label>
-            <input id="name_and_surname" name="name_and_surname" type="text" class="form-control">
+        <div class="card-body row" *ngIf="user">
+            <div class="form-group col-md-8 col-sm-12">
+                <app-input-text 
+                    [form]="formIdentityData"
+                    label="{{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }}"
+                    controlName="name_and_surname"
+                    idValue="name_and_surname"
+                    nameValue="name_and_surname"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.nombre + ' ' + user.apellido1 + ' ' + user.apellido2"
+                ></app-input-text>
+                 </div>
+            <div class="form-group col-md-4 col-sm-12">
+                <app-input-text 
+                    [form]="formIdentityData"
+                    label="{{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }}"
+                    controlName="nif"
+                    idValue="nif"
+                    nameValue="nif"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.dni"
+                ></app-input-text>
+            </div>
         </div>
-        <div class="form-group col-md-4 col-sm-12">
-            <label for="nif">
-                {{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }} <b>*</b>
-            </label>
-            <input id="nif" name="nif" type="text" class="form-control">
-        </div>
-    </div>
+    </form>
 </div>
