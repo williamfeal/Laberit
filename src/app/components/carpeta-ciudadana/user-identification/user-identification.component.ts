@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -28,6 +28,10 @@ export class UserIdentificationComponent implements OnInit {
       identity_data: new FormGroup({ }),
       notification_means: new FormGroup({ }),
       actuation_data: new FormGroup({ }),
+      interested_data: new FormGroup({ }),
+      productive_establishment: new FormGroup({ }),
+      representative_data: new FormGroup({ }),
+      legal_representative: new FormGroup({}),
       contact_data: new FormGroup({})
     });
   }

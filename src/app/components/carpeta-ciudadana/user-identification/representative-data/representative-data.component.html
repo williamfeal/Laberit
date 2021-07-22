@@ -14,78 +14,197 @@
             </select> 
         </div>
         <div class="form-group col-md-3" *ngIf="isEmpresa()">
-            <label for="social_reason">{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }} </label>
-            <input id="social_reason" name="social_reason" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
+                controlName="represented_data_social_reason"
+                idValue="represented_data_social_reason"
+                nameValue="represented_data_social_reason"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="!isEmpresa()">
-            <label for="name">{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }} </label>
-            <input id="name" name="name" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
+                controlName="represented_data_name"
+                idValue="represented_data_name"
+                nameValue="represented_data_name"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="!isEmpresa()">
-            <label for="surname1">{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }} </label>
-            <input id="surname1" name="surname1" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
+                controlName="represented_data_surname1"
+                idValue="represented_data_surname1"
+                nameValue="represented_data_surname1"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="!isEmpresa()">
-            <label for="surname2">{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }} </label>
-            <input id="surname2" name="surname2" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
+                controlName="represented_data_surname2"
+                idValue="represented_data_surname2"
+                nameValue="represented_data_surname2"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="nif">{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }} </label>
-            <input id="nif" name="nif" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
+                controlName="represented_data_nif"
+                idValue="represented_data_nif"
+                nameValue="represented_data_nif"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="cnae">{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }} </label>
-            <input id="cnae" name="cnae" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
+                controlName="represented_data_cnae"
+                idValue="represented_data_cnae"
+                nameValue="represented_data_cnae"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="iae">{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }} </label>
-            <input id="iae" name="iae" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
+                controlName="represented_data_iae"
+                idValue="represented_data_iae"
+                nameValue="represented_data_iae"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3  px-0 d-flex">
             <div class="form-group col-md-6">
-                <label for="iae_date">{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }} </label>
-                <input id="iae_date" name="iae_date" type="date" class="form-control">
+                <app-input-text 
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
+                    controlName="represented_data_iae_date"
+                    idValue="represented_data_iae_date"
+                    nameValue="represented_data_iae_date"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
             </div>
             <div class="form-group col-md-6">
-                <label for="employees_number">{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }} </label>
-                <input id="employees_number" name="employees_number" type="number" class="form-control">
+                <app-input-text 
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
+                    controlName="represented_data_employees_number"
+                    idValue="represented_data_employees_number"
+                    nameValue="represented_data_employees_number"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <label for="ambit">{{ 'carpeta_ciudadana.identification.represented_data.ambit' | translate }} </label>
-            <input id="ambit" name="ambit" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.ambit' | translate }}"
+                controlName="represented_data_ambit"
+                idValue="represented_data_ambit"
+                nameValue="represented_data_ambit"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="!isEmpresa()">
-            <label for="residence_country">{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }} </label>
-            <input id="residence_country" name="residence_country" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
+                controlName="represented_data_residence_country"
+                idValue="represented_data_residence_country"
+                nameValue="represented_data_residence_country"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0 d-flex" *ngIf="!isEmpresa()">
             <div class="form-group col-md-6">
-                <label for="birth_date">{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }} </label>
-                <input id="birth_date" name="birth_date" type="date" class="form-control">
+                <app-input-text 
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
+                    controlName="represented_data_birth_date"
+                    idValue="represented_data_birth_date"
+                    nameValue="represented_data_birth_date"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
             </div>
             <div class="form-group col-md-6">
-                <label for="genre">{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }} </label>
-                <input id="genre" name="genre" type="text" class="form-control">
+                <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
+                controlName="represented_data_genre"
+                idValue="represented_data_genre"
+                nameValue="represented_data_genre"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
             </div>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="form-group col-md-6" *ngIf="isEmpresa()">
-                <label for="constitution_date">{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }} </label>
-                <input id="constitution_date" name="constitution_date" type="date" class="form-control">
+                <app-input-text 
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
+                    controlName="represented_data_constitution_date"
+                    idValue="represented_data_constitution_date"
+                    nameValue="represented_data_constitution_date"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                ></app-input-text>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <label for="active">{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }} </label>
-            <input id="active" name="active" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
+                controlName="represented_data_active"
+                idValue="represented_data_active"
+                nameValue="represented_data_active"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="turnover">{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }} </label>
-            <input id="turnover" name="turnover" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
+                controlName="represented_data_turnover"
+                idValue="represented_data_turnover"
+                nameValue="represented_data_turnover"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <label for="group_belong">{{ 'carpeta_ciudadana.identification.represented_data.group_belong' | translate }} </label>
-            <input id="group_belong" name="group_belong" type="text" class="form-control">
+            <app-input-text 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.group_belong' | translate }}"
+                controlName="represented_data_group_belong"
+                idValue="represented_data_group_belong"
+                nameValue="represented_data_group_belong"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+            ></app-input-text>
         </div>
     </div>
 </div>

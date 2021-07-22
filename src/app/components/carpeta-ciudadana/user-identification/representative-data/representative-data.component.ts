@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-representative-data',
@@ -6,6 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RepresentativeDataComponent implements OnInit {
 
+  @Input() formRepresentativeData:FormGroup;
+  @Input() readOnly:boolean;
+  
   public type = 'natural-person';
 
   constructor() { }
