@@ -24,10 +24,12 @@
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
-            <app-representative-data></app-representative-data>
+            <app-representative-data [formRepresentativeData]="formUserIdentification.controls.representative_data"
+                [readOnly]="false"></app-representative-data>
         </div>
         <div class="col-md-12 mt-2" *ngIf="isUserAutonomo()">
-            <app-interested-data></app-interested-data>
+            <app-interested-data [formInterestedData]="formUserIdentification.controls.interested_data"
+                [readOnly]="false"></app-interested-data>
         </div>
     </div>
     <div class="row mx-0">
@@ -37,12 +39,14 @@
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-productive-establishment-address></app-productive-establishment-address>
+            <app-productive-establishment-address [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
+                [readOnly]="false"></app-productive-establishment-address>
         </div>
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-legal-representative></app-legal-representative>
+            <app-legal-representative [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
+                [readOnly]="false"></app-legal-representative>
         </div>
     </div>
     <div class="row mx-0">
