@@ -63,7 +63,6 @@ import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instan
 import { DatosNotificacionComponent } from './components/carpeta-ciudadana/includes/datos-notificacion/datos-notificacion.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
-import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
 import { IdentityDataComponent } from './components/carpeta-ciudadana/user-identification/identity-data/identity-data.component';
 import { NotificationMeansComponent } from './components/carpeta-ciudadana/user-identification/notification-means/notification-means.component';
 import { RequesterDataComponent } from './components/carpeta-ciudadana/user-identification/requester-data/requester-data.component';
@@ -76,6 +75,8 @@ import { InterestedDataComponent } from './components/carpeta-ciudadana/user-ide
 import { ContactDataComponent } from './components/carpeta-ciudadana/user-identification/contact-data/contact-data.component';
 import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
 import { ProceduresHomeComponent } from './components/home/procedures-home/procedures-home.component';
+import { AppUtils } from './utils/app-utils';
+import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -156,7 +157,8 @@ import { ProceduresHomeComponent } from './components/home/procedures-home/proce
     CategoriesService,
     AdvertisementsService,
     ProceduresService,
-    LanguagesService
+    LanguagesService,
+    AppUtils
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
