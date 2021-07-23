@@ -5,32 +5,56 @@
             <label>{{ 'carpeta_ciudadana.instance.interested.title' | translate }}</label>
         </div>
     </div>
-    <div class="card-text row pt-3">
+    <div class="card-text row pt-3" *ngIf="user">
         <div class="form-group col-md-8">
-            <label for="name_and_surname">
-                {{ 'carpeta_ciudadana.instance.interested.name_and_surname' | translate }} <b>*</b>
-            </label>
-            <input id="name_and_surname" name="name_and_surname" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formInstanciaGeneral"
+                    label="{{ 'carpeta_ciudadana.instance.interested.name_and_surname' | translate }}"
+                    controlName="name_and_surname"
+                    idValue="name_and_surname"
+                    nameValue="name_and_surname"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    value="{{user.nombre}} {{user.apellido1}} {{user.apellido2}}"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-4">
-            <label for="nifCif">
-                {{ 'carpeta_ciudadana.instance.interested.nifCif' | translate }} <b>*</b>
-            </label>
-            <input id="nif" name="nif" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formInstanciaGeneral"
+                    label="{{ 'carpeta_ciudadana.instance.interested.nifCif' | translate }}"
+                    controlName="nifCif"
+                    idValue="nifCif"
+                    nameValue="nifCif"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    value="{{user.dni}}"
+            ></app-input-text>
         </div>
     </div>
     <div class="card-text row">
         <div class="form-group col-md-5">
-            <label for="telephone">
-                {{ 'carpeta_ciudadana.instance.interested.telephone' | translate }} <b>*</b>
-            </label>
-            <input id="telephone" name="telephone" type="text" class="form-control">
+            <app-input-text 
+                    [form]="formInstanciaGeneral"
+                    label="{{ 'carpeta_ciudadana.instance.interested.telephone' | translate }}"
+                    controlName="telephone"
+                    idValue="telephone"
+                    nameValue="telephone"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    value="prueba"
+            ></app-input-text>
         </div>
         <div class="form-group col-md-7">
-            <label for="email">
-                {{ 'carpeta_ciudadana.instance.interested.email' | translate }} <b>*</b>
-            </label>
-            <input id="email" name="email" type="text" class="form-control">
+            <app-input-text 
+                [form]="formInstanciaGeneral"
+                label="{{ 'carpeta_ciudadana.instance.interested.email' | translate }}"
+                controlName="email"
+                idValue="email"
+                nameValue="email"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+                value="prueba"
+            ></app-input-text>
         </div>
     </div>
     <div class="card-text row">
