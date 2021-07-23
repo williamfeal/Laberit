@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-requests-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private carpetaService:CarpetaService
+  ) { }
 
   ngOnInit(): void {
+    this.carpetaService.getLoggedUser().subscribe(
+      (data:any) => {
+        this.carpetaService.saveSession(data);
+      }
+    )
   }
 
 }

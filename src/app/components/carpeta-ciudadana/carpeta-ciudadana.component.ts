@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,33 +12,23 @@ import { environment } from 'src/environments/environment';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  url_carpeta;
+  public url_clave:string;
 
   constructor(
     private router:Router,
     private activatedRoute:ActivatedRoute
   ) {
-    this.url_carpeta = environment.carpeta_url + '/index';
+    
   }
 
   ngOnInit(): void {
-
-  }
-
-  public getClave() {
-    sessionStorage.setItem('dni', '11111111h');
-    sessionStorage.setItem('nombre', 'Test');
-    sessionStorage.setItem('apellido1', 'tEST');
-    sessionStorage.setItem('apellido2', 'TEst');
-    if(this.activatedRoute.snapshot.params.idProcedure) {
-      this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
-        queryParams: {
-          idProcedure: this.activatedRoute.snapshot.params.idProcedure
-        }
-      });
+    if( this.router.url.includes(UrlConstants.VIEW_TRANSACT)) {
+      this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + UrlConstants.VIEW_USER_IDENTIFICATION + 
+        '?idProcedure=' + this.activatedRoute.snapshot.params.idProcedure;
     } else {
-      this.router.navigate(['carpeta-del-ciudadano/requests-list']);
+      this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + UrlConstants.VIEW_REQUEST_LIST;
     }
   }
+  
 
 }

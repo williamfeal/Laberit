@@ -1,25 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { User } from 'src/app/models/user.model';
+import { Tercero } from 'src/app/models/tercero.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarpetaService {
 
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
 
   public isAuthenticated() {
     return sessionStorage.getItem('dni') !== null;
   }
 
-  public getLoggedUser():Observable<User> {
-    let user = {
-      dni : sessionStorage.getItem('dni'),
-      nombre : sessionStorage.getItem('nombre'),
-      apellido1 : sessionStorage.getItem('apellido1'),
-      apellido2 : sessionStorage.getItem('apellido2')
-    }
-    return of(user);
+  public getLoggedUser():Observable<Object> {
+    return this.http.get('http://localhost:8082/api/v1/login/getLoggedUser');
+  }
+
+  public getClave() {
+    return this.http.get('http://localhost:8082/api/v1/login/getClave');
+  }
+
+  public saveSession(data:Tercero) {
+    sessionStorage.setItem('dni', data.dni);
+    sessionStorage.setItem('nombre', data.nombre)
+    sessionStorage.setItem('apellido1', data.apellido1)
+    sessionStorage.setItem('apellido2', data.apellido2)
+
   }
 }
