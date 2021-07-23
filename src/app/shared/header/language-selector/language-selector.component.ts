@@ -21,8 +21,9 @@ export class LanguageSelectorComponent implements OnInit {
               });
         })
     }
-
     ngOnInit() { 
+        this.translate.setDefaultLang('es');
+        this.translate.use('es');
         if(localStorage.getItem('lang')) {
             this.selectedLang = localStorage.getItem('lang');
             this.translate.use(localStorage.getItem('lang'));
