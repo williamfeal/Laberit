@@ -19,7 +19,7 @@ export class ProcedureDetailComponent implements OnInit {
   public infoProcedure:InfoProcedure;
   public action;
   
-  private lang = this.translate.getBrowserLang();
+  private lang;
 
   public active = {
     info: '',
@@ -45,6 +45,8 @@ export class ProcedureDetailComponent implements OnInit {
           presencial: ''
         }
         this.active[this.action] = 'show active'
+        this.lang = this.translate.getBrowserLang();
+        this.loadData();
       }
     );
     this.languageService.lang.subscribe(

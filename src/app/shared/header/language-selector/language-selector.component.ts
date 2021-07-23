@@ -22,20 +22,17 @@ export class LanguageSelectorComponent implements OnInit {
         })
     }
     ngOnInit() { 
-        this.translate.setDefaultLang('es');
-        this.translate.use('es');
-        if(localStorage.getItem('lang')) {
-            this.selectedLang = localStorage.getItem('lang');
-            this.translate.use(localStorage.getItem('lang'));
-            this.languagesService.lang.next(localStorage.getItem('lang'));
-        } else {
-            this.selectedLang = this.language[0].code;
-        }
+        this.selectedLang = localStorage.getItem('lang') ? localStorage.getItem('lang') :
+            this.translate.getBrowserLang() ? this.translate.getBrowserLang() : 
+            this.language[0].code;
+        this.translate.use(this.selectedLang);
+        this.languagesService.lang.next(this.selectedLang);
+        this.translate.setDefaultLang(this.selectedLang);
     }
 
     changeLang(ev) {
         this.translate.use(ev.value);
-        localStorage.setItem('lang', ev.value)
         this.languagesService.lang.next(ev.value);
+        localStorage.setItem('lang', ev.value);
     }
 }

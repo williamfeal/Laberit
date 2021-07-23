@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -20,9 +20,9 @@ export class LanguagesService {
   constructor(
     private http:HttpClient,
     private translate: TranslateService
-  ) {
-    this.lang.next(translate.currentLang);
-   }
+  ) { 
+    this.lang.next(this.translate.currentLang);
+  }
 
   public getLanguages() : Observable<Language[]> {
     const procedure = this.http.get(this.API_LANGUAGES_ENDPOINT, {
