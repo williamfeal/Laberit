@@ -40,9 +40,10 @@ export class AdvertisementsListComponent implements OnInit {
 
   
   private loadData() {
-    this.advertisementsService.getAllAdvertisement(sessionStorage.token, this.lang).subscribe((advertisementslList: AdvertisementsModel[]) => {
-      this.anunciosMoges = advertisementslList;
-      this.loading = false;
+    this.advertisementsService.getAllAdvertisement(sessionStorage.token, this.lang)
+      .subscribe((advertisementslList: AdvertisementsModel[]) => {
+        this.anunciosMoges = advertisementslList;
+        this.loading = false;
     });
   }
 
