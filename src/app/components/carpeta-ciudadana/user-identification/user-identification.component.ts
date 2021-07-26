@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { Tercero } from 'src/app/models/tercero.model';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-user-identification',
@@ -12,9 +14,9 @@ export class UserIdentificationComponent implements OnInit {
 
   public requesterType = 'interested';
 
-  public user;
-  public idProcedure: string;
-  public formUserIdentification: FormGroup;
+  public user:Tercero;
+  public idProcedure:string;
+  public formUserIdentification:FormGroup;
   public showErrors = false;
   public readOnly: boolean;
   public emailError = false;
@@ -23,11 +25,10 @@ export class UserIdentificationComponent implements OnInit {
   public notificationErrorText: string = 'empty_error';
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
+    private activatedRoute:ActivatedRoute,
+    private router:Router,
+    private carpetaService:CarpetaService
+  ) {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.formUserIdentification = new FormGroup({
       identity_data: new FormGroup({}),
@@ -39,6 +40,15 @@ export class UserIdentificationComponent implements OnInit {
       legal_representative: new FormGroup({}),
       contact_data: new FormGroup({})
     });
+   }
+
+  ngOnInit(): void {
+    this.carpetaService.getLoggedUser().subscribe(
+      (data:Tercero) => {
+        this.carpetaService.saveSession(data);
+        this.user = data;
+      }
+    )
   }
 
   public isInteresado(): boolean {
