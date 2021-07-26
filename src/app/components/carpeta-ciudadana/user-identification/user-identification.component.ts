@@ -17,6 +17,10 @@ export class UserIdentificationComponent implements OnInit {
   public formUserIdentification: FormGroup;
   public showErrors = false;
   public readOnly: boolean;
+  public emailError = false;
+  public emailErrorText: string = 'format_error';
+  public notificationError = false;
+  public notificationErrorText: string = 'empty_error';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -56,9 +60,13 @@ export class UserIdentificationComponent implements OnInit {
   public goToRequestInfo() {
     let error = 0;
     //Si es electrónico es necesario el corre con buen formato
-    if (this.formUserIdentification.value.notification_means.notification_means != 2 && this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
-        //cambiar clases a los inputs erroneos
-        error++;
+    if (this.formUserIdentification.value.notification_means.notification_means == 0) {
+      error++;
+      this.notificationError = true;
+    } else if (this.formUserIdentification.value.notification_means.notification_means != 2 && this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
+      //cambiar clases a los inputs erroneos
+      error++;
+      this.emailError = true;
     }
     //Si es reprsentante es necesaria más información
     if (this.requesterType == 'representative') {

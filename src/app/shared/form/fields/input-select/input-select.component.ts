@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { SelectFieldObject } from './input-select';
 
 @Component({
@@ -18,8 +19,14 @@ export class InputSelectComponent implements OnInit {
   @Input() isRequired!: boolean;
   @Input() fieldOptions!: SelectFieldObject[];
   @Input() placeholder!: string;
+  @Input() error!: boolean;
+  @Input() errorText!: string;
   @Output() onclick = new EventEmitter<string>(); 
   selectedValue!: any;
+
+  textError: string;
+
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
       let formControl = new FormControl('');
@@ -36,8 +43,15 @@ export class InputSelectComponent implements OnInit {
   }
 
   onChangeValue(){
-      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value);
+      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value);  
       this.onclick.emit(this.form.get(this.controlName)?.value);
+  }
+  ngOnChanges() {
+    this.translateService.get('error_texts.input.'+this.errorText).subscribe(
+        text => {
+          this.textError = text;
+        }
+      )
   }
 
 

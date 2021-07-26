@@ -16,11 +16,13 @@
                 [isReadOnly] = "readOnly"
                 isRequired = "true"
                 [fieldOptions] = "selectMeans"
+                [error]="notificationError"
+                [errorText]="notificationErrorText"
             >
             </app-input-select>
         </div>
         <div class="col-md-6 mx-auto" *ngIf="select == 1">
-            <app-input-text 
+            <app-input-text (change)="capturarCorreo($event.target.value)"
             [form]="formNotificationMeans"
             label="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
             controlName="email"
@@ -29,6 +31,8 @@
             [isReadOnly] = "readOnly"
             [isRequired]="true"
             placeholder="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
+            [error]="emailError"
+            [errorText]="emailErrorText"
         ></app-input-text>
         </div>
     </div>

@@ -9,18 +9,18 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 })
 export class IdentityDataComponent implements OnInit {
 
-  @Input() formIdentityData:FormGroup;
-  @Input() readOnly:boolean;
+  @Input() formIdentityData: FormGroup;
+  @Input() readOnly: boolean;
 
-  public user:User;
+  public user: User;
 
   constructor(
     private ref: ChangeDetectorRef,
-    private carpetaService:CarpetaService) { }
+    private carpetaService: CarpetaService) { }
 
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      data => this.user = data 
+      data => this.user = data
     )
   }
 

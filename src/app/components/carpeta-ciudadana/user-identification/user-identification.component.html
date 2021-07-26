@@ -10,7 +10,7 @@
             <app-identity-data [readOnly]="true" [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
         </div>
         <div class="col-md-6" >
-            <app-notification-means [readOnly]="false" [formNotificationMeans]="formUserIdentification.controls.notification_means"></app-notification-means>
+            <app-notification-means [readOnly]="false" [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError" [emailErrorText]="emailErrorText" [notificationError]="notificationError" [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
             <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
