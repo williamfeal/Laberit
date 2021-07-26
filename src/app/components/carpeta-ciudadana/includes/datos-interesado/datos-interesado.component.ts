@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Tercero } from 'src/app/models/tercero.model';
 
 @Component({
   selector: 'app-datos-interesado',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatosInteresadoComponent implements OnInit {
   
+  @Input() user:Tercero;
+  @Input() readOnly:boolean;
+  @Input() formInstanciaGeneral:FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-isInteresado(): boolean{
-  return false;
-}
+  
+  isInteresado(): boolean{
+    return false;
+  }
 }
