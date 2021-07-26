@@ -23,10 +23,14 @@ export class CarpetaCiudadanaComponent implements OnInit {
 
   ngOnInit(): void {
     if( this.router.url.includes(UrlConstants.VIEW_TRANSACT)) {
-      this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + UrlConstants.VIEW_USER_IDENTIFICATION + 
+      this.url_clave = 
+        // UrlConstants.URL_REDIRECT_CLAVE + 
+        UrlConstants.VIEW_USER_IDENTIFICATION + 
         '?idProcedure=' + this.activatedRoute.snapshot.params.idProcedure;
     } else {
-      this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + UrlConstants.VIEW_REQUEST_LIST;
+      this.url_clave = 
+        // UrlConstants.URL_REDIRECT_CLAVE + 
+        UrlConstants.VIEW_REQUEST_LIST;
     }
   }
   

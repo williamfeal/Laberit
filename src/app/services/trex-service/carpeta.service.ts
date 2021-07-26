@@ -17,11 +17,14 @@ export class CarpetaService {
   }
 
   public getLoggedUser():Observable<Object> {
-    return this.http.get('http://localhost:8082/api/v1/login/getLoggedUser');
-  }
-
-  public getClave() {
-    return this.http.get('http://localhost:8082/api/v1/login/getClave');
+    let user:Tercero = {
+      apellido1: 'test',
+      apellido2: 'test',
+      dni: '11111111h',
+      nombre: 'test'
+    }
+    return of(user);
+    // return this.http.get('http://localhost:8082/api/v1/login/getLoggedUser');
   }
 
   public saveSession(data:Tercero) {
@@ -29,6 +32,5 @@ export class CarpetaService {
     sessionStorage.setItem('nombre', data.nombre)
     sessionStorage.setItem('apellido1', data.apellido1)
     sessionStorage.setItem('apellido2', data.apellido2)
-
   }
 }
