@@ -231,6 +231,12 @@
     "areas": {
         "title": "Áreas"
     },
+    "error_texts": {
+        "input": {
+            "format_error": "Formato incorrecto",
+            "empty_error": "Falta por rellenar el campo"
+        }
+    },
     "carpeta_ciudadana": {
         "title": "Área de Cliente",
         "seleccionaSelect":"Selecciona",
