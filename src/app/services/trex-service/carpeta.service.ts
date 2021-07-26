@@ -16,7 +16,7 @@ export class CarpetaService {
     return sessionStorage.getItem('dni') !== null;
   }
 
-  public getLoggedUser():Observable<Object> {
+  public getLoggedUser():Observable<Tercero> {
     let user:Tercero = {
       apellido1: 'test',
       apellido2: 'test',
