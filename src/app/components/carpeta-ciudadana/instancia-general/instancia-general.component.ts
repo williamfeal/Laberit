@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tercero } from 'src/app/models/tercero.model';
@@ -13,6 +13,7 @@ export class InstanciaGeneralComponent implements OnInit {
 
   public user:Tercero;
   public formInstanciaGeneral:FormGroup = new FormGroup({});
+  @Input() readOnly:boolean;
 
   constructor(
     private router:Router,

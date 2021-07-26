@@ -241,6 +241,7 @@
         },
         "instance":{
             "title":"Instancia General",
+            "infoSol":"Información de la solicitud",
             "interested":{
                 "title":"Datos Interesado",
                 "name_and_surname": "Nombre y Apellidos",

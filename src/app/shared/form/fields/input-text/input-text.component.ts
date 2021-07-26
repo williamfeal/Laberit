@@ -17,6 +17,7 @@ export class InputTextComponent implements OnInit {
   @Input() isRequired!: boolean;
   @Input() value!: string;
   @Input() placeholder!: string;
+  
     
   ngOnInit(): void {
       let formControl = new FormControl('');
