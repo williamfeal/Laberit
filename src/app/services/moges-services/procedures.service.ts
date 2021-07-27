@@ -38,4 +38,21 @@ export class ProceduresService {
     }));   
   }
 
+  public getAllProcedure() : Observable<Procedure[]> {
+    const procedure = this.http.get(`${this.API_PROCEDURES_ENDPOINT}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.token}`,
+        'Content-Language': localStorage.getItem('lang')
+      }),
+    });
+    console.log('procedure :>> ', procedure);
+    return procedure.pipe(map((response:any) => {
+      return response;
+    })).pipe(catchError((err: Error) => {
+      console.error('Error obteniendo los procedimientos', err);
+        throw err;
+    }));   
+  }
+
 }
