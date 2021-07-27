@@ -57,9 +57,8 @@ export class CarpetaCiudadanaComponent implements OnInit {
         }
       });
     } else {
-      this.url_clave = 
-        // UrlConstants.URL_REDIRECT_CLAVE + 
-        UrlConstants.VIEW_REQUEST_LIST;
+      // UrlConstants.URL_REDIRECT_CLAVE + 
+      this.url_clave = UrlConstants.VIEW_REQUEST_LIST;
     }
   }
   

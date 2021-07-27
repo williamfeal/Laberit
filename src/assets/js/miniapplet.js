@@ -601,7 +601,6 @@ var MiniApplet = (function (window, undefined) {
 	}
 
 	var sign = function (dataB64, algorithm, format, params, successCallback, errorCallback) {
-		console.log("hola");
 		forceLoad();
 
 		if (clientType == TYPE_APPLET) {
