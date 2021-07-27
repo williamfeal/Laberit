@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   envName: 'default',
+  app_url: 'http://localhost:4200',
+  atencion_cliente_url: 'http://localhost:8082',
   moges_url: 'http://lavenganza.apc.alfatecsistemas.es',
   carpeta_url:'http://carpeta.apc.alfatecsistemas.es',
   trex_url: 'http://trex-sede.apc.alfatecsistemas.es',

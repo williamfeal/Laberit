@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { AppUtils } from 'src/app/utils/app-utils';
-import { environment } from 'src/environments/environment';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 @Component({
   selector: 'app-carpeta-ciudadana',
   templateUrl: './carpeta-ciudadana.component.html',
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  url_carpeta;
+  public url_clave:string;
 
   constructor(
     private router: Router,
@@ -18,7 +18,7 @@ export class CarpetaCiudadanaComponent implements OnInit {
     public appUtils: AppUtils,
     public mockUpService: MockUpService
   ) {
-    this.url_carpeta = environment.carpeta_url + '/index';
+    
   }
 
   ngOnInit(): void {
@@ -57,7 +57,11 @@ export class CarpetaCiudadanaComponent implements OnInit {
         }
       });
     } else {
-      this.router.navigate(['carpeta-del-ciudadano/requests-list']);
+      this.url_clave = 
+        // UrlConstants.URL_REDIRECT_CLAVE + 
+        UrlConstants.VIEW_REQUEST_LIST;
     }
   }
+  
+
 }
