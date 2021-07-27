@@ -9,5 +9,7 @@ export const environment = {
     realm: window["env"]["keycloakRealm"] || "error-keycloak-realm-env",
     clientId: window["env"]["keycloakClientId"] || "error-keycloak-clientId-env",
   },
-  entity_uuid: window["env"]["entity_uuid"] || "error-entity-uuid-env"
+  entity_uuid: window["env"]["entity_uuid"] || "error-entity-uuid-env",
+  app_url: window["env"]["app_url"] || 'error-app-url',
+  atencion_cliente_url: window["env"]["atencion_cliente_url"] || 'error-atencion-cliente-url'
 };

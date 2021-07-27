@@ -1,7 +1,7 @@
-<div class="card mb-2">
+<div class="card">
     <div class="card-header background-card-header pb-0">
         <div class="card-title text-white">
-            <em class="fas fa-user"></em>
+            <em class="fas fa-user mr-2"></em>
             <label>{{ 'carpeta_ciudadana.instance.notification.title' | translate }}</label>
         </div>
     </div>
@@ -11,13 +11,13 @@
                 {{ 'carpeta_ciudadana.instance.notification.type' | translate }} <b>*</b>
             </label>
             <select id="type" name="type" class="form-control">
-                <option value="">Calle</option>
-                <option value="">Avenida</option>
-                <option value="">Plaza</option>
-                <option value="">Paseo</option>
-                <option value="">Camino</option>
-                <option value="">Rambla</option>
-                <option value="">Pasaje</option>
+                <option value="1">{{ 'carpeta_ciudadana.instance.notification.street' | translate }}</option>
+                <option value="2">{{ 'carpeta_ciudadana.instance.notification.avenue' | translate }}</option>
+                <option value="3">{{ 'carpeta_ciudadana.instance.notification.square' | translate }}</option>
+                <option value="4">{{ 'carpeta_ciudadana.instance.notification.promenade' | translate }}</option>
+                <option value="5">{{ 'carpeta_ciudadana.instance.notification.lane' | translate }}</option>
+                <option value="6">{{ 'carpeta_ciudadana.instance.notification.boulevard' | translate }}</option>
+                <option value="7">{{ 'carpeta_ciudadana.instance.notification.passage' | translate }}</option>
             </select>
         </div>
         <div class="form-group col-md-9">
@@ -53,7 +53,7 @@
                 {{ 'carpeta_ciudadana.instance.notification.country' | translate }} <b>*</b>
             </label>
             <select id="country" name="type" class="form-control">
-                <option value="">Selecciona</option>
+                <option value="">{{ 'carpeta_ciudadana.seleccionaSelect' | translate }}</option>
             </select>        
         </div>
         <div class="form-group col-md-4">
@@ -61,7 +61,7 @@
                 {{ 'carpeta_ciudadana.instance.notification.province' | translate }} <b>*</b>
             </label>
             <select id="province" name="type" class="form-control">
-                <option value="">Selecciona</option>
+                <option value="">{{ 'carpeta_ciudadana.seleccionaSelect' | translate }}</option>
             </select>        
         </div>
         <div class="form-group col-md-4">
@@ -69,7 +69,7 @@
                 {{ 'carpeta_ciudadana.instance.notification.municipality' | translate }} <b>*</b>
             </label>
             <select id="municipality" name="type" class="form-control">
-                <option value="">Selecciona</option>
+                <option value="">{{ 'carpeta_ciudadana.seleccionaSelect' | translate }}</option>
             </select>        
         </div>
     </div>

@@ -24,6 +24,8 @@ import { RequestInfoComponent } from './components/carpeta-ciudadana/request-inf
 import { TranslateService } from '@ngx-translate/core';
 import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
+import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
+import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -50,7 +52,7 @@ const routes: Routes = [
   { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
-    canActivate: [AuthGuardService],
+  //  canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
       { title: 'carpeta_ciudadana.identification.title', url: '', terminal: true }
@@ -66,7 +68,7 @@ const routes: Routes = [
   },
   { path: 'carpeta-del-ciudadano/requests-list', 
     component: RequestsListComponent, 
-    canActivate: [AuthGuardService],
+  //  canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false },
       { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
@@ -79,6 +81,27 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
       { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
       { title: 'carpeta_ciudadana.instance.title', url: '', terminal: true }
+    ]}
+    },
+    { path: 'carpeta-del-ciudadano/adjuntar', 
+    component: AdjuntarDocComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.instance.title', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: true },
+    ]},
+  },
+  { path: 'carpeta-del-ciudadano/firmar', 
+    component: PresentarSolicitudComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.instance.title', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: 'carpeta-del-ciudadano/adjuntar', terminal: false },
+      { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
     ]},
   },
 ];

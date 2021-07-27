@@ -35,8 +35,8 @@
                     <div class="card-header border-0">
                         {{ 'procedure_detail.description' | translate }}
                     </div>
-                    <div class="card-body ">
-                        {{ infoProcedure.description }}
+                    <div class="card-body" >
+                        <span *ngIf="infoProcedure.description" [innerHTML]="infoProcedure.description"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -44,7 +44,7 @@
                         {{ 'procedure_detail.destinataries' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.destinataries }}
+                        <span *ngIf="infoProcedure.destinataries" [innerHTML]="infoProcedure.destinataries"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -52,7 +52,7 @@
                         {{ 'procedure_detail.associatedDocs' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.associatedDocs }}
+                        <span *ngIf="infoProcedure.associatedDocs" [innerHTML]="infoProcedure.associatedDocs"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -60,7 +60,7 @@
                         {{ 'procedure_detail.cost' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.cost }}
+                        <span *ngIf="infoProcedure.cost" [innerHTML]="infoProcedure.cost"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -68,7 +68,7 @@
                         {{ 'procedure_detail.faqs' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.faqs }}
+                        <span *ngIf="infoProcedure.faqs" [innerHTML]="infoProcedure.faqs"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -76,7 +76,7 @@
                         {{ 'procedure_detail.start' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.start }}
+                        <span *ngIf="infoProcedure.start" [innerHTML]="infoProcedure.start"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -84,7 +84,7 @@
                         {{ 'procedure_detail.observations' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.observations }}
+                        <span *ngIf="infoProcedure.observations" [innerHTML]="infoProcedure.observations"></span>
                     </div>
                 </div>
                 <div class="card m-3 border-0">
@@ -92,12 +92,12 @@
                         {{ 'procedure_detail.contact' | translate }}
                     </div>
                     <div class="card-body ">
-                        {{ infoProcedure.contact }}
+                        <span *ngIf="infoProcedure.contact" [innerHTML]="infoProcedure.contact"></span>
                     </div>
                 </div>
                 </div>   
         </div>
-        <div class="tab-content" id="nav-tab-content">
+        <div class="tab-content" id="nav-tab-content" *ngIf="procedure">
             <div class="tab-pane fade {{ active.online }}" id="nav-home" role="tabpanel" aria-labelledby="nav-online-tab">
                 <div class="card-header border-0 my-2">
                     <h4 class="mb-0">
@@ -107,13 +107,13 @@
                 <div class="card-body">
                     {{ 'procedure_detail.online_transaction_text' | translate }}
                 </div>
-                <div class="row justify-content-center" *ngIf="infoProcedure.telematicChannel">
+                <div class="row justify-content-center" *ngIf="procedure.tramitacionElectronica == true">
                     <a class="btn btn-app-primary mx-auto my-3" [routerLink]="['/carpeta-del-ciudadano/transact/' + procedure.id ]" 
                         href="#" role="button">
                         {{ 'procedure_detail.transact' | translate }}
                     </a>
                 </div>		
-                <div class="centered-item-dad mb-4"  *ngIf="!infoProcedure.telematicChannel">
+                <div class="centered-item-dad mb-4"  *ngIf="!procedure.tramitacionElectronica">
                     <div class="alert alert-danger col-md-8 mx-auto">
                     <h4> {{ 'procedure_detail.procedure_not_available' | translate }}  </h4>
                     <p class="mb-0">{{ 'procedure_detail.procedure_not_available_text1' | translate }}  </p>
