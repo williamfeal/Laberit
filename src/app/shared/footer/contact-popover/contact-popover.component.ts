@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { NgbPopover, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

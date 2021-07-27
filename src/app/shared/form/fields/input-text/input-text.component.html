@@ -1,6 +1,7 @@
 <form [formGroup]="form">
 <label for="nameValue">{{ label }} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </label>
 <input 
+    [ngClass]="{ 'error-input': error == true }"
     type="text" 
     class="form-control" 
     [id]="idValue" 
@@ -8,7 +9,6 @@
     (change)="onChangeValue()" 
     [formControlName]="controlName" 
     [placeholder]="placeholder"
-    [readonly]="isReadOnly"
-    [ngClass]="{'error-input': true}"
-    >        
+    [readonly]="isReadOnly">    
+    <p class="error-p" *ngIf='error && textError' [innerHTML]="textError"></p>    
 </form>
