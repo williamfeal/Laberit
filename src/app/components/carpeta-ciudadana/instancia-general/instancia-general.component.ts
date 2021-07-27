@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tercero } from 'src/app/models/tercero.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
@@ -12,13 +12,16 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 export class InstanciaGeneralComponent implements OnInit {
 
   public user:Tercero;
-  public formInstanciaGeneral:FormGroup = new FormGroup({});
+  public formInstanciaGeneral:FormGroup;
   @Input() readOnly:boolean;
 
   constructor(
+    private fb: FormBuilder,
     private router:Router,
     private carpetaService:CarpetaService
-  ) {  }
+  ) {  
+    this.newForm();
+  }
 
   ngOnInit(): void { 
     this.carpetaService.getLoggedUser().subscribe(
@@ -27,9 +30,15 @@ export class InstanciaGeneralComponent implements OnInit {
       }
     );
   }
-  
-  
+  newForm(){
+    this.formInstanciaGeneral = new FormGroup({
+      formdDatosInteresado: new FormGroup({}),
+    });
+  }
+
   public goToDocumentation() {
-    this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+    //this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+    console.log(this.formInstanciaGeneral);
+    console.log(this.formInstanciaGeneral.valid);
   }
 }

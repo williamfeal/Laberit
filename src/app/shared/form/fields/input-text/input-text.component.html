@@ -8,5 +8,7 @@
     (change)="onChangeValue()" 
     [formControlName]="controlName" 
     [placeholder]="placeholder"
-    [readonly]="isReadOnly">        
+    [readonly]="isReadOnly"
+    [ngClass]="{'error-input': true}"
+    >        
 </form>

@@ -11,7 +11,7 @@ export class DatosInteresadoComponent implements OnInit {
   
   @Input() user:Tercero;
   @Input() readOnly:boolean;
-  @Input() formInstanciaGeneral:FormGroup;
+  @Input() formdDatosInteresado:FormGroup;
 
   constructor() { }
 

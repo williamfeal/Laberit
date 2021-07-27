@@ -1,7 +1,8 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<form  [formGroup]="formInstanciaGeneral" (ngSubmit)="goToDocumentation()">
 <div class="row mx-0 mt-2 blockA">
     <div class="col-md-6">
-        <app-datos-interesado [user]="user" [readOnly]="true" [formInstanciaGeneral]="formInstanciaGeneral"></app-datos-interesado>
+        <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
         <app-datos-notificacion></app-datos-notificacion>
@@ -57,6 +58,7 @@
     </div>
 </div>
 </div>
+</form>
 <div class="text-right px-3">
     <button class="btn-app-primary mr-2" (click)="goToDocumentation()">{{ 'buttons.continue' | translate}}</button>
 </div>
