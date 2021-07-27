@@ -16,26 +16,26 @@ export class UserIdentificationComponent implements OnInit {
 
   public requesterType = 'interested';
 
-  public user:Tercero;
-  public idProcedure:number;
-  public formUserIdentification:FormGroup;
+  public user: Tercero;
+  public idProcedure: number;
+  public formUserIdentification: FormGroup;
   public showErrors = false;
   public readOnly: boolean;
   public emailError = false;
   public emailErrorText: string = 'format_error';
   public notificationError = false;
   public notificationErrorText: string = 'empty_error';
-  public procedure;
+  public procedure: Procedure;
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private router:Router,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private proceduresService: ProceduresService,
-    private carpetaService:CarpetaService
+    private carpetaService: CarpetaService
   ) {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getAllProcedure().subscribe(
       (procedures: Procedure[]) => {
-       this.procedure = procedures.find(element => element.id == this.idProcedure);
+        this.procedure = procedures.find(element => element.id == this.idProcedure);
       })
     this.formUserIdentification = new FormGroup({
       identity_data: new FormGroup({}),
@@ -47,11 +47,11 @@ export class UserIdentificationComponent implements OnInit {
       legal_representative: new FormGroup({}),
       contact_data: new FormGroup({})
     });
-   }
+  }
 
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      (data:Tercero) => {
+      (data: Tercero) => {
         this.carpetaService.saveSession(data);
         this.user = data;
       }
@@ -81,7 +81,6 @@ export class UserIdentificationComponent implements OnInit {
       error++;
       this.notificationError = true;
     } else if (this.formUserIdentification.value.notification_means.notification_means != 2 && this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
-      //cambiar clases a los inputs erroneos
       error++;
       this.emailError = true;
     }
@@ -93,7 +92,7 @@ export class UserIdentificationComponent implements OnInit {
     //si no hay errores
     if (error == 0) {
       //llamada al back para mandar los datos
-      this.router.navigate(['carpeta-del-ciudadano/'+ this.procedure.rutaFormulario]);
+      this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
     } else {
       //saber como notificar al usuario
       this.showErrors = true;
