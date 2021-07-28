@@ -1,36 +1,33 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Tercero } from 'src/app/models/tercero.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarpetaService {
 
+  private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_LOGGED_USER;
+
   constructor(
     private http:HttpClient
   ) { }
 
   public isAuthenticated() {
-    return sessionStorage.getItem('dni') !== null;
+    return sessionStorage.getItem('nifTitular') !== null;
   }
 
   public getLoggedUser():Observable<Object> {
-    let user:Tercero = {
-      apellido1: 'test',
-      apellido2: 'test',
-      dni: '11111111h',
-      nombre: 'test'
-    }
-    return of(user);
-    // return this.http.get('http://localhost:8082/api/v1/login/getLoggedUser');
+    return this.http.get(this.URL_GET_LOGGED_USER);
   }
 
-  public saveSession(data:Tercero) {
-    sessionStorage.setItem('dni', data.dni);
-    sessionStorage.setItem('nombre', data.nombre)
-    sessionStorage.setItem('apellido1', data.apellido1)
-    sessionStorage.setItem('apellido2', data.apellido2)
+  public saveSession(data:UserCertificado) {
+    sessionStorage.setItem('nifTitular', data.nifTitular);
+    sessionStorage.setItem('nombreTitular', data.nombreTitular)
+    sessionStorage.setItem('apellidosTitular', data.apellidosTitular)
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BreadcrumbService } from 'angular-crumbs';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -22,7 +23,10 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
 
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      data => this.user = data
+      (data:UserCertificado) => {
+        this.user = data;
+        this.carpetaService.saveSession(data);
+      }
     );
     
     this.activatedRoute.data.subscribe((d:any) => {
