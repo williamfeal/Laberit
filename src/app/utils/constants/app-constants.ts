@@ -22,7 +22,7 @@ export const selectMeans = [{
   export const typeStreet = [{
     id: '1',
     val: 'Calle',
-    selected: true
+    selected: false
   }, {
     id: '2',
     val: 'Avenida',

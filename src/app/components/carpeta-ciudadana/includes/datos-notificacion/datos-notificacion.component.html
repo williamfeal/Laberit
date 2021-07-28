@@ -7,20 +7,19 @@
     </div>
     <div class="card-text row pt-3">
         <div class="form-group col-md-3">
-            <app-input-select 
-            [placeholder]="Selecciona"
+    <app-input-select 
             [form] = "formDatosNotificacion"
             label = "{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
-            controlName = "notification_means"
-            idValue = "notification_means"
-            nameValue = "notification_means"
+            controlName = "typeStreet"
+            idValue = "typeStreet"
+            nameValue = "typeStreet"
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "typeStreet"
-            [error]="errorTextRes"
-            [errorText]="errors[0]"
+            [error]="errors[0]"
+            [errorText]="errorTextRes"
         >
-    </app-input-select>
+    </app-input-select> 
         </div>
         <div class="form-group col-md-9">
             <app-input-text (change)="catchResultInput($event.target.value, 'direction')"
@@ -32,7 +31,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[0]"
+            [error]="errors[1]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
@@ -48,7 +47,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[1]"
+            [error]="errors[2]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
@@ -62,7 +61,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[2]"
+            [error]="errors[3]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
@@ -76,19 +75,27 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[3]"
+            [error]="errors[4]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
     </div>
     <div class="card-text row">
         <div class="form-group col-md-4">
-            <label for="country">
-                {{ 'carpeta_ciudadana.instance.notification.country' | translate }} <b>*</b>
-            </label>
-            <select id="country" name="type" class="form-control">
-                <option value="">{{ 'carpeta_ciudadana.seleccionaSelect' | translate }}</option>
-            </select>        
+  
+            <app-input-select 
+            [form] = "formDatosNotificacion"
+            label = " {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
+            controlName = "country"
+            idValue = "country"
+            nameValue = "country"
+            [isReadOnly] = "readOnly"
+            isRequired = "true"
+            [fieldOptions] = "paises"
+            [error]="errors[5]"
+            [errorText]="errorTextRes"
+        >    
+        </app-input-select> 
         </div>
         <div class="form-group col-md-4">
             <app-input-select 
@@ -100,8 +107,8 @@
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "provincias"
-            [error]="errorTextRes"
-            [errorText]="errors[0]"
+            [error]="errors[6]"
+            [errorText]="errorTextRes"
         >
     </app-input-select>        
         </div>
@@ -115,8 +122,8 @@
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "municipios"
-            [error]="errorTextRes"
-            [errorText]="errors[0]"
+            [error]="errors[7]"
+            [errorText]="errorTextRes"
         >
     </app-input-select>       
         </div>

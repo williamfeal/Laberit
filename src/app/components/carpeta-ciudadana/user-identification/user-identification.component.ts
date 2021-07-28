@@ -76,7 +76,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
-    //Si es electrónico es necesario el corre con buen formato
+    //Si es electrï¿½nico es necesario el corre con buen formato
     if (this.formUserIdentification.value.notification_means.notification_means == 0) {
       error++;
       this.notificationError = true;
@@ -84,7 +84,7 @@ export class UserIdentificationComponent implements OnInit {
       error++;
       this.emailError = true;
     }
-    //Si es reprsentante es necesaria más información
+    //Si es reprsentante es necesaria mï¿½s informaciï¿½n
     if (this.requesterType == 'representative') {
       //cambiar clases a los inputs erroneos
       error++;

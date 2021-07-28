@@ -6,7 +6,7 @@
         <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
-        <app-datos-notificacion [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
+        <app-datos-notificacion [errors]="errors" [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
     </div>
 </div>
 <div class="card mb-2 m-3">
@@ -28,7 +28,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[0]"
+            [error]="errors[8]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
@@ -44,7 +44,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[1]"
+            [error]="errors[9]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
@@ -58,7 +58,7 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[2]"
+            [error]="errors[10]"
             [errorText]="errorTextRes"
     ></app-input-text>
         </div>
