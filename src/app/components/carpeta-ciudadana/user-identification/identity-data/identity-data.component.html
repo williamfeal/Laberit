@@ -16,7 +16,7 @@
                     nameValue="name_and_surname"
                     [isReadOnly]="readOnly"
                     [isRequired]="true"
-                    [value]="user.nombre + ' ' + user.apellido1 + ' ' + user.apellido2"
+                    [value]="user.nombreTitular + ' ' + user.apellidosTitular"
                 ></app-input-text>
                  </div>
             <div class="form-group col-md-4 col-sm-12">
@@ -28,7 +28,7 @@
                     nameValue="nif"
                     [isReadOnly]="readOnly"
                     [isRequired]="true"
-                    [value]="user.dni"
+                    [value]="user.nifTitular"
                 ></app-input-text>
             </div>
         </div>

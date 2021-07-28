@@ -22,13 +22,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carpetaService.getLoggedUser().subscribe(
-      (data:UserCertificado) => {
-        this.user = data;
-        this.carpetaService.saveSession(data);
-      }
-    );
-    
+    this.user = this.carpetaService.getSession();
     this.activatedRoute.data.subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;
       this.breadcrumbs.forEach(

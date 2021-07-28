@@ -1,8 +1,8 @@
 import { environment } from "src/environments/environment";
 
 export class UrlConstants {
-    public static readonly VIEW_REQUEST_LIST = environment.app_url + '/carpeta-del-ciudadano/requests-list';
-    public static readonly VIEW_USER_IDENTIFICATION = environment.app_url + '/carpeta-del-ciudadano/identificacion';
+    public static readonly VIEW_REQUEST_LIST = 'carpeta-del-ciudadano/requests-list';
+    public static readonly VIEW_USER_IDENTIFICATION = 'carpeta-del-ciudadano/identificacion';
     
     public static readonly VIEW_TRANSACT = '/carpeta-del-ciudadano/transact';
 

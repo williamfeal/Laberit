@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 @Component({
@@ -16,40 +18,34 @@ export class CarpetaCiudadanaComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public appUtils: AppUtils,
-    public mockUpService: MockUpService
+    public mockUpService: MockUpService,
+    private carpetaService:CarpetaService
   ) {
     
   }
 
   ngOnInit(): void {
-    if( this.router.url.includes(UrlConstants.VIEW_TRANSACT)) {
-      this.url_clave = 
-        UrlConstants.URL_REDIRECT_CLAVE + 
-        UrlConstants.VIEW_USER_IDENTIFICATION + 
-        '?idProcedure=' + this.activatedRoute.snapshot.params.idProcedure;
-    } else {
-      this.url_clave = 
-        UrlConstants.URL_REDIRECT_CLAVE + 
-        UrlConstants.VIEW_REQUEST_LIST;
-
-    }
+    this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
+    this.loadData();
   }
 
-  public getClave() {
-    sessionStorage.setItem('dni', '11111111h');
-    sessionStorage.setItem('nombre', 'Test');
-    sessionStorage.setItem('apellido1', 'tEST');
-    sessionStorage.setItem('apellido2', 'TEst');
-    this.nextPage();
+  private loadData() {
+    this.carpetaService.getLoggedUser().subscribe(
+      (data:UserCertificado) => {
+        if(data !== null) {
+          this.carpetaService.saveSession(data);
+          this.nextPage();
+        }
+      }
+    );
   }
-  
+
   public getCertificado() {
     sessionStorage.setItem("b64Certificate", null);
     this.appUtils.getSign().then((firma) => {
       const listener = setInterval(() => {
         if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
-
           this.mockUpService.sendFirma(firma).subscribe(
             data => {
               console.log('data :>> ', data);
@@ -60,16 +56,15 @@ export class CarpetaCiudadanaComponent implements OnInit {
     })
   }
 
-  nextPage() {
+  private nextPage() {
     if (this.activatedRoute.snapshot.params.idProcedure) {
-      this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
+      this.router.navigate([UrlConstants.VIEW_USER_IDENTIFICATION], {
         queryParams: {
           idProcedure: this.activatedRoute.snapshot.params.idProcedure
         }
       });
     } else {
-      // UrlConstants.URL_REDIRECT_CLAVE + 
-      this.url_clave = UrlConstants.VIEW_REQUEST_LIST;
+      this.router.navigate([UrlConstants.VIEW_REQUEST_LIST]);
     }
   }
   

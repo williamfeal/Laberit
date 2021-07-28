@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Tercero } from 'src/app/models/tercero.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { User } from 'src/app/models/user.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
@@ -12,7 +13,7 @@ export class IdentityDataComponent {
 
   @Input() formIdentityData:FormGroup;
   @Input() readOnly:boolean;
-  @Input() user:Tercero;
+  @Input() user:UserCertificado;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -20,8 +21,9 @@ export class IdentityDataComponent {
 
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      data => this.user = data
-    )
+      (data:UserCertificado) => {
+        this.user = data;
+      });
   }
 
   ngOnChanges() {

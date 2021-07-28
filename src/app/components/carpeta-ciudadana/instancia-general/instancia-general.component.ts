@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tercero } from 'src/app/models/tercero.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
   templateUrl: './instancia-general.component.html',
   styleUrls: ['./instancia-general.component.scss']
 })
-export class InstanciaGeneralComponent implements OnInit {
+export class InstanciaGeneralComponent {
 
-  public user:Tercero;
+  public user:UserCertificado;
   public formInstanciaGeneral:FormGroup = new FormGroup({});
 
   constructor(
@@ -19,13 +20,7 @@ export class InstanciaGeneralComponent implements OnInit {
     private carpetaService:CarpetaService
   ) {  }
 
-  ngOnInit(): void { 
-    this.carpetaService.getLoggedUser().subscribe(
-      (data:Tercero) => {
-        this.user = data;
-      }
-    );
-  }
+
   
   
   public goToDocumentation() {
