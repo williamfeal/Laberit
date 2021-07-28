@@ -17,7 +17,8 @@ export class UrlConstants {
     public static readonly ENDPOINT_CATEGORIES_BY_STATE = '/categories?filterByState=true';
     public static readonly ENDPOINT_PROCEDURES = '/procedures';
     public static readonly ENDPOINT_LANGUAGES = '/i18n';
-    public static readonly ENDPOINT_STYLES = '/styles';
+    public static readonly ENDPOINT_STYLES = '/styles'
+    public static readonly ENDPOINT_USER_LOGIN = '/login/validar'
     public static readonly ENDPOINT_LOGIN = '/login';
     public static readonly ENDPOINT_CLAVE = '/clave';
 

@@ -10,6 +10,7 @@ export const environment = {
   moges_url: 'http://lavenganza.apc.alfatecsistemas.es',
   carpeta_url:'http://carpeta.apc.alfatecsistemas.es',
   trex_url: 'http://trex-sede.apc.alfatecsistemas.es',
+  mock_url: 'mock.apc.alfatecsistemas.es',
   keycloak: {
     issuer: 'http://keycloak.apc.alfatecsistemas.es/auth/',
     realm: 'Angular2',

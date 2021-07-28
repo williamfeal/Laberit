@@ -1,17 +1,16 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
-<div class="row mr-0 ml-4">
-    <a [routerLink]="['/carpeta-del-ciudadano']">
-        <em class="fas fa-chevron-left"></em> {{ 'buttons.back' | translate}}
-    </a>
-</div>
-<form  [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
+<app-button-back></app-button-back>
+<form [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
     <div class="row mx-0 mt-2">
         <div class="col-md-6">
             <app-identity-data [readOnly]="true" [user]="user"
                 [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
         </div>
-        <div class="col-md-6" >
-            <app-notification-means [readOnly]="false" [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError" [emailErrorText]="emailErrorText" [notificationError]="notificationError" [notificationErrorText]="notificationErrorText"></app-notification-means>
+        <div class="col-md-6">
+            <app-notification-means [readOnly]="false"
+                [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError"
+                [emailErrorText]="emailErrorText" [notificationError]="notificationError"
+                [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
             <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
@@ -20,7 +19,8 @@
 
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
-            <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false"></app-actuation-data>
+            <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false">
+            </app-actuation-data>
         </div>
     </div>
     <div class="row mx-0">
@@ -40,7 +40,8 @@
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-productive-establishment-address [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
+            <app-productive-establishment-address
+                [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                 [readOnly]="false"></app-productive-establishment-address>
         </div>
     </div>
@@ -52,7 +53,8 @@
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [readOnly]="false"></app-contact-data>
+            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [readOnly]="false">
+            </app-contact-data>
         </div>
     </div>
     <br>

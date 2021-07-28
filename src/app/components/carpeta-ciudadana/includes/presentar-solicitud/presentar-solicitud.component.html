@@ -1,37 +1,20 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
 <div class="container-fluid w-50">
   <div class="card mb-2">
     <div class="card-header background-card-header pb-0">
       <div class="card-title text-white">
-        <em class="fas fa-pen"></em>
-        <label>{{ 'carpeta_ciudadana.instance.presentarSolicitud' | translate }}</label>
+        <em class="fas fa-pen mr-1"></em>
+        <label innerHtml="{{ 'carpeta_ciudadana.instance.present_request.title' | translate }}"></label>
       </div>
     </div>
     <div class="m-2">
-      <p>Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un
-        certificado electrónico.</p>
-      <p>Actualmente, la Sede Electrónica de la Autoridad Portuaria de Cartagena admite certificados
-        electrónicos de los siguientes proveedores de servicios de certificación:</p>
-
-      <ul>
-        <li><span class="font-weight-bold">DNI electrónico</span> (Dirección General de Policía -
-          Ministerio del Interior)
-        </li>
-        <li>En general, todos aquellos certificados reconocidos en la plataforma
-          <span class="font-weight-bold">@Firma</span> del Ministerio de Hacienda y Administraciones
-          Públicas
-        </li>
-      </ul>
-      <p class="mb-0">Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el
-        siguiente enlace:
-        <button type="submit" class="btn btn-link" data-cy="btnSolicitud">
-          <i class="fa fa-file-pdf-o text-primary"></i>
-          Solicitud
-        </button>
-      </p>
+      <label innerHtml="{{ 'carpeta_ciudadana.instance.present_request.text' | translate }}"></label>
+        <a class="btn btn-link" href="../../../../assets/docs/PRUEBITA.pdf"
+                        target="_blank" role="button" data-cy="btnSolicitud"> <i class="fa fa-file-pdf-o text-primary"></i> {{ 'carpeta_ciudadana.instance.present_request.text_link' | translate }}</a>
     </div>
   </div>
 </div>
 <div class="container-fluid w-50">
-  <button class="btn-app-primary mr-2">{{ 'buttons.presentSign' | translate}}</button>
+  <button class="btn-app-primary mr-2" (click)="singAndPresent()">{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
 </div>

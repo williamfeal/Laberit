@@ -13,10 +13,10 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 })
 export class ProcedureDetailComponent implements OnInit {
 
-  private idProcedure:string;
+  private idProcedure: string;
 
-  public procedure:Procedure;
-  public infoProcedure:InfoProcedure;
+  public procedure: Procedure;
+  public infoProcedure: InfoProcedure;
   public action;
   
   private lang;
@@ -29,9 +29,9 @@ export class ProcedureDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private proceduresService:ProceduresService,
-    private translate:TranslateService,
-    private languageService:LanguagesService
+    private proceduresService: ProceduresService,
+    private translate: TranslateService,
+    private languageService: LanguagesService
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +58,7 @@ export class ProcedureDetailComponent implements OnInit {
 
   private loadData() {
     this.proceduresService.getProcedureById(this.idProcedure, this.lang).subscribe(
-      (procedure:Procedure) => {
+      (procedure: Procedure) => {
         this.procedure = procedure;
         this.getInfoProcedure();
       })
