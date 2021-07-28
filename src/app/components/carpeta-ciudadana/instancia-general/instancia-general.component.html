@@ -5,7 +5,7 @@
         <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
-        <app-datos-notificacion></app-datos-notificacion>
+        <app-datos-notificacion [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
     </div>
 </div>
 <div class="card mb-2 m-3">
@@ -18,7 +18,7 @@
 <div class="mx-0 mt-2">
     <div class="card-text row pt-3">
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text (change)="catchResultInput($event.target.value, 'resum')"
             [form]="formInstanciaGeneral"
             label=" {{'carpeta_ciudadana.instance.notification.resum' | translate}}"
             controlName="resum"
@@ -27,12 +27,14 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
+            [error]="errors[0]"
+            [errorText]="errorTextRes"
     ></app-input-text>
         </div>
     </div>
     <div class="card-text row pt-3">
         <div class="form-group col-md-6">
-            <app-input-text 
+            <app-input-text (change)="catchResultInput($event.target.value, 'expone')"
             [form]="formInstanciaGeneral"
             label=" {{'carpeta_ciudadana.instance.notification.expone' | translate}}"
             controlName="expone"
@@ -41,10 +43,12 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
+            [error]="errors[1]"
+            [errorText]="errorTextRes"
     ></app-input-text>
         </div>
         <div class="form-group col-md-6">
-            <app-input-text 
+            <app-input-text (change)="catchResultInput($event.target.value, 'request')"
             [form]="formInstanciaGeneral"
             label=" {{'carpeta_ciudadana.instance.notification.request' | translate}}"
             controlName="request"
@@ -53,6 +57,8 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
+            [error]="errors[2]"
+            [errorText]="errorTextRes"
     ></app-input-text>
         </div>
     </div>
