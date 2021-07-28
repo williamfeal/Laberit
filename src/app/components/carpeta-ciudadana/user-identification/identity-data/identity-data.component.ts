@@ -16,7 +16,13 @@ export class IdentityDataComponent {
 
   constructor(
     private ref: ChangeDetectorRef,
-    private carpetaService:CarpetaService) { }
+    private carpetaService: CarpetaService) { }
+
+  ngOnInit(): void {
+    this.carpetaService.getLoggedUser().subscribe(
+      data => this.user = data
+    )
+  }
 
   ngOnChanges() {
     this.ref.detectChanges();

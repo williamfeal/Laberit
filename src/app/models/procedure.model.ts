@@ -10,4 +10,5 @@ export class Procedure {
     category : Category
     languages : InfoProcedure[]
     tramitacionElectronica:  boolean
+    rutaFormulario: string
 }
