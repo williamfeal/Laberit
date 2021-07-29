@@ -12,16 +12,16 @@ import { UrlConstants } from 'src/app/utils/constants/url-constants';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  public url_clave:string;
+  public url_clave: string;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public appUtils: AppUtils,
     public mockUpService: MockUpService,
-    private carpetaService:CarpetaService
+    private carpetaService: CarpetaService
   ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -31,8 +31,8 @@ export class CarpetaCiudadanaComponent implements OnInit {
 
   private loadData() {
     this.carpetaService.getLoggedUser().subscribe(
-      (data:UserCertificado) => {
-        if(data !== null) {
+      (data: UserCertificado) => {
+        if (data !== null) {
           this.carpetaService.saveSession(data);
           this.nextPage();
         }
@@ -67,6 +67,4 @@ export class CarpetaCiudadanaComponent implements OnInit {
       this.router.navigate([UrlConstants.VIEW_REQUEST_LIST]);
     }
   }
-  
-
 }
