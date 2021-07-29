@@ -14,7 +14,7 @@ export class DatosInteresadoComponent implements OnInit {
   public user:UserCertificado;
 
   @Input() readOnly:boolean;
-  @Input() formInstanciaGeneral:FormGroup;
+  @Input() formdDatosInteresado:FormGroup;
 
   constructor(
     private carpetaService:CarpetaService

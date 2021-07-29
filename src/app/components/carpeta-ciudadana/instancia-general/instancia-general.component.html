@@ -1,44 +1,71 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<form  [formGroup]="formInstanciaGeneral" (ngSubmit)="goToDocumentation()">
 <div class="row mx-0 mt-2 blockA">
     <div class="col-md-6">
-        <app-datos-interesado [readOnly]="true" [formInstanciaGeneral]="formInstanciaGeneral"></app-datos-interesado>
+        <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
-        <app-datos-notificacion></app-datos-notificacion>
+        <app-datos-notificacion [errors]="errors" [errorNum]="errorNum" [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
     </div>
 </div>
 <div class="card mb-2 m-3">
     <div class="card-header background-card-header pb-0">
         <div class="card-title text-white">
-            <em class="fas fa-user mr-2"></em>
-            <label>{{ 'carpeta_ciudadana.instance.notification.title' | translate }}</label>
+            <em class="fas fa-info mr-2"></em>
+            <label>{{ 'carpeta_ciudadana.instance.infoSol' | translate }}</label>
         </div>
     </div>
 <div class="mx-0 mt-2">
     <div class="card-text row pt-3">
         <div class="form-group col-md-3">
-            <label for="resum">
-                {{ 'carpeta_ciudadana.instance.notification.resum' | translate }} <b>*</b>
-            </label>
-            <input id="resum" name="resum" type="text" class="form-control">
+            <app-input-text (change)="catchResultInput($event.target.value, 'resum')"
+            [form]="formInstanciaGeneral"
+            label=" {{'carpeta_ciudadana.instance.notification.resum' | translate}}"
+            controlName="resum"
+            idValue="resum"
+            nameValue="resum"
+            [isReadOnly]="readOnly"
+            [isRequired]="true"
+            value=""
+            [error]="errors[8]"
+            [errorText]="errorCharacterLeng"
+    ></app-input-text>
         </div>
     </div>
     <div class="card-text row pt-3">
         <div class="form-group col-md-6">
-            <label for="expone">
-                {{ 'carpeta_ciudadana.instance.notification.expone' | translate }} <b>*</b>
-            </label>
-            <input id="expone" name="expone" type="text" class="form-control">
+            <app-input-text (change)="catchResultInput($event.target.value, 'expone')"
+            [form]="formInstanciaGeneral"
+            label=" {{'carpeta_ciudadana.instance.notification.expone' | translate}}"
+            controlName="expone"
+            idValue="expone"
+            nameValue="expone"
+            [isReadOnly]="readOnly"
+            [isRequired]="true"
+            value=""
+            [error]="errors[9]"
+            [errorText]="errorCharacterLeng"
+    ></app-input-text>
         </div>
         <div class="form-group col-md-6">
-            <label for="request">
-                {{ 'carpeta_ciudadana.instance.notification.request' | translate }} <b>*</b>
-            </label>
-            <input id="request" name="request" type="text" class="form-control">
+            <app-input-text (change)="catchResultInput($event.target.value, 'request')"
+            [form]="formInstanciaGeneral"
+            label=" {{'carpeta_ciudadana.instance.notification.request' | translate}}"
+            controlName="request"
+            idValue="request"
+            nameValue="request"
+            [isReadOnly]="readOnly"
+            [isRequired]="true"
+            value=""
+            [error]="errors[10]"
+            [errorText]="errorCharacterLeng"
+    ></app-input-text>
         </div>
     </div>
 </div>
 </div>
+</form>
 <div class="text-right px-3">
     <button class="btn-app-primary mr-2" (click)="goToDocumentation()">{{ 'buttons.continue' | translate}}</button>
 </div>

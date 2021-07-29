@@ -1,4 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 declare function getBase64Certificate();
 declare function signDocumentByCertificate(document);
@@ -10,8 +12,20 @@ declare function signDocumentByCertificate(document);
 export class AppUtils implements OnInit {
 
   public documentSigned = '';
+  private previousUrl: string = undefined;
+  private currentUrl: string = undefined;
+  
+  constructor(private ngZone: NgZone,
+    private router: Router,
+    private location: Location) {
+    this.currentUrl = this.router.url;
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.previousUrl = this.currentUrl;
+        this.currentUrl = event.url;
 
-  constructor(private ngZone: NgZone) {
+      };
+    });
   }
 
   public ngOnInit(): void {
@@ -37,7 +51,7 @@ export class AppUtils implements OnInit {
    * @param documentToSign: In base64
    * @return Promise when document is signed
    */
-   public signDocument(documentToSign: string): Promise<string> {
+  public signDocument(documentToSign: string): Promise<string> {
     window['appUtilsReference'] = { component: this, zone: this.ngZone };
     signDocumentByCertificate(documentToSign);
 
@@ -49,5 +63,21 @@ export class AppUtils implements OnInit {
         }
       }, 500);
     });
+  }
+
+  public getPreviousUrl() {
+    return this.previousUrl;
+  }
+  public getCurrentUrl() {
+    return this.currentUrl;
+  }
+  public return() {
+    this.previousUrl = this.getPreviousUrl();
+    this.currentUrl = this.getCurrentUrl();
+    if (this.previousUrl == this.currentUrl || this.previousUrl == '/') {
+      this.router.navigate(['tasklist/user']);
+    } else {
+      this.location.back();
+    }
   }
 }
