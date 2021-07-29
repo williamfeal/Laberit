@@ -11,7 +11,7 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 })
 export class DatosInteresadoComponent implements OnInit {
   
-  public user:UserCertificado;
+  @Input() user:UserCertificado;
 
   @Input() readOnly:boolean;
   @Input() formdDatosInteresado:FormGroup;
@@ -21,7 +21,7 @@ export class DatosInteresadoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = this.carpetaService.getSession();
+    // this.user = this.carpetaService.getSession();
   }
   
   isInteresado(): boolean{
