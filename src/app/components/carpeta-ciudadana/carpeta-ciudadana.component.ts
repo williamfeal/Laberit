@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenModel } from 'src/app/models/token.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
@@ -30,14 +31,16 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   private loadData() {
-    this.carpetaService.getLoggedUser().subscribe(
-      (data: UserCertificado) => {
-        if (data !== null) {
-          this.carpetaService.saveSession(data);
-          this.nextPage();
-        }
-      }
-    );
+
+    this.carpetaService.getTokenUsuario().subscribe((token: TokenModel) => {
+      this.carpetaService.getLoggedUser(token.accessToken).subscribe(
+        (data: UserCertificado) => {
+          if (data !== null) {
+            this.carpetaService.saveSession(data);
+            this.nextPage();
+          }
+        });
+    });
   }
 
   public getCertificado() {
