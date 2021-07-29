@@ -6,7 +6,7 @@
         <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
-        <app-datos-notificacion [errors]="errors" [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
+        <app-datos-notificacion [errors]="errors" [errorNum]="errorNum" [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
     </div>
 </div>
 <div class="card mb-2 m-3">
@@ -29,7 +29,7 @@
             [isRequired]="true"
             value=""
             [error]="errors[8]"
-            [errorText]="errorTextRes"
+            [errorText]="errorCharacterLeng"
     ></app-input-text>
         </div>
     </div>
@@ -45,7 +45,7 @@
             [isRequired]="true"
             value=""
             [error]="errors[9]"
-            [errorText]="errorTextRes"
+            [errorText]="errorCharacterLeng"
     ></app-input-text>
         </div>
         <div class="form-group col-md-6">
@@ -59,7 +59,7 @@
             [isRequired]="true"
             value=""
             [error]="errors[10]"
-            [errorText]="errorTextRes"
+            [errorText]="errorCharacterLeng"
     ></app-input-text>
         </div>
     </div>

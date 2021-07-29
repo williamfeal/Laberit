@@ -234,7 +234,8 @@
     "error_texts": {
         "input": {
             "format_error": "Formato incorrecto",
-            "empty_error": "Falta por rellenar el campo"
+            "empty_error": "Falta por rellenar el campo",
+            "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres "
         }
     },
     "carpeta_ciudadana": {

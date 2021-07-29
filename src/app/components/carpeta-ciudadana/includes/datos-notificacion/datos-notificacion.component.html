@@ -47,8 +47,8 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[2]"
-            [errorText]="errorTextRes"
+            [error]="errors[2] || errorNum[0]"
+            [errorText]="errorNumRes"
     ></app-input-text>
         </div>
         <div class="form-group col-md-7">
@@ -75,8 +75,8 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
-            [error]="errors[4]"
-            [errorText]="errorTextRes"
+            [error]="errors[4] || errorNum[1]"
+            [errorText]="errorNumRes"
     ></app-input-text>
         </div>
     </div>
