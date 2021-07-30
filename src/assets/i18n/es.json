@@ -285,7 +285,11 @@
                 "promenade": "Paseo",
                 "lane": "Camino",
                 "boulevard": "Rambla",
-                "passage": "Pasaje"
+                "passage": "Pasaje",
+                "selectStreet": "Seleccione vía",
+                "selectCountry": "Seleccione País",
+                "selectProvince": "Seleccione provicia",
+                "selectMunicipality": "Seleccione municipio"
             }
         },
         "identification": {

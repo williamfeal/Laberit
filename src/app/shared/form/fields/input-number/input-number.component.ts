@@ -3,11 +3,11 @@ import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss']
+  selector: 'app-input-number',
+  templateUrl: './input-number.component.html',
+  styleUrls: ['./input-number.component.scss']
 })
-export class InputTextComponent implements OnInit {
+export class InputNumberComponent implements OnInit {
 
   @Input() form: FormGroup = new FormGroup({});
   @Input() label: string = '';
@@ -31,6 +31,7 @@ export class InputTextComponent implements OnInit {
       validaciones.push(Validators.required);
     }
     if (this.minLength != null) {
+      console.log(this.minLength);
       validaciones.push(Validators.minLength(this.minLength));
     }
     if(validaciones.length > 0){

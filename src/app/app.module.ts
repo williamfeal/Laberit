@@ -80,6 +80,7 @@ import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/incl
 import { InputTextComponent } from './shared/form/fields/input-text/input-text.component';
 import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 import { ButtonBackComponent } from './shared/button-back/button-back.component';
+import { InputNumberComponent } from './shared/form/fields/input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -138,7 +139,8 @@ import { ButtonBackComponent } from './shared/button-back/button-back.component'
     ContactDataComponent,
     InputTextComponent,
     InputSelectComponent,
-    ButtonBackComponent
+    ButtonBackComponent,
+    InputNumberComponent
     ],
   imports: [
     BrowserModule,
