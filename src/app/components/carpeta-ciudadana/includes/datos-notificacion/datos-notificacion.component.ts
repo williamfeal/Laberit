@@ -26,34 +26,5 @@ export class DatosNotificacionComponent implements OnInit {
     this.municipios = comunidades;
     this.paises     = paises;
   }
-  catchResultInput(event: string, name: string){
-    if(name === 'direction'){
-      if(event === '' || event === 'undefined' || event === undefined || event === null){
-        this.errors[1] = true;
-      }else{
-        this.errors[1] = false;
-      }
-    }
-    if(name === 'number'){
-      if(event === '' || event === 'undefined' || event === undefined || event === null){
-        this.errors[2] = true;
-      }else{
-        this.errors[2] = false;
-      }
-    }
-    if(name === 'extra'){
-      if(event === '' || event === 'undefined' || event === undefined || event === null){
-        this.errors[3] = true;
-      }else{
-        this.errors[3] = false;
-      }
-    }
-    if(name === 'CP'){
-      if(event === '' || event === 'undefined' || event === undefined || event === null){
-        this.errors[4] = true;
-      }else{
-        this.errors[4] = false;
-      }
-    }
-  }
+
 }

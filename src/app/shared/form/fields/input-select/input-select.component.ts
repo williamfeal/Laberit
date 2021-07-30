@@ -43,7 +43,7 @@ export class InputSelectComponent implements OnInit {
   }
 
   onChangeValue(){
-      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value);  
+      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value); 
       this.onclick.emit(this.form.get(this.controlName)?.value);
   }
   ngOnChanges() {
