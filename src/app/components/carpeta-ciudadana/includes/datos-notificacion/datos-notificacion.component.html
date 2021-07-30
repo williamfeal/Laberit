@@ -37,7 +37,7 @@
     </div>
     <div class="card-text row">
         <div class="form-group col-md-2">
-            <app-input-text
+            <app-input-number
             [form]="formDatosNotificacion"
             label=" {{ 'carpeta_ciudadana.instance.notification.number' | translate }} "
             controlName="number"
@@ -47,7 +47,7 @@
             [isRequired]="true"
             value=""
             [errorText]="errorNumRes"
-    ></app-input-text>
+    ></app-input-number>
         </div>
         <div class="form-group col-md-7">
             <app-input-text
@@ -62,7 +62,7 @@
     ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text
+            <app-input-number
             [form]="formDatosNotificacion"
             label=" {{ 'carpeta_ciudadana.instance.notification.CP' | translate }} "
             controlName="CP"
@@ -71,8 +71,9 @@
             [isReadOnly]="readOnly"
             [isRequired]="true"
             value=""
+            minLength=5
             [errorText]="errorNumRes"
-    ></app-input-text>
+    ></app-input-number>
         </div>
     </div>
     <div class="card-text row">
@@ -87,7 +88,6 @@
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "paises"
-            [error]="errors[5]"
             [errorText]="errorTextRes"
         >    
         </app-input-select> 
@@ -103,7 +103,6 @@
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "provincias"
-            [error]="errors[6]"
             [errorText]="errorTextRes"
         >
     </app-input-select>        
@@ -119,7 +118,6 @@
             [isReadOnly] = "readOnly"
             isRequired = "true"
             [fieldOptions] = "municipios"
-            [error]="errors[7]"
             [errorText]="errorTextRes"
         >
     </app-input-select>       
