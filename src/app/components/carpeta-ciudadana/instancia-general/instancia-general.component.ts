@@ -47,7 +47,8 @@ export class InstanciaGeneralComponent implements OnInit {
   public goToDocumentation() {
     console.log(this.formInstanciaGeneral.valid);
     if (this.formInstanciaGeneral.valid) {
-      this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+      console.log(this.formInstanciaGeneral);
+      //this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
     } else {
       console.log(this.formInstanciaGeneral);
       

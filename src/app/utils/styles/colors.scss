@@ -39,6 +39,7 @@ $red-50: #9F2B2B;
 $red-70: #c13c3c;
 $red-100: #df4f4f;
 $red-200: #ff8a8a;
+$red-header: #c8102e;
 
 $orange-100: #cb6d33;
 
@@ -81,6 +82,6 @@ $transparent-white-70: rgba(255, 255, 255, .7);
 }
 
 .border-bottom-primary {
-  border-bottom: 1px solid $primaryColor;
+  border-bottom: 1px solid $red-header;
 }
 
