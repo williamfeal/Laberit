@@ -3,5 +3,4 @@ export class IdAuxModel {
     idAux: string;
     name: string;
     resource: string;
-
 }

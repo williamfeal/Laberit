@@ -45,7 +45,6 @@ export class AdvertisementDetailComponent implements OnInit {
           this.datosAnuncio = element;
         }
       });
-      
       if (this.anuncio.attachedDocument != '' && this.anuncio.attachedDocument != null) {
         this.documento = true;
       }

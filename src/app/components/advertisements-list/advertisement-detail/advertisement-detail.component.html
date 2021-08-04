@@ -26,7 +26,7 @@
                 </span>
             </ng-template>
             <div class="mt-4">
-                <a *ngIf="documento;else loggedOut" class="card-link" (click)="verDocumentacion(anuncio.attachedDocument)">{{'advertisements_detail.show' | translate}}</a>
+                <a *ngIf="documento;else loggedOut" class="link-primary cursor-pointer" (click)="verDocumentacion(anuncio.attachedDocument)">{{'advertisements_detail.show' | translate}}</a>
                 <ng-template #loggedOut>
                     <p>{{'advertisements_detail.no_document' | translate}}</p>
                 </ng-template>
