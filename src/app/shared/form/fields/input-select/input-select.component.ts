@@ -32,11 +32,8 @@ export class InputSelectComponent implements OnInit {
       let formControl = new FormControl('');
       this.form.addControl(this.controlName, formControl);
       if(this.isRequired){
-        console.log('Entra');
           formControl.setValidators(Validators.required);
       }
-      console.log(this.form.get(this.controlName).value);
-      console.log(this.form);
   }
 
   onChangeValue(){

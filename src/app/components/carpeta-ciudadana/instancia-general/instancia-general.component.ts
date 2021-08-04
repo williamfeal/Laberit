@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tercero } from 'src/app/models/tercero.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
@@ -18,6 +18,7 @@ export class InstanciaGeneralComponent implements OnInit {
   @Input() errorNumRes: string = 'format_error';
   errorCharacterLeng: string = 'num_Characters_error';
   validators = [Validators.required];
+  validate: boolean = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -43,15 +44,33 @@ export class InstanciaGeneralComponent implements OnInit {
       formDatosNotificacion: new FormGroup({})
     });
   }
-
+  // get formDatosNotificacion(): FormGroup {
+  //   return this.formInstanciaGeneral.get("formDatosNotificacion") as FormGroup;
+  // }
+  // get formdDatosInteresado(): FormGroup {
+  //   return this.formInstanciaGeneral.get("formdDatosInteresado") as FormGroup;
+  // }
   public goToDocumentation() {
-    console.log(this.formInstanciaGeneral.valid);
     if (this.formInstanciaGeneral.valid) {
       console.log(this.formInstanciaGeneral);
+      this.validate = false;
       //this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
     } else {
+      this.validate = true;
       console.log(this.formInstanciaGeneral);
-      
-     }
+      // this.validationContinue(this.formDatosNotificacion);
+      // this.validationContinue(this.formdDatosInteresado);
+      // this.validationContinue(this.formInstanciaGeneral);
+    }
   }
+  public validationContinue(form: FormGroup){
+    Object.keys(form.controls).forEach(control => {
+      const controlErrors: ValidationErrors = form.get(control).errors;
+      if (controlErrors != null) {
+            Object.keys(controlErrors).forEach(keyError => {
+              console.log('Key control: ' + control + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+            });
+          }
+    })
+   }
 }

@@ -29,6 +29,7 @@
                         [isReadOnly]="readOnly" 
                         [isRequired]="true" 
                         value=""
+                        [error]="validate && !formInstanciaGeneral.controls['resum']?.touched"
                         minLength=10
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
@@ -44,6 +45,7 @@
                         [isReadOnly]="readOnly" 
                         [isRequired]="true" 
                         value=""
+                        [error]="validate && !formInstanciaGeneral.controls['expone']?.touched"
                         minLength=10
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
@@ -57,6 +59,7 @@
                         [isReadOnly]="readOnly"
                         [isRequired]="true"
                         value=""
+                        [error]="validate && !formInstanciaGeneral.controls['request']?.touched"
                         [errorText]="errorCharacterLeng"
                         minLength=10
                         >
