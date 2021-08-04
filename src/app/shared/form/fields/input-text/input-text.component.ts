@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -21,6 +21,7 @@ export class InputTextComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
+
   textError: string;
   constructor(private translateService: TranslateService) { }
 
@@ -56,5 +57,6 @@ export class InputTextComponent implements OnInit {
       }
     )
   }
-
+  
 }
+

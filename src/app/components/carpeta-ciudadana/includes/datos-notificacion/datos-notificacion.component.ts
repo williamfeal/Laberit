@@ -26,5 +26,6 @@ export class DatosNotificacionComponent implements OnInit {
     this.municipios = comunidades;
     this.paises     = paises;
   }
-
+  
+    
 }
