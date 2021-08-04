@@ -1,115 +1,142 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
 <app-button-back></app-button-back>
 <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2 card">
-            <div class="card-header background-card-header pb-0">
-                <div class="card-title text-white">
-                    <em class="fas fa-info-circle"></em>
-                    {{ 'carpeta_ciudadana.request_info.procedure_info.title' | translate }}
-                </div>
+    <div class="mx-3 card">
+        <div class="card-header background-card-header">
+            <div class="card-title text-white">
+                <em class="fas fa-info-circle"></em>
+                {{ 'carpeta_ciudadana.request_info.procedure_info.title' | translate }}
             </div>
-            <div class="card-body">
-                <div class="row">
-                <div class="form-group col-md-3 mx-auto">
-                    <label for="import">{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }} </label>
-                    <input type="text" name="import" id="import" class="form-control">
-                </div>
-                <div class="col-md-3 d-flex mx-0">
-                    <div class="col-md-6 form-group">
-                        <label for="term">{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }} </label>
-                        <input type="number" name="term" id="term" class="form-control">
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label for="lack">{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }} </label>
-                        <input type="number" name="lack" id="lack" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group col-md-3 mx-auto">
-                    <label for="modality">{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }} </label>
-                    <input type="text" name="modality" id="modality" class="form-control">
-                </div>
-                <div class="form-group col-md-3 mx-auto">
-                    <label for="company_type">{{ 'carpeta_ciudadana.request_info.procedure_info.company_type' | translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-12 mx-auto">
-                    <label for="project_definition">{{ 'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }} </label>
-                    <textarea type="text" name="project_definition" id="project_definition" class="form-control"></textarea>
-                </div>
+        </div>
+        <div class="card-body row">
+            <div class="form-group col-md-3">
+                <app-input-number [form]="formLineaResistir"
+                    label="{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}"
+                    controlName="import" idValue="import" nameValue="import" isReadOnly=false isRequired=true value=""
+                    errorText="empty_error"></app-input-number>
+                <!-- </div>
+                    <label for="import">{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}
+                    </label>
+                    <input type="text" name="import" id="import" class="form-control"> -->
             </div>
+            <div class="col-md-2 form-group">
+                <label for="term">{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}
+                </label>
+                <input type="number" name="term" id="term" class="form-control">
+            </div>
+
+            <div class="col-md-2 form-group">
+                <label for="lack">{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}
+                </label>
+                <input type="number" name="lack" id="lack" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="modality">{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }}
+                </label>
+                <input type="text" name="modality" id="modality" class="form-control">
             </div>
         </div>
     </div>
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2 card">
-            <div class="card-header background-card-header pb-0">
-                <div class="card-title text-white">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    {{ 'carpeta_ciudadana.request_info.financing.title' | translate }}
+    <div class="mx-3 my-3 card">
+        <div class="card-header background-card-header">
+            <div class="card-title text-white">
+                <em class="fas fa-info-circle"> </em>
+                {{ 'carpeta_ciudadana.request_info.financing.title' | translate }}
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <div class="form-group col-md-12 mx-auto">
+                    <label for="project_definition">{{
+                        'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }} </label>
+                    <textarea type="text" name="project_definition" id="project_definition"
+                        class="form-control"></textarea>
+                </div>
+                <div class="form-group col-md-3 mx-auto">
+                    <label for="company_type">{{ 'carpeta_ciudadana.request_info.procedure_info.company_type' |
+                        translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
             </div>
-            <div class="card-body">
-                <span class="ml-3">
-                    <strong>{{ 'carpeta_ciudadana.request_info.financing.investment.title' | translate }}</strong>
-                </span>
-                <div class="row justify-content-start mx-0">
-                    <div class="form-group col-md-3">
-                        <label for="modality">{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}  </label>
-                        <input type="text" name="modality" id="modality" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
+            <!-- Inversion G1 -->
+            <span class="ml-3">
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.investment.title' | translate }}</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality">{{ 'carpeta_ciudadana.request_info.financing.investment.ground' |
+                        translate }} </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
                 </div>
-                <hr>
-                <span class="ml-3">
-                    <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.title' | translate }}</strong>
-                </span>
-                <div class="row justify-content-start mx-0">
-                    <div class="form-group col-md-3">
-                        <label for="modality"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }} </label>
-                        <input type="text" name="modality" id="modality" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.properties' |
+                        translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
-                <hr>
-                <span class="ml-3">
-                    <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_assets.title' | translate }}</strong>
-                </span>
-                <div class="row justify-content-start mx-0">
-                    <div class="form-group col-md-3">
-                        <label for="modality"> {{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }} </label>
-                        <input type="text" name="modality" id="modality" class="form-control">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }} </label>
-                        <input type="text" name="company_type" id="company_type" class="form-control">
-                    </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> {{
+                        'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.installation'
+                        | translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.others'
+                        | translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+            </div>
+            <hr>
+
+
+            <span class="ml-3">
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.title' | translate }}</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality"> {{
+                        'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}
+                    </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants'
+                        | translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="project_definition"> {{
+                        'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate
+                        }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> {{
+                        'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}
+                    </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
+                </div>
+            </div>
+            <hr>
+            <!-- circulante G2-->
+            <span class="ml-3">
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_assets.title' | translate }}</strong>
+            </span>
+            <div class="row justify-content-start mx-0">
+                <div class="form-group col-md-3">
+                    <label for="modality"> {{
+                        'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}
+                    </label>
+                    <input type="text" name="modality" id="modality" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="company_type"> {{
+                        'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' |
+                        translate }} </label>
+                    <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
             </div>
         </div>
