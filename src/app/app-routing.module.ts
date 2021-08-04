@@ -110,7 +110,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: 'carpeta-del-ciudadano/firmar', terminal: false },
-      { title: 'carpeta_ciudadana.instance.confirmation', url: '', terminal: true },
+      { title: 'carpeta_ciudadana.confirmation.title', url: '', terminal: true },
     ]},
   },
 ];

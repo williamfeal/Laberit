@@ -242,7 +242,19 @@
     "carpeta_ciudadana": {
         "title": "Área de Cliente",
         "seleccionaSelect":"Selecciona",
-        "confirmation":"Resumen",
+        "confirmation":{
+            "title": "Resumen",
+            "exit":"Su solicitud ha sido presentada con éxito",
+            "interested": "INTERESADO",
+            "date": "FECHA DE PRESENTACIÓN",
+            "thing": "ASUTNTO",
+            "register_number":"NÚMERO REGITRO ENTRADA",
+            "resum_pdf": "RESUMEN DE SU SOLICITUD",
+            "sup_doc": "JUSTIFICANTE REGISTRO DE ENTRADA",
+            "download_sup":"Descargar justificante",
+            "download_resum":"Descargar solicitud",
+            "footer_tab": "Una vez iniciada la tramitación de su solicitud, puede consultar el estado de la misma accediendo al listado de Solicitudes del"
+        },
         "init_page": {
             "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
             "btn_electronic_certificate": "Acceso con certificado electrónico",
