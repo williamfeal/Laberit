@@ -1,0 +1,92 @@
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<div class="container-fluid">
+    <div class="mb-3">
+            <div class="p-0">
+                <div class="presentada text-warning p-2">
+                    <h4 class="mb-0">
+                        <i class="fas fa-check pt-3 pb-3"></i> Su solicitud ha sido presentada con éxito
+                    </h4>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row border-top border-right inner-border">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-user-circle pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3  pt-3 pb-3">
+                        INTERESADO
+                        <div class=""></div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-calendar pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3pt-3 pb-3">
+                        FECHA DE PRESENTACIÓN
+                        <div class=""></div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="w-100"></div>
+                <div class="row border">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-edit pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 small-text-size pt-3 pb-3">
+                        ASUNTO
+                        <div class="">
+                           
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-">
+                        <i class="fa fa-sort-numeric-asc pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 pt-3 pb-3">
+                        NÚMERO REGISTRO ENTRADA
+                        <div class=""></div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="w-100"></div>
+                <div class="row border-bottom border-right">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-file-pdf-o pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 small-text-size pt-3 pb-3">
+                        RESUMEN DE SU SOLICITUD
+                        <div class="">
+                            <a download="Solicitud firmada" href="data:application/pdf;base64,${solicitudFirmada}"
+                                title="Solicitud firmada">
+                                <i class="fa fa-external-link"></i> Descargar
+                                solicitud
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-file-pdf-o pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3">
+                        JUSTIFICANTE REGISTRO DE ENTRADA
+                        <div class="">
+                            <a download="Justificante de Registro"
+                                href="data:application/pdf;base64,${justificanteRegistro}"
+                                title="Justificante de Registro"><i class="fa fa-external-link"></i> Descargar
+                                Justificante</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-center pt-3">Una vez iniciada la tramitación de su solicitud, puede
+                            consultar el estado de la misma accediendo al listado de Solicitudes de la <a
+                                    href="/" class="text-primary">Carpeta Ciudadana</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
