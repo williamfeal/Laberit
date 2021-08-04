@@ -81,6 +81,7 @@ import { InputTextComponent } from './shared/form/fields/input-text/input-text.c
 import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 import { ButtonBackComponent } from './shared/button-back/button-back.component';
 import { InputNumberComponent } from './shared/form/fields/input-number/input-number.component';
+import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
 
 @NgModule({
   declarations: [
@@ -140,7 +141,8 @@ import { InputNumberComponent } from './shared/form/fields/input-number/input-nu
     InputTextComponent,
     InputSelectComponent,
     ButtonBackComponent,
-    InputNumberComponent
+    InputNumberComponent,
+    LineaResistirComponent
     ],
   imports: [
     BrowserModule,
