@@ -49,68 +49,68 @@
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
                 <i class="fas fa-file-invoice-dollar"></i>
-                Detalle de los costes a financiar
+                {{ 'carpeta_ciudadana.request_info.financing.title' | translate }}
             </div>
         </div>
         <div class="card-body">
             <span class="ml-3">
-                <strong>Inversión en activos fijos</strong>
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.investment.title' | translate }}</strong>
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <label for="modality"> G1 - Terrenos  </label>
+                    <label for="modality">{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}  </label>
                     <input type="text" name="modality" id="modality" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="company_type"> G1 - Inmuebles y construcciones </label>
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="project_definition"> G1 - Maquinaria y utillaje </label>
+                    <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="company_type"> G1 - Instalaciones </label>
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="project_definition"> G1 - Otros </label>
+                    <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
             </div>
             <hr>
             <span class="ml-3">
-                <strong>Financiación prevista en activos fijos</strong>
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.title' | translate }}</strong>
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <label for="modality"> Recursos propios </label>
+                    <label for="modality"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }} </label>
                     <input type="text" name="modality" id="modality" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="company_type"> Subvenciones </label>
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="project_definition"> Otra financiación bancaria </label>
+                    <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="company_type"> Financiable IVF activo </label>
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
             </div>
             <hr>
             <span class="ml-3">
-                <strong>Financiazión prevista en activos circulantes</strong>
+                <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_assets.title' | translate }}</strong>
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <label for="modality"> G2 - Importe a financiar activo circulante </label>
+                    <label for="modality"> {{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }} </label>
                     <input type="text" name="modality" id="modality" class="form-control">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="company_type"> G2 - Financiable activo circulante </label>
+                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }} </label>
                     <input type="text" name="company_type" id="company_type" class="form-control">
                 </div>
             </div>
@@ -119,7 +119,7 @@
 </div>
 <div class="row mx-0 mt-4">
     <div class="col-md-6 text-left">
-        <button class="btn-app-outline-primary">Anterior</button>
+        <button class="btn-app-outline-primary">{{ 'buttons.previous' | translate}}</button>
     </div>
     <div class="col-md-6 text-right">
         <button class="btn-app-primary">{{ 'buttons.continue' | translate}}</button>

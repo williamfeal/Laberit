@@ -3,7 +3,8 @@
     "buttons": {
         "back": "Atrás",
         "continue": "Continuar",
-        "presentSign":"Firmar y presentar"
+        "presentSign":"Firmar y presentar",
+        "previous":"Anterior"
     },
     "home": {
         "TITLE": "Inicio",
@@ -259,6 +260,10 @@
                 "link": "este enlace"
             },
             "docAdd":"Documentación adicional",
+            "doc":{
+               "drag": "Arrastre aquí el archivo para adjuntarlo o",
+               "explore": "explorar"
+            },
             "presentarSolicitud": "Presentar solicitud",
             "present_request": {
                 "title": "Presentar solicitud",
@@ -384,6 +389,29 @@
         },
         "request_info": {
             "title": "Información de la solicitud",
+            "financing": {
+                "title": "Detalle de los costes a financiar",
+                "investment": {
+                    "title":"Inversión en activos fijos",
+                    "ground": "G1 - Terrenos",
+                    "properties": "G1 - Inmuebles y construcciones",
+                    "machinery": "G1 - Maquinaria y utillaje",
+                    "installation": "G1 - Instalaciones",
+                    "others": "G1 - Otros"
+                },
+                "financing_fixed": {
+                    "title":"Financiación prevista en activos fijos",
+                    "own_resources": "Recursos propios",
+                    "grants": "Subvenciones",
+                    "other_bank_financing": "Otra financiación bancaria",
+                    "active_ivf": "Financiable IVF activo"
+                },
+                "financing_assets": {
+                    "title":"Financiazión prevista en activos circulantes",
+                    "current_assets": "G2 - Importe a financiar activo circulante",
+                    "bankalbe_current_assets": "G2 - Financiable activo circulante"
+                }
+            },
             "procedure_info": {
                 "title": "Información del trámite",
                 "import": "Importe",
