@@ -13,6 +13,7 @@ $green-50: #53812F;
 $green-70: #6CA241;
 $green-100: #79B24B;
 $green-200: #a8db79;
+$background-exit-opacity: rgba(65, 240, 158, 0.349);
 
 $blue-50: #235B9B;
 $blue-70: #397CCA;
@@ -39,6 +40,7 @@ $red-50: #9F2B2B;
 $red-70: #c13c3c;
 $red-100: #df4f4f;
 $red-200: #ff8a8a;
+$red-header: #c8102e;
 
 $orange-100: #cb6d33;
 
@@ -81,6 +83,6 @@ $transparent-white-70: rgba(255, 255, 255, .7);
 }
 
 .border-bottom-primary {
-  border-bottom: 1px solid $primaryColor;
+  border-bottom: 1px solid $red-header;
 }
 

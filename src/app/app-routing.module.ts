@@ -27,6 +27,7 @@ import { RequestsListComponent } from './components/carpeta-ciudadana/requests-l
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
 import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
 import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
+import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -112,6 +113,14 @@ const routes: Routes = [
       { title: 'carpeta_ciudadana.instance.title', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: 'carpeta-del-ciudadano/adjuntar', terminal: false },
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
+    ]},
+  },
+  { path: 'carpeta-del-ciudadano/confirmacion', 
+    component: ConfirmacionSolicitudComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: 'carpeta-del-ciudadano/firmar', terminal: false },
+      { title: 'carpeta_ciudadana.confirmation.title', url: '', terminal: true },
     ]},
   },
 ];

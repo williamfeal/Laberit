@@ -21,6 +21,8 @@ export class InputNumberComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
+  @Input() maxLength!: number | null;
+  @Input() decimales!: number | null; //numero de decimales
   textError: string;
   constructor(private translateService: TranslateService) { }
 

@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-sm-2 col-md-2 border-right-solid-gray ">
       <a href="#" class="navbar-brand">
-        <img *ngIf="src_logo" alt="Puerto de Cartagena" width="100%" src="data:image/png;base64,{{src_logo}}" class="mr-3 header-logo" />
+        <img *ngIf="src_logo" alt="Puerto de Cartagena" width="100%" src="data:image/png;base64,{{src_logo}}"
+          class="mr-3 header-logo" />
       </a>
     </div>
     <div class="col-sm-6 col-lg-3 mt-4">
@@ -30,28 +31,32 @@
 <div class="navbar-nav w-100 header-nav">
   <ul class="navbar-nav navbar-expand-lg nav-fill">
     <li class="nav-item">
-      <a [routerLink]="['/inicio']" routerLinkActive="link-color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+      <a [routerLink]="['/inicio']" routerLinkActive="link-color-primary border-bottom-primary"
+        class="d-flex justify-content-center h-100 nav-link">
         <span class="mt-2 text-dark">
           {{ 'home.TITLE' | translate }}
         </span>
       </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/carpeta-del-ciudadano']" routerLinkActive="link-color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+      <a [routerLink]="['/carpeta-del-ciudadano']" routerLinkActive="link-color-primary border-bottom-primary"
+        class="d-flex justify-content-center h-100 nav-link">
         <span class="mt-2 text-dark">
           {{'home.carpeta' | translate}}
         </span>
       </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/tablon-de-anuncios']" routerLinkActive="link-color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+      <a [routerLink]="['/tablon-de-anuncios']" routerLinkActive="link-color-primary border-bottom-primary"
+        class="d-flex justify-content-center h-100 nav-link">
         <span class="mt-2 text-dark">
           {{'home.advertisements' | translate}}
         </span>
       </a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/perfil-de-contratante']" routerLinkActive="link-color-primary border-bottom-primary" class="d-flex justify-content-center h-100 nav-link">
+      <a [routerLink]="['/perfil-de-contratante']" routerLinkActive="link-color-primary border-bottom-primary"
+        class="d-flex justify-content-center h-100 nav-link">
         <span class="mt-2 text-dark">
           {{'home.contractor_profile' | translate}}
         </span>
