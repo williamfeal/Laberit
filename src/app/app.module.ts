@@ -143,7 +143,8 @@ import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/i
     InputSelectComponent,
     ButtonBackComponent,
     InputNumberComponent,
-    ConfirmacionSolicitudComponent
+    ConfirmacionSolicitudComponent,
+    LineaResistirComponent
     ],
   imports: [
     BrowserModule,

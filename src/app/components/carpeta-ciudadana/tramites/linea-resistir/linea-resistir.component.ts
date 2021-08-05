@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { lineaResistir } from 'src/app/utils/constants/app-constants';
+import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 
 @Component({
     selector: 'linea-resistir',
@@ -14,7 +14,8 @@ export class LineaResistirComponent implements OnInit {
 
     public formLineaResistir: FormGroup;
     validators = [Validators.required];
-    campos = lineaResistir;
+    //se bebera de los catalogos
+    tipoProyecto = tipoProyecto;
     constructor(
         private fb: FormBuilder,
         private router: Router,
@@ -25,7 +26,6 @@ export class LineaResistirComponent implements OnInit {
 
     ngOnInit() {
         this.newForm();
-        console.log('this.campos :>> ', this.campos);
     }
 
     ngOnChanges() {
