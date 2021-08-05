@@ -14,8 +14,13 @@ export class LineaResistirComponent implements OnInit {
 
     public formLineaResistir: FormGroup;
     validators = [Validators.required];
+
+    showInversion = false;
+    showCirculante = false;
+
     //se bebera de los catalogos
     tipoProyecto = tipoProyecto;
+    company_type: string;
     constructor(
         private fb: FormBuilder,
         private router: Router,
@@ -31,7 +36,28 @@ export class LineaResistirComponent implements OnInit {
     ngOnChanges() {
         this.ref.detectChanges();
     }
+    capturarCampo(ev, campo) {
+        this[campo] = ev.target.value;
+        if (campo == 'company_type') {
+            switch (this.company_type) {
+                case '1':
+                    this.showInversion = true;
+                    this.showCirculante = false;
 
+                    break;
+                case '2':
+                    this.showInversion = false;
+                    this.showCirculante = true;
+                    break;
+                case '3':
+                    this.showInversion = true;
+                    this.showCirculante = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
     newForm() {
         this.formLineaResistir = new FormGroup({
             formdDatosInteresado: new FormGroup({}),

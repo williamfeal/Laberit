@@ -12,28 +12,26 @@
             <div class="form-group col-md-3">
                 <app-input-number [form]="formLineaResistir"
                     label="{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}"
-                    controlName="import" idValue="import" nameValue="import" isReadOnly=false isRequired=true value=""
+                    controlName="import" idValue="import" nameValue="import" isRequired=true value=""
                     errorText="empty_error"></app-input-number>
-                <!-- </div>
-                    <label for="import">{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}
-                    </label>
-                    <input type="text" name="import" id="import" class="form-control"> -->
             </div>
             <div class="col-md-2 form-group">
-                <label for="term">{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}
-                </label>
-                <input type="number" name="term" id="term" class="form-control">
+                <app-input-number [form]="formLineaResistir"
+                    label="{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}" controlName="term"
+                    idValue="term" nameValue="term" isRequired=true value="" errorText="empty_error"></app-input-number>
             </div>
 
             <div class="col-md-2 form-group">
-                <label for="lack">{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}
-                </label>
-                <input type="number" name="lack" id="lack" class="form-control">
+                <app-input-number [form]="formLineaResistir"
+                    label="{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}" controlName="lack"
+                    idValue="lack" nameValue="lack" isRequired=true value="" errorText="empty_error"></app-input-number>
             </div>
             <div class="form-group col-md-3">
-                <label for="modality">{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }}
-                </label>
-                <input type="text" name="modality" id="modality" class="form-control">
+                <app-input-select [form]="formLineaResistir"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                    label="{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }}"
+                    controlName="modality" idValue="modality" nameValue="modality" isReadOnly="false" isRequired="true"
+                    [fieldOptions]="tipoProyecto" errorText="empty_error"></app-input-select>
             </div>
         </div>
     </div>
@@ -47,103 +45,115 @@
         <div class="card-body">
             <div>
                 <div class="form-group">
-                    <label for="project_definition">{{
-                        'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }} </label>
-                    <textarea type="text" name="project_definition" id="project_definition"
-                        class="form-control"></textarea>
+                    <app-input-text-area [form]="formLineaResistir"
+                        label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }}"
+                        controlName="project_definition" idValue="project_definition" nameValue="project_definition"
+                        [isRequired]="true" placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                        value=""></app-input-text-area>
                 </div>
                 <div class="form-group">
-                    <app-input-select [form]="formLineaResistir"
+                    <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event, 'company_type')"
                         placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
                         label="{{ 'carpeta_ciudadana.request_info.procedure_info.company_type' | translate }}"
-                        controlName="company_type" idValue="company_type" nameValue="company_type" isReadOnly="false"
-                        isRequired="true" [fieldOptions]="tipoProyecto" errorText="empty_error"></app-input-select>
-                   </div>
+                        class="col-sm-3" controlName="company_type" idValue="company_type" nameValue="company_type"
+                        isReadOnly="false" isRequired="true" [fieldOptions]="tipoProyecto" errorText="empty_error">
+                    </app-input-select>
+                </div>
             </div>
             <!-- Inversion G1 -->
-            <span class="ml-3">
-                <strong>{{ 'carpeta_ciudadana.request_info.financing.investment.title' | translate }}</strong>
-            </span>
-            <div class="row justify-content-start mx-0">
-                <div class="form-group col-md-3">
-                    <label for="modality">{{ 'carpeta_ciudadana.request_info.financing.investment.ground' |
-                        translate }} </label>
-                    <input type="text" name="modality" id="modality" class="form-control">
+            <div *ngIf="showInversion">
+                <span class="ml-3">
+                    <strong>{{ 'carpeta_ciudadana.request_info.financing.investment.title' | translate }}</strong>
+                </span>
+                <div class="row justify-content-start mx-0">
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}"
+                            controlName="modality" idValue="modality" nameValue="modality" [isRequired]="showInversion" value=""
+                            errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }}"
+                            controlName="properties" idValue="properties" nameValue="properties" [isRequired]="showInversion"
+                            value="" errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }}"
+                            controlName="machinery" idValue="machinery" nameValue="machinery" [isRequired]="showInversion" value=""
+                            errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }}"
+                            controlName="installation" idValue="installation" nameValue="installation" [isRequired]="showInversion"
+                            value="" errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }}"
+                            controlName="others" idValue="others" nameValue="others" [isRequired]="showInversion" value=""
+                            errorText="empty_error"></app-input-number>
+                    </div>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.properties' |
-                        translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="project_definition"> {{
-                        'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.investment.installation'
-                        | translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="project_definition"> {{ 'carpeta_ciudadana.request_info.financing.investment.others'
-                        | translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-            </div>
-            <hr>
-
-
-            <span class="ml-3">
-                <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.title' | translate }}</strong>
-            </span>
-            <div class="row justify-content-start mx-0">
-                <div class="form-group col-md-3">
-                    <label for="modality"> {{
-                        'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}
-                    </label>
-                    <input type="text" name="modality" id="modality" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="company_type"> {{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants'
-                        | translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="project_definition"> {{
-                        'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate
-                        }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="company_type"> {{
-                        'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}
-                    </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
+                <hr>
+                <span class="ml-3">
+                    <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.title' | translate }}</strong>
+                </span>
+                <div class="row justify-content-start mx-0">
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}"
+                            controlName="own_resources" idValue="own_resources" nameValue="own_resources"
+                            [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }}"
+                            controlName="grants" idValue="grants" nameValue="grants" [isRequired]="showInversion" value=""
+                            errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }}"
+                            controlName="other_bank_financing" idValue="other_bank_financing"
+                            nameValue="other_bank_financing" [isRequired]="showInversion" value="" errorText="empty_error">
+                        </app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}"
+                            controlName="active_ivf" idValue="active_ivf" nameValue="active_ivf" [isRequired]="showInversion"
+                            value="" errorText="empty_error"></app-input-number>
+                    </div>
                 </div>
             </div>
             <hr>
             <!-- circulante G2-->
-            <div class="row">
-                <span class="ml-3">
-                    <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_assets.title' | translate }}</strong>
-                </span>
-                <span class="m-3">
-                    {{ 'carpeta_ciudadana.linea_resistir_instance.text_1' | translate }}
-                </span>
-            </div>
-            <div class="row justify-content-start mx-0">
-                <div class="form-group col-md-3">
-                    <label for="modality"> {{
-                        'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}
-                    </label>
-                    <input type="text" name="modality" id="modality" class="form-control">
+            <div *ngIf="showCirculante">
+                <div class="row">
+                    <span class="ml-3">
+                        <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_assets.title' | translate
+                            }}</strong>
+                    </span>
+                    <span class="m-3">
+                        {{ 'carpeta_ciudadana.linea_resistir_instance.text_1' | translate }}
+                    </span>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="company_type"> {{
-                        'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' |
-                        translate }} </label>
-                    <input type="text" name="company_type" id="company_type" class="form-control">
+                <div class="row justify-content-start mx-0">
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}"
+                            controlName="current_assets" idValue="current_assets" nameValue="current_assets" [isRequired]="showCirculante"
+                            value="" errorText="empty_error"></app-input-number>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-number [form]="formLineaResistir"
+                            label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }}"
+                            controlName="bankalbe_current_assets" idValue="bankalbe_current_assets" nameValue="bankalbe_current_assets" [isRequired]="showCirculante"
+                            value="" errorText="empty_error"></app-input-number>
+                    </div>
                 </div>
             </div>
         </div>

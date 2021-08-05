@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -18,7 +18,7 @@ export class InputNumberComponent implements OnInit {
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
   @Input() value!: string;
-  @Input() placeholder!: string;
+  @Input() placeholder: string = "0";
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxLength!: number | null;
@@ -52,7 +52,12 @@ export class InputNumberComponent implements OnInit {
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    //comprobar
+    if (!this.isRequired) {
+      this.form.get(this.controlName).clearValidators();
+      this.form.get(this.controlName).updateValueAndValidity();
+    }
     this.translateService.get('error_texts.input.' + this.errorText).subscribe(
       text => {
         this.textError = text;

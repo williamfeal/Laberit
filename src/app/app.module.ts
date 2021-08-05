@@ -83,6 +83,7 @@ import { ButtonBackComponent } from './shared/button-back/button-back.component'
 import { InputNumberComponent } from './shared/form/fields/input-number/input-number.component';
 import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
+import { InputTextAreaComponent } from './shared/form/fields/input-text-area/input-text-area.component';
 
 @NgModule({
   declarations: [
@@ -141,6 +142,7 @@ import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/i
     ContactDataComponent,
     InputTextComponent,
     InputSelectComponent,
+    InputTextAreaComponent,
     ButtonBackComponent,
     InputNumberComponent,
     ConfirmacionSolicitudComponent,
