@@ -38,7 +38,7 @@ export class InputDateComponent implements OnInit {
   }
 
   onChangeValue() {
-      console.log(this.form.get(this.controlName)?.value);
+    console.log(this.form.get(this.controlName)?.value);
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
   ngOnChanges() {
