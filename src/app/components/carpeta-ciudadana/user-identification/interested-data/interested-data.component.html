@@ -74,7 +74,7 @@
         </div>
         <div class="form-group col-md-3  px-0 d-flex">
             <div class="form-group col-md-6">
-                <app-input-text 
+                <app-input-date 
                     [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                     controlName="represented_data_iae_date"
@@ -82,9 +82,7 @@
                     nameValue="represented_data_iae_date"
                     [isReadOnly]="readOnly"
                     [isRequired]="true"
-                ></app-input-text>
-                <label for="iae_date">{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }} </label>
-                <input id="iae_date" name="iae_date" type="date" class="form-control">
+                ></app-input-date>
             </div>
             <div class="form-group col-md-6">
                 <app-input-text 

@@ -17,18 +17,18 @@
         </div>
     </div>
 
-    <div class="row mx-0">
+    <!-- <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
             <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false">
             </app-actuation-data>
         </div>
-    </div>
+    </div> -->
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
             <app-representative-data [formRepresentativeData]="formUserIdentification.controls.representative_data"
                 [readOnly]="false"></app-representative-data>
         </div>
-        <div class="col-md-12 mt-2" *ngIf="isUserAutonomo()">
+        <div class="col-md-12 mt-2" *ngIf="!isRepresentative()">
             <app-interested-data [formInterestedData]="formUserIdentification.controls.interested_data"
                 [readOnly]="false"></app-interested-data>
         </div>
