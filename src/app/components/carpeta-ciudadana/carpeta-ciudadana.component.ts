@@ -5,6 +5,7 @@ import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+
 @Component({
   selector: 'app-carpeta-ciudadana',
   templateUrl: './carpeta-ciudadana.component.html',
@@ -20,13 +21,16 @@ export class CarpetaCiudadanaComponent implements OnInit {
     public appUtils: AppUtils,
     public mockUpService: MockUpService,
     private carpetaService:CarpetaService
-  ) {
+      ) {
     
   }
 
   ngOnInit(): void {
     this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
-    this.loadData();
+    if(this.activatedRoute.snapshot.queryParams.idSession) {
+      localStorage.setItem('idSession',this.activatedRoute.snapshot.queryParams.idSession );
+      this.loadData();
+    }
   }
 
   private loadData() {

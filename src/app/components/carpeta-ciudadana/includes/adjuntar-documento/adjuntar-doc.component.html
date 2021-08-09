@@ -1,8 +1,9 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
-<div class="card mb-2">
+<app-button-back></app-button-back>
+<div class="card mx-4">
     <div class="card-header background-card-header pb-0">
         <div class="card-title text-white">
-            <em class="fas fa-user"></em>
+            <em class="far fa-file mr-2"></em>
             <label>{{ 'carpeta_ciudadana.instance.docAdd' | translate }}</label>
         </div>
     </div>
@@ -11,7 +12,7 @@
                accept=".doc,.docx,application/msword,application/pdf" class="cursor-pointer" multiple>
         <i class="fas fa-cloud-upload-alt mr-2"></i>
         <span>
-          Arrastre aquí el archivo para adjuntarlo o <label class="primary-link" for="fileUploader"><u>explorar</u>.</label>
+          {{ 'carpeta_ciudadana.instance.doc.drag' | translate }} <label class="primary-link" for="fileUploader"><u>{{ 'carpeta_ciudadana.instance.doc.explore' | translate }}</u>.</label>
         </span>
       </div>
 

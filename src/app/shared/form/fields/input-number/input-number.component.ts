@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss']
+  selector: 'app-input-number',
+  templateUrl: './input-number.component.html',
+  styleUrls: ['./input-number.component.scss']
 })
-export class InputTextComponent implements OnInit {
+export class InputNumberComponent implements OnInit {
 
   @Input() form: FormGroup = new FormGroup({});
   @Input() label: string = '';
@@ -21,7 +21,8 @@ export class InputTextComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
-
+  @Input() maxLength!: number | null;
+  @Input() decimales!: number | null; //numero de decimales
   textError: string;
   constructor(private translateService: TranslateService) { }
 
@@ -32,6 +33,7 @@ export class InputTextComponent implements OnInit {
       validaciones.push(Validators.required);
     }
     if (this.minLength != null) {
+      console.log(this.minLength);
       validaciones.push(Validators.minLength(this.minLength));
     }
     if(validaciones.length > 0){
@@ -57,6 +59,5 @@ export class InputTextComponent implements OnInit {
       }
     )
   }
-  
-}
 
+}

@@ -24,5 +24,5 @@ export class UrlConstants {
     public static readonly ENDPOINT_LOGGED_USER = '/getLoggedUser';
 
     public static readonly URL_REDIRECT_CLAVE = 'http://clave.apc.alfatecsistemas.es/SPClave/TokenServlet?urlvuelta=' + 
-        environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_CLAVE + '?url=';
+        environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_CLAVE + '?url=';
 }

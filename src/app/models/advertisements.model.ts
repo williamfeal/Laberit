@@ -1,5 +1,5 @@
 import { EntityModel } from "./entity.model";
-import { IdAuxModel } from "./idAux.model";
+import { IdAuxModel } from "./id-aux.model";
 import { LenguageModel } from "./lenguages.model";
 
 export class AdvertisementsModel {

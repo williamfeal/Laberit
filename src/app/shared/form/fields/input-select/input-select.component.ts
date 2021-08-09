@@ -21,7 +21,7 @@ export class InputSelectComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() errorText!: string;
-  @Output() onclick = new EventEmitter<string>(); 
+  // @Output() onclick = new EventEmitter<string>(); 
   selectedValue!: any;
 
   textError: string;
@@ -30,21 +30,16 @@ export class InputSelectComponent implements OnInit {
 
   ngOnInit(): void {
       let formControl = new FormControl('');
+      this.form.addControl(this.controlName, formControl);
       if(this.isRequired){
           formControl.setValidators(Validators.required);
-      }
-      this.form.addControl(this.controlName, formControl);
-      this.selectedValue = this.fieldOptions.filter(fo => fo.selected)[0];
-      if(this.selectedValue){
-          this.form.get(this.controlName)?.setValue(this.selectedValue.id);
-      } else  {
-          this.form.get(this.controlName)?.setValue(0);
       }
   }
 
   onChangeValue(){
-      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value);  
-      this.onclick.emit(this.form.get(this.controlName)?.value);
+      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value); 
+      (!this.form.get(this.controlName).valid) ? this.error = true : this.error = false;
+
   }
   ngOnChanges() {
     this.translateService.get('error_texts.input.'+this.errorText).subscribe(
@@ -53,6 +48,4 @@ export class InputSelectComponent implements OnInit {
         }
       )
   }
-
-
 }

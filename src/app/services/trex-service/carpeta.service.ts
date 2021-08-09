@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CarpetaService {
 
-  private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_LOGGED_USER;
+  private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGGED_USER;
 
   constructor(
     private http:HttpClient
@@ -23,7 +23,11 @@ export class CarpetaService {
   }
 
   public getLoggedUser():Observable<UserCertificado> {
-    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER);
+    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('idSession')
+      }
+    });
     return loggedUser.pipe(map((response:UserCertificado) => {
       return response;
     })).pipe(catchError((err: Error) => {

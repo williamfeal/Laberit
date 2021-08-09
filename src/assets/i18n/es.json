@@ -1,9 +1,10 @@
 {
-    "TITLE": "SEDE ELECTRÓNICA",
+    "TITLE": "ÁREA DE CLIENTE",
     "buttons": {
         "back": "Atrás",
         "continue": "Continuar",
-        "presentSign":"Firmar y presentar"
+        "presentSign":"Firmar y presentar",
+        "previous":"Anterior"
     },
     "home": {
         "TITLE": "Inicio",
@@ -234,12 +235,26 @@
     "error_texts": {
         "input": {
             "format_error": "Formato incorrecto",
-            "empty_error": "Falta por rellenar el campo"
+            "empty_error": "Falta por rellenar el campo",
+            "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres "
         }
     },
     "carpeta_ciudadana": {
         "title": "Área de Cliente",
         "seleccionaSelect":"Selecciona",
+        "confirmation":{
+            "title": "Resumen",
+            "exit":"Su solicitud ha sido presentada con éxito",
+            "interested": "INTERESADO",
+            "date": "FECHA DE PRESENTACIÓN",
+            "thing": "ASUTNTO",
+            "register_number":"NÚMERO REGITRO ENTRADA",
+            "resum_pdf": "RESUMEN DE SU SOLICITUD",
+            "sup_doc": "JUSTIFICANTE REGISTRO DE ENTRADA",
+            "download_sup":"Descargar justificante",
+            "download_resum":"Descargar solicitud",
+            "footer_tab": "Una vez iniciada la tramitación de su solicitud, puede consultar el estado de la misma accediendo al listado de Solicitudes del"
+        },
         "init_page": {
             "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
             "btn_electronic_certificate": "Acceso con certificado electrónico",
@@ -247,6 +262,7 @@
         },
         "instance":{
             "title":"Instancia General",
+            "infoSol":"Información de la solicitud",
             "interested":{
                 "title":"Datos Interesado",
                 "name_and_surname": "Nombre y Apellidos",
@@ -257,12 +273,16 @@
                 "link": "este enlace"
             },
             "docAdd":"Documentación adicional",
+            "doc":{
+               "drag": "Arrastre aquí el archivo para adjuntarlo o",
+               "explore": "explorar"
+            },
             "presentarSolicitud": "Presentar solicitud",
             "present_request": {
                 "title": "Presentar solicitud",
                 "button": "Firmar y presentar",
                 "text_link": "Solicitud",
-                "text": "Firmar y presentar <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de la Autoridad Portuaria de Cartagena admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
+                "text": "Se va a proceder a la firma y presentación de su solicitud medieante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de la Autoridad Portuaria de Cartagena admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnoligía y Certificación Electrónica de la Generalitat Valenciana</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
             },
             "notification":{
                 "title":"Datos a Efecto de Notificación",
@@ -283,7 +303,11 @@
                 "promenade": "Paseo",
                 "lane": "Camino",
                 "boulevard": "Rambla",
-                "passage": "Pasaje"
+                "passage": "Pasaje",
+                "selectStreet": "Seleccione vía",
+                "selectCountry": "Seleccione País",
+                "selectProvince": "Seleccione provicia",
+                "selectMunicipality": "Seleccione municipio"
             }
         },
         "identification": {
@@ -378,6 +402,29 @@
         },
         "request_info": {
             "title": "Información de la solicitud",
+            "financing": {
+                "title": "Detalle de los costes a financiar",
+                "investment": {
+                    "title":"Inversión en activos fijos",
+                    "ground": "G1 - Terrenos",
+                    "properties": "G1 - Inmuebles y construcciones",
+                    "machinery": "G1 - Maquinaria y utillaje",
+                    "installation": "G1 - Instalaciones",
+                    "others": "G1 - Otros"
+                },
+                "financing_fixed": {
+                    "title":"Financiación prevista en activos fijos",
+                    "own_resources": "Recursos propios",
+                    "grants": "Subvenciones",
+                    "other_bank_financing": "Otra financiación bancaria",
+                    "active_ivf": "Financiable IVF activo"
+                },
+                "financing_assets": {
+                    "title":"Financiazión prevista en activos circulantes",
+                    "current_assets": "G2 - Importe a financiar activo circulante",
+                    "bankalbe_current_assets": "G2 - Financiable activo circulante"
+                }
+            },
             "procedure_info": {
                 "title": "Información del trámite",
                 "import": "Importe",

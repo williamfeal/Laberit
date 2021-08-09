@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private loadDate(): void {
+    //TO DO: comprobar los idiomas de los textos en cuanto se creen los catalogos
     this.currentDateHeader = DateConstants.weekDays[this.currentDate.getDay() - 1] + ' ' + this.currentDate.getDate() + ' de ' +
       DateConstants.monthList[this.currentDate.getMonth()] + ' de ' + this.currentDate.getFullYear();
   }
