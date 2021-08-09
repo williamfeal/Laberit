@@ -25,7 +25,7 @@ export class CarpetaService {
   public getLoggedUser():Observable<UserCertificado> {
     const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {
       headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('idSession')
+        Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     });
     return loggedUser.pipe(map((response:UserCertificado) => {

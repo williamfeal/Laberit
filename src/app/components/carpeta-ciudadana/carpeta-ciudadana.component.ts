@@ -27,8 +27,8 @@ export class CarpetaCiudadanaComponent implements OnInit {
 
   ngOnInit(): void {
     this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
-    if(this.activatedRoute.snapshot.queryParams.idSession) {
-      localStorage.setItem('idSession',this.activatedRoute.snapshot.queryParams.idSession );
+    if(this.activatedRoute.snapshot.queryParams.token) {
+      localStorage.setItem('token',this.activatedRoute.snapshot.queryParams.token );
       this.loadData();
     }
   }
