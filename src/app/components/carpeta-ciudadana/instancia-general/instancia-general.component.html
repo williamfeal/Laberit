@@ -1,20 +1,15 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
-<div class="card mb-2 m-3">
-    <div class="card-header background-card-header pb-0">
-        <div class="card-title text-white">
-            <em class="fas fa-user mr-2"></em>
-            <label>{{ 'carpeta_ciudadana.instance.notification.title' | translate }}</label>
-            <app-button-back></app-button-back>
-            <form [formGroup]="formInstanciaGeneral" (ngSubmit)="goToDocumentation()">
-    <div class="row mx-0 mt-2 blockA">
-        <div class="col-md-6">
-            <app-datos-interesado [readOnly]="true"
-                [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
-        </div>
-        <div class="col-md-6">
-            <app-datos-notificacion [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
-        </div>
+<app-button-back></app-button-back>
+<form  [formGroup]="formInstanciaGeneral" (ngSubmit)="goToDocumentation()">
+<div class="row mx-0 mt-2 blockA">
+    <div class="col-md-6">
+        <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
+    <div class="col-md-6">
+        <app-datos-notificacion [errors]="errors" [errorNum]="errorNum" [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>
+    </div>
+</div>
+<div class="card mb-2 m-3">            
     <div class="card mb-2 m-3">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
@@ -72,6 +67,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </form>
 <div class="text-right px-3">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenModel } from 'src/app/models/token.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
@@ -13,7 +14,7 @@ import { UrlConstants } from 'src/app/utils/constants/url-constants';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  public url_clave:string;
+  public url_clave: string;
 
   constructor(
     private router: Router,
@@ -34,14 +35,16 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   private loadData() {
-    this.carpetaService.getLoggedUser().subscribe(
-      (data:UserCertificado) => {
-        if(data !== null) {
-          this.carpetaService.saveSession(data);
-          this.nextPage();
-        }
-      }
-    );
+
+    this.carpetaService.getTokenUsuario().subscribe((token: TokenModel) => {
+      this.carpetaService.getLoggedUser().subscribe(
+        (data: UserCertificado) => {
+          if (data !== null) {
+            this.carpetaService.saveSession(data);
+            this.nextPage();
+          }
+        });
+    });
   }
 
   public getCertificado() {
@@ -71,6 +74,4 @@ export class CarpetaCiudadanaComponent implements OnInit {
       this.router.navigate([UrlConstants.VIEW_REQUEST_LIST]);
     }
   }
-  
-
 }

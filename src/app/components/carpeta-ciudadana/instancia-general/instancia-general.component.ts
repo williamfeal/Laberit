@@ -19,6 +19,8 @@ export class InstanciaGeneralComponent {
   errorCharacterLeng: string = 'num_Characters_error';
   validators = [Validators.required];
   validate: boolean = false;
+  errors: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false];
+  errorNum: boolean[] = [false, false];
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -44,12 +46,30 @@ export class InstanciaGeneralComponent {
       formDatosNotificacion: new FormGroup({})
     });
   }
-  // get formDatosNotificacion(): FormGroup {
-  //   return this.formInstanciaGeneral.get("formDatosNotificacion") as FormGroup;
-  // }
-  // get formdDatosInteresado(): FormGroup {
-  //   return this.formInstanciaGeneral.get("formdDatosInteresado") as FormGroup;
-  // }
+  //Captura los cambios en los inputs para sacar si estan vacios
+  catchResultInput(event: string, name: string) {
+    if (name === 'resum') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[8] = true;
+      } else {
+        this.errors[8] = false;
+      }
+    }
+    if (name === 'expone') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[9] = true;
+      } else {
+        this.errors[9] = false;
+      }
+    }
+    if (name === 'request') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[10] = true;
+      } else {
+        this.errors[10] = false;
+      }
+    }
+  }
   public goToDocumentation() {
     if (this.formInstanciaGeneral.valid) {
       console.log(this.formInstanciaGeneral);
