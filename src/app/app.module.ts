@@ -84,6 +84,13 @@ import { InputNumberComponent } from './shared/form/fields/input-number/input-nu
 import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
 import { InputTextAreaComponent } from './shared/form/fields/input-text-area/input-text-area.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepicker, MatDatepickerInput, MatDatepickerContent,
+MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormField } from '@angular/material/form-field';
+import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
 
 @NgModule({
   declarations: [
@@ -146,7 +153,9 @@ import { InputTextAreaComponent } from './shared/form/fields/input-text-area/inp
     ButtonBackComponent,
     InputNumberComponent,
     ConfirmacionSolicitudComponent,
-    LineaResistirComponent
+    LineaResistirComponent,
+    DateComponent,
+    InputDateComponent
     ],
   imports: [
     BrowserModule,
@@ -157,6 +166,8 @@ import { InputTextAreaComponent } from './shared/form/fields/input-text-area/inp
     ReactiveFormsModule,
     NgxCaptchaModule,
     NgbModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -164,6 +175,8 @@ import { InputTextAreaComponent } from './shared/form/fields/input-text-area/inp
         deps: [HttpClient]
       }
     }),
+    
+    BrowserAnimationsModule,
   ],
   providers: [
     WeatherService,

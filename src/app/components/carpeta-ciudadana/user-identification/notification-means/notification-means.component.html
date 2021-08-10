@@ -7,21 +7,18 @@
     </div>
     <div class="card-body row" *ngIf="selectMeans">
         <div class="form-group col-md-6">
-            <app-input-select (onclick)="capturarCampo($event)"
+            <app-input-text
                 [form] = "formNotificationMeans"
                 label = "{{ 'carpeta_ciudadana.identification.means_of_notification.means' | translate }}"
                 controlName = "notification_means"
                 idValue = "notification_means"
                 nameValue = "notification_means"
-                [isReadOnly] = "readOnly"
-                isRequired = "true"
-                [fieldOptions] = "selectMeans"
-                [error]="notificationError"
-                [errorText]="notificationErrorText"
+                [isReadOnly] = "true"
+                value="Eléctronico"
             >
-            </app-input-select>
+            </app-input-text>
         </div>
-        <div class="col-md-6 mx-auto" *ngIf="select == 1">
+        <div class="col-md-6 mx-auto">
             <app-input-text (change)="capturarCorreo($event.target.value)"
             [form]="formNotificationMeans"
             label="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"

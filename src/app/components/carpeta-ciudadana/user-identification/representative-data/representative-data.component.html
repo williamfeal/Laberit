@@ -7,14 +7,17 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <label for="type">{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }} </label>
-            <select id="type" name="type" [(ngModel)]="type" class="form-control">
-                <!-- se cogeran los datos de los catalogos por lo que ya se cambiara -->
-                <option value="natural-person">Persona física</option>
-                <option value="artifitial-person">Persona jurídica</option>
-            </select> 
+            <app-input-select (change)="personTypeChange($event.target.value)"
+            label = "{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }}"
+            controlName = "personType"
+            idValue = "personType"
+            nameValue = "personType"
+            [isRequired] = "true"
+            [fieldOptions]="personType"
+        >
+    </app-input-select> 
         </div>
-        <div class="form-group col-md-3" *ngIf="isEmpresa()">
+        <div class="form-group col-md-3" *ngIf="type !== 'natural-person'">
             <app-input-text 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
@@ -25,7 +28,7 @@
                 [isRequired]="true"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3" *ngIf="!isEmpresa()">
+        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
             <app-input-text 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
@@ -36,7 +39,7 @@
                 [isRequired]="true"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3" *ngIf="!isEmpresa()">
+        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
             <app-input-text 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
@@ -47,7 +50,7 @@
                 [isRequired]="true"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3" *ngIf="!isEmpresa()">
+        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
             <app-input-text 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
@@ -126,7 +129,7 @@
                 [isRequired]="true"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3" *ngIf="!isEmpresa()">
+        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
             <app-input-text 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
@@ -137,7 +140,7 @@
                 [isRequired]="true"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3 px-0 d-flex" *ngIf="!isEmpresa()">
+        <div class="form-group col-md-3 px-0 d-flex" *ngIf="type === 'natural-person'">
             <div class="form-group col-md-6">
                 <app-input-text 
                     [form]="formRepresentativeData"
@@ -162,7 +165,7 @@
             </div>
         </div>
         <div class="form-group col-md-3 px-0">
-            <div class="form-group col-md-6" *ngIf="isEmpresa()">
+            <div class="form-group col-md-6" *ngIf="type === 'natural-person'">
                 <app-input-text 
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
