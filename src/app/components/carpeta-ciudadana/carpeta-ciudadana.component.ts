@@ -35,16 +35,13 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   private loadData() {
-
-    this.carpetaService.getTokenUsuario().subscribe((token: TokenModel) => {
-      this.carpetaService.getLoggedUser().subscribe(
-        (data: UserCertificado) => {
-          if (data !== null) {
-            this.carpetaService.saveSession(data);
-            this.nextPage();
-          }
-        });
-    });
+    this.carpetaService.getLoggedUser().subscribe(
+      (data: UserCertificado) => {
+        if (data !== null) {
+          this.carpetaService.saveSession(data);
+          this.nextPage();
+        }
+      });
   }
 
   public getCertificado() {
@@ -55,8 +52,8 @@ export class CarpetaCiudadanaComponent implements OnInit {
           clearInterval(listener);
           this.mockUpService.sendFirma(firma).subscribe(
             data => {
-              console.log('data :>> ', data);
-              this.nextPage();
+              sessionStorage.setItem('tokenArea',data.accessToken);
+              this.loadData();
             });
         }
       }, 500);
