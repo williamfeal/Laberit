@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Component({
     selector: 'linea-resistir',
@@ -17,6 +18,8 @@ export class LineaResistirComponent implements OnInit {
 
     showInversion = false;
     showCirculante = false;
+
+    validate: boolean = false;
 
     //se bebera de los catalogos
     tipoProyecto = tipoProyecto;
@@ -36,28 +39,7 @@ export class LineaResistirComponent implements OnInit {
     ngOnChanges() {
         this.ref.detectChanges();
     }
-    capturarCampo(ev, campo) {
-        this[campo] = ev.target.value;
-        if (campo == 'company_type') {
-            switch (this.company_type) {
-                case '1':
-                    this.showInversion = true;
-                    this.showCirculante = false;
 
-                    break;
-                case '2':
-                    this.showInversion = false;
-                    this.showCirculante = true;
-                    break;
-                case '3':
-                    this.showInversion = true;
-                    this.showCirculante = true;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
     newForm() {
         this.formLineaResistir = new FormGroup({
             formdDatosInteresado: new FormGroup({}),
@@ -67,10 +49,11 @@ export class LineaResistirComponent implements OnInit {
     public goToDocumentation() {
         console.log(this.formLineaResistir.valid);
         if (this.formLineaResistir.valid) {
-            this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+            //TO DO: Llamada al back con los datos 
+            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
         } else {
             console.log(this.formLineaResistir);
-
+            this.validate = true;
         }
     }
 }

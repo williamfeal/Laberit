@@ -5,6 +5,7 @@ export class UrlConstants {
     public static readonly VIEW_USER_IDENTIFICATION = environment.app_url + '/carpeta-del-ciudadano/identificacion';
     
     public static readonly VIEW_TRANSACT = '/carpeta-del-ciudadano/transact';
+    public static readonly VIEW_ADJUNTAR = '/carpeta-del-ciudadano/adjuntar';
 
     /* API */
     public static readonly API_SUFFIX = '/api/v1'

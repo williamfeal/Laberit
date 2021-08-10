@@ -91,6 +91,8 @@ import { MatFormField } from '@angular/material/form-field';
 import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
+import { ProcedureInformationComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/procedure-information/procedure-information.component';
+import { DetailCostFinancedComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +157,9 @@ import { InputDateComponent } from './shared/form/fields/input-date/input-date.c
     ConfirmacionSolicitudComponent,
     LineaResistirComponent,
     DateComponent,
-    InputDateComponent
+    InputDateComponent,
+    ProcedureInformationComponent,
+    DetailCostFinancedComponent
     ],
   imports: [
     BrowserModule,

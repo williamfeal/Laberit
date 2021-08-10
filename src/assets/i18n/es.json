@@ -429,6 +429,12 @@
                     "title":"Financiazión prevista en activos circulantes",
                     "current_assets": "G2 - Importe a financiar activo circulante",
                     "bankalbe_current_assets": "G2 - Financiable activo circulante"
+                },
+                "financing_requested": {
+                    "title":"Financiación solicitada",
+                    "g1": "Para inversión en activos Fijos (G1)",
+                    "g2": "Para inversión en activo circulante (G2)",
+                    "total_loan": "Total préstamo solicitado IVF (*)"
                 }
             },
             "procedure_info": {

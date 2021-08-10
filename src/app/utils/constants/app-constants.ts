@@ -497,3 +497,15 @@ export const selectMeans = [{
       selected: false
     }
   ]
+  export const tipoInteres = [
+    {
+      id: '1',
+      val: 'A',
+      selected: false,
+    },
+    {
+      id: '2',
+      val: 'B',
+      selected: false
+    }
+  ]

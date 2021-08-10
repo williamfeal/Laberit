@@ -1,0 +1,38 @@
+<div class="mx-3 card">
+    <div class="card-header background-card-header">
+        <div class="card-title text-white">
+            <em class="fas fa-info-circle"></em>
+            {{ 'carpeta_ciudadana.request_info.procedure_info.title' | translate }}
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-3">
+            <app-input-number [form]="formLineaResistir"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}"
+                controlName="import" idValue="import" nameValue="import" isRequired=true value=""
+                [error]="validate && formLineaResistir.controls['import']?.pristine"
+                errorText="empty_error"></app-input-number>
+        </div>
+        <div class="col-md-2 form-group">
+            <app-input-number [form]="formLineaResistir"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}" controlName="term"
+                [error]="validate && formLineaResistir.controls['term']?.pristine"
+                idValue="term" nameValue="term" isRequired=true value="" errorText="empty_error"></app-input-number>
+        </div>
+
+        <div class="col-md-2 form-group">
+            <app-input-number [form]="formLineaResistir"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}" controlName="lack"
+                [error]="validate && formLineaResistir.controls['lack']?.pristine"
+                idValue="lack" nameValue="lack" isRequired=true value="" errorText="empty_error"></app-input-number>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-select [form]="formLineaResistir"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }}"
+                [error]="validate && formLineaResistir.controls['modality']?.pristine"
+                controlName="modality" idValue="modality" nameValue="modality" isReadOnly="false" isRequired="true"
+                [fieldOptions]="tipoInteres" errorText="empty_error"></app-input-select>
+        </div>
+    </div>
+</div>
