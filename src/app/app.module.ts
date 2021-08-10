@@ -7,7 +7,7 @@ import localeEs from '@angular/common/locales/es-PY';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
@@ -93,6 +93,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
 import { ProcedureInformationComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/procedure-information/procedure-information.component';
 import { DetailCostFinancedComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { CarpetaUtils } from './utils/carpeta-utils';
 
 @NgModule({
   declarations: [
@@ -189,7 +191,13 @@ import { DetailCostFinancedComponent } from './components/carpeta-ciudadana/tram
     AdvertisementsService,
     ProceduresService,
     LanguagesService,
-    AppUtils
+    CarpetaUtils,
+    AppUtils,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

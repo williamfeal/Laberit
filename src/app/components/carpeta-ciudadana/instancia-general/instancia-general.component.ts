@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Tercero } from 'src/app/models/tercero.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -9,9 +9,9 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
   templateUrl: './instancia-general.component.html',
   styleUrls: ['./instancia-general.component.scss']
 })
-export class InstanciaGeneralComponent implements OnInit {
+export class InstanciaGeneralComponent {
 
-  public user: Tercero;
+  public user:UserCertificado;
   public formInstanciaGeneral: FormGroup;
   @Input() readOnly: boolean;
   @Input() errorTextRes: string = 'empty_error';
@@ -19,6 +19,8 @@ export class InstanciaGeneralComponent implements OnInit {
   errorCharacterLeng: string = 'num_Characters_error';
   validators = [Validators.required];
   validate: boolean = false;
+  errors: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false];
+  errorNum: boolean[] = [false, false];
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -32,7 +34,7 @@ export class InstanciaGeneralComponent implements OnInit {
   }
   ngOnInit(): void {
     this.carpetaService.getLoggedUser().subscribe(
-      (data: Tercero) => {
+      (data: UserCertificado) => {
         this.user = data;
       }
     );
@@ -44,12 +46,30 @@ export class InstanciaGeneralComponent implements OnInit {
       formDatosNotificacion: new FormGroup({})
     });
   }
-  // get formDatosNotificacion(): FormGroup {
-  //   return this.formInstanciaGeneral.get("formDatosNotificacion") as FormGroup;
-  // }
-  // get formdDatosInteresado(): FormGroup {
-  //   return this.formInstanciaGeneral.get("formdDatosInteresado") as FormGroup;
-  // }
+  //Captura los cambios en los inputs para sacar si estan vacios
+  catchResultInput(event: string, name: string) {
+    if (name === 'resum') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[8] = true;
+      } else {
+        this.errors[8] = false;
+      }
+    }
+    if (name === 'expone') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[9] = true;
+      } else {
+        this.errors[9] = false;
+      }
+    }
+    if (name === 'request') {
+      if (event === '' || event === 'undefined' || event === undefined || event === null) {
+        this.errors[10] = true;
+      } else {
+        this.errors[10] = false;
+      }
+    }
+  }
   public goToDocumentation() {
     if (this.formInstanciaGeneral.valid) {
       console.log(this.formInstanciaGeneral);

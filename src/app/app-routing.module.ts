@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
-  //  canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
       { title: 'carpeta_ciudadana.identification.title', url: '', terminal: true }
@@ -70,7 +70,7 @@ const routes: Routes = [
   },
   { path: 'carpeta-del-ciudadano/requests-list', 
     component: RequestsListComponent, 
-  //  canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false },
       { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 

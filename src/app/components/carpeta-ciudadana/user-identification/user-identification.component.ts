@@ -3,9 +3,9 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { Tercero } from 'src/app/models/tercero.model';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 
 @Component({
   selector: 'app-user-identification',
@@ -16,7 +16,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public requesterType = 'interested';
 
-  public user: Tercero;
+  public user: UserCertificado;
   public idProcedure: number;
   public formUserIdentification: FormGroup;
   public showErrors = false;
@@ -30,7 +30,7 @@ export class UserIdentificationComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private proceduresService: ProceduresService,
-    private carpetaService: CarpetaService
+    private carpetaUtils: CarpetaUtils
   ) {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getAllProcedure().subscribe(
@@ -50,12 +50,7 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.carpetaService.getLoggedUser().subscribe(
-      (data: Tercero) => {
-        this.carpetaService.saveSession(data);
-        this.user = data;
-      }
-    )
+    this.user = this.carpetaUtils.getSession();
   }
 
   public isInteresado(): boolean {

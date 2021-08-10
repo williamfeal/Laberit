@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BreadcrumbService } from 'angular-crumbs';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 
 @Component({
   selector: 'app-header-carpeta-ciudadana',
@@ -17,14 +19,11 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   constructor(
     private activatedRoute:ActivatedRoute,
     private translateService:TranslateService,
-    private carpetaService:CarpetaService
+    private carpetaUtils:CarpetaUtils
   ) { }
 
   ngOnInit(): void {
-    this.carpetaService.getLoggedUser().subscribe(
-      data => this.user = data
-    );
-    
+    this.user = this.carpetaUtils.getSession();
     this.activatedRoute.data.subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;
       this.breadcrumbs.forEach(
