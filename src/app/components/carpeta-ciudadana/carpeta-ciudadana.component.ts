@@ -5,6 +5,7 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Component({
@@ -21,7 +22,8 @@ export class CarpetaCiudadanaComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public appUtils: AppUtils,
     public mockUpService: MockUpService,
-    private carpetaService:CarpetaService
+    private carpetaService:CarpetaService,
+    private carpetaUtils:CarpetaUtils
       ) {
     
   }
@@ -29,16 +31,19 @@ export class CarpetaCiudadanaComponent implements OnInit {
   ngOnInit(): void {
     this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
     if(this.activatedRoute.snapshot.queryParams.token) {
-      localStorage.setItem('token',this.activatedRoute.snapshot.queryParams.token );
+      localStorage.setItem('token_user',this.activatedRoute.snapshot.queryParams.token );
       this.loadData();
     }
+    else if( localStorage.getItem('token_user') && localStorage.getItem('token_user') !== "undefined") {
+      this.loadData();
+    } 
   }
 
   private loadData() {
     this.carpetaService.getLoggedUser().subscribe(
       (data: UserCertificado) => {
         if (data !== null) {
-          this.carpetaService.saveSession(data);
+          this.carpetaUtils.saveSession(data);
           this.nextPage();
         }
       });
@@ -50,9 +55,9 @@ export class CarpetaCiudadanaComponent implements OnInit {
       const listener = setInterval(() => {
         if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
-          this.mockUpService.sendFirma(firma).subscribe(
+          this.carpetaService.sendFirma(firma).subscribe(
             data => {
-              sessionStorage.setItem('tokenArea',data.accessToken);
+              localStorage.setItem('token_user',data.accessToken);
               this.loadData();
             });
         }

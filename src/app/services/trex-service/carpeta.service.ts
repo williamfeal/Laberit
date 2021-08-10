@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -15,22 +15,30 @@ export class CarpetaService {
 
   private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGGED_USER;
   private URL_GET_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
+  private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REFRESH_TOKEN;
+  private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
+  ;
 
+  
   constructor(
     private http: HttpClient
   ) { }
 
-  public isAuthenticated() {
-    return sessionStorage.getItem('nifTitular') !== null;
+  
+  public getLoggedUser():Observable<UserCertificado> {
+    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {headers: {useInterceptor:"true"} });
+    return loggedUser.pipe(map((response:UserCertificado) => {
+      return response;
+    })).pipe(catchError((err: HttpErrorResponse) => {
+      console.error(AppConstants.ERROR_LOAD_LOGGED_USER, err);
+      throw err;
+    }));
   }
 
-  public getLoggedUser():Observable<UserCertificado> {
-    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      }
-    });
-    return loggedUser.pipe(map((response:UserCertificado) => {
+  public refreshToken():Observable<TokenModel> {
+    const refreshToken = this.http.get(this.URL_REFRESH_TOKEN,{
+      headers: new HttpHeaders({ useInterceptor: 'true' }) });
+    return refreshToken.pipe(map((response:TokenModel) => {
       return response;
     })).pipe(catchError((err: Error) => {
       console.error(AppConstants.ERROR_LOAD_LOGGED_USER, err);
@@ -48,20 +56,14 @@ export class CarpetaService {
     }));
   }
 
-  public saveSession(data: UserCertificado) {
-    sessionStorage.setItem('nifTitular', data.nifTitular);
-    sessionStorage.setItem('nombreTitular', data.nombreTitular);
-    sessionStorage.setItem('apellidosTitular', data.apellidosTitular);
-    sessionStorage.setItem('email', data.email);
-  }
+  public sendFirma(firma): Observable<any> {
+    const obs = this.http.post<any>(this.URL_SEND_FIRMA, firma);
+    return obs.pipe(map((resp: any) => {
+        return resp;
+    })).pipe(catchError((err: Error) => {
+        throw err;
+    }));
+}
 
-  public getSession(): UserCertificado {
-    let user = new UserCertificado();
-    user.apellidosTitular = sessionStorage.getItem('apellidosTitular');
-    user.nombreTitular = sessionStorage.getItem('nombreTitular');
-    user.nifTitular = sessionStorage.getItem('nifTitular');
-    user.email = sessionStorage.getItem('email');
-
-    return user;
-  }
+  
 }

@@ -7,7 +7,7 @@ import localeEs from '@angular/common/locales/es-PY';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
@@ -89,6 +89,8 @@ import { MatFormField } from '@angular/material/form-field';
 import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { CarpetaUtils } from './utils/carpeta-utils';
 
 @NgModule({
   declarations: [
@@ -181,7 +183,13 @@ import { InputDateComponent } from './shared/form/fields/input-date/input-date.c
     AdvertisementsService,
     ProceduresService,
     LanguagesService,
-    AppUtils
+    CarpetaUtils,
+    AppUtils,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
