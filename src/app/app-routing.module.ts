@@ -26,6 +26,7 @@ import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instan
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
 import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
+import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
 
 const routes: Routes = [
@@ -77,6 +78,15 @@ const routes: Routes = [
     },
     { path: 'carpeta-del-ciudadano/instancia-general', 
     component: InstanciaGeneralComponent, 
+    canActivate: [AuthGuardService],
+    data: { breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
+      { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.instance.title', url: '', terminal: true }
+    ]}
+    },
+    { path: 'carpeta-del-ciudadano/linea-resistir', 
+    component: LineaResistirComponent, 
     canActivate: [AuthGuardService],
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 

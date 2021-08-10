@@ -1,10 +1,13 @@
 import { environment } from "src/environments/environment";
 
 export class UrlConstants {
-    public static readonly VIEW_REQUEST_LIST = 'carpeta-del-ciudadano/requests-list';
-    public static readonly VIEW_USER_IDENTIFICATION = 'carpeta-del-ciudadano/identificacion';
+    public static readonly ENDPOINT_CARPETA= '/carpeta-del-ciudadano'
+
+    public static readonly VIEW_REQUEST_LIST = UrlConstants.ENDPOINT_CARPETA + '/requests-list';
+    public static readonly VIEW_USER_IDENTIFICATION = UrlConstants.ENDPOINT_CARPETA + '/identificacion';
     
-    public static readonly VIEW_TRANSACT = '/carpeta-del-ciudadano/transact';
+    public static readonly VIEW_TRANSACT = UrlConstants.ENDPOINT_CARPETA + '/transact';
+    public static readonly VIEW_ADJUNTAR = UrlConstants.ENDPOINT_CARPETA + '/adjuntar';
 
     /* API */
     public static readonly API_SUFFIX = '/api/v1'
