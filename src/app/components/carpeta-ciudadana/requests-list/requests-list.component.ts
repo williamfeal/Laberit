@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -13,11 +14,7 @@ export class RequestsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carpetaService.getLoggedUser().subscribe(
-      (data:any) => {
-        this.carpetaService.saveSession(data);
-      }
-    )
+    
   }
 
 }

@@ -1,8 +1,8 @@
 import { environment } from "src/environments/environment";
 
 export class UrlConstants {
-    public static readonly VIEW_REQUEST_LIST = environment.app_url + '/carpeta-del-ciudadano/requests-list';
-    public static readonly VIEW_USER_IDENTIFICATION = environment.app_url + '/carpeta-del-ciudadano/identificacion';
+    public static readonly VIEW_REQUEST_LIST = 'carpeta-del-ciudadano/requests-list';
+    public static readonly VIEW_USER_IDENTIFICATION = 'carpeta-del-ciudadano/identificacion';
     
     public static readonly VIEW_TRANSACT = '/carpeta-del-ciudadano/transact';
 
@@ -21,7 +21,9 @@ export class UrlConstants {
     public static readonly ENDPOINT_USER_LOGIN = '/login/validar'
     public static readonly ENDPOINT_LOGIN = '/login';
     public static readonly ENDPOINT_CLAVE = '/clave';
+    public static readonly ENDPOINT_LOGGED_USER = '/getLoggedUser';
+    public static readonly ENDPOINT_REFRESH_TOKEN = '/refreshToken';
 
     public static readonly URL_REDIRECT_CLAVE = 'http://clave.apc.alfatecsistemas.es/SPClave/TokenServlet?urlvuelta=' + 
-        environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_CLAVE + '?url=';
+        environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_CLAVE + '?url=';
 }

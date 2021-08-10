@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Tercero } from 'src/app/models/tercero.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-datos-interesado',
@@ -9,13 +11,17 @@ import { Tercero } from 'src/app/models/tercero.model';
 })
 export class DatosInteresadoComponent implements OnInit {
   
-  @Input() user:Tercero;
+  @Input() user:UserCertificado;
+
   @Input() readOnly:boolean;
   @Input() formdDatosInteresado:FormGroup;
 
-  constructor() { }
+  constructor(
+    private carpetaService:CarpetaService
+  ) { }
 
   ngOnInit(): void {
+    // this.user = this.carpetaService.getSession();
   }
   
   isInteresado(): boolean{

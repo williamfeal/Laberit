@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators"
 import { environment } from "../../../../src/environments/environment";
@@ -14,7 +15,8 @@ export class WeatherService {
   private API_WEATHER_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_UTIL + UrlConstants.ENDPOINT_WEATHER;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private translate: TranslateService
   ) {
     
    }
@@ -31,10 +33,10 @@ export class WeatherService {
   }
 
   public getWeather(token):Observable<Weather> {
-    const weather = this.http.get(`${this.API_WEATHER_ENDPOINT}?city=Cartagena`, {
+    const weather = this.http.get(`${this.API_WEATHER_ENDPOINT}?city=Cartagena&lang=${localStorage.getItem('lang')}`, {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`
       })
     });
     return weather.pipe(map((response:any) => {

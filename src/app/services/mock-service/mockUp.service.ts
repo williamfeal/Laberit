@@ -16,7 +16,6 @@ export class MockUpService {
 
     //cambiar llamada
     public sendFirma(firma): Observable<any> {
-
         const obs = this.http.post<any>(this.API_GRAPH, firma);
         return obs.pipe(map((resp: any) => {
             return resp;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Weather } from 'src/app/models/weather.model';
 import { AuthService } from 'src/app/services/moges-services/auth.service';
+import { LanguagesService } from 'src/app/services/moges-services/language.service';
 import { WeatherService } from 'src/app/services/moges-services/weather.service';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { SwalUtils } from 'src/app/utils/swal-utils';
@@ -16,8 +17,12 @@ export class WeatherComponent {
 
   constructor(
     private weatherService: WeatherService,
-    private authService:AuthService
+    private authService:AuthService,
+    private languageService:LanguagesService
   ) {
+    this.languageService.lang.subscribe(lang => {
+      this.getWeatherData();
+    })
     this.getWeatherData();
   }
 
