@@ -359,7 +359,10 @@
                 "genre": "Género",
                 "active": "Activo",
                 "turnover": "Cifra de negocio",
-                "group_belong": "Pertenece a grupo"
+                "group_belong": "Pertenece a grupo",
+                "telephone": "Teléfono",
+                "ownGroup": "Pertenece al grupo",
+                "businessType": "Tipo de empresa"
             },
             "social_address": {
                 "title": "Domicilio Social"

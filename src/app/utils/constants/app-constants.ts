@@ -5,6 +5,68 @@ export class AppConstants {
     public static readonly ERROR_LOAD_WEATHER = 'Ha habido un error obteniendo el tiempo' + IF_PROBLEM_PERSIST;
     public static readonly ERROR_LOAD_CATEGORIES = 'Ha habido un error obteniendo las categorías' + IF_PROBLEM_PERSIST;
 }
+export const actuation = [{
+  id:'interested',
+  val:'Interesado',
+  selected: false
+},
+{
+  id:'representative',
+  val:'Representante',
+  selected: false
+}
+];
+export const siNo = [{
+  id:'true',
+  val:'Si',
+  selected: false
+},
+{
+  id:'false',
+  val:'No',
+  selected: false
+}];
+export const personType = [{
+  id:'natural-person',
+  val:'Persona física',
+  selected: false
+},
+{
+  id:'artifitial-person',
+  val:'Persona jurídica',
+  selected: false
+}];
+export const businessType = [{
+  id:'1',
+  val:'Autónomo',
+  selected: false
+},
+{
+  id:'2',
+  val:'Microempresa',
+  selected: false
+},
+{
+  id:'3',
+  val:'Pyme',
+  selected: false
+},
+{
+  id:'4',
+  val:'Gran Empresa',
+  selected: false
+},
+{
+  id:'5',
+  val:'Comunidad de bienes y OE',
+  selected: false
+},
+{
+  id:'6',
+  val:'Sociedad Civil',
+  selected: false
+}
+];
 export const selectMeans = [{
     id: '1',
     val: 'Electrónico',
