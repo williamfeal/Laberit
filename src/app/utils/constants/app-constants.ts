@@ -16,6 +16,16 @@ export const actuation = [{
   selected: false
 }
 ];
+export const siNo = [{
+  id:'true',
+  val:'Si',
+  selected: false
+},
+{
+  id:'false',
+  val:'No',
+  selected: false
+}];
 export const personType = [{
   id:'natural-person',
   val:'Persona física',
@@ -26,6 +36,37 @@ export const personType = [{
   val:'Persona jurídica',
   selected: false
 }];
+export const businessType = [{
+  id:'1',
+  val:'Autónomo',
+  selected: false
+},
+{
+  id:'2',
+  val:'Microempresa',
+  selected: false
+},
+{
+  id:'3',
+  val:'Pyme',
+  selected: false
+},
+{
+  id:'4',
+  val:'Gran Empresa',
+  selected: false
+},
+{
+  id:'5',
+  val:'Comunidad de bienes y OE',
+  selected: false
+},
+{
+  id:'6',
+  val:'Sociedad Civil',
+  selected: false
+}
+];
 export const selectMeans = [{
     id: '1',
     val: 'Electrónico',

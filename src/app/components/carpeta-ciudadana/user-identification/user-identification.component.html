@@ -34,12 +34,12 @@
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+        <div class="col-md-12 mt-2">
             <app-social-address></app-social-address>
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+        <div class="col-md-12 mt-2">
             <app-productive-establishment-address
                 [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                 [readOnly]="false"></app-productive-establishment-address>
@@ -52,8 +52,8 @@
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [readOnly]="false">
+        <div class="col-md-12 mt-2" >
+            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [interesado]="isInteresado()" [readOnly]="false">
             </app-contact-data>
         </div>
     </div>
