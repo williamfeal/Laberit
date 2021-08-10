@@ -82,6 +82,13 @@ import { InputSelectComponent } from './shared/form/fields/input-select/input-se
 import { ButtonBackComponent } from './shared/button-back/button-back.component';
 import { InputNumberComponent } from './shared/form/fields/input-number/input-number.component';
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepicker, MatDatepickerInput, MatDatepickerContent,
+MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormField } from '@angular/material/form-field';
+import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
 
 @NgModule({
   declarations: [
@@ -142,7 +149,9 @@ import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/i
     InputSelectComponent,
     ButtonBackComponent,
     InputNumberComponent,
-    ConfirmacionSolicitudComponent
+    ConfirmacionSolicitudComponent,
+    DateComponent,
+    InputDateComponent
     ],
   imports: [
     BrowserModule,
@@ -153,6 +162,8 @@ import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/i
     ReactiveFormsModule,
     NgxCaptchaModule,
     NgbModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -160,6 +171,8 @@ import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/i
         deps: [HttpClient]
       }
     }),
+    
+    BrowserAnimationsModule,
   ],
   providers: [
     WeatherService,

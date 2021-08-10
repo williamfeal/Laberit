@@ -17,29 +17,29 @@
         </div>
     </div>
 
-    <div class="row mx-0">
+    <!-- <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
             <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false">
             </app-actuation-data>
         </div>
-    </div>
+    </div> -->
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
             <app-representative-data [formRepresentativeData]="formUserIdentification.controls.representative_data"
                 [readOnly]="false"></app-representative-data>
         </div>
-        <div class="col-md-12 mt-2" *ngIf="isUserAutonomo()">
+        <div class="col-md-12 mt-2" *ngIf="!isRepresentative()">
             <app-interested-data [formInterestedData]="formUserIdentification.controls.interested_data"
                 [readOnly]="false"></app-interested-data>
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+        <div class="col-md-12 mt-2">
             <app-social-address></app-social-address>
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
+        <div class="col-md-12 mt-2">
             <app-productive-establishment-address
                 [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                 [readOnly]="false"></app-productive-establishment-address>
@@ -52,8 +52,8 @@
         </div>
     </div>
     <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [readOnly]="false">
+        <div class="col-md-12 mt-2" >
+            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [interesado]="isInteresado()" [readOnly]="false">
             </app-contact-data>
         </div>
     </div>
