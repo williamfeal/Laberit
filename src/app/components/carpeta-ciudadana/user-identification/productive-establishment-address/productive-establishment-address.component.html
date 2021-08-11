@@ -7,7 +7,8 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.via_type' | translate }}"
                 controlName="productive_establishment_via_type"
@@ -15,10 +16,13 @@
                 nameValue="productive_establishment_via_type"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-6">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                 controlName="productive_establishment_address"
@@ -26,11 +30,14 @@
                 nameValue="productive_establishment_address"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-text 
+                <app-input-number
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
                 controlName="productive_establishment_number"
@@ -38,11 +45,14 @@
                 nameValue="productive_establishment_number"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
-            ></app-input-text>
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
+            [errorText]="errorCharacterLeng"
+            ></app-input-number>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
                 controlName="productive_establishment_extra"
@@ -50,11 +60,14 @@
                 nameValue="productive_establishment_extra"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_extra']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-text 
+                <app-input-number
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                 controlName="productive_establishment_CP"
@@ -62,12 +75,15 @@
                 nameValue="productive_establishment_CP"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
-            ></app-input-text>
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
+            [errorText]="errorCharacterLeng"
+            ></app-input-number>
             </div>
         </div>
         <div class="col-md-6"></div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.country' | translate }}"
                 controlName="productive_establishment_country"
@@ -75,10 +91,13 @@
                 nameValue="productive_establishment_country"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.province' | translate }}"
                 controlName="productive_establishment_province"
@@ -86,10 +105,13 @@
                 nameValue="productive_establishment_province"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.municipality' | translate }}"
                 controlName="productive_establishment_municipality"
@@ -97,6 +119,8 @@
                 nameValue="productive_establishment_municipality"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.pristine"
+            [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
     </div>

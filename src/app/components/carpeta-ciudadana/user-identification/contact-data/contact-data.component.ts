@@ -12,6 +12,8 @@ export class ContactDataComponent implements OnInit {
   @Input() formContactData:FormGroup;
   @Input() readOnly:boolean;
   @Input() interesado: boolean;
+  @Input() validate: boolean;
+  public errorCharacterLeng: string = 'empty_error';
   public isChecked: boolean;
   public showInputs: boolean;
   public businessType: SelectFieldObject[];
@@ -22,11 +24,12 @@ export class ContactDataComponent implements OnInit {
     this.businessType = businessType;
     this.siNo = siNo;
   }
-changeInput(event: string, name: string){
-  if(event === 'A' && name === 'interesado'){
+changeInput(event: string){
+  if(event === 'A'){
     this.showInputs = true;
   }else{
     this.showInputs = false;
   }
+  
 }
 }

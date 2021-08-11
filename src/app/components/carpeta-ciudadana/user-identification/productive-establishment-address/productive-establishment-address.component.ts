@@ -9,6 +9,8 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
 
   @Input() formProductiveEstablishment:FormGroup;
   @Input() readOnly:boolean;
+  @Input() validate: boolean = false;
+  public errorCharacterLeng: string = 'empty_error';
 
   constructor() { }
 

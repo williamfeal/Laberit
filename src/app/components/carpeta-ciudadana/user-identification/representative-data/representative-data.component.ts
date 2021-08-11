@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { personType } from 'src/app/utils/constants/app-constants';
+import { businessType, personType, siNo } from 'src/app/utils/constants/app-constants';
 
 @Component({
   selector: 'app-representative-data',
@@ -11,17 +11,25 @@ export class RepresentativeDataComponent implements OnInit {
 
   @Input() formRepresentativeData:FormGroup;
   @Input() readOnly:boolean;
-  
+  @Input() validate: boolean;
+  errorCharacterLeng: string = 'empty_error';
   public type = 'natural-person';
   public personType: SelectFieldObject[];
-  constructor() { }
+  public businessType: SelectFieldObject[];
+  public siNo: SelectFieldObject[];
+  public isAutonum: string;
+ constructor() { }
 
-  ngOnInit(): void {
-    this.personType = personType;
-  }
+ ngOnInit(): void {
+   this.businessType = businessType;
+   this.siNo = siNo;
+   this.personType = personType;
+ }
   personTypeChange(event: string){
     console.log(event);
     this.type = event;
-   
+  }
+  autonom(event: any){
+    this.isAutonum = event.target.value;
   }
 }

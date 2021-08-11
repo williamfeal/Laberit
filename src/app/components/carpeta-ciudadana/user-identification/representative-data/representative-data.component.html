@@ -18,7 +18,8 @@
     </app-input-select> 
         </div>
         <div class="form-group col-md-3" *ngIf="type !== 'natural-person'">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
                 controlName="represented_data_social_reason"
@@ -26,10 +27,13 @@
                 nameValue="represented_data_social_reason"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                 controlName="represented_data_name"
@@ -37,10 +41,13 @@
                 nameValue="represented_data_name"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_name']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
                 controlName="represented_data_surname1"
@@ -48,10 +55,13 @@
                 nameValue="represented_data_surname1"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
                 controlName="represented_data_surname2"
@@ -59,10 +69,13 @@
                 nameValue="represented_data_surname2"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_surname2']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
                 controlName="represented_data_nif"
@@ -70,10 +83,13 @@
                 nameValue="represented_data_nif"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_nif']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
                 controlName="represented_data_cnae"
@@ -81,10 +97,13 @@
                 nameValue="represented_data_cnae"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_cnae']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
                 controlName="represented_data_iae"
@@ -92,11 +111,14 @@
                 nameValue="represented_data_iae"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_iae']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
         <div class="form-group col-md-3  px-0 d-flex">
             <div class="form-group col-md-6">
-                <app-input-text 
+                <app-input-text
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                     controlName="represented_data_iae_date"
@@ -104,10 +126,13 @@
                     nameValue="represented_data_iae_date"
                     [isReadOnly]="readOnly"
                     [isRequired]="true"
+                    [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.pristine"
+                    [errorText]="errorCharacterLeng"
                 ></app-input-text>
             </div>
             <div class="form-group col-md-6">
-                <app-input-text 
+                <app-input-text
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                     controlName="represented_data_employees_number"
@@ -115,70 +140,42 @@
                     nameValue="represented_data_employees_number"
                     [isReadOnly]="readOnly"
                     [isRequired]="true"
+                    [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
+                    [errorText]="errorCharacterLeng"
                 ></app-input-text>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text 
-                [form]="formRepresentativeData"
-                label="{{ 'carpeta_ciudadana.identification.represented_data.ambit' | translate }}"
-                controlName="represented_data_ambit"
-                idValue="represented_data_ambit"
-                nameValue="represented_data_ambit"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-            ></app-input-text>
+            <app-input-select (change)="autonom($event)"
+            [form]="formRepresentativeData"
+            label = "{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+            controlName = "businessType"
+            idValue = "businessType"
+            nameValue = "businessType"
+            [isRequired] = "true"
+            [fieldOptions]="businessType"
+            [error]="validate && formRepresentativeData.controls['businessType']?.pristine"
+            [errorText]="errorCharacterLeng"
+        >
+    </app-input-select> 
         </div>
-        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
-            <app-input-text 
-                [form]="formRepresentativeData"
-                label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
-                controlName="represented_data_residence_country"
-                idValue="represented_data_residence_country"
-                nameValue="represented_data_residence_country"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-            ></app-input-text>
+        <div class="form-group col-md-3" *ngIf="isAutonum != '1'">
+            <app-input-select
+            [form]="formRepresentativeData"
+            label = "{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
+            controlName = "ownGroup"
+            idValue = "ownGroup"
+            nameValue = "ownGroup"
+            [isRequired] = "true"
+            [fieldOptions]="siNo"
+            [error]="validate && formRepresentativeData.controls['ownGroup']?.pristine"
+            [errorText]="errorCharacterLeng"
+        >
+    </app-input-select> 
         </div>
-        <div class="form-group col-md-3 px-0 d-flex" *ngIf="type === 'natural-person'">
-            <div class="form-group col-md-6">
-                <app-input-text 
-                    [form]="formRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
-                    controlName="represented_data_birth_date"
-                    idValue="represented_data_birth_date"
-                    nameValue="represented_data_birth_date"
-                    [isReadOnly]="readOnly"
-                    [isRequired]="true"
-                ></app-input-text>
-            </div>
-            <div class="form-group col-md-6">
-                <app-input-text 
-                [form]="formRepresentativeData"
-                label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
-                controlName="represented_data_genre"
-                idValue="represented_data_genre"
-                nameValue="represented_data_genre"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-            ></app-input-text>
-            </div>
-        </div>
-        <div class="form-group col-md-3 px-0">
-            <div class="form-group col-md-6" *ngIf="type === 'natural-person'">
-                <app-input-text 
-                    [form]="formRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
-                    controlName="represented_data_constitution_date"
-                    idValue="represented_data_constitution_date"
-                    nameValue="represented_data_constitution_date"
-                    [isReadOnly]="readOnly"
-                    [isRequired]="true"
-                ></app-input-text>
-            </div>
-        </div>
-        <div class="form-group col-md-3">
-            <app-input-text 
+        <div class="form-group col-md-3" *ngIf="isAutonum != '1'">
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                 controlName="represented_data_active"
@@ -186,10 +183,13 @@
                 nameValue="represented_data_active"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_active']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3">
-            <app-input-text 
+        <div class="form-group col-md-3" *ngIf="isAutonum != '1'">
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
                 label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                 controlName="represented_data_turnover"
@@ -197,18 +197,54 @@
                 nameValue="represented_data_turnover"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
         </div>
-        <div class="form-group col-md-3">
-            <app-input-text 
+        
+        <div class="form-group col-md-3" *ngIf="type === 'natural-person'">
+            <app-input-text
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
                 [form]="formRepresentativeData"
-                label="{{ 'carpeta_ciudadana.identification.represented_data.group_belong' | translate }}"
-                controlName="represented_data_group_belong"
-                idValue="represented_data_group_belong"
-                nameValue="represented_data_group_belong"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
+                controlName="represented_data_residence_country"
+                idValue="represented_data_residence_country"
+                nameValue="represented_data_residence_country"
                 [isReadOnly]="readOnly"
                 [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.pristine"
+                [errorText]="errorCharacterLeng"
             ></app-input-text>
+        </div>
+        <div class="form-group col-md-3 px-0 d-flex" *ngIf="type === 'natural-person'">
+            <div class="form-group col-md-6">
+                <app-input-text
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
+                    controlName="represented_data_birth_date"
+                    idValue="represented_data_birth_date"
+                    nameValue="represented_data_birth_date"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.pristine"
+                [errorText]="errorCharacterLeng"
+                ></app-input-text>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input-text
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
+                [form]="formRepresentativeData"
+                label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
+                controlName="represented_data_genre"
+                idValue="represented_data_genre"
+                nameValue="represented_data_genre"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+                [error]="validate && formRepresentativeData.controls['represented_data_genre']?.pristine"
+                [errorText]="errorCharacterLeng"
+            ></app-input-text>
+            </div>
         </div>
     </div>
 </div>

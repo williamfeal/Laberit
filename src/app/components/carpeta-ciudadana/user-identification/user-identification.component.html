@@ -25,35 +25,35 @@
     </div> -->
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
-            <app-representative-data [formRepresentativeData]="formUserIdentification.controls.representative_data"
+            <app-representative-data  [validate]="validate" [formRepresentativeData]="formUserIdentification.controls.representative_data"
                 [readOnly]="false"></app-representative-data>
         </div>
         <div class="col-md-12 mt-2" *ngIf="!isRepresentative()">
-            <app-interested-data [formInterestedData]="formUserIdentification.controls.interested_data"
+            <app-interested-data [validate]="validate" [formInterestedData]="formUserIdentification.controls.interested_data"
                 [readOnly]="false"></app-interested-data>
         </div>
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2">
-            <app-social-address></app-social-address>
+            <app-social-address [validate]="validate" [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
         </div>
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2">
             <app-productive-establishment-address
-                [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
+                [validate]="validate" [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                 [readOnly]="false"></app-productive-establishment-address>
         </div>
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-legal-representative [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
+            <app-legal-representative [validate]="validate" [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
                 [readOnly]="false"></app-legal-representative>
         </div>
     </div>
     <div class="row mx-0">
         <div class="col-md-12 mt-2" >
-            <app-contact-data [formContactData]="formUserIdentification.controls.contact_data" [interesado]="isInteresado()" [readOnly]="false">
+            <app-contact-data [validate]="validate" [formContactData]="formUserIdentification.controls.contact_data" [interesado]="isInteresado()" [readOnly]="false">
             </app-contact-data>
         </div>
     </div>

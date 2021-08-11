@@ -17,6 +17,7 @@ export class UserIdentificationComponent implements OnInit {
   public requesterType = 'interested';
 
   public user: UserCertificado;
+  public validate: boolean = false;
   public idProcedure: number;
   public formUserIdentification: FormGroup;
   public showErrors = false;
@@ -45,7 +46,8 @@ export class UserIdentificationComponent implements OnInit {
       productive_establishment: new FormGroup({}),
       representative_data: new FormGroup({}),
       legal_representative: new FormGroup({}),
-      contact_data: new FormGroup({})
+      contact_data: new FormGroup({}),
+      sosial_address: new FormGroup({})
     });
   }
 
@@ -71,6 +73,14 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
+    if(this.formUserIdentification.valid){
+      this.validate = false;
+      console.log(this.formUserIdentification);
+    }else{
+      this.validate = true;
+      console.log('MAL');
+      console.log(this.formUserIdentification);
+    }
     //Si es electr�nico es necesario el corre con buen formato
     if (this.formUserIdentification.value.notification_means.notification_means == 0) {
       error++;
