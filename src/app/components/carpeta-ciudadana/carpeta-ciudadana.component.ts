@@ -31,10 +31,10 @@ export class CarpetaCiudadanaComponent implements OnInit {
   ngOnInit(): void {
     this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
     if(this.activatedRoute.snapshot.queryParams.token) {
-      localStorage.setItem('token_user',this.activatedRoute.snapshot.queryParams.token );
+      sessionStorage.setItem('token_user',this.activatedRoute.snapshot.queryParams.token );
       this.loadData();
     }
-    else if( localStorage.getItem('token_user') && localStorage.getItem('token_user') !== "undefined") {
+    else if( sessionStorage.getItem('token_user') && sessionStorage.getItem('token_user') !== "undefined") {
       this.loadData();
     } 
   }
@@ -57,7 +57,7 @@ export class CarpetaCiudadanaComponent implements OnInit {
           clearInterval(listener);
           this.carpetaService.sendFirma(firma).subscribe(
             data => {
-              localStorage.setItem('token_user',data.accessToken);
+              sessionStorage.setItem('token_user',data.accessToken);
               this.loadData();
             });
         }

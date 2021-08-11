@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
      }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token_user = localStorage.getItem('token_user');
+        const token_user = sessionStorage.getItem('token_user');
         if(req.headers.get('useInterceptor') === 'true') {
             if(token_user) {
                 req = req.clone( {
@@ -26,7 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
                     if(err.status === 403) {
                         this.carpetaService.refreshToken().subscribe(
                             new_token => {
-                                localStorage.setItem('token_user', new_token.accessToken)
+                                sessionStorage.setItem('token_user', new_token.accessToken)
                                 req = req.clone( {
                                     setHeaders: {
                                         'Authorization': `Bearer ${new_token.accessToken}`
