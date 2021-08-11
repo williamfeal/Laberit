@@ -406,6 +406,9 @@
                 "municipality": "Municipio"
             }
         },
+        "linear_resistance":{
+            "title":"Linea resistir"
+        },
         "request_info": {
             "title": "Información de la solicitud",
             "financing": {
