@@ -7,7 +7,7 @@ import localeEs from '@angular/common/locales/es-PY';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
@@ -81,7 +81,9 @@ import { InputTextComponent } from './shared/form/fields/input-text/input-text.c
 import { InputSelectComponent } from './shared/form/fields/input-select/input-select.component';
 import { ButtonBackComponent } from './shared/button-back/button-back.component';
 import { InputNumberComponent } from './shared/form/fields/input-number/input-number.component';
+import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/linea-resistir.component';
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
+import { InputTextAreaComponent } from './shared/form/fields/input-text-area/input-text-area.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepicker, MatDatepickerInput, MatDatepickerContent,
 MatDatepickerModule } from '@angular/material/datepicker';
@@ -89,6 +91,10 @@ import { MatFormField } from '@angular/material/form-field';
 import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
+import { ProcedureInformationComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/procedure-information/procedure-information.component';
+import { DetailCostFinancedComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { CarpetaUtils } from './utils/carpeta-utils';
 
 @NgModule({
   declarations: [
@@ -147,11 +153,15 @@ import { InputDateComponent } from './shared/form/fields/input-date/input-date.c
     ContactDataComponent,
     InputTextComponent,
     InputSelectComponent,
+    InputTextAreaComponent,
     ButtonBackComponent,
     InputNumberComponent,
     ConfirmacionSolicitudComponent,
+    LineaResistirComponent,
     DateComponent,
-    InputDateComponent
+    InputDateComponent,
+    ProcedureInformationComponent,
+    DetailCostFinancedComponent
     ],
   imports: [
     BrowserModule,
@@ -181,7 +191,13 @@ import { InputDateComponent } from './shared/form/fields/input-date/input-date.c
     AdvertisementsService,
     ProceduresService,
     LanguagesService,
-    AppUtils
+    CarpetaUtils,
+    AppUtils,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

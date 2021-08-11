@@ -46,7 +46,6 @@ export class ProceduresService {
         'Content-Language': localStorage.getItem('lang')
       }),
     });
-    console.log('procedure :>> ', procedure);
     return procedure.pipe(map((response:any) => {
       return response;
     })).pipe(catchError((err: Error) => {

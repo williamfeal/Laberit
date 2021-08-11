@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenModel } from 'src/app/models/token.model';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+
 @Component({
   selector: 'app-carpeta-ciudadana',
   templateUrl: './carpeta-ciudadana.component.html',
@@ -10,57 +15,65 @@ import { UrlConstants } from 'src/app/utils/constants/url-constants';
 })
 export class CarpetaCiudadanaComponent implements OnInit {
 
-  public url_clave:string;
+  public url_clave: string;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public appUtils: AppUtils,
-    public mockUpService: MockUpService
-  ) {
+    public mockUpService: MockUpService,
+    private carpetaService:CarpetaService,
+    private carpetaUtils:CarpetaUtils
+      ) {
     
   }
 
   ngOnInit(): void {
-
+    this.url_clave = UrlConstants.URL_REDIRECT_CLAVE + window.location.href;
+    if(this.activatedRoute.snapshot.queryParams.token) {
+      sessionStorage.setItem('token_user',this.activatedRoute.snapshot.queryParams.token );
+      this.loadData();
+    }
+    else if( sessionStorage.getItem('token_user') && sessionStorage.getItem('token_user') !== "undefined") {
+      this.loadData();
+    } 
   }
 
-  public getClave() {
-    sessionStorage.setItem('dni', '11111111h');
-    sessionStorage.setItem('nombre', 'Test');
-    sessionStorage.setItem('apellido1', 'tEST');
-    sessionStorage.setItem('apellido2', 'TEst');
-    this.nextPage();
+  private loadData() {
+    this.carpetaService.getLoggedUser().subscribe(
+      (data: UserCertificado) => {
+        if (data !== null) {
+          this.carpetaUtils.saveSession(data);
+          this.nextPage();
+        }
+      });
   }
+
   public getCertificado() {
     sessionStorage.setItem("b64Certificate", null);
     this.appUtils.getSign().then((firma) => {
       const listener = setInterval(() => {
         if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
-
-          this.mockUpService.sendFirma(firma).subscribe(
+          this.carpetaService.sendFirma(firma).subscribe(
             data => {
-              console.log('data :>> ', data);
-              this.nextPage();
+              sessionStorage.setItem('token_user',data.accessToken);
+              this.loadData();
             });
         }
       }, 500);
     })
   }
 
-  nextPage() {
+  private nextPage() {
     if (this.activatedRoute.snapshot.params.idProcedure) {
-      this.router.navigate(['carpeta-del-ciudadano/identificacion'], {
+      this.router.navigate([UrlConstants.VIEW_USER_IDENTIFICATION], {
         queryParams: {
           idProcedure: this.activatedRoute.snapshot.params.idProcedure
         }
       });
     } else {
-      // UrlConstants.URL_REDIRECT_CLAVE + 
-      this.url_clave = UrlConstants.VIEW_REQUEST_LIST;
+      this.router.navigate([UrlConstants.VIEW_REQUEST_LIST]);
     }
   }
-  
-
 }

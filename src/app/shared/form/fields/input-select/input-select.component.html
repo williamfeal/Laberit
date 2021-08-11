@@ -1,6 +1,6 @@
 <form [formGroup]="form">
     <label>{{ label }} <span *ngIf="isRequired" class="requiredField">*</span> </label>
-    <select data-cy="nameValue" class="form-control" [id]="idValue" [name]="nameValue" [value]="label"
+    <select data-cy="nameValue" class="form-control" [class]="class" [id]="idValue" [name]="nameValue" [value]="label"
         (change)="onChangeValue()" [formControlName]="controlName" [ngClass]="{ 'error-input': error == true }">
         <option *ngIf="placeholder" value="" disabled selected>{{ placeholder }}</option>
         <option *ngFor="let item of fieldOptions" [value]="item.id">{{ item.val }}</option>

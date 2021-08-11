@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -18,28 +18,29 @@ export class InputNumberComponent implements OnInit {
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
   @Input() value!: string;
-  @Input() placeholder!: string;
+  @Input() placeholder: string = "0";
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxLength!: number | null;
   @Input() decimales!: number | null; //numero de decimales
   textError: string;
+  validaciones: ValidatorFn[] = [];
+  formControl = new FormControl('');
+
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
-    let formControl = new FormControl('');
-    let validaciones: ValidatorFn[] = [];
     if (this.isRequired) {
-      validaciones.push(Validators.required);
+      this.validaciones.push(Validators.required);
     }
     if (this.minLength != null) {
       console.log(this.minLength);
-      validaciones.push(Validators.minLength(this.minLength));
+      this.validaciones.push(Validators.minLength(this.minLength));
     }
-    if(validaciones.length > 0){
-      formControl.setValidators(validaciones);
+    if (this.validaciones.length > 0) {
+      this.formControl.setValidators(this.validaciones);
     }
-    this.form.addControl(this.controlName, formControl);
+    this.form.addControl(this.controlName, this.formControl);
 
     this.value ?
       this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
@@ -52,7 +53,16 @@ export class InputNumberComponent implements OnInit {
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    if (!this.isRequired) {
+      if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
+        this.form.get(this.controlName).clearValidators();
+        this.form.get(this.controlName).updateValueAndValidity();
+      }
+    } else {
+      this.formControl.setValidators(Validators.required);
+      this.form.addControl(this.controlName, this.formControl);
+    }
     this.translateService.get('error_texts.input.' + this.errorText).subscribe(
       text => {
         this.textError = text;

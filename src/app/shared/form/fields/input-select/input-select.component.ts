@@ -12,6 +12,7 @@ import { SelectFieldObject } from './input-select';
 export class InputSelectComponent implements OnInit {
   @Input() form: FormGroup = new FormGroup({});
   @Input() label: string = '';
+  @Input() class!: string;
   @Input() controlName!: string;
   @Input() idValue!: string;
   @Input() nameValue!: string;
