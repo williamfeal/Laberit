@@ -9,6 +9,8 @@ export class LegalRepresentativeComponent implements OnInit {
 
   @Input() formLegalRepresentative:FormGroup;
   @Input() readOnly:boolean;
+  @Input() validate: boolean;
+  errorCharacterLeng: string = 'empty_error';
 
   constructor() { }
 

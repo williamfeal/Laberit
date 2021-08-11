@@ -241,7 +241,10 @@
     },
     "carpeta_ciudadana": {
         "title": "Área de Cliente",
-        "seleccionaSelect":"Selecciona",
+        "placeholder":{
+            "input": "Escriba aquí",
+            "select": "Selecciona"
+        },
         "confirmation":{
             "title": "Resumen",
             "exit":"Su solicitud ha sido presentada con éxito",
