@@ -91,7 +91,7 @@ const routes: Routes = [
     data: { breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/carpeta-del-ciudadano', terminal: false }, 
       { title: 'carpeta_ciudadana.identification.title', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
-      { title: 'carpeta_ciudadana.instance.title', url: '', terminal: true }
+      { title: 'carpeta_ciudadana.linear_resistance.title', url: '', terminal: true }
     ]}
     },
     { path: 'carpeta-del-ciudadano/adjuntar', 
