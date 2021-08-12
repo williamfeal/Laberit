@@ -39,6 +39,7 @@ export class UserIdentificationComponent implements OnInit {
         this.procedure = procedures.find(element => element.id == this.idProcedure);
       })
     this.formUserIdentification = new FormGroup({
+      request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
       notification_means: new FormGroup({}),
       actuation_data: new FormGroup({}),
