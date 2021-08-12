@@ -13,7 +13,7 @@
                 [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
-            <app-requester-data (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
+            <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data" (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
         </div>
     </div>
 
