@@ -407,7 +407,7 @@
             }
         },
         "linear_resistance":{
-            "title":"Linea resistir"
+            "title":"Línea resistir"
         },
         "request_info": {
             "title": "Información de la solicitud",
