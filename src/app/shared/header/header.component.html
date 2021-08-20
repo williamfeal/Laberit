@@ -28,7 +28,7 @@
     </div>
   </div>
 </div>
-<div class="navbar-nav w-100 header-nav">
+<div class="navbar-nav w-100 header-nav"  *ngIf="!hiddenMenu">
   <ul class="navbar-nav navbar-expand-lg nav-fill">
     <li class="nav-item">
       <a [routerLink]="['/inicio']" routerLinkActive="link-color-primary border-bottom-primary"
