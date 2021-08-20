@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router, RoutesRecognized } from '@angular/router';
 import { AuthService } from 'src/app/services/moges-services/auth.service';
 import { StyleService } from 'src/app/services/moges-services/style.service';
 import * as DateConstants from 'src/app/utils/constants/date-constants';
@@ -16,11 +17,15 @@ export class HeaderComponent implements OnInit {
 
   private currentDate = new Date();
 
+  @Input()
+  public hiddenMenu:boolean = false;
+
   constructor(
-    private styleService:StyleService
+    private styleService:StyleService,
     ) { }
 
   ngOnInit(): void {
+    
     this.loadDate();
     this.loadHour();
     this.loadStyles();
