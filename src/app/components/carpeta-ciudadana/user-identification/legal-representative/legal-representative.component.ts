@@ -7,8 +7,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class LegalRepresentativeComponent implements OnInit {
 
-  @Input() formLegalRepresentative:FormGroup;
-  @Input() readOnly:boolean;
+  @Input() formLegalRepresentative: FormGroup;
+  @Input() readOnly: boolean;
+  @Input() isRequired: boolean;
   @Input() validate: boolean;
   errorCharacterLeng: string = 'empty_error';
 

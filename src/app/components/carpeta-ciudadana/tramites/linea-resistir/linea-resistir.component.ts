@@ -14,7 +14,6 @@ export class LineaResistirComponent implements OnInit {
 
 
     public formLineaResistir: FormGroup;
-    validators = [Validators.required];
 
     showInversion = false;
     showCirculante = false;

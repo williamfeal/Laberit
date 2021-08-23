@@ -9,27 +9,26 @@ import { businessType, siNo } from 'src/app/utils/constants/app-constants';
 })
 export class ContactDataComponent implements OnInit {
 
-  @Input() formContactData:FormGroup;
-  @Input() readOnly:boolean;
+  @Input() formContactData: FormGroup;
+  @Input() readOnly: boolean;
   @Input() interesado: boolean;
   @Input() validate: boolean;
   public errorCharacterLeng: string = 'empty_error';
   public isChecked: boolean;
-  public showInputs: boolean;
+  public showInputs: boolean = true;
   public businessType: SelectFieldObject[];
-   public siNo: SelectFieldObject[];
+  public siNo: SelectFieldObject[];
   constructor() { }
 
   ngOnInit(): void {
     this.businessType = businessType;
     this.siNo = siNo;
   }
-changeInput(event: string){
-  if(event === 'A'){
-    this.showInputs = true;
-  }else{
-    this.showInputs = false;
+  changeInput(event: string) {
+    if (event === 'A') {
+      this.showInputs = false;
+    } else {
+      this.showInputs = true;
+    }
   }
-  
-}
 }
