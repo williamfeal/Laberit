@@ -30,7 +30,7 @@ export class InputSelectComponent implements OnInit {
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
-      let formControl = new FormControl('');
+      let formControl = new FormControl();
       this.form.addControl(this.controlName, formControl);
       if(this.isRequired){
           formControl.setValidators(Validators.required);
@@ -39,7 +39,7 @@ export class InputSelectComponent implements OnInit {
 
   onChangeValue(){
       console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value); 
-      (!this.form.get(this.controlName).valid) ? this.error = true : this.error = false;
+      this.error = (!this.form.get(this.controlName).valid) ?  true : false;
 
   }
   ngOnChanges() {

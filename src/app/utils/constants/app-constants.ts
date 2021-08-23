@@ -9,7 +9,7 @@ export class AppConstants {
 export const actuation = [{
   id:'interested',
   val:'Interesado',
-  selected: false
+  selected: true
 },
 {
   id:'representative',
@@ -17,6 +17,12 @@ export const actuation = [{
   selected: false
 }
 ];
+
+export const representation_power = [{
+  id: '1',
+  val: 'Representante en el Registro Electrónico de Apoderamiento',
+  selected: true
+} ]
 export const siNo = [{
   id:'true',
   val:'Si',
