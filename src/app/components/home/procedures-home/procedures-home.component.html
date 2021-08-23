@@ -2,15 +2,15 @@
     <div *ngFor="let category of categories" class="col-md-4 text-center mb-3">
         <div class="card h-100">
             <div class="card-body">
-                <div class="card-text">
-                    <a routerLink="/categories/{{category.id}}" title="Ver todos los procedimientos de este área"
-                        class="text-dark text-uppercase">
+                <a routerLink="/categories/{{category.id}}" title="Ver todos los procedimientos de este área"
+                    class="text-dark text-uppercase category-link">
+                    <div class="card-text">
                         <img alt="Icono {{ category.name }}" [src]="category.logo" class="tramite-img-size" />
-                        <div class="link-container">
+                        <div class="link-container font-weight-bold">
                             <span> {{category.name}} </span>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
