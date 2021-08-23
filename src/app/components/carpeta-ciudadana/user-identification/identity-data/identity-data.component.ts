@@ -20,7 +20,6 @@ export class IdentityDataComponent {
     private carpetaService: CarpetaService) { }
 
   ngOnInit(): void {
-    // TO DO: CAMBIAR el 'a' y enviar el token del usuario 
     this.carpetaService.getLoggedUser().subscribe(
       (data:UserCertificado) => {
         this.user = data;

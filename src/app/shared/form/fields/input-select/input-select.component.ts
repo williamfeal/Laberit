@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { SelectFieldObject } from './input-select';
@@ -26,27 +26,36 @@ export class InputSelectComponent implements OnInit {
   selectedValue!: any;
 
   textError: string;
+  formControl = new FormControl();
 
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
-      let formControl = new FormControl();
-      this.form.addControl(this.controlName, formControl);
-      if(this.isRequired){
-          formControl.setValidators(Validators.required);
+    this.form.addControl(this.controlName, this.formControl);
+    if (this.isRequired) {
+      this.formControl.setValidators(Validators.required);
+    }
+  }
+
+  onChangeValue() {
+    this.error = (!this.form.get(this.controlName).valid) ? true : false;
+
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (!this.isRequired) {
+      if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
+        this.form.get(this.controlName).clearValidators();
+        this.form.get(this.controlName).updateValueAndValidity();
       }
-  }
-
-  onChangeValue(){
-      console.log('Aquí se captura el cambio de valor del campo:'+ this.form.get(this.controlName)?.value); 
-      this.error = (!this.form.get(this.controlName).valid) ?  true : false;
-
-  }
-  ngOnChanges() {
-    this.translateService.get('error_texts.input.'+this.errorText).subscribe(
-        text => {
-          this.textError = text;
-        }
-      )
+    } else {
+      this.formControl.setValidators(Validators.required);
+      this.form.addControl(this.controlName, this.formControl);
+    }
+    
+    this.translateService.get('error_texts.input.' + this.errorText).subscribe(
+      text => {
+        this.textError = text;
+      }
+    )
   }
 }

@@ -13,48 +13,56 @@
                 [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
-            <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data" (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
+            <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data"
+                (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
         </div>
     </div>
 
     <!-- <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="isRepresentative() || isUserAutonomo()">
+        <div class="col-md-12 mt-2" *ngIf="representative || isUserAutonomo()">
             <app-actuation-data [formActuationData]="formUserIdentification.controls.actuation_data" [readOnly]="false">
             </app-actuation-data>
         </div>
     </div> -->
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="isRepresentative()">
-            <app-representative-data  [validate]="validate" [formRepresentativeData]="formUserIdentification.controls.representative_data"
-                [readOnly]="false"></app-representative-data>
+    <div [ngClass]="{ 'd-none': representative == false && interested == false }">
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
+                <app-representative-data [validate]="validate" [isRequired]="representative"
+                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
+                </app-representative-data>
+            </div>
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}" >
+                <app-interested-data [validate]="validate" [isRequired]="interested"
+                    [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
+                </app-interested-data>
+            </div>
         </div>
-        <div class="col-md-12 mt-2" *ngIf="!isRepresentative()">
-            <app-interested-data [validate]="validate" [formInterestedData]="formUserIdentification.controls.interested_data"
-                [readOnly]="false"></app-interested-data>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-social-address [validate]="validate"
+                    [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
+            </div>
         </div>
-    </div>
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2">
-            <app-social-address [validate]="validate" [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-productive-establishment-address [validate]="validate"
+                    [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
+                    [readOnly]="false"></app-productive-establishment-address>
+            </div>
         </div>
-    </div>
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2">
-            <app-productive-establishment-address
-                [validate]="validate" [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
-                [readOnly]="false"></app-productive-establishment-address>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
+                <app-legal-representative [validate]="validate"
+                    [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
+                    [isRequired]="representative" [readOnly]="false"></app-legal-representative>
+            </div>
         </div>
-    </div>
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2" *ngIf="!isInteresado()">
-            <app-legal-representative [validate]="validate" [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
-                [readOnly]="false"></app-legal-representative>
-        </div>
-    </div>
-    <div class="row mx-0">
-        <div class="col-md-12 mt-2" >
-            <app-contact-data [validate]="validate" [formContactData]="formUserIdentification.controls.contact_data" [interesado]="isInteresado()" [readOnly]="false">
-            </app-contact-data>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-contact-data [validate]="validate" [formContactData]="formUserIdentification.controls.contact_data"
+                    [interesado]="interested" [readOnly]="false">
+                </app-contact-data>
+            </div>
         </div>
     </div>
     <br>

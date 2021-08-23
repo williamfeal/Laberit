@@ -9,27 +9,29 @@ import { businessType, personType, siNo } from 'src/app/utils/constants/app-cons
 })
 export class RepresentativeDataComponent implements OnInit {
 
-  @Input() formRepresentativeData:FormGroup;
-  @Input() readOnly:boolean;
+  @Input() formRepresentativeData: FormGroup;
+  @Input() readOnly: boolean;
   @Input() validate: boolean;
+  @Input() isRequired: boolean;
   errorCharacterLeng: string = 'empty_error';
   public type = 'natural-person';
   public personType: SelectFieldObject[];
   public businessType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
   public isAutonum: string;
- constructor() { }
+  
+  constructor() { }
 
- ngOnInit(): void {
-   this.businessType = businessType;
-   this.siNo = siNo;
-   this.personType = personType;
- }
-  personTypeChange(event: string){
+  ngOnInit(): void {
+    this.businessType = businessType;
+    this.siNo = siNo;
+    this.personType = personType;
+  }
+  personTypeChange(event: string) {
     console.log(event);
     this.type = event;
   }
-  autonom(event: any){
+  autonom(event: any) {
     this.isAutonum = event.target.value;
   }
 }
