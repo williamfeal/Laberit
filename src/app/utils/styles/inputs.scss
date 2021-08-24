@@ -222,3 +222,14 @@ input:-webkit-autofill:active
   width: 100px;
   height: 80px;
 }
+
+.info-icon-class{
+  width: 23px;
+  text-align-last: center;
+}
+
+.circle-icon {
+  padding: 4px;
+  border-radius: 50%;
+  border: 1.5px solid $primaryColor;
+}
