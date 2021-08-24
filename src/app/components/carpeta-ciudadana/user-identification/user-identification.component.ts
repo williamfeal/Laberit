@@ -14,7 +14,7 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 })
 export class UserIdentificationComponent implements OnInit {
 
-  public requesterType = 'interested';
+  public requesterType = '';
 
   public user: UserCertificado;
   public validate: boolean = false;
@@ -27,6 +27,10 @@ export class UserIdentificationComponent implements OnInit {
   public notificationError = false;
   public notificationErrorText: string = 'empty_error';
   public procedure: Procedure;
+
+  public interested: boolean = false;
+  public representative: boolean = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -56,44 +60,45 @@ export class UserIdentificationComponent implements OnInit {
     this.user = this.carpetaUtils.getSession();
   }
 
-  public isInteresado(): boolean {
-    return this.requesterType === 'interested';
-  }
-
-  public isRepresentative(): boolean {
-    return this.requesterType === 'representative';
-  }
-
   public isUserAutonomo(): boolean {
     return false;
   }
 
   onChangeTypeRequester(event) {
     this.requesterType = event;
+    if (this.requesterType == 'interested') {
+      this.interested = true;
+      this.representative = false;
+    }
+
+    if (this.requesterType == 'representative') {
+      this.interested = false;
+      this.representative = true;
+
+    }
   }
 
   public goToRequestInfo() {
     let error = 0;
-    if(this.formUserIdentification.valid){
-      this.validate = false;
-      console.log(this.formUserIdentification);
-    }else{
-      this.validate = true;
-      console.log('MAL');
-      console.log(this.formUserIdentification);
-    }
-    //Si es electr�nico es necesario el corre con buen formato
-    if (this.formUserIdentification.value.notification_means.notification_means == 0) {
-      error++;
-      this.notificationError = true;
-    } else if (this.formUserIdentification.value.notification_means.notification_means != 2 && this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
-      error++;
-      this.emailError = true;
-    }
-    //Si es reprsentante es necesaria m�s informaci�n
-    if (this.requesterType == 'representative') {
-      //cambiar clases a los inputs erroneos
-      error++;
+    //para poder hacer pruebas para instancia general no se comprobara ningun campo
+    if (this.procedure.rutaFormulario != 'instancia-general') {
+
+      if (this.formUserIdentification.valid) {
+        this.validate = false;
+      } else {
+        this.validate = true;
+        error++;
+      }
+      //Es necesario el correo con buen formato
+      if (this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
+        error++;
+        this.emailError = true;
+      }
+
+      //Se ha de seleccionar el tipo de persona
+      if (this.requesterType == '') {
+        error++;
+      }
     }
     //si no hay errores
     if (error == 0) {

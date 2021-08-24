@@ -6,6 +6,8 @@
   200 - Lighter
  */
 
+//  color gris primario #567b97
+
 $primaryColor: var(--primary-color);
 $button-edit-color: var(--button-edit-color);
 
@@ -85,4 +87,3 @@ $transparent-white-70: rgba(255, 255, 255, .7);
 .border-bottom-primary {
   border-bottom: 1px solid $red-header;
 }
-

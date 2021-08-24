@@ -1,5 +1,7 @@
+@import '../../utils/styles/colors.scss';
+
 .category-header {
-    background-image: url(../../../assets/img/header-categoria-tramite.png);
+    background-image: url(../../../assets/img/header-tramites.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 250px;
@@ -14,3 +16,6 @@
         background-color:#FAF9F9 !important;
     }
 }
+
+
+

@@ -1,55 +1,45 @@
 
-<nav aria-label="breadcrumb" >
-	<ol class="breadcrumb background-transparent-white ml-5 mt-1">
-		<li class="breadcrumb-item"><a [routerLink]="['/inicio']">Home</a></li>
-		<li class="breadcrumb-item active" aria-current="page">{{ 'areas.title' | translate }}</li>
-	</ol>
-</nav>
 <div class="col-md-12 d-flex mb-4 category-header align-items-center" *ngIf="selectedCategory">
-	<img height="100px" class="mr-3 ml-3" alt="logo" [src]="selectedCategory.logo2"> 
 	<h1 class="text-white">{{ selectedCategory.name }}</h1>
 </div>
-<div class="col-md-11 m-auto" *ngIf="selectedCategory">
+<div class="col-md-12" *ngIf="selectedCategory">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<table class="table mt-0 mb-3">
 				<thead>
 					<tr>
-						<th scope="col" colspan="2" class="header-table">{{ 'procedure_detail.procedure_name' | translate }}</th>
+						<th scope="col" colspan="2" class="header-table">{{ 'procedure_detail.procedure_name' |
+							translate }}</th>
 					</tr>
 				</thead>
 				<tbody class="table-bordered">
 					<tr *ngFor="let procedure of selectedCategory.procedimientos">
-						<td class="col-sm-9">
-							<a [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}" class="text-dark" >
+						<td class="col-sm-11">
+							<a [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}"
+								class="text-dark">
 								{{procedure.name}}
 							</a>
 						</td>
-						<td>
+						<td class="col-sm-1">
 							<div class="d-flex mx-2">
-								<a title="Ir al trámite" [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}">
-									<em class="fas fa-info-circle color-primary mr-4"></em>
+								<a title="Ir al trámite" [routerLink]="['/procedures/' + procedure.id]"
+									[queryParams]="{action: 'info'}">
+										<em class="fas fa-info circle-icon info-icon-class color-primary mr-4"></em>
 								</a>
-								<a href="#" title="Tramitar online" [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'online'}">
-									<em class="fas fa-at color-primary mr-4"></em>
+								<a href="#" title="Tramitar online" [routerLink]="['/procedures/' + procedure.id]"
+									[queryParams]="{action: 'online'}">
+									<em class="fas fa-at color-primary mr-4 circle-icon"></em>
 								</a>
-								<a href="#" title="Tramitar presencialmente" [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'presencial'}">
-									<em class="fas fa-download color-primary"></em>
+								<a href="#" title="Tramitar presencialmente"
+									[routerLink]="['/procedures/' + procedure.id]"
+									[queryParams]="{action: 'presencial'}">
+									<em class="fas fa-download color-primary circle-icon"></em>
 								</a>
 							</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<div class="col-md-3 m-auto ml-3">
-			<ul class="list-group">
-				<li class="list-group-item" *ngFor="let category of categories">
-					<img alt="Icono" class="img-tramite-logo text-departamentos mr-4 tramite-img-size" [src]="category.logo">
-					<a class="text-departamentos color-primary" *ngIf="category === selectedCategory"> {{ category.name }} </a>
-					<a class="text-departamentos text-dark" routerLink="/categories/{{category.id}}" *ngIf="category !== selectedCategory"> {{ category.name }}</a>
-				</li>
-			</ul>
 		</div>
 	</div>
 </div>

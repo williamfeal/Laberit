@@ -12,6 +12,8 @@ export class InterestedDataComponent implements OnInit {
   @Input() formInterestedData:FormGroup;
   @Input() readOnly:boolean;
   @Input() validate: boolean;
+  @Input() isRequired:boolean;
+
   errorCharacterLeng: string = 'empty_error';
    public businessType: SelectFieldObject[];
    public siNo: SelectFieldObject[];

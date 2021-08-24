@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -34,7 +34,7 @@ export class InputTextComponent implements OnInit {
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
     }
-    if(this.validaciones.length > 0){
+    if (this.validaciones.length > 0) {
       this.formControl.setValidators(this.validaciones);
     }
     this.form.addControl(this.controlName, this.formControl);
@@ -43,8 +43,6 @@ export class InputTextComponent implements OnInit {
       this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
     if (this.placeholder == undefined) this.placeholder = '';
-
-
   }
 
   onChangeValue() {
@@ -66,6 +64,6 @@ export class InputTextComponent implements OnInit {
       }
     )
   }
-  
+
 }
 
