@@ -13,17 +13,14 @@ import { environment } from 'src/environments/environment';
 })
 export class CarpetaService {
 
-  private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGGED_USER;
+  private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_LOGGED_USER;
   private URL_GET_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
-  ;
-
   
   constructor(
     private http: HttpClient
   ) { }
-
   
   public getLoggedUser():Observable<UserCertificado> {
     const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {headers: {useInterceptor:"true"} });
