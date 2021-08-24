@@ -6,15 +6,15 @@
         </div>
     </div>
     <div class="card-body row mx-0">
-        <div class="mx-3 w-100 mb-2" *ngIf="!interesado">
-            <input type="checkbox" name="check" id="check" [(ngModel)]="isChecked"
+        <div class="mx-3 w-100 mb-2 checkbox" *ngIf="interesado">
+            <input type="checkbox" name="check" id="check" class="input-assumpte" [(ngModel)]="isChecked"
                 (change)="changeInput(isChecked?'A':'B')" />
-            {{ 'carpeta_ciudadana.identification.contact_data.check' | translate }}
-        </div>
-        <div class="mx-3 w-100 mb-2" *ngIf="interesado">
-            <input type="checkbox" name="check" id="check" [(ngModel)]="isChecked"
-                (change)="changeInput(isChecked?'A':'B')" />
-            {{ 'carpeta_ciudadana.identification.contact_data.check_user' | translate }}
+                <label for="input-confidencial" *ngIf="interesado; else notInteresado"> {{
+                'carpeta_ciudadana.identification.contact_data.check_user'
+                | translate }}</label>
+            <ng-template #notInteresado>
+                <label for="input-confidencial"> {{ 'carpeta_ciudadana.identification.contact_data.check' | translate}}</label>
+            </ng-template>
         </div>
         <div class="card-body row mx-0" [ngClass]="{ 'd-none': interesado == true}">
             <div class="contents" [ngClass]="{ 'd-none': showInputs == false}">
@@ -51,7 +51,8 @@
                         placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
                         controlName="contact_nif" idValue="contact_nif" nameValue="contact_nif" [isReadOnly]="readOnly"
-                        [isRequired]="showInputs" [error]="validate && formContactData.controls['contact_nif']?.pristine"
+                        [isRequired]="showInputs"
+                        [error]="validate && formContactData.controls['contact_nif']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
                 <div class="form-group col-md-3">
@@ -126,7 +127,8 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                             controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP" [isReadOnly]="readOnly"
-                            [isRequired]="showInputs" [error]="validate && formContactData.controls['contact_CP']?.pristine"
+                            [isRequired]="showInputs"
+                            [error]="validate && formContactData.controls['contact_CP']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-text>
                     </div>
@@ -160,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-body row mx-0"  [ngClass]="{ 'd-none': interesado == false}">
+        <div class="card-body row mx-0" [ngClass]="{ 'd-none': interesado == false}">
             <div [ngClass]="{ 'd-none': showInputs == false}" class="contents">
                 <div class="form-group col-md-3">
                     <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
@@ -231,7 +233,8 @@
                             [form]="formContactData"
                             label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                             controlName="interested_data_employees_number" idValue="interested_data_employees_number"
-                            nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            nameValue="interested_data_employees_number" [isReadOnly]="readOnly"
+                            [isRequired]="showInputs"
                             [error]="validate && formContactData.controls['interested_data_employees_number']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -239,8 +242,8 @@
                 <div class="form-group col-md-3">
                     <app-input-select [form]="formContactData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
-                        controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="showInputs"
-                        [fieldOptions]="businessType"
+                        controlName="businessType" idValue="businessType" nameValue="businessType"
+                        [isRequired]="showInputs" [fieldOptions]="businessType"
                         [error]="validate && formContactData.controls['businessType']?.pristine"
                         [errorText]="errorCharacterLeng">
                     </app-input-select>
