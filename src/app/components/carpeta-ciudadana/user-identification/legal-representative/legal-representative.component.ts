@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { typeStreet } from 'src/app/utils/constants/app-constants';
 
 @Component({
   selector: 'app-legal-representative',
@@ -12,7 +13,8 @@ export class LegalRepresentativeComponent implements OnInit {
   @Input() isRequired: boolean;
   @Input() validate: boolean;
   errorCharacterLeng: string = 'empty_error';
-
+  //se cambiara con los catalogos
+  typeStreet = typeStreet;
   constructor() { }
 
   ngOnInit(): void {

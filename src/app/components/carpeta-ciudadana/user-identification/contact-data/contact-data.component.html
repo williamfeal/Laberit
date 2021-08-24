@@ -1,20 +1,25 @@
 <div class="card">
     <div class="card-header background-card-header pb-0">
         <div class="card-title text-white">
-            <em class="fas fa-phone-alt"></em>
+            <em class="fas fa-phone-alt icon-flip"></em>
             {{ 'carpeta_ciudadana.identification.contact_data.title' | translate }}
         </div>
     </div>
     <div class="card-body row mx-0">
         <div class="mx-3 w-100 mb-2 checkbox" *ngIf="interesado">
-            <input type="checkbox" name="check" id="check" class="input-assumpte" [(ngModel)]="isChecked"
-                (change)="changeInput(isChecked?'A':'B')" />
-                <label for="input-confidencial" *ngIf="interesado; else notInteresado"> {{
-                'carpeta_ciudadana.identification.contact_data.check_user'
-                | translate }}</label>
-            <ng-template #notInteresado>
-                <label for="input-confidencial"> {{ 'carpeta_ciudadana.identification.contact_data.check' | translate}}</label>
-            </ng-template>
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="check" id="check" class="custom-control-input" [(ngModel)]="isChecked"
+                    (change)="changeInput(isChecked?'A':'B')" />
+                <span class="custom-control-indicator"></span>
+                <label class="custom-control-description" for="check" *ngIf="interesado; else notInteresado"> {{
+                    'carpeta_ciudadana.identification.contact_data.check_user'
+                    | translate }}</label>
+                <ng-template #notInteresado>
+                    <label class="custom-control-description" for="check"> {{
+                        'carpeta_ciudadana.identification.contact_data.check' |
+                        translate}}</label>
+                </ng-template>
+            </label>
         </div>
         <div class="card-body row mx-0" [ngClass]="{ 'd-none': interesado == true}">
             <div class="contents" [ngClass]="{ 'd-none': showInputs == false}">
@@ -84,13 +89,13 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="form-group col-md-3">
-                    <app-input-text [form]="formContactData"
-                        placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                        label="{{ 'carpeta_ciudadana.identification.address.via_type' | translate }}"
-                        controlName="contact_via_type" idValue="contact_via_type" nameValue="contact_via_type"
-                        [isReadOnly]="readOnly" [isRequired]="showInputs"
+                    <app-input-select [form]="formContactData"
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+                        controlName="businessType" idValue="businessType" nameValue="businessType"
+                        [isRequired]="showInputs" [fieldOptions]="businessType"
                         [error]="validate && formContactData.controls['contact_via_type']?.pristine"
-                        [errorText]="errorCharacterLeng"></app-input-text>
+                        [errorText]="errorCharacterLeng">
+                    </app-input-select>
                 </div>
                 <div class="form-group col-md-6">
                     <app-input-text [form]="formContactData"
@@ -123,14 +128,22 @@
                 </div>
                 <div class="form-group col-md-3 px-0">
                     <div class="col-md-6">
-                        <app-input-text [form]="formContactData"
+                        <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            [form]="formContactData"
+                            label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                            controlName="contact_CP" idValue="contact_CP"
+                            nameValue="contact_CP" [isRequired]="true"
+                            [error]="validate && formContactData.controls['contact_CP']?.pristine"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-number>
+                        <!-- <app-input-text [form]="formContactData"
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                             controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP" [isReadOnly]="readOnly"
                             [isRequired]="showInputs"
                             [error]="validate && formContactData.controls['contact_CP']?.pristine"
                             [errorText]="errorCharacterLeng">
-                        </app-input-text>
+                        </app-input-text> -->
                     </div>
                 </div>
                 <div class="form-group col-md-3">
@@ -293,13 +306,13 @@
                             [errorText]="errorCharacterLeng"></app-input-date>
                     </div>
                     <div class="form-group col-md-6">
-                        <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                            [form]="formContactData"
+                        <app-input-select [form]="formContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
                             controlName="interested_data_genre" idValue="interested_data_genre"
                             nameValue="interested_data_genre" [isReadOnly]="readOnly" [isRequired]="showInputs"
-                            [error]="validate && formContactData.controls['interested_data_genre']?.pristine"
-                            [errorText]="errorCharacterLeng"></app-input-text>
+                            [fieldOptions]="selectInfo" [errorText]="errorCharacterLeng">
+                        </app-input-select>
                     </div>
                 </div>
                 <div class="form-group col-md-3">

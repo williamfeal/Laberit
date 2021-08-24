@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { businessType, personType, siNo } from 'src/app/utils/constants/app-constants';
+import { businessType, personType, siNo, genero } from 'src/app/utils/constants/app-constants';
 
 @Component({
   selector: 'app-representative-data',
@@ -19,6 +19,8 @@ export class RepresentativeDataComponent implements OnInit {
   public businessType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
   public isAutonum: string;
+  public selectInfo:SelectFieldObject[] = genero;
+
   
   constructor() { }
 

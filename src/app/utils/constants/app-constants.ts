@@ -516,3 +516,21 @@ export const selectMeans = [{
       selected: false
     }
   ]
+
+  export const genero = [
+    {
+      id: '1',
+      val: 'Hombre',
+      selected: false,
+    },
+    {
+      id: '2',
+      val: 'Mujer',
+      selected: false
+    },
+    {
+      id: '2',
+      val: 'Otro',
+      selected: false
+    }
+  ]
