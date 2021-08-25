@@ -11,6 +11,8 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
   @Input() formProductiveEstablishment:FormGroup;
   @Input() readOnly:boolean;
   @Input() validate: boolean = false;
+  @Input() isRequired: boolean;
+
   public errorCharacterLeng: string = 'empty_error';
   typeStreet = typeStreet;
   

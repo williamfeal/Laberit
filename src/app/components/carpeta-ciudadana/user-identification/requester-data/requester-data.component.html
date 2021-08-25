@@ -15,6 +15,7 @@
             nameValue="type"
             [fieldOptions] = "actuation"
             [isRequired]="true"
+            placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
             [error]="validate && formRequestData.controls['typeSelectRequest']?.pristine"
             [errorText]="errorCharacterLeng"
     ></app-input-select>

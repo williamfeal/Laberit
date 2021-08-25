@@ -11,7 +11,7 @@
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                 controlName="via_type" idValue="via_type"
-                nameValue="via_type" [isRequired]="true"
+                nameValue="via_type" [isRequired]="isRequired"
                 [error]="validate && formSocialAdress.controls['via_type']?.pristine"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
 
@@ -19,7 +19,7 @@
         <div class="form-group col-md-6">
             <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
-                controlName="address" idValue="address" nameValue="address" [isRequired]="true"
+                controlName="address" idValue="address" nameValue="address" [isRequired]="isRequired"
                 [error]="validate && formSocialAdress.controls['address']?.pristine" [errorText]="errorCharacterLeng">
             </app-input-text>
         </div>
@@ -28,7 +28,7 @@
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formSocialAdress"
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}" controlName="number"
-                    idValue="number" nameValue="number" [isRequired]="true"
+                    idValue="number" nameValue="number" [isRequired]="isRequired"
                     [error]="validate && formSocialAdress.controls['number']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
@@ -40,36 +40,24 @@
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-number
                     [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
-                    controlName="social_cp" idValue="social_cp" nameValue="social_cp" [isRequired]="true"
+                    controlName="social_cp" idValue="social_cp" nameValue="social_cp" [isRequired]="isRequired"
                     [error]="validate && formSocialAdress.controls['CP']?.pristine" [errorText]="errorCharacterLeng">
                 </app-input-number>
-                <!-- <app-input-text 
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formSocialAdress"
-                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
-                    controlName="CP"
-                    idValue="CP"
-                    nameValue="CP"
-                    [isRequired]="true"
-                    [error]="validate && formSocialAdress.controls['CP']?.pristine"
-                    [errorText]="errorCharacterLeng"
-                ></app-input-text> -->
             </div>
         </div>
-        <div class="col-md-6"></div>
         <div class="form-group col-md-3">
             <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.country' | translate }}"
-                controlName="country" idValue="country" nameValue="country" [isRequired]="true"
+                controlName="country" idValue="country" nameValue="country" [isRequired]="isRequired"
                 [error]="validate && formSocialAdress.controls['country']?.pristine" [errorText]="errorCharacterLeng">
             </app-input-text>
         </div>
         <div class="form-group col-md-3">
             <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.province' | translate }}"
-                controlName="province" idValue="province" nameValue="province" [isRequired]="true"
+                controlName="province" idValue="province" nameValue="province" [isRequired]="isRequired"
                 [error]="validate && formSocialAdress.controls['province']?.pristine" [errorText]="errorCharacterLeng">
             </app-input-text>
 
@@ -78,7 +66,7 @@
             <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formSocialAdress"
                 label="{{ 'carpeta_ciudadana.identification.address.municipality' | translate }}"
-                controlName="municipality" idValue="municipality" nameValue="municipality" [isRequired]="true"
+                controlName="municipality" idValue="municipality" nameValue="municipality" [isRequired]="isRequired"
                 [error]="validate && formSocialAdress.controls['municipality']?.pristine"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>

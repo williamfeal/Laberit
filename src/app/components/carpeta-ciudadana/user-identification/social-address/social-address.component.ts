@@ -7,8 +7,11 @@ import { typeStreet } from 'src/app/utils/constants/app-constants';
   templateUrl: './social-address.component.html'
 })
 export class SocialAddressComponent implements OnInit {
+  
   @Input() formSocialAdress: FormGroup;
   @Input() validate: boolean;
+  @Input() isRequired: boolean;
+
   errorCharacterLeng: string = 'empty_error';
   typeStreet = typeStreet;
   constructor() { }

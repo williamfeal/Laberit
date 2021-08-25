@@ -28,30 +28,31 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
                 <app-representative-data [validate]="validate" [isRequired]="representative"
-                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
+                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false"
+                    (typeOutput)="onChangeType($event)">
                 </app-representative-data>
             </div>
-            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}" >
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
                 <app-interested-data [validate]="validate" [isRequired]="interested"
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
                 </app-interested-data>
             </div>
         </div>
-        <div class="row mx-0">
+        <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
             <div class="col-md-12 mt-2">
-                <app-social-address [validate]="validate"
+                <app-social-address [validate]="validate" [isRequired]="naturalPerson"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
-        <div class="row mx-0">
+        <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
             <div class="col-md-12 mt-2">
-                <app-productive-establishment-address [validate]="validate"
+                <app-productive-establishment-address [validate]="validate" [isRequired]="naturalPerson"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="false"></app-productive-establishment-address>
             </div>
         </div>
-        <div class="row mx-0">
-            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
+        <div class="row mx-0" [ngClass]="{ 'd-none': representative == false}">
+            <div class="col-md-12 mt-2">
                 <app-legal-representative [validate]="validate"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
                     [isRequired]="representative" [readOnly]="false"></app-legal-representative>

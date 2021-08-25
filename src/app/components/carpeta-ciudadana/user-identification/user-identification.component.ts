@@ -15,6 +15,7 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 export class UserIdentificationComponent implements OnInit {
 
   public requesterType = '';
+  public personType = '';
 
   public user: UserCertificado;
   public validate: boolean = false;
@@ -30,7 +31,9 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
-
+  public naturalPerson: boolean = false;
+  public artificialPerson: boolean = false;
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -74,12 +77,24 @@ export class UserIdentificationComponent implements OnInit {
     if (this.requesterType == 'representative') {
       this.interested = false;
       this.representative = true;
+    }
+  }
+  onChangeType(event) {
+    this.personType = event;
+    if (this.personType == 'natural-person') {
+      this.naturalPerson = true;
+      this.artificialPerson = false;
+    }
 
+    if (this.personType == 'artifitial-person') {
+      this.naturalPerson = false;
+      this.artificialPerson = true;
     }
   }
 
   public goToRequestInfo() {
     let error = 0;
+    console.log('this.formUserIdentification :>> ', this.formUserIdentification);
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 

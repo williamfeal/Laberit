@@ -11,7 +11,7 @@
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                 controlName="productive_establishment_via_type" idValue="productive_establishment_via_type"
-                nameValue="productive_establishment_via_type" [isReadOnly]="readOnly" [isRequired]="true"
+                nameValue="productive_establishment_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.pristine"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
            
@@ -25,7 +25,7 @@
                 idValue="productive_establishment_address"
                 nameValue="productive_establishment_address"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-text>
@@ -40,7 +40,7 @@
                 idValue="productive_establishment_number"
                 nameValue="productive_establishment_number"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-number>
@@ -55,7 +55,7 @@
                 idValue="productive_establishment_extra"
                 nameValue="productive_establishment_extra"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_extra']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-text>
@@ -70,7 +70,7 @@
                 idValue="productive_establishment_CP"
                 nameValue="productive_establishment_CP"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-number>
@@ -86,7 +86,7 @@
                 idValue="productive_establishment_country"
                 nameValue="productive_establishment_country"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-text>
@@ -100,7 +100,7 @@
                 idValue="productive_establishment_province"
                 nameValue="productive_establishment_province"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-text>
@@ -114,7 +114,7 @@
                 idValue="productive_establishment_municipality"
                 nameValue="productive_establishment_municipality"
                 [isReadOnly]="readOnly"
-                [isRequired]="true"
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.pristine"
             [errorText]="errorCharacterLeng"
             ></app-input-text>
