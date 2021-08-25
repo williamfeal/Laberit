@@ -90,7 +90,7 @@
         </div>
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
-                <app-input-select (change)="autonom($event)" [form]="formRepresentativeData"
+                <app-input-select [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
                     controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
                     [fieldOptions]="businessType"
@@ -99,7 +99,7 @@
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
-            <div class="d-flex w-100" [ngClass]="{ 'd-none': isAutonum == '1' }">
+            <div class="d-flex w-100" >
                 <div class="form-group col-md-3">
                     <app-input-select [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
