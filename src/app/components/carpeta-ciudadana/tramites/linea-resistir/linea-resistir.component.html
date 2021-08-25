@@ -1,4 +1,5 @@
-<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-header-carpeta-ciudadana *ngIf="procedure"
+    [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-button-back></app-button-back>
 <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
     <app-procedure-information [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>

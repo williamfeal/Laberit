@@ -28,6 +28,7 @@ export class LanguageSelectorComponent implements OnInit {
         this.translate.use(this.selectedLang);
         this.languagesService.lang.next(this.selectedLang);
         this.translate.setDefaultLang(this.selectedLang);
+        localStorage.setItem('lang', this.selectedLang);
     }
 
     changeLang(ev) {
