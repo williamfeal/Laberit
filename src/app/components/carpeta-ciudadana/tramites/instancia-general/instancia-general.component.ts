@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Procedure } from 'src/app/models/procedure.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
@@ -13,24 +15,33 @@ export class InstanciaGeneralComponent {
 
   public user:UserCertificado;
   public formInstanciaGeneral: FormGroup;
+  public procedure:Procedure;
+
   @Input() readOnly: boolean;
   @Input() errorTextRes: string = 'empty_error';
   @Input() errorNumRes: string = 'format_error';
+
   errorCharacterLeng: string = 'num_Characters_error';
   validators = [Validators.required];
   validate: boolean = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private procedureService:ProceduresService,
     private carpetaService: CarpetaService,
     private ref: ChangeDetectorRef,
   ) {
 
   }
+
   ngOnChanges() {
     this.ref.detectChanges();
   }
+
   ngOnInit(): void {
+    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+      data => this.procedure = data
+    )
     this.carpetaService.getLoggedUser().subscribe(
       (data: UserCertificado) => {
         this.user = data;
@@ -47,7 +58,6 @@ export class InstanciaGeneralComponent {
 
   public goToDocumentation() {
     if (this.formInstanciaGeneral.valid) {
-      console.log(this.formInstanciaGeneral);
       this.validate = false;
       this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
     } else {

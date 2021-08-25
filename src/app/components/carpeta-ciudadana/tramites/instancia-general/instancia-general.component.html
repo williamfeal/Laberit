@@ -1,9 +1,10 @@
-<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-button-back></app-button-back>
 <form  [formGroup]="formInstanciaGeneral" (ngSubmit)="goToDocumentation()">
 <div class="row mx-0 mt-2 blockA">
     <div class="col-md-6">
-        <app-datos-interesado [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
+        <app-datos-interesado *ngIf="user"
+            [user]="user" [readOnly]="true" [formdDatosInteresado]="formInstanciaGeneral.controls.formdDatosInteresado"></app-datos-interesado>
     </div>
     <div class="col-md-6">
         <app-datos-notificacion [formDatosNotificacion]="formInstanciaGeneral.controls.formDatosNotificacion"></app-datos-notificacion>

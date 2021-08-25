@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
 import { Procedure } from 'src/app/models/procedure.model';
@@ -31,7 +31,8 @@ export class ProcedureDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private proceduresService: ProceduresService,
     private translate: TranslateService,
-    private languageService: LanguagesService
+    private languageService: LanguagesService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class ProcedureDetailComponent implements OnInit {
   }
 
   private loadData() {
-    this.proceduresService.getProcedureById(this.idProcedure, this.lang).subscribe(
+    this.proceduresService.getProcedureById(this.idProcedure).subscribe(
       (procedure: Procedure) => {
         this.procedure = procedure;
         this.getInfoProcedure();
@@ -68,6 +69,11 @@ export class ProcedureDetailComponent implements OnInit {
     this.infoProcedure = this.procedure.languages.find(
       language => language.codigo === this.lang
     );
+  }
+
+  public navToTransact() {
+    sessionStorage.removeItem('idProcedure');
+    sessionStorage.setItem('idProcedure',  this.procedure.id);
   }
 
 }

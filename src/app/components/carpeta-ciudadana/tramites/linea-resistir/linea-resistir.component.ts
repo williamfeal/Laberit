@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
@@ -14,7 +16,8 @@ export class LineaResistirComponent implements OnInit {
 
 
     public formLineaResistir: FormGroup;
-
+    public procedure:Procedure;
+    
     showInversion = false;
     showCirculante = false;
 
@@ -27,12 +30,16 @@ export class LineaResistirComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private ref: ChangeDetectorRef,
+        private procedureService:ProceduresService
     ) {
 
     }
 
     ngOnInit() {
         this.newForm();
+        this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+            data => this.procedure = data
+          )
     }
 
     ngOnChanges() {
