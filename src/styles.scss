@@ -49,6 +49,10 @@ body {
     }
 } 
 
+.d-contents{
+    display: contents;
+}
+
 .background-card-header {
     background-color: $card-header !important;
 }
@@ -67,8 +71,4 @@ body {
     color: $red-header;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: AvenirNext, "Helvetica Neue", sans-serif; }
-
-.contents{
-    display: contents;
-}
+body { margin: 0; font-family: AvenirNext, "Helvetica Neue", sans-serif !important;}

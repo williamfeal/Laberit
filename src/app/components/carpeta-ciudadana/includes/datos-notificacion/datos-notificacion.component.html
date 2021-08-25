@@ -7,120 +7,63 @@
     </div>
     <div class="card-text row pt-3">
         <div class="form-group col-md-3">
-    <app-input-select 
-            [form] = "formDatosNotificacion"
-            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
-            label = "{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
-            controlName = "typeStreet"
-            idValue = "typeStreet"
-            nameValue = "typeStreet"
-            [isReadOnly] = "readOnly"
-            [isRequired] = "true"
-            [fieldOptions] = "typeStreet"
-            [errorText]="errorTextRes"
-        >
-    </app-input-select> 
+            <app-input-select [form]="formDatosNotificacion"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}" controlName="typeStreet"
+                idValue="typeStreet" nameValue="typeStreet" [isReadOnly]="readOnly" [isRequired]="true"
+                [fieldOptions]="typeStreet" [errorText]="errorTextRes">
+            </app-input-select>
         </div>
         <div class="form-group col-md-9">
-            <app-input-text
-            [form]="formDatosNotificacion"
-            label=" {{ 'carpeta_ciudadana.instance.notification.direction' | translate }} "
-            controlName="direction"
-            idValue="direction"
-            nameValue="direction"
-            [isReadOnly]="readOnly"
-            [isRequired]="true"
-            value=""
-            [errorText]="errorTextRes"
-    ></app-input-text>
+            <app-input-text [form]="formDatosNotificacion"
+                label=" {{ 'carpeta_ciudadana.instance.notification.direction' | translate }} " controlName="direction"
+                idValue="direction" nameValue="direction" [isReadOnly]="readOnly" [isRequired]="true" value=""
+                [errorText]="errorTextRes"></app-input-text>
         </div>
     </div>
     <div class="card-text row">
         <div class="form-group col-md-2">
-            <app-input-number
-            [form]="formDatosNotificacion"
-            label=" {{ 'carpeta_ciudadana.instance.notification.number' | translate }} "
-            controlName="number"
-            idValue="number"
-            nameValue="number"
-            [isReadOnly]="readOnly"
-            [isRequired]="true"
-            value=""
-            [errorText]="errorNumRes"
-    ></app-input-number>
+            <app-input-number [form]="formDatosNotificacion"
+                label=" {{ 'carpeta_ciudadana.instance.notification.number' | translate }} " controlName="number"
+                idValue="number" nameValue="number" [isReadOnly]="readOnly" [isRequired]="true" value=""
+                [errorText]="errorNumRes"></app-input-number>
         </div>
         <div class="form-group col-md-7">
-            <app-input-text
-            label=" {{ 'carpeta_ciudadana.instance.notification.extra' | translate }} "
-            controlName="extra"
-            idValue="extra"
-            nameValue="extra"
-            [isReadOnly]="readOnly"
-            [isRequired]="true"
-            value=""
-            [errorText]="errorTextRes"
-    ></app-input-text>
+            <app-input-text label=" {{ 'carpeta_ciudadana.instance.notification.extra' | translate }} "
+                controlName="extra" idValue="extra" nameValue="extra" [isReadOnly]="readOnly" [isRequired]="true"
+                value="" [errorText]="errorTextRes"></app-input-text>
         </div>
         <div class="form-group col-md-3">
-            <app-input-number
-            [form]="formDatosNotificacion"
-            label=" {{ 'carpeta_ciudadana.instance.notification.CP' | translate }} "
-            controlName="CP"
-            idValue="CP"
-            nameValue="CP"
-            [isReadOnly]="readOnly"
-            [isRequired]="true"
-            value=""
-            minLength=5
-            [errorText]="errorNumRes"
-    ></app-input-number>
+            <app-input-number [form]="formDatosNotificacion"
+                label=" {{ 'carpeta_ciudadana.instance.notification.CP' | translate }} " controlName="CP" idValue="CP"
+                nameValue="CP" [isReadOnly]="readOnly" [isRequired]="true" value="" minLength=5
+                [errorText]="errorNumRes"></app-input-number>
         </div>
     </div>
     <div class="card-text row">
         <div class="form-group col-md-4">
-            <app-input-select 
-            [form] = "formDatosNotificacion"
-            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
-            label = " {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
-            controlName = "country"
-            idValue = "country"
-            nameValue = "country"
-            [isReadOnly] = "readOnly"
-            [isRequired] = "true"
-            [fieldOptions] = "paises"
-            [errorText]="errorTextRes"
-        >    
-        </app-input-select> 
+            <app-input-select [form]="formDatosNotificacion"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" controlName="country"
+                idValue="country" nameValue="country" [isReadOnly]="readOnly" [isRequired]="true"
+                [fieldOptions]="paises" [errorText]="errorTextRes">
+            </app-input-select>
         </div>
         <div class="form-group col-md-4">
-            <app-input-select 
-            [form] = "formDatosNotificacion"
-            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
-            label = " {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
-            controlName = "province"
-            idValue = "province"
-            nameValue = "province"
-            [isReadOnly] = "readOnly"
-            [isRequired] = "true"
-            [fieldOptions] = "provincias"
-            [errorText]="errorTextRes"
-        >
-    </app-input-select>        
+            <app-input-select [form]="formDatosNotificacion"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}" controlName="province"
+                idValue="province" nameValue="province" [isReadOnly]="readOnly" [isRequired]="true"
+                [fieldOptions]="provincias" [errorText]="errorTextRes">
+            </app-input-select>
         </div>
-        <div class="form-group col-md-4"> 
-            <app-input-select 
-            [form] = "formDatosNotificacion"
-            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
-            label = "{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
-            controlName = "municipality"
-            idValue = "municipality"
-            nameValue = "municipality"
-            [isReadOnly] = "readOnly"
-            isRequired = "true"
-            [fieldOptions] = "municipios"
-            [errorText]="errorTextRes"
-        >
-    </app-input-select>       
+        <div class="form-group col-md-4">
+            <app-input-select [form]="formDatosNotificacion"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
+                controlName="municipality" idValue="municipality" nameValue="municipality" [isReadOnly]="readOnly"
+                isRequired="true" [fieldOptions]="municipios" [errorText]="errorTextRes">
+            </app-input-select>
         </div>
     </div>
 </div>

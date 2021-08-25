@@ -321,10 +321,10 @@
                 "nif": "NIF"
             },
             "means_of_notification": {
-                "title": "Medio de comunicación",
-                "means": "Medio de comunicación",
+                "title": "Medio de notificación",
+                "means": "Medio de notificación",
                 "email": "Email a efecto de notificación",
-                "electronic": "Electrónico",
+                "electronic": "Electrónica",
                 "paper": "Papel"
             },
             "interested_data": {
