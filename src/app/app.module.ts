@@ -59,7 +59,7 @@ import { RequestInfoComponent } from './components/carpeta-ciudadana/request-inf
 import { DocumentationComponent } from './components/carpeta-ciudadana/documentation/documentation.component';
 import { HeaderCarpetaCiudadanaComponent } from './shared/header-carpeta-ciudadana/header-carpeta-ciudadana.component';
 import { DatosInteresadoComponent } from './components/carpeta-ciudadana/includes/datos-interesado/datos-interesado.component';
-import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
+import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/tramites/instancia-general/instancia-general.component';
 import { DatosNotificacionComponent } from './components/carpeta-ciudadana/includes/datos-notificacion/datos-notificacion.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';

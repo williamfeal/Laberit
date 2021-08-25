@@ -16,8 +16,6 @@ export class DatosNotificacionComponent implements OnInit {
   public paises: SelectFieldObject[];
   @Input() errorTextRes: string = 'empty_error';
   @Input() errorNumRes: string = 'format_error';
-  @Input() errors: boolean[] = [];
-  @Input() errorNum: boolean [] = [];
   constructor() { }
 
   ngOnInit(): void {
