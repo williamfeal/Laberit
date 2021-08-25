@@ -2,7 +2,7 @@ import { Category } from "./category.model"
 import { InfoProcedure } from "./info-procedure.model"
 
 export class Procedure {
-    id: number
+    id: string
 	uuid: string
     name: string
     status: boolean 

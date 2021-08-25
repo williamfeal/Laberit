@@ -240,7 +240,7 @@
         }
     },
     "carpeta_ciudadana": {
-        "title": "Área de Cliente",
+        "title": "Mis Solicitudes",
         "placeholder":{
             "input": "Escriba aquí",
             "select": "Selecciona"
@@ -314,7 +314,7 @@
             }
         },
         "identification": {
-            "title": "Identificación de Usuario",
+            "title": "Solicitante",
             "identity_data": {
                 "title": "Datos de identificación",
                 "name_and_surname": "Nombre y Apellidos",

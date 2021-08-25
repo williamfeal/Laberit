@@ -31,7 +31,7 @@ $sede-angular-theme: mat-light-theme($sede-angular-primary, $sede-angular-accent
 @import "app/utils/styles/colors";
 @import "app/utils/styles/fonts";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
+@import url('//db.onlinewebfonts.com/c/3b114d63b02026b0c7077f0e55a95dda?family=Avenir+Next+Rounded+Pro');
 body {
     font-family: var(--font-family);
 }
@@ -44,11 +44,14 @@ body {
             color: white !important;
         }
         &.active {
-            font-weight: bold;
+            font-weight: 500;
         }
     }
 } 
 
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}
 .background-card-header {
     background-color: $card-header !important;
 }
@@ -67,7 +70,7 @@ body {
     color: $red-header;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: AvenirNext, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
 
 .contents{
     display: contents;

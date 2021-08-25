@@ -18,7 +18,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public user: UserCertificado;
   public validate: boolean = false;
-  public idProcedure: number;
+  public idProcedure: string;
   public formUserIdentification: FormGroup;
   public showErrors = false;
   public readOnly: boolean;
@@ -38,9 +38,9 @@ export class UserIdentificationComponent implements OnInit {
     private carpetaUtils: CarpetaUtils
   ) {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
-    this.proceduresService.getAllProcedure().subscribe(
-      (procedures: Procedure[]) => {
-        this.procedure = procedures.find(element => element.id == this.idProcedure);
+    this.proceduresService.getProcedureById(this.idProcedure).subscribe(
+      (procedure: Procedure) => {
+        this.procedure = procedure;
       })
     this.formUserIdentification = new FormGroup({
       request_data: new FormGroup({}),

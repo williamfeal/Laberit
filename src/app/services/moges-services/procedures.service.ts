@@ -22,12 +22,12 @@ export class ProceduresService {
     private translate: TranslateService
   ) { }
 
-  public getProcedureById(id:string, lang:string) : Observable<Procedure> {
+  public getProcedureById(id:string) : Observable<Procedure> {
     const procedure = this.http.get(`${this.API_PROCEDURES_ENDPOINT}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`,
-        'Content-Language': lang
+        'Content-Language': localStorage.getItem('lang')
       }),
     });
     return procedure.pipe(map((response:any) => {
