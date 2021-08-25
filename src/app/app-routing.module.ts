@@ -22,7 +22,7 @@ import { LegalWarningComponent } from './shared/footer/legal-warning/legal-warni
 import { TechnicalRequirementsComponent } from './shared/footer/technical-requirements/technical-requirements.component';
 import { RequestInfoComponent } from './components/carpeta-ciudadana/request-info/request-info.component';
 import { TranslateService } from '@ngx-translate/core';
-import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/instancia-general/instancia-general.component';
+import { InstanciaGeneralComponent } from './components/carpeta-ciudadana/tramites/instancia-general/instancia-general.component';
 import { RequestsListComponent } from './components/carpeta-ciudadana/requests-list/requests-list.component';
 import { AdjuntarDocComponent } from './components/carpeta-ciudadana/includes/adjuntar-documento/adjuntar-doc.component';
 import { PresentarSolicitudComponent } from './components/carpeta-ciudadana/includes/presentar-solicitud/presentar-solicitud.component';
