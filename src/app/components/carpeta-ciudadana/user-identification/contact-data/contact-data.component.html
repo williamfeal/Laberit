@@ -47,7 +47,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
                             controlName="contact_surname2" idValue="contact_surname2" nameValue="contact_surname2"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="false"
                             [error]="validate && formContactData.controls['contact_surname2']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -138,7 +138,8 @@
                             <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                                 [form]="formContactData"
                                 label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
-                                controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP" [isRequired]="showInputs"
+                                controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
+                                [isRequired]="showInputs"
                                 [error]="validate && formContactData.controls['contact_CP']?.pristine"
                                 [errorText]="errorCharacterLeng">
                             </app-input-number>
@@ -150,24 +151,29 @@
                         <app-input-select [form]="formContactData"
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
-                            controlName="country" idValue="country" nameValue="country" [isReadOnly]="readOnly"
-                            [isRequired]="showInputs" [fieldOptions]="paises" [errorText]="errorCharacterLeng">
+                            controlName="contact_data_country" idValue="contact_data_country" nameValue="contact_data_country" [isReadOnly]="readOnly"
+                            [isRequired]="showInputs" [fieldOptions]="paises"
+                            [error]="validate && formContactData.controls['contact_data_country']?.pristine"
+                            [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>
                     <div class="form-group col-md-3">
                         <app-input-select [form]="formContactData"
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
-                            controlName="province" idValue="province" nameValue="province" [isReadOnly]="readOnly"
-                            [isRequired]="showInputs" [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
+                            controlName="contact_data_province" idValue="contact_data_province" nameValue="contact_data_province" [isReadOnly]="readOnly"
+                            [isRequired]="showInputs" [fieldOptions]="provincias"
+                            [error]="validate && formContactData.controls['contact_data_province']?.pristine"
+                            [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>
                     <div class="form-group col-md-3">
                         <app-input-select [form]="formContactData"
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                             label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
-                            controlName="municipality" idValue="municipality" nameValue="municipality"
+                            controlName="contact_data_municipality" idValue="contact_data_municipality" nameValue="contact_data_municipality"
                             [isReadOnly]="readOnly" [isRequired]="showInputs" [fieldOptions]="municipios"
+                            [error]="validate && formContactData.controls['contact_data_municipality']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>

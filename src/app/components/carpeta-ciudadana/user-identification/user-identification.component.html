@@ -40,13 +40,13 @@
         </div>
         <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
             <div class="col-md-12 mt-2">
-                <app-social-address [validate]="validate" [isRequired]="naturalPerson"
+                <app-social-address [validate]="validate" [isRequired]="!artificialPerson"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
         <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
             <div class="col-md-12 mt-2">
-                <app-productive-establishment-address [validate]="validate" [isRequired]="naturalPerson"
+                <app-productive-establishment-address [validate]="validate" [isRequired]="!artificialPerson"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="false"></app-productive-establishment-address>
             </div>

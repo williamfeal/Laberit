@@ -11,7 +11,7 @@ export class RequesterDataComponent implements OnInit {
 
   @Input() formRequestData: FormGroup;
   @Input() validate: boolean;
-  errorCharacterLeng: string = 'num_Characters_error';
+  errorCharacterLeng: string = 'empty_error';
 
   public type = 'interested'; ///ES POSIBLE QUE FALTE AÑADIR EL FORM
   public actuation: SelectFieldObject[];

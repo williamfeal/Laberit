@@ -30,7 +30,7 @@
                     [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
                     controlName="interested_data_surname2" idValue="interested_data_surname2"
-                    nameValue="interested_data_surname2" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    nameValue="interested_data_surname2" [isReadOnly]="readOnly" [isRequired]="false"
                     [error]="validate && formInterestedData.controls['interested_data_surname2']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
@@ -48,8 +48,8 @@
             <div class="form-group col-md-3">
                 <app-input-select [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
-                    controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae" [isRequired]="isRequired"
-                    [fieldOptions]="businessType"
+                    controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
+                    [isRequired]="isRequired" [fieldOptions]="businessType"
                     [error]="validate && formInterestedData.controls['interested_data_cnae']?.pristine"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
@@ -74,13 +74,12 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <app-input-number
-                    [form]="formInterestedData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
-                    controlName="interested_data_employees_number" idValue="interested_data_employees_number"
-                    nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formInterestedData.controls['interested_data_employees_number']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-number>
+                    <app-input-number [form]="formInterestedData"
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
+                        controlName="interested_data_employees_number" idValue="interested_data_employees_number"
+                        nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        [error]="validate && formInterestedData.controls['interested_data_employees_number']?.pristine"
+                        [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
             </div>
         </div>
@@ -123,13 +122,13 @@
         </div>
         <div class="d-contents col-sm-12">
             <div class="form-group col-md-3">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
                     controlName="interested_data_residence_country" idValue="interested_data_residence_country"
                     nameValue="interested_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formInterestedData.controls['interested_data_residence_country']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-text>
+                    [fieldOptions]="paises" [errorText]="errorCharacterLeng"></app-input-select>
             </div>
             <div class="form-group col-md-2">
                 <app-input-date [form]="formInterestedData"
@@ -145,6 +144,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
                     controlName="interested_data_genre" idValue="interested_data_genre"
                     nameValue="interested_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formInterestedData.controls['interested_data_genre']?.pristine"
                     [fieldOptions]="selectInfo" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
