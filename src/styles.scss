@@ -52,6 +52,10 @@ body {
 .breadcrumb-item+.breadcrumb-item::before {
     content: ">";
 }
+.d-contents{
+    display: contents;
+}
+
 .background-card-header {
     background-color: $card-header !important;
 }

@@ -35,6 +35,9 @@ export class InputSelectComponent implements OnInit {
     if (this.isRequired) {
       this.formControl.setValidators(Validators.required);
     }
+    if(this.placeholder){
+      this.form.controls[this.controlName].setValue('placeholder');
+    }
   }
 
   onChangeValue() {

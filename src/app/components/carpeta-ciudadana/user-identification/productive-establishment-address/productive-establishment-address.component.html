@@ -7,121 +7,86 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.via_type' | translate }}"
-                controlName="productive_establishment_via_type"
-                idValue="productive_establishment_via_type"
-                nameValue="productive_establishment_via_type"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
+            <app-input-select [form]="formProductiveEstablishment"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
+                controlName="productive_establishment_via_type" idValue="productive_establishment_via_type"
+                nameValue="productive_establishment_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
+                [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
+
         </div>
         <div class="form-group col-md-6">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
-                controlName="productive_establishment_address"
-                idValue="productive_establishment_address"
-                nameValue="productive_establishment_address"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
+                controlName="productive_establishment_address" idValue="productive_establishment_address"
+                nameValue="productive_establishment_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
+                [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-number
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
-                controlName="productive_establishment_number"
-                idValue="productive_establishment_number"
-                nameValue="productive_establishment_number"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-number>
+                <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    [form]="formProductiveEstablishment"
+                    label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                    controlName="productive_establishment_number" idValue="productive_establishment_number"
+                    nameValue="productive_establishment_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
+                    [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formProductiveEstablishment"
                 label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
-                controlName="productive_establishment_extra"
-                idValue="productive_establishment_extra"
-                nameValue="productive_establishment_extra"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
+                controlName="productive_establishment_extra" idValue="productive_establishment_extra"
+                nameValue="productive_establishment_extra" [isReadOnly]="readOnly" isRequired="false"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_extra']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
+                [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
                 <app-input-number
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
-                controlName="productive_establishment_CP"
-                idValue="productive_establishment_CP"
-                nameValue="productive_establishment_CP"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-number>
+                    [form]="formProductiveEstablishment"
+                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                    controlName="productive_establishment_CP" idValue="productive_establishment_CP"
+                    nameValue="productive_establishment_CP" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
+                    [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
-        <div class="col-md-6"></div>
-        <div class="form-group col-md-3">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.country' | translate }}"
-                controlName="productive_establishment_country"
-                idValue="productive_establishment_country"
-                nameValue="productive_establishment_country"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
-        </div>
-        <div class="form-group col-md-3">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.province' | translate }}"
-                controlName="productive_establishment_province"
-                idValue="productive_establishment_province"
-                nameValue="productive_establishment_province"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
-        </div>
-        <div class="form-group col-md-3">
-            <app-input-text
-                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" 
-                [form]="formProductiveEstablishment"
-                label="{{ 'carpeta_ciudadana.identification.address.municipality' | translate }}"
-                controlName="productive_establishment_municipality"
-                idValue="productive_establishment_municipality"
-                nameValue="productive_establishment_municipality"
-                [isReadOnly]="readOnly"
-                [isRequired]="true"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.pristine"
-            [errorText]="errorCharacterLeng"
-            ></app-input-text>
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formProductiveEstablishment"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.pristine"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
+                    controlName="productive_establishment_country" idValue="productive_establishment_country"
+                    nameValue="productive_establishment_country" isReadOnly="false" [isRequired]="true"
+                    [fieldOptions]="paises" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formProductiveEstablishment"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.pristine"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
+                    controlName="productive_establishment_province" idValue="productive_establishment_province"
+                    nameValue="productive_establishment_province" isReadOnly="false" [isRequired]="true"
+                    [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formProductiveEstablishment"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.pristine"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                    label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
+                    controlName="productive_establishment_municipality" idValue="productive_establishment_municipality"
+                    nameValue="productive_establishment_municipality" isReadOnly="false" isRequired="true"
+                    [fieldOptions]="municipios" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
         </div>
     </div>
 </div>

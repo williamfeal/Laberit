@@ -87,3 +87,25 @@ $transparent-white-70: rgba(255, 255, 255, .7);
 .border-bottom-primary {
   border-bottom: 1px solid $red-header;
 }
+
+.custom-checkbox .custom-control-indicator {
+  background-color: #fff;
+  border: 1px solid #2c2b2c;
+  border-radius: 5%;
+  height: 15px;
+  width: 15px;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+.custom-control-description {
+  color: #2c2b2c;
+  font-size: 12px;
+  line-height: 2.7;
+}
+
+/* When I remove background the icon goes back to that default size */
+.custom-control-input:checked ~ .custom-control-indicator {
+  background-color: red !important;
+}

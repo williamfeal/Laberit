@@ -30,7 +30,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
-
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -74,12 +74,12 @@ export class UserIdentificationComponent implements OnInit {
     if (this.requesterType == 'representative') {
       this.interested = false;
       this.representative = true;
-
     }
   }
 
   public goToRequestInfo() {
     let error = 0;
+    console.log('this.formUserIdentification :>> ', this.formUserIdentification);
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 

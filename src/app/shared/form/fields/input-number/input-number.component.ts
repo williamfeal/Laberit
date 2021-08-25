@@ -23,6 +23,7 @@ export class InputNumberComponent implements OnInit {
   @Input() minLength!: number | null;
   @Input() maxLength!: number | null;
   @Input() decimales!: number | null; //numero de decimales
+  @Input() step!: number | null; //numero de decimales
   textError: string;
   validaciones: ValidatorFn[] = [];
   formControl = new FormControl('');
