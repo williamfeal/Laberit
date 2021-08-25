@@ -28,8 +28,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
                 <app-representative-data [validate]="validate" [isRequired]="representative"
-                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false"
-                    (typeOutput)="onChangeType($event)">
+                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
@@ -38,15 +37,15 @@
                 </app-interested-data>
             </div>
         </div>
-        <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
+        <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-social-address [validate]="validate" [isRequired]="!artificialPerson"
+                <app-social-address [validate]="validate" isRequired="true"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
-        <div class="row mx-0" [ngClass]="{ 'd-none': artificialPerson == true}">
+        <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-productive-establishment-address [validate]="validate" [isRequired]="!artificialPerson"
+                <app-productive-establishment-address [validate]="validate" isRequired="true"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="false"></app-productive-establishment-address>
             </div>

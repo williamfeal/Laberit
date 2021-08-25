@@ -74,6 +74,34 @@ export const businessType = [{
   selected: false
 }
 ];
+export const businessTypeWithoutAutonomo = [
+  
+{
+  id:'2',
+  val:'Microempresa',
+  selected: false
+},
+{
+  id:'3',
+  val:'Pyme',
+  selected: false
+},
+{
+  id:'4',
+  val:'Gran Empresa',
+  selected: false
+},
+{
+  id:'5',
+  val:'Comunidad de bienes y OE',
+  selected: false
+},
+{
+  id:'6',
+  val:'Sociedad Civil',
+  selected: false
+}
+];
 export const selectMeans = [{
     id: '1',
     val: 'Electrónico',
