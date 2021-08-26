@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'areas', component: ProceduresComponent },
   { path: 'catalogo-de-procedimientos', component: ProceduresSearchComponent },
-  { path: 'perfil-de-contratante', component: ContractorProfileComponent},
   { path: 'categories/:idCategory', component: ProceduresComponent},
   { path: 'procedures/:idProcedure', component: ProcedureDetailComponent },
   { path: 'conoce-la-sede', component: ConoceLaSedeComponent},

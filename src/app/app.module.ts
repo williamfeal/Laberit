@@ -47,23 +47,23 @@ import { ProcedureDetailComponent } from './components/procedures/procedure-deta
 import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
 import { HomeModule } from './components/home/home.module';
 import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
+import { ContractorProfileModule } from './components/contractor-profile/contractor-profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContractorProfileComponent,
     ProceduresSearchComponent,
     ProcedureDetailComponent,
     ProceduresComponent,
     ConoceLaSedeComponent,
     HeaderKnowSedeComponent,
     ContactComponent,
-    
-    ],
+  ],
   imports: [
     CarpetaCiudadanaModule,
     BrowserModule,
     ElectronicServicesModule,
+    ContractorProfileModule,
     HomeModule,
     AppRoutingModule, 
     SharedModule,    
