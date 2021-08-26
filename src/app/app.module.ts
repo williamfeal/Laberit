@@ -45,6 +45,7 @@ import { AdvertisementsModule } from './components/advertisements-list/advertise
 import { SharedModule } from './shared/shared.module';
 import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
 import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
+import { HomeModule } from './components/home/home.module';
 
 @NgModule({
   declarations: [
@@ -57,9 +58,6 @@ import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-c
     ProceduresSearchComponent,
     ProcedureDetailComponent,
     ProceduresComponent,
-    SliderHomeComponent,
-    ProceduresHomeComponent,
-    HomeComponent,
     ConoceLaSedeComponent,
     HeaderKnowSedeComponent,
     ContactComponent,
@@ -68,6 +66,7 @@ import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-c
   imports: [
     CarpetaCiudadanaModule,
     BrowserModule,
+    HomeModule,
     AppRoutingModule, 
     SharedModule,    
     AdvertisementsModule,
