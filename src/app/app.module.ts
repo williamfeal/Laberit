@@ -48,13 +48,11 @@ import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-c
 import { HomeModule } from './components/home/home.module';
 import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
 import { ContractorProfileModule } from './components/contractor-profile/contractor-profile.module';
+import { ProceduresModule } from './components/procedures/procedures.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProceduresSearchComponent,
-    ProcedureDetailComponent,
-    ProceduresComponent,
     ConoceLaSedeComponent,
     HeaderKnowSedeComponent,
     ContactComponent,
@@ -69,6 +67,7 @@ import { ContractorProfileModule } from './components/contractor-profile/contrac
     SharedModule,    
     AdvertisementsModule,
     BreadcrumbModule,
+    ProceduresModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
