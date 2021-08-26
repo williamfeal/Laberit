@@ -26,6 +26,8 @@ import { HelpHomeComponent } from './footer/help-home/help-home.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { WeatherService } from '../services/moges-services/weather.service';
+import { StyleService } from '../services/moges-services/style.service';
 
 
 
@@ -63,19 +65,32 @@ import { HeaderComponent } from './header/header.component';
     NgbModule
   ],
   exports: [
+    ButtonBackComponent,
+    FooterComponent,
+    InputDateComponent,
+    SpinnerComponent,
+    HeaderCarpetaCiudadanaComponent,
+    HeaderCategoryComponent,
+    GenericStaticViewComponent,
     InputTextComponent,
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
-    HeaderCarpetaCiudadanaComponent,
-    HeaderCategoryComponent,
-    SpinnerComponent,
-    InputDateComponent,
-    FooterComponent,
-    HeaderComponent,
-    ButtonBackComponent,
-    GenericStaticViewComponent
-
+    ContactPopoverComponent,
+    HeaderSearchComponent,
+    WeatherComponent,
+    LegalWarningComponent,
+    AccesibilityComponent,
+    LanguageSelectorComponent,
+    HowElectronicCertificateComponent,
+    TechnicalRequirementsComponent,
+    GenericStaticHelpComponent,
+    HelpHomeComponent,
+    HeaderComponent
+  ],
+  providers: [
+    WeatherService,
+    StyleService
   ]
 })
 export class SharedModule { }

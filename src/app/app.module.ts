@@ -49,31 +49,28 @@ import { HomeModule } from './components/home/home.module';
 import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
 import { ContractorProfileModule } from './components/contractor-profile/contractor-profile.module';
 import { ProceduresModule } from './components/procedures/procedures.module';
+import { ConcoceSedeModule } from './components/conoce-sede/conoce-sede.module';
+import { ContactModule } from './components/contact/contact.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConoceLaSedeComponent,
-    HeaderKnowSedeComponent,
-    ContactComponent,
   ],
   imports: [
+    ConcoceSedeModule,
     CarpetaCiudadanaModule,
     BrowserModule,
     ElectronicServicesModule,
     ContractorProfileModule,
     HomeModule,
+    ContactModule,
     AppRoutingModule, 
     SharedModule,    
     AdvertisementsModule,
     BreadcrumbModule,
     ProceduresModule,
-    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxCaptchaModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

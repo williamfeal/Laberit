@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { ValideComponent } from './valide/valide.component';
@@ -29,8 +29,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
-    ProceduresService
-  ]
+  providers: [TranslateService]
 })
 export class ElectronicServicesModule { }
