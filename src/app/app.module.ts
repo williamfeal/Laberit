@@ -46,15 +46,12 @@ import { SharedModule } from './shared/shared.module';
 import { ProcedureDetailComponent } from './components/procedures/procedure-detail/procedure-detail.component';
 import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
 import { HomeModule } from './components/home/home.module';
+import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContractorProfileComponent,
-    ValideComponent,
-    ElectronicInvoiceComponent,
-    DocumentVerificationComponent,
-    NotificationsComponent,
     ProceduresSearchComponent,
     ProcedureDetailComponent,
     ProceduresComponent,
@@ -66,6 +63,7 @@ import { HomeModule } from './components/home/home.module';
   imports: [
     CarpetaCiudadanaModule,
     BrowserModule,
+    ElectronicServicesModule,
     HomeModule,
     AppRoutingModule, 
     SharedModule,    
