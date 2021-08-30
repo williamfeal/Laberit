@@ -240,6 +240,10 @@
     },
     "carpeta_ciudadana": {
       "title": "Àrea de Client",
+      "breadcrumb": {
+        "applicant": "Sol·licitant",
+        "my_request": "La meua sol·licitud"
+      },
       "placeholder": {
         "input": "Escriga ací",
         "select": "Selecciona"
@@ -446,6 +450,7 @@
           "lack": "Carencia (mesos)",
           "modality": "Modalitat tipus d'interés",
           "company_type": "Tipus d'empresa",
+          "project_type": "Tipus de projecte",
           "project_definition": "Definició del projecte"
         }
       },
@@ -469,7 +474,7 @@
         }
       },
       "linea_resistir_instance": {
-        "section_title_1": "Informació de la sol·licitud",
+        "section_title_1": "Condicions de la sol·licitud",
         "section_title_2": "Detall dels costos a finançar",
         "text_1": "S'entén per inversió en capital circulant els imports destinats al sosteniment el capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
       }
