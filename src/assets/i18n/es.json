@@ -1,5 +1,5 @@
 {
-    "TITLE": "ÁREA DE CLIENTE",
+    "TITLE": "SEDE ELECTRÓNICA",
     "buttons": {
       "back": "Atrás",
       "continue": "Continuar",
@@ -8,7 +8,7 @@
     },
     "home": {
       "TITLE": "Inicio",
-      "carpeta": "Mis Solicitudes",
+      "carpeta": "Área de Cliente",
       "advertisements": "Tablón de anuncios",
       "contractor_profile": "Perfil de contratante",
       "electronic_services": "Servicios Electrónicos",
@@ -241,6 +241,10 @@
     },
     "carpeta_ciudadana": {
       "title": "Área de Cliente",
+      "breadcrumb": {
+        "applicant": "Solicitante",
+        "my_request": "Mi solicitud"
+      },
       "placeholder": {
         "input": "Escriba aquí",
         "select": "Selecciona"
@@ -447,6 +451,7 @@
           "lack": "Carencia (meses)",
           "modality": "Modalidad tipo de interés",
           "company_type": "Tipo de empresa",
+          "project_type": "Tipo de proyecto",
           "project_definition": "Definición del proyecto"
         }
       },
@@ -470,7 +475,7 @@
         }
       },
       "linea_resistir_instance": {
-        "section_title_1": "Información de la solicitud",
+        "section_title_1": "Condiciones de la solicitud",
         "section_title_2": "Detalle de los costes a financiar",
         "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
       }
