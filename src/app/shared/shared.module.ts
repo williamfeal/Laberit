@@ -28,8 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
-
-
+import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-radio-button/confirmation-radio-button.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,8 @@ import { StyleService } from '../services/moges-services/style.service';
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmationRadioButtonComponent
   ],
   imports: [
     CommonModule,
@@ -86,7 +86,8 @@ import { StyleService } from '../services/moges-services/style.service';
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmationRadioButtonComponent
   ],
   providers: [
     WeatherService,
