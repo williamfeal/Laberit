@@ -5,6 +5,8 @@ export class AppConstants {
     public static readonly ERROR_LOAD_WEATHER = 'Ha habido un error obteniendo el tiempo' + IF_PROBLEM_PERSIST;
     public static readonly ERROR_LOAD_CATEGORIES = 'Ha habido un error obteniendo las categorías' + IF_PROBLEM_PERSIST;
     public static readonly ERROR_LOAD_LOGGED_USER = 'Ha habido un error obteniendo el usuario' + IF_PROBLEM_PERSIST;
+    public static readonly FILE_SIZE_TEXT = '50 MB';
+    public static readonly FILE_SIZE_NUMBER = '52428800';
 }
 export const actuation = [{
   id:'interested',

@@ -17,7 +17,7 @@
         <div class="form-group">
             <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event, 'company_type')"
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
-                label="{{ 'carpeta_ciudadana.request_info.procedure_info.company_type' | translate }}"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_type' | translate }}"
                 [error]="validate && formLineaResistir.controls['company_type']?.pristine" class="col-sm-3"
                 controlName="company_type" idValue="company_type" nameValue="company_type" isReadOnly="false"
                 isRequired="true" [fieldOptions]="tipoProyecto" errorText="empty_error">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </div>
-        <!-- Financiación solicitada G3-->
+        <!-- Financiaciï¿½n solicitada G3-->
         <hr>
         <div [ngClass]="{ 'd-none': company_type != '3' }">
             <div class="row col-sm-12">

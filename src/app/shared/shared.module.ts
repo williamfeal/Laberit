@@ -29,6 +29,7 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
+import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 
 
 
@@ -45,6 +46,7 @@ import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresen
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
@@ -78,6 +80,7 @@ import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresen
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
