@@ -52,6 +52,7 @@ export class AppUtils implements OnInit {
    * @return Promise when document is signed
    */
   public signDocument(documentToSign: string): Promise<string> {
+    console.log(documentToSign);
     window['appUtilsReference'] = { component: this, zone: this.ngZone };
     signDocumentByCertificate(documentToSign);
 
@@ -75,7 +76,7 @@ export class AppUtils implements OnInit {
     this.previousUrl = this.getPreviousUrl();
     this.currentUrl = this.getCurrentUrl();
     if (this.previousUrl == this.currentUrl || this.previousUrl == '/') {
-      this.router.navigate(['tasklist/user']);
+      this.router.navigate(['inicio']);
     } else {
       this.location.back();
     }

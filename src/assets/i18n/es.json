@@ -283,9 +283,10 @@
         "presentarSolicitud": "Presentar solicitud",
         "present_request": {
           "title": "Presentar solicitud",
-          "button": "Firmar y presentar",
+          "button": "REVISAR SOLICITUD",
+          "sign" : "Firmar y Presentar",
           "text_link": "Solicitud",
-          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
+          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> "
         },
         "notification": {
           "title": "Datos a Efecto de Notificación",

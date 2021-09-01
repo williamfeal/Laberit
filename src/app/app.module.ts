@@ -51,12 +51,14 @@ import { ContractorProfileModule } from './components/contractor-profile/contrac
 import { ProceduresModule } from './components/procedures/procedures.module';
 import { ConcoceSedeModule } from './components/conoce-sede/conoce-sede.module';
 import { ContactModule } from './components/contact/contact.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    MatDialogModule,
     ConcoceSedeModule,
     CarpetaCiudadanaModule,
     BrowserModule,

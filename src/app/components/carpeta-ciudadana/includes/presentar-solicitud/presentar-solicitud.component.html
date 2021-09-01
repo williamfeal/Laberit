@@ -1,4 +1,4 @@
-<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<!-- <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana> -->
 <app-button-back></app-button-back>
 <div class="container-fluid">
   <div class="card mb-2">
@@ -9,11 +9,11 @@
     </div>
     <div class="m-4">
       <label innerHtml="{{ 'carpeta_ciudadana.instance.present_request.text' | translate }}"></label>
-        <a class="btn btn-link m-link" href="../../../../assets/docs/PRUEBITA.pdf"
-                        target="_blank" role="button" data-cy="btnSolicitud"> <i class="fa fa-file-pdf-o text-primary"></i> {{ 'carpeta_ciudadana.instance.present_request.text_link' | translate }}</a>
+        <!-- <a class="btn btn-link m-link" href="../../../../assets/docs/PRUEBITA.pdf"
+                        target="_blank" role="button" data-cy="btnSolicitud"> <i class="fa fa-file-pdf-o text-primary"></i> {{ 'carpeta_ciudadana.instance.present_request.text_link' | translate }}</a> -->
     </div>
   </div>
 </div>
 <div class="container-fluid w-50">
-  <button class="btn-app-primary-rounded m-button" (click)="singAndPresent()">{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
+  <button class="btn-app-primary-rounded m-button" (click)="reviewDoc()">{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
 </div>

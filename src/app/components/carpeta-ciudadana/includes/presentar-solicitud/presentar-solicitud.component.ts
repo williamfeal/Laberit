@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { base64 } from 'src/app/utils/constants/app-constants';
+import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
 @Component({
   selector: 'app-presentar-solicitud',
@@ -10,15 +12,30 @@ import { base64 } from 'src/app/utils/constants/app-constants';
 export class PresentarSolicitudComponent implements OnInit {
 
   public documentBase64 = '';
-  constructor(public appUtils: AppUtils) { }
+  constructor(public appUtils: AppUtils,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  singAndPresent() {
-    this.appUtils.signDocument(base64).then((documentSinged) => {
-      console.log('documentSinged :>> ', documentSinged);
-    });
+  // singAndPresent() {
+  //   this.appUtils.signDocument(base64).then((documentSinged) => {
+  //     console.log('documentSinged :>> ', documentSinged);
+  //   });
+  // }
+  reviewDoc() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = '90%';
+    dialogConfig.height = '90%';
+    dialogConfig.data = { base64: base64 };
+    const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      data => {
+        if (data) {
+        }
+      });
   }
 
 }
