@@ -28,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
+import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 
 
 
@@ -44,6 +45,7 @@ import { StyleService } from '../services/moges-services/style.service';
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
@@ -76,6 +78,7 @@ import { StyleService } from '../services/moges-services/style.service';
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
