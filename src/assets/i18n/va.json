@@ -235,7 +235,18 @@
       "input": {
         "format_error": "Format incorrecte",
         "empty_error": "Falta per emplenar el camp",
-        "num_Characters_error": "Falta per emplenar el camp o no compleix amb un mínim de 10 caràcters "
+        "num_Characters_error": "Falta per emplenar el camp o no compleix amb un mínim de 10 caràcters ",
+        "document_error": "Falta document"
+      },
+      "pop_up" : {
+        "format_error" : {
+          "title": "Extensió no permesa",
+          "text": "Les extensions d'arxiu permeses són:"
+        },
+        "size_error" : {
+          "title": "Grandària invàlida",
+          "text": "Arxiu massa gran. Màxim permés:"
+        }
       }
     },
     "carpeta_ciudadana": {
@@ -460,7 +471,34 @@
       },
       "documentation": {
         "title": "Documentació",
-        "documents": "Documents"
+        "documents": "Documents",
+        "download": "Descarregar Plantilla",
+        "generic": {
+          "dni":"Fotocopia DNI, passaport o targeta de residència del sol·licitant",
+          "help":"Declaració d'ajudes rebudes i/o sol·licitades per a les mateixes despeses elegibles",
+          "responsible_declaration":"Declaració responsable del compliment dels requisits per a ser beneficiari i compromís exprés del compliment de les obligacions que en cas de resultar beneficiari correspondrien al sol·licitant",
+          "model_303":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_347":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "distribution_by_year":"Distribució per any de venciment de les obligacions financeres, incloses aquelles que resulten de préstecs atorgats per les administracions públiques en el marc de la seua activitat de promoció econòmica. No és obligatòria la seua presentació en cas que la sol·licitud siga d'import inferior o igual a 50.000 euros "
+        },
+        "autonom": {
+          "tax_returns":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament",
+          "model_390":"Declaracions resumen-anual de l'IVA (model 390) corresponents als exercicis 2020 i 2019",
+          "self-assessment":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament",
+          "model_RLC":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social"
+        },
+        "micro_business" :{
+          "society_constitution":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "42_commercial_code":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents.",
+          "tax_returns":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "model_390":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "registered_office":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
+          "business_group":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup.",
+          "PYME":"Model de declaració de la condició de PYME"
+        }
       },
       "requests-list": {
         "title": "Les meues Sol·licituds"
