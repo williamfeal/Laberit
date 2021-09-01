@@ -1,9 +1,10 @@
 <app-header-category [title]="title"></app-header-category>
 <div class="col-md-8 mx-auto mb-5">
-    <p class="p-3 text-justify" id="text">
+    <p class="p-3 text-justify" id="text" [innerText]="text">
     </p>
     <div class="text-center">
-        <a class="btn btn-app-primary mx-auto button-round" target="_blank" id="button"
+        <a class="btn btn-app-primary mx-auto button-round" target="_blank" id="button" [innerText]="button"
+            [href]="link"
             href="https://contrataciondelestado.es/wps/poc?uri=deeplink%3AperfilContratante&idBp=4m5FtivXttEQK2TEfXGy%2BA%3D%3D"> 
         </a>
     </div>

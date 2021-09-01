@@ -15,15 +15,16 @@ export class ElectronicInvoiceComponent implements OnInit {
   enviar = false;
 
   constructor(public translate: TranslateService) {
+    
+  }
+
+  ngOnInit(): void {
     this.translate.get('electronic-services.electronic-invoice').subscribe((texts: any) => {
       this.text = texts.text;
       this.title = texts.title;
       this.button = texts.button;
       this.enviar = true;
     })
-  }
-
-  ngOnInit(): void {
   }
 
 }

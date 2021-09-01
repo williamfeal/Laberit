@@ -252,6 +252,10 @@
   },
   "carpeta_ciudadana": {
     "title": "Área de Cliente",
+    "breadcrumb": {
+      "applicant": "Solicitante",
+      "my_request": "Mi solicitud"
+    },
     "placeholder": {
       "input": "Escriba aquí",
       "select": "Selecciona"

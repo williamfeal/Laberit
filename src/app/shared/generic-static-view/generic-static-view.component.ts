@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-generic-static-view',
@@ -14,13 +14,9 @@ export class GenericStaticViewComponent implements OnInit {
     @Input() public button: string;
     @Input() public link: string;
 
-    constructor() { }
+    constructor( ) { }
 
     ngOnInit() {
-        let text = document.getElementById("text");
-        let button = document.getElementById("button");
-        text.innerHTML = this.text;
-        button.innerHTML = this.button;
-        button.setAttribute("href", this.link);
     }
+
 }
