@@ -85,9 +85,7 @@ import { LineaResistirComponent } from './components/carpeta-ciudadana/tramites/
 import { ConfirmacionSolicitudComponent } from './components/carpeta-ciudadana/includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
 import { InputTextAreaComponent } from './shared/form/fields/input-text-area/input-text-area.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepicker, MatDatepickerInput, MatDatepickerContent,
-MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormField } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateComponent } from './components/carpeta-ciudadana/includes/date-component/date.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputDateComponent } from './shared/form/fields/input-date/input-date.component';
@@ -95,6 +93,7 @@ import { ProcedureInformationComponent } from './components/carpeta-ciudadana/tr
 import { DetailCostFinancedComponent } from './components/carpeta-ciudadana/tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 import { CarpetaUtils } from './utils/carpeta-utils';
+import { InputDocumentComponent } from './shared/form/fields/input-document/input-document.component';
 
 @NgModule({
   declarations: [
@@ -160,6 +159,7 @@ import { CarpetaUtils } from './utils/carpeta-utils';
     LineaResistirComponent,
     DateComponent,
     InputDateComponent,
+    InputDocumentComponent,
     ProcedureInformationComponent,
     DetailCostFinancedComponent
     ],

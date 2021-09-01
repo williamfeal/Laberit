@@ -13,9 +13,9 @@ import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 })
 export class InstanciaGeneralComponent {
 
-  public user:UserCertificado;
+  public user: UserCertificado;
   public formInstanciaGeneral: FormGroup;
-  public procedure:Procedure;
+  public procedure: Procedure;
 
   @Input() readOnly: boolean;
   @Input() errorTextRes: string = 'empty_error';
@@ -27,7 +27,7 @@ export class InstanciaGeneralComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private procedureService:ProceduresService,
+    private procedureService: ProceduresService,
     private carpetaService: CarpetaService,
     private ref: ChangeDetectorRef,
   ) {
@@ -57,12 +57,15 @@ export class InstanciaGeneralComponent {
   }
 
   public goToDocumentation() {
-    if (this.formInstanciaGeneral.valid) {
-      this.validate = false;
-      this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
-    } else {
-      this.validate = true;
-      console.log(this.formInstanciaGeneral);
-    }
+
+    this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+
+    // if (this.formInstanciaGeneral.valid) {
+    //   this.validate = false;
+    //   this.router.navigate(['carpeta-del-ciudadano/adjuntar']);
+    // } else {
+    //   this.validate = true;
+    //   console.log(this.formInstanciaGeneral);
+    // }
   }
 }

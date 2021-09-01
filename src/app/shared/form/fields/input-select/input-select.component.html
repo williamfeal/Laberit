@@ -4,7 +4,7 @@
     <select data-cy="nameValue" class="form-control" [class]="class" [id]="idValue" [name]="nameValue" [value]="label"
         (change)="onChangeValue()" [formControlName]="controlName" [ngClass]="{ 'error-input': error == true }">
         <option *ngIf="placeholder" value="placeholder" disabled>{{ placeholder }}</option>
-        <option *ngFor="let item of fieldOptions" [value]="item.id">{{ item.val }}</option>
+        <option *ngFor="let item of fieldOptions" [value]="item.id" [attr.selected]="idSelected==item.id ? true : null">{{ item.val }}</option>
     </select>
     <p class="error-p" *ngIf='error == true && textError !=""' [innerHTML]="textError">a</p>
 </form>

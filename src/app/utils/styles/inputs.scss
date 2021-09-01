@@ -127,7 +127,7 @@
 }
 
 .error-input {
-  border-color: $red-70;
+  border-color: $red-70 !important;
 }
 .error-p {
   color: $red-70;
@@ -211,6 +211,22 @@ input:-webkit-autofill:active
   right: 0;
   margin: auto;
   top: 50%;
+}
+
+.centrarDivBajo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.centrarDivHorizontal {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; 
+}
+
+.centrarDivVertical {
+   display: flex;
+   align-items: center;
 }
 
 .button-round {
