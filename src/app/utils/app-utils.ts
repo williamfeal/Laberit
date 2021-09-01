@@ -51,7 +51,9 @@ export class AppUtils implements OnInit {
    * @param documentToSign: In base64
    * @return Promise when document is signed
    */
-  public signDocument(documentToSign: string): Promise<string> {
+  public signDocument(documentToSignData: string): Promise<string> {
+    let documentToSign;
+    documentToSign = documentToSignData.split(',')[1];
     console.log(documentToSign);
     window['appUtilsReference'] = { component: this, zone: this.ngZone };
     signDocumentByCertificate(documentToSign);

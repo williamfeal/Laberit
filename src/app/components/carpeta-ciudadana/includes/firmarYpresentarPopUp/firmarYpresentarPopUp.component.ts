@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
@@ -13,6 +14,7 @@ export class FirmarYPresentarPopUp implements OnInit {
     
     constructor(public appUtils: AppUtils,
         @Inject(MAT_DIALOG_DATA) data: any,
+        private router: Router,
         public dialogRef: MatDialogRef<FirmarYPresentarPopUp>
     ) {
         this.documentBase64 = "data:application/pdf;base64," + dialogRef._containerInstance._config.data.base64;
@@ -24,7 +26,14 @@ export class FirmarYPresentarPopUp implements OnInit {
     singAndPresent() {
         this.appUtils.signDocument(this.documentBase64).then((documentSinged) => {
             console.log('documentSinged :>> ', documentSinged);
+            this.dialogRef.close(false);
+            setInterval(() =>{
+                this.router.navigate(['carpeta-del-ciudadano/confirmacion']);
+            },3000);
+            
         });
+        
+        
     }
     close(): void {
         this.dialogRef.close(false);
