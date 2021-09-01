@@ -28,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
+import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 
 
@@ -56,7 +57,8 @@ import { InputDocumentComponent } from './form/fields/input-document/input-docum
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SafePipe
   ],
   imports: [
     CommonModule,
@@ -89,7 +91,8 @@ import { InputDocumentComponent } from './form/fields/input-document/input-docum
     TechnicalRequirementsComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SafePipe
   ],
   providers: [
     WeatherService,
