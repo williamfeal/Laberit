@@ -80,6 +80,40 @@
     cursor: not-allowed;
   }
 }
+.btn-app-back {
+  background-color: $medium-gray-100;
+  border-radius: 3px;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  padding: 11px 40px;
+  transition: all .25s linear;
+  outline: none;
+
+  &:hover {
+    background-color: $medium-gray-100;
+    transition: all .25s linear;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+    -moz-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+  }
+  &:active {
+    background-color: $dark-gray-50;
+    transition: all .25s linear;
+    outline: none;
+    -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
+  }
+  &:focus {
+    transition: all .25s linear;
+    outline: none;
+  }
+}
+.card-h{
+  background-color: $primaryColor;
+  padding-top: 2%;
+}
 .btn-app-primary-rounded {
   background-color: $primaryColor;
   border-radius: 50px;
