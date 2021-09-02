@@ -35,13 +35,13 @@
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
             <div class="form-group col-md-3">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
                     controlName="interested_data_nif" idValue="interested_data_nif" nameValue="interested_data_nif"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formInterestedData.controls['interested_data_nif']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-text>
+                    [isReadOnly]="readOnly" [isRequired]="isRequired" 
+                    [error]="validate"
+                    [errorText]="errorNif"></app-input-text-nif>
             </div>
         </div>
         <div class="d-contents col-sm-12">
@@ -97,26 +97,26 @@
                 <div class="form-group col-md-2">
                     <app-input-select [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
-                        controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup" [isRequired]="isRequired"
+                        controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup" [isRequired]="isRequired && isAutonum != 1"
                         [fieldOptions]="siNo" [error]="validate && formInterestedData.controls['ownGroup']?.pristine"
                         [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    <app-input-number
                         [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="interested_data_active" idValue="interested_data_active"
-                        nameValue="interested_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        nameValue="interested_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum != 1"
                         [error]="validate && formInterestedData.controls['interested_data_active']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    <app-input-number
                         [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="interested_data_turnover" idValue="interested_data_turnover"
-                        nameValue="interested_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        nameValue="interested_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum != 1"
                         [error]="validate && formInterestedData.controls['interested_data_turnover']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>

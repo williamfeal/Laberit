@@ -31,6 +31,7 @@ import { StyleService } from '../services/moges-services/style.service';
 import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-radio-button/confirmation-radio-button.component';
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
+import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
 
 
 
@@ -44,6 +45,7 @@ import { InputDocumentComponent } from './form/fields/input-document/input-docum
     HeaderCategoryComponent,
     GenericStaticViewComponent,
     InputTextComponent,
+    InputTextNifComponent,
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
@@ -79,6 +81,7 @@ import { InputDocumentComponent } from './form/fields/input-document/input-docum
     HeaderCategoryComponent,
     GenericStaticViewComponent,
     InputTextComponent,
+    InputTextNifComponent,
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,

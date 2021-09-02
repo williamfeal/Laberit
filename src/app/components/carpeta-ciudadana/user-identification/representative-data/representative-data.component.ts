@@ -14,6 +14,7 @@ export class RepresentativeDataComponent implements OnInit {
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   errorCharacterLeng: string = 'empty_error';
+  errorNif: string = 'nif_error';
   public type = 'natural-person';
   public personType: SelectFieldObject[];
   public businessType: SelectFieldObject[];

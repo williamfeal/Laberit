@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DocumentationComponent } from './documentation/documentation.component';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
@@ -38,9 +37,7 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
 
 @NgModule({
   declarations: [
-    DocumentationComponent,
     CarpetaCiudadanaComponent,
-    DocumentationComponent,
     AdjuntarDocComponent,
     ConfirmacionSolicitudComponent,
     DateComponent,

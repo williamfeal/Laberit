@@ -14,6 +14,7 @@ export class LegalRepresentativeComponent implements OnInit {
   @Input() isRequired: boolean;
   @Input() validate: boolean;
   errorCharacterLeng: string = 'empty_error';
+  errorNif: string = 'nif_error';
   //se cambiara con los catalogos
   typeStreet = typeStreet;
 

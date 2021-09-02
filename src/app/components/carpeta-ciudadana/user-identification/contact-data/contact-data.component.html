@@ -52,13 +52,13 @@
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
                     <div class="form-group col-md-3">
-                        <app-input-text [form]="formContactData"
+                        <app-input-text-nif [form]="formContactData"
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
                             controlName="contact_nif" idValue="contact_nif" nameValue="contact_nif"
                             [isReadOnly]="readOnly" [isRequired]="showInputs"
-                            [error]="validate && formContactData.controls['contact_nif']?.pristine"
-                            [errorText]="errorCharacterLeng"></app-input-text>
+                            [error]="validate"
+                            [errorText]="errorNif"></app-input-text-nif>
                     </div>
                 </div>
                 <div class="d-flex w-100">
