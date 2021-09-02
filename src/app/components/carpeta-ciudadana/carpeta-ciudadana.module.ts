@@ -18,7 +18,6 @@ import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir
 import { DetailCostFinancedComponent } from './tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
 import { ProcedureInformationComponent } from './tramites/linea-resistir/procedure-information/procedure-information.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
-import { ActuationDataComponent } from './user-identification/actuation-data/actuation-data.component';
 import { ContactDataComponent } from './user-identification/contact-data/contact-data.component';
 import { IdentityDataComponent } from './user-identification/identity-data/identity-data.component';
 import { InterestedDataComponent } from './user-identification/interested-data/interested-data.component';
@@ -50,7 +49,6 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     DetailCostFinancedComponent,
     ProcedureInformationComponent,
     UserIdentificationComponent,
-    ActuationDataComponent,
     ContactDataComponent,
     IdentityDataComponent,
     InterestedDataComponent,
