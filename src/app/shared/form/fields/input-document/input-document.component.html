@@ -1,0 +1,27 @@
+<div class="m-2 ">
+    <span class="mx-3">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
+    <div class="pl-3 row">
+        <div class="file-container" [ngClass]="{ 'error-input': error && isRequired == true }">
+            <div *ngIf="!documentExist; else nameFile" classs="ml-2">
+                <input type="file" (change)="uploadFile($event)" [name]="idValue" [id]="idValue"
+                    [accept]="fileExtension" class="cursor-pointer">
+                <i class="fas fa-cloud-upload-alt mr-2"></i>
+                <span>
+                    {{ 'carpeta_ciudadana.instance.doc.drag' | translate }} <label class="primary-link"><u>{{
+                            'carpeta_ciudadana.instance.doc.explore' | translate }}</u>.</label>
+                </span>
+            </div>
+            <ng-template #nameFile>
+                {{document.naturalName}} <i class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
+            </ng-template>
+        </div>
+        <div *ngIf="idPlantilla != undefined" class="centrarDivBajo ml-3">
+            <button type="button" class="btn btn-rounded-circle btn-outline-primary" (click)="verPlantilla()"
+                data-cy="descargarPlantilla">
+                <i class="fas fa-file-download mr-1"></i>
+                {{ 'carpeta_ciudadana.documentation.download' | translate }}
+            </button>
+        </div>
+    </div>
+    <p class="error-p pl-3" [ngClass]="{ 'd-none': !error || !isRequired == true }" [innerHTML]="textError"></p>
+</div>

@@ -29,6 +29,10 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
 import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-radio-button/confirmation-radio-button.component';
+import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
+import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
+
+
 
 @NgModule({
   declarations: [
@@ -43,6 +47,7 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
@@ -54,7 +59,8 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
-    ConfirmationRadioButtonComponent
+    ConfirmationRadioButtonComponent,
+    SafePipe
   ],
   imports: [
     CommonModule,
@@ -76,6 +82,7 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
     WeatherComponent,
@@ -87,7 +94,8 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
-    ConfirmationRadioButtonComponent
+    ConfirmationRadioButtonComponent,
+    SafePipe
   ],
   providers: [
     WeatherService,
