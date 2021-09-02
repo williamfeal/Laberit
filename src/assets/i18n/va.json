@@ -235,6 +235,7 @@
       "input": {
         "format_error": "Format incorrecte",
         "empty_error": "Falta per emplenar el camp",
+        "nif_error": "Falta per emplenar el camp o nif incorrecte",
         "num_Characters_error": "Falta per emplenar el camp o no compleix amb un mínim de 10 caràcters ",
         "document_error": "Falta document"
       },

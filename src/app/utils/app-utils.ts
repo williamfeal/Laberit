@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+declare function checkNif(nif: string): number;
 declare function getBase64Certificate();
 declare function signDocumentByCertificate(document);
 
@@ -80,4 +81,15 @@ export class AppUtils implements OnInit {
       this.location.back();
     }
   }
+
+  /**
+   * The method calls Check Nif function which validates the input NIF
+   *
+   * @param nif to validate
+   * @return validation code ( > 0 = Correct - < 0 = Incorrect)
+   */
+   public static callCheckNif(nif: string): number {
+    return checkNif(nif);
+  }
+
 }
