@@ -47,6 +47,7 @@
     "ngx-mat-moment-adapter": "^1.0.0-beta.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
+    "safe-pipe": "^1.0.3",
     "sweetalert2": "^11.0.6",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

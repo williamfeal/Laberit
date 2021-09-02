@@ -22,6 +22,7 @@ export class InputSelectComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() errorText!: string;
+  @Input() idSelected!: string;
   // @Output() onclick = new EventEmitter<string>(); 
   selectedValue!: any;
 

@@ -106,6 +106,7 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
     ]},
   },
+
   { path: 'carpeta-del-ciudadano/confirmacion', 
     component: ConfirmacionSolicitudComponent, 
     canActivate: [AuthGuardService],

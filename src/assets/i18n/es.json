@@ -1,271 +1,349 @@
 {
-    "TITLE": "SEDE ELECTRÓNICA",
-    "buttons": {
-      "back": "Atrás",
-      "continue": "Continuar",
-      "presentSign": "Firmar y presentar",
-      "previous": "Anterior"
-    },
-    "home": {
-      "TITLE": "Inicio",
-      "carpeta": "Área de Cliente",
-      "advertisements": "Tablón de anuncios",
-      "contractor_profile": "Perfil de contratante",
-      "electronic_services": "Servicios Electrónicos",
-      "valide": "Validación de firmas y certificados",
-      "electronic_invoice": "Factura electrónica",
-      "document_verification": "Verificación de Documentos",
-      "notifications": "Notificaciones"
-    },
-    "SLIDER_HOME": {
-      "TITLE": "¿Qué puedes hacer?"
-    },
-    "PROCEDURES_HOME": {
-      "TITLE": "Trámites",
-      "SEE_ALL": "Ver todos"
-    },
-    "HELP_HOME": {
-      "TITLE": "Ayuda",
-      "INFO_SEDE": "Conoce la Sede Electrónica",
-      "ELECTRONIC_CERTIFICATE": "Cómo obtener el certificado electrónico",
-      "TECHNICAL_REQUIREMENTS": "Requisitos técnicos",
-      "PROCEDURES_SEARCH": "Buscador de trámites"
-    },
-    "procedures-search": {
-      "title": "Buscador de trámites"
-    },
-    "advertisements": {
-      "title": "TABLÓN DE ANUNCIOS",
-      "created": "Fecha creación:",
-      "seeMore": "Leer más"
-    },
-    "advertisements_detail": {
-      "title": "TABLÓN DE ANUNCIOS",
-      "back": "Volver",
-      "validity": "Vigencia",
-      "since": " Desde",
-      "until": "hasta el",
-      "created": "Creado el:",
-      "show": "Ver documento",
-      "no_document": "No hay documentación descargable"
-    },
-    "contact": {
-      "title": "Contacta con nosotros",
-      "name": "Nombre",
-      "email": "Email",
-      "message": "Mensaje",
-      "policy": "He leído y acepto la Política de Privacidad y Protección de Datos de Carácter Personal",
-      "send": "Enviar",
-      "info": {
-        "title": "Información básica sobre la protección de sus datos",
-        "responsable": "Responsable",
-        "responsable_text": "INSTITUT VALENCIÀ DE FINANCES",
-        "purpose": "Finalidad",
-        "purpose_text": "Incorporar sus datos a una base de datos de usuarios para registrar su mensaje.",
-        "legitimation": "Legitimación",
-        "legitimation_text": "Consentimiento del interesado.",
-        "destinataries": "Destinatarios",
-        "destinataries_text": "INSTITUT VALENCIÀ DE FINANCES No se cederán datos a terceros, salvo obligación legal.",
-        "rights": "Derechos",
-        "rights_text": "Acceso, rectificación, supresión, oposición, limitación del tratamiento y, en su caso oposición portabilidad de los datos.",
-        "rights_exercises": "Ejercicios de derecho",
-        "rights_exercises_text": "pdatos@apc.es",
-        "origin": "Procedencia",
-        "origin_text": "El propio interesado, su representante legal.",
-        "consult_legal_notice": "Consulte nuestro Aviso Legal y Política de Privacidad en el siguiente",
-        "consult_legal_notice_link": "enlace"
-      }
-    },
-    "contractor-profile": {
-      "title": "PERFIL DE CONTRATANTE",
-      "text": "El perfil del contratante es la herramienta a través de la cual se facilita a los interesados, a través de internet, información sobre la actividad contractual de INSTITUT VALENCIÀ DE FINANCES, asegurando así la transparencia y el acceso público a la información en esta materia. Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, donde podrá consultar información acerca de las licitaciones de INSTITUT VALENCIÀ DE FINANCES.",
-      "button": "Ir a Plataforma Contratación"
-    },
-    "web_map": {
-      "title": "Mapa Web"
-    },
-    "footer": {
-      "contacts": "Contactos",
-      "ask_for_information": "Solicitar información",
-      "help": "Ayuda",
-      "technical_requirements": "Requisitos técnicos",
-      "user_guide": "Guía de usuario",
-      "access": "Accesos",
-      "carpeta": "Carpeta del Ciudadano",
-      "complaints_and_suggestions": "Quejas y sugerencias",
-      "date_and_time": "Fecha y hora oficial",
-      "advertisements": "Tablón de anuncios",
-      "document_verification": "Verificación de documentos",
-      "valide": "Validación de firmas y certificados",
-      "electronic_invoice": "Factura electrónica",
-      "procedures": "Trámites",
-      "contractor_profile": "Perfil de contratante",
-      "contact_popover": {
-        "title": "¿Necesitas ayuda?",
-        "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
-      }
-    },
-    "procedure_detail": {
-      "procedure_name": "Nombre del trámite",
-      "info": "Información",
-      "online": "Online",
-      "face": "Presencial",
-      "description": "Descripción",
+  "TITLE": "ÁREA DE CLIENTE",
+  "buttons": {
+    "back": "Atrás",
+    "continue": "Continuar",
+    "presentSign": "Firmar y presentar",
+    "previous": "Anterior"
+  },
+  "home": {
+    "TITLE": "Inicio",
+    "carpeta": "Mis Solicitudes",
+    "advertisements": "Tablón de anuncios",
+    "contractor_profile": "Perfil de contratante",
+    "electronic_services": "Servicios Electrónicos",
+    "valide": "Validación de firmas y certificados",
+    "electronic_invoice": "Factura electrónica",
+    "document_verification": "Verificación de Documentos",
+    "notifications": "Notificaciones"
+  },
+  "SLIDER_HOME": {
+    "TITLE": "¿Qué puedes hacer?"
+  },
+  "PROCEDURES_HOME": {
+    "TITLE": "Trámites",
+    "SEE_ALL": "Ver todos"
+  },
+  "HELP_HOME": {
+    "TITLE": "Ayuda",
+    "INFO_SEDE": "Conoce la Sede Electrónica",
+    "ELECTRONIC_CERTIFICATE": "Cómo obtener el certificado electrónico",
+    "TECHNICAL_REQUIREMENTS": "Requisitos técnicos",
+    "PROCEDURES_SEARCH": "Buscador de trámites"
+  },
+  "procedures-search": {
+    "title": "Buscador de trámites"
+  },
+  "advertisements": {
+    "title": "TABLÓN DE ANUNCIOS",
+    "created": "Fecha creación:",
+    "seeMore": "Leer más"
+  },
+  "advertisements_detail": {
+    "title": "TABLÓN DE ANUNCIOS",
+    "back": "Volver",
+    "validity": "Vigencia",
+    "since": " Desde",
+    "until": "hasta el",
+    "created": "Creado el:",
+    "show": "Ver documento",
+    "no_document": "No hay documentación descargable"
+  },
+  "contact": {
+    "title": "Contacta con nosotros",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "policy": "He leído y acepto la Política de Privacidad y Protección de Datos de Carácter Personal",
+    "send": "Enviar",
+    "info": {
+      "title": "Información básica sobre la protección de sus datos",
+      "responsable": "Responsable",
+      "responsable_text": "INSTITUT VALENCIÀ DE FINANCES",
+      "purpose": "Finalidad",
+      "purpose_text": "Incorporar sus datos a una base de datos de usuarios para registrar su mensaje.",
+      "legitimation": "Legitimación",
+      "legitimation_text": "Consentimiento del interesado.",
       "destinataries": "Destinatarios",
-      "observations": "Observaciones",
-      "start": "Fecha de inicio",
-      "faqs": "Preguntas frecuentes",
-      "cost": "Coste",
-      "associatedDocs": "Documentos asociados",
-      "contact": "Contacto",
-      "online_transaction": "Tramitación Online",
-      "online_transaction_text": "Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve",
-      "transact": "Tramitar",
-      "procedure_not_available": "Trámite no disponible",
-      "procedure_not_available_text1": "Esta opción no está disponible en estos momentos.",
-      "procedure_not_available_text2": "Para cualquier trámite con la Sede Electrónica puede utilizar una",
-      "general_instance": "Instancia general",
-      "face_transaction": "Tramitación presencial",
-      "face_transaction_text": "A continuación encontrará el formulario de solicitud para el procedimiento Solicitud de Bonificación sobre Buques (Medioambiental, calidad...). Se trata de un PDF rellenable, que una vez correctamente rellenado e impreso podrá entregar en el registro de la entidad. Los trámites registrados de forma presencial solo afectan a personas físicas y no jurídicas",
-      "download_application_form": "Descargar modelo de solicitud"
+      "destinataries_text": "INSTITUT VALENCIÀ DE FINANCES No se cederán datos a terceros, salvo obligación legal.",
+      "rights": "Derechos",
+      "rights_text": "Acceso, rectificación, supresión, oposición, limitación del tratamiento y, en su caso oposición portabilidad de los datos.",
+      "rights_exercises": "Ejercicios de derecho",
+      "rights_exercises_text": "pdatos@apc.es",
+      "origin": "Procedencia",
+      "origin_text": "El propio interesado, su representante legal.",
+      "consult_legal_notice": "Consulte nuestro Aviso Legal y Política de Privacidad en el siguiente",
+      "consult_legal_notice_link": "enlace"
+    }
+  },
+  "contractor-profile": {
+    "title": "PERFIL DE CONTRATANTE",
+    "text": "El perfil del contratante es la herramienta a través de la cual se facilita a los interesados, a través de internet, información sobre la actividad contractual de INSTITUT VALENCIÀ DE FINANCES, asegurando así la transparencia y el acceso público a la información en esta materia. Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, donde podrá consultar información acerca de las licitaciones de INSTITUT VALENCIÀ DE FINANCES.",
+    "button": "Ir a Plataforma Contratación"
+  },
+  "web_map": {
+    "title": "Mapa Web"
+  },
+  "footer": {
+    "contacts": "Contactos",
+    "ask_for_information": "Solicitar información",
+    "help": "Ayuda",
+    "technical_requirements": "Requisitos técnicos",
+    "user_guide": "Guía de usuario",
+    "access": "Accesos",
+    "carpeta": "Carpeta del Ciudadano",
+    "complaints_and_suggestions": "Quejas y sugerencias",
+    "date_and_time": "Fecha y hora oficial",
+    "advertisements": "Tablón de anuncios",
+    "document_verification": "Verificación de documentos",
+    "valide": "Validación de firmas y certificados",
+    "electronic_invoice": "Factura electrónica",
+    "procedures": "Trámites",
+    "contractor_profile": "Perfil de contratante",
+    "contact_popover": {
+      "title": "¿Necesitas ayuda?",
+      "body": "Si tienes algún problema con la Sede electrónica, puedes contactar con el CAU a través de este <a href='/contact'>enlace</a> o llamando al teléfono 868.990.414.</p> También puedes consultar o descargar la Guía de usuario aquí."
+    }
+  },
+  "procedure_detail": {
+    "procedure_name": "Nombre del trámite",
+    "info": "Información",
+    "online": "Online",
+    "face": "Presencial",
+    "description": "Descripción",
+    "destinataries": "Destinatarios",
+    "observations": "Observaciones",
+    "start": "Fecha de inicio",
+    "faqs": "Preguntas frecuentes",
+    "cost": "Coste",
+    "associatedDocs": "Documentos asociados",
+    "contact": "Contacto",
+    "online_transaction": "Tramitación Online",
+    "online_transaction_text": "Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve",
+    "transact": "Tramitar",
+    "procedure_not_available": "Trámite no disponible",
+    "procedure_not_available_text1": "Esta opción no está disponible en estos momentos.",
+    "procedure_not_available_text2": "Para cualquier trámite con la Sede Electrónica puede utilizar una",
+    "general_instance": "Instancia general",
+    "face_transaction": "Tramitación presencial",
+    "face_transaction_text": "A continuación encontrará el formulario de solicitud para el procedimiento Solicitud de Bonificación sobre Buques (Medioambiental, calidad...). Se trata de un PDF rellenable, que una vez correctamente rellenado e impreso podrá entregar en el registro de la entidad. Los trámites registrados de forma presencial solo afectan a personas físicas y no jurídicas",
+    "download_application_form": "Descargar modelo de solicitud"
+  },
+  "header": {
+    "carpeta": "Área de Cliente"
+  },
+  "electronic-services": {
+    "document-verification": {
+      "title": "SERVICIOS ELECTRÓNICOS: <br> VERIFICACIÓN DE DOCUMENTOS POR CSV",
+      "text": "Los documentos electrónicos generados por INSTITUT VALENCIÀ DE FINANCES en su Sede Electrónica incluyen en sus páginas un código que se denomina Código Seguro de Verificación (o CSV). Este código es el que permite comprobar la autenticidad del documento impreso en papel por un tercero interesado. <br><br> Para verificar un documento con CSV deberá introducir su código en la casilla siguiente y pulsar el botón \"Verificar documento\". El resultado será un documento electrónico, fiel reflejo del documento a cotejar, que podrá usar para verificar la coincidencia de los datos que tiene INSTITUT VALENCIÀ DE FINANCES con el documento en papel del que se dispone.",
+      "button": "Aceptar",
+      "placeholder_csv": "Introduzca el CSV",
+      "error_captcha": "Ha de marcar el captcha.",
+      "error_csv": "Este campo es obligatorio.",
+      "error_csv_mal": "Este csv no existe.",
+      "where_title": "Dónde se encuentra el Código Seguro de Verificación",
+      "where_text": "El código CSV es el se encuentra impreso en la parte inferior de los documentos electrónicos generados por INSTITUT VALENCIÀ DE FINANCES, justo debajo de \"Código seguro de validación\"."
     },
-    "header": {
-      "carpeta": "Área de Cliente"
+    "electronic-invoice": {
+      "title": "SERVICIOS ELECTRÓNICOS: <br>  FACTURA ELECTRÓNICA",
+      "text": "INSTITUT VALENCIÀ DE FINANCES se encuentra adherida al Punto General de Entrada de Facturas Electrónicas (FACe) de la Administración General del Estado. La plataforma FACe permite a proveeodres la remisión de facturas electrónicas, simplificando el envío de las mismas. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a FACe.",
+      "button": "Ir a FACe"
     },
-    "electronic-services": {
-      "document-verification": {
-        "title": "SERVICIOS ELECTRÓNICOS: <br> VERIFICACIÓN DE DOCUMENTOS POR CSV",
-        "text": "Los documentos electrónicos generados por INSTITUT VALENCIÀ DE FINANCES en su Sede Electrónica incluyen en sus páginas un código que se denomina Código Seguro de Verificación (o CSV). Este código es el que permite comprobar la autenticidad del documento impreso en papel por un tercero interesado. <br><br> Para verificar un documento con CSV deberá introducir su código en la casilla siguiente y pulsar el botón \"Verificar documento\". El resultado será un documento electrónico, fiel reflejo del documento a cotejar, que podrá usar para verificar la coincidencia de los datos que tiene INSTITUT VALENCIÀ DE FINANCES con el documento en papel del que se dispone.",
-        "button": "Aceptar",
-        "placeholder_csv": "Introduzca el CSV",
-        "error_captcha": "Ha de marcar el captcha.",
-        "error_csv": "Este campo es obligatorio.",
-        "error_csv_mal": "Este csv no existe.",
-        "where_title": "Dónde se encuentra el Código Seguro de Verificación",
-        "where_text": "El código CSV es el se encuentra impreso en la parte inferior de los documentos electrónicos generados por INSTITUT VALENCIÀ DE FINANCES, justo debajo de \"Código seguro de validación\"."
+    "notifications": {
+      "title": "SERVICIOS ELECTRÓNICOS: <br>  BUZÓN DE COMUNICACIONES",
+      "text": "El buzón de comunicaciones es el lugar donde gestionar sus notificaciones electrónicas recibidas, o aquellas de terceros a las que haya sido autorizado. Puede consultar el detalle de las notificaciones electrónicas recibidas accediendo a la Carpeta Ciudadana, empleando para ello su certificado electrónico. <br> Una vez en la Carpeta Ciudadana, diríjase al apartado \"Tus notificaciones y comunicaciones\"",
+      "button": "Ir a Carpeta"
+    },
+    "valide": {
+      "title": "SERVICIOS ELECTRÓNICOS: <br>  VALIDACIÓN DE FIRMAS Y CERTIFICADOS",
+      "text": "El objetivo de este servicio es permitir comprobar que el certificado electrónico utilizado es un certificado válido y que no ha sido revocado. También permite comprobar la validez de una firma electrónica realizada mediante certificado digital emitido por un prestador de servicios de certificación reconocido, y realizar firmas mediante certificado digital del que se disponga de la clave privada correspondiente. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a VALIDe, servicio on-line ofrecido por el Ministerio de Política Territorial y Función Pública para la validación de Firmas y Certificados electrónicos.",
+      "button": "Ir a VALIDe"
+    }
+  },
+  "know_sede": {
+    "title": "CONOCE LA SEDE ELECTRÓNICA",
+    "components": {
+      "know_sede": {
+        "name": "Conoce la sede electrónica",
+        "texto": "La <b>Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES</b> es la dirección electrónica disponible para los ciudadanos a través de redes de telecomunicaciones cuya titularidad, gestión y administración corresponde a el propio INSTITUT VALENCIÀ DE FINANCES en el ejercicio de sus competencias. <br><br> De acuerdo a la definición establecida en la Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos, en su Artículo 10.1, la <b>Sede Electrónica</b> sería el equivalente en los servicios que suministra el <b>INSTITUT VALENCIÀ DE FINANCES</b> por el canal digital, a una sede física y los servicios que éste suministra por el canal presencial. <br><br> Los servicios e información que esta Ley prescribe, aunque no excluye otras informaciones, se centran claramente en aquello que conllevan los actos administrativos portadores de derechos y obligaciones, es decir, en lo relativo a actos con contenido jurídico o trámites, más la información directamente relacionada con ellos. <br> <br> <br> <b>NORMATIVA VIGENTE</b> <br> <br> Las dos normas vigentes más importantes para determinar el contenido de la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES, con rango de Ley del Estado, son las siguientes: <br><br> <b>Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas</b> <br> Esta Ley subsume tanto la primera Ley específicamente dedicada a la Administración Electrónica, es decir, la Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos, como parte de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, en este caso todo lo referido a lo que su propio nombre indica. En ella se prescribe, de forma inequívoca, el formato de documentos y expedientes como obligatoriamente digitales, y se regula claramente el contenido mínimo de las sedes, aunque no prohíbe la inclusión de otros apartados.  <br><br> <b>Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público</b> <br> Esta Ley subsume el otro aspecto de la Ley 30/1992 que recoge en el nombre. Aunque de enorme importancia para algunos de los componentes fundamentales de la Administración Electrónica, respecto a la Sede Electrónica sólo establece, en su artículo 38, ciertas reglas y principios de actuación de las sedes electrónicas, como transparencia, publicidad, responsabilidad, calidad, seguridad, disponibilidad, accesibilidad, neutralidad e interoperabilidad, pero no prescribe contenidos específicos. "
       },
-      "electronic-invoice": {
-        "title": "SERVICIOS ELECTRÓNICOS: <br>  FACTURA ELECTRÓNICA",
-        "text": "INSTITUT VALENCIÀ DE FINANCES se encuentra adherida al Punto General de Entrada de Facturas Electrónicas (FACe) de la Administración General del Estado. La plataforma FACe permite a proveeodres la remisión de facturas electrónicas, simplificando el envío de las mismas. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a FACe.",
-        "button": "Ir a FACe"
+      "normative": {
+        "name": "Normativa de la sede",
+        "texto": "<table class=\"table table-bordered table-striped\"><thead style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><th class=\"col-2\">Norma</th><th class=\"col-2\">Artículo</th><th class=\"col-8\" >Texto</th></tr></thead><tbody style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 5.<br>Representación</span></td><td class=\"col-8 text-justify\"><span>4. La representaci&oacute;n podr&aacute; acreditarse mediante cualquier medio válido en Derecho que deje constancia fidedigna de su existencia. A estos efectos, se entender&aacute; acreditada la representaci&oacute;n realizada mediante apoderamiento apud acta efectuado por comparecencia personal o comparecencia electr&oacute;nica en la correspondiente sede electr&oacute;nica, o a trav&eacute;s de la acreditaci&oacute;n de su inscripci&oacute;n en el registro electr&oacute;nico de apoderamientos de la Administraci&oacute;n P&uacute;blica competente.</span></td></tr></tbody></table>"
       },
-      "notifications": {
-        "title": "SERVICIOS ELECTRÓNICOS: <br>  BUZÓN DE COMUNICACIONES",
-        "text": "El buzón de comunicaciones es el lugar donde gestionar sus notificaciones electrónicas recibidas, o aquellas de terceros a las que haya sido autorizado. Puede consultar el detalle de las notificaciones electrónicas recibidas accediendo a la Carpeta Ciudadana, empleando para ello su certificado electrónico. <br> Una vez en la Carpeta Ciudadana, diríjase al apartado \"Tus notificaciones y comunicaciones\"",
-        "button": "Ir a Carpeta"
+      "contents": {
+        "name": "Contenido de la sede",
+        "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">A partir de las exigencias legales que se relacionaron en el epígrafe anterior, se expresan de forma abreviada  los elementos de sede electrónica citados y, para los casos en que se considera más adecuada la publicación de un elemento en otro entorno web diferente a la Sede Electrónica, se consigna el entorno o los entornos designados por la INSTITUT VALENCIÀ DE FINANCES. Los elementos se agrupan por un conjunto de categorías:</p> <ul><li><strong>Identificación:</strong> elementos necesarios para identificación o acreditación con garantías de la propia sede, interesados, representantes, etc</li><li><strong>Publicación/Información:</strong> Publicaciones e informaciones no transaccionales, dirigidas al público en general y cuyo uso no requiere autenticación</li><li><strong>Procedimientos y Registro:</strong> servicios transaccionales por excelencia de presentación telemática de documentos a procedimientos</li><li><strong>Verificación: </strong>servicios de comprobación de certificados, CSV, sellos de órgano, etc</li><li><strong>Enlaces</strong></li></ul></div>"
       },
-      "valide": {
-        "title": "SERVICIOS ELECTRÓNICOS: <br>  VALIDACIÓN DE FIRMAS Y CERTIFICADOS",
-        "text": "El objetivo de este servicio es permitir comprobar que el certificado electrónico utilizado es un certificado válido y que no ha sido revocado. También permite comprobar la validez de una firma electrónica realizada mediante certificado digital emitido por un prestador de servicios de certificación reconocido, y realizar firmas mediante certificado digital del que se disponga de la clave privada correspondiente. <br> Pulsando el siguiente enlace, saldrá de la Sede Electrónica y accederá a VALIDe, servicio on-line ofrecido por el Ministerio de Política Territorial y Función Pública para la validación de Firmas y Certificados electrónicos.",
-        "button": "Ir a VALIDe"
+      "services": {
+        "name": "Servicios de la sede",
+        "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">La Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES ofrece los siguientes servicios a los usuarios:</p><ol class=\"list-letter\"><li><span>Se permite realizar trámites por medios electrónicos y poder realizar una búsqueda de ellos fácilmente, con indicación de los requisitos esenciales para la tramitación, además de la recepción de notificaciones, incluyéndose asi mismo la posibilidad de descarga de la solicitud presentada y de su respectivo justificante.</span></li><li><span>Servicios electrónicos como la validación de firmas y certificados, la factura electrónica y la verificación de documentos.</span></li><li><span>Información sobre la Sede e información esencial para el usuario como la normativa, la fecha y hora, el calendario de días inhábiles, la dirección de la sede física y el número de teléfono para la atención ciudadana.</span></li><li><span>Información sobre cómo obtener el certificado electrónico.</span></li><li><span>Información sobre los requisitos técnicos requeridos.</span></li><li><span>Atención al cliente para interponer quejas y sugerencias.</span></li><li><span>Tablón de anuncios para estar informado de noticias de interés.</span></li><li><span>Servicio de información para solicitar y obtener información relevante.</span></li><li><span>Acceso a la Carpeta Ciudadana.</span></li><li><span>Acceso al Perfil de Contratante.</span></li></ol></div>"
+      },
+      "electronic_record": {
+        "name": "Registro electrónico",
+        "texto": "<div class=\"card-body\"><p class=\"px-2\">El<strong> Registro Electrónico de INSTITUT VALENCIÀ DE FINANCES</strong> es el canal electrónico que permite la presentación telemática de documentos tales como escritos, solicitudes y comunicaciones relacionadas con los trámites. Se trata de un canal alternativo a la presentación de esos mismos documentos en las oficinas de registro.</p><p class=\"px-2\">El servicio de Registro Electrónico está disponible 24 horas al día, todos los días del año, a excepción de las interrupciones que sean necesarias por razones técnicas y que serán anunciadas con la debida antelación a través de la propia Sede Electrónica.</p></div>"
+      },
+      "signature_certificates": {
+        "name": "Firma electrónica y certificados admitidos",
+        "texto": "<div class=\"card-body\"><p class=\"px-2\">El <strong>INSTITUT VALENCIÀ DE FINANCES</strong> usa los certificados electrónicos para la identificación y firma electrónicas en aquellos supuestos en los que la normativa vigente, bien lo permite o bien lo exige.</p><p class=\"px-2\">Actualmente se está trabajando en la implantación gradual de otros mecanismos alternativos y actualmente admitidos en el ámbito de las Administraciones Públicas, tales como autentificación de usuario certificada, Cl@ve y Cl@ve PIN, entre otros.</p></div>"
+      },
+      "document_veriication": {
+        "name": "Verificación de documentos",
+        "texto": "<p class=\"px-2\">Los documentos electrónicos generados por <strong>INSTITUT VALENCIÀ DE FINANCES</strong> en su Sede Electrónica incluyen en sus páginas un código que se denomina Código Seguro de Verificación (o CSV). Este código es el que permite comprobar la autenticidad del documento impreso en papel por un tercero interesado. </p>"
+      },
+      "date": {
+        "name": "Fecha y hora oficial",
+        "texto": "<ul> <li> <strong>Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas.</strong> En su art. 31.2 señala que \"El registro electrónico de cada Administración u Organismo se regirá a efectos de cómputo de los plazos, por la fecha y hora oficial de la sede electrónica de acceso, que deberá contar con las medidas de seguridad necesarias para garantizar su integridad y figurar de modo accesible y visible\".</li><li> <strong>Real Decreto 4/2010, de 8 de enero, por el que se regula el Esquema Nacional de Interoperabilidad en el ámbito de la Administración Electrónica,</strong> señala en el artículo 15.2 que la sincronización de la fecha y la hora se realizará con el Real Instituto y Observatorio de la Armada, de conformidad con lo previsto sobre la hora legal en el Real Decreto 1308/1992, de 23 de octubre.</li></ul> <p class=\"px-2\">En cumplimento de tales disposiciones, la fecha y hora oficiales de la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES se encuentran sincronizadas automáticamente con el reloj del Real Instituto y Observatorio de la Armada. Asimismo, se encontrarán permanentemente visibles en la ficha de cada procedimiento en fase de tramitación online.</p>"
+      },
+      "calendars": {
+        "name": "Calendario de días inhábiles",
+        "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\"> <ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem;\"><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">25 de Diciembre , Navidad</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Enero</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 de Marzo</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">18 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Mayo</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">10 de Junio</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">15 de Agosto</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">27 de Septiembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 de Octubre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Noviembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Diciembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">11 de Enero</li></ul></div>"
+      },
+      "records_offices": {
+        "name": "Oficinas de asistencia en materia de registros",
+        "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\">Atención presencial</div><div class=\"card-body\"><p class=\"px-2\"><strong>Oficinas de INSTITUT VALENCIÀ DE FINANCES</strong></p><p class=\"px-2\">Dirección  <span class=\"ml-3 font-italic\">Plaza de Nápoles y Sicilia, 6, 46003 – Valencia.</span></p>  <p class=\"px-2\">Teléfono <span class=\"ml-4 font-italic\">961 97 17 00</span></p> <p class=\"px-2\">Localización</p> </div>"
+      },
+      "programs_stops": {
+        "name": "Paradas programadas",
+        "texto": "<div class=\"card-body\"><p class=\"px-2\">No existen paradas programadas para el servicio que presta la Sede Electrónica.</p></div>"
+      }
+    }
+  },
+  "technical_requirements": {
+    "title": "REQUISITOS TÉCNICOS",
+    "header_card": "COMPONENTES DE SOFTWARE",
+    "text": "Para el correcto funcionamiento de la aplicación son necesarios: <br><br><ul><li><b>Certificado electrónico. </b> Existen actualmente tres opciones:<br><ul><ol>El DNI electrónico (DNIe) </ol><ol>Otros certificados admitidos por los Organismos de la Administración Pública Española. </ol></ul></li><li><b>Adobe Acrobat Reader.</b> Disponemos de la descarga gratuita en:<a href=”http://get.adobe.com/es/reader”>http://get.adobe.com/es/reader</a> </li><li><b>Programa Autofirma </b> del Ministerio de Hacienda y Administraciones Públicas. Disponemos de la descarga gratuita en: <a href=”https://firmaelectronica.gob.es/Home/Descargas.html”> https://firmaelectronica.gob.es/Home/Descargas.html</a> El uso de AutoFirma como herramienta de firma integrada dentro del proceso de firma de trámites web tiene los siguientes requerimientos en cuanto a sistema operativo:<br><li>Microsoft Windows 7 o superior.Soportado directamente en 7, 8, 8.1 y 10.En 32 o 64 bits. </li><li>LinuxGuadalinex, Ubuntu. </li><li>Apple OS X Yosemite o superior.Soportado directamente en Yosemite, El Capitán o Sierra. </li></li>"
+  },
+  "how_electronic": {
+    "title": "CÓMO OBTENER EL CERTIFICADO ELECTRÓNICO",
+    "header_card": "DNI ELECTRÓNICO",
+    "text": "El nuevo Documento Nacional de Identidad electrónico (<b>DNIe</b>), es el documento similar al tradicional DNI y que acredita -desde hace más de 50 años- la identidad, los datos personales que en él aparecen y la nacionalidad española de su titular. La principal novedad del nuevo DNIe es que incorpora un microchip capaz de guardar de forma segura información y de procesarla internamente.<br><br> El nuevo DNIe contiene en el interior de su microchip dos certificados electrónicos que sirven para realizar sendas funciones, dentro del ámbito de la tramitación electrónica: <br><br> <ol><li><b>Acreditar la identidad de la persona </b> electrónicamente y de forma indubitada</li><li><b>Firmar digitalmente documentos electrónicos</b>, otorgándoles una validez jurídica equivalente a la que les proporciona la firma manuscrita </li> </ol><br> Si usted dispone del nuevo DNI Electrónico, debe asegurarse de que tiene activados los certificados electrónicos anteriormente mencionados, para lo que deberá acreditar su identidad mediante la huella digital en cualquier sede física de la Oficina del DNI en Territorio Español: <a href=\"https://www.policia.es/_es/dependencias_localizador_accesible.php\">https://www.policia.es/_es/dependencias_localizador_accesible.php</a> <br><br> Si no dispone del nuevo DNI Electrónico, tiene la opción de expedir uno nuevo en cualquier oficina del DNI en Territorio Español u optar por el uso de los otros tipos de certificados que se mencionan más adelante en esta página."
+  },
+  "accesibility": {
+    "title": "Accesibilidad",
+    "header_card": "COMPONENTES DE SOFTWARE",
+    "text": "Es nuestro objetivo poner toda la información de esta Sede a disposición del mayor número de ciudadanos, evitando la exclusión y promoviendo la accesibilidad para conseguir la universalización de la información. El objetivo es que el mayor número posible de personas puedan navegar por sus páginas sin encontrar dificultades de acceso. <br><br> El tamaño de las fuentes utilizadas es adaptable y el visitante puede cambiarlo conforme a sus necesidades. La mayoría de los navegadores dispone de una opción de menú (Ver - Tamaño de texto) que le permitirá agrandar y reducir las fuentes, y puede conseguir el mismo efecto girando la rueda del ratón mientras pulsa la tecla Control. <br><br> Esta Sede Electrónica ha sido desarrollada siguiendo la norma UNE 139803:2012 y se ajusta a las pautas definidas por el grupo de trabajo permanente <a href=\"https://www.w3.org/WAI/\">Web Accessibility Initiative (WAI)</a> del Consorcio para la World Wide Web (W3C) para su <a href=\"https://www.w3.org/TR/WCAG20/\"> nivel AA.</a> <br><br> Nuestro trabajo y nuestro esfuerzo van encaminados a seguir mejorando de forma continua la accesibilidad de esta Sede. Por ello esperamos su colaboración y les invitamos a ayudarnos a continuar mejorando este sitio web mediante el envío de sus comentarios y sugerencias en la sección de \"Contacto\" que figura al pie de página de esta Sede. "
+  },
+  "legal_warning": {
+    "title": "Aviso legal",
+    "header_card": "INTRODUCCIÓN",
+    "text": "<p dir=\"ltr\">La titularidad del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es&nbsp; la Autoridad Portuaria de Cartagena, con domicilio en Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">La Autoridad Portuaria de Cartagena es un organismo de derecho p&uacute;blico dependiente del Ministerio de Fomento, y se rige fundamentalmente por el Real Decreto Legislativo 2/2011, de 5 de Septiembre, por el que se aprueba el Texto Refundido de la Ley de Puertos del Estado y de la Marina Mercante.</p><p dir=\"ltr\"><strong>POL&Iacute;TICAS DE ACCESO Y USO DEL PORTAL</strong></p><p dir=\"ltr\">El presente aviso e informaci&oacute;n legal regula el uso del servicio de la p&aacute;gina web de Internet&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;(en adelante, el \"Portal\") que la APC pone a disposici&oacute;n de los usuarios de Internet en las siguientes condiciones:</p><p dir=\"ltr\"><strong>A) DATOS IDENTIFICATIVOS DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">El titular del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es la Autoridad Portuaria de Cartagena, con domicilio Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">Datos de Contacto</p><p dir=\"ltr\">Denominaci&oacute;n Social: AUTORITAD PORTUARIA DE CARTAGENA, SL.</p><p dir=\"ltr\">Domicilio Social: Plaza H&eacute;roes de Cavite,30201 Cartagena</p><p dir=\"ltr\">Tel&eacute;fono: (+34) 968 32 58 00</p><p dir=\"ltr\">Fax: (+34) 968 32 58 15</p><p dir=\"ltr\">Correo electr&oacute;nico: cartagena@apc.es</p><p dir=\"ltr\"><strong>B) OBJETO DEL PORTAL</strong></p><p dir=\"ltr\">El portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es una iniciativa de la Autoridad Portuaria de Cartagena que persigue un doble objetivo: por un lado, constituye una herramienta de difusi&oacute;n de la informaci&oacute;n y actividades que realizan las diferentes &aacute;reas de este Organismo P&uacute;blico&nbsp; y, por otro, es un instrumento para la modernizaci&oacute;n de la gesti&oacute;n del propio Organismo.</p>"
+  },
+  "areas": {
+    "title": "Áreas"
+  },
+  "error_texts": {
+    "input": {
+      "format_error": "Formato incorrecto",
+      "empty_error": "Falta por rellenar el campo",
+      "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres ",
+      "document_error": "Falta documento"
+    },
+    "pop_up" : {
+      "format_error" : {
+        "title": "Extensión no permitida",
+        "text": "Las extensiones de archivo permitidas son:"
+      },
+      "size_error" : {
+        "title": "Tamaño inválido",
+        "text": "Archivo demasiado grande. Máximo permitido:"
+      }
+    }
+  },
+  "carpeta_ciudadana": {
+    "title": "Área de Cliente",
+    "breadcrumb": {
+      "applicant": "Solicitante",
+      "my_request": "Mi solicitud"
+    },
+    "placeholder": {
+      "input": "Escriba aquí",
+      "select": "Selecciona"
+    },
+    "confirmation": {
+      "title": "Resumen",
+      "exit": "Su solicitud ha sido presentada con éxito",
+      "interested": "INTERESADO",
+      "date": "FECHA DE PRESENTACIÓN",
+      "thing": "ASUNTO",
+      "register_number": "NÚMERO REGISTRO ENTRADA",
+      "resum_pdf": "RESUMEN DE SU SOLICITUD",
+      "sup_doc": "JUSTIFICANTE REGISTRO DE ENTRADA",
+      "download_sup": "Descargar justificante",
+      "download_resum": "Descargar solicitud",
+      "footer_tab": "Una vez iniciada la tramitación de su solicitud, puede consultar el estado de la misma accediendo al listado de Solicitudes del"
+    },
+    "init_page": {
+      "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
+      "btn_electronic_certificate": "Acceso con certificado electrónico",
+      "btn_clave": "Acceso con clave"
+    },
+    "instance": {
+      "title": "Instancia General",
+      "infoSol": "Información de la solicitud",
+      "interested": {
+        "title": "Datos Interesado",
+        "name_and_surname": "Nombre y Apellidos",
+        "nifCif": "NIF o CIF",
+        "telephone": "Teléfono",
+        "email": "E-mail",
+        "linkDates": "Puede editar sus datos personales en ",
+        "link": "este enlace"
+      },
+      "docAdd": "Documentación adicional",
+      "doc": {
+        "drag": "Arrastre aquí el archivo para adjuntarlo o",
+        "explore": "explorar"
+      },
+      "presentarSolicitud": "Presentar solicitud",
+      "present_request": {
+        "title": "Presentar solicitud",
+        "button": "Firmar y presentar",
+        "text_link": "Solicitud",
+        "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
+      },
+      "notification": {
+        "title": "Datos a Efecto de Notificación",
+        "type": "Tipo de vía",
+        "direction": "Dirección",
+        "number": "Número",
+        "extra": "Extra",
+        "CP": "Código Postal",
+        "country": "País",
+        "province": "Provincia",
+        "municipality": "Municipio",
+        "resum": "Resumen",
+        "expone": "Expone",
+        "request": "Solicita",
+        "street": "Calle",
+        "avenue": "Avenida",
+        "square": "Plaza",
+        "promenade": "Paseo",
+        "lane": "Camino",
+        "boulevard": "Rambla",
+        "passage": "Pasaje",
+        "selectStreet": "Seleccione vía",
+        "selectCountry": "Seleccione País",
+        "selectProvince": "Seleccione provincia",
+        "selectMunicipality": "Seleccione municipio"
       }
     },
-    "know_sede": {
-      "title": "CONOCE LA SEDE ELECTRÓNICA",
-      "components": {
-        "know_sede": {
-          "name": "Conoce la sede electrónica",
-          "texto": "La <b>Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES</b> es la dirección electrónica disponible para los ciudadanos a través de redes de telecomunicaciones cuya titularidad, gestión y administración corresponde a el propio INSTITUT VALENCIÀ DE FINANCES en el ejercicio de sus competencias. <br><br> De acuerdo a la definición establecida en la Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos, en su Artículo 10.1, la <b>Sede Electrónica</b> sería el equivalente en los servicios que suministra el <b>INSTITUT VALENCIÀ DE FINANCES</b> por el canal digital, a una sede física y los servicios que éste suministra por el canal presencial. <br><br> Los servicios e información que esta Ley prescribe, aunque no excluye otras informaciones, se centran claramente en aquello que conllevan los actos administrativos portadores de derechos y obligaciones, es decir, en lo relativo a actos con contenido jurídico o trámites, más la información directamente relacionada con ellos. <br> <br> <br> <b>NORMATIVA VIGENTE</b> <br> <br> Las dos normas vigentes más importantes para determinar el contenido de la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES, con rango de Ley del Estado, son las siguientes: <br><br> <b>Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas</b> <br> Esta Ley subsume tanto la primera Ley específicamente dedicada a la Administración Electrónica, es decir, la Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos, como parte de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, en este caso todo lo referido a lo que su propio nombre indica. En ella se prescribe, de forma inequívoca, el formato de documentos y expedientes como obligatoriamente digitales, y se regula claramente el contenido mínimo de las sedes, aunque no prohíbe la inclusión de otros apartados.  <br><br> <b>Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público</b> <br> Esta Ley subsume el otro aspecto de la Ley 30/1992 que recoge en el nombre. Aunque de enorme importancia para algunos de los componentes fundamentales de la Administración Electrónica, respecto a la Sede Electrónica sólo establece, en su artículo 38, ciertas reglas y principios de actuación de las sedes electrónicas, como transparencia, publicidad, responsabilidad, calidad, seguridad, disponibilidad, accesibilidad, neutralidad e interoperabilidad, pero no prescribe contenidos específicos. "
-        },
-        "normative": {
-          "name": "Normativa de la sede",
-          "texto": "<table class=\"table table-bordered table-striped\"><thead style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><th class=\"col-2\">Norma</th><th class=\"col-2\">Artículo</th><th class=\"col-8\" >Texto</th></tr></thead><tbody style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 5.<br>Representación</span></td><td class=\"col-8 text-justify\"><span>4. La representaci&oacute;n podr&aacute; acreditarse mediante cualquier medio válido en Derecho que deje constancia fidedigna de su existencia. A estos efectos, se entender&aacute; acreditada la representaci&oacute;n realizada mediante apoderamiento apud acta efectuado por comparecencia personal o comparecencia electr&oacute;nica en la correspondiente sede electr&oacute;nica, o a trav&eacute;s de la acreditaci&oacute;n de su inscripci&oacute;n en el registro electr&oacute;nico de apoderamientos de la Administraci&oacute;n P&uacute;blica competente.</span></td></tr></tbody></table>"
-        },
-        "contents": {
-          "name": "Contenido de la sede",
-          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">A partir de las exigencias legales que se relacionaron en el epígrafe anterior, se expresan de forma abreviada  los elementos de sede electrónica citados y, para los casos en que se considera más adecuada la publicación de un elemento en otro entorno web diferente a la Sede Electrónica, se consigna el entorno o los entornos designados por la INSTITUT VALENCIÀ DE FINANCES. Los elementos se agrupan por un conjunto de categorías:</p> <ul><li><strong>Identificación:</strong> elementos necesarios para identificación o acreditación con garantías de la propia sede, interesados, representantes, etc</li><li><strong>Publicación/Información:</strong> Publicaciones e informaciones no transaccionales, dirigidas al público en general y cuyo uso no requiere autenticación</li><li><strong>Procedimientos y Registro:</strong> servicios transaccionales por excelencia de presentación telemática de documentos a procedimientos</li><li><strong>Verificación: </strong>servicios de comprobación de certificados, CSV, sellos de órgano, etc</li><li><strong>Enlaces</strong></li></ul></div>"
-        },
-        "services": {
-          "name": "Servicios de la sede",
-          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">La Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES ofrece los siguientes servicios a los usuarios:</p><ol class=\"list-letter\"><li><span>Se permite realizar trámites por medios electrónicos y poder realizar una búsqueda de ellos fácilmente, con indicación de los requisitos esenciales para la tramitación, además de la recepción de notificaciones, incluyéndose asi mismo la posibilidad de descarga de la solicitud presentada y de su respectivo justificante.</span></li><li><span>Servicios electrónicos como la validación de firmas y certificados, la factura electrónica y la verificación de documentos.</span></li><li><span>Información sobre la Sede e información esencial para el usuario como la normativa, la fecha y hora, el calendario de días inhábiles, la dirección de la sede física y el número de teléfono para la atención ciudadana.</span></li><li><span>Información sobre cómo obtener el certificado electrónico.</span></li><li><span>Información sobre los requisitos técnicos requeridos.</span></li><li><span>Atención al cliente para interponer quejas y sugerencias.</span></li><li><span>Tablón de anuncios para estar informado de noticias de interés.</span></li><li><span>Servicio de información para solicitar y obtener información relevante.</span></li><li><span>Acceso a la Carpeta Ciudadana.</span></li><li><span>Acceso al Perfil de Contratante.</span></li></ol></div>"
-        },
-        "electronic_record": {
-          "name": "Registro electrónico",
-          "texto": "<div class=\"card-body\"><p class=\"px-2\">El<strong> Registro Electrónico de INSTITUT VALENCIÀ DE FINANCES</strong> es el canal electrónico que permite la presentación telemática de documentos tales como escritos, solicitudes y comunicaciones relacionadas con los trámites. Se trata de un canal alternativo a la presentación de esos mismos documentos en las oficinas de registro.</p><p class=\"px-2\">El servicio de Registro Electrónico está disponible 24 horas al día, todos los días del año, a excepción de las interrupciones que sean necesarias por razones técnicas y que serán anunciadas con la debida antelación a través de la propia Sede Electrónica.</p></div>"
-        },
-        "signature_certificates": {
-          "name": "Firma electrónica y certificados admitidos",
-          "texto": "<div class=\"card-body\"><p class=\"px-2\">El <strong>INSTITUT VALENCIÀ DE FINANCES</strong> usa los certificados electrónicos para la identificación y firma electrónicas en aquellos supuestos en los que la normativa vigente, bien lo permite o bien lo exige.</p><p class=\"px-2\">Actualmente se está trabajando en la implantación gradual de otros mecanismos alternativos y actualmente admitidos en el ámbito de las Administraciones Públicas, tales como autentificación de usuario certificada, Cl@ve y Cl@ve PIN, entre otros.</p></div>"
-        },
-        "document_veriication": {
-          "name": "Verificación de documentos",
-          "texto": "<p class=\"px-2\">Los documentos electrónicos generados por <strong>INSTITUT VALENCIÀ DE FINANCES</strong> en su Sede Electrónica incluyen en sus páginas un código que se denomina Código Seguro de Verificación (o CSV). Este código es el que permite comprobar la autenticidad del documento impreso en papel por un tercero interesado. </p>"
-        },
-        "date": {
-          "name": "Fecha y hora oficial",
-          "texto": "<ul> <li> <strong>Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas.</strong> En su art. 31.2 señala que \"El registro electrónico de cada Administración u Organismo se regirá a efectos de cómputo de los plazos, por la fecha y hora oficial de la sede electrónica de acceso, que deberá contar con las medidas de seguridad necesarias para garantizar su integridad y figurar de modo accesible y visible\".</li><li> <strong>Real Decreto 4/2010, de 8 de enero, por el que se regula el Esquema Nacional de Interoperabilidad en el ámbito de la Administración Electrónica,</strong> señala en el artículo 15.2 que la sincronización de la fecha y la hora se realizará con el Real Instituto y Observatorio de la Armada, de conformidad con lo previsto sobre la hora legal en el Real Decreto 1308/1992, de 23 de octubre.</li></ul> <p class=\"px-2\">En cumplimento de tales disposiciones, la fecha y hora oficiales de la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES se encuentran sincronizadas automáticamente con el reloj del Real Instituto y Observatorio de la Armada. Asimismo, se encontrarán permanentemente visibles en la ficha de cada procedimiento en fase de tramitación online.</p>"
-        },
-        "calendars": {
-          "name": "Calendario de días inhábiles",
-          "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\"> <ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem;\"><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">25 de Diciembre , Navidad</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Enero</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 de Marzo</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">18 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 de Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Mayo</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">10 de Junio</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">15 de Agosto</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">27 de Septiembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 de Octubre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Noviembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Diciembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">11 de Enero</li></ul></div>"
-        },
-        "records_offices": {
-          "name": "Oficinas de asistencia en materia de registros",
-          "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\">Atención presencial</div><div class=\"card-body\"><p class=\"px-2\"><strong>Oficinas de INSTITUT VALENCIÀ DE FINANCES</strong></p><p class=\"px-2\">Dirección  <span class=\"ml-3 font-italic\">Plaza de Nápoles y Sicilia, 6, 46003 – Valencia.</span></p>  <p class=\"px-2\">Teléfono <span class=\"ml-4 font-italic\">961 97 17 00</span></p> <p class=\"px-2\">Localización</p> </div>"
-        },
-        "programs_stops": {
-          "name": "Paradas programadas",
-          "texto": "<div class=\"card-body\"><p class=\"px-2\">No existen paradas programadas para el servicio que presta la Sede Electrónica.</p></div>"
-        }
-      }
-    },
-    "technical_requirements": {
-      "title": "REQUISITOS TÉCNICOS",
-      "header_card": "COMPONENTES DE SOFTWARE",
-      "text": "Para el correcto funcionamiento de la aplicación son necesarios: <br><br><ul><li><b>Certificado electrónico. </b> Existen actualmente tres opciones:<br><ul><ol>El DNI electrónico (DNIe) </ol><ol>Otros certificados admitidos por los Organismos de la Administración Pública Española. </ol></ul></li><li><b>Adobe Acrobat Reader.</b> Disponemos de la descarga gratuita en:<a href=”http://get.adobe.com/es/reader”>http://get.adobe.com/es/reader</a> </li><li><b>Programa Autofirma </b> del Ministerio de Hacienda y Administraciones Públicas. Disponemos de la descarga gratuita en: <a href=”https://firmaelectronica.gob.es/Home/Descargas.html”> https://firmaelectronica.gob.es/Home/Descargas.html</a> El uso de AutoFirma como herramienta de firma integrada dentro del proceso de firma de trámites web tiene los siguientes requerimientos en cuanto a sistema operativo:<br><li>Microsoft Windows 7 o superior.Soportado directamente en 7, 8, 8.1 y 10.En 32 o 64 bits. </li><li>LinuxGuadalinex, Ubuntu. </li><li>Apple OS X Yosemite o superior.Soportado directamente en Yosemite, El Capitán o Sierra. </li></li>"
-    },
-    "how_electronic": {
-      "title": "CÓMO OBTENER EL CERTIFICADO ELECTRÓNICO",
-      "header_card": "DNI ELECTRÓNICO",
-      "text": "El nuevo Documento Nacional de Identidad electrónico (<b>DNIe</b>), es el documento similar al tradicional DNI y que acredita -desde hace más de 50 años- la identidad, los datos personales que en él aparecen y la nacionalidad española de su titular. La principal novedad del nuevo DNIe es que incorpora un microchip capaz de guardar de forma segura información y de procesarla internamente.<br><br> El nuevo DNIe contiene en el interior de su microchip dos certificados electrónicos que sirven para realizar sendas funciones, dentro del ámbito de la tramitación electrónica: <br><br> <ol><li><b>Acreditar la identidad de la persona </b> electrónicamente y de forma indubitada</li><li><b>Firmar digitalmente documentos electrónicos</b>, otorgándoles una validez jurídica equivalente a la que les proporciona la firma manuscrita </li> </ol><br> Si usted dispone del nuevo DNI Electrónico, debe asegurarse de que tiene activados los certificados electrónicos anteriormente mencionados, para lo que deberá acreditar su identidad mediante la huella digital en cualquier sede física de la Oficina del DNI en Territorio Español: <a href=\"https://www.policia.es/_es/dependencias_localizador_accesible.php\">https://www.policia.es/_es/dependencias_localizador_accesible.php</a> <br><br> Si no dispone del nuevo DNI Electrónico, tiene la opción de expedir uno nuevo en cualquier oficina del DNI en Territorio Español u optar por el uso de los otros tipos de certificados que se mencionan más adelante en esta página."
-    },
-    "accesibility": {
-      "title": "Accesibilidad",
-      "header_card": "COMPONENTES DE SOFTWARE",
-      "text": "Es nuestro objetivo poner toda la información de esta Sede a disposición del mayor número de ciudadanos, evitando la exclusión y promoviendo la accesibilidad para conseguir la universalización de la información. El objetivo es que el mayor número posible de personas puedan navegar por sus páginas sin encontrar dificultades de acceso. <br><br> El tamaño de las fuentes utilizadas es adaptable y el visitante puede cambiarlo conforme a sus necesidades. La mayoría de los navegadores dispone de una opción de menú (Ver - Tamaño de texto) que le permitirá agrandar y reducir las fuentes, y puede conseguir el mismo efecto girando la rueda del ratón mientras pulsa la tecla Control. <br><br> Esta Sede Electrónica ha sido desarrollada siguiendo la norma UNE 139803:2012 y se ajusta a las pautas definidas por el grupo de trabajo permanente <a href=\"https://www.w3.org/WAI/\">Web Accessibility Initiative (WAI)</a> del Consorcio para la World Wide Web (W3C) para su <a href=\"https://www.w3.org/TR/WCAG20/\"> nivel AA.</a> <br><br> Nuestro trabajo y nuestro esfuerzo van encaminados a seguir mejorando de forma continua la accesibilidad de esta Sede. Por ello esperamos su colaboración y les invitamos a ayudarnos a continuar mejorando este sitio web mediante el envío de sus comentarios y sugerencias en la sección de \"Contacto\" que figura al pie de página de esta Sede. "
-    },
-    "legal_warning": {
-      "title": "Aviso legal",
-      "header_card": "INTRODUCCIÓN",
-      "text": "<p dir=\"ltr\">La titularidad del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es&nbsp; la Autoridad Portuaria de Cartagena, con domicilio en Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">La Autoridad Portuaria de Cartagena es un organismo de derecho p&uacute;blico dependiente del Ministerio de Fomento, y se rige fundamentalmente por el Real Decreto Legislativo 2/2011, de 5 de Septiembre, por el que se aprueba el Texto Refundido de la Ley de Puertos del Estado y de la Marina Mercante.</p><p dir=\"ltr\"><strong>POL&Iacute;TICAS DE ACCESO Y USO DEL PORTAL</strong></p><p dir=\"ltr\">El presente aviso e informaci&oacute;n legal regula el uso del servicio de la p&aacute;gina web de Internet&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;(en adelante, el \"Portal\") que la APC pone a disposici&oacute;n de los usuarios de Internet en las siguientes condiciones:</p><p dir=\"ltr\"><strong>A) DATOS IDENTIFICATIVOS DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">El titular del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es la Autoridad Portuaria de Cartagena, con domicilio Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">Datos de Contacto</p><p dir=\"ltr\">Denominaci&oacute;n Social: AUTORITAD PORTUARIA DE CARTAGENA, SL.</p><p dir=\"ltr\">Domicilio Social: Plaza H&eacute;roes de Cavite,30201 Cartagena</p><p dir=\"ltr\">Tel&eacute;fono: (+34) 968 32 58 00</p><p dir=\"ltr\">Fax: (+34) 968 32 58 15</p><p dir=\"ltr\">Correo electr&oacute;nico: cartagena@apc.es</p><p dir=\"ltr\"><strong>B) OBJETO DEL PORTAL</strong></p><p dir=\"ltr\">El portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es una iniciativa de la Autoridad Portuaria de Cartagena que persigue un doble objetivo: por un lado, constituye una herramienta de difusi&oacute;n de la informaci&oacute;n y actividades que realizan las diferentes &aacute;reas de este Organismo P&uacute;blico&nbsp; y, por otro, es un instrumento para la modernizaci&oacute;n de la gesti&oacute;n del propio Organismo.</p>"
-    },
-    "areas": {
-      "title": "Áreas"
-    },
-    "error_texts": {
-      "input": {
-        "format_error": "Formato incorrecto",
-        "empty_error": "Falta por rellenar el campo",
-        "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres "
-      }
-    },
-    "carpeta_ciudadana": {
-      "title": "Área de Cliente",
-      "breadcrumb": {
-        "applicant": "Solicitante",
-        "my_request": "Mi solicitud"
+    "identification": {
+      "title": "Identificación de Usuario",
+      "identity_data": {
+        "title": "Datos de identificación",
+        "name_and_surname": "Nombre y Apellidos",
+        "nif": "NIF"
       },
-      "placeholder": {
-        "input": "Escriba aquí",
-        "select": "Selecciona"
+      "means_of_notification": {
+        "title": "Medio de notificación",
+        "means": "Medio de notificación",
+        "email": "Email a efecto de notificación",
+        "electronic": "Electrónica",
+        "paper": "Papel"
       },
-      "confirmation": {
-        "title": "Resumen",
-        "exit": "Su solicitud ha sido presentada con éxito",
-        "interested": "INTERESADO",
-        "date": "FECHA DE PRESENTACIÓN",
-        "thing": "ASUNTO",
-        "register_number": "NÚMERO REGISTRO ENTRADA",
-        "resum_pdf": "RESUMEN DE SU SOLICITUD",
-        "sup_doc": "JUSTIFICANTE REGISTRO DE ENTRADA",
-        "download_sup": "Descargar justificante",
-        "download_resum": "Descargar solicitud",
-        "footer_tab": "Una vez iniciada la tramitación de su solicitud, puede consultar el estado de la misma accediendo al listado de Solicitudes del"
-      },
-      "init_page": {
-        "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
-        "btn_electronic_certificate": "Acceso con certificado electrónico",
-        "btn_clave": "Acceso con clave"
+      "interested_data": {
+        "title": "Datos del interesado"
       },
       "instance": {
         "title": "Instancia General",
@@ -287,9 +365,12 @@
         "presentarSolicitud": "Presentar solicitud",
         "present_request": {
           "title": "Presentar solicitud",
-          "button": "Firmar y presentar",
+          "request": "Solicitud",
+          "button": "REVISAR SOLICITUD",
+          "sign" : "Firmar y Presentar",
+          "back": "Volver",
           "text_link": "Solicitud",
-          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
+          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> "
         },
         "notification": {
           "title": "Datos a Efecto de Notificación",
@@ -315,163 +396,115 @@
           "selectCountry": "Seleccione País",
           "selectProvince": "Seleccione provincia",
           "selectMunicipality": "Seleccione municipio"
-        }
+        },
+      "requester_data": {
+        "title": "Datos del solicitante",
+        "type": "Tipo",
+        "type_interested": "Interesado",
+        "type_representative": "Representante",
+        "representation_power": "Poder de representación"
       },
-      "identification": {
-        "title": "Identificación de Usuario",
-        "identity_data": {
-          "title": "Datos de identificación",
-          "name_and_surname": "Nombre y Apellidos",
-          "nif": "NIF"
-        },
-        "means_of_notification": {
-          "title": "Medio de notificación",
-          "means": "Medio de notificación",
-          "email": "Email a efecto de notificación",
-          "electronic": "Electrónica",
-          "paper": "Papel"
-        },
-        "interested_data": {
-          "title": "Datos del interesado"
-        },
-        "requester_data": {
-          "title": "Datos del solicitante",
-          "type": "Tipo",
-          "type_interested": "Interesado",
-          "type_representative": "Representante",
-          "representation_power": "Poder de representación"
-        },
-        "actuation_data": {
-          "title": "Datos de actuación",
-          "actuation": "Actuación en el trámite",
-          "representation_power": "Poder de representación",
-          "check": "Comprobar"
-        },
-        "represented_data": {
-          "title": "Datos del representado",
-          "type": "Tipo",
-          "social_reason": "Razón Social",
-          "name": "Nombre",
-          "surname1": "Apellido 1",
-          "surname2": "Apellido 2",
-          "nif": "NIF",
-          "cnae": "CNAE",
-          "iae": "IAE",
-          "iae_date": "Fecha de alta en la IAE",
-          "employees_number": "Núm. de empleados",
-          "ambit": "Ámbito",
-          "residence_country": "País de residencia",
-          "birth_date": "Fecha de nacimiento",
-          "constitution_date": "Fecha de constitución",
-          "genre": "Género",
-          "active": "Activo",
-          "turnover": "Cifra de negocio",
-          "group_belong": "Pertenece a grupo",
-          "telephone": "Teléfono",
-          "ownGroup": "Pertenece al grupo",
-          "businessType": "Tipo de empresa"
-        },
-        "social_address": {
-          "title": "Domicilio Social"
-        },
-        "productive_establishment_address": {
-          "title": "Domicilio establecimiento productivo"
-        },
-        "legal_representative": {
-          "title": "Representante Legal",
-          "name": "Nombre",
-          "surname1": "Apellido 1",
-          "surname2": "Apellido 2",
-          "nif": "NIF",
-          "position": "Cargo",
-          "telephone": "Teléfono",
-          "email": "Email"
-        },
-        "contact_data": {
-          "title": "Datos de contacto",
-          "check": "Los datos de contacto coinciden con los de Representante Legal",
-          "check_user": "Los datos de contacto coinciden con los del interesado",
-          "name": "Nombre",
-          "surname1": "Apellido 1",
-          "surname2": "Apellido 2",
-          "nif": "NIF",
-          "position": "Cargo",
-          "telephone": "Teléfono",
-          "email": "Email"
-        },
-        "address": {
-          "via_type": "Tipo de vía",
-          "address": "Dirección",
-          "number": "Número",
-          "extra": "Extra",
-          "CP": "Código Postal",
-          "country": "País",
-          "province": "Provincia",
-          "municipality": "Municipio"
-        }
+      "actuation_data": {
+        "title": "Datos de actuación",
+        "actuation": "Actuación en el trámite",
+        "representation_power": "Poder de representación",
+        "check": "Comprobar"
       },
-      "linear_resistance": {
-        "title": "Línea resistir"
+      "represented_data": {
+        "title": "Datos del representado",
+        "type": "Tipo",
+        "social_reason": "Razón Social",
+        "name": "Nombre",
+        "surname1": "Apellido 1",
+        "surname2": "Apellido 2",
+        "nif": "NIF",
+        "cnae": "CNAE",
+        "iae": "IAE",
+        "iae_date": "Fecha de alta en la IAE",
+        "employees_number": "Núm. de empleados",
+        "ambit": "Ámbito",
+        "residence_country": "País de residencia",
+        "birth_date": "Fecha de nacimiento",
+        "constitution_date": "Fecha de constitución",
+        "genre": "Género",
+        "active": "Activo",
+        "turnover": "Cifra de negocio",
+        "group_belong": "Pertenece a grupo",
+        "telephone": "Teléfono",
+        "ownGroup": "Pertenece al grupo",
+        "businessType": "Tipo de empresa"
       },
-      "request_info": {
-        "title": "Información de la solicitud",
-        "financing": {
-          "title": "Detalle de los costes a financiar",
-          "investment": {
-            "title": "Inversión en activos fijos",
-            "ground": "G1 - Terrenos",
-            "properties": "G1 - Inmuebles y construcciones",
-            "machinery": "G1 - Maquinaria y utillaje",
-            "installation": "G1 - Instalaciones",
-            "others": "G1 - Otros"
-          },
-          "financing_fixed": {
-            "title": "Financiación prevista en activos fijos",
-            "own_resources": "Recursos propios",
-            "grants": "Subvenciones",
-            "other_bank_financing": "Otra financiación bancaria",
-            "active_ivf": "Financiable IVF activo"
-          },
-          "financing_assets": {
-            "title": "Financiación prevista en activos circulantes",
-            "current_assets": "G2 - Importe a financiar activo circulante",
-            "bankalbe_current_assets": "G2 - Financiable activo circulante"
-          },
-          "financing_requested": {
-            "title": "Financiación solicitada",
-            "g1": "Para inversión en activos Fijos (G1)",
-            "g2": "Para inversión en activo circulante (G2)",
-            "total_loan": "Total préstamo solicitado IVF (*)"
-          }
+      "social_address": {
+        "title": "Domicilio Social"
+      },
+      "productive_establishment_address": {
+        "title": "Domicilio establecimiento productivo"
+      },
+      "legal_representative": {
+        "title": "Representante Legal",
+        "name": "Nombre",
+        "surname1": "Apellido 1",
+        "surname2": "Apellido 2",
+        "nif": "NIF",
+        "position": "Cargo",
+        "telephone": "Teléfono",
+        "email": "Email"
+      },
+      "contact_data": {
+        "title": "Datos de contacto",
+        "check": "Los datos de contacto coinciden con los de Representante Legal",
+        "check_user": "Los datos de contacto coinciden con los del interesado",
+        "name": "Nombre",
+        "surname1": "Apellido 1",
+        "surname2": "Apellido 2",
+        "nif": "NIF",
+        "position": "Cargo",
+        "telephone": "Teléfono",
+        "email": "Email"
+      },
+      "address": {
+        "via_type": "Tipo de vía",
+        "address": "Dirección",
+        "number": "Número",
+        "extra": "Extra",
+        "CP": "Código Postal",
+        "country": "País",
+        "province": "Provincia",
+        "municipality": "Municipio"
+      }
+    },
+    "linear_resistance": {
+      "title": "Línea resistir"
+    },
+    "request_info": {
+      "title": "Información de la solicitud",
+      "financing": {
+        "title": "Detalle de los costes a financiar",
+        "investment": {
+          "title": "Inversión en activos fijos",
+          "ground": "G1 - Terrenos",
+          "properties": "G1 - Inmuebles y construcciones",
+          "machinery": "G1 - Maquinaria y utillaje",
+          "installation": "G1 - Instalaciones",
+          "others": "G1 - Otros"
         },
-        "procedure_info": {
-          "title": "Información del trámite",
-          "import": "Importe",
-          "term": "Plazo (años)",
-          "lack": "Carencia (meses)",
-          "modality": "Modalidad tipo de interés",
-          "company_type": "Tipo de empresa",
-          "project_type": "Tipo de proyecto",
-          "project_definition": "Definición del proyecto"
-        }
-      },
-      "notification_means": {
-        "title": "Medio de notificación",
-        "email": "Email a efecto de notificación"
-      },
-      "documentation": {
-        "title": "Documentación",
-        "documents": "Documentos"
-      },
-      "requests-list": {
-        "title": "Mis Solicitudes"
-      },
-      "general_instance": {
-        "title": "Instancia General",
-        "request_info": {
-          "summary": "Resumen",
-          "expose": "Expone",
-          "request": "Solicita"
+        "financing_fixed": {
+          "title": "Financiación prevista en activos fijos",
+          "own_resources": "Recursos propios",
+          "grants": "Subvenciones",
+          "other_bank_financing": "Otra financiación bancaria",
+          "active_ivf": "Financiable IVF activo"
+        },
+        "financing_assets": {
+          "title": "Financiación prevista en activos circulantes",
+          "current_assets": "G2 - Importe a financiar activo circulante",
+          "bankalbe_current_assets": "G2 - Financiable activo circulante"
+        },
+        "financing_requested": {
+          "title": "Financiación solicitada",
+          "g1": "Para inversión en activos Fijos (G1)",
+          "g2": "Para inversión en activo circulante (G2)",
+          "total_loan": "Total préstamo solicitado IVF (*)"
         }
       },
       "linea_resistir_instance": {
@@ -503,7 +536,64 @@
           "check_3": "Autoriza a que el Institut Valencià de Finances (IVF) pueda consultar por medios electrónicos los datos tributarios y de Seguridad Social directamente de la Administración competente correspondiente, con el fin de comprobar la situación de cumplimiento de las obligaciones de pago con las respectivas Administraciones, así como consultar las bases de datos necesarios para la verificación de los requisitos establecidos en la normativa reguladora de la ayuda.",
           "check_4": "Además del intercambio de información y contacto en relación a esta solicitud de financiación que siempre queda habilitada, autoriza al IVF utilizar la dirección de correo electrónico vinculada a esta solicitud para el envío de comunicaciones comerciales o promocionales. En caso de que no se autorice, sólo queda habilitado el uso del correo exclusivamente para la tramitación de esta solicitud de financiación.",
           "check_5": "El abajo firmante declara bajo su responsabilidad, que todos los datos facilitados son ciertos, y en aplicación de lo dispuesto en el artículo 6.4 del Real Decreto 304/2014, de 5 de mayo, por el que se aprueba el Reglamento de la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y de la financiación del terrorismo, el abajo firmante declara que los documentos de identificación entregados al IVF están vigentes. Según el artículo 11 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, el hecho de presentar la declaración responsable faculta a la Administración para hacer las comprobaciones necesarias para verificar la conformidad de los datos declarados. Asimismo, la tramitación electrónica que ha dado a esta solicitud, conlleva otorgar, a todos los efectos, los consentimientos y autorizaciones pertinentes expresados en este procedimiento para hacer efectiva dicha solicitud."
-        }
+        },
+      "procedure_info": {
+        "title": "Información del trámite",
+        "import": "Importe",
+        "term": "Plazo (años)",
+        "lack": "Carencia (meses)",
+        "modality": "Modalidad tipo de interés",
+        "company_type": "Tipo de empresa",
+        "project_definition": "Definición del proyecto"
+      }
+    },
+    "notification_means": {
+      "title": "Medio de notificación",
+      "email": "Email a efecto de notificación"
+    },
+    "documentation": {
+      "title": "Documentación",
+      "documents": "Documentos",
+      "download": "Descargar Plantilla",
+      "generic": {
+        "dni":"Fotocopia DNI, pasaporte o tarjeta de residencia del solicitante",
+        "help":"Declaración de ayudas recibidas y/o solicitadas para los mismos gastos elegibles ",
+        "responsible_declaration":"Declaración responsable del cumplimiento de los requisitos para ser beneficiario y compromiso expreso del cumplimiento de las obligaciones que en caso de resultar beneficiario corresponderían al solicitante ",
+        "model_303":"Declaraciones trimestrales del IVA (modelo 303) correspondientes al último trimestre de 2019 y a los cuatro trimestres de 2020, así como las relativas a los trimestres de 2021 cerrados con carácter previo a la solicitud de financiación ",
+        "model_347":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
+        "distribution_by_year":"Distribución por año de vencimiento de las obligaciones financieras, incluidas aquellas que resulten de préstamos otorgados por las administraciones públicas en el  marco de su actividad de promoción económica. No es obligatoria su presentación en caso de que la solicitud sea de importe inferior o igual a 50.000 euros"
+      },
+      "autonom": {
+        "tax_returns":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación",
+        "model_390":"Declaraciones resumen-anual del IVA (modelo 390) correspondientes a los ejercicios 2020 y 2019",
+        "self-assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
+        "model_RLC":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social"
+      },
+      "micro_business" :{
+        "society_constitution":"Fotocopia de la escritura de constitución de la sociedad",
+        "beneficial_ownership":"Fotocopia de la escritura de titularidad real de la sociedad o declaración de titularidad real",
+        "legal_representative":"Fotocopia de la escritura de apoderamiento del representante legal",
+        "annual_accounts":"Cuentas anuales depositadas en el Registro de los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación",
+        "42_commercial_code":"Si forma parte de un grupo de empresas, definido conforme al artículo 42 del Código de Comercio, obligado a elaborar estados financieros consolidados, deberá adjuntar también las cuentas anuales consolidadas del grupo, correspondientes a los dos últimos ejercicios cerrados.",
+        "tax_returns":"Declaraciones del impuesto sobre sociedades correspondientes a los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación (sólo en caso de sociedades no auditadas)",
+        "model_390":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
+        "registered_office":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+        "business_group":"Si la sociedad mercantil forma parte de un grupo de empresas, se identificarán las empresas del grupo en un organigrama que incluirá los porcentajes de participación en cada sociedad, y para cada empresa del grupo se indicará el número de empleados, balance y volumen de negocio anual",
+        "PYME":"Modelo de declaración de la condición de PYME"
+      }
+    },
+    "requests-list": {
+      "title": "Mis Solicitudes"
+    },
+    "general_instance": {
+      "title": "Instancia General",
+      "request_info": {
+        "summary": "Resumen",
+        "expose": "Expone",
+        "request": "Solicita"
       }
     }
+}
   }
+}
+}
