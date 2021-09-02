@@ -28,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
+import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-radio-button/confirmation-radio-button.component';
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
@@ -60,6 +61,7 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
+    ConfirmationRadioButtonComponent,
     SafePipe
   ],
   imports: [
@@ -95,6 +97,7 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
+    ConfirmationRadioButtonComponent,
     SafePipe
   ],
   providers: [
