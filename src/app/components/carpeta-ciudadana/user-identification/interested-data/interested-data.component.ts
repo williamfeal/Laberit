@@ -18,6 +18,7 @@ export class InterestedDataComponent implements OnInit {
   public isAutonum: number;
 
   errorCharacterLeng: string = 'empty_error';
+  errorNif: string = 'nif_error';
    public businessType: SelectFieldObject[];
    public siNo: SelectFieldObject[];
   constructor() { }
