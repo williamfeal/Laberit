@@ -299,7 +299,9 @@
       "presentarSolicitud": "Presentar solicitud",
       "present_request": {
         "title": "Presentar solicitud",
-        "button": "Firmar y presentar",
+        "back": "Volver",
+        "button": "REVISAR SOLICITUD",
+        "sign":"Firmar y Presentar",
         "text_link": "Solicitud",
         "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
       },
@@ -346,58 +348,6 @@
       "interested_data": {
         "title": "Datos del interesado"
       },
-      "instance": {
-        "title": "Instancia General",
-        "infoSol": "Información de la solicitud",
-        "interested": {
-          "title": "Datos Interesado",
-          "name_and_surname": "Nombre y Apellidos",
-          "nifCif": "NIF o CIF",
-          "telephone": "Teléfono",
-          "email": "E-mail",
-          "linkDates": "Puede editar sus datos personales en ",
-          "link": "este enlace"
-        },
-        "docAdd": "Documentación adicional",
-        "doc": {
-          "drag": "Arrastre aquí el archivo para adjuntarlo o",
-          "explore": "explorar"
-        },
-        "presentarSolicitud": "Presentar solicitud",
-        "present_request": {
-          "title": "Presentar solicitud",
-          "request": "Solicitud",
-          "button": "REVISAR SOLICITUD",
-          "sign" : "Firmar y Presentar",
-          "back": "Volver",
-          "text_link": "Solicitud",
-          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> "
-        },
-        "notification": {
-          "title": "Datos a Efecto de Notificación",
-          "type": "Tipo de vía",
-          "direction": "Dirección",
-          "number": "Número",
-          "extra": "Extra",
-          "CP": "Código Postal",
-          "country": "País",
-          "province": "Provincia",
-          "municipality": "Municipio",
-          "resum": "Resumen",
-          "expone": "Expone",
-          "request": "Solicita",
-          "street": "Calle",
-          "avenue": "Avenida",
-          "square": "Plaza",
-          "promenade": "Paseo",
-          "lane": "Camino",
-          "boulevard": "Rambla",
-          "passage": "Pasaje",
-          "selectStreet": "Seleccione vía",
-          "selectCountry": "Seleccione País",
-          "selectProvince": "Seleccione provincia",
-          "selectMunicipality": "Seleccione municipio"
-        },
       "requester_data": {
         "title": "Datos del solicitante",
         "type": "Tipo",
@@ -537,7 +487,7 @@
       "autonom": {
         "tax_returns":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación",
         "model_390":"Declaraciones resumen-anual del IVA (modelo 390) correspondientes a los ejercicios 2020 y 2019",
-        "self-assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
+        "self_assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
         "model_RLC":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social"
       },
       "micro_business" :{
@@ -570,5 +520,4 @@
       "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
     }
   }
-}
 }
