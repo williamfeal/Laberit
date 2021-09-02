@@ -13,13 +13,13 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 })
 export class ProceduresHomeComponent implements OnInit {
 
-  public categories:Category[];
+  public categories: Category[];
   private lang = this.translateService.currentLang;
-
+  loading: boolean = true;
   constructor(
-    private categoriesService:CategoriesService,
-    private translateService:TranslateService,
-    private languageService:LanguagesService
+    private categoriesService: CategoriesService,
+    private translateService: TranslateService,
+    private languageService: LanguagesService
   ) { }
 
   ngOnInit(): void {
@@ -29,11 +29,12 @@ export class ProceduresHomeComponent implements OnInit {
         this.getCategories();
       }
     )
-    this.getCategories();   
+    this.getCategories();
   }
 
   private getCategories(): void {
     this.categoriesService.getAllCategories(this.lang).subscribe((categories: Category[]) => {
+      this.loading = false;
       this.categories = categories;
     }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_CATEGORIES, 'info'));
   }
