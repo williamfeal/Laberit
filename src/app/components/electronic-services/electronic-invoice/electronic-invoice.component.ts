@@ -19,7 +19,7 @@ export class ElectronicInvoiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.translate.get('electronic-services.electronic-invoice').subscribe((texts: any) => {
+    this.translate.stream('electronic-services.electronic-invoice').subscribe((texts: any) => {
       this.text = texts.text;
       this.title = texts.title;
       this.button = texts.button;

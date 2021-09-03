@@ -30,7 +30,7 @@ export class DocumentVerificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.translate.get('electronic-services.document-verification').subscribe((texts: any) => {
+    this.translate.stream('electronic-services.document-verification').subscribe((texts: any) => {
       this.title = texts.title;
       let text = document.getElementById("text");
       let csv = document.getElementById("placeholder_csv");
