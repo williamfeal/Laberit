@@ -21,7 +21,6 @@ export class ConoceLaSedeComponent implements OnInit {
     constructor(
         public translate: TranslateService,
         private activatedRoute:ActivatedRoute,
-        private router:Router
         ) {
              this.activatedRoute.fragment.subscribe(
                 fragment => this.fragment = fragment
@@ -42,12 +41,4 @@ export class ConoceLaSedeComponent implements OnInit {
             }
         });
     }
-
-    public changeKnow(categoria) {
-        this.router.navigate(['/conoce-la-sede'], {
-            fragment: categoria.url
-        })
-        this.categoria = categoria;
-    }
-
 }

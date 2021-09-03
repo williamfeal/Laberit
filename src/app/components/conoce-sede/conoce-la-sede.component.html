@@ -1,12 +1,13 @@
 <app-header-category *ngIf="title" [title]="title"></app-header-category>
 <div class="d-flex">
+  	
   <div class="centrar-izquierda ml-4 col-sm-3">
     <ul class="nav flex-column navbar-expand-lg shadow " role="tablist">
       <li *ngFor="let item of menuList" class="nav-item py-2 border-top w-100">
-        <button class="nav-link text-dark text-uppercase" 
-        [ngClass]="{ 'activado': item == categoria }"
-        (click)="changeKnow(item)">
-        {{item.name}} </button>
+        <a class="nav-link text-dark text-uppercase" [routerLink]="['/conoce-la-sede']"
+        [fragment]="item.url" [ngClass]="{ 'activado': item == categoria }"
+        (click)="categoria = item">
+        {{item.name}} </a>
       </li>
     </ul>
   </div>
