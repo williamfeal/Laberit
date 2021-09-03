@@ -182,7 +182,8 @@
     "download_application_form": "Descargar modelo de solicitud"
   },
   "header": {
-    "carpeta": "Área de Cliente"
+    "carpeta": "Área de Cliente",
+    "find_procedures": "Encontrar trámites"
   },
   "electronic-services": {
     "document-verification": {
