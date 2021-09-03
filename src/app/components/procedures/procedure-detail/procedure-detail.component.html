@@ -5,6 +5,9 @@
         <li class="breadcrumb-item active" aria-current="page">{{ infoProcedure.name }}</li>
     </ol>
 </nav>
+<div class="row justify-content-center">
+    <app-spinner *ngIf="!infoProcedure"></app-spinner>
+</div>
 <div class="col-md-11 mx-auto mt-5" *ngIf="infoProcedure">
     <div class="card mb-4">
         <div class="rectangle card-body w-100 d-web-box font-weight-bold shadow">
