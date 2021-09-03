@@ -181,7 +181,8 @@
       "download_application_form": "Descarregar model de sol·licitud"
     },
     "header": {
-      "carpeta": "Àrea de Client"
+      "carpeta": "Àrea de Client",
+      "find_procedures": "Trobar tràmits"
     },
     "electronic-services": {
       "document-verification": {
