@@ -24,7 +24,7 @@ export class AdvertisementsListComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.translate.get("advertisements").subscribe((texts: any) => {
+    this.translate.stream("advertisements").subscribe((texts: any) => {
       this.title = this.translate.instant('advertisements.title'); 
     });    
     this.languageService.lang.subscribe(

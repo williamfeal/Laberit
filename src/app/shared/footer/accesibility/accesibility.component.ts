@@ -18,7 +18,7 @@ export class AccesibilityComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.translate.get('accesibility').subscribe((texts: any) => {
+        this.translate.stream('accesibility').subscribe((texts: any) => {
             this.title = texts.title;
             this.texts = texts;
             this.enviar = true;
