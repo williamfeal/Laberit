@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { ButtonBackComponent } from './button-back/button-back.component';
 import { FooterComponent } from './footer/footer.component';
 import { InputDateComponent } from './form/fields/input-date/input-date.component';
@@ -32,9 +32,13 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
+import localeCa from '@angular/common/locales/ca-ES-VALENCIA';
+import localeEs from '@angular/common/locales/es';
+import { LocalizedDatePipe } from '../utils/pipes/localized-date.pipe';
 
+registerLocaleData(localeEs, 'es');
 
-
+registerLocaleData(localeCa, 'ca-ES');
 @NgModule({
   declarations: [
     ButtonBackComponent,
@@ -62,7 +66,8 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
     HelpHomeComponent,
     HeaderComponent,
     ConfirmationRadioButtonComponent,
-    SafePipe
+    SafePipe,
+    LocalizedDatePipe
   ],
   imports: [
     CommonModule,
@@ -102,7 +107,8 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
   ],
   providers: [
     WeatherService,
-    StyleService
+    StyleService,
+    { provide: LOCALE_ID, useValue: 'es'}
   ]
 })
 export class SharedModule { }

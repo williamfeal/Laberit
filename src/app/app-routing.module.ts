@@ -10,6 +10,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-  constructor( private translateService:TranslateService) { }
-}
+export class AppRoutingModule { } 
