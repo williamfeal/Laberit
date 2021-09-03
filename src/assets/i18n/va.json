@@ -82,7 +82,59 @@
       "button": "Anar a Plataforma Contractació"
     },
     "web_map": {
-      "title": "Mapa Web"
+      "title": "Mapa Web",
+      "home":"Home",
+      "citizen_folder":{
+        "title": "Carpeta Ciutadana",
+        "notification_mailbox":"Bústia de notificacions",
+        "request":"Sol·licituds",
+        "personal_information":"Dades Personals"
+      },
+      "bulletin_board":"Tauler d'anuncis",
+      "contractor_profile":"Perfil de Contractant",
+      "electronic_services":{
+        "title":"Serveis electrònics",
+        "csv":"Verificació de documents per CSV",
+        "signature_certificate":"Validació de Signatures i Certificats",
+        "electronic_bill":"Factura Electrònica",
+        "notification":"Notificacions"
+      },
+      "procedure":{
+        "procedures":"Tràmits",
+        "general_instances":"Instàncies Generals",
+        "bonus_loans":"Préstecs Bonificats"
+      },
+      "help":{
+        "title": "Ajuda",
+        "know_sede":{
+          "know_sede":"Coneix la Seu Electrònica",
+          "normative":"Normativa de la Seu",
+          "contents":"Continguts de la Seu",
+          "services":"Serveis de la seu",
+          "electronic_record":"Registre electrònic",
+          "signature_certificates":"Signatura electrònica i Certificats admesos",
+          "document_veriication":"Verificació de documents",
+          "date":"Data i Hora Oficial",
+          "calendars":"Calendari de dies inhàbils",
+          "records_offices":"Oficina d'assistència en matèria de registres",
+          "programs_stops":"Parades programades"
+        },
+        "how_certificate":"Com obtindre el certificat electrònic",
+        "technical_requirements":"Requisits tècnics",
+        "procedures_finder":"Cercador de tràmits"
+      },
+      "footer":{
+        "contact":{
+          "title":"Contactes",
+          "information": "Sol·licitar informació"
+        },
+        "access": {
+          "title":"Accessos",
+          "Accessibility":"Accessibilitat",
+          "web_map":"Mapa Web",
+          "legal_warning":"Avís legal"
+        }
+      }
     },
     "footer": {
       "contacts": "Contactes",

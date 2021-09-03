@@ -32,6 +32,7 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
+import { WebMapComponent } from './footer/web-map/web-map.component';
 import localeCa from '@angular/common/locales/ca-ES-VALENCIA';
 import localeEs from '@angular/common/locales/es';
 import { LocalizedDatePipe } from '../utils/pipes/localized-date.pipe';
@@ -62,6 +63,7 @@ registerLocaleData(localeCa, 'ca-ES');
     LanguageSelectorComponent,
     HowElectronicCertificateComponent,
     TechnicalRequirementsComponent,
+    WebMapComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
@@ -99,6 +101,7 @@ registerLocaleData(localeCa, 'ca-ES');
     LanguageSelectorComponent,
     HowElectronicCertificateComponent,
     TechnicalRequirementsComponent,
+    WebMapComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,

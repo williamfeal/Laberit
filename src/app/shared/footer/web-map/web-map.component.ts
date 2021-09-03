@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-accesibility',
-    templateUrl: 'accesibility.component.html'
+    selector: 'app-web-map',
+    templateUrl: 'web-map.component.html'
 })
 
-export class AccesibilityComponent implements OnInit {
+export class WebMapComponent implements OnInit {
 
     title: string;
     texts:string;
@@ -14,11 +14,9 @@ export class AccesibilityComponent implements OnInit {
     enviar: boolean;
 
     constructor(public translate: TranslateService) {
-
     }
-
-    ngOnInit() {
-        this.translate.stream('accesibility').subscribe((texts: any) => {
+    ngOnInit() { 
+        this.translate.get('legal_warning').subscribe((texts: any) => {
             this.title = texts.title;
             this.texts = texts;
             this.enviar = true;
