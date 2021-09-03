@@ -32,6 +32,7 @@ import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-rad
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
+import { WebMapComponent } from './footer/web-map/web-map.component';
 
 
 
@@ -58,6 +59,7 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
     LanguageSelectorComponent,
     HowElectronicCertificateComponent,
     TechnicalRequirementsComponent,
+    WebMapComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
@@ -94,6 +96,7 @@ import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-n
     LanguageSelectorComponent,
     HowElectronicCertificateComponent,
     TechnicalRequirementsComponent,
+    WebMapComponent,
     GenericStaticHelpComponent,
     HelpHomeComponent,
     HeaderComponent,
