@@ -60,7 +60,6 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     RequesterDataComponent,
     SocialAddressComponent,
     AceptationComponent,
-
     FirmarYPresentarPopUp
   ],
   imports: [

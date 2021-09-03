@@ -15,7 +15,7 @@ export class ValideComponent implements OnInit {
   enviar = false;
 
   constructor(public translate: TranslateService) {
-    this.translate.get('electronic-services.valide').subscribe((texts: any) => {
+    this.translate.stream('electronic-services.valide').subscribe((texts: any) => {
       this.text = texts.text;
       this.title = texts.title;
       this.button = texts.button;

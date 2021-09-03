@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,17 +14,19 @@ export class ContractorProfileComponent implements OnInit {
   public link = 'https://contrataciondelestado.es/wps/poc?uri=deeplink%3AperfilContratante&idBp=4m5FtivXttEQK2TEfXGy%2BA%3D%3D';
   public enviar = false;
 
-  constructor(public translate: TranslateService) {
+  constructor(
+    public translate: TranslateService,
+    private cdr:ChangeDetectorRef) {
     
   }
 
   ngOnInit(): void {
-    this.translate.get('contractor-profile').subscribe((texts: any) => {
+    this.translate.stream('contractor-profile').subscribe((texts: any) => {
       this.text = texts.text;
       this.title = texts.title;
       this.button = texts.button;
       this.enviar = true;
-    });
+        });
   }
 
 }
