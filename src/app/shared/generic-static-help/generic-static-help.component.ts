@@ -13,10 +13,6 @@ export class GenericStaticHelpComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        let text = document.getElementById("text_card");
-        let header_card = document.getElementById("header_card");
-        text.innerHTML = this.texts.text;
-        header_card.innerHTML = this.texts.header_card;
         this.enviar = true;
     }
 }
