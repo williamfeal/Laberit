@@ -24,6 +24,7 @@ export class RepresentativeDataComponent implements OnInit {
   public paises: SelectFieldObject[] = paises;
 
   businessTypeSelected;
+  isAutonum: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -35,13 +36,19 @@ export class RepresentativeDataComponent implements OnInit {
     this.type = event;
     if (this.type == 'natural-person') {
       this.businessType = businessType;
+      this.isAutonum = true;
     } else {
       this.businessType = businessTypeWithoutAutonomo;
+      this.isAutonum = false;
     }
 
   }
   businessTypeChange(event: string) {
     this.businessTypeSelected = event;
+    if (this.businessTypeSelected == 1) {
+      this.isAutonum = true;
+    } else {
+      this.isAutonum = false;
+    }
   }
-  
 }
