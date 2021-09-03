@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './services/moges-services/auth.service';
 @Component({
   selector: 'app-root',
@@ -14,8 +15,12 @@ export class AppComponent implements OnInit {
 
   constructor(    
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private translate:TranslateService
   ) {
+    const selectedLang = localStorage.getItem('lang') ? localStorage.getItem('lang') :
+            this.translate.getBrowserLang() ? this.translate.getBrowserLang() : 'es';
+        this.translate.use(selectedLang);
     this.loadToken();
     setInterval(() => { this.loadToken(); }, 300000);
   }

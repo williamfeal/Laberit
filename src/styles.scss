@@ -49,6 +49,11 @@ body {
     }
 } 
 
+.capitalize-first-letter::first-letter {
+    text-transform:uppercase;
+  }
+  
+
 .breadcrumb-item+.breadcrumb-item::before {
     content: ">";
 }
