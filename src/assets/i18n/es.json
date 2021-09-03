@@ -236,6 +236,7 @@
     "input": {
       "format_error": "Formato incorrecto",
       "empty_error": "Falta por rellenar el campo",
+      "nif_error": "Falta por rellenar el campo o nif incorrecto",
       "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres ",
       "document_error": "Falta documento"
     },
@@ -298,7 +299,9 @@
       "presentarSolicitud": "Presentar solicitud",
       "present_request": {
         "title": "Presentar solicitud",
-        "button": "Firmar y presentar",
+        "back": "Volver",
+        "button": "REVISAR SOLICITUD",
+        "sign":"Firmar y Presentar",
         "text_link": "Solicitud",
         "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>"
       },
@@ -345,58 +348,6 @@
       "interested_data": {
         "title": "Datos del interesado"
       },
-      "instance": {
-        "title": "Instancia General",
-        "infoSol": "Información de la solicitud",
-        "interested": {
-          "title": "Datos Interesado",
-          "name_and_surname": "Nombre y Apellidos",
-          "nifCif": "NIF o CIF",
-          "telephone": "Teléfono",
-          "email": "E-mail",
-          "linkDates": "Puede editar sus datos personales en ",
-          "link": "este enlace"
-        },
-        "docAdd": "Documentación adicional",
-        "doc": {
-          "drag": "Arrastre aquí el archivo para adjuntarlo o",
-          "explore": "explorar"
-        },
-        "presentarSolicitud": "Presentar solicitud",
-        "present_request": {
-          "title": "Presentar solicitud",
-          "request": "Solicitud",
-          "button": "REVISAR SOLICITUD",
-          "sign" : "Firmar y Presentar",
-          "back": "Volver",
-          "text_link": "Solicitud",
-          "text": "Se va a proceder a la firma y presentación de su solicitud mediante su certificado electrónico <br> <br> Para presentar el expediente, Ud. debe acreditar su identidad mediante el uso de un certificado electrónico. <br> Actualmente, la Sede Electrónica de INSTITUT VALENCIÀ DE FINANCES admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li><b>ACCV</b> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana)</li> <li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> "
-        },
-        "notification": {
-          "title": "Datos a Efecto de Notificación",
-          "type": "Tipo de vía",
-          "direction": "Dirección",
-          "number": "Número",
-          "extra": "Extra",
-          "CP": "Código Postal",
-          "country": "País",
-          "province": "Provincia",
-          "municipality": "Municipio",
-          "resum": "Resumen",
-          "expone": "Expone",
-          "request": "Solicita",
-          "street": "Calle",
-          "avenue": "Avenida",
-          "square": "Plaza",
-          "promenade": "Paseo",
-          "lane": "Camino",
-          "boulevard": "Rambla",
-          "passage": "Pasaje",
-          "selectStreet": "Seleccione vía",
-          "selectCountry": "Seleccione País",
-          "selectProvince": "Seleccione provincia",
-          "selectMunicipality": "Seleccione municipio"
-        },
       "requester_data": {
         "title": "Datos del solicitante",
         "type": "Tipo",
@@ -512,31 +463,7 @@
         "section_title_2": "Detalle de los costes a financiar",
         "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
       },
-      "aceptation": {
-        "title": "Aceptación",
-        "manifestations_data_protection": "Manifestaciones / Protección de datos",
-        "manifestations": {
-          "title": "Manifestaciones",
-            "manifestation_1": "El apoderado, Titular/es real/es, Administrador, Presidente, o en su caso, el autónomo, solo tiene obligaciones fiscales en España",
-            "manifestation_2": "El solicitante se encuentra en situación concursal o preconcursal",
-            "manifestation_3": "El solicitante tiene deudas pendientes con la Agencia Tributaria, Seguridad Social o la Hacienda pública autonómica.",
-            "manifestation_4": "El solicitante, entidad/es relacionada/s por accionistas comunes, administrador o accionista/s principal/es tiene o ha tenido una operación anterior del IVF",
-            "manifestation_5": "El solicitante conoce y entiende la Convocatoria de la línea de financiación solicitada, publicada en el Diari Oficial de la Generalitat Valenciana.", 
-            "manifestation_6": "Existen accionistas o personas que ejercen el control de la empresa solicitante que son personas con responsabilidad pública, o familiares o allegados de personas con responsabilidad pública.",
-            "manifestation_7": "La empresa solicitante cotiza en un mercado secundario.",
-            "manifestation_8": "La nave, local o terreno afecto a la actividad pertenece al titular que solicita la financiación.",
-            "manifestation_9": "Los solicitantes o los socios tienen responsabilidad pública, o sus familiares o allegados son personas con responsabilidad pública",
-            "manifestation_10": "El autónomo o los socios tienen vivienda en propiedad"
-              },
-        "data_protection": {
-          "title": "Protección de datos",
-          "text": "El IVF está obligado a guardar reserva de las informaciones relativas a los saldos, posiciones, transacciones y demás operaciones de sus clientes sin que las mismas puedan ser comunicadas a terceros u objeto de divulgación. Se exceptúan de este deber las informaciones respecto de las cuales el cliente o las leyes permitan su comunicación o divulgación a terceros o que, en su caso, les sean requeridas o hayan de remitir a las respectivas autoridades de supervisión o en el marco del cumplimiento de las obligaciones establecidas en la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y la financiación del terrorismo. En este caso, el IVF podrá facilitar los datos que le sean reclamados por la autoridad competente, así como efectuar las comprobaciones oportunas sobre la documentación facilitada. La revelación de datos también podrá tener lugar en todo caso atendiendo a un mandato judicial o resolución administrativa. Quedan asimismo exceptuadas del deber de reserva los intercambios de información entre entidades pertenecientes a la Generalitat Valenciana y su sector público con la finalidad indicada en la cláusula de protección de datos siguiente. Lo previsto en esta cláusula se aplicará sin perjuicio de lo establecido en la normativa de protección de datos de carácter personal. A efectos del presente compromiso de confidencialidad, se entenderá por información confidencial toda aquella que, recibida de la empresa o autónomo solicitante, y no de terceros, no sea pública y notoria, o no pueda ser obtenida por el IVF de registros públicos o de otras fuentes de información a las que tenga acceso cualquier tercero.",
-          "check_1": "Al marcar esta casilla, el abajo firmante reconoce que ha leído y está de acuerdo con la información sobre protección de datos de carácter personal, así como la cesión de sus datos, en su caso, a los destinatarios anteriormente indicados",
-          "check_2": "Autoriza a que el Institut Valencià de Finances (IVF) en su nombre solicite para la presente operación el aval de la Sociedad de Garantía Recíproca de la Comunitat Valenciana (AfinSGR)",
-          "check_3": "Autoriza a que el Institut Valencià de Finances (IVF) pueda consultar por medios electrónicos los datos tributarios y de Seguridad Social directamente de la Administración competente correspondiente, con el fin de comprobar la situación de cumplimiento de las obligaciones de pago con las respectivas Administraciones, así como consultar las bases de datos necesarios para la verificación de los requisitos establecidos en la normativa reguladora de la ayuda.",
-          "check_4": "Además del intercambio de información y contacto en relación a esta solicitud de financiación que siempre queda habilitada, autoriza al IVF utilizar la dirección de correo electrónico vinculada a esta solicitud para el envío de comunicaciones comerciales o promocionales. En caso de que no se autorice, sólo queda habilitado el uso del correo exclusivamente para la tramitación de esta solicitud de financiación.",
-          "check_5": "El abajo firmante declara bajo su responsabilidad, que todos los datos facilitados son ciertos, y en aplicación de lo dispuesto en el artículo 6.4 del Real Decreto 304/2014, de 5 de mayo, por el que se aprueba el Reglamento de la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y de la financiación del terrorismo, el abajo firmante declara que los documentos de identificación entregados al IVF están vigentes. Según el artículo 11 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, el hecho de presentar la declaración responsable faculta a la Administración para hacer las comprobaciones necesarias para verificar la conformidad de los datos declarados. Asimismo, la tramitación electrónica que ha dado a esta solicitud, conlleva otorgar, a todos los efectos, los consentimientos y autorizaciones pertinentes expresados en este procedimiento para hacer efectiva dicha solicitud."
-        },
+      
       "procedure_info": {
         "title": "Información del trámite",
         "import": "Importe",
@@ -544,9 +471,10 @@
         "lack": "Carencia (meses)",
         "modality": "Modalidad tipo de interés",
         "company_type": "Tipo de empresa",
-        "project_definition": "Definición del proyecto"
+        "project_definition": "Definición del proyecto",
+        "project_type": "Tipo de proyecto"
       }
-    },
+    ,
     "notification_means": {
       "title": "Medio de notificación",
       "email": "Email a efecto de notificación"
@@ -566,7 +494,7 @@
       "autonom": {
         "tax_returns":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación",
         "model_390":"Declaraciones resumen-anual del IVA (modelo 390) correspondientes a los ejercicios 2020 y 2019",
-        "self-assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
+        "self_assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
         "model_RLC":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social"
       },
       "micro_business" :{
@@ -593,6 +521,32 @@
         "request": "Solicita"
       }
     }
+},
+"aceptation": {
+  "title": "Aceptación",
+  "manifestations_data_protection": "Manifestaciones / Protección de datos",
+  "manifestations": {
+    "title": "Manifestaciones",
+      "manifestation_1": "El apoderado, Titular/es real/es, Administrador, Presidente, o en su caso, el autónomo, solo tiene obligaciones fiscales en España",
+      "manifestation_2": "El solicitante se encuentra en situación concursal o preconcursal",
+      "manifestation_3": "El solicitante tiene deudas pendientes con la Agencia Tributaria, Seguridad Social o la Hacienda pública autonómica.",
+      "manifestation_4": "El solicitante, entidad/es relacionada/s por accionistas comunes, administrador o accionista/s principal/es tiene o ha tenido una operación anterior del IVF",
+      "manifestation_5": "El solicitante conoce y entiende la Convocatoria de la línea de financiación solicitada, publicada en el Diari Oficial de la Generalitat Valenciana.", 
+      "manifestation_6": "Existen accionistas o personas que ejercen el control de la empresa solicitante que son personas con responsabilidad pública, o familiares o allegados de personas con responsabilidad pública.",
+      "manifestation_7": "La empresa solicitante cotiza en un mercado secundario.",
+      "manifestation_8": "La nave, local o terreno afecto a la actividad pertenece al titular que solicita la financiación.",
+      "manifestation_9": "Los solicitantes o los socios tienen responsabilidad pública, o sus familiares o allegados son personas con responsabilidad pública",
+      "manifestation_10": "El autónomo o los socios tienen vivienda en propiedad"
+        },
+  "data_protection": {
+    "title": "Protección de datos",
+    "text": "El IVF está obligado a guardar reserva de las informaciones relativas a los saldos, posiciones, transacciones y demás operaciones de sus clientes sin que las mismas puedan ser comunicadas a terceros u objeto de divulgación. Se exceptúan de este deber las informaciones respecto de las cuales el cliente o las leyes permitan su comunicación o divulgación a terceros o que, en su caso, les sean requeridas o hayan de remitir a las respectivas autoridades de supervisión o en el marco del cumplimiento de las obligaciones establecidas en la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y la financiación del terrorismo. En este caso, el IVF podrá facilitar los datos que le sean reclamados por la autoridad competente, así como efectuar las comprobaciones oportunas sobre la documentación facilitada. La revelación de datos también podrá tener lugar en todo caso atendiendo a un mandato judicial o resolución administrativa. Quedan asimismo exceptuadas del deber de reserva los intercambios de información entre entidades pertenecientes a la Generalitat Valenciana y su sector público con la finalidad indicada en la cláusula de protección de datos siguiente. Lo previsto en esta cláusula se aplicará sin perjuicio de lo establecido en la normativa de protección de datos de carácter personal. A efectos del presente compromiso de confidencialidad, se entenderá por información confidencial toda aquella que, recibida de la empresa o autónomo solicitante, y no de terceros, no sea pública y notoria, o no pueda ser obtenida por el IVF de registros públicos o de otras fuentes de información a las que tenga acceso cualquier tercero.",
+    "check_1": "Al marcar esta casilla, el abajo firmante reconoce que ha leído y está de acuerdo con la información sobre protección de datos de carácter personal, así como la cesión de sus datos, en su caso, a los destinatarios anteriormente indicados",
+    "check_2": "Autoriza a que el Institut Valencià de Finances (IVF) en su nombre solicite para la presente operación el aval de la Sociedad de Garantía Recíproca de la Comunitat Valenciana (AfinSGR)",
+    "check_3": "Autoriza a que el Institut Valencià de Finances (IVF) pueda consultar por medios electrónicos los datos tributarios y de Seguridad Social directamente de la Administración competente correspondiente, con el fin de comprobar la situación de cumplimiento de las obligaciones de pago con las respectivas Administraciones, así como consultar las bases de datos necesarios para la verificación de los requisitos establecidos en la normativa reguladora de la ayuda.",
+    "check_4": "Además del intercambio de información y contacto en relación a esta solicitud de financiación que siempre queda habilitada, autoriza al IVF utilizar la dirección de correo electrónico vinculada a esta solicitud para el envío de comunicaciones comerciales o promocionales. En caso de que no se autorice, sólo queda habilitado el uso del correo exclusivamente para la tramitación de esta solicitud de financiación.",
+    "check_5": "El abajo firmante declara bajo su responsabilidad, que todos los datos facilitados son ciertos, y en aplicación de lo dispuesto en el artículo 6.4 del Real Decreto 304/2014, de 5 de mayo, por el que se aprueba el Reglamento de la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y de la financiación del terrorismo, el abajo firmante declara que los documentos de identificación entregados al IVF están vigentes. Según el artículo 11 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, el hecho de presentar la declaración responsable faculta a la Administración para hacer las comprobaciones necesarias para verificar la conformidad de los datos declarados. Asimismo, la tramitación electrónica que ha dado a esta solicitud, conlleva otorgar, a todos los efectos, los consentimientos y autorizaciones pertinentes expresados en este procedimiento para hacer efectiva dicha solicitud."
   }
 }
-}}
+  }
+}

@@ -235,6 +235,7 @@
       "input": {
         "format_error": "Format incorrecte",
         "empty_error": "Falta per emplenar el camp",
+        "nif_error": "Falta per emplenar el camp o nif incorrecte",
         "num_Characters_error": "Falta per emplenar el camp o no compleix amb un mínim de 10 caràcters ",
         "document_error": "Falta document"
       },
@@ -484,7 +485,7 @@
         "autonom": {
           "tax_returns":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament",
           "model_390":"Declaracions resumen-anual de l'IVA (model 390) corresponents als exercicis 2020 i 2019",
-          "self-assessment":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament",
+          "self_assessment":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament",
           "model_RLC":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social"
         },
         "micro_business" :{
