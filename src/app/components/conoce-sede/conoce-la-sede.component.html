@@ -2,9 +2,11 @@
 <div class="d-flex">
   <div class="centrar-izquierda ml-4 col-sm-3">
     <ul class="nav flex-column navbar-expand-lg shadow " role="tablist">
-      <li *ngFor="let categorias of menuList" class="nav-item py-2 border-top w-100">
-        <button class="nav-link text-dark text-uppercase" [ngClass]="{ 'activado': categorias == categoria }"
-          (click)="changeKnow(categorias)">{{categorias.name}}</button>
+      <li *ngFor="let item of menuList" class="nav-item py-2 border-top w-100">
+        <button class="nav-link text-dark text-uppercase" 
+        [ngClass]="{ 'activado': item == categoria }"
+        (click)="changeKnow(item)">
+        {{item.name}} </button>
       </li>
     </ul>
   </div>
