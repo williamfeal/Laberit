@@ -30,9 +30,11 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.infoProcedure = this.procedure.languages.find(
-      language => language.codigo === localStorage.getItem('lang')
-    )
+    if(this.procedure) {
+      this.infoProcedure = this.procedure.languages.find(
+        language => language.codigo === localStorage.getItem('lang')
+      )
+    }
     this.user = this.carpetaUtils.getSession();
     this.activatedRoute.data.subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;

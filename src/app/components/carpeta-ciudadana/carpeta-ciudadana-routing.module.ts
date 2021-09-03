@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuardService } from "src/app/services/guards/auth-guard.service";
+import { AceptationComponent } from "./aceptation/aceptation.component";
 import { CarpetaCiudadanaComponent } from "./carpeta-ciudadana.component";
 import { AdjuntarDocComponent } from "./includes/adjuntar-documento/adjuntar-doc.component";
 import { ConfirmacionSolicitudComponent } from "./includes/confirmacion-solicitud/confirmacion-solicitud.componenet";
@@ -77,6 +78,19 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: true },
+    ]},
+  },
+  { path: 'carpeta-del-ciudadano/aceptacion', 
+    component: AceptationComponent, 
+    canActivate: [AuthGuardService],
+    data: { 
+      menu : false,
+      breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: false },
+      { title: 'carpeta_ciudadana.aceptation.title', url: '', terminal: true }
     ]},
   },
   { path: 'carpeta-del-ciudadano/firmar', 

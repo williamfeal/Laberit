@@ -29,6 +29,7 @@ import { RequesterDataComponent } from './user-identification/requester-data/req
 import { SocialAddressComponent } from './user-identification/social-address/social-address.component';
 import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AceptationComponent } from './aceptation/aceptation.component';
 import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
 
@@ -58,6 +59,8 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     RepresentativeDataComponent,
     RequesterDataComponent,
     SocialAddressComponent,
+    AceptationComponent,
+
     FirmarYPresentarPopUp
   ],
   imports: [
