@@ -10,8 +10,9 @@
       <h4 class="color-medium-gray font-weight-light"> {{ 'TITLE' | translate }} </h4>
     </div>
     <div class="col-sm-6 col-lg-2 mt-4 d-flex centrarDivHorizontal">
-      <span class="font-size-13 col-md-8 border-right-solid-gray h-50">
-        <em class="far fa-calendar color-primary mr-1"></em> {{ currentDateHeader }}
+      <span class="capitalize-first-letter holi font-size-13 col-md-8 border-right-solid-gray h-50">
+        <em class="far fa-calendar color-primary mr-1"></em> 
+        {{ currentDate | localizedDate : 'fullDate'}}
       </span>
       <span class="font-size-13 col-lg-6 border-right-solid-gray h-50">
         <em class="far fa-clock color-primary mr-1"></em> <span id="horas"></span>
