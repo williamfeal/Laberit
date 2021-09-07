@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DocumentationComponent } from './documentation/documentation.component';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
@@ -19,7 +18,6 @@ import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir
 import { DetailCostFinancedComponent } from './tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
 import { ProcedureInformationComponent } from './tramites/linea-resistir/procedure-information/procedure-information.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
-import { ActuationDataComponent } from './user-identification/actuation-data/actuation-data.component';
 import { ContactDataComponent } from './user-identification/contact-data/contact-data.component';
 import { IdentityDataComponent } from './user-identification/identity-data/identity-data.component';
 import { InterestedDataComponent } from './user-identification/interested-data/interested-data.component';
@@ -31,15 +29,14 @@ import { RequesterDataComponent } from './user-identification/requester-data/req
 import { SocialAddressComponent } from './user-identification/social-address/social-address.component';
 import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AceptationComponent } from './aceptation/aceptation.component';
 import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
 
 
 @NgModule({
   declarations: [
-    DocumentationComponent,
     CarpetaCiudadanaComponent,
-    DocumentationComponent,
     AdjuntarDocComponent,
     ConfirmacionSolicitudComponent,
     DateComponent,
@@ -53,7 +50,6 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     DetailCostFinancedComponent,
     ProcedureInformationComponent,
     UserIdentificationComponent,
-    ActuationDataComponent,
     ContactDataComponent,
     IdentityDataComponent,
     InterestedDataComponent,
@@ -63,6 +59,7 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     RepresentativeDataComponent,
     RequesterDataComponent,
     SocialAddressComponent,
+    AceptationComponent,
     FirmarYPresentarPopUp
   ],
   imports: [

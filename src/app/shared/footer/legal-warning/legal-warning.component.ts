@@ -17,7 +17,7 @@ export class LegalWarningComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.translate.get('legal_warning').subscribe((texts: any) => {
+        this.translate.stream('legal_warning').subscribe((texts: any) => {
             this.title = texts.title;
             this.texts = texts;
             this.enviar = true;

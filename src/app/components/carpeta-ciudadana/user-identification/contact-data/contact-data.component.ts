@@ -15,6 +15,7 @@ export class ContactDataComponent implements OnInit {
   @Input() interesado: boolean;
   @Input() validate: boolean;
   public errorCharacterLeng: string = 'empty_error';
+  public errorNif: string = 'nif_error';
   public isChecked: boolean;
   public showInputs: boolean = true;
 

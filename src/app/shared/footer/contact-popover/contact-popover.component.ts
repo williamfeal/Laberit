@@ -19,7 +19,7 @@ export class ContactPopoverComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.translateService.get('footer.contact_popover').subscribe(
+    this.translateService.stream('footer.contact_popover').subscribe(
       text => {
         this.body = text.body;
         this.config.placement = 'top';

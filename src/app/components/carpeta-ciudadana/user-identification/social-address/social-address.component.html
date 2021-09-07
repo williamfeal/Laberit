@@ -24,12 +24,12 @@
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-number
                     [form]="formSocialAdress"
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}" controlName="number"
                     idValue="number" nameValue="number" [isRequired]="isRequired"
                     [error]="validate && formSocialAdress.controls['number']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-text>
+                    [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
         <div class="form-group col-md-3">

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, RoutesRecognized } from '@angular/router';
-import { AuthService } from 'src/app/services/moges-services/auth.service';
 import { StyleService } from 'src/app/services/moges-services/style.service';
 import * as DateConstants from 'src/app/utils/constants/date-constants';
 
@@ -15,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public currentHourHeader = '';
   public src_logo:string;
 
-  private currentDate = new Date();
+  public currentDate = new Date();
 
   @Input()
   public hiddenMenu:boolean = false;
@@ -26,16 +24,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.loadDate();
     this.loadHour();
     this.loadStyles();
     setInterval(this.loadHour, 1000);
-  }
-
-  private loadDate(): void {
-    //TO DO: comprobar los idiomas de los textos en cuanto se creen los catalogos
-    this.currentDateHeader = DateConstants.weekDays[this.currentDate.getDay() - 1] + ' ' + this.currentDate.getDate() + ' de ' +
-      DateConstants.monthList[this.currentDate.getMonth()] + ' de ' + this.currentDate.getFullYear();
   }
 
   private loadHour(): void {

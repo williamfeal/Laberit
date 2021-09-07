@@ -18,7 +18,7 @@ export class TechnicalRequirementsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.translate.get('technical_requirements').subscribe((texts: any) => {
+        this.translate.stream('technical_requirements').subscribe((texts: any) => {
             this.title = texts.title;
             this.texts = texts;
             this.enviar = true;
