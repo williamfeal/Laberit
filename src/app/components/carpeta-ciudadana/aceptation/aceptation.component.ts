@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,11 +27,11 @@ export class AceptationComponent implements OnInit {
       manifestation_8 : new FormControl('false'),
       manifestation_9 : new FormControl('false'),
       manifestation_10 : new FormControl('false'),
-      check_1: new FormControl(),
-      check_2: new FormControl(),
-      check_3: new FormControl(),
-      check_4: new FormControl(),
-      check_5: new FormControl(),
+      check_1: new FormControl(false, Validators.required),
+      check_2: new FormControl(false, Validators.required),
+      check_3: new FormControl(false, Validators.required),
+      check_4: new FormControl(false, Validators.required),
+      check_5: new FormControl(false, Validators.required),
 
     })
   }
@@ -44,7 +44,7 @@ export class AceptationComponent implements OnInit {
       this.formAceptation.controls.check_5.value) {
         this.router.navigate(['carpeta-del-ciudadano/firmar'])
     } else {
-      
+      console.log(this.formAceptation)
     }
 
   }
