@@ -53,12 +53,12 @@ export class InputTextNifComponent implements OnInit {
         } else {
             this.errorNif = false;
         }
+        !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
     }
     ngOnChanges(changes: SimpleChanges) {
-        if (changes.error.firstChange) {
+        if (changes.error && changes.error.firstChange) {
             this.errorNif = true;
         }
-
         if (!this.isRequired) {
             if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
                 this.form.get(this.controlName).clearValidators();
