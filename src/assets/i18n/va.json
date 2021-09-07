@@ -488,16 +488,66 @@
           "model_RLC":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social"
         },
         "micro_business" :{
-          "society_constitution":"Fotocòpia de l'escriptura de constitució de la societat",
-          "beneficial_ownership":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
-          "legal_representative":"Fotocòpia de l'escriptura d'apoderament del representant legal",
-          "annual_accounts":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
-          "42_commercial_code":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents.",
-          "tax_returns":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
-          "model_390":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
-          "registered_office":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
-          "business_group":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup.",
-          "PYME":"Model de declaració de la condició de PYME"
+          "society_constitution_micro":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_micro":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_micro":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_micro":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "42_commercial_code_micro":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents.",
+          "tax_returns_micro":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "model_390_micro":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "registered_office_micro":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
+          "business_group_micro":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup.",
+          "PYME_micro":"Model de declaració de la condició de PYME"
+        },
+        "PYME":{
+          "society_constitution_PYME":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_PYME":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_PYME":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_PYME":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "_commercial_code_PYME":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents als dos últims exercicis tancats.",
+          "tax_returns_PYME":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "risk_inform":"Informe actualitzat de riscos emés per la Central d'Informació de Riscos del Banc d'Espanya",
+          "model_390_PYME":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_PYME":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_347_PYME":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_PYME":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
+          "business_group_PYME":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup s'indicarà el nombre d'empleats, balanç i volum de negoci anual",
+          "PYME":"Memòria Tècnica (Pla de Negoci)",
+          "tecnic_memory_PYME":"Memoria Tècnica (Pla de Negoci)"
+        },
+        "big_business":{
+          "society_constitution_big":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_big":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_big":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_big":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "_commercial_code_big":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents als dos últims exercicis tancats.",
+          "tax_returns_big":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "risk_inform_big":"Informe actualitzat de riscos emés per la Central d'Informació de Riscos del Banc d'Espanya",
+          "model_303_big":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "registered_office_big":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+          "business_group_big":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup s'indicarà el nombre d'empleats, balanç i volum de negoci anual",
+          "PYME_big":"Memòria Tècnica (Pla de Negoci)",
+          "tecnic_memory_big":"Memoria Tècnica (Pla de Negoci)"
+        },
+        "beneficits_community":{
+          "declarations_rent_community":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament de tots els socis",
+          "model_390_community":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_community":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_184_entities_community": "Model 184 d'Entitats en règim d'atribució de rendes",
+          "voucher_pay_community":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model *RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social de tots els socis",
+          "model_130_131_community":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament de tots els socis",
+          "model_347_community":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_community":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià"
+        },
+        "civil_society":{
+          "declarations_rent_civil":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament de tots els socis",
+          "model_390_civil":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_civil":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_184_entities_civil": "Model 184 d'Entitats en règim d'atribució de rendes",
+          "voucher_pay_civil":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model *RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social de tots els socis",
+          "model_130_131_civil":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament de tots els socis",
+          "model_347_civil":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_civil":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià"
         }
       },
       "requests-list": {

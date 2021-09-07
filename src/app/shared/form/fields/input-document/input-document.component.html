@@ -1,5 +1,5 @@
 <div class="m-2 ">
-    <span class="mx-3">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
+    <span class="mx-3 row">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
     <div class="pl-3 row">
         <div class="file-container" [ngClass]="{ 'error-input': error && isRequired == true }">
             <div *ngIf="!documentExist; else nameFile" classs="ml-2">
