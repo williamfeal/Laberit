@@ -13,14 +13,14 @@
   <app-input-document [form]="formDocument.controls.documentNif"
     label="{{ 'carpeta_ciudadana.documentation.generic.dni' | translate }}" 
     idValue="documentNif" [isRequired]="requi"
-    errorText="document_error" [error]="formDocument.valid && formDocument.controls['documentNif']?.pristine"
+    errorText="document_error" [error]="!formDocument.controls['documentNif']?.valid"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 
   <app-input-document [form]="formDocument.controls.documentHelp"
     label="{{ 'carpeta_ciudadana.documentation.generic.help' | translate }}" idValue="documentHelp" [isRequired]="requi"
-    [idPlantilla]="true" errorText="document_error" [error]="formDocument.controls['documentNif']?.valid && formDocument.controls['documentHelp']?.touched"
+    [idPlantilla]="true" errorText="document_error" [error]="formDocument.controls['documentHelp']?.valid && formDocument.controls['documentHelp']?.touched"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>

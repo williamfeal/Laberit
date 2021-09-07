@@ -24,7 +24,6 @@ export class InputDocumentComponent implements OnInit {
     @Output() public uploadFileDocument = new EventEmitter<FileModel>();
     @Output() public deleteFileDocument = new EventEmitter<FileModel>();
 
-    formControl = new FormControl('');
     validaciones: ValidatorFn[] = [];
     popUpError;
     textError: string;
@@ -36,18 +35,18 @@ export class InputDocumentComponent implements OnInit {
     constructor(private translateService: TranslateService) { }
 
     ngOnInit(): void {
-
+        let formControl;
         //Hay que ver como hacer que sean campos requeridos
         if (this.isRequired) {
-            // this.validaciones.push(Validators.required);
-            // console.log('this.validaciones :>> ', this.validaciones);
-            // this.form.controls[this.idValue].setValidators([Validators.required]);
+            formControl = new FormControl([],Validators.required);
+        }else{
+            formControl = new FormControl([]);
         }
         if (this.validaciones.length > 0) {
-            this.formControl.setValidators(Validators.required);
-            console.log('this.formControl :>> ', this.formControl);
+            formControl.setValidators(Validators.required);
+            console.log('this.formControl :>> ', formControl);
         }
-        this.form.addControl(this.idValue, this.formControl);
+        this.form.addControl(this.idValue, formControl);
         console.log('this.form :>> ', this.form);
 
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar

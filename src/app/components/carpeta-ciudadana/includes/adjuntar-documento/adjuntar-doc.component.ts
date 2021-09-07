@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileModel } from 'src/app/models/file.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
@@ -20,7 +20,10 @@ export class AdjuntarDocComponent implements OnInit {
   validate: boolean = false;
 
 
-  constructor(private router: Router, private procedureService: ProceduresService) {
+  constructor(private router: Router,
+              private procedureService: ProceduresService,
+              private cdRef:ChangeDetectorRef,
+              private fb: FormBuilder) {
 
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
       data => this.procedure = data
@@ -33,9 +36,13 @@ export class AdjuntarDocComponent implements OnInit {
   }
   ngOnInit(): void {
     this.newForm();
+
+  }
+  ngAfterViewChecked(){
+    this.cdRef.detectChanges();
   }
   newForm() {
-    this.formDocument = new FormGroup({
+    this.formDocument = this.fb.group({
       documentNif: new FormGroup({}), //general
       documentHelp: new FormGroup({}), //general
       responsible_declaration: new FormGroup({}), //general
@@ -101,7 +108,6 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   saveDocument(ev) {
-
     this.fileList.push(ev);
     this.validate = false;
   }
@@ -112,11 +118,13 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    console.log(this.formDocument.controls['documentNif'].status);
+    console.log(this.formDocument);
+    console.log(this.formDocument.controls['documentNif'].value);
     //validar si estan todos los documentos
+    this.router.navigate(['carpeta-del-ciudadano/firmar']);
     if (this.formDocument.valid) {
       console.log('ENTRA AL IF');
-      //this.router.navigate(['carpeta-del-ciudadano/firmar']);
+      
     } else {
       console.log('ENTRA else');
       this.validate = true;
