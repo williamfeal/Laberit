@@ -4,6 +4,7 @@
         <em class="fas fa-chevron-left"></em> {{ 'buttons.back' | translate}}
     </a>
 </div>
+<form  (ngSubmit)="validateForm()" [formGroup]="formAceptation">
     <div class="mx-3 card mt-2">
         <div class="card-header background-card-header pb-0">
             <div class="card-title text-white">
@@ -16,56 +17,56 @@
                 {{ 'carpeta_ciudadana.aceptation.manifestations.title' | translate }}
             </p>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_1' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_1"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_1" ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_2' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_2"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_2"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_3' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_3"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_3"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3">  {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_4' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_4"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_4"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_5' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_5"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_5"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_6' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_6"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_6"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_7' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_7"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_7"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_8' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_8"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_8"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_9' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_9"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_9"  ></app-confirmation-radio-button>
             <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_10' | translate }} </p>
-                <app-confirmation-radio-button name="manifestation_10"></app-confirmation-radio-button>
+                <app-confirmation-radio-button [form]="formAceptation" name="manifestation_10"  ></app-confirmation-radio-button>
                 <hr>
             <span class="font-weight-bold mt-3">
                 {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
             </span>
             <p class="mt-3"> {{ 'carpeta_ciudadana.aceptation.data_protection.text' | translate }} </p>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check_1">
+                <input class="form-check-input" formControlName="check_1" type="checkbox" value="" id="check_1">
                 <label class="form-check-label" for="check_1">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_1' | translate }}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check_2">
+                <input class="form-check-input" formControlName="check_2" type="checkbox" value="" id="check_2">
                 <label class="form-check-label" for="check_2">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_2' | translate }}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check_3">
+                <input class="form-check-input" formControlName="check_3" type="checkbox" value="" id="check_3">
                 <label class="form-check-label" for="check_3">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_3' | translate }}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check_4">
+                <input class="form-check-input" formControlName="check_4" type="checkbox" value="" id="check_4">
                 <label class="form-check-label" for="check_4">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_4' | translate }}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check_5">
+                <input class="form-check-input" formControlName="check_5" type="checkbox" value="" id="check_5">
                 <label class="form-check-label" for="check_5">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_5' | translate }}
                 </label>
@@ -76,6 +77,7 @@
     <hr>
     <div class="row mx-0 mt-4">
         <div class="col-md-12 text-right">
-            <button class="btn-app-primary">{{ 'buttons.continue' | translate}}</button>
+            <button type="submit" class="btn-app-primary">{{ 'buttons.continue' | translate}}</button>
         </div>
     </div>
+</form>

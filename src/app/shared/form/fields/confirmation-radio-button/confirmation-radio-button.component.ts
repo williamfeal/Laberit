@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-confirmation-radio-button',
@@ -8,10 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ConfirmationRadioButtonComponent implements OnInit {
 
   @Input() name:string;
+  @Input() form:FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
