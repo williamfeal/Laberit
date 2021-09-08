@@ -60,11 +60,11 @@ export class LineaResistirComponent implements OnInit {
             //TO DO: Llamada al back con los datos 
             this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
         } else {
-            this.translate.get('error.error_fields_form').subscribe(
+            this.translate.get('error_texts.pop_up.form_error').subscribe(
                 error => {
                     SwalUtils.showErrorAlert(
                         error.title, 
-                        error.message)
+                        error.text)
                     this.validate = true;
                 }
             )
