@@ -312,6 +312,10 @@
       "size_error" : {
         "title": "Tamaño inválido",
         "text": "Archivo demasiado grande. Máximo permitido:"
+      },
+      "form_error" : {
+        "title": "Faltan campos",
+        "text": "Revise los campos, por favor"
       }
     }
   },
