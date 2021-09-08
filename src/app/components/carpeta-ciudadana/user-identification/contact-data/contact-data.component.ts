@@ -34,11 +34,5 @@ export class ContactDataComponent implements OnInit {
     this.businessType = businessType;
     this.siNo = siNo;
   }
-  changeInput(event: string) {
-    if (event === 'A') {
-      this.showInputs = false;
-    } else {
-      this.showInputs = true;
-    }
-  }
+  
 }
