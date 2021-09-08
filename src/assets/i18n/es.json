@@ -6,6 +6,12 @@
     "presentSign": "Firmar y presentar",
     "previous": "Anterior"
   },
+  "error": {
+    "error_fields_form": {
+      "title": "Faltan campos",
+      "message": "Revise los campos, por favor"
+    }
+  },
   "home": {
     "TITLE": "Inicio",
     "carpeta": "Área de Cliente",
