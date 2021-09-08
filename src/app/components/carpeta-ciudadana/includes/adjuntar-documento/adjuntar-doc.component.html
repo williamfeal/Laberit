@@ -48,6 +48,11 @@
   </app-input-document>
 
   <app-autonoms *ngIf="tipo_empresa === 'autonomo'" [fileListAu]="fileList"></app-autonoms>
+  <app-comunidadBienes *ngIf="tipo_empresa === 'comunidad_bienes'" [fileListCo]="fileList"></app-comunidadBienes>
+  <app-gran-empresa *ngIf="tipo_empresa === 'big_bussines'" [fileListGr]="fileList"></app-gran-empresa>
+  <app-micro-empresa *ngIf="tipo_empresa === 'micro_empresa'" [fileListMi]="fileList"></app-micro-empresa>
+  <app-pyme *ngIf="tipo_empresa === 'PYME'" [fileListPy]="fileList"></app-pyme>
+  <app-sociedad-civil *ngIf="tipo_empresa === 'sociedad_civil'" [fileListSo]="fileList"></app-sociedad-civil>
 
   <div class="text-right px-3 py-3">
     <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>

@@ -11,7 +11,7 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 export class AdjuntarDocComponent implements OnInit {
 
   public fileList: FileModel[] = [];
-  public tipo_empresa: string = "autonomo";
+  public tipo_empresa: string = "micro_empresa";
   public requi: boolean = true;
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 

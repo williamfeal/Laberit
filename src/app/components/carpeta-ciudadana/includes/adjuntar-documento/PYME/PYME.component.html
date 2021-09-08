@@ -1,154 +1,141 @@
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-    [form]="formDocument.controls.society_constitution_PYME"
+<app-input-document 
     label="{{ 'carpeta_ciudadana.documentation.PYME.society_constitution_PYME' | translate }}"
     idValue="society_constitution_PYME" 
     [isRequired]="true" 
     errorText="document_error"
-    [error]="validate && formDocument.controls['society_constitution_PYME']?.touched"
+    [error]=""
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
     (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 
-  <app-input-document *ngIf="tipo_empresa === 'PYME'" 
-  [form]="formDocument.controls.beneficial_ownership_PYME"
+  <app-input-document
   label="{{ 'carpeta_ciudadana.documentation.PYME.beneficial_ownership_PYME' | translate }}"
   idValue="beneficial_ownership_PYME" 
   [isRequired]="true" 
   errorText="document_error"
-  [error]="validate && formDocument.controls['beneficial_ownership_PYME']?.touched"
+  [error]=""
   fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
   (uploadFileDocument)="saveDocument($event)"
   (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.legal_representative_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.legal_representative_PYME' | translate }}"
 idValue="legal_representative_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['legal_representative_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.annual_accounts_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.annual_accounts_PYME' | translate }}"
 idValue="annual_accounts_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['annual_accounts_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls._commercial_code_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME._commercial_code_PYME' | translate }}"
 idValue="_commercial_code_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['_commercial_code_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.tax_returns_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.tax_returns_PYME' | translate }}"
 idValue="tax_returns_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['tax_returns_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.risk_inform_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.risk_inform_PYME' | translate }}"
 idValue="risk_inform_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['risk_inform_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.model_390_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.model_390_PYME' | translate }}"
 idValue="model_390_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_390_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.model_347_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.model_347_PYME' | translate }}"
 idValue="model_347_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_347_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.registered_office_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.registered_office_PYME' | translate }}"
 idValue="registered_office_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['registered_office_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.business_group_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.business_group_PYME' | translate }}"
 idValue="business_group_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['business_group_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.PYME' | translate }}"
 idValue="PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'PYME'" 
-[form]="formDocument.controls.tecnic_memory_PYME"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.PYME.tecnic_memory_PYME' | translate }}"
 idValue="tecnic_memory_PYME" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['tecnic_memory_PYME']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">

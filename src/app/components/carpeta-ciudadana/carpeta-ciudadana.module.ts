@@ -31,7 +31,12 @@ import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.modul
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AceptationComponent } from './aceptation/aceptation.component';
 import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
-import { Autonoms } from './includes/adjuntar-documento/autonoms/autonoms.component';
+import { AutonomsComponent } from './includes/adjuntar-documento/autonoms/autonoms.component';
+import { ComunidadBienesComponent } from './includes/adjuntar-documento/comunidadBienes/comunidad.component';
+import { GranEmpresaComponent } from './includes/adjuntar-documento/granEmpresa/granEmpresa.component';
+import { MicroEmpresaComponent } from './includes/adjuntar-documento/microempresa/microEmpresa.component';
+import { PymeComponent } from './includes/adjuntar-documento/PYME/PYME.component';
+import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
 
 
 
@@ -62,7 +67,12 @@ import { Autonoms } from './includes/adjuntar-documento/autonoms/autonoms.compon
     SocialAddressComponent,
     AceptationComponent,
     FirmarYPresentarPopUp,
-    Autonoms
+    AutonomsComponent,
+    ComunidadBienesComponent,
+    GranEmpresaComponent,
+    MicroEmpresaComponent,
+    PymeComponent,
+    SociedadCivilComponent
   ],
   imports: [
     CommonModule,

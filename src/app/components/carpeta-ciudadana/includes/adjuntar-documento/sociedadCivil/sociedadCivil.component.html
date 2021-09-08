@@ -1,94 +1,86 @@
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.society_constitution_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.society_constitution_civil' | translate }}"
 idValue="society_constitution_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['society_constitution_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.declarations_rent_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.declarations_rent_civil' | translate }}"
 idValue="declarations_rent_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['declarations_rent_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.model_390_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.model_390_civil' | translate }}"
 idValue="model_390_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_390_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.model_184_entities_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.model_184_entities_civil' | translate }}"
 idValue="model_184_entities_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_184_entities_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.voucher_pay_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.voucher_pay_civil' | translate }}"
 idValue="voucher_pay_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['voucher_pay_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.model_130_131_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.model_130_131_civil' | translate }}"
 idValue="model_130_131_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_130_131_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.model_347_civil"
+<app-input-document
 label="{{ 'carpeta_ciudadana.documentation.civil_society.model_347_civil' | translate }}"
 idValue="model_347_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['model_347_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document *ngIf="tipo_empresa === 'civil_society'" 
-[form]="formDocument.controls.registered_office_civil"
+<app-input-document 
 label="{{ 'carpeta_ciudadana.documentation.civil_society.registered_office_civil' | translate }}"
 idValue="registered_office_civil" 
 [isRequired]="true" 
 errorText="document_error"
-[error]="validate && formDocument.controls['registered_office_civil']?.touched"
+[error]=""
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
