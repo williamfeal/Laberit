@@ -1,0 +1,86 @@
+<app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.beneficial_ownership_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.beneficial_ownership_micro' | translate }}"
+    idValue="beneficial_ownership_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['beneficial_ownership_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.society_constitution_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.society_constitution_micro' | translate }}"
+    idValue="society_constitution_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['society_constitution_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.legal_representative_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.legal_representative_micro' | translate }}"
+    idValue="legal_representative_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['legal_representative_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.annual_accounts_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.annual_accounts_micro' | translate }}"
+    idValue="annual_accounts_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['annual_accounts_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls._commercial_code_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business._commercial_code_micro' | translate }}"
+    idValue="_commercial_code_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['_commercial_code_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.tax_returns_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.tax_returns_micro' | translate }}"
+    idValue="tax_returns_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['tax_returns_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.model_390_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.model_390_micro' | translate }}" idValue="model_390_micro"
+    [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['model_390_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.model_347_micro"
+  label="{{ 'carpeta_ciudadana.documentation.micro_business.model_347_micro' | translate }}" idValue="model_347_micro"
+  [isRequired]="true" errorText="document_error"
+  [error]="validate && formDocument.controls['model_347_micro']?.touched"
+  fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+  (deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.registered_office_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.registered_office_micro' | translate }}"
+    idValue="registered_office_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['registered_office_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.PYME_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.PYME_micro' | translate }}" idValue="PYME_micro"
+    [idPlantilla]="true" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['PYME_micro']?.touched" fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
+    (uploadFileDocument)="saveDocument($event)" (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document *ngIf="tipo_empresa === 'micro_empresa'" [form]="formDocument.controls.business_group_micro"
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.business_group_micro' | translate }}"
+    idValue="business_group_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && formDocument.controls['business_group_micro']?.touched"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>

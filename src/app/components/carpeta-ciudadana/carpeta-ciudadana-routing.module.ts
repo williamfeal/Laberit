@@ -4,7 +4,7 @@ import { AuthGuardService } from "src/app/services/guards/auth-guard.service";
 import { AceptationComponent } from "./aceptation/aceptation.component";
 import { CarpetaCiudadanaComponent } from "./carpeta-ciudadana.component";
 import { AdjuntarDocComponent } from "./includes/adjuntar-documento/adjuntar-doc.component";
-import { ConfirmacionSolicitudComponent } from "./includes/confirmacion-solicitud/confirmacion-solicitud.componenet";
+import { ConfirmacionSolicitudComponent } from "./includes/confirmacion-solicitud/confirmacion-solicitud.component";
 import { PresentarSolicitudComponent } from "./includes/presentar-solicitud/presentar-solicitud.component";
 import { RequestInfoComponent } from "./request-info/request-info.component";
 import { RequestsListComponent } from "./requests-list/requests-list.component";

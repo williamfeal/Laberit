@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
-import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
+import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.component';
 import { DateComponent } from './includes/date-component/date.component';
 import { DatosInteresadoComponent } from './includes/datos-interesado/datos-interesado.component';
 import { DatosNotificacionComponent } from './includes/datos-notificacion/datos-notificacion.component';
@@ -31,6 +31,7 @@ import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.modul
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AceptationComponent } from './aceptation/aceptation.component';
 import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
+import { Autonoms } from './includes/adjuntar-documento/autonoms/autonoms.component';
 
 
 
@@ -60,7 +61,8 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     RequesterDataComponent,
     SocialAddressComponent,
     AceptationComponent,
-    FirmarYPresentarPopUp
+    FirmarYPresentarPopUp,
+    Autonoms
   ],
   imports: [
     CommonModule,

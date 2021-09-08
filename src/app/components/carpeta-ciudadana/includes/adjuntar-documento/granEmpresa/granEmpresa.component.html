@@ -1,0 +1,132 @@
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.society_constitution_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.society_constitution_big' | translate }}"
+idValue="society_constitution_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['society_constitution_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.beneficial_ownership_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.beneficial_ownership_big' | translate }}"
+idValue="beneficial_ownership_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['beneficial_ownership_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.legal_representative_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.legal_representative_big' | translate }}"
+idValue="legal_representative_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['legal_representative_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.annual_accounts_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.annual_accounts_big' | translate }}"
+idValue="annual_accounts_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['annual_accounts_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls._commercial_code_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business._commercial_code_big' | translate }}"
+idValue="_commercial_code_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['_commercial_code_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.tax_returns_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.tax_returns_big' | translate }}"
+idValue="tax_returns_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['tax_returns_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.risk_inform_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.risk_inform_big' | translate }}"
+idValue="risk_inform_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['risk_inform_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.registered_office_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.registered_office_big' | translate }}"
+idValue="registered_office_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['registered_office_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.business_group_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.business_group_big' | translate }}"
+idValue="business_group_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['business_group_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.PYME_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.PYME_big' | translate }}"
+idValue="PYME_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['PYME_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document *ngIf="tipo_empresa === 'big_business'" 
+[form]="formDocument.controls.tecnic_memory_big"
+label="{{ 'carpeta_ciudadana.documentation.big_business.tecnic_memory_big' | translate }}"
+idValue="tecnic_memory_big" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && formDocument.controls['tecnic_memory_big']?.touched"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
