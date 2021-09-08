@@ -50,7 +50,6 @@ export class UserIdentificationComponent implements OnInit {
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
       notification_means: new FormGroup({}),
-      actuation_data: new FormGroup({}),
       interested_data: new FormGroup({}),
       productive_establishment: new FormGroup({}),
       representative_data: new FormGroup({}),
