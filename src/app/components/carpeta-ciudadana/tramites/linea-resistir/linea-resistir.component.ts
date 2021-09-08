@@ -1,10 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
     selector: 'linea-resistir',
@@ -30,7 +32,8 @@ export class LineaResistirComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private ref: ChangeDetectorRef,
-        private procedureService:ProceduresService
+        private procedureService:ProceduresService,
+        private translate:TranslateService
     ) {
 
     }
@@ -53,13 +56,19 @@ export class LineaResistirComponent implements OnInit {
         });
     }
     public goToDocumentation() {
-        console.log(this.formLineaResistir.valid);
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
             this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
         } else {
-            console.log(this.formLineaResistir);
-            this.validate = true;
+            this.translate.get('error_texts.pop_up.form_error').subscribe(
+                error => {
+                    SwalUtils.showErrorAlert(
+                        error.title, 
+                        error.text)
+                    this.validate = true;
+                }
+            )
+           
         }
     }
 }

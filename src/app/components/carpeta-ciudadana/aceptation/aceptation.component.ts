@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
   selector: 'app-aceptation',
@@ -10,9 +12,10 @@ import { Router } from '@angular/router';
 export class AceptationComponent implements OnInit {
 
   public formAceptation:FormGroup;
-
+  public validate:boolean = false;
   constructor(
-    private router:Router
+    private router:Router,
+    private translate:TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +47,15 @@ export class AceptationComponent implements OnInit {
       this.formAceptation.controls.check_5.value) {
         this.router.navigate(['carpeta-del-ciudadano/firmar'])
     } else {
-      console.log(this.formAceptation)
+      this.translate.get('error_texts.pop_up.form_error').subscribe(
+        error => {
+            SwalUtils.showErrorAlert(
+                error.title, 
+                error.text);
+            this.validate = true;
+        }
+    )
+
     }
 
   }

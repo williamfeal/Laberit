@@ -300,6 +300,10 @@
         "size_error" : {
           "title": "Grandària invàlida",
           "text": "Arxiu massa gran. Màxim permés:"
+        },
+        "form_error" : {
+          "title": "Falten camps",
+          "text": "Revise els camps, per favor"
         }
       }
     },

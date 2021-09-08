@@ -42,35 +42,44 @@
             </span>
             <p class="mt-3"> {{ 'carpeta_ciudadana.aceptation.data_protection.text' | translate }} </p>
             <div class="form-check">
-                <input [ngClass]="{ 'err-checkbox' : formAceptation.controls.check_1.pristine === true }"  
-                    class="form-check-input" formControlName="check_1" type="checkbox" value="" #check_1 id="check_1">
+                <input class="form-check-input" formControlName="check_1" type="checkbox" value="" #check_1 id="check_1">
                 <label class="form-check-label" for="check_1">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_1' | translate }}
                 </label>
+                <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_1.pristine === true">
+                    {{ 'error_texts.input.empty_error' | translate}} </p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" formControlName="check_2" type="checkbox" value="" id="check_2">
                 <label class="form-check-label" for="check_2">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_2' | translate }}
                 </label>
+                <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_2.pristine === true">
+                    {{ 'error_texts.input.empty_error' | translate}} </p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" formControlName="check_3" type="checkbox" value="" id="check_3">
                 <label class="form-check-label" for="check_3">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_3' | translate }}
                 </label>
+                <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_3.pristine === true">
+                    {{ 'error_texts.input.empty_error' | translate}} </p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" formControlName="check_4" type="checkbox" value="" id="check_4">
                 <label class="form-check-label" for="check_4">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_4' | translate }}
                 </label>
+                <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_4.pristine === true">
+                    {{ 'error_texts.input.empty_error' | translate}} </p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" formControlName="check_5" type="checkbox" value="" id="check_5">
                 <label class="form-check-label" for="check_5">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.check_5' | translate }}
                 </label>
+                <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_5.pristine === true">
+                    {{ 'error_texts.input.empty_error' | translate}} </p>
               </div>
         </div>
         

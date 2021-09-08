@@ -6,6 +6,12 @@
     "presentSign": "Firmar y presentar",
     "previous": "Anterior"
   },
+  "error": {
+    "error_fields_form": {
+      "title": "Faltan campos",
+      "message": "Revise los campos, por favor"
+    }
+  },
   "home": {
     "TITLE": "Inicio",
     "carpeta": "Área de Cliente",
@@ -312,6 +318,10 @@
       "size_error" : {
         "title": "Tamaño inválido",
         "text": "Archivo demasiado grande. Máximo permitido:"
+      },
+      "form_error" : {
+        "title": "Faltan campos",
+        "text": "Revise los campos, por favor"
       }
     }
   },
