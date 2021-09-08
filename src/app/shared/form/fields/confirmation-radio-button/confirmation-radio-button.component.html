@@ -1,12 +1,14 @@
-<form class="d-flex">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" [name]="name + '__yes'" [id]="name + '__yes'">
+<form [formGroup]="form" class=" d-flex">
+<div class="form-check">
+        <input class="form-check-input" type="radio" [formControlName]="name"
+            id="{{name}}__yes" value="true" [name]="name">
             <label class="form-check-label p-0" for="flexRadioDefault1">
                 Sí
             </label>
     </div>
     <div class="form-check ml-3">
-        <input class="form-check-input" type="radio" [name]="name + '__no'" [id]="name + '__no'" checked>
+        <input class="form-check-input" type="radio" [formControlName]="name"
+            id="{{name}}__no" value="false" [name]="name" checked>
             <label class="form-check-label p-0" for="flexRadioDefault2">
                 No
             </label>
