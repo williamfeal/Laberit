@@ -545,54 +545,92 @@
         "lack": "Carencia (meses)",
         "modality": "Modalidad tipo de interés",
         "company_type": "Tipo de empresa",
-        "project_definition": "Definición del proyecto",
-        "project_type": "Tipo de proyecto"
+        "project_definition": "Definición del proyecto"
+      }
+    },
+    "notification_means": {
+      "title": "Medio de notificación",
+      "email": "Email a efecto de notificación"
+    },
+    "documentation": {
+      "title": "Documentación",
+      "documents": "Documentos",
+      "download": "Descargar Plantilla",
+      "generic": {
+        "dni":"Fotocopia DNI, pasaporte o tarjeta de residencia del solicitante",
+        "help":"Declaración de ayudas recibidas y/o solicitadas para los mismos gastos elegibles ",
+        "responsible_declaration":"Declaración responsable del cumplimiento de los requisitos para ser beneficiario y compromiso expreso del cumplimiento de las obligaciones que en caso de resultar beneficiario corresponderían al solicitante ",
+        "model_303":"Declaraciones trimestrales del IVA (modelo 303) correspondientes al último trimestre de 2019 y a los cuatro trimestres de 2020, así como las relativas a los trimestres de 2021 cerrados con carácter previo a la solicitud de financiación ",
+        "distribution_by_year":"Distribución por año de vencimiento de las obligaciones financieras, incluidas aquellas que resulten de préstamos otorgados por las administraciones públicas en el  marco de su actividad de promoción económica. No es obligatoria su presentación en caso de que la solicitud sea de importe inferior o igual a 50.000 euros"
       },
-      "notification_means": {
-        "title": "Medio de notificación",
-        "email": "Email a efecto de notificación"
+      "autonom": {
+        "tax_returns":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación",
+        "model_390":"Declaraciones resumen-anual del IVA (modelo 390) correspondientes a los ejercicios 2020 y 2019",
+        "self_assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
+        "model_RLC":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social",
+        "model_347_":"Última declaración anual de operaciones con terceras personas (Modelo 347)"
+
       },
-      "documentation": {
-        "title": "Documentación",
-        "documents": "Documentos",
-        "download": "Descargar Plantilla",
-        "generic": {
-          "dni":"Fotocopia DNI, pasaporte o tarjeta de residencia del solicitante",
-          "help":"Declaración de ayudas recibidas y/o solicitadas para los mismos gastos elegibles ",
-          "responsible_declaration":"Declaración responsable del cumplimiento de los requisitos para ser beneficiario y compromiso expreso del cumplimiento de las obligaciones que en caso de resultar beneficiario corresponderían al solicitante ",
-          "model_303":"Declaraciones trimestrales del IVA (modelo 303) correspondientes al último trimestre de 2019 y a los cuatro trimestres de 2020, así como las relativas a los trimestres de 2021 cerrados con carácter previo a la solicitud de financiación ",
-          "model_347":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
-          "distribution_by_year":"Distribución por año de vencimiento de las obligaciones financieras, incluidas aquellas que resulten de préstamos otorgados por las administraciones públicas en el  marco de su actividad de promoción económica. No es obligatoria su presentación en caso de que la solicitud sea de importe inferior o igual a 50.000 euros"
-        },
-        "autonom": {
-          "tax_returns":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación",
-          "model_390":"Declaraciones resumen-anual del IVA (modelo 390) correspondientes a los ejercicios 2020 y 2019",
-          "self_assessment":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación",
-          "model_RLC":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social"
-        },
-        "micro_business" :{
-          "society_constitution":"Fotocopia de la escritura de constitución de la sociedad",
-          "beneficial_ownership":"Fotocopia de la escritura de titularidad real de la sociedad o declaración de titularidad real",
-          "legal_representative":"Fotocopia de la escritura de apoderamiento del representante legal",
-          "annual_accounts":"Cuentas anuales depositadas en el Registro de los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación",
-          "42_commercial_code":"Si forma parte de un grupo de empresas, definido conforme al artículo 42 del Código de Comercio, obligado a elaborar estados financieros consolidados, deberá adjuntar también las cuentas anuales consolidadas del grupo, correspondientes a los dos últimos ejercicios cerrados.",
-          "tax_returns":"Declaraciones del impuesto sobre sociedades correspondientes a los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación (sólo en caso de sociedades no auditadas)",
-          "model_390":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
-          "registered_office":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
-          "business_group":"Si la sociedad mercantil forma parte de un grupo de empresas, se identificarán las empresas del grupo en un organigrama que incluirá los porcentajes de participación en cada sociedad, y para cada empresa del grupo se indicará el número de empleados, balance y volumen de negocio anual",
-          "PYME":"Modelo de declaración de la condición de PYME"
-        }
+      "micro_business" :{
+        "society_constitution_micro":"Fotocopia de la escritura de constitución de la sociedad",
+        "beneficial_ownership_micro":"Fotocopia de la escritura de titularidad real de la sociedad o declaración de titularidad real",
+        "legal_representative_micro":"Fotocopia de la escritura de apoderamiento del representante legal",
+        "annual_accounts_micro":"Cuentas anuales depositadas en el Registro de los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación",
+        "_commercial_code_micro":"Si forma parte de un grupo de empresas, definido conforme al artículo 42 del Código de Comercio, obligado a elaborar estados financieros consolidados, deberá adjuntar también las cuentas anuales consolidadas del grupo, correspondientes a los dos últimos ejercicios cerrados.",
+        "tax_returns_micro":"Declaraciones del impuesto sobre sociedades correspondientes a los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación (sólo en caso de sociedades no auditadas)",
+        "model_347_micro":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
+        "model_390_micro":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
+        "registered_office_micro":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+        "business_group_micro":"Si la sociedad mercantil forma parte de un grupo de empresas, se identificarán las empresas del grupo en un organigrama que incluirá los porcentajes de participación en cada sociedad, y para cada empresa del grupo se indicará el número de empleados, balance y volumen de negocio anual",
+        "PYME_micro":"Modelo de declaración de la condición de PYME"
       },
-      "requests-list": {
-        "title": "Mis Solicitudes"
+      "PYME":{
+        "society_constitution_PYME":"Fotocopia de la escritura de constitución de la sociedad",
+        "beneficial_ownership_PYME":"Fotocopia de la escritura de titularidad real de la sociedad o declaración de titularidad real",
+        "legal_representative_PYME":"Fotocopia de la escritura de apoderamiento del representante legal",
+        "annual_accounts_PYME":"Cuentas anuales depositadas en el Registro de los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación",
+        "_commercial_code_PYME":"Si forma parte de un grupo de empresas, definido conforme al artículo 42 del Código de Comercio, obligado a elaborar estados financieros consolidados, deberá adjuntar también las cuentas anuales consolidadas del grupo, correspondientes a los dos últimos ejercicios cerrados.",
+        "tax_returns_PYME":"Declaraciones del impuesto sobre sociedades correspondientes a los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación (sólo en caso de sociedades no auditadas)",
+        "risk_inform_PYME":"Informe actualizado de riesgos emitido por la Central de Información de Riesgos del Banco de España",
+        "model_390_PYME":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
+        "model_347_PYME":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
+        "registered_office_PYME":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+        "business_group_PYME":"Si la sociedad mercantil forma parte de un grupo de empresas, se identificarán las empresas del grupo en un organigrama que incluirá los porcentajes de participación en cada sociedad, y para cada empresa del grupo se indicará el número de empleados, balance y volumen de negocio anual",
+        "PYME":"Modelo de declaración de la condición de PYME",
+        "tecnic_memory_PYME":"Memoria Técnica (Plan de Negocio)"
       },
-      "general_instance": {
-        "title": "Instancia General",
-        "request_info": {
-          "summary": "Resumen",
-          "expose": "Expone",
-          "request": "Solicita"
-        }
+      "big_business":{
+        "society_constitution_big":"Fotocopia de la escritura de constitución de la sociedad",
+        "beneficial_ownership_big":"Fotocopia de la escritura de titularidad real de la sociedad o declaración de titularidad real",
+        "legal_representative_big":"Fotocopia de la escritura de apoderamiento del representante legal",
+        "annual_accounts_big":"Cuentas anuales depositadas en el Registro de los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación",
+        "_commercial_code_big":"Si forma parte de un grupo de empresas, definido conforme al artículo 42 del Código de Comercio, obligado a elaborar estados financieros consolidados, deberá adjuntar también las cuentas anuales consolidadas del grupo, correspondientes a los dos últimos ejercicios cerrados.",
+        "tax_returns_big":"Declaraciones del impuesto sobre sociedades correspondientes a los dos últimos ejercicios cerrados con anterioridad a la fecha de la solicitud de financiación (sólo en caso de sociedades no auditadas)",
+        "risk_inform_big":"Informe actualizado de riesgos emitido por la Central de Información de Riesgos del Banco de España",
+        "registered_office_big":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+        "business_group_big":"Si la sociedad mercantil forma parte de un grupo de empresas, se identificarán las empresas del grupo en un organigrama que incluirá los porcentajes de participación en cada sociedad, y para cada empresa del grupo se indicará el número de empleados, balance y volumen de negocio anual",
+        "PYME_big":"Modelo de declaración de la condición de PYME",
+        "tecnic_memory_big":"Memoria Técnica (Plan de Negocio)"
+      },
+      "beneficits_community":{
+        "society_constitution_community":"Fotocopia de la escritura de constitución de la sociedad",
+        "declarations_rent_community":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación de todos los socios",
+        "model_390_community":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
+        "model_184_entities_community": "Modelo 184 de Entidades en régimen de atribución de rentas",
+        "voucher_pay_community":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social de todos los socios",
+        "model_130_131_community":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación de todos los socios",
+        "model_347_community":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
+        "registered_office_community":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano"
+      },
+      "civil_society":{
+        "society_constitution_civil":"Fotocopia de la escritura de constitución de la sociedad",
+        "declarations_rent_civil":"Declaraciones del impuesto sobre la renta de las personas físicas correspondientes a los dos años inmediatamente anteriores a la fecha de la solicitud de financiación de todos los socios",
+        "model_390_civil":"Declaración resumen-anual del IVA (modelo 390) de los dos ejercicios cerrados con carácter previo a la solicitud de financiación",
+        "model_184_entities_civil": "Modelo 184 de Entidades en régimen de atribución de rentas",
+        "voucher_pay_civil":"Justificante de pago de los dos últimos recibos mensuales de liquidación de cotizaciones (modelo RLC), correspondientes al Régimen Especial de Trabajadores Autónomos de la Seguridad Social de todos los socios",
+        "model_130_131_civil":"Autoliquidación del pago fraccionado del IRPF (modelo 130 o 131), correspondiente al último trimestre cerrado con carácter previo a la solicitud de financiación de todos los socios",
+        "model_347_civil":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
+        "registered_office_civil":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano"
       }
     },
     "aceptation": {

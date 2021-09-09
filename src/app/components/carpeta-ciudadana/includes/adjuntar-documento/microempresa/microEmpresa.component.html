@@ -1,0 +1,86 @@
+<app-input-document 
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.beneficial_ownership_micro' | translate }}"
+    idValue="beneficial_ownership_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && beneficial_ownership_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.society_constitution_micro' | translate }}"
+    idValue="society_constitution_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && society_constitution_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.legal_representative_micro' | translate }}"
+    idValue="legal_representative_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && legal_representative_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.annual_accounts_micro' | translate }}"
+    idValue="annual_accounts_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && annual_accounts_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business._commercial_code_micro' | translate }}"
+    idValue="_commercial_code_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && _commercial_code_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.tax_returns_micro' | translate }}"
+    idValue="tax_returns_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && tax_returns_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.model_390_micro' | translate }}" idValue="model_390_micro"
+    [isRequired]="true" errorText="document_error"
+    [error]="validate && model_390_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+  label="{{ 'carpeta_ciudadana.documentation.micro_business.model_347_micro' | translate }}" idValue="model_347_micro"
+  [isRequired]="true" errorText="document_error"
+  [error]="validate && model_347_micro"
+  fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+  (deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.registered_office_micro' | translate }}"
+    idValue="registered_office_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && registered_office_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.PYME_micro' | translate }}" idValue="PYME_micro"
+    [idPlantilla]="true" [isRequired]="true" errorText="document_error"
+    [error]="validate && PYME_micro" fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
+    (uploadFileDocument)="saveDocument($event)" (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+    label="{{ 'carpeta_ciudadana.documentation.micro_business.business_group_micro' | translate }}"
+    idValue="business_group_micro" [isRequired]="true" errorText="document_error"
+    [error]="validate && business_group_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>

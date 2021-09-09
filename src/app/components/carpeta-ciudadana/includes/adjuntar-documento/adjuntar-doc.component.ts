@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileModel } from 'src/app/models/file.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { saveDocument, deleteDocument } from './AppUtils.component';
 @Component({
   selector: 'app-adjuntar-documento',
   templateUrl: './adjuntar-doc.component.html',
@@ -11,15 +12,24 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 export class AdjuntarDocComponent implements OnInit {
 
   public fileList: FileModel[] = [];
-
+  public tipo_empresa: string = "sociedad_civil";
+  public documentNif: boolean = true;
+  public documentHelp: boolean = true;
+  public responsible_declaration: boolean = true;
+  public model_303: boolean = true;
+  public distribution_by_year: boolean = true;
+  public requi: boolean = true;
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 
   public procedure;
   public formDocument: FormGroup;
-  validate: boolean = false;
+  public validate: boolean = false;
 
 
-  constructor(private router: Router, private procedureService: ProceduresService) {
+  constructor(private router: Router,
+    private procedureService: ProceduresService,
+    private cdRef: ChangeDetectorRef,
+    private fb: FormBuilder) {
 
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
       data => this.procedure = data
@@ -31,32 +41,39 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.newForm();
   }
-  newForm() {
-    this.formDocument = new FormGroup({
-      documentNif: new FormGroup({}),
-      documentHelp: new FormGroup({})
-    });
+  ngAfterViewChecked() {
+    this.cdRef.detectChanges();
   }
+
 
   saveDocument(ev) {
-
-    this.fileList.push(ev);
-    this.validate = false;
+    this[ev.controlName] = false;
+    saveDocument(this.fileList, ev);
   }
 
   deleteDocument(ev) {
-    const fileIndex = this.fileList.indexOf(ev);
-    this.fileList.splice(fileIndex, 1);
+    this[ev.controlName] = true;
+    deleteDocument(this.fileList, ev);
+  }
+
+  validationDocuments() {
+
   }
 
   public goToRequestInfo() {
     //validar si estan todos los documentos
-    if (!this.formDocument.valid) {
-      // this.router.navigate(['carpeta-del-ciudadano/firmar']);
+    //this.router.navigate(['carpeta-del-ciudadano/firmar']);
+
+    if (this.tipo_empresa === 'autonomo' && this.fileList.length == 10 || this.tipo_empresa === 'comunidad_bienes' && this.fileList.length == 13
+    || this.tipo_empresa === 'micro_empresa' && this.fileList.length == 16 || this.tipo_empresa === 'PYME' && this.fileList.length == 18 ||
+    this.tipo_empresa === 'big_bussines' && this.fileList.length == 16 || this.tipo_empresa === 'sociedad_civil' && this.fileList.length == 13) {
+      console.log(this.fileList);
+      this.validate = false;
+      console.log('VALIDO');
     } else {
       this.validate = true;
+      console.log(this.validate);
     }
   }
 }

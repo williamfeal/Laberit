@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
-import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.componenet';
+import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.component';
 import { DateComponent } from './includes/date-component/date.component';
 import { DatosInteresadoComponent } from './includes/datos-interesado/datos-interesado.component';
 import { DatosNotificacionComponent } from './includes/datos-notificacion/datos-notificacion.component';
@@ -31,6 +31,12 @@ import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.modul
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AceptationComponent } from './aceptation/aceptation.component';
 import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
+import { AutonomsComponent } from './includes/adjuntar-documento/autonoms/autonoms.component';
+import { ComunidadBienesComponent } from './includes/adjuntar-documento/comunidadBienes/comunidad.component';
+import { GranEmpresaComponent } from './includes/adjuntar-documento/granEmpresa/granEmpresa.component';
+import { MicroEmpresaComponent } from './includes/adjuntar-documento/microempresa/microEmpresa.component';
+import { PymeComponent } from './includes/adjuntar-documento/PYME/PYME.component';
+import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
 
 
 
@@ -60,7 +66,13 @@ import { FirmarYPresentarPopUp } from './includes/firmarYpresentarPopUp/firmarYp
     RequesterDataComponent,
     SocialAddressComponent,
     AceptationComponent,
-    FirmarYPresentarPopUp
+    FirmarYPresentarPopUp,
+    AutonomsComponent,
+    ComunidadBienesComponent,
+    GranEmpresaComponent,
+    MicroEmpresaComponent,
+    PymeComponent,
+    SociedadCivilComponent
   ],
   imports: [
     CommonModule,
