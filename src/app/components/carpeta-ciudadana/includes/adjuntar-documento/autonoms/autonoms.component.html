@@ -1,6 +1,6 @@
 <app-input-document
     label="{{ 'carpeta_ciudadana.documentation.autonom.tax_returns' | translate }}" idValue="tax_returns"
-    [isRequired]="true" errorText="document_error" [error]=""
+    [isRequired]="true" errorText="document_error" [error]="validate && tax_returns"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
@@ -8,28 +8,28 @@
   <app-input-document
     label="{{ 'carpeta_ciudadana.documentation.autonom.self_assessment' | translate }}" idValue="self_assessment"
     [isRequired]="true" errorText="document_error"
-    [error]=""
+    [error]="validate && self_assessment"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 
   <app-input-document
     label="{{ 'carpeta_ciudadana.documentation.autonom.model_RLC' | translate }}" idValue="model_RLC"
-    [isRequired]="true" errorText="document_error" [error]=""
+    [isRequired]="true" errorText="document_error" [error]="validate && model_RLC"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 
   <app-input-document
   label="{{ 'carpeta_ciudadana.documentation.autonom.model_347_' | translate }}" idValue="model_347_"
-  [isRequired]="true" errorText="document_error" [error]=""
+  [isRequired]="true" errorText="document_error" [error]="validate && model_347_"
   fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
   (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
   <app-input-document
     label="{{ 'carpeta_ciudadana.documentation.autonom.model_390' | translate }}" idValue="model_390"
-    [isRequired]="true" errorText="document_error" [error]=""
+    [isRequired]="true" errorText="document_error" [error]="validate && model_390"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>

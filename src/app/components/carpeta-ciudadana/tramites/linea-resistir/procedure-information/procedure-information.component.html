@@ -8,9 +8,9 @@
     <div class="card-body row">
         <div class="form-group col-md-3">
             <app-input-number [form]="formLineaResistir"
-                label="{{ 'carpeta_ciudadana.request_info.procedure_info.import' | translate }}"
-                controlName="import" idValue="import" nameValue="import" isRequired=true value=""
-                [error]="validate && formLineaResistir.controls['import']?.pristine"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.amount' | translate }}"
+                controlName="amount" idValue="amount" nameValue="amount" isRequired=true value=""
+                [error]="validate && formLineaResistir.controls['amount']?.pristine"
                 errorText="empty_error"></app-input-number>
         </div>
         <div class="col-md-2 form-group">
