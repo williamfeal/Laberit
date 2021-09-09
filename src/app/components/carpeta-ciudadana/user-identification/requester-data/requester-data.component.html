@@ -20,7 +20,7 @@
             [errorText]="errorCharacterLeng"
     ></app-input-select>
         </div>
-        <div class="form-group col-md-6" *ngIf="type == 'representative'">
+        <div class="form-group col-md-6" [ngClass]="{ 'd-none': type != 'representative'}">
             <app-input-select
             [form]="formRequestData"
             label=" {{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} "
@@ -28,7 +28,7 @@
             idValue="representation_power"
             nameValue="representation_power"
             [fieldOptions] = "representation_power"
-            [isRequired]="true"
+            [isRequired]="type == 'representative'"
             value=""
             [error]="validate && formRequestData.controls['representation_power']?.pristine"
             [errorText]="errorCharacterLeng"

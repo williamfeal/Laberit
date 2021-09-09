@@ -153,9 +153,9 @@
                     <app-input-select [form]="formRepresentativeData"
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
-                        controlName="interested_data_genre" idValue="interested_data_genre"
-                        [error]="validate && formRepresentativeData.controls['interested_data_genre']?.pristine"
-                        nameValue="interested_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        controlName="represented_data_genre" idValue="represented_data_genre"
+                        [error]="validate && formRepresentativeData.controls['represented_data_genre']?.pristine"
+                        nameValue="represented_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired"
                         [fieldOptions]="selectInfo" [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>

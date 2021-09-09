@@ -3,9 +3,11 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { AppConstants, EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
+import { SwalUtils } from 'src/app/utils/swal-utils';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-identification',
@@ -30,12 +32,14 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
+  textError;
   
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private proceduresService: ProceduresService,
-    private carpetaUtils: CarpetaUtils
+    private carpetaUtils: CarpetaUtils,
+    private translateService: TranslateService
   ) {
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getProcedureById(this.idProcedure).subscribe(
@@ -46,7 +50,6 @@ export class UserIdentificationComponent implements OnInit {
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
       notification_means: new FormGroup({}),
-      actuation_data: new FormGroup({}),
       interested_data: new FormGroup({}),
       productive_establishment: new FormGroup({}),
       representative_data: new FormGroup({}),
@@ -54,6 +57,11 @@ export class UserIdentificationComponent implements OnInit {
       contact_data: new FormGroup({}),
       sosial_address: new FormGroup({})
     });
+    this.translateService.get('error_texts.pop_up.form_error').subscribe(
+      text => {
+        this.textError = text;
+      }
+    )
   }
 
   ngOnInit(): void {
@@ -106,6 +114,7 @@ export class UserIdentificationComponent implements OnInit {
       this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
     } else {
       //saber como notificar al usuario
+      SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
       this.showErrors = true;
     }
   }
