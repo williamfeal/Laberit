@@ -28,7 +28,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }}"
                             controlName="contact_name" idValue="contact_name" nameValue="contact_name"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_name']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -37,7 +37,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }}"
                             controlName="contact_surname1" idValue="contact_surname1" nameValue="contact_surname1"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_surname1']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -55,7 +55,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
                             controlName="contact_nif" idValue="contact_nif" nameValue="contact_nif"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate"
                             [errorText]="errorNif"></app-input-text-nif>
                     </div>
@@ -67,7 +67,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
                             controlName="contact_position" idValue="contact_position" nameValue="contact_position"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_position']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -76,7 +76,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }}"
                             controlName="contact_telephone" idValue="contact_telephone" nameValue="contact_telephone"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_telephone']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -85,7 +85,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
                             controlName="contact_email" idValue="contact_email" nameValue="contact_email"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_email']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -97,7 +97,7 @@
                             label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                             [error]="validate && formContactData.controls['contact_via_type']?.pristine"
                             controlName="contact_via_type" idValue="contact_via_type" nameValue="contact_via_type"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs" [fieldOptions]="typeStreet"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked" [fieldOptions]="typeStreet"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>
@@ -106,7 +106,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                             controlName="contact_address" idValue="contact_address" nameValue="contact_address"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_address']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -116,7 +116,7 @@
                                 placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                                 label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
                                 controlName="contact_number" idValue="contact_number" nameValue="contact_number"
-                                [isReadOnly]="readOnly" [isRequired]="showInputs"
+                                [isReadOnly]="readOnly" [isRequired]="!isChecked"
                                 [error]="validate && formContactData.controls['contact_number']?.pristine"
                                 [errorText]="errorCharacterLeng"></app-input-text>
                         </div>
@@ -128,7 +128,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
                             controlName="contact_extra" idValue="contact_extra" nameValue="contact_extra"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
                             [error]="validate && formContactData.controls['contact_extra']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
@@ -138,7 +138,7 @@
                                 [form]="formContactData"
                                 label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                                 controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
-                                [isRequired]="showInputs"
+                                [isRequired]="!isChecked"
                                 [error]="validate && formContactData.controls['contact_CP']?.pristine"
                                 [errorText]="errorCharacterLeng">
                             </app-input-number>
@@ -151,7 +151,7 @@
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
                             controlName="contact_data_country" idValue="contact_data_country" nameValue="contact_data_country" [isReadOnly]="readOnly"
-                            [isRequired]="showInputs" [fieldOptions]="paises"
+                            [isRequired]="!isChecked" [fieldOptions]="paises"
                             [error]="validate && formContactData.controls['contact_data_country']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
@@ -161,7 +161,7 @@
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                             controlName="contact_data_province" idValue="contact_data_province" nameValue="contact_data_province" [isReadOnly]="readOnly"
-                            [isRequired]="showInputs" [fieldOptions]="provincias"
+                            [isRequired]="!isChecked" [fieldOptions]="provincias"
                             [error]="validate && formContactData.controls['contact_data_province']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
@@ -171,7 +171,7 @@
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                             label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                             controlName="contact_data_municipality" idValue="contact_data_municipality" nameValue="contact_data_municipality"
-                            [isReadOnly]="readOnly" [isRequired]="showInputs" [fieldOptions]="municipios"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked" [fieldOptions]="municipios"
                             [error]="validate && formContactData.controls['contact_data_municipality']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
