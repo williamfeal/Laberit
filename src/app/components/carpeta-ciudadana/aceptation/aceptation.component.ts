@@ -20,16 +20,16 @@ export class AceptationComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAceptation = new FormGroup({
-      manifestation_1 : new FormControl('false'),
-      manifestation_2 : new FormControl('false'),
-      manifestation_3 : new FormControl('false'),
-      manifestation_4 : new FormControl('false'),
-      manifestation_5 : new FormControl('false'),
-      manifestation_6 : new FormControl('false'),
-      manifestation_7 : new FormControl('false'),
-      manifestation_8 : new FormControl('false'),
-      manifestation_9 : new FormControl('false'),
-      manifestation_10 : new FormControl('false'),
+      manifestation_1 : new FormControl('', Validators.required),
+      manifestation_2 : new FormControl('', Validators.required),
+      manifestation_3 : new FormControl('', Validators.required),
+      manifestation_4 : new FormControl('', Validators.required),
+      manifestation_5 : new FormControl('', Validators.required),
+      manifestation_6 : new FormControl('', Validators.required),
+      manifestation_7 : new FormControl('', Validators.required),
+      manifestation_8 : new FormControl('', Validators.required),
+      manifestation_9 : new FormControl('', Validators.required),
+      manifestation_10 : new FormControl('', Validators.required),
       check_1: new FormControl(false, Validators.required),
       check_2: new FormControl(false, Validators.required),
       check_3: new FormControl(false, Validators.required),
@@ -40,11 +40,7 @@ export class AceptationComponent implements OnInit {
   }
 
   public validateForm() {
-    if(this.formAceptation.controls.check_1.value && 
-      this.formAceptation.controls.check_2.value && 
-      this.formAceptation.controls.check_3.value && 
-      this.formAceptation.controls.check_4.value && 
-      this.formAceptation.controls.check_5.value) {
+    if(this.formAceptation.valid) {
         this.router.navigate(['carpeta-del-ciudadano/firmar'])
     } else {
       this.translate.get('error_texts.pop_up.form_error').subscribe(
