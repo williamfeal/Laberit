@@ -37,7 +37,7 @@ export class AppUtils implements OnInit {
     getBase64Certificate();
     return new Promise((resolve, reject) => {
       const listener = setInterval(() => {
-        if (sessionStorage.getItem("b64Certificate") != null) {
+        if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
           resolve(sessionStorage.getItem("b64Certificate"));
         }
