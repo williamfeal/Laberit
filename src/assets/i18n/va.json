@@ -85,7 +85,7 @@
       "title": "Mapa Web",
       "home":"Home",
       "citizen_folder":{
-        "title": "Carpeta Ciutadana",
+        "title": "Àrea del Client",
         "notification_mailbox":"Bústia de notificacions",
         "request":"Sol·licituds",
         "personal_information":"Dades Personals"
@@ -143,7 +143,7 @@
       "technical_requirements": "Requisits tècnics",
       "user_guide": "Guia d'usuari",
       "access": "Accessos",
-      "carpeta": "Carpeta del Ciutadà",
+      "carpeta": "Àrea del client",
       "complaints_and_suggestions": "Queixes i suggeriments",
       "date_and_time": "Data i hora oficial",
       "advertisements": "Tauler d'anuncis",
@@ -181,7 +181,7 @@
       "download_application_form": "Descarregar model de sol·licitud"
     },
     "header": {
-      "carpeta": "Àrea de Client",
+      "carpeta": "Àrea del Client",
       "find_procedures": "Trobar tràmits"
     },
     "electronic-services": {
@@ -203,8 +203,8 @@
       },
       "notifications": {
         "title": "SERVEIS ELECTRÒNICS: <br>  FACTURA ELECTRÒNICA",
-        "text": "La bústia de comunicacions és el lloc on gestionar les seues notificacions electròniques rebudes, o aquelles de tercers a les quals haja sigut autoritzat. Pot consultar el detall de les notificacions electròniques rebudes accedint a la Carpeta Ciutadana, emprant per a això el seu certificat electrònic. <br> Una vegada en la Carpeta Ciutadana, dirigisca's a l'apartat \"Les teues notificacions i comunicacions\"",
-        "button": "Anar a Carpeta"
+        "text": "La bústia de comunicacions és el lloc on gestionar les seues notificacions electròniques rebudes, o aquelles de tercers a les quals haja sigut autoritzat. Pot consultar el detall de les notificacions electròniques rebudes accedint al Àrea del Client, emprant per a això el seu certificat electrònic. <br> Una vegada en el Àrea del Client, dirigisca's a l'apartat \"Les teues notificacions i comunicacions\"",
+        "button": "Anar a Àrea del Client"
       },
       "valide": {
         "title": "SERVEIS ELECTRÒNICS: <br>  VALIDACIÓ DE SIGNATURES I CERTIFICATS",
@@ -229,7 +229,7 @@
         },
         "services": {
           "name": "Serveis de la seu",
-          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">La Seu Electrònica de INSTITUT VALENCIÀ DE FINANCES ofereix els següents serveis als usuaris:</p><ol class=\"list-letter\"><li><span>Es permet realitzar tràmits per mitjans electrònics i poder realitzar una cerca d'ells fàcilment, amb indicació dels requisits essencials per a la tramitació, a més de la recepció de notificacions, incloent-se així mateix la possibilitat de descàrrega de la sol·licitud  presentada i del seu respectiu justificant</span></li><li><span>Serveis electrònics com la validació de signatures i certificats, la factura electrònica i la verificació de documents.</span></li><li><span>Informació sobre la Seu i informació essencial per a l'usuari com la normativa, la data i hora, el calendari de dies inhàbils, la direcció de la seu física i el número de telèfon per a l'atenció ciutadana.</span></li><li><span>Informació sobre com obtindre el certificat electrònic.</span></li><li><span>Informació sobre els requisits tècnics requerits.</span></li><li><span>Atenció al client per a interposar queixes i suggeriments.</span></li><li><span>Tauler d'anuncis per a estar informat de notícies d'interés.</span></li><li><span>Servei d'informació per a sol·licitar i obtindre informació rellevant.</span></li><li><span>Accés a la Carpeta Ciutadana.</span></li><li><span>Accés al Perfil de Contractant.</span></li></ol></div>"
+          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">La Seu Electrònica de INSTITUT VALENCIÀ DE FINANCES ofereix els següents serveis als usuaris:</p><ol class=\"list-letter\"><li><span>Es permet realitzar tràmits per mitjans electrònics i poder realitzar una cerca d'ells fàcilment, amb indicació dels requisits essencials per a la tramitació, a més de la recepció de notificacions, incloent-se així mateix la possibilitat de descàrrega de la sol·licitud  presentada i del seu respectiu justificant</span></li><li><span>Serveis electrònics com la validació de signatures i certificats, la factura electrònica i la verificació de documents.</span></li><li><span>Informació sobre la Seu i informació essencial per a l'usuari com la normativa, la data i hora, el calendari de dies inhàbils, la direcció de la seu física i el número de telèfon per a l'atenció ciutadana.</span></li><li><span>Informació sobre com obtindre el certificat electrònic.</span></li><li><span>Informació sobre els requisits tècnics requerits.</span></li><li><span>Atenció al client per a interposar queixes i suggeriments.</span></li><li><span>Tauler d'anuncis per a estar informat de notícies d'interés.</span></li><li><span>Servei d'informació per a sol·licitar i obtindre informació rellevant.</span></li><li><span>Accés al Àrea del Client.</span></li><li><span>Accés al Perfil de Contractant.</span></li></ol></div>"
         },
         "electronic_record": {
           "name": "Registre electrònic",
@@ -308,7 +308,7 @@
       }
     },
     "carpeta_ciudadana": {
-      "title": "Àrea de Client",
+      "title": "Àrea del Client",
       "breadcrumb": {
         "applicant": "Sol·licitant",
         "my_request": "La meua sol·licitud"
@@ -331,7 +331,7 @@
         "footer_tab": "Una vegada iniciada la tramitació de la seua sol·licitud, pot consultar l'estat de la mateixa accedint al llistat de Sol·licituds del"
       },
       "init_page": {
-        "text": "<p>Per a accedir a la tramitació electrònica, així com a la carpeta del ciutadà i a tota la informació personal relacionada, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic.</p><p>Actualment, la Seu Electrònica de l'Ajuntament admet certificats electrònics dels següents proveïdors de serveis de certificació <ul><li><strong>DNI electrònic  </strong> (Direcció General de Policia - Ministeri de l'Interior).</li> <li> <strong>ACCV </strong> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana). </li><li>En general, tots aquells reconeguts en la plataforma <strong>@Firma</strong> el ministeri d'Hisenda i Administracions Públiques.</li></ul></p><p>Pot accedir amb el seu certificat electrònic a través del següent enllaç: </p>",
+        "text": "<p>Per a accedir a la tramitació electrònica, així com a al Àrea del client i a tota la informació personal relacionada, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic.</p><p>Actualment, la Seu Electrònica de l'Ajuntament admet certificats electrònics dels següents proveïdors de serveis de certificació <ul><li><strong>DNI electrònic  </strong> (Direcció General de Policia - Ministeri de l'Interior).</li> <li> <strong>ACCV </strong> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana). </li><li>En general, tots aquells reconeguts en la plataforma <strong>@Firma</strong> el ministeri d'Hisenda i Administracions Públiques.</li></ul></p><p>Pot accedir amb el seu certificat electrònic a través del següent enllaç: </p>",
         "btn_electronic_certificate": "Accés amb certificat electrònic",
         "btn_clave": "Accés amb clau"
       },
@@ -355,7 +355,9 @@
         "presentarSolicitud": "Presentar sol·licitud",
         "present_request": {
           "title": "Presentar sol·licitud",
-          "button": "Signar i presentar",
+          "back": "Tornar",
+          "button": "REVISAR SOL·LICITUD",
+          "sign":"Firmar y Presentar",
           "text_link": "Sol·licitud",
           "text": "Es procedirà a la signatura i presentació de la seua sol·licitud mitjançant el seu certificat electrònic <br> <br> Per a presentar l'expedient, Vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic. <br> Actualment, la Seu Electrònica de INSTITUT VALENCIÀ DE FINANCES admet certificats electrònics dels següents proveïdors de serveis de certificació: <br> <br> <ul> <li><span><b>DNI electrònic</b></span>(Direcció General de Policia - Ministeri de l'Interior)</li><li><b>ACCV</b> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana)</li> <li>En general, tots aquells certificats reconeguts en la plataforma<span><b>@Firma </b></span>del Ministeri d'Hisenda i Administracions Públiques</li> </ul> <p>Pot consultar l'esborrany de la sol·licitud que presentarà, prement sobre el següent enllaç:</p>"
         },
