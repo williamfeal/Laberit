@@ -77,6 +77,7 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/aceptacion', terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: true },
     ]},
   },

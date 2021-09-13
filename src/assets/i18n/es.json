@@ -75,7 +75,7 @@
       "rights": "Derechos",
       "rights_text": "Acceso, rectificación, supresión, oposición, limitación del tratamiento y, en su caso oposición portabilidad de los datos.",
       "rights_exercises": "Ejercicios de derecho",
-      "rights_exercises_text": "pdatos@apc.es",
+      "rights_exercises_text": "pdatos@ivf.es",
       "origin": "Procedencia",
       "origin_text": "El propio interesado, su representante legal.",
       "consult_legal_notice": "Consulte nuestro Aviso Legal y Política de Privacidad en el siguiente",
@@ -91,7 +91,7 @@
     "title": "Mapa Web",
     "home":"Home",
     "citizen_folder":{
-      "title": "Carpeta Ciudadana",
+      "title": "Area Cliente",
       "notification_mailbox":"Buzón de notificaciones",
       "request":"Solicitudes",
       "personal_information":"Datos Personales"
@@ -210,8 +210,8 @@
     },
     "notifications": {
       "title": "SERVICIOS ELECTRÓNICOS: <br>  BUZÓN DE COMUNICACIONES",
-      "text": "El buzón de comunicaciones es el lugar donde gestionar sus notificaciones electrónicas recibidas, o aquellas de terceros a las que haya sido autorizado. Puede consultar el detalle de las notificaciones electrónicas recibidas accediendo a la Carpeta Ciudadana, empleando para ello su certificado electrónico. <br> Una vez en la Carpeta Ciudadana, diríjase al apartado \"Tus notificaciones y comunicaciones\"",
-      "button": "Ir a Carpeta"
+      "text": "El buzón de comunicaciones es el lugar donde gestionar sus notificaciones electrónicas recibidas, o aquellas de terceros a las que haya sido autorizado. Puede consultar el detalle de las notificaciones electrónicas recibidas accediendo al Area de Cliente, empleando para ello su certificado electrónico. <br> Una vez en el Area de Cliente, diríjase al apartado \"Tus notificaciones y comunicaciones\"",
+      "button": "Ir a Area Cliente"
     },
     "valide": {
       "title": "SERVICIOS ELECTRÓNICOS: <br>  VALIDACIÓN DE FIRMAS Y CERTIFICADOS",
@@ -297,7 +297,7 @@
   "legal_warning": {
     "title": "Aviso legal",
     "header_card": "INTRODUCCIÓN",
-    "text": "<p dir=\"ltr\">La titularidad del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es&nbsp; la Autoridad Portuaria de Cartagena, con domicilio en Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">La Autoridad Portuaria de Cartagena es un organismo de derecho p&uacute;blico dependiente del Ministerio de Fomento, y se rige fundamentalmente por el Real Decreto Legislativo 2/2011, de 5 de Septiembre, por el que se aprueba el Texto Refundido de la Ley de Puertos del Estado y de la Marina Mercante.</p><p dir=\"ltr\"><strong>POL&Iacute;TICAS DE ACCESO Y USO DEL PORTAL</strong></p><p dir=\"ltr\">El presente aviso e informaci&oacute;n legal regula el uso del servicio de la p&aacute;gina web de Internet&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;(en adelante, el \"Portal\") que la APC pone a disposici&oacute;n de los usuarios de Internet en las siguientes condiciones:</p><p dir=\"ltr\"><strong>A) DATOS IDENTIFICATIVOS DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">El titular del portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es la Autoridad Portuaria de Cartagena, con domicilio Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">Datos de Contacto</p><p dir=\"ltr\">Denominaci&oacute;n Social: AUTORITAD PORTUARIA DE CARTAGENA, SL.</p><p dir=\"ltr\">Domicilio Social: Plaza H&eacute;roes de Cavite,30201 Cartagena</p><p dir=\"ltr\">Tel&eacute;fono: (+34) 968 32 58 00</p><p dir=\"ltr\">Fax: (+34) 968 32 58 15</p><p dir=\"ltr\">Correo electr&oacute;nico: cartagena@apc.es</p><p dir=\"ltr\"><strong>B) OBJETO DEL PORTAL</strong></p><p dir=\"ltr\">El portal&nbsp;<a href=\"https://sede.apc.gob.es/\">https://sede.apc.gob.es/</a>&nbsp;es una iniciativa de la Autoridad Portuaria de Cartagena que persigue un doble objetivo: por un lado, constituye una herramienta de difusi&oacute;n de la informaci&oacute;n y actividades que realizan las diferentes &aacute;reas de este Organismo P&uacute;blico&nbsp; y, por otro, es un instrumento para la modernizaci&oacute;n de la gesti&oacute;n del propio Organismo.</p>"
+    "text": "<p dir=\"ltr\">La titularidad del portal&nbsp;<a href=\"https://sede.ivf.gob.es/\">https://sede.ivf.gob.es/</a>&nbsp;es&nbsp; la Autoridad Portuaria de Cartagena, con domicilio en Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">La Autoridad Portuaria de Cartagena es un organismo de derecho p&uacute;blico dependiente del Ministerio de Fomento, y se rige fundamentalmente por el Real Decreto Legislativo 2/2011, de 5 de Septiembre, por el que se aprueba el Texto Refundido de la Ley de Puertos del Estado y de la Marina Mercante.</p><p dir=\"ltr\"><strong>POL&Iacute;TICAS DE ACCESO Y USO DEL PORTAL</strong></p><p dir=\"ltr\">El presente aviso e informaci&oacute;n legal regula el uso del servicio de la p&aacute;gina web de Internet&nbsp;<a href=\"https://sede.ivf.gob.es/\">https://sede.ivf.gob.es/</a>&nbsp;(en adelante, el \"Portal\") que el IVF pone a disposici&oacute;n de los usuarios de Internet en las siguientes condiciones:</p><p dir=\"ltr\"><strong>A) DATOS IDENTIFICATIVOS DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">El titular del portal&nbsp;<a href=\"https://sede.ivf.gob.es/\">https://sede.ivf.gob.es/</a>&nbsp;es la Autoridad Portuaria de Cartagena, con domicilio Plaza H&eacute;roes de Cavite s/n 30201 en Cartagena&nbsp; y con CIF Q-3067007-I.</p><p dir=\"ltr\">Datos de Contacto</p><p dir=\"ltr\">Denominaci&oacute;n Social: AUTORITAD PORTUARIA DE CARTAGENA, SL.</p><p dir=\"ltr\">Domicilio Social: Plaza H&eacute;roes de Cavite,30201 Cartagena</p><p dir=\"ltr\">Tel&eacute;fono: (+34) 968 32 58 00</p><p dir=\"ltr\">Fax: (+34) 968 32 58 15</p><p dir=\"ltr\">Correo electr&oacute;nico: cartagena@ivf.es</p><p dir=\"ltr\"><strong>B) OBJETO DEL PORTAL</strong></p><p dir=\"ltr\">El portal&nbsp;<a href=\"https://sede.ivf.gob.es/\">https://sede.ivf.gob.es/</a>&nbsp;es una iniciativa de la Autoridad Portuaria de Cartagena que persigue un doble objetivo: por un lado, constituye una herramienta de difusi&oacute;n de la informaci&oacute;n y actividades que realizan las diferentes &aacute;reas de este Organismo P&uacute;blico&nbsp; y, por otro, es un instrumento para la modernizaci&oacute;n de la gesti&oacute;n del propio Organismo.</p>"
   },
   "areas": {
     "title": "Áreas"
@@ -532,20 +532,16 @@
           "total_loan": "Total préstamo solicitado IVF (*)"
         }
       },
-      "linea_resistir_instance": {
-        "section_title_1": "Condiciones de la solicitud",
-        "section_title_2": "Detalle de los costes a financiar",
-        "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
-      },
       
       "procedure_info": {
         "title": "Información del trámite",
-        "import": "Importe",
         "term": "Plazo (años)",
         "lack": "Carencia (meses)",
         "modality": "Modalidad tipo de interés",
         "company_type": "Tipo de empresa",
-        "project_definition": "Definición del proyecto"
+        "project_definition": "Definición del proyecto",
+        "project_type": "Tipo de proyecto",
+        "amount":"Importe"
       }
     },
     "notification_means": {
@@ -632,6 +628,11 @@
         "model_347_civil":"Última declaración anual de operaciones con terceras personas (Modelo 347)",
         "registered_office_civil":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano"
       }
+    },
+    "linea_resistir_instance": {
+      "section_title_1": "Condiciones de la solicitud",
+      "section_title_2": "Detalle de los costes a financiar",
+      "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
     },
     "aceptation": {
       "title": "Aceptación",

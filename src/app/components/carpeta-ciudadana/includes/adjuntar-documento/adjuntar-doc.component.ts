@@ -63,14 +63,14 @@ export class AdjuntarDocComponent implements OnInit {
 
   public goToRequestInfo() {
     //validar si estan todos los documentos
-    //this.router.navigate(['carpeta-del-ciudadano/firmar']);
+    
 
     if (this.tipo_empresa === 'autonomo' && this.fileList.length == 10 || this.tipo_empresa === 'comunidad_bienes' && this.fileList.length == 13
     || this.tipo_empresa === 'micro_empresa' && this.fileList.length == 16 || this.tipo_empresa === 'PYME' && this.fileList.length == 18 ||
     this.tipo_empresa === 'big_bussines' && this.fileList.length == 16 || this.tipo_empresa === 'sociedad_civil' && this.fileList.length == 13) {
       console.log(this.fileList);
       this.validate = false;
-      console.log('VALIDO');
+      this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
     } else {
       this.validate = true;
       console.log(this.validate);

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AppUtils } from 'src/app/utils/app-utils';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-FirmarYPresentarPopUp',
@@ -24,6 +25,7 @@ export class FirmarYPresentarPopUp implements OnInit {
         
     }
     singAndPresent() {
+        try{
         this.appUtils.signDocument(this.documentBase64).then((documentSinged) => {
             console.log('documentSinged :>> ', documentSinged);
             this.dialogRef.close(false);
@@ -32,6 +34,13 @@ export class FirmarYPresentarPopUp implements OnInit {
             },3000);
             
         });
+        }catch(e){
+            Swal.fire('Error', 'En la firma del documento', 'info');
+
+            Swal.update({
+              icon: 'error'
+            })
+    }
         
         
     }
