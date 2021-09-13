@@ -34,5 +34,9 @@ export class ContactDataComponent implements OnInit {
     this.businessType = businessType;
     this.siNo = siNo;
   }
+
+  public checkValue() {
+    console.log(this.isChecked)
+  }
   
 }
