@@ -10,6 +10,7 @@ export class ConfirmationRadioButtonComponent implements OnInit {
 
   @Input() name:string;
   @Input() form:FormGroup;
+  @Input() error:boolean;
 
   constructor() { }
 
