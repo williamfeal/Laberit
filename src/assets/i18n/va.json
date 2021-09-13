@@ -520,7 +520,8 @@
           "modality": "Modalitat tipus d'interés",
           "company_type": "Tipus d'empresa",
           "project_type": "Tipus de projecte",
-          "project_definition": "Definició del projecte"
+          "project_definition": "Definició del projecte",
+          "amount":"Import"
         }
       },
       "notification_means": {
