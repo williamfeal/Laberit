@@ -98,7 +98,7 @@
                     <app-input-select [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
                         controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup" [isRequired]="isRequired"
-                        [fieldOptions]="siNo" [error]="validate && formInterestedData.controls['ownGroup']?.pristine"
+                        [fieldOptions]="belongingCompany" [error]="validate && formInterestedData.controls['ownGroup']?.pristine"
                         [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>
@@ -147,7 +147,7 @@
                     controlName="interested_data_genre" idValue="interested_data_genre"
                     nameValue="interested_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formInterestedData.controls['interested_data_genre']?.pristine"
-                    [fieldOptions]="selectInfo" [errorText]="errorCharacterLeng">
+                    [fieldOptions]="genders" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
             <div class="form-group col-md-3">

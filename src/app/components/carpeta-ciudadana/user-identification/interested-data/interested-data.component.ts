@@ -15,14 +15,16 @@ export class InterestedDataComponent implements OnInit {
   @Input() readOnly:boolean;
   @Input() validate: boolean;
   @Input() isRequired:boolean;
-  public selectInfo:SelectFieldObject[];
+  
+  public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
+  public belongingCompany:SelectFieldObject[];
+  public businessType: SelectFieldObject[];
+  public siNo: SelectFieldObject[];
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
-   
-  public businessType: SelectFieldObject[];
-  public siNo: SelectFieldObject[];
+
   
   constructor(
     private catalogsService:CatalogsService
@@ -31,20 +33,40 @@ export class InterestedDataComponent implements OnInit {
   ngOnInit(): void {
     this.loadCNAEdata();
     this.getCountries()
-    this.businessType = businessType;
-    this.siNo = siNo;
+    this.getGendersData();
+    this.getBelongingCompany();
   }
 
   private loadCNAEdata() {
-    this.catalogsService.getConceptByCode(ConceptConstants.CNAE_CODES).subscribe(
-      data => console.log(data)
+    this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
+      data => this.businessType = data.sort(function(a, b){
+        if(a.description < b.description) { return -1; }
+        if(a.description > b.description) { return 1; }
+        return 0;
+    })
     )
   }
 
   private getCountries() {
     this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
-      data =>  this.paises = data
+      data =>  this.paises = data.sort(function(a, b){
+        if(a.description < b.description) { return -1; }
+        if(a.description > b.description) { return 1; }
+        return 0;
+    })
       
+    )
+  }
+
+  private getGendersData() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.GENDERS).subscribe(
+      data => this.genders = data
+    )
+  }
+
+  private getBelongingCompany() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.GROUP_BELONGING_COMPANY).subscribe(
+      data => this.belongingCompany = data
     )
   }
 }
