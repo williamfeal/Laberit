@@ -16,7 +16,8 @@ export const environment = {
     realm: 'Angular2',
     clientId: 'angular-tasklist'
   },
-  entity_uuid: 'ca807322-5bcb-11eb-87b5-c4fba02e0591'
+  entity_uuid: 'ca807322-5bcb-11eb-87b5-c4fba02e0591',
+  catalogs_url: 'http://172.20.11.41:8086'
 };
 
 /*
