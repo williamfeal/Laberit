@@ -87,6 +87,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
+    
     console.log('this.formUserIdentification :>> ', this.formUserIdentification);
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
