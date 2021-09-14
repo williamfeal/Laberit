@@ -35,7 +35,6 @@ export class InputNumberComponent implements OnInit {
       this.validaciones.push(Validators.required);
     }
     if (this.minLength != null) {
-      console.log(this.minLength);
       this.validaciones.push(Validators.minLength(this.minLength));
     }
     if (this.validaciones.length > 0) {
