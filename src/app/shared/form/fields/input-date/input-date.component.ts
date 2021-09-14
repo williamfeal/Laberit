@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'app-input-date',
@@ -21,11 +23,14 @@ export class InputDateComponent implements OnInit {
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
+  @Input() maxDate!: boolean;
 
+  public dateToday: string;
   textError: string;
   formControl = new FormControl('');
   validaciones: ValidatorFn[] = [];
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService) {
+  }
 
   ngOnInit(): void {
     if (this.isRequired) {
@@ -34,9 +39,22 @@ export class InputDateComponent implements OnInit {
     this.form.addControl(this.controlName, this.formControl);
     if (this.placeholder == undefined) this.placeholder = '';
 
+    if (this.maxDate) {
+      this.validationMax();
+    }
 
   }
-
+  validationMax() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = (today.getMonth() + 1).toString();
+    if(mm.length == 1){
+      mm = '0' + mm;
+    }
+    let yyyy = today.getFullYear();
+    this.dateToday = yyyy + '-' + mm + '-' + dd;
+    console.log(this.dateToday);
+  }
   onChangeValue() {
     console.log(this.form.get(this.controlName)?.value);
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
@@ -57,6 +75,6 @@ export class InputDateComponent implements OnInit {
       }
     )
   }
-  
+
 }
 
