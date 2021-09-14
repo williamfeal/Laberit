@@ -75,12 +75,12 @@ export class UserIdentificationComponent implements OnInit {
 
   onChangeTypeRequester(event) {
     this.requesterType = event;
-    if (this.requesterType == 'interested') {
+    if (this.requesterType == 'ivf-applicant-types-interested') {
       this.interested = true;
       this.representative = false;
     }
 
-    if (this.requesterType == 'representative') {
+    if (this.requesterType == 'ivf-applicant-types-representantive') {
       this.interested = false;
       this.representative = true;
     }
