@@ -33,7 +33,7 @@ const routes:Routes = [
       menu : false,
       breadcrumb: [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.request_info.title', url: '', terminal: true}] }
   },
   { path: 'carpeta-del-ciudadano/requests-list', 
@@ -53,7 +53,7 @@ const routes:Routes = [
       menu : false,
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '', terminal: true }
     ]}
     },
@@ -64,7 +64,7 @@ const routes:Routes = [
       menu : false,
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '', terminal: true }
     ]}
     },
@@ -75,9 +75,8 @@ const routes:Routes = [
       menu : false,
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
-      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/aceptacion', terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: true },
     ]},
   },
@@ -88,9 +87,9 @@ const routes:Routes = [
       menu : false,
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
-      { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: '/carpeta-del-ciudadano/adjuntar', terminal: false },
       { title: 'carpeta_ciudadana.aceptation.title', url: '', terminal: true }
     ]},
   },
@@ -101,7 +100,7 @@ const routes:Routes = [
       menu : false,
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.instance.title', url: '/carpeta-del-ciudadano/instancia-general', terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: 'carpeta-del-ciudadano/adjuntar', terminal: false },
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
