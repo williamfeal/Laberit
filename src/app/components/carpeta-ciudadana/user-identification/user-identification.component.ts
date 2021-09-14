@@ -41,6 +41,11 @@ export class UserIdentificationComponent implements OnInit {
     private carpetaUtils: CarpetaUtils,
     private translateService: TranslateService
   ) {
+    
+  }
+
+  ngOnInit(): void {
+    this.user = this.carpetaUtils.getSession();
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getProcedureById(this.idProcedure).subscribe(
       (procedure: Procedure) => {
@@ -64,10 +69,6 @@ export class UserIdentificationComponent implements OnInit {
     )
   }
 
-  ngOnInit(): void {
-    this.user = this.carpetaUtils.getSession();
-  }
-
   public isUserAutonomo(): boolean {
     return false;
   }
@@ -87,8 +88,6 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
-    
-    console.log('this.formUserIdentification :>> ', this.formUserIdentification);
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
