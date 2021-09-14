@@ -12,7 +12,6 @@ import { DatosInteresadoComponent } from './includes/datos-interesado/datos-inte
 import { DatosNotificacionComponent } from './includes/datos-notificacion/datos-notificacion.component';
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
-import { RequestInfoComponent } from './request-info/request-info.component';
 import { InstanciaGeneralComponent } from './tramites/instancia-general/instancia-general.component';
 import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
 import { DetailCostFinancedComponent } from './tramites/linea-resistir/detail-cost-financed/detail-cost-financed.component';
@@ -50,7 +49,6 @@ import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCi
     DatosNotificacionComponent,
     PresentarSolicitudComponent,
     RequestsListComponent,
-    RequestInfoComponent,
     InstanciaGeneralComponent,
     LineaResistirComponent,
     DetailCostFinancedComponent,

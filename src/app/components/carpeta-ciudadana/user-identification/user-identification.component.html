@@ -1,5 +1,7 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" 
     [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-spinner *ngIf="!procedure"></app-spinner>
+<div *ngIf="procedure">
 <app-button-back></app-button-back>
 <form [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
     <div class="row mx-0 mt-2">
@@ -64,3 +66,4 @@
         <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
     </div>
 </form>
+</div>

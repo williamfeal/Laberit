@@ -6,7 +6,6 @@ import { CarpetaCiudadanaComponent } from "./carpeta-ciudadana.component";
 import { AdjuntarDocComponent } from "./includes/adjuntar-documento/adjuntar-doc.component";
 import { ConfirmacionSolicitudComponent } from "./includes/confirmacion-solicitud/confirmacion-solicitud.component";
 import { PresentarSolicitudComponent } from "./includes/presentar-solicitud/presentar-solicitud.component";
-import { RequestInfoComponent } from "./request-info/request-info.component";
 import { RequestsListComponent } from "./requests-list/requests-list.component";
 import { InstanciaGeneralComponent } from "./tramites/instancia-general/instancia-general.component";
 import { LineaResistirComponent } from "./tramites/linea-resistir/linea-resistir.component";
@@ -25,16 +24,6 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '', terminal: true }
     ]},
-  },
-  { path: 'carpeta-del-ciudadano/request-info', 
-    component: RequestInfoComponent, 
-    canActivate: [AuthGuardService],
-    data: { 
-      menu : false,
-      breadcrumb: [
-      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
-      { title: 'carpeta_ciudadana.request_info.title', url: '', terminal: true}] }
   },
   { path: 'carpeta-del-ciudadano/requests-list', 
     component: RequestsListComponent, 

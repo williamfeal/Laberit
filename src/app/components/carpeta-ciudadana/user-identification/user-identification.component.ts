@@ -32,7 +32,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
-  textError;
+  public textError;
   
   constructor(
     private activatedRoute: ActivatedRoute,
