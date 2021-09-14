@@ -38,29 +38,30 @@ export class AceptationComponent implements OnInit {
       manifestation_8 : new FormControl('', Validators.required),
       manifestation_9 : new FormControl('', Validators.required),
       manifestation_10 : new FormControl('', Validators.required),
-      check_1: new FormControl(false, Validators.required),
-      check_2: new FormControl(false, Validators.required),
-      check_3: new FormControl(false, Validators.required),
-      check_4: new FormControl(false, Validators.required),
-      check_5: new FormControl(false, Validators.required),
+      check_1: new FormControl('', Validators.requiredTrue),
+      check_2: new FormControl('', Validators.requiredTrue),
+      check_3: new FormControl('', Validators.requiredTrue),
+      check_4: new FormControl('', Validators.requiredTrue),
+      check_5: new FormControl('', Validators.requiredTrue),
 
     })
   }
 
   public validateForm() {
-    if(this.formAceptation.valid) {
-        this.router.navigate(['carpeta-del-ciudadano/firmar'])
-    } else {
-      this.translate.get('error_texts.pop_up.form_error').subscribe(
-        error => {
-            SwalUtils.showErrorAlert(
-                error.title, 
-                error.text);
-            this.validate = true;
-        }
-    )
+    // if(this.formAceptation.valid) {
+    //     this.router.navigate(['carpeta-del-ciudadano/firmar'])
+    // } else {
+    //   this.translate.get('error_texts.pop_up.form_error').subscribe(
+    //     error => {
+    //         SwalUtils.showErrorAlert(
+    //             error.title, 
+    //             error.text);
+    //         this.validate = true;
+    //     }
+    // )
 
-    }
+    // }
+    console.log(this.formAceptation);
 
   }
 }
