@@ -1,4 +1,6 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-spinner *ngIf="!procedure"></app-spinner>
+<div *ngIf="procedure">
 <app-button-back></app-button-back>
 <div class="card mx-4">
   <div class="card-header background-card-header pb-0">
@@ -57,4 +59,5 @@
   <div class="text-right px-3 py-3">
     <button class="btn-app-primary mr-2" (click)="goToRequestInfo()">{{ 'buttons.continue' | translate}}</button>
   </div>
+</div>
 </div>
