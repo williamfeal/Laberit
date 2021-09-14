@@ -128,7 +128,7 @@
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
                             controlName="contact_extra" idValue="contact_extra" nameValue="contact_extra"
-                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [isReadOnly]="readOnly"
                             [error]="validate && formContactData.controls['contact_extra']?.pristine"
                             [errorText]="errorCharacterLeng"></app-input-text>
                     </div>
