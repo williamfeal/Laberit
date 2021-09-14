@@ -1,5 +1,5 @@
 export class SelectFieldObject {
-    id!: string;
-    val!: string;
+    concept_code:string;
+    description:string;
     selected?: boolean;
 }
