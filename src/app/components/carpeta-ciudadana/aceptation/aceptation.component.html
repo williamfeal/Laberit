@@ -1,9 +1,5 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
-<div class="row mr-0 ml-4">
-    <a [routerLink]="['/carpeta-del-ciudadano/request-info']">
-        <em class="fas fa-chevron-left"></em> {{ 'buttons.back' | translate}}
-    </a>
-</div>
+<app-button-back></app-button-back>
 <form  (ngSubmit)="validateForm()" [formGroup]="formAceptation">
     <div class="mx-3 card mt-2">
         <div class="card-header background-card-header pb-0">
