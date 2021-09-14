@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
@@ -13,12 +15,18 @@ export class AceptationComponent implements OnInit {
 
   public formAceptation:FormGroup;
   public validate:boolean = false;
+  public procedure:Procedure;
   constructor(
     private router:Router,
-    private translate:TranslateService
+    private translate:TranslateService,
+    private proceduresService:ProceduresService
   ) { }
 
   ngOnInit(): void {
+    const idProcedure = sessionStorage.getItem('idProcedure');
+    this.proceduresService.getProcedureById(idProcedure).subscribe(
+      data => this.procedure = data
+    )
     this.formAceptation = new FormGroup({
       manifestation_1 : new FormControl('', Validators.required),
       manifestation_2 : new FormControl('', Validators.required),
