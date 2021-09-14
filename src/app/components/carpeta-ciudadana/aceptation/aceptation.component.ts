@@ -48,20 +48,18 @@ export class AceptationComponent implements OnInit {
   }
 
   public validateForm() {
-    // if(this.formAceptation.valid) {
-    //     this.router.navigate(['carpeta-del-ciudadano/firmar'])
-    // } else {
-    //   this.translate.get('error_texts.pop_up.form_error').subscribe(
-    //     error => {
-    //         SwalUtils.showErrorAlert(
-    //             error.title, 
-    //             error.text);
-    //         this.validate = true;
-    //     }
-    // )
+    if(this.formAceptation.valid) {
+        this.router.navigate(['carpeta-del-ciudadano/firmar'])
+    } else {
+      this.translate.get('error_texts.pop_up.form_error').subscribe(
+        error => {
+            SwalUtils.showErrorAlert(
+                error.title, 
+                error.text);
+            this.validate = true;
+        }
+    )
 
-    // }
-    console.log(this.formAceptation);
-
+    }
   }
 }
