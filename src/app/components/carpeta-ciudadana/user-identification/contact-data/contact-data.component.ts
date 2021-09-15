@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { businessType, siNo, genero, typeStreet, provincias, comunidades, paises } from 'src/app/utils/constants/app-constants';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-contact-data',
@@ -20,19 +22,36 @@ export class ContactDataComponent implements OnInit {
   public showInputs: boolean = true;
 
   //se cambiara con los catalogos
-  public provincias: SelectFieldObject[] = provincias;
-  public municipios: SelectFieldObject[] = comunidades;
-  public paises: SelectFieldObject[] = paises;
+  public provincias: SelectFieldObject[];
+  public municipios: SelectFieldObject[];
+  public paises: SelectFieldObject[];
   
-  public businessType: SelectFieldObject[];
-  public siNo: SelectFieldObject[];
-  public selectInfo:SelectFieldObject[] = genero;
   typeStreet = typeStreet;
-  constructor() { }
+  constructor(
+    private catalogService:CatalogsService
+  ) { }
 
   ngOnInit(): void {
-    this.businessType = businessType;
-    this.siNo = siNo;
+    this.getCountries();
+    this.getSpainCountries();
+  }
+
+  private getCountries() {
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+      data => this.paises = data
+    )
+  }
+
+  private getSpainCountries() {
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
+      data => this.provincias = data
+    )
+  }
+
+  public onChangeSpainCountry(event) {
+    this.catalogService.getCatalogByCode(event).subscribe(
+      data => this.municipios = data
+    )
   }
 
   public checkValue() {

@@ -49,13 +49,13 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
 
   public getSpainCountries() {
     this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
-      data => this.paises = data
+      data => this.provincias = data
     )
   }
 
   public onCountryChange(event) {
     this.catalogsService.getCatalogByCode(event).subscribe(
-      data => this.paises = data
+      data => this.municipios = data
     )
   }
 }
