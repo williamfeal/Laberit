@@ -8,11 +8,11 @@
     <div class="card-body row mx-0">
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
-                <app-input-select (change)="personTypeChange($event.target.value)"
-                    [error]="validate && formRepresentativeData.controls['personType']?.pristine"
+                <app-input-select (change)="representativeTypeChange($event.target.value)"
+                    [error]="validate && formRepresentativeData.controls['representativeTypes']?.pristine"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }}"
-                    controlName="personType" idValue="personType" nameValue="personType" [isRequired]="isRequired"
-                    [fieldOptions]="personType">
+                    controlName="representativeTypes" idValue="representativeTypes" nameValue="representativeTypes" [isRequired]="isRequired"
+                    [fieldOptions]="representativeTypes">
                 </app-input-select>
             </div>
             <div class="form-group col-md-3">
@@ -53,13 +53,13 @@
                 </app-input-text-nif>
             </div>
             <div class="form-group col-md-3">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formRepresentativeData"
+                <app-input-select [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
-                    controlName="represented_data_cnae" idValue="represented_data_cnae"
-                    nameValue="represented_data_cnae" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    controlName="represented_data_cnae" idValue="represented_data_cnae" nameValue="represented_data_cnae"
+                    [isRequired]="isRequired" [fieldOptions]="cnaeOptions"
                     [error]="validate && formRepresentativeData.controls['represented_data_cnae']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-text>
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
             </div>
             <div class="form-group col-md-2">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
@@ -98,13 +98,13 @@
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
-            <div class="w-100 d-contents" [ngClass]="{ 'd-none': isAutonum}">
+            <div class="w-100 d-contents" [ngClass]="{ 'd-none': isAutonum() }">
                 <div class="form-group col-md-3">
                     <app-input-select [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
                         controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup"
                         [isRequired]="isRequired && businessTypeSelected != 1"
-                        placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " [fieldOptions]="siNo"
+                        placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " [fieldOptions]="belongingCompany"
                         [error]="validate && formRepresentativeData.controls['ownGroup']?.pristine"
                         [errorText]="errorCharacterLeng">
                     </app-input-select>
@@ -114,7 +114,7 @@
                         [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
-                        nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum"
+                        nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum()"
                         [error]="validate && formRepresentativeData.controls['represented_data_active']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
@@ -123,7 +123,7 @@
                         [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
-                        nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum"
+                        nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum()"
                         [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
@@ -136,7 +136,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
                     controlName="represented_data_residence_country" idValue="represented_data_residence_country"
                     nameValue="represented_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [fieldOptions]="paises"
+                    [fieldOptions]="countries"
                     [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-select>
             </div>
@@ -156,7 +156,7 @@
                         controlName="represented_data_genre" idValue="represented_data_genre"
                         [error]="validate && formRepresentativeData.controls['represented_data_genre']?.pristine"
                         nameValue="represented_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [fieldOptions]="selectInfo" [errorText]="errorCharacterLeng">
+                        [fieldOptions]="genders" [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>
             </div>

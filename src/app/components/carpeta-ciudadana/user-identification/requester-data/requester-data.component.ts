@@ -27,7 +27,7 @@ export class RequesterDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApplicantTypes();
-    this.representation_power = representation_power;
+    this.getRepresentativeTypes();
   }
 
   onChangeType(event: string) {
@@ -38,6 +38,12 @@ export class RequesterDataComponent implements OnInit {
   getApplicantTypes() {
     this.catalogsService.getCatalogByCode(ConceptConstants.APPLICANT_TYPES).subscribe(
       data => this.actuation = data
+    )
+  }
+
+  getRepresentativeTypes() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
+      data => this.representation_power = data
     )
   }
 
