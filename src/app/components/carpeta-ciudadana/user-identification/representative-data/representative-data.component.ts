@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { businessTypeWithoutAutonomo, personType, siNo, genero, paises, businessType } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
@@ -17,8 +17,6 @@ export class RepresentativeDataComponent implements OnInit {
   @Input() isRequired: boolean;
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
-  public type = 'natural-person';
-
 
   public businessType: SelectFieldObject[];
   public representativeTypes: SelectFieldObject[];
@@ -42,20 +40,20 @@ export class RepresentativeDataComponent implements OnInit {
   }
 
   public representativeTypeChange(event: string) {
-    this.catalogService.getCatalogByCode('ivf-representative-types-juridic-person').subscribe(
-      data => this.businessType = data
+    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
+      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getCNAEoptions() {
     this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
-      data => this.cnaeOptions = data
+      data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getRepresentativeType() {
     this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
-      data => this.representativeTypes = data
+      data => this.representativeTypes = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
@@ -67,7 +65,7 @@ export class RepresentativeDataComponent implements OnInit {
 
   private getCountries() {
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
-      data => this.countries = data
+      data => this.countries = AppUtils.sortConceptsAlphabetically(data)
     )
   }
   
@@ -82,7 +80,7 @@ export class RepresentativeDataComponent implements OnInit {
   }
 
   public isAutonum() {
-    return this.businessTypeSelected === 'ivf-representative-types-juridic-person-autonomous'
+    return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS
 
   }
 }

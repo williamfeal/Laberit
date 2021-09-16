@@ -3,11 +3,12 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { AppConstants, EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { TranslateService } from '@ngx-translate/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-user-identification',
@@ -75,12 +76,12 @@ export class UserIdentificationComponent implements OnInit {
 
   onChangeTypeRequester(event) {
     this.requesterType = event;
-    if (this.requesterType == 'ivf-applicant-types-interested') {
+    if (this.requesterType == ConceptConstants.APPLICANT_TYPE_INTERESTED) {
       this.interested = true;
       this.representative = false;
     }
 
-    if (this.requesterType == 'ivf-applicant-types-representantive') {
+    if (this.requesterType == ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE) {
       this.interested = false;
       this.representative = true;
     }

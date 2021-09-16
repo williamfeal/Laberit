@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { provincias, typeStreet, paises, comunidades } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
@@ -35,18 +35,14 @@ export class SocialAddressComponent implements OnInit {
 
   public getRoadTypes() {
     this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
-      data => this.typeStreet = data.sort(function(a, b){
-        if(a.description < b.description) { return -1; }
-        if(a.description > b.description) { return 1; }
-        return 0;
-    })
+      data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public getCountries() {
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
       data => {
-        this.paises = data
+        this.paises = AppUtils.sortConceptsAlphabetically(data)
         this.getSpainCountries()
       }
     )
@@ -54,17 +50,13 @@ export class SocialAddressComponent implements OnInit {
 
   public getSpainCountries() {
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
-      data => this.provincias = data.sort(function(a, b){
-        if(a.description < b.description) { return -1; }
-        if(a.description > b.description) { return 1; }
-        return 0;
-    })
+      data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onChangeSpainCountry(event) {
     this.catalogService.getCatalogByCode(event).subscribe(
-      data => this.municipios = data,
+      data => this.municipios = AppUtils.sortConceptsAlphabetically(data),
       () => this.municipios = []
     )
   }

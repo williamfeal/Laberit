@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { provincias, typeStreet, paises, comunidades } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 
@@ -21,7 +21,7 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
-  public  typeStreet = typeStreet;
+  public typeStreet:SelectFieldObject[];
 
   public errorCharacterLeng: string = 'empty_error';
 
@@ -37,25 +37,25 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
   
   public getRoadTypes() {
     this.catalogsService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
-      data => this.typeStreet = data
+      data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public getCountries() {
     this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
-      data => this.paises = data
+      data => this.paises = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public getSpainCountries() {
     this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
-      data => this.provincias = data
+      data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onCountryChange(event) {
     this.catalogsService.getCatalogByCode(event).subscribe(
-      data => this.municipios = data
+      data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 }

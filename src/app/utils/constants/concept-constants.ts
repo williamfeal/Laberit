@@ -14,4 +14,7 @@ export class ConceptConstants {
     public static readonly COUNTRIES_SPAIN_PROVINCES_46 = "countries-spain-provinces-46";
     public static readonly REPRESENTATIVE_TYPES = "ivf-representative-types";
     public static readonly REPRESENTATIVE_TYPES_JURIDIC_PERSON = "ivf-representative-types-juridic-person";
+    public static readonly APPLICANT_TYPE_INTERESTED = "ivf-applicant-types-interested";
+    public static readonly APPLICANT_TYPE_REPRESENTATIVE = "ivf-applicant-types-representantive";
+    public static readonly REPRESENTATIVE_PERSON_AUTONOMOUS = "ivf-representative-types-juridic-person-autonomous"
 }

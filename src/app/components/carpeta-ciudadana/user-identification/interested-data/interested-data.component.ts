@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { businessType, siNo, genero, paises } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
@@ -39,21 +39,13 @@ export class InterestedDataComponent implements OnInit {
 
   private loadCNAEdata() {
     this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
-      data => this.businessType = data.sort(function(a, b){
-        if(a.description < b.description) { return -1; }
-        if(a.description > b.description) { return 1; }
-        return 0;
-    })
+      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getCountries() {
     this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
-      data =>  this.paises = data.sort(function(a, b){
-        if(a.description < b.description) { return -1; }
-        if(a.description > b.description) { return 1; }
-        return 0;
-    })
+      data =>  this.paises = AppUtils.sortConceptsAlphabetically(data)
       
     )
   }

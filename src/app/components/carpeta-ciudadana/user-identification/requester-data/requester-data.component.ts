@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import {  representation_power } from 'src/app/utils/constants/app-constants';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({

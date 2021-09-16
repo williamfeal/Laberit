@@ -1,9 +1,8 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { provincias, typeStreet, paises, comunidades } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
@@ -16,9 +15,9 @@ export class LegalRepresentativeComponent implements OnInit {
   @Input() readOnly: boolean;
   @Input() isRequired: boolean;
   @Input() validate: boolean;
-  errorCharacterLeng: string = 'empty_error';
-  errorNif: string = 'nif_error';
-  //se cambiara con los catalogos
+
+  public errorCharacterLeng: string = 'empty_error';
+  public errorNif: string = 'nif_error';
   
   public typeStreet:SelectFieldObject[];
   public provincias: SelectFieldObject[];
@@ -37,25 +36,25 @@ export class LegalRepresentativeComponent implements OnInit {
 
   private getCountries() {
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
-      data => this.paises = data
+      data => this.paises = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getSpainCountries() {
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
-      data => this.provincias = data
+      data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getRoadTypes() {
     this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
-      data => this.typeStreet = data
+      data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onChangeSpainCountry(event) {
     this.catalogService.getCatalogByCode(event).subscribe(
-      data => this.municipios = data
+      data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
