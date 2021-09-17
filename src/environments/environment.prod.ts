@@ -12,5 +12,7 @@ export const environment = {
   },
   entity_uuid: window["env"]["entity_uuid"] || "error-entity-uuid-env",
   app_url: window["env"]["app_url"] || 'error-app-url',
-  atencion_cliente_url: window["env"]["atencion_cliente_url"] || 'error-atencion-cliente-url'
+  atencion_cliente_url: window["env"]["atencion_cliente_url"] || 'error-atencion-cliente-url',
+  catalogs_url: window["env"]["catalog"] || "error-catalog-url-env",
+
 };
