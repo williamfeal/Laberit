@@ -1,8 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Tercero } from 'src/app/models/tercero.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { User } from 'src/app/models/user.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({

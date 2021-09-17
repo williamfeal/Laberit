@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 
 declare function checkNif(nif: string): number;
 declare function getBase64Certificate();
@@ -72,9 +73,11 @@ export class AppUtils implements OnInit {
   public getPreviousUrl() {
     return this.previousUrl;
   }
+
   public getCurrentUrl() {
     return this.currentUrl;
   }
+
   public return() {
     this.previousUrl = this.getPreviousUrl();
     this.currentUrl = this.getCurrentUrl();
@@ -91,8 +94,16 @@ export class AppUtils implements OnInit {
    * @param nif to validate
    * @return validation code ( > 0 = Correct - < 0 = Incorrect)
    */
-   public static callCheckNif(nif: string): number {
-    return checkNif(nif);
+  public static callCheckNif(nif: string): number {
+  return checkNif(nif);
   }
+
+  public static sortConceptsAlphabetically(data:SelectFieldObject[]) {
+    return data.sort(function(a, b){
+      if(a.description < b.description) { return -1; }
+      if(a.description > b.description) { return 1; }
+      return 0;
+  })
+}
 
 }

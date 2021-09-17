@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { businessType, siNo, genero, typeStreet, provincias, comunidades, paises } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-contact-data',
@@ -14,25 +16,49 @@ export class ContactDataComponent implements OnInit {
   @Input() readOnly: boolean;
   @Input() interesado: boolean;
   @Input() validate: boolean;
+
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
   public isChecked: boolean;
   public showInputs: boolean = true;
 
-  //se cambiara con los catalogos
-  public provincias: SelectFieldObject[] = provincias;
-  public municipios: SelectFieldObject[] = comunidades;
-  public paises: SelectFieldObject[] = paises;
-  
-  public businessType: SelectFieldObject[];
-  public siNo: SelectFieldObject[];
-  public selectInfo:SelectFieldObject[] = genero;
-  typeStreet = typeStreet;
-  constructor() { }
+  public provincias: SelectFieldObject[];
+  public municipios: SelectFieldObject[];
+  public paises: SelectFieldObject[];
+  public typeStreet: SelectFieldObject[];
+
+  constructor(
+    private catalogService:CatalogsService
+  ) { }
 
   ngOnInit(): void {
-    this.businessType = businessType;
-    this.siNo = siNo;
+    this.getCountries();
+    this.getSpainCountries();
+    this.getRoadTypes();
+  }
+
+  private getRoadTypes() {
+    this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
+      data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+
+  private getCountries() {
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+      data => this.paises = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+
+  private getSpainCountries() {
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
+      data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+
+  public onChangeSpainCountry(event) {
+    this.catalogService.getCatalogByCode(event).subscribe(
+      data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
+    )
   }
 
   public checkValue() {

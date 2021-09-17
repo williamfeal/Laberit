@@ -36,6 +36,7 @@ import { GranEmpresaComponent } from './includes/adjuntar-documento/granEmpresa/
 import { MicroEmpresaComponent } from './includes/adjuntar-documento/microempresa/microEmpresa.component';
 import { PymeComponent } from './includes/adjuntar-documento/PYME/PYME.component';
 import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 
 
 
@@ -82,7 +83,8 @@ import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCi
     NgbModule,
   ],
   providers: [
-    CarpetaService
+    CarpetaService,
+    CatalogsService
   ]
 })
 export class CarpetaCiudadanaModule { }

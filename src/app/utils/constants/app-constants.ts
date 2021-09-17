@@ -9,500 +9,500 @@ export class AppConstants {
     public static readonly FILE_SIZE_NUMBER = '52428800';
 }
 export const actuation = [{
-  id:'interested',
-  val:'Interesado',
+  concept_code:'interested',
+  description:'Interesado',
   selected: true
 },
 {
-  id:'representative',
-  val:'Representante',
+  concept_code:'representative',
+  description:'Representante',
   selected: false
 }
 ];
 
 export const representation_power = [{
-  id: '1',
-  val: 'Representante en el Registro Electrónico de Apoderamiento',
+  concept_code: '1',
+  description: 'Representante en el Registro Electrónico de Apoderamiento',
   selected: true
 } ]
 export const siNo = [{
-  id:'true',
-  val:'Si',
+  concept_code:'true',
+  description:'Si',
   selected: false
 },
 {
-  id:'false',
-  val:'No',
+  concept_code:'false',
+  description:'No',
   selected: false
 }];
 export const personType = [{
-  id:'natural-person',
-  val:'Persona física',
+  concept_code:'natural-person',
+  description:'Persona física',
   selected: false
 },
 {
-  id:'artifitial-person',
-  val:'Persona jurídica',
+  concept_code:'artifitial-person',
+  description:'Persona jurídica',
   selected: false
 }];
 export const businessType = [{
-  id:'1',
-  val:'Autónomo',
+  concept_code:'1',
+  description:'Autónomo',
   selected: false
 },
 {
-  id:'2',
-  val:'Microempresa',
+  concept_code:'2',
+  description:'Microempresa',
   selected: false
 },
 {
-  id:'3',
-  val:'Pyme',
+  concept_code:'3',
+  description:'Pyme',
   selected: false
 },
 {
-  id:'4',
-  val:'Gran Empresa',
+  concept_code:'4',
+  description:'Gran Empresa',
   selected: false
 },
 {
-  id:'5',
-  val:'Comunidad de bienes y OE',
+  concept_code:'5',
+  description:'Comunidad de bienes y OE',
   selected: false
 },
 {
-  id:'6',
-  val:'Sociedad Civil',
+  concept_code:'6',
+  description:'Sociedad Civil',
   selected: false
 }
 ];
 export const businessTypeWithoutAutonomo = [
   
 {
-  id:'2',
-  val:'Microempresa',
+  concept_code:'2',
+  description:'Microempresa',
   selected: false
 },
 {
-  id:'3',
-  val:'Pyme',
+  concept_code:'3',
+  description:'Pyme',
   selected: false
 },
 {
-  id:'4',
-  val:'Gran Empresa',
+  concept_code:'4',
+  description:'Gran Empresa',
   selected: false
 },
 {
-  id:'5',
-  val:'Comunidad de bienes y OE',
+  concept_code:'5',
+  description:'Comunidad de bienes y OE',
   selected: false
 },
 {
-  id:'6',
-  val:'Sociedad Civil',
+  concept_code:'6',
+  description:'Sociedad Civil',
   selected: false
 }
 ];
 export const selectMeans = [{
-    id: '1',
-    val: 'Electrónico',
+    concept_code: '1',
+    description: 'Electrónico',
     selected: false
   }, {
-    id: '2',
-    val: 'Papel',
+    concept_code: '2',
+    description: 'Papel',
     selected: false
   }];
   export const paises = [{
-    id: '1',
-    val: 'España',
+    concept_code: '1',
+    description: 'España',
     selected: false
   }];
   export const typeStreet = [{
-    id: '1',
-    val: 'Calle',
+    concept_code: '1',
+    description: 'Calle',
     selected: false
   }, {
-    id: '2',
-    val: 'Avenida',
+    concept_code: '2',
+    description: 'Avenida',
     selected: false
   }, {
-    id: '3',
-    val: 'Plaza',
+    concept_code: '3',
+    description: 'Plaza',
     selected: false
   }, {
-    id: '4',
-    val: 'Paseo',
+    concept_code: '4',
+    description: 'Paseo',
     selected: false
   }, {
-    id: '5',
-    val: 'Camino',
+    concept_code: '5',
+    description: 'Camino',
     selected: false
   }, {
-    id: '6',
-    val: 'Rambla',
+    concept_code: '6',
+    description: 'Rambla',
     selected: false
   }, {
-    id: '7',
-    val: 'Pasaje',
+    concept_code: '7',
+    description: 'Pasaje',
     selected: false
   }];
   export const comunidades = [
     {
-      id: '1',
-      val: 'Andalucía',
+      concept_code: '1',
+      description: 'Andalucía',
       selected: false
     },
     {
-      id: '2',
-      val: 'Aragón',
+      concept_code: '2',
+      description: 'Aragón',
       selected: false
     },
     {
-      id: '3',
-      val: 'Principado de Asturias',
+      concept_code: '3',
+      description: 'Principado de Asturias',
       selected: false
     },
     {
-      id: '4',
-      val: 'Illes Balears',
+      concept_code: '4',
+      description: 'Illes Balears',
       selected: false 
     },
     {
-      id: '5',
-      val: 'Canarias',
+      concept_code: '5',
+      description: 'Canarias',
       selected: false
     },
     {
-      id: '6',
-      val: 'Cantabria',
+      concept_code: '6',
+      description: 'Cantabria',
       selected: false
     },
     {
-      id: '7',
-      val: 'Castilla y León',
+      concept_code: '7',
+      description: 'Castilla y León',
       selected: false
     },
     {
-      id: '8',
-      val: 'Castilla-La Mancha',
+      concept_code: '8',
+      description: 'Castilla-La Mancha',
       selected: false
     },
     {
-      id: '9',
-      val: 'Cataluña',
+      concept_code: '9',
+      description: 'Cataluña',
       selected: false
     },
     {
-      id: '10',
-      val: 'Comunitat Valenciana',
+      concept_code: '10',
+      description: 'Comunitat Valenciana',
       selected: false
     },
     {
-      id: '11',
-      val: 'Extremadura',
+      concept_code: '11',
+      description: 'Extremadura',
       selected: false
     },
     {
-      id: '12',
-      val: 'Galicia',
+      concept_code: '12',
+      description: 'Galicia',
       selected: false
     },
     {
-      id: '13',
-      val: 'Comunidad de Madrid',
+      concept_code: '13',
+      description: 'Comunidad de Madrid',
       selected: false
     },
     {
-      id: '14',
-      val: 'Región de Murcia',
+      concept_code: '14',
+      description: 'Región de Murcia',
       selected: false
     },
     {
-      id: '15',
-      val: 'Comunidad Foral de Navarra',
+      concept_code: '15',
+      description: 'Comunidad Foral de Navarra',
       selected: false
     },
     {
-      id: '16',
-      val: 'País Vasco',
+      concept_code: '16',
+      description: 'País Vasco',
       selected: false
     },
     {
-      id: '17',
-      val: 'La Rioja',
+      concept_code: '17',
+      description: 'La Rioja',
       selected: false
     },
     {
-      id: '18',
-      val: 'Ciudad Autónoma de Ceuta',
+      concept_code: '18',
+      description: 'Ciudad Autónoma de Ceuta',
       selected: false
     },
     {
-      id: '19',
-      val: 'Ciudad Autónoma de Melilla',
+      concept_code: '19',
+      description: 'Ciudad Autónoma de Melilla',
       selected: false
     }
   ];
   export const provincias = [
     {
-      id: '1',
-      val: 'Álava',
+      concept_code: '1',
+      description: 'Álava',
       selected: false
     },
     {
-      id: '2',
-      val: 'Albacete',
+      concept_code: '2',
+      description: 'Albacete',
       selected: false
     },
     {
-      id: '3',
-      val: 'Alacant/Alicante',
+      concept_code: '3',
+      description: 'Alacant/Alicante',
       selected: false
     },
     {
-      id: '4',
-      val: 'Almería',
+      concept_code: '4',
+      description: 'Almería',
       selected: false
     },
     {
-      id: '5',
-      val: 'Ávila',
+      concept_code: '5',
+      description: 'Ávila',
       selected: false
     },
     {
-      id: '6',
-      val: 'Badajoz',
+      concept_code: '6',
+      description: 'Badajoz',
       selected: false
     },
     {
-      id: '7',
-      val: 'Illes Balears',
+      concept_code: '7',
+      description: 'Illes Balears',
       selected: false
     },
     {
-      id: '8',
-      val: 'Barcelona',
+      concept_code: '8',
+      description: 'Barcelona',
       selected: false
     },
     {
-      id: '9',
-      val: 'Burgos',
+      concept_code: '9',
+      description: 'Burgos',
       selected: false
     },
     {
-      id: '10',
-      val: 'Cáceres',
+      concept_code: '10',
+      description: 'Cáceres',
       selected: false
     },
     {
-      id: '11',
-      val: 'Cádiz',
+      concept_code: '11',
+      description: 'Cádiz',
       selected: false
     },
     {
-      id: '12',
-      val: 'Castelló/Castellón',
+      concept_code: '12',
+      description: 'Castelló/Castellón',
       selected: false
     },
     {
-      id: '13',
-      val: 'Ciudad Real',
+      concept_code: '13',
+      description: 'Ciudad Real',
       selected: false
     },
     {
-      id: '14',
-      val: 'Córdoba',
+      concept_code: '14',
+      description: 'Córdoba',
       selected: false
     },
     {
-      id: '15',
-      val: 'A Coruña',
+      concept_code: '15',
+      description: 'A Coruña',
       selected: false
     },
     {
-      id: '16',
-      val: 'Cuenca',
+      concept_code: '16',
+      description: 'Cuenca',
       selected: false
     },
     {
-      id: '17',
-      val: 'Girona',
+      concept_code: '17',
+      description: 'Girona',
       selected: false
     },
     {
-      id: '18',
-      val: 'Granada',
+      concept_code: '18',
+      description: 'Granada',
       selected: false
     },
     {
-      id: '19',
-      val: 'Guadalajara',
+      concept_code: '19',
+      description: 'Guadalajara',
       selected: false
     },
     {
-      id: '20',
-      val: 'Guipúzcoa',
+      concept_code: '20',
+      description: 'Guipúzcoa',
       selected: false
     },
     {
-      id: '21',
-      val: 'Huelva',
+      concept_code: '21',
+      description: 'Huelva',
       selected: false
     },
     {
-      id: '22',
-      val: 'Huesca',
+      concept_code: '22',
+      description: 'Huesca',
       selected: false
     },
     {
-      id: '23',
-      val: 'Jaén',
+      concept_code: '23',
+      description: 'Jaén',
       selected: false
     },
     {
-      id: '24',
-      val: 'León',
+      concept_code: '24',
+      description: 'León',
       selected: false
     },
     {
-      id: '25',
-      val: 'Lleida',
+      concept_code: '25',
+      description: 'Lleida',
       selected: false
     },
     {
-      id: '26',
-      val: 'La Rioja',
+      concept_code: '26',
+      description: 'La Rioja',
       selected: false
     },
     {
-      id: '27',
-      val: 'Lugo',
+      concept_code: '27',
+      description: 'Lugo',
       selected: false
     },
     {
-      id: '28',
-      val: 'Madrid',
+      concept_code: '28',
+      description: 'Madrid',
       selected: false
     },
     {
-      id: '29',
-      val: 'Málaga',
+      concept_code: '29',
+      description: 'Málaga',
       selected: false
     },
     {
-      id: '30',
-      val: 'Murcia',
+      concept_code: '30',
+      description: 'Murcia',
       selected: false
     },
     {
-      id: '31',
-      val: 'Navarra',
+      concept_code: '31',
+      description: 'Navarra',
       selected: false
     },
     {
-      id: '32',
-      val: 'Ourense',
+      concept_code: '32',
+      description: 'Ourense',
       selected: false
     },
     {
-      id: '33',
-      val: 'Asturias',
+      concept_code: '33',
+      description: 'Asturias',
       selected: false
     },
     {
-      id: '34',
-      val: 'Palencia',
+      concept_code: '34',
+      description: 'Palencia',
       selected: false
     },
     {
-      id: '35',
-      val: 'Las Palmas',
+      concept_code: '35',
+      description: 'Las Palmas',
       selected: false
     },
     {
-      id: '36',
-      val: 'Pontevedra',
+      concept_code: '36',
+      description: 'Pontevedra',
       selected: false
     },
     {
-      id: '37',
-      val: 'Salamanca',
+      concept_code: '37',
+      description: 'Salamanca',
       selected: false
     },
     {
-      id: '38',
-      val: 'Santa Cruz de Tenerife',
+      concept_code: '38',
+      description: 'Santa Cruz de Tenerife',
       selected: false
     },
     {
-      id: '39',
-      val: 'Cantabria',
+      concept_code: '39',
+      description: 'Cantabria',
       selected: false
     },
     {
-      id: '40',
-      val: 'Segovia',
+      concept_code: '40',
+      description: 'Segovia',
       selected: false
     },
     {
-      id: '41',
-      val: 'Sevilla',
+      concept_code: '41',
+      description: 'Sevilla',
       selected: false
     },
     {
-      id: '42',
-      val: 'Soria',
+      concept_code: '42',
+      description: 'Soria',
       selected: false
     },
     {
-      id: '43',
-      val: 'Tarragona',
+      concept_code: '43',
+      description: 'Tarragona',
       selected: false
     },
     {
-      id: '44',
-      val: 'Teruel',
+      concept_code: '44',
+      description: 'Teruel',
       selected: false
     },
     {
-      id: '45',
-      val: 'Toledo',
+      concept_code: '45',
+      description: 'Toledo',
       selected: false
     },
     {
-      id: '46',
-      val: 'València/Valencia',
+      concept_code: '46',
+      description: 'València/Valencia',
       selected: false
     },
     {
-      id: '47',
-      val: 'Valladolid',
+      concept_code: '47',
+      description: 'Valladolid',
       selected: false
     },
     {
-      id: '48',
-      val: 'Vizcaya',
+      concept_code: '48',
+      description: 'Vizcaya',
       selected: false
     },
     {
-      id: '49',
-      val: 'Zamora',
+      concept_code: '49',
+      description: 'Zamora',
       selected: false
     },
     {
-      id: '50',
-      val: 'Zaragoza',
+      concept_code: '50',
+      description: 'Zaragoza',
       selected: false
     },
     {
-      id: '51',
-      val: 'Ceuta',
+      concept_code: '51',
+      description: 'Ceuta',
       selected: false
     },
     {
-      id: '52',
-      val: 'Melilla',
+      concept_code: '52',
+      description: 'Melilla',
       selected: false
     }
   ];
@@ -511,48 +511,48 @@ export const selectMeans = [{
 
   export const tipoProyecto = [
     {
-      id: '1',
-      val: 'Inversión',
+      concept_code: '1',
+      description: 'Inversión',
       selected: false,
     },
     {
-      id: '2',
-      val: 'Circulante',
+      concept_code: '2',
+      description: 'Circulante',
       selected: false
     },
     {
-      id: '3',
-      val: 'Inversión y Circulante',
+      concept_code: '3',
+      description: 'Inversión y Circulante',
       selected: false
     }
   ]
   export const tipoInteres = [
     {
-      id: '1',
-      val: 'A',
+      concept_code: '1',
+      description: 'A',
       selected: false,
     },
     {
-      id: '2',
-      val: 'B',
+      concept_code: '2',
+      description: 'B',
       selected: false
     }
   ]
 
   export const genero = [
     {
-      id: '1',
-      val: 'Hombre',
+      concept_code: '1',
+      description: 'Hombre',
       selected: false,
     },
     {
-      id: '2',
-      val: 'Mujer',
+      concept_code: '2',
+      description: 'Mujer',
       selected: false
     },
     {
-      id: '2',
-      val: 'Otro',
+      concept_code: '2',
+      description: 'Otro',
       selected: false
     }
   ]

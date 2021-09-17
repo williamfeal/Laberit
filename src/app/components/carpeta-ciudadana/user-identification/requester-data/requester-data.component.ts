@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { actuation, representation_power } from 'src/app/utils/constants/app-constants';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-requester-data',
@@ -19,16 +20,30 @@ export class RequesterDataComponent implements OnInit {
 
   @Output() public typeOutput = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private catalogsService:CatalogsService
+  ) { }
 
   ngOnInit(): void {
-    this.actuation = actuation;
-    this.representation_power = representation_power;
+    this.getApplicantTypes();
+    this.getRepresentativeTypes();
   }
 
   onChangeType(event: string) {
     this.type = event;
     this.typeOutput.emit(this.type);
+  }
+
+  getApplicantTypes() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.APPLICANT_TYPES).subscribe(
+      data => this.actuation = data
+    )
+  }
+
+  getRepresentativeTypes() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
+      data => this.representation_power = data
+    )
   }
 
 }

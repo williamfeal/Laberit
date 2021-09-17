@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { businessTypeWithoutAutonomo, personType, siNo, genero, paises, businessType } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-representative-data',
@@ -15,40 +17,70 @@ export class RepresentativeDataComponent implements OnInit {
   @Input() isRequired: boolean;
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
-  public type = 'natural-person';
-  public personType: SelectFieldObject[];
+
   public businessType: SelectFieldObject[];
-  public siNo: SelectFieldObject[];
+  public representativeTypes: SelectFieldObject[];
+  public belongingCompany:SelectFieldObject[];
+  public countries:SelectFieldObject[];
+  public genders:SelectFieldObject[];
+  public cnaeOptions:SelectFieldObject[];
 
-  public selectInfo: SelectFieldObject[] = genero;
-  public paises: SelectFieldObject[] = paises;
+  public businessTypeSelected;
 
-  businessTypeSelected;
-  isAutonum: boolean = false;
-  constructor() { }
+  constructor(
+    private catalogService:CatalogsService
+  ) { }
 
   ngOnInit(): void {
-    this.businessType = businessType;
-    this.siNo = siNo;
-    this.personType = personType;
+    this.getRepresentativeType();
+    this.getBelongingCompany();
+    this.getCountries();
+    this.getGenders();
+    this.getCNAEoptions();
   }
-  personTypeChange(event: string) {
-    this.type = event;
-    if (this.type == 'natural-person') {
-      this.businessType = businessType;
-      this.isAutonum = true;
-    } else {
-      this.businessType = businessTypeWithoutAutonomo;
-      this.isAutonum = false;
-    }
 
+  public representativeTypeChange(event: string) {
+    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
+      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
+    )
   }
-  businessTypeChange(event: string) {
+
+  private getCNAEoptions() {
+    this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
+      data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+
+  private getRepresentativeType() {
+    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
+      data => this.representativeTypes = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+
+  private getBelongingCompany() {
+    this.catalogService.getCatalogByCode(ConceptConstants.GROUP_BELONGING_COMPANY).subscribe(
+      data => this.belongingCompany = data
+    )
+  }
+
+  private getCountries() {
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+      data => this.countries = AppUtils.sortConceptsAlphabetically(data)
+    )
+  }
+  
+  private getGenders() {
+    this.catalogService.getCatalogByCode(ConceptConstants.GENDERS).subscribe(
+      data => this.genders = data
+    )
+  }
+
+  public businessTypeChange(event: string) {
     this.businessTypeSelected = event;
-    if (this.businessTypeSelected == 1) {
-      this.isAutonum = true;
-    } else {
-      this.isAutonum = false;
-    }
+  }
+
+  public isAutonum() {
+    return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS
+
   }
 }

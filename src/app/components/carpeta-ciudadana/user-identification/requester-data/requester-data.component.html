@@ -20,7 +20,7 @@
             [errorText]="errorCharacterLeng"
     ></app-input-select>
         </div>
-        <div class="form-group col-md-6" [ngClass]="{ 'd-none': type != 'representative'}">
+        <div class="form-group col-md-6" [ngClass]="{ 'd-none': type != 'ivf-applicant-types-representantive'}">
             <app-input-select
             [form]="formRequestData"
             label=" {{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} "
@@ -28,13 +28,13 @@
             idValue="representation_power"
             nameValue="representation_power"
             [fieldOptions] = "representation_power"
-            [isRequired]="type == 'representative'"
+            [isRequired]="type == 'ivf-applicant-types-representantive'"
             value=""
-            [error]="validate && formRequestData.controls['representation_power']?.pristine"
+            [error]="validate && formRequestData.controls['ivf-applicant-types-representantive']?.pristine"
             [errorText]="errorCharacterLeng"
     ></app-input-select>
         </div>
-        <div class="col-md-2 mt-4" *ngIf="type == 'representative'">
+        <div class="col-md-2 mt-4" *ngIf="type == 'ivf-applicant-types-representantive'">
             <button class="btn-app-outline-primary button-round text"> {{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }} </button>
         </div>
     </div>

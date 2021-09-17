@@ -61,7 +61,7 @@
                     [error]="validate && formSocialAdress.controls['social_province']?.pristine"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
-                    controlName="social_province" idValue="social_province" nameValue="social_province"
+                    controlName="social_province" idValue="social_province" nameValue="social_province" (change)="onChangeSpainCountry($event.target.value)"
                     isReadOnly="false" [isRequired]="isRequired" [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
