@@ -144,7 +144,7 @@
             <div class="form-group col-md-2">
                 <app-input-date [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
-                    controlName="interested_data_birth_date" idValue="interested_data_birth_date"
+                    controlName="interested_data_birth_date" idValue="interested_data_birth_date" [maxDate]="true"
                     nameValue="interested_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formInterestedData.controls['interested_data_birth_date']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-date>

@@ -89,7 +89,7 @@
                 <div class="form-group col-md-6 pl-0">
                     <app-input-date [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
-                        controlName="represented_data_iae_date" idValue="represented_data_iae_date"
+                        controlName="represented_data_iae_date" idValue="represented_data_iae_date" [maxDate]="true"
                         nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
                         [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-date>
@@ -161,7 +161,7 @@
                 <div class="form-group col-md-4">
                     <app-input-date [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
-                        controlName="represented_data_birth_date" idValue="represented_data_birth_date"
+                        controlName="represented_data_birth_date" idValue="represented_data_birth_date" [maxDate]="true"
                         nameValue="represented_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
                         [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-date>
