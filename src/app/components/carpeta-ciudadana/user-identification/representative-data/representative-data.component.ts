@@ -24,7 +24,8 @@ export class RepresentativeDataComponent implements OnInit {
   public countries:SelectFieldObject[];
   public genders:SelectFieldObject[];
   public cnaeOptions:SelectFieldObject[];
-
+  
+  public representativeTypeSelected;
   public businessTypeSelected;
 
   constructor(
@@ -39,7 +40,12 @@ export class RepresentativeDataComponent implements OnInit {
     this.getCNAEoptions();
   }
 
+  public isJuridicPerson() {
+    return this.representativeTypeSelected === ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON;
+  }
+
   public representativeTypeChange(event: string) {
+    this.representativeTypeSelected = event;
     this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
       data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
     )
