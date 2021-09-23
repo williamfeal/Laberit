@@ -24,6 +24,7 @@ export class InputNumberComponent implements OnInit {
   @Input() maxLength!: number | null;
   @Input() decimales!: number | null; //numero de decimales
   @Input() step!: number | null; //numero de decimales
+  @Input() negativos: boolean;
   textError: string;
   validaciones: ValidatorFn[] = [];
   formControl = new FormControl('');
@@ -37,9 +38,14 @@ export class InputNumberComponent implements OnInit {
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
     }
+    if(this.negativos){
+      this.validaciones.push(Validators.min(0));
+      console.log('Entra en 0');
+    }
     if (this.validaciones.length > 0) {
       this.formControl.setValidators(this.validaciones);
     }
+    
     this.form.addControl(this.controlName, this.formControl);
 
     this.value ?
