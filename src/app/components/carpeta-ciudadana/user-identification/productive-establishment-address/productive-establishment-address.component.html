@@ -51,7 +51,7 @@
                     [form]="formProductiveEstablishment"
                     label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                     controlName="productive_establishment_CP" idValue="productive_establishment_CP"
-                    nameValue="productive_establishment_CP" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    nameValue="productive_establishment_CP" [isReadOnly]="readOnly" [isRequired]="isRequired" [negativos]="true"
                     [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>

@@ -140,7 +140,10 @@
                                 controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
                                 [isRequired]="!isChecked"
                                 [error]="validate && formContactData.controls['contact_CP']?.pristine"
-                                [errorText]="errorCharacterLeng">
+                                [errorText]="errorCharacterLeng"
+                                [negativos]="true"
+                                >
+                                
                             </app-input-number>
                         </div>
                     </div>
