@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="card-body row mx-0">
-        <div class="d-flex w-100">
+        <div class="row w-100">
             <div class="form-group col-md-3">
                 <app-input-select (change)="representativeTypeChange($event.target.value)"
                     [error]="validate && formRepresentativeData.controls['representativeTypes']?.pristine"
@@ -15,8 +15,8 @@
                     [fieldOptions]="representativeTypes">
                 </app-input-select>
             </div>
-            <div class="form-group col-md-3">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
+                <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                     controlName="represented_data_name" idValue="represented_data_name"
@@ -24,7 +24,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_name']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
@@ -33,7 +33,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
@@ -42,8 +42,15 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_surname2']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-        </div>
-        <div class="d-flex w-100">
+            <div class="form-group col-md-3" *ngIf="isJuridicPerson()">
+                <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
+                    controlName="represented_data_social_reason" idValue="represented_data_name"
+                    nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.pristine"
+                    [errorText]="errorCharacterLeng"></app-input-text>
+            </div>
             <div class="form-group col-md-3">
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
@@ -51,6 +58,14 @@
                     controlName="represented_data_nif" idValue="represented_data_nif" nameValue="represented_data_nif"
                     [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
                 </app-input-text-nif>
+            </div>
+            <div class="form-group col-md-2" *ngIf="isJuridicPerson()">
+                <app-input-date [form]="formRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
+                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
+                    nameValue="represented_data_constitution_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.pristine"
+                    [errorText]="errorCharacterLeng"></app-input-date>
             </div>
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData"
@@ -61,7 +76,7 @@
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
@@ -70,24 +85,27 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_iae']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-2">
-                <app-input-date [form]="formRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
-                    controlName="represented_data_iae_date" idValue="represented_data_iae_date"
-                    nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-date>
+            <div class="col-md-3 d-flex">
+                <div class="form-group col-md-6 pl-0">
+                    <app-input-date [form]="formRepresentativeData"
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
+                        controlName="represented_data_iae_date" idValue="represented_data_iae_date"
+                        nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.pristine"
+                        [errorText]="errorCharacterLeng"></app-input-date>
+                </div>
+                <div class="form-group col-md-6 pr-0">
+                    <app-input-number [form]="formRepresentativeData"
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
+                        [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
+                        controlName="represented_data_employees_number" idValue="represented_data_employees_number"
+                        nameValue="represented_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        value="" errorText="empty_error"></app-input-number>
+                </div>
             </div>
-            <div class="form-group col-md-2">
-                <app-input-number [form]="formRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
-                    [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
-                    controlName="represented_data_employees_number" idValue="represented_data_employees_number"
-                    nameValue="represented_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    value="" errorText="empty_error"></app-input-number>
-            </div>
+            
         </div>
-        <div class="d-flex w-100">
+        <div class="row w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
@@ -129,7 +147,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex w-100">
+        <div class="row w-100" *ngIf="!isJuridicPerson()">
             <div class="form-group col-md-3">
                 <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
