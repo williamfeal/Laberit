@@ -38,9 +38,9 @@
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
                     controlName="represented_data_surname2" idValue="represented_data_surname2"
-                    nameValue="represented_data_surname2" [isReadOnly]="readOnly" [isRequired]="false"
-                    [error]="validate && formRepresentativeData.controls['represented_data_surname2']?.pristine"
-                    [errorText]="errorCharacterLeng"></app-input-text>
+                    nameValue="represented_data_surname2" [isReadOnly]="readOnly"
+                    [error]=""
+                    [errorText]=""></app-input-text>
             </div>
             <div class="form-group col-md-3" *ngIf="isJuridicPerson()">
                 <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
