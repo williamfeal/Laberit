@@ -19,6 +19,7 @@ export class InterestedDataComponent implements OnInit {
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
   public belongingCompany:SelectFieldObject[];
+  public cnae: SelectFieldObject[];
   public businessType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
 
@@ -35,11 +36,19 @@ export class InterestedDataComponent implements OnInit {
     this.getCountries()
     this.getGendersData();
     this.getBelongingCompany();
+    this.representativeTypeChange();
+  }
+
+  public representativeTypeChange() {
+    this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
+      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
+    )
+    console.log(this.businessType);
   }
 
   private loadCNAEdata() {
     this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
-      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
+      data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
