@@ -46,7 +46,6 @@ export class RequesterDataComponent implements OnInit {
     )
   }
   comprobar(){
-    console.log('HOasdsa');
   }
 
 }

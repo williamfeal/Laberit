@@ -35,7 +35,7 @@
     ></app-input-text>
         </div>
         <div class="col-md-2 mt-4" *ngIf="type == 'ivf-applicant-types-representantive'">
-            <button class="btn-app-outline-primary button-round text" (click)="comprobar()"> {{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }} </button>
+            <input type="button" class="btn-app-outline-primary button-round text" (click)="comprobar()" value="{{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}"> 
         </div>
     </div>
 </div>
