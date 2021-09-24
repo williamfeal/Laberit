@@ -132,7 +132,7 @@
                         [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
-                        nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum()"
+                        nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
                         [error]="validate && formRepresentativeData.controls['represented_data_active']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
@@ -141,7 +141,7 @@
                         [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
-                        nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && isAutonum()"
+                        nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
                         [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
