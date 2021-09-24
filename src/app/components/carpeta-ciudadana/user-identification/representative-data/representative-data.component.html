@@ -97,10 +97,12 @@
                 <div class="form-group col-md-6 pr-0">
                     <app-input-number [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
-                        [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
                         controlName="represented_data_employees_number" idValue="represented_data_employees_number"
-                        nameValue="represented_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        value="" errorText="empty_error"></app-input-number>
+                        nameValue="represented_data_employees_number" [isRequired]="isRequired"
+                        [value]=""
+                        [negativos]="negativos"
+                        [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
+                        errorText="empty_error"></app-input-number>
                 </div>
             </div>
             
