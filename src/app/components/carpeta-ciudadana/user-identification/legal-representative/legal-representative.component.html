@@ -95,6 +95,7 @@
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
                     controlName="legal_representative_number" idValue="legal_representative_number"
                     nameValue="legal_representative_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [negativos]="true"
                     [error]="validate && formLegalRepresentative.controls['legal_representative_number']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>

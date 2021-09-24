@@ -56,7 +56,15 @@ export class InputNumberComponent implements OnInit {
   }
 
   onChangeValue() {
+    console.log(this.form.get(this.controlName).value);
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
+    if(this.form.get(this.controlName).value <= 0){
+      this.error=true;
+      this.form.get(this.controlName).invalid;
+    }else{
+      this.error = false;
+      this.form.get(this.controlName).valid
+    }
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isRequired) {

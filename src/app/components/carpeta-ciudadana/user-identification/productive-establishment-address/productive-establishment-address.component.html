@@ -32,6 +32,7 @@
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
                     controlName="productive_establishment_number" idValue="productive_establishment_number"
                     nameValue="productive_establishment_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [negativos]="true"
                     [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
