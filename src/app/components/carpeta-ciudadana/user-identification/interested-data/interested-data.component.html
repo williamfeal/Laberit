@@ -49,7 +49,7 @@
                 <app-input-select [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
                     controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
-                    [isRequired]="isRequired" [fieldOptions]="businessType"
+                    [isRequired]="isRequired" [fieldOptions]="cnae"
                     [error]="validate && formInterestedData.controls['interested_data_cnae']?.pristine"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
@@ -95,7 +95,7 @@
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formInterestedData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" 
                     controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
                     [fieldOptions]="businessType"
                     [error]="validate && formInterestedData.controls['businessType']?.pristine"
