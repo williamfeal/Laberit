@@ -68,6 +68,7 @@ export class UserIdentificationComponent implements OnInit {
         this.textError = text;
       }
     )
+    console.log(this.formUserIdentification);
   }
 
   public isUserAutonomo(): boolean {
