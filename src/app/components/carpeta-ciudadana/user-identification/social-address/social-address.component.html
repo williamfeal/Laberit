@@ -28,6 +28,7 @@
                     [form]="formSocialAdress"
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}" controlName="number"
                     idValue="number" nameValue="number" [isRequired]="isRequired"
+                    [negativos]="true"
                     [error]="validate && formSocialAdress.controls['number']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
@@ -39,10 +40,16 @@
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
-                <app-input-number [form]="formSocialAdress"
-                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}" controlName="social_cp"
-                    idValue="social_cp" nameValue="social_cp" [isRequired]="isRequired"
-                    [error]="validate && formSocialAdress.controls['CP']?.pristine" [errorText]="errorCharacterLeng">
+                <app-input-number 
+                    [form]="formSocialAdress"
+                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}" 
+                    controlName="social_cp"
+                    idValue="social_cp" 
+                    nameValue="social_cp" 
+                    [isRequired]="isRequired" 
+                    negativos="true"
+                    [error]="validate && formSocialAdress.controls['social_cp']?.pristine" 
+                    [errorText]="errorCharacterLeng">
                 </app-input-number>
             </div>
         </div>

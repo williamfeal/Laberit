@@ -129,8 +129,8 @@
                             label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
                             controlName="contact_extra" idValue="contact_extra" nameValue="contact_extra"
                             [isReadOnly]="readOnly"
-                            [error]="validate && formContactData.controls['contact_extra']?.pristine"
-                            [errorText]="errorCharacterLeng"></app-input-text>
+                            [error]=""
+                            [errorText]=""></app-input-text>
                     </div>
                     <div class="form-group col-md-3 px-0">
                         <div class="col-md-6">
@@ -140,7 +140,10 @@
                                 controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
                                 [isRequired]="!isChecked"
                                 [error]="validate && formContactData.controls['contact_CP']?.pristine"
-                                [errorText]="errorCharacterLeng">
+                                [errorText]="errorCharacterLeng"
+                                [negativos]="true"
+                                >
+                                
                             </app-input-number>
                         </div>
                     </div>

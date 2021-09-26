@@ -49,7 +49,7 @@
                 <app-input-select [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
                     controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
-                    [isRequired]="isRequired" [fieldOptions]="businessType"
+                    [isRequired]="isRequired" [fieldOptions]="cnae"
                     [error]="validate && formInterestedData.controls['interested_data_cnae']?.pristine"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
@@ -63,8 +63,8 @@
                     [error]="validate && formInterestedData.controls['interested_data_iae']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-4 px-0 d-flex">
-                <div class="form-group col-md-6">
+            <div class="form-group col-md-6 px-0 d-flex">
+                <div class="form-group col-md-4">
                     <app-input-date [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                         controlName="interested_data_iae_date" idValue="interested_data_iae_date" [maxDate]="true"
@@ -73,20 +73,30 @@
                         [errorText]="errorCharacterLeng"></app-input-date>
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <app-input-number [form]="formInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="interested_data_employees_number" idValue="interested_data_employees_number"
                         nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        [negativos]="true"
                         [error]="validate && formInterestedData.controls['interested_data_employees_number']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
+                </div>
+                <div class="form-group col-md-4">
+                    <app-input-text [form]="formInterestedData"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
+                    controlName="contact_position" idValue="contact_position" nameValue="contact_position"
+                    [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formInterestedData.controls['contact_position']?.pristine"
+                    [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
             </div>
         </div>
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formInterestedData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" 
                     controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
                     [fieldOptions]="businessType"
                     [error]="validate && formInterestedData.controls['businessType']?.pristine"
@@ -108,6 +118,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="interested_data_active" idValue="interested_data_active"
                         nameValue="interested_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        [negativos]="true"
                         [error]="validate && formInterestedData.controls['interested_data_active']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
@@ -117,6 +128,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="interested_data_turnover" idValue="interested_data_turnover"
                         nameValue="interested_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                        [negativos]="true"
                         [error]="validate && formInterestedData.controls['interested_data_turnover']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
@@ -135,7 +147,7 @@
             <div class="form-group col-md-2">
                 <app-input-date [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
-                    controlName="interested_data_birth_date" idValue="interested_data_birth_date"
+                    controlName="interested_data_birth_date" idValue="interested_data_birth_date" [maxDate]="true"
                     nameValue="interested_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formInterestedData.controls['interested_data_birth_date']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-date>

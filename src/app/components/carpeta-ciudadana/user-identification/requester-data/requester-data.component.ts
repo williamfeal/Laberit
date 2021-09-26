@@ -45,5 +45,7 @@ export class RequesterDataComponent implements OnInit {
       data => this.representation_power = data
     )
   }
+  comprobar(){
+  }
 
 }
