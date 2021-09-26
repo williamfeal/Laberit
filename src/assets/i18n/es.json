@@ -495,7 +495,8 @@
         "CP": "Código Postal",
         "country": "País",
         "province": "Provincia",
-        "municipality": "Municipio"
+        "municipality": "Municipio",
+        "social_region": "Región o Ciudad"
       }
     },
     "linear_resistance": {

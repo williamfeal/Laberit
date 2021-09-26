@@ -24,6 +24,11 @@ export class LegalRepresentativeComponent implements OnInit {
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
   
+  public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
+
+  public countrySpainSelected;
+  public countrySelected;
+
   constructor(
     private catalogService:CatalogsService
   ) { }
@@ -58,4 +63,7 @@ export class LegalRepresentativeComponent implements OnInit {
     )
   }
 
+  public onChangeCountry(event) {
+    this.countrySelected = event;
+  }
 }

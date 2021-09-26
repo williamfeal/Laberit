@@ -26,6 +26,11 @@ export class ContactDataComponent implements OnInit {
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
   public typeStreet: SelectFieldObject[];
+  
+  public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
+
+  public countrySpainSelected;
+  public countrySelected;
 
   constructor(
     private catalogService:CatalogsService
@@ -59,6 +64,10 @@ export class ContactDataComponent implements OnInit {
     this.catalogService.getCatalogByCode(event).subscribe(
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
+  }
+
+  public onChangeCountry(event) {
+    this.countrySelected = event;
   }
 
   public checkValue() {

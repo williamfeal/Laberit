@@ -20,7 +20,10 @@ export class SocialAddressComponent implements OnInit {
   public paises: SelectFieldObject[];
   public typeStreet: SelectFieldObject[];
 
+  public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
+
   public countrySpainSelected;
+  public countrySelected;
 
   errorCharacterLeng: string = 'empty_error';
   
@@ -59,6 +62,10 @@ export class SocialAddressComponent implements OnInit {
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data),
       () => this.municipios = []
     )
+  }
+
+  public onChangeCountry(event) {
+    this.countrySelected = event;
   }
 
 }

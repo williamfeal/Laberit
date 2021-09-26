@@ -51,12 +51,12 @@
                 <app-input-select [form]="formSocialAdress"
                     [error]="validate && formSocialAdress.controls['social_country']?.pristine"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
-                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" (change)="onChangeCountry($event.target.value)"
                     controlName="social_country" idValue="social_country" nameValue="social_country" isReadOnly="false"
                     [isRequired]="isRequired" [fieldOptions]="paises" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                 <app-input-select [form]="formSocialAdress"
                     [error]="validate && formSocialAdress.controls['social_province']?.pristine"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
@@ -65,7 +65,7 @@
                     isReadOnly="false" [isRequired]="isRequired" [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                 <app-input-select [form]="formSocialAdress"
                     [error]="validate && formSocialAdress.controls['social_municipality']?.pristine"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
@@ -73,6 +73,11 @@
                     controlName="social_municipality" idValue="social_municipality" nameValue="social_municipality"
                     isReadOnly="false" [isRequired]="isRequired" [fieldOptions]="municipios" [errorText]="errorCharacterLeng">
                 </app-input-select>
+            </div>
+            <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain" >
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
+                controlName="social_region" idValue="social_region" nameValue="social_region"></app-input-text>
             </div>
         </div>
     </div>

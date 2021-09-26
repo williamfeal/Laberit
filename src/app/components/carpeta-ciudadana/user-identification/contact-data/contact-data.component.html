@@ -147,7 +147,7 @@
                 </div>
                 <div class="d-flex w-100">
                     <div class="form-group col-md-3">
-                        <app-input-select [form]="formContactData"
+                        <app-input-select [form]="formContactData" (change)="onChangeCountry($event.target.value)"
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
                             controlName="contact_data_country" idValue="contact_data_country" nameValue="contact_data_country" [isReadOnly]="readOnly"
@@ -156,18 +156,18 @@
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                         <app-input-select [form]="formContactData" (change)="onChangeSpainCountry($event.target.value)"
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                             label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                             controlName="contact_data_province" idValue="contact_data_province" nameValue="contact_data_province" [isReadOnly]="readOnly"
-                            [isRequired]="!isChecked" [fieldOptions]="provincias"
+                            [isRequired]="!isChecked" [fieldOptions]="provincias" 
                             [error]="validate && formContactData.controls['contact_data_province']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
                     </div>
-                    <div class="form-group col-md-3">
-                        <app-input-select [form]="formContactData"
+                    <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
+                        <app-input-select [form]="formContactData" 
                             placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                             label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                             controlName="contact_data_municipality" idValue="contact_data_municipality" nameValue="contact_data_municipality"
@@ -175,6 +175,11 @@
                             [error]="validate && formContactData.controls['contact_data_municipality']?.pristine"
                             [errorText]="errorCharacterLeng">
                         </app-input-select>
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain" >
+                        <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                        [form]="formContactData" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
+                        controlName="contact_data_region" idValue="contact_data_region" nameValue="contact_data_region"></app-input-text>
                     </div>
                 </div>
             </div>
