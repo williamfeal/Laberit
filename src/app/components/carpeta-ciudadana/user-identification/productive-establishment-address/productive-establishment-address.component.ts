@@ -23,6 +23,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
   public paises: SelectFieldObject[];
   public typeStreet:SelectFieldObject[];
 
+  public countrySelected;
+  public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
+
   public errorCharacterLeng: string = 'empty_error';
 
   constructor(
@@ -57,5 +60,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
     this.catalogsService.getCatalogByCode(event).subscribe(
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
+  }
+
+  public onChangeCountry(event) {
+    this.countrySelected = event;
   }
 }

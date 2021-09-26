@@ -477,7 +477,9 @@
           "CP": "Codi Postal",
           "country": "País",
           "province": "Província",
-          "municipality": "Municipi"
+          "municipality": "Municipi",
+          "social_region": "Región o Ciudad"
+
         }
       },
       "linear_resistance": {
