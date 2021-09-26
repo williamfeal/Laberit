@@ -16,11 +16,11 @@
         </div>
         <div class="form-group">
             <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event, 'company_type')"
-                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_type' | translate }}"
                 [error]="validate && formLineaResistir.controls['company_type']?.pristine" class="col-sm-3"
                 controlName="company_type" idValue="company_type" nameValue="company_type" isReadOnly="false"
-                isRequired="true" [fieldOptions]="tipoProyecto" errorText="empty_error">
+                [isRequired]="true" [fieldOptions]="tipoProyecto" errorText="empty_error">
             </app-input-select>
         </div>
         <!-- Inversion G1 -->
