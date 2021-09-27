@@ -123,7 +123,7 @@
                     <app-input-select [form]="formRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
                         controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup"
-                        [isRequired]="isRequired && businessTypeSelected != 1"
+                        [isRequired]="isRequired && !isAutonum()"
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " [fieldOptions]="belongingCompany"
                         [error]="validate && formRepresentativeData.controls['ownGroup']?.pristine"
                         [errorText]="errorCharacterLeng">
