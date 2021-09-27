@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AppUtils } from 'src/app/utils/app-utils';
 @Component({
@@ -26,6 +26,7 @@ export class InputTextNifComponent implements OnInit {
     formControl = new FormControl('');
     validaciones: ValidatorFn[] = [];
     errorNif: boolean = false;
+    valNif: number;
     constructor(private translateService: TranslateService) { }
 
     ngOnInit(): void {
@@ -44,19 +45,28 @@ export class InputTextNifComponent implements OnInit {
             this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
         if (this.placeholder == undefined) this.placeholder = '';
+        console.log(this.validaciones);
     }
+
+  
+    
 
     onChangeValue(ev) {
         const nifCode = AppUtils.callCheckNif(ev);
+        this.valNif = nifCode;
         if (nifCode <= 0) {
             this.errorNif = true;
+            this.form.get(this.controlName).setValue("");
+            this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
+            console.log(this.validaciones);
             this.errorNif = false;
         }
         !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
     }
     ngOnChanges(changes: SimpleChanges) {
         if (changes.error && changes.error.firstChange) {
+            console.log('Entra');
             this.errorNif = true;
         }
         if (!this.isRequired) {

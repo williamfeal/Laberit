@@ -38,10 +38,14 @@
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
-                    controlName="interested_data_nif" idValue="interested_data_nif" nameValue="interested_data_nif"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired" 
+                    controlName="interested_data_nif" 
+                    idValue="interested_data_nif" 
+                    nameValue="interested_data_nif"
+                    [isReadOnly]="readOnly" 
+                    [isRequired]="isRequired" 
                     [error]="validate"
-                    [errorText]="errorNif"></app-input-text-nif>
+                    [errorText]="errorNif">
+                </app-input-text-nif>
             </div>
         </div>
         <div class="d-contents col-sm-12">
