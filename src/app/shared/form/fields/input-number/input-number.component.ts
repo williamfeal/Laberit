@@ -58,6 +58,9 @@ export class InputNumberComponent implements OnInit {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
     if(this.form.get(this.controlName).value <= 0 ){
       this.error=true;
+      this.validaciones.push(Validators.min(0));
+      this.formControl.setValidators(this.validaciones);
+
     }else{
       this.error = false;
       this.form.get(this.controlName).valid
