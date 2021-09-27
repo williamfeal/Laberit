@@ -29,7 +29,9 @@ export class InputNumberComponent implements OnInit {
   validaciones: ValidatorFn[] = [];
   formControl = new FormControl('');
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService) { 
+   
+  }
 
   ngOnInit(): void {
     if (this.isRequired) {
@@ -37,9 +39,6 @@ export class InputNumberComponent implements OnInit {
     }
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
-    }
-    if(this.negativos){
-      this.validaciones.push(Validators.min(0));
     }
     if (this.validaciones.length > 0) {
       this.formControl.setValidators(this.validaciones);
@@ -52,15 +51,16 @@ export class InputNumberComponent implements OnInit {
 
     if (this.placeholder == undefined) this.placeholder = '';
 
-
   }
 
   onChangeValue() {
     console.log(this.form.get(this.controlName).value);
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
-    if(this.form.get(this.controlName).value <= 0){
+    if(this.form.get(this.controlName).value <= 0 ){
       this.error=true;
-      this.form.get(this.controlName).invalid;
+      this.validaciones.push(Validators.min(0));
+      this.formControl.setValidators(this.validaciones);
+
     }else{
       this.error = false;
       this.form.get(this.controlName).valid
