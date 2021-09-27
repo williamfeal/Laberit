@@ -62,9 +62,6 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    //validar si estan todos los documentos
-    
-
     if (this.tipo_empresa === 'autonomo' && this.fileList.length == 10 || this.tipo_empresa === 'comunidad_bienes' && this.fileList.length == 13
     || this.tipo_empresa === 'micro_empresa' && this.fileList.length == 16 || this.tipo_empresa === 'PYME' && this.fileList.length == 18 ||
     this.tipo_empresa === 'big_bussines' && this.fileList.length == 16 || this.tipo_empresa === 'sociedad_civil' && this.fileList.length == 13) {

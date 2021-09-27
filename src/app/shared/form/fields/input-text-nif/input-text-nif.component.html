@@ -8,6 +8,5 @@
     [readonly]="isReadOnly" 
     (change)="onChangeValue($event.target.value)" 
     [ngClass]="{ 'error-input': error  && errorNif == true }">
-    
     <p class="error-p" *ngIf='error && errorNif' [innerHTML]="textError"></p>
 </form>

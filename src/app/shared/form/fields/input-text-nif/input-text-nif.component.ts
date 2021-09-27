@@ -44,6 +44,7 @@ export class InputTextNifComponent implements OnInit {
             this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
         if (this.placeholder == undefined) this.placeholder = '';
+        console.log(this.validaciones);
     }
 
     onChangeValue(ev) {
@@ -51,6 +52,7 @@ export class InputTextNifComponent implements OnInit {
         if (nifCode <= 0) {
             this.errorNif = true;
         } else {
+            console.log(this.validaciones);
             this.errorNif = false;
         }
         !this.form.get(this.controlName).valid ? this.error = true : this.error = false;

@@ -55,8 +55,13 @@
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
-                    controlName="represented_data_nif" idValue="represented_data_nif" nameValue="represented_data_nif"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
+                    controlName="represented_data_nif" 
+                    idValue="represented_data_nif" 
+                    nameValue="represented_data_nif"
+                    [isReadOnly]="readOnly" 
+                    [isRequired]="isRequired" 
+                    [error]="validate" 
+                    [errorText]="errorNif">
                 </app-input-text-nif>
             </div>
             <div class="form-group col-md-2" *ngIf="isJuridicPerson()">

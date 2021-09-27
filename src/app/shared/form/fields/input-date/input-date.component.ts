@@ -53,10 +53,8 @@ export class InputDateComponent implements OnInit {
     }
     let yyyy = today.getFullYear();
     this.dateToday = yyyy + '-' + mm + '-' + dd;
-    console.log(this.dateToday);
   }
   onChangeValue() {
-    console.log(this.form.get(this.controlName)?.value);
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
   ngOnChanges(changes: SimpleChanges) {
