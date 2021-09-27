@@ -30,22 +30,27 @@
                 <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_5' | translate }} </p>
                     <app-confirmation-radio-button [form]="formAceptation" name="manifestation_5"  
                     [error]="validate &&  formAceptation.controls.manifestation_5.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_6' | translate }} </p>
+                <div *ngIf="company_type === MICRO_BUSINESS ||  company_type === PYME || company_type === BIG_COMPANY">
+                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_6' | translate }} </p>
                     <app-confirmation-radio-button [form]="formAceptation" name="manifestation_6" 
                     [error]="validate &&  formAceptation.controls.manifestation_6.pristine === true" ></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_7' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_7"  
-                    [error]="validate &&  formAceptation.controls.manifestation_7.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_8' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_8"  
-                    [error]="validate &&  formAceptation.controls.manifestation_8.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_9' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_9"  
-                    [error]="validate &&  formAceptation.controls.manifestation_9.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_10' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_10" 
-                    [error]="validate &&  formAceptation.controls.manifestation_10.pristine === true" ></app-confirmation-radio-button>
-                    <hr>
+                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_7' | translate }} </p>
+                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_7"  
+                        [error]="validate &&  formAceptation.controls.manifestation_7.pristine === true"></app-confirmation-radio-button>
+                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_8' | translate }} </p>
+                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_8"  
+                        [error]="validate &&  formAceptation.controls.manifestation_8.pristine === true"></app-confirmation-radio-button>
+                </div>
+                <div *ngIf="company_type === AUTONOMOUS ||  company_type === COMMUNITY_OF_GOODS || company_type === CIVIL_SOCIETY">
+                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_9' | translate }} </p>
+                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_9"  
+                        [error]="validate &&  formAceptation.controls.manifestation_9.pristine === true"></app-confirmation-radio-button>
+                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_10' | translate }} </p>
+                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_10" 
+                        [error]="validate &&  formAceptation.controls.manifestation_10.pristine === true" ></app-confirmation-radio-button>
+                   
+                </div>
+                <hr>
                 <span class="font-weight-bold mt-3">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
                 </span>
