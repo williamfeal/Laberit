@@ -64,7 +64,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"  (change)="onChangeCountry($event.target.value)"
                     controlName="productive_establishment_country" idValue="productive_establishment_country"
-                    nameValue="productive_establishment_country" isReadOnly="false" [isRequired]="true"
+                    nameValue="productive_establishment_country" isReadOnly="false" [isRequired]="isRequired"
                     [fieldOptions]="paises" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -74,7 +74,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                     controlName="productive_establishment_province" idValue="productive_establishment_province"
-                    nameValue="productive_establishment_province" isReadOnly="false" [isRequired]="true"
+                    nameValue="productive_establishment_province" isReadOnly="false" [isRequired]="isRequired"
                     [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -84,7 +84,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                     controlName="productive_establishment_municipality" idValue="productive_establishment_municipality"
-                    nameValue="productive_establishment_municipality" isReadOnly="false" isRequired="true"
+                    nameValue="productive_establishment_municipality" isReadOnly="false" [isRequired]="isRequired"
                     [fieldOptions]="municipios" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>

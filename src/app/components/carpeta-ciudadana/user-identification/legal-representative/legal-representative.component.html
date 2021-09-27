@@ -76,7 +76,7 @@
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                 controlName="legal_representative_via_type" idValue="legal_representative_via_type"
                 [error]="validate && formLegalRepresentative.controls['legal_representative_via_type']?.pristine"
-                nameValue="legal_representative_via_type" [isReadOnly]="readOnly" [isRequired]="true"
+                nameValue="legal_representative_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
 
         </div>
@@ -131,7 +131,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
                     controlName="legal_representative_country" idValue="legal_representative_country"
-                    nameValue="legal_representative_country" isReadOnly="false" [isRequired]="true"
+                    nameValue="legal_representative_country" isReadOnly="false" [isRequired]="isRequired"
                     [fieldOptions]="paises" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -141,7 +141,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                     controlName="legal_representative_province" idValue="legal_representative_province"
-                    nameValue="legal_representative_province" isReadOnly="false" [isRequired]="true"
+                    nameValue="legal_representative_province" isReadOnly="false" [isRequired]="isRequired"
                     [fieldOptions]="provincias" [errorText]="errorCharacterLeng" *ngIf="countrySelected === countriesSpain">
                 </app-input-select>
             </div>
@@ -151,7 +151,7 @@
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                     controlName="legal_representative_municipality" idValue="legal_representative_municipality"
-                    nameValue="legal_representative_municipality" isReadOnly="false" isRequired="true"
+                    nameValue="legal_representative_municipality" isReadOnly="false" isRequired="isRequired"
                     [fieldOptions]="municipios" [errorText]="errorCharacterLeng" *ngIf="countrySelected === countriesSpain">
                 </app-input-select>
             </div>
