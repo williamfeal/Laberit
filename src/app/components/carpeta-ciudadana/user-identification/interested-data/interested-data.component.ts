@@ -43,7 +43,6 @@ export class InterestedDataComponent implements OnInit {
     this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
       data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
     )
-    console.log(this.businessType);
   }
 
   private loadCNAEdata() {
@@ -69,5 +68,9 @@ export class InterestedDataComponent implements OnInit {
     this.catalogsService.getCatalogByCode(ConceptConstants.GROUP_BELONGING_COMPANY).subscribe(
       data => this.belongingCompany = data
     )
+  }
+
+  public businessTypeChange(event) {
+    sessionStorage.setItem('company_type', event);
   }
 }

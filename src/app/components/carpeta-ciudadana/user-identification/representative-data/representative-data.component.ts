@@ -84,6 +84,7 @@ export class RepresentativeDataComponent implements OnInit {
 
   public businessTypeChange(event: string) {
     this.businessTypeSelected = event;
+    sessionStorage.setItem('company_type', event);
   }
 
   public isAutonum() {

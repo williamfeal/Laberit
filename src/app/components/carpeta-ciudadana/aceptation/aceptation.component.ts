@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
@@ -16,6 +17,15 @@ export class AceptationComponent implements OnInit {
   public formAceptation:FormGroup;
   public validate:boolean = false;
   public procedure:Procedure;
+  public company_type:string = "";
+
+  public AUTONOMOUS = ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS;
+  public MICRO_BUSINESS = ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS;
+  public PYME = ConceptConstants.REPRESENTATIVE_PYME;
+  public COMMUNITY_OF_GOODS = ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS;
+  public CIVIL_SOCIETY = ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY;
+  public BIG_COMPANY = ConceptConstants.REPRESENTATIVE_BIG_COMPANY;
+
   constructor(
     private router:Router,
     private translate:TranslateService,
@@ -24,6 +34,9 @@ export class AceptationComponent implements OnInit {
 
   ngOnInit(): void {
     const idProcedure = sessionStorage.getItem('idProcedure');
+    if(sessionStorage.getItem('company_type')) {
+      this.company_type = sessionStorage.getItem('company_type');
+    }
     this.proceduresService.getProcedureById(idProcedure).subscribe(
       data => this.procedure = data
     )
