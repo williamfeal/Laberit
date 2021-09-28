@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { FileModel } from 'src/app/models/file.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { saveDocument, deleteDocument } from './AppUtils.component';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+
 @Component({
   selector: 'app-adjuntar-documento',
   templateUrl: './adjuntar-doc.component.html',
@@ -19,6 +23,7 @@ export class AdjuntarDocComponent implements OnInit {
   public model_303: boolean = true;
   public distribution_by_year: boolean = true;
   public requi: boolean = true;
+  public documentsType: DocumentsType;
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 
   public procedure;
@@ -29,7 +34,9 @@ export class AdjuntarDocComponent implements OnInit {
   constructor(private router: Router,
     private procedureService: ProceduresService,
     private cdRef: ChangeDetectorRef,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    public catalogService: CatalogsService
+    ) {
 
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
       data => this.procedure = data
@@ -41,11 +48,19 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.genericsDocsType();
+    
   }
+  
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
   }
 
+  genericsDocsType(){
+    this.catalogService.getCatalogByCode(ConceptConstants.GENERIC_DOCUMENTS_TYPES).subscribe(
+      data => this.documentsType = data 
+    )
+  }
 
   saveDocument(ev) {
     this[ev.controlName] = false;
