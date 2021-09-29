@@ -85,12 +85,12 @@ export class UserIdentificationComponent implements OnInit {
     if (this.requesterType == ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE) {
       this.interested = false;
       this.representative = true;
-    }
+    }                         
   }
 
   public goToRequestInfo() {
     let error = 0;
-    console.log(this.formUserIdentification);
+    console.log(this.formUserIdentification);                                  
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
