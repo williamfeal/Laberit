@@ -28,11 +28,13 @@ export class AutonomsComponent implements OnInit {
     genericsDocsType(){
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).subscribe(
           data => this.documentsTypeAutonoms = data 
+          
         )
     }
     saveDocument(ev) {
         saveDocument(this.fileListAu, ev);
         this[ev.controlName] = false;
+        console.log(this.fileListAu);
     }
     deleteDocument(ev) {
         this[ev.controlName] = true;

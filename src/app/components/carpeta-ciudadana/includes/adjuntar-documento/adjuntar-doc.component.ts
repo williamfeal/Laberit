@@ -16,7 +16,7 @@ import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-d
 export class AdjuntarDocComponent implements OnInit {
 
   public fileList: FileModel[] = [];
-  public tipo_empresa: string = "sociedad_civil";
+  public tipo_empresa: string = '';
   public documentNif: boolean = true;
   public documentHelp: boolean = true;
   public responsible_declaration: boolean = true;
@@ -48,7 +48,12 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    
+    if(sessionStorage.getItem('company_type')) {
+      this.tipo_empresa = sessionStorage.getItem('company_type');
+      console.log(this.tipo_empresa);
+
+    }
+    console.log(this.tipo_empresa);
   }
   
   ngAfterViewChecked() {
@@ -70,9 +75,9 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    if (this.tipo_empresa === 'autonomo' && this.fileList.length == 10 || this.tipo_empresa === 'comunidad_bienes' && this.fileList.length == 13
-    || this.tipo_empresa === 'micro_empresa' && this.fileList.length == 16 || this.tipo_empresa === 'PYME' && this.fileList.length == 18 ||
-    this.tipo_empresa === 'big_bussines' && this.fileList.length == 16 || this.tipo_empresa === 'sociedad_civil' && this.fileList.length == 13) {
+    if (this.tipo_empresa === 'ivf-representative-types-juridic-person-autonomous' && this.fileList.length == 10 || this.tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods' && this.fileList.length == 13
+    || this.tipo_empresa === 'ivf-representative-types-juridic-person-micro-business' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-pyme' && this.fileList.length == 18 ||
+    this.tipo_empresa === 'ivf-representative-types-juridic-person-big-company' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-civil-society' && this.fileList.length == 13) {
       console.log(this.fileList);
       this.validate = false;
       this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
