@@ -60,7 +60,6 @@ export class InputTextNifComponent implements OnInit {
         console.log(this.form.parent)
         if (nifCode <= 0) {
             this.errorNif = true;
-            // this.form.get(this.controlName).setValue("");
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
             console.log(this.validaciones);
@@ -85,8 +84,6 @@ export class InputTextNifComponent implements OnInit {
             this.validaciones.push(this.nifValidator);
             this.validaciones.push(Validators.required);
             this.formControl.setValidators(this.validaciones);
-
-            // this.formControl.setValidators(Validators.required);
             this.form.addControl(this.controlName, this.formControl);
         }
         this.translateService.get('error_texts.input.' + this.errorText).subscribe(
