@@ -12,10 +12,12 @@ export class ConfirmationRadioButtonComponent implements OnInit {
   @Input() form:FormGroup;
   @Input() error:boolean;
 
+  private formControl = new FormControl();
+
   constructor() { }
 
   ngOnInit(): void {
-
+    this.form.addControl(this.name, this.formControl);
   }
 
 }

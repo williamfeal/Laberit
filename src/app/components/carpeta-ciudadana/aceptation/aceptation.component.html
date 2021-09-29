@@ -14,7 +14,7 @@
                 <p class="font-weight-bold">
                     {{ 'carpeta_ciudadana.aceptation.manifestations.title' | translate }}
                 </p>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_1' | translate }} </p>
+                <!--<p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_1' | translate }} </p>
                     <app-confirmation-radio-button [form]="formAceptation" 
                         [error]="validate &&  formAceptation.controls.manifestation_1.pristine === true"
                         name="manifestation_1" ></app-confirmation-radio-button>
@@ -49,6 +49,11 @@
                         <app-confirmation-radio-button [form]="formAceptation" name="manifestation_10" 
                         [error]="validate &&  formAceptation.controls.manifestation_10.pristine === true" ></app-confirmation-radio-button>
                    
+                </div>-->
+                <div *ngFor="let manifestation of manifestations; let i = index">
+                    <p class="mb-1 mt-3"> {{ manifestation.description }} </p>
+                    <app-confirmation-radio-button [form]="formAceptation" name="{{manifestation.concept_code}}" controlName
+                    [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" ></app-confirmation-radio-button>
                 </div>
                 <hr>
                 <span class="font-weight-bold mt-3">
