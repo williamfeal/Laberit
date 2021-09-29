@@ -14,45 +14,9 @@
                 <p class="font-weight-bold">
                     {{ 'carpeta_ciudadana.aceptation.manifestations.title' | translate }}
                 </p>
-                <!--<p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_1' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" 
-                        [error]="validate &&  formAceptation.controls.manifestation_1.pristine === true"
-                        name="manifestation_1" ></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_2' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_2" 
-                    [error]="validate &&  formAceptation.controls.manifestation_2.pristine === true" ></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_3' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_3"  
-                    [error]="validate &&  formAceptation.controls.manifestation_3.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3">  {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_4' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_4"  
-                    [error]="validate &&  formAceptation.controls.manifestation_4.pristine === true"></app-confirmation-radio-button>
-                <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_5' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_5"  
-                    [error]="validate &&  formAceptation.controls.manifestation_5.pristine === true"></app-confirmation-radio-button>
-                <div *ngIf="company_type === MICRO_BUSINESS ||  company_type === PYME || company_type === BIG_COMPANY">
-                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_6' | translate }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="manifestation_6" 
-                    [error]="validate &&  formAceptation.controls.manifestation_6.pristine === true" ></app-confirmation-radio-button>
-                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_7' | translate }} </p>
-                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_7"  
-                        [error]="validate &&  formAceptation.controls.manifestation_7.pristine === true"></app-confirmation-radio-button>
-                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_8' | translate }} </p>
-                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_8"  
-                        [error]="validate &&  formAceptation.controls.manifestation_8.pristine === true"></app-confirmation-radio-button>
-                </div>
-                <div *ngIf="company_type === AUTONOMOUS ||  company_type === COMMUNITY_OF_GOODS || company_type === CIVIL_SOCIETY">
-                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_9' | translate }} </p>
-                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_9"  
-                        [error]="validate &&  formAceptation.controls.manifestation_9.pristine === true"></app-confirmation-radio-button>
-                    <p class="mb-1 mt-3"> {{ 'carpeta_ciudadana.aceptation.manifestations.manifestation_10' | translate }} </p>
-                        <app-confirmation-radio-button [form]="formAceptation" name="manifestation_10" 
-                        [error]="validate &&  formAceptation.controls.manifestation_10.pristine === true" ></app-confirmation-radio-button>
-                   
-                </div>-->
                 <div *ngFor="let manifestation of manifestations; let i = index">
                     <p class="mb-1 mt-3"> {{ manifestation.description }} </p>
-                    <app-confirmation-radio-button [form]="formAceptation" name="{{manifestation.concept_code}}" controlName
+                    <app-confirmation-radio-button [form]="formAceptation" [isRequired]="isRequired" name="{{manifestation.concept_code}}" controlName
                     [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" ></app-confirmation-radio-button>
                 </div>
                 <hr>
@@ -60,45 +24,9 @@
                     {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
                 </span>
                 <p class="mt-3"> {{ 'carpeta_ciudadana.aceptation.data_protection.text' | translate }} </p>
-                <div class="form-check">
-                    <input class="form-check-input" formControlName="check_1" type="checkbox" value="" #check_1 id="check_1">
-                    <label class="form-check-label" for="check_1">
-                        {{ 'carpeta_ciudadana.aceptation.data_protection.check_1' | translate }}
-                    </label>
-                    <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_1.pristine === true">
-                        {{ 'error_texts.input.empty_error' | translate}} </p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" formControlName="check_2" type="checkbox" value="" id="check_2">
-                    <label class="form-check-label" for="check_2">
-                        {{ 'carpeta_ciudadana.aceptation.data_protection.check_2' | translate }}
-                    </label>
-                    <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_2.pristine === true">
-                        {{ 'error_texts.input.empty_error' | translate}} </p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" formControlName="check_3" type="checkbox" value="" id="check_3">
-                    <label class="form-check-label" for="check_3">
-                        {{ 'carpeta_ciudadana.aceptation.data_protection.check_3' | translate }}
-                    </label>
-                    <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_3.pristine === true">
-                        {{ 'error_texts.input.empty_error' | translate}} </p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" formControlName="check_4" type="checkbox" value="" id="check_4">
-                    <label class="form-check-label" for="check_4">
-                        {{ 'carpeta_ciudadana.aceptation.data_protection.check_4' | translate }}
-                    </label>
-                    <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_4.pristine === true">
-                        {{ 'error_texts.input.empty_error' | translate}} </p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" formControlName="check_5" type="checkbox" value="" id="check_5">
-                    <label class="form-check-label" for="check_5">
-                        {{ 'carpeta_ciudadana.aceptation.data_protection.check_5' | translate }}
-                    </label>
-                    <p class="error-p" *ngIf="validate &&  formAceptation.controls.check_5.pristine === true">
-                        {{ 'error_texts.input.empty_error' | translate}} </p>
+                <div *ngFor="let data of data_protection" class="form-check">
+                   <app-checkbox [form]="formAceptation" [isRequired]="isRequired" [name]="data.concept_code" [text]="data.description"
+                    [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
                 </div>
             </div>
             

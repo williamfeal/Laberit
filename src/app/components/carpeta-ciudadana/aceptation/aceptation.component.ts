@@ -22,12 +22,7 @@ export class AceptationComponent implements OnInit {
   public manifestations:Concept[];
   public data_protection:Concept[];
 
-  public AUTONOMOUS = ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS;
-  public MICRO_BUSINESS = ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS;
-  public PYME = ConceptConstants.REPRESENTATIVE_PYME;
-  public COMMUNITY_OF_GOODS = ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS;
-  public CIVIL_SOCIETY = ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY;
-  public BIG_COMPANY = ConceptConstants.REPRESENTATIVE_BIG_COMPANY;
+  public isRequired = true;
 
   constructor(
     private router:Router,
@@ -56,14 +51,7 @@ export class AceptationComponent implements OnInit {
     this.proceduresService.getProcedureById(idProcedure).subscribe(
       data => this.procedure = data
     )
-    this.formAceptation = new FormGroup({
-      check_1: new FormControl('', Validators.requiredTrue),
-      check_2: new FormControl('', Validators.requiredTrue),
-      check_3: new FormControl('', Validators.requiredTrue),
-      check_4: new FormControl('', Validators.requiredTrue),
-      check_5: new FormControl('', Validators.requiredTrue),
-
-    })
+    this.formAceptation = new FormGroup({});
   }
 
   public validateForm() {
