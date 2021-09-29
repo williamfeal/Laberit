@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AppUtils } from 'src/app/utils/app-utils';
 @Component({
@@ -29,8 +29,13 @@ export class InputTextNifComponent implements OnInit {
     valNif: number;
     constructor(private translateService: TranslateService) { }
 
+    nifValidator(control: FormControl) { 
+        return AppUtils.callCheckNif(control.value) === -1 ?  { incorrectNif : true } : null;
+    }
+
     ngOnInit(): void {
         if (this.isRequired) {
+            this.validaciones.push(this.nifValidator);
             this.validaciones.push(Validators.required);
         }
         if (this.minLength != null) {
@@ -40,12 +45,12 @@ export class InputTextNifComponent implements OnInit {
             this.formControl.setValidators(this.validaciones);
         }
         this.form.addControl(this.controlName, this.formControl);
-
         this.value ?
             this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
         if (this.placeholder == undefined) this.placeholder = '';
         console.log(this.validaciones);
+        console.log(this.form)
     }
 
   
@@ -56,15 +61,17 @@ export class InputTextNifComponent implements OnInit {
         this.valNif = nifCode;
         if (nifCode <= 0) {
             this.errorNif = true;
-            this.form.get(this.controlName).setValue("");
+            // this.form.get(this.controlName).setValue("");
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
             console.log(this.validaciones);
             this.errorNif = false;
         }
-        !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
+        this.error = !this.form.get(this.controlName).valid ?  true : false;
     }
+
     ngOnChanges(changes: SimpleChanges) {
+
         if (changes.error && changes.error.firstChange) {
             console.log('Entra');
             this.errorNif = true;
@@ -75,7 +82,9 @@ export class InputTextNifComponent implements OnInit {
                 this.form.get(this.controlName).updateValueAndValidity();
             }
         } else {
-            this.formControl.setValidators(Validators.required);
+            this.formControl.setValidators(this.validaciones);
+
+            // this.formControl.setValidators(Validators.required);
             this.form.addControl(this.controlName, this.formControl);
         }
         this.translateService.get('error_texts.input.' + this.errorText).subscribe(
