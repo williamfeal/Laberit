@@ -22,5 +22,9 @@ export class ConceptConstants {
     public static readonly REPRESENTATIVE_PYME = "ivf-representative-types-juridic-person-pyme";
     public static readonly REPRESENTATIVE_BIG_COMPANY = "ivf-representative-types-juridic-person-big-company";
     public static readonly REPRESENTATIVE_COMMUNITY_OF_GOODS = "ivf-representative-types-juridic-person-community-of-goods";
-    public static readonly REPRESENTATIVE_CIVIL_SOCIETY = "ivf-representative-types-juridic-person-civil-society"
+    public static readonly REPRESENTATIVE_CIVIL_SOCIETY = "ivf-representative-types-juridic-person-civil-society";
+
+    public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
+    public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
+    public static readonly DATA_PROTECTION = "data-protection";
 }

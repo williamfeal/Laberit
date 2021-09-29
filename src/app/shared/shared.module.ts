@@ -28,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { WeatherService } from '../services/moges-services/weather.service';
 import { StyleService } from '../services/moges-services/style.service';
-import { ConfirmationRadioButtonComponent } from './form/fields/confirmation-radio-button/confirmation-radio-button.component';
+import { ConfirmationRadioButtonComponent } from './form/aceptation-view/confirmation-radio-button/confirmation-radio-button.component';
 import { SafePipe } from '../components/carpeta-ciudadana/includes/firmarYpresentarPopUp/SafePipe.component';
 import { InputDocumentComponent } from './form/fields/input-document/input-document.component';
 import { InputTextNifComponent } from './form/fields/input-text-nif/input-text-nif.component';
@@ -36,6 +36,7 @@ import { WebMapComponent } from './footer/web-map/web-map.component';
 import localeCa from '@angular/common/locales/ca-ES-VALENCIA';
 import localeEs from '@angular/common/locales/es';
 import { LocalizedDatePipe } from '../utils/pipes/localized-date.pipe';
+import { CheckboxComponent } from './form/aceptation-view/checkbox/checkbox.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -69,7 +70,8 @@ registerLocaleData(localeCa, 'ca-ES');
     HeaderComponent,
     ConfirmationRadioButtonComponent,
     SafePipe,
-    LocalizedDatePipe
+    LocalizedDatePipe,
+    CheckboxComponent
   ],
   imports: [
     CommonModule,
@@ -106,7 +108,8 @@ registerLocaleData(localeCa, 'ca-ES');
     HelpHomeComponent,
     HeaderComponent,
     ConfirmationRadioButtonComponent,
-    SafePipe
+    SafePipe,
+    CheckboxComponent
   ],
   providers: [
     WeatherService,
