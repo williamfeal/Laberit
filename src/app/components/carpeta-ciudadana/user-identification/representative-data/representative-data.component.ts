@@ -16,6 +16,7 @@ export class RepresentativeDataComponent implements OnInit {
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
+  
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
 

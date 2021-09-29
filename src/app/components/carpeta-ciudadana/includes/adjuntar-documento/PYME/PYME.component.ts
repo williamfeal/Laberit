@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FileModel } from 'src/app/models/file.model';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { deleteDocument, saveDocument } from '../AppUtils.component';
 
 @Component({
@@ -22,15 +25,24 @@ export class PymeComponent implements OnInit {
     public business_group_PYME: boolean = true;
     public PYME: boolean = true;
     public tecnic_memory_PYME: boolean = true;
+    public documentsTypePyme: DocumentsType;
 
-    constructor() { }
 
-    ngOnInit(): void { }
+    constructor(public catalogService: CatalogsService) { }
+
+    ngOnInit(): void {
+      this.genericsDocsType();
+     }
     saveDocument(ev) {
         this[ev.controlName] = false;
         saveDocument(this.fileListPy, ev);
       }
-    
+      
+      genericsDocsType(){
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PYME_DOCUMENTS).subscribe(
+          data => this.documentsTypePyme = data 
+        )
+      }
       deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListPy, ev);

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FileModel } from 'src/app/models/file.model';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { deleteDocument, saveDocument } from '../AppUtils.component';
 
 @Component({
@@ -14,12 +17,19 @@ export class AutonomsComponent implements OnInit {
     public model_RLC: boolean = true;
     public model_347_: boolean = true;
     public model_390: boolean = true;
-    constructor() { }
+    public documentsTypeAutonoms: DocumentsType;
+
+    constructor(public catalogService: CatalogsService) { }
 
     ngOnInit(): void {
         console.log(this.validate);
+        this.genericsDocsType()
     }
-
+    genericsDocsType(){
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).subscribe(
+          data => this.documentsTypeAutonoms = data 
+        )
+    }
     saveDocument(ev) {
         saveDocument(this.fileListAu, ev);
         this[ev.controlName] = false;

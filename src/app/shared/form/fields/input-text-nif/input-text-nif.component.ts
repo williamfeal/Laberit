@@ -56,7 +56,7 @@ export class InputTextNifComponent implements OnInit {
         this.valNif = nifCode;
         if (nifCode <= 0) {
             this.errorNif = true;
-            this.form.get(this.controlName).setValue("");
+            // this.form.get(this.controlName).setValue("");
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
             console.log(this.validaciones);

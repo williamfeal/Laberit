@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FileModel } from 'src/app/models/file.model';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { deleteDocument, saveDocument } from '../AppUtils.component';
 
 @Component({
@@ -20,15 +23,24 @@ export class MicroEmpresaComponent implements OnInit {
     public registered_office_micro: boolean = true;
     public PYME_micro: boolean = true;
     public business_group_micro: boolean = true;
+    public documentsTypeMicroBussines: DocumentsType;
 
-    constructor() { }
+    constructor(public catalogService: CatalogsService) { }
 
-    ngOnInit(): void { }
-    saveDocument(ev) {
+    ngOnInit(): void {
+      this.genericsDocsType();
+    }
+      saveDocument(ev) {
         this[ev.controlName] = false;
         saveDocument(this.fileListMi, ev);
       }
     
+      genericsDocsType(){
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS).subscribe(
+          data => this.documentsTypeMicroBussines = data 
+        )
+      }
+
       deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListMi, ev);

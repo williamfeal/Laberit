@@ -48,18 +48,11 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.genericsDocsType();
     
   }
   
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
-  }
-
-  genericsDocsType(){
-    this.catalogService.getCatalogByCode(ConceptConstants.GENERIC_DOCUMENTS_TYPES).subscribe(
-      data => this.documentsType = data 
-    )
   }
 
   saveDocument(ev) {

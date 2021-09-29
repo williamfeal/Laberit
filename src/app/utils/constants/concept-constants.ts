@@ -24,6 +24,12 @@ export class ConceptConstants {
     public static readonly REPRESENTATIVE_COMMUNITY_OF_GOODS = "ivf-representative-types-juridic-person-community-of-goods";
     public static readonly REPRESENTATIVE_CIVIL_SOCIETY = "ivf-representative-types-juridic-person-civil-society";
 
-    //ADJUNTAR DOCUMENTOS
+    //ADJUNTAR DOCUMENTOS LINEA RESISTIR
     public static readonly GENERIC_DOCUMENTS_TYPES = "document-types";
+    public static readonly LINEA_RESISTIR_AUTONOMS_DOCUMENTS = "linea-resistir-autonomous-documents";
+    public static readonly LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS = "linea-resistir-micro-bussines";
+    public static readonly LINEA_RESISTIR_PYME_DOCUMENTS = "linea-resistir-pyme";
+    public static readonly LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS = "linea-resistir-beneficits-community";
+    public static readonly LINEA_RESISTIR_BIG_BUSSINESS_DOCUMENTS= "linea-resistir-big-bussiness";
+    public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society";
 }
