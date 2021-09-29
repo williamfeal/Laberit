@@ -49,8 +49,6 @@ export class InputTextNifComponent implements OnInit {
             this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
         if (this.placeholder == undefined) this.placeholder = '';
-        console.log(this.validaciones);
-        console.log(this.form)
     }
 
   
@@ -59,12 +57,14 @@ export class InputTextNifComponent implements OnInit {
     onChangeValue(ev) {
         const nifCode = AppUtils.callCheckNif(ev);
         this.valNif = nifCode;
+        console.log(this.form.parent)
         if (nifCode <= 0) {
             this.errorNif = true;
             // this.form.get(this.controlName).setValue("");
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
             console.log(this.validaciones);
+
             this.errorNif = false;
         }
         this.error = !this.form.get(this.controlName).valid ?  true : false;
@@ -82,6 +82,8 @@ export class InputTextNifComponent implements OnInit {
                 this.form.get(this.controlName).updateValueAndValidity();
             }
         } else {
+            this.validaciones.push(this.nifValidator);
+            this.validaciones.push(Validators.required);
             this.formControl.setValidators(this.validaciones);
 
             // this.formControl.setValidators(Validators.required);
