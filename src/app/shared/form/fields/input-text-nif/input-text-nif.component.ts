@@ -72,7 +72,6 @@ export class InputTextNifComponent implements OnInit {
     ngOnChanges(changes: SimpleChanges) {
 
         if (changes.error && changes.error.firstChange) {
-            console.log('Entra');
             this.errorNif = true;
         }
         if (!this.isRequired) {

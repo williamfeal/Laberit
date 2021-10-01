@@ -5,7 +5,7 @@
         class="form-control" 
         [id]="idValue"
         maxDate="maxDate" 
-        max='{{dateToday}}'
+        max="{{dateToday | date:'yyyy-MM-dd'}}"
         [name]="nameValue" 
         (change)="onChangeValue()" 
         [formControlName]="controlName" 
