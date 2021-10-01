@@ -10,8 +10,8 @@ Docker Build:
     - shell
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN hub.alfatecsistemas.es
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - docker build -t $CI_REGISTRY_IMAGE:develop .
+    - docker push $CI_REGISTRY_IMAGE:develop
     - curl -X POST $PORTAINER_TOKEN
   only:
     - dev
