@@ -67,7 +67,7 @@
             <div class="form-group col-md-2" *ngIf="isJuridicPerson()">
                 <app-input-date [form]="formRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
-                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
+                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date" [maxDate]="true"
                     nameValue="represented_data_constitution_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.pristine"
                     [errorText]="errorCharacterLeng"></app-input-date>
