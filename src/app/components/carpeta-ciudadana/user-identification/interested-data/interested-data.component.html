@@ -52,8 +52,10 @@
             <div class="form-group col-md-3">
                 <app-input-select [form]="formInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
-                    [isRequired]="isRequired" [fieldOptions]="cnae"
+                    [isRequired]="isRequired" 
+                    [fieldOptions]="cnae"
                     [error]="validate && formInterestedData.controls['interested_data_cnae']?.pristine"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
