@@ -26,5 +26,5 @@ export class ConceptConstants {
 
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
-    public static readonly DATA_PROTECTION = "data-protection";
+    public static readonly DATA_PROTECTION = "data-protection-questionary";
 }
