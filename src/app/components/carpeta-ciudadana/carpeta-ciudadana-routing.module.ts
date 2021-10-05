@@ -90,8 +90,8 @@ const routes:Routes = [
       breadcrumb:  [
       { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
-      { title: 'carpeta_ciudadana.instance.title', url: '/carpeta-del-ciudadano', my_request: true, terminal: false },
-      { title: 'carpeta_ciudadana.instance.docAdd', url: 'carpeta-del-ciudadano/adjuntar', terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano', my_request: true, terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: '/carpeta-del-ciudadano/adjuntar', terminal: false },
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
     ]},
   },
@@ -102,7 +102,7 @@ const routes:Routes = [
     data: { 
       menu : false,
       breadcrumb:  [
-      { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: 'carpeta-del-ciudadano/firmar', terminal: false },
+      { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '/carpeta-del-ciudadano/firmar', terminal: false },
       { title: 'carpeta_ciudadana.confirmation.title', url: '', terminal: true },
     ]},
   }]

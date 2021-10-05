@@ -34,5 +34,5 @@ export class ConceptConstants {
     public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society";
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
-    public static readonly DATA_PROTECTION = "data-protection";
+    public static readonly DATA_PROTECTION = "data-protection-questionary";
 }
