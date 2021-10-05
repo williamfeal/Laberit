@@ -353,6 +353,9 @@
       "btn_electronic_certificate": "Acceso con certificado electrónico",
       "btn_clave": "Acceso con clave"
     },
+    "requests-list": {
+      "title": "Mis Solicitudes"
+    },
     "instance": {
       "title": "Instancia General",
       "infoSol": "Información de la solicitud",
@@ -405,6 +408,7 @@
         "selectMunicipality": "Seleccione municipio"
       }
     },
+    
     "identification": {
       "title": "Identificación de Usuario",
       "identity_data": {

@@ -1,1 +1,63 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<div class="mx-3">
+    <div class="row justify-content-between">
+        <div class="mx-3 col-md-2">
+            <input type="checkbox" name="" id="">
+            <span> Ver solo "no leídas"</span>
+        </div>
+        <div class="col-md-3">
+            <div class="d-flex">
+                <input class="form-control mr-3" id="keywords" placeholder="Buscar" name="keywords" type="text">
+                <button class="btn btn-app-outline-primary" name="search" type="submit">
+                    <em class="fas fa-redo"></em>
+                    Recargar listado
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-light">
+                <th>Fecha</th>
+                <th>Solictud</th>
+                <th>Interesado</th>
+                <th>Línea</th>
+                <th>Producto</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    07/07/2021
+                </td>
+                <td>
+                    Préstamo Bonificado Resistir 2021-00539-E
+                </td>
+                <td>
+                    11111111H
+                </td>
+                <td>
+                    Préstamo bonificado
+                </td>
+                <td>
+                    Préstamo bonificado
+                </td>
+                <td>
+                    Pendiente de información
+                </td>
+                <td>
+                    <button class="btn btn-app-outline-primary rounded-circle btn-small">
+                        <em class="fa fa-eye"></em>
+                    </button>
+                    <button class="btn btn-app-outline-primary rounded-circle btn-small ml-3">
+                        <em class="fa fa-envelope"></em>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
