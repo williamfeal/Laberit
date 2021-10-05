@@ -17,8 +17,9 @@ export class InputDocumentComponent implements OnInit {
     @Input() idValue!: string;
     @Input() isRequired!: boolean;
     @Input() idPlantilla!: string;
-    @Input() fileExtension: string
-    @Input() errorText: string
+    @Input() fileExtension: string;
+    @Input() errorText: string;
+    @Input() controlName!: string;
     @Input() error!: boolean;
 
     @Output() public uploadFileDocument = new EventEmitter<FileModel>();
@@ -44,10 +45,8 @@ export class InputDocumentComponent implements OnInit {
         }
         if (this.validaciones.length > 0) {
             formControl.setValidators(Validators.required);
-            console.log('this.formControl :>> ', formControl);
         }
         this.form.addControl(this.idValue, formControl);
-        console.log('this.form :>> ', this.form);
 
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
@@ -95,6 +94,7 @@ export class InputDocumentComponent implements OnInit {
             this.documentExist = true;
             this.document = newFile;
             this.uploadFileDocument.emit(this.document);
+            console.log(this.document);
         };
     }
 

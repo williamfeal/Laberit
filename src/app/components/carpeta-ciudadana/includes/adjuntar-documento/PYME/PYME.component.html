@@ -1,27 +1,86 @@
+<div *ngIf="documentsTypePyme">
 <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.PYME.society_constitution_PYME' | translate }}"
-    idValue="society_constitution_PYME" 
+    label="{{documentsTypePyme[0].description}}"
+    [form]="formAdjPyme"
+    controlName="documentNif"
+    idValue="documentNif" 
     [isRequired]="true" 
     errorText="document_error"
-    [error]="validate && society_constitution_PYME"
+    [error]="validate && documentNif"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
     (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 
   <app-input-document
-  label="{{ 'carpeta_ciudadana.documentation.PYME.beneficial_ownership_PYME' | translate }}"
-  idValue="beneficial_ownership_PYME" 
+  label="{{documentsTypePyme[1].description}}"
+  [form]="formAdjPyme"
+controlName="documentHelp"
+  idValue="documentHelp" 
   [isRequired]="true" 
   errorText="document_error"
-  [error]="validate && beneficial_ownership_PYME"
+  [error]="validate && documentHelp"
   fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
   (uploadFileDocument)="saveDocument($event)"
   (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.legal_representative_PYME' | translate }}"
+label="{{documentsTypePyme[2].description}}"
+[form]="formAdjPyme"
+controlName="responsible_declaration"
+idValue="responsible_declaration" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && responsible_declaration"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[3].description}}"
+[form]="formAdjPyme"
+controlName="distribution_by_year"
+idValue="distribution_by_year" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && distribution_by_year"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[4].description}}"
+[form]="formAdjPyme"
+controlName="society_constitution_PYME"
+idValue="society_constitution_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && society_constitution_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[5].description}}"
+[form]="formAdjPyme"
+controlName="beneficial_ownership_PYME"
+idValue="beneficial_ownership_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && beneficial_ownership_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[6].description}}"
+[form]="formAdjPyme"
+controlName="legal_representative_PYME"
 idValue="legal_representative_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -32,7 +91,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.annual_accounts_PYME' | translate }}"
+label="{{documentsTypePyme[7].description}}"
+[form]="formAdjPyme"
+controlName="annual_accounts_PYME"
 idValue="annual_accounts_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -43,7 +104,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME._commercial_code_PYME' | translate }}"
+label="{{documentsTypePyme[8].description}}"
+[form]="formAdjPyme"
+controlName="_commercial_code_PYME"
 idValue="_commercial_code_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -54,7 +117,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.tax_returns_PYME' | translate }}"
+label="{{documentsTypePyme[9].description}}"
+[form]="formAdjPyme"
+controlName="tax_returns_PYME"
 idValue="tax_returns_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -65,7 +130,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.risk_inform_PYME' | translate }}"
+label="{{documentsTypePyme[10].description}}"
+[form]="formAdjPyme"
+controlName="risk_inform_PYME"
 idValue="risk_inform_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -76,18 +143,22 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.model_390_PYME' | translate }}"
+label="{{documentsTypePyme[11].description}}"
+[form]="formAdjPyme"
+controlName="model_390_PYME"
 idValue="model_390_PYME" 
 [isRequired]="true" 
-errorText="document_error"
-[error]="validate && model_390_PYME"
+errorText="model_390_PYME"
+[error]="validate && PYME"
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.model_347_PYME' | translate }}"
+label="{{documentsTypePyme[12].description}}"
+[form]="formAdjPyme"
+controlName="model_347_PYME"
 idValue="model_347_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -98,7 +169,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.registered_office_PYME' | translate }}"
+label="{{documentsTypePyme[13].description}}"
+[form]="formAdjPyme"
+controlName="registered_office_PYME"
 idValue="registered_office_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -109,7 +182,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.business_group_PYME' | translate }}"
+label="{{documentsTypePyme[14].description}}"
+[form]="formAdjPyme"
+controlName="business_group_PYME"
 idValue="business_group_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -120,18 +195,9 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.PYME' | translate }}"
-idValue="PYME" 
-[isRequired]="true" 
-errorText="document_error"
-[error]="validate && PYME"
-fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
-(uploadFileDocument)="saveDocument($event)"
-(deleteFileDocument)="deleteDocument($event)">
-</app-input-document>
-
-<app-input-document
-label="{{ 'carpeta_ciudadana.documentation.PYME.tecnic_memory_PYME' | translate }}"
+label="{{documentsTypePyme[15].description}}"
+[form]="formAdjPyme"
+controlName="tecnic_memory_PYME"
 idValue="tecnic_memory_PYME" 
 [isRequired]="true" 
 errorText="document_error"
@@ -140,3 +206,31 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[16].description}}"
+[form]="formAdjPyme"
+controlName="model_303"
+idValue="model_303" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && model_303"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[17].description}}"
+[form]="formAdjPyme"
+controlName="documentNif"
+idValue="tecnic_memory_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && tecnic_memory_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+</div>

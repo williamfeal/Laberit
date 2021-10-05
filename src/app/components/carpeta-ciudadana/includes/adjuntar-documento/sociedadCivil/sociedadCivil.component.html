@@ -1,6 +1,61 @@
+<div *ngIf="documentsTypeCivilSociety">
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.society_constitution_civil' | translate }}"
+label="{{documentsTypeCivilSociety[0].description}}"
+idValue="documentNif" 
+[form]="formAdjSociedad"
+controlName="documentNif"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && documentNif"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypeCivilSociety[1].description}}"
+idValue="documentHelp" 
+[form]="formAdjSociedad"
+controlName="documentHelp"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && documentHelp"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypeCivilSociety[2].description}}"
+idValue="responsible_declaration" 
+[form]="formAdjSociedad"
+controlName="responsible_declaration"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && responsible_declaration"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypeCivilSociety[3].description}}"
+idValue="distribution_by_year" 
+[form]="formAdjSociedad"
+controlName="distribution_by_year"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && distribution_by_year"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypeCivilSociety[4].description}}"
 idValue="society_constitution_civil" 
+[form]="formAdjSociedad"
+controlName="society_constitution_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && society_constitution_civil"
@@ -10,8 +65,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.declarations_rent_civil' | translate }}"
+label="{{documentsTypeCivilSociety[5].description}}"
 idValue="declarations_rent_civil" 
+[form]="formAdjSociedad"
+controlName="declarations_rent_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && declarations_rent_civil"
@@ -21,8 +78,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.model_390_civil' | translate }}"
+label="{{documentsTypeCivilSociety[6].description}}"
 idValue="model_390_civil" 
+[form]="formAdjSociedad"
+controlName="model_390_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_390_civil"
@@ -31,9 +90,11 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.model_184_entities_civil' | translate }}"
+<app-input-document 
+label="{{documentsTypeCivilSociety[7].description}}"
 idValue="model_184_entities_civil" 
+[form]="formAdjSociedad"
+controlName="model_184_entities_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_184_entities_civil"
@@ -43,8 +104,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.voucher_pay_civil' | translate }}"
+label="{{documentsTypeCivilSociety[8].description}}"
 idValue="voucher_pay_civil" 
+[form]="formAdjSociedad"
+controlName="voucher_pay_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && voucher_pay_civil"
@@ -54,8 +117,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.model_130_131_civil' | translate }}"
+label="{{documentsTypeCivilSociety[9].description}}"
 idValue="model_130_131_civil" 
+[form]="formAdjSociedad"
+controlName="model_130_131_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_130_131_civil"
@@ -65,8 +130,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.civil_society.model_347_civil' | translate }}"
+label="{{documentsTypeCivilSociety[10].description}}"
 idValue="model_347_civil" 
+[form]="formAdjSociedad"
+controlName="model_347_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_347_civil"
@@ -75,9 +142,11 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document 
-label="{{ 'carpeta_ciudadana.documentation.civil_society.registered_office_civil' | translate }}"
+<app-input-document
+label="{{documentsTypeCivilSociety[11].description}}"
 idValue="registered_office_civil" 
+[form]="formAdjSociedad"
+controlName="registered_office_civil"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && registered_office_civil"
@@ -85,3 +154,5 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
+
+</div>

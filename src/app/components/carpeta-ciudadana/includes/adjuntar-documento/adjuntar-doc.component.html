@@ -10,51 +10,12 @@
     </div>
   </div>
 
-  <!-- GENERICS -->
-  <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.generic.dni' | translate }}" 
-    idValue="documentNif" [isRequired]="requi"
-    errorText="document_error" [error]="validate && documentNif"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.generic.help' | translate }}" idValue="documentHelp" [isRequired]="requi"
-    [idPlantilla]="true" errorText="document_error" [error]="validate && documentHelp"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.generic.responsible_declaration' | translate }}"
-    idValue="responsible_declaration" [idPlantilla]="true" [isRequired]="true" errorText="document_error"
-    [error]="validate && responsible_declaration"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.generic.model_303' | translate }}" idValue="model_303"
-    [isRequired]="true" errorText="document_error" [error]="validate && model_303"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document 
-    label="{{ 'carpeta_ciudadana.documentation.generic.distribution_by_year' | translate }}"
-    idValue="distribution_by_year" [idPlantilla]="true" [isRequired]="true" errorText="document_error"
-    [error]="validate && distribution_by_year"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-autonoms *ngIf="tipo_empresa === 'autonomo'" [fileListAu]="fileList" [validate]="validate"></app-autonoms>
-  <app-comunidadBienes *ngIf="tipo_empresa === 'comunidad_bienes'" [fileListCo]="fileList" [validate]="validate"></app-comunidadBienes>
-  <app-gran-empresa *ngIf="tipo_empresa === 'big_bussines'" [fileListGr]="fileList" [validate]="validate"></app-gran-empresa>
-  <app-micro-empresa *ngIf="tipo_empresa === 'micro_empresa'" [fileListMi]="fileList" [validate]="validate"></app-micro-empresa>
-  <app-pyme *ngIf="tipo_empresa === 'PYME'" [fileListPy]="fileList" [validate]="validate"></app-pyme>
-  <app-sociedad-civil *ngIf="tipo_empresa === 'sociedad_civil'" [fileListSo]="fileList" [validate]="validate"></app-sociedad-civil>
+  <app-autonoms *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-autonomous'" [fileListAu]="fileList" [validate]="validate" [formAdjuntarDocAuto]="formAdjuntarDoc.controls.autonomous"></app-autonoms>
+  <app-comunidadBienes *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods'" [fileListCo]="fileList" [validate]="validate" [formAdjComuni]="formAdjuntarDoc.controls.cominidad_bienes"></app-comunidadBienes>
+  <app-gran-empresa *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-big-company'" [fileListGr]="fileList" [validate]="validate" [formAdjGranEm]="formAdjuntarDoc.controls.gran_empresa"></app-gran-empresa>
+  <app-micro-empresa *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-micro-business'" [fileListMi]="fileList" [validate]="validate" [formAdjMicro]="formAdjuntarDoc.controls.micro_empresa"></app-micro-empresa>
+  <app-pyme *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-pyme'" [fileListPy]="fileList" [validate]="validate" [formAdjPyme]="formAdjuntarDoc.controls.pyme"></app-pyme>
+  <app-sociedad-civil *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-civil-society'" [fileListSo]="fileList" [validate]="validate" [formAdjSociedad]="formAdjuntarDoc.controls.sociedad_civil"></app-sociedad-civil>
 
   <div class="text-right px-3 py-3">
     <button class="btn-app-primary mr-2" (click)="goToRequestInfo()">{{ 'buttons.continue' | translate}}</button>

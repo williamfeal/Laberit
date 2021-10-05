@@ -53,6 +53,7 @@ export class InputDateComponent implements OnInit {
     }
     let yyyy = today.getFullYear();
     this.dateToday = yyyy + '-' + mm + '-' + dd;
+    console.log(this.dateToday);
   }
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;

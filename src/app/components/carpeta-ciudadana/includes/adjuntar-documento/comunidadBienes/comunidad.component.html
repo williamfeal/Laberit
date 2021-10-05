@@ -1,6 +1,74 @@
+<div *ngIf="documentsTypeCommunity">
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.society_constitution_community' | translate }}"
-idValue="society_constitution_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[0].description}}" 
+idValue="documentNif"
+controlName="documentNif"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && documentNif"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[1].description}}"
+idValue="documentHelp"
+controlName="documentHelp"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && documentHelp"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[2].description}}"
+idValue="responsible_declaration" 
+controlName="responsible_declaration"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && responsible_declaration"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[3].description}}"
+idValue="distribution_by_year" 
+controlName="distribution_by_year"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && distribution_by_year"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[4].description}}"
+idValue="model_303"
+controlName="model_303" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && model_303"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[5].description}}"
+idValue="society_constitution_community"
+controlName="society_constitution_community" 
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && society_constitution_community"
@@ -10,8 +78,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.declarations_rent_community' | translate }}"
-idValue="declarations_rent_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[6].description}}"
+idValue="declarations_rent_community"
+controlName="declarations_rent_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && declarations_rent_community"
@@ -21,19 +91,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.model_184_entities_community' | translate }}"
-idValue="model_184_entities_community" 
-[isRequired]="true" 
-errorText="document_error"
-[error]="validate && model_184_entities_community"
-fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
-(uploadFileDocument)="saveDocument($event)"
-(deleteFileDocument)="deleteDocument($event)">
-</app-input-document>
-
-<app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.model_390_community' | translate }}"
-idValue="model_390_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[7].description}}"
+idValue="model_390_community"
+controlName="model_390_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_390_community"
@@ -43,8 +104,23 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.voucher_pay_community' | translate }}"
-idValue="voucher_pay_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[8].description}}"
+idValue="model_184_entities_community"
+controlName="model_184_entities_community"
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && model_184_entities_community"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[9].description}}"
+idValue="voucher_pay_community"
+controlName="voucher_pay_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && voucher_pay_community"
@@ -54,8 +130,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.model_130_131_community' | translate }}"
-idValue="model_130_131_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[10].description}}"
+idValue="model_130_131_community"
+controlName="model_130_131_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_130_131_community"
@@ -65,8 +143,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.model_347_community' | translate }}"
-idValue="model_347_community" 
+[form]="formAdjComuni"
+label="{{documentsTypeCommunity[11].description}}"
+idValue="model_347_community"
+controlName="model_347_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && model_347_community"
@@ -76,8 +156,10 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
-label="{{ 'carpeta_ciudadana.documentation.beneficits_community.registered_office_community' | translate }}"
-idValue="registered_office_community" 
+label="{{documentsTypeCommunity[12].description}}"
+idValue="registered_office_community"
+[form]="formAdjComuni"
+controlName="registered_office_community"
 [isRequired]="true" 
 errorText="document_error"
 [error]="validate && registered_office_community"
@@ -85,3 +167,6 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
+
+
+</div>

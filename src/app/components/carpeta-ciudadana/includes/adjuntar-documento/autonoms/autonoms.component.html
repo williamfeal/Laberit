@@ -1,35 +1,115 @@
-<app-input-document
-    label="{{ 'carpeta_ciudadana.documentation.autonom.tax_returns' | translate }}" idValue="tax_returns"
-    [isRequired]="true" errorText="document_error" [error]="validate && tax_returns"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document
-    label="{{ 'carpeta_ciudadana.documentation.autonom.self_assessment' | translate }}" idValue="self_assessment"
-    [isRequired]="true" errorText="document_error"
-    [error]="validate && self_assessment"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document
-    label="{{ 'carpeta_ciudadana.documentation.autonom.model_RLC' | translate }}" idValue="model_RLC"
-    [isRequired]="true" errorText="document_error" [error]="validate && model_RLC"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-    (deleteFileDocument)="deleteDocument($event)">
-  </app-input-document>
-
-  <app-input-document
-  label="{{ 'carpeta_ciudadana.documentation.autonom.model_347_' | translate }}" idValue="model_347_"
-  [isRequired]="true" errorText="document_error" [error]="validate && model_347_"
+<!-- <div *ngIf="documentsTypeAutonoms">
+  <app-input-document *ngFor="let doc of documentsTypeAutonoms; let index = i"
+  [form]="formAdjuntarDocAuto"
+  label="{{doc.description}}" 
+  controlName="{{doc.concept_code}}"
+  idValue="{{doc.concept_code}}" [isRequired]="true"
+  errorText="document_error" [error]="validate && true"
   fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
   (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
-
-  <app-input-document
-    label="{{ 'carpeta_ciudadana.documentation.autonom.model_390' | translate }}" idValue="model_390"
-    [isRequired]="true" errorText="document_error" [error]="validate && model_390"
+</div> -->
+<div *ngIf="documentsTypeAutonoms">
+<app-input-document
+    label="{{documentsTypeAutonoms[0].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentNif"
+    idValue="documentNif"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentNif"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[1].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[2].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[3].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[4].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[5].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[6].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[7].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[8].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+    <app-input-document
+    label="{{documentsTypeAutonoms[9].description}}" 
+    [form]="formAdjuntarDocAuto"
+    controlName="documentHelp"
+    idValue="documentHelp"
+    [isRequired]="true" errorText="document_error" [error]="validate && documentHelp"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+
+
+  
+</div>
