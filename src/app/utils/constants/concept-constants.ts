@@ -30,7 +30,7 @@ export class ConceptConstants {
     public static readonly LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS = "linea-resistir-micro-bussines";
     public static readonly LINEA_RESISTIR_PYME_DOCUMENTS = "linea-resistir-pyme";
     public static readonly LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS = "linea-resistir-beneficits-community";
-    public static readonly LINEA_RESISTIR_BIG_BUSSINESS_DOCUMENTS= "linea-resistir-big-bussiness";
+    public static readonly LINEA_RESISTIR_BIG_BUSSINESS_DOCUMENTS= "linea-resistir-big-bussiness-documents";
     public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society";
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -21,16 +22,23 @@ export class ComunidadBienesComponent implements OnInit {
     public declarations_rent_community: boolean = true;
     public society_constitution_community: boolean = true;
     public documentsTypeCommunity: DocumentsType;
+    public documentNif: boolean = true;
+    public documentHelp: boolean = true;
+    public responsible_declaration: boolean = true;
+    public model_303: boolean = true;
+    public distribution_by_year: boolean = true;
 
+    @Input() formAdjComuni: FormGroup;
     constructor(public catalogService: CatalogsService) { }
-
+    
     ngOnInit(): void {
         this.genericsDocsType();
-     }
+    }
 
-    genericsDocsType(){
+    genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS).subscribe(
-          data => this.documentsTypeCommunity = data 
+            data => this.documentsTypeCommunity = data
+            
         )
     }
     saveDocument(ev) {

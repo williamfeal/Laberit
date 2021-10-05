@@ -1,7 +1,236 @@
-<app-input-document *ngFor="let doc of documentsTypePyme"
-  label="{{doc.description}}" 
-  idValue="{{doc.concept_code}}" [isRequired]="true"
-  errorText="document_error" [error]="validate && doc.concept_code"
-  fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+<div *ngIf="documentsTypePyme">
+<app-input-document 
+    label="{{documentsTypePyme[0].description}}"
+    [form]="formAdjPyme"
+    controlName="documentNif"
+    idValue="documentNif" 
+    [isRequired]="true" 
+    errorText="document_error"
+    [error]="validate && documentNif"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+    (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+
+  <app-input-document
+  label="{{documentsTypePyme[1].description}}"
+  [form]="formAdjPyme"
+controlName="documentHelp"
+  idValue="documentHelp" 
+  [isRequired]="true" 
+  errorText="document_error"
+  [error]="validate && documentHelp"
+  fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+  (uploadFileDocument)="saveDocument($event)"
   (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[2].description}}"
+[form]="formAdjPyme"
+controlName="responsible_declaration"
+idValue="responsible_declaration" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && responsible_declaration"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[3].description}}"
+[form]="formAdjPyme"
+controlName="distribution_by_year"
+idValue="distribution_by_year" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && distribution_by_year"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[4].description}}"
+[form]="formAdjPyme"
+controlName="society_constitution_PYME"
+idValue="society_constitution_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && society_constitution_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[5].description}}"
+[form]="formAdjPyme"
+controlName="beneficial_ownership_PYME"
+idValue="beneficial_ownership_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && beneficial_ownership_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[6].description}}"
+[form]="formAdjPyme"
+controlName="legal_representative_PYME"
+idValue="legal_representative_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && legal_representative_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[7].description}}"
+[form]="formAdjPyme"
+controlName="annual_accounts_PYME"
+idValue="annual_accounts_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && annual_accounts_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[8].description}}"
+[form]="formAdjPyme"
+controlName="_commercial_code_PYME"
+idValue="_commercial_code_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && _commercial_code_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[9].description}}"
+[form]="formAdjPyme"
+controlName="tax_returns_PYME"
+idValue="tax_returns_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && tax_returns_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[10].description}}"
+[form]="formAdjPyme"
+controlName="risk_inform_PYME"
+idValue="risk_inform_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && risk_inform_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[11].description}}"
+[form]="formAdjPyme"
+controlName="model_390_PYME"
+idValue="model_390_PYME" 
+[isRequired]="true" 
+errorText="model_390_PYME"
+[error]="validate && PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[12].description}}"
+[form]="formAdjPyme"
+controlName="model_347_PYME"
+idValue="model_347_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && model_347_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[13].description}}"
+[form]="formAdjPyme"
+controlName="registered_office_PYME"
+idValue="registered_office_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && registered_office_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[14].description}}"
+[form]="formAdjPyme"
+controlName="business_group_PYME"
+idValue="business_group_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && business_group_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[15].description}}"
+[form]="formAdjPyme"
+controlName="tecnic_memory_PYME"
+idValue="tecnic_memory_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && tecnic_memory_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[16].description}}"
+[form]="formAdjPyme"
+controlName="model_303"
+idValue="model_303" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && model_303"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+<app-input-document
+label="{{documentsTypePyme[17].description}}"
+[form]="formAdjPyme"
+controlName="documentNif"
+idValue="tecnic_memory_PYME" 
+[isRequired]="true" 
+errorText="document_error"
+[error]="validate && tecnic_memory_PYME"
+fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+(uploadFileDocument)="saveDocument($event)"
+(deleteFileDocument)="deleteDocument($event)">
+</app-input-document>
+
+</div>

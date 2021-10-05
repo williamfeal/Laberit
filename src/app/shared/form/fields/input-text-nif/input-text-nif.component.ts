@@ -50,10 +50,6 @@ export class InputTextNifComponent implements OnInit {
 
         if (this.placeholder == undefined) this.placeholder = '';
     }
-
-  
-    
-
     onChangeValue(ev) {
         const nifCode = AppUtils.callCheckNif(ev);
         this.valNif = nifCode;

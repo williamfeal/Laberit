@@ -5,7 +5,6 @@ import { FileModel } from 'src/app/models/file.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { saveDocument, deleteDocument } from './AppUtils.component';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
 
 @Component({
@@ -17,17 +16,12 @@ export class AdjuntarDocComponent implements OnInit {
 
   public fileList: FileModel[] = [];
   public tipo_empresa: string = '';
-  public documentNif: boolean = true;
-  public documentHelp: boolean = true;
-  public responsible_declaration: boolean = true;
-  public model_303: boolean = true;
-  public distribution_by_year: boolean = true;
   public requi: boolean = true;
+  public formAdjuntarDoc: FormGroup;
   public documentsType: DocumentsType;
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 
   public procedure;
-  public formDocument: FormGroup;
   public validate: boolean = false;
 
 
@@ -50,8 +44,15 @@ export class AdjuntarDocComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('company_type')) {
       this.tipo_empresa = sessionStorage.getItem('company_type');
-      console.log(this.tipo_empresa);
-
+      
+      this.formAdjuntarDoc = new FormGroup({
+        autonomous: new FormGroup({}),
+        cominidad_bienes: new FormGroup({}),
+        gran_empresa: new FormGroup({}),
+        micro_empresa: new FormGroup({}),
+        pyme: new FormGroup({}),
+        sociedad_civil: new FormGroup({})
+      });
     }
     console.log(this.tipo_empresa);
   }
@@ -75,15 +76,21 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    if (this.tipo_empresa === 'ivf-representative-types-juridic-person-autonomous' && this.fileList.length == 10 || this.tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods' && this.fileList.length == 13
-    || this.tipo_empresa === 'ivf-representative-types-juridic-person-micro-business' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-pyme' && this.fileList.length == 18 ||
-    this.tipo_empresa === 'ivf-representative-types-juridic-person-big-company' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-civil-society' && this.fileList.length == 13) {
+    console.log(this.formAdjuntarDoc);
+    if(this.formAdjuntarDoc.valid){
+    // if (this.tipo_empresa === 'ivf-representative-types-juridic-person-autonomous' && this.fileList.length == 10 || this.tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods' && this.fileList.length == 13
+    // || this.tipo_empresa === 'ivf-representative-types-juridic-person-micro-business' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-pyme' && this.fileList.length == 18 ||
+    // this.tipo_empresa === 'ivf-representative-types-juridic-person-big-company' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-civil-society' && this.fileList.length == 13) {
       console.log(this.fileList);
       this.validate = false;
       this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
-    } else {
-      this.validate = true;
-      console.log(this.validate);
-    }
+    // } else {
+      
+    //}
+  }else{
+    console.log('NO ES VALIDO');
+    this.validate = true;
+    console.log(this.validate);
+  }
   }
 }
