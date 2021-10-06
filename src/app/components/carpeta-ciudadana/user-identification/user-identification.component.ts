@@ -9,6 +9,8 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { TranslateService } from '@ngx-translate/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-identification',
@@ -34,6 +36,8 @@ export class UserIdentificationComponent implements OnInit {
   public interested: boolean = false;
   public representative: boolean = false;
   public textError;
+
+  private unsubscribe$ = new Subject<void>();
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -48,7 +52,9 @@ export class UserIdentificationComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.carpetaUtils.getSession();
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
-    this.proceduresService.getProcedureById(this.idProcedure).subscribe(
+    this.proceduresService.getProcedureById(this.idProcedure).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       (procedure: Procedure) => {
         this.procedure = procedure;
       })
@@ -63,7 +69,9 @@ export class UserIdentificationComponent implements OnInit {
       contact_data: new FormGroup({}),
       sosial_address: new FormGroup({})
     });
-    this.translateService.get('error_texts.pop_up.form_error').subscribe(
+    this.translateService.get('error_texts.pop_up.form_error').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       text => {
         this.textError = text;
       }
@@ -120,6 +128,10 @@ export class UserIdentificationComponent implements OnInit {
       SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
       this.showErrors = true;
     }
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
 

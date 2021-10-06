@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -28,6 +30,8 @@ export class SociedadCivilComponent implements OnInit {
     public distribution_by_year: boolean = true;
     public documentsTypeCivilSociety: DocumentsType;
 
+    private unsubscribe$ = new Subject<void>();
+
     @Input() formAdjSociedad: FormGroup;
 
     constructor(public catalogService: CatalogsService) { }
@@ -40,12 +44,19 @@ export class SociedadCivilComponent implements OnInit {
         saveDocument(this.fileListSo, ev);
     }
     genericsDocsType() {
-        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_CIVIL_SOCIETY).subscribe(
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_CIVIL_SOCIETY).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             data => this.documentsTypeCivilSociety = data
         )
     }
     deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListSo, ev);
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }

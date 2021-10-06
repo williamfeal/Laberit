@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { base64 } from 'src/app/utils/constants/app-constants';
@@ -13,6 +15,7 @@ import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentar
 })
 export class PresentarSolicitudComponent implements OnInit {
 
+  private unsubscribe$ = new Subject<void>();
   procedure;
   public documentBase64 = '';
   constructor(public appUtils: AppUtils,
@@ -20,7 +23,9 @@ export class PresentarSolicitudComponent implements OnInit {
               private router: Router,
               private procedureService: ProceduresService
               ) {
-                this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+                this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+                  takeUntil(this.unsubscribe$)
+                ).subscribe(
                   data => this.procedure = data
                 )
                }
@@ -36,6 +41,10 @@ export class PresentarSolicitudComponent implements OnInit {
     dialogConfig.height = '90%';
     dialogConfig.data = { base64: base64 };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

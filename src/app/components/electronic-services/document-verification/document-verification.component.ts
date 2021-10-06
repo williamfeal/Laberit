@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CsvService } from 'src/app/services/trex-service/csv.service';
 
 @Component({
@@ -23,6 +25,9 @@ export class DocumentVerificationComponent implements OnInit {
   errorCsv_mal: string;
   csv_mal;
   csv: string = ''
+
+  private unsubscribe$ = new Subject<void>();
+
   constructor(public translate: TranslateService, public csvService: CsvService, private formBuilder: FormBuilder) {
     this.aFormGroup = this.formBuilder.group({
       recaptcha: ['', Validators.required]
@@ -30,7 +35,9 @@ export class DocumentVerificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.translate.stream('electronic-services.document-verification').subscribe((texts: any) => {
+    this.translate.stream('electronic-services.document-verification').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((texts: any) => {
       this.title = texts.title;
       let text = document.getElementById("text");
       let csv = document.getElementById("placeholder_csv");
@@ -69,7 +76,9 @@ export class DocumentVerificationComponent implements OnInit {
       this.errorCsv = false;
     }
     if (this.captcha) {
-      this.csvService.checkCSVDocument(this.csv).subscribe((documento: any) => {
+      this.csvService.checkCSVDocument(this.csv).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe((documento: any) => {
 
         if (documento == null) {
           this.csv_mal.innerHTML = this.errorCsv_mal;
@@ -85,5 +94,10 @@ export class DocumentVerificationComponent implements OnInit {
       this.errorCaptcha = true;
     }
   }
+
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 
 }

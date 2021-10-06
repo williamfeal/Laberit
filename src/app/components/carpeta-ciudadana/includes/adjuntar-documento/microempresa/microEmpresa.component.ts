@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -32,6 +34,8 @@ export class MicroEmpresaComponent implements OnInit {
   public distribution_by_year: boolean = true;
   public documentsTypeMicroBussines: DocumentsType;
 
+  private unsubscribe$ = new Subject<void>();
+  
   constructor(public catalogService: CatalogsService) { }
 
   ngOnInit(): void {
@@ -43,7 +47,9 @@ export class MicroEmpresaComponent implements OnInit {
   }
 
   genericsDocsType() {
-    this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.documentsTypeMicroBussines = data
     )
   }
@@ -51,5 +57,9 @@ export class MicroEmpresaComponent implements OnInit {
   deleteDocument(ev) {
     this[ev.controlName] = true;
     deleteDocument(this.fileListMi, ev);
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

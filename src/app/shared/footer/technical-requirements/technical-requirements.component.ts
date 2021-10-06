@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-technical-requirements',
@@ -10,7 +12,7 @@ export class TechnicalRequirementsComponent implements OnInit {
 
     title: string;
     texts:string;
-
+    private unsubscribe$ = new Subject<void>();
     enviar: boolean;
 
     constructor(public translate: TranslateService) {
@@ -18,10 +20,16 @@ export class TechnicalRequirementsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.translate.stream('technical_requirements').subscribe((texts: any) => {
+        this.translate.stream('technical_requirements').pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe((texts: any) => {
             this.title = texts.title;
             this.texts = texts;
             this.enviar = true;
         })
+    }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }

@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BreadcrumbService } from 'angular-crumbs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
 import { Procedure } from 'src/app/models/procedure.model';
@@ -22,7 +24,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   @Input() procedure!:Procedure;
   
   public infoProcedure:InfoProcedure;
-
+  private unsubscribe$ = new Subject<void>();
   constructor(
     private activatedRoute:ActivatedRoute,
     private translateService:TranslateService,
@@ -36,15 +38,22 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
       )
     }
     this.user = this.carpetaUtils.getSession();
-    this.activatedRoute.data.subscribe((d:any) => {
+    this.activatedRoute.data.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;
       this.breadcrumbs.forEach(
         breadcrumb => {
-          this.translateService.get(breadcrumb.title).subscribe(
+          this.translateService.get(breadcrumb.title).pipe(
+            takeUntil(this.unsubscribe$)
+          ).subscribe(
             title => breadcrumb.title = title
           )
         });
     });
   }
-
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 }

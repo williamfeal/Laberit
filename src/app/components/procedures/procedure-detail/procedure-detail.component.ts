@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
 import { Procedure } from 'src/app/models/procedure.model';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
@@ -14,6 +16,7 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 export class ProcedureDetailComponent implements OnInit {
 
   private idProcedure: string;
+  private unsubscribe$ = new Subject<void>();
 
   public procedure: Procedure;
   public infoProcedure: InfoProcedure;
@@ -37,7 +40,9 @@ export class ProcedureDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.idProcedure = this.activatedRoute.snapshot.params.idProcedure;
-    this.activatedRoute.queryParamMap.subscribe(
+    this.activatedRoute.queryParamMap.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       queryParams => {
         this.action = queryParams.get('action');
         this.active = {
@@ -50,7 +55,9 @@ export class ProcedureDetailComponent implements OnInit {
         this.loadData();
       }
     );
-    this.languageService.lang.subscribe(
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       lang => {
         this.lang = lang;
         this.loadData();
@@ -58,7 +65,9 @@ export class ProcedureDetailComponent implements OnInit {
   }
 
   private loadData() {
-    this.proceduresService.getProcedureById(this.idProcedure).subscribe(
+    this.proceduresService.getProcedureById(this.idProcedure).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       (procedure: Procedure) => {
         this.procedure = procedure;
         this.getInfoProcedure();
@@ -75,5 +84,8 @@ export class ProcedureDetailComponent implements OnInit {
     sessionStorage.removeItem('idProcedure');
     sessionStorage.setItem('idProcedure',  this.procedure.id);
   }
-
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 }

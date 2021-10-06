@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +16,7 @@ export class ContactComponent implements OnInit {
   private errorCaptcha;
 
   public contactForm:FormGroup;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private translateService:TranslateService
@@ -29,7 +32,9 @@ export class ContactComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.translateService.get('contact').subscribe((texts: any) => {
+    this.translateService.get('contact').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((texts: any) => {
       this.title = texts.title;
     })
   }
@@ -42,5 +47,8 @@ export class ContactComponent implements OnInit {
   public submitForm() {
 
   }
-
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 }

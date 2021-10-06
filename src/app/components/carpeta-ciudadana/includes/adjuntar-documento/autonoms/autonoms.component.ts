@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -28,6 +30,8 @@ export class AutonomsComponent implements OnInit {
     public validCodes: boolean[] = [];
     public documentsTypeAutonoms: DocumentsType;
     public codes: string[] = [];
+    private unsubscribe$ = new Subject<void>();
+
     constructor(public catalogService: CatalogsService) { }
 
     ngOnInit(): void {
@@ -38,7 +42,9 @@ export class AutonomsComponent implements OnInit {
         this.genericsDocsType()
     }
     genericsDocsType() {
-        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).subscribe(
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             data => {
                 this.documentsTypeAutonoms = data;
             }
@@ -58,6 +64,9 @@ export class AutonomsComponent implements OnInit {
     deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListAu, ev);
-
     }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+      }
 }
