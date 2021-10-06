@@ -44,7 +44,6 @@ export class InterestedDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      console.log(changes.draft)
       this.draftInterestedData = JSON.parse(this.draft.info).interested_data;
     }
   }

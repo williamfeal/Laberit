@@ -36,7 +36,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData" 
+                    [form]="formInterestedData" [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
                     controlName="interested_data_nif" 
                     idValue="interested_data_nif" 
@@ -54,7 +54,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
-                    [isRequired]="isRequired" 
+                    [isRequired]="isRequired" [draft]="draftInterestedData"
                     [fieldOptions]="cnae"
                     [error]="validate && formInterestedData.controls['interested_data_cnae']?.pristine"
                     [errorText]="errorCharacterLeng">
@@ -71,20 +71,20 @@
             </div>
             <div class="form-group col-md-6 px-0 d-flex">
                 <div class="form-group col-md-4">
-                    <app-input-date [form]="formInterestedData"
+                    <app-input-date [form]="formInterestedData" 
                         label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                         controlName="interested_data_iae_date" idValue="interested_data_iae_date" [maxDate]="true"
-                        nameValue="interested_data_iae_date" [isRequired]="isRequired"
+                        nameValue="interested_data_iae_date" [isRequired]="isRequired" [draft]="draftInterestedData"
                         [error]="validate && formInterestedData.controls['interested_data_iae_date']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-date>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <app-input-number [form]="formInterestedData"
+                    <app-input-number [form]="formInterestedData" [draft]="draftInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="interested_data_employees_number" idValue="interested_data_employees_number"
                         nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [negativos]="true"
+                        [negativos]="true" 
                         [error]="validate && formInterestedData.controls['interested_data_employees_number']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
@@ -102,17 +102,17 @@
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formInterestedData" (change)="businessTypeChange($event.target.value)"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" 
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" [draft]="draftInterestedData"
                     controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
-                    [fieldOptions]="businessType"
-                    [error]="validate && formInterestedData.controls['businessType']?.pristine"
+                    [fieldOptions]="businessType" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                    [error]="validate && formInterestedData.controls['businessType']?.pristine" [draft]="draftInterestedData"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
             <div class="w-100 d-contents">
                 <div class="form-group col-md-2">
-                    <app-input-select [form]="formInterestedData"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
+                    <app-input-select [form]="formInterestedData" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}" [draft]="draftInterestedData"
                         controlName="ownGroup" idValue="ownGroup" nameValue="ownGroup" [isRequired]="isRequired"
                         [fieldOptions]="belongingCompany" [error]="validate && formInterestedData.controls['ownGroup']?.pristine"
                         [errorText]="errorCharacterLeng">
@@ -120,17 +120,17 @@
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number
-                        [form]="formInterestedData"
+                        [form]="formInterestedData" [draft]="draftInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="interested_data_active" idValue="interested_data_active"
                         nameValue="interested_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [negativos]="true"
+                        [negativos]="true" 
                         [error]="validate && formInterestedData.controls['interested_data_active']?.pristine"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number
-                        [form]="formInterestedData"
+                        [form]="formInterestedData" [draft]="draftInterestedData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="interested_data_turnover" idValue="interested_data_turnover"
                         nameValue="interested_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired"
@@ -143,7 +143,7 @@
         <div class="d-contents col-sm-12">
             <div class="form-group col-md-3">
                 <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData" [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
                     controlName="interested_data_residence_country" idValue="interested_data_residence_country"
                     nameValue="interested_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
@@ -151,7 +151,7 @@
                     [fieldOptions]="paises" [errorText]="errorCharacterLeng"></app-input-select>
             </div>
             <div class="form-group col-md-2">
-                <app-input-date [form]="formInterestedData"
+                <app-input-date [form]="formInterestedData" [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
                     controlName="interested_data_birth_date" idValue="interested_data_birth_date" [maxDate]="true"
                     nameValue="interested_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
@@ -159,7 +159,7 @@
                     [errorText]="errorCharacterLeng"></app-input-date>
             </div>
             <div class="form-group col-md-3">
-                <app-input-select [form]="formInterestedData"
+                <app-input-select [form]="formInterestedData" [draft]="draftInterestedData"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
                     controlName="interested_data_genre" idValue="interested_data_genre"

@@ -8,6 +8,7 @@
         max="{{dateToday | date:'yyyy-MM-dd'}}"
         [name]="nameValue" 
         (change)="onChangeValue()" 
+        [(ngModel)]="value"
         [formControlName]="controlName" 
         [placeholder]="placeholder"
         [readonly]="isReadOnly"

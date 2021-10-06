@@ -19,16 +19,18 @@ export class InputDateComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value!: string;
+  @Input() value: string = "";
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxDate!: boolean;
+  @Input() draft:Object;
 
   public dateToday: string;
   textError: string;
   formControl = new FormControl('');
   validaciones: ValidatorFn[] = [];
+
   constructor(private translateService: TranslateService) {
   }
 
@@ -44,6 +46,7 @@ export class InputDateComponent implements OnInit {
     }
 
   }
+
   validationMax() {
     let today = new Date();
     let dd = today.getDate();
@@ -55,10 +58,15 @@ export class InputDateComponent implements OnInit {
     this.dateToday = yyyy + '-' + mm + '-' + dd;
     console.log(this.dateToday);
   }
+
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
+
   ngOnChanges(changes: SimpleChanges) {
+    if(changes.draft ) 
+      this.value = this.draft[this.controlName];  
+
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
         this.form.get(this.controlName).clearValidators();
