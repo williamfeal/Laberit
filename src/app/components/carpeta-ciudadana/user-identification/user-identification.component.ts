@@ -36,6 +36,7 @@ export class UserIdentificationComponent implements OnInit {
   public interested: boolean = false;
   public representative: boolean = false;
   public textError;
+  public draft;
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -78,6 +79,16 @@ export class UserIdentificationComponent implements OnInit {
     return false;
   }
 
+  public getDraft() {
+    if(this.activatedRoute.snapshot.queryParams.draft) {
+      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+        data => {
+          this.draft = data;
+        }
+      )
+    }
+  }
+
   onChangeTypeRequester(event) {
     this.requesterType = event;
     if (this.requesterType == ConceptConstants.APPLICANT_TYPE_INTERESTED) {
@@ -95,12 +106,15 @@ export class UserIdentificationComponent implements OnInit {
     let error = 0;
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
-    )
+    );
+    const infoProcedureJSON = { 
+      idProcedure: this.idProcedure,
+      ...this.formUserIdentification.value }
     const draft:Draft = {
       fecha: "",
       key: "",
-      desc: 'Linea Resistir ' + new Date(),
-      info: JSON.stringify(this.formUserIdentification.value),
+      desc: 'linea-resistir-' + new Date().getMilliseconds(),
+      info: JSON.stringify(infoProcedureJSON),
       linea: this.procedure.category.name,
       nif: sessionStorage.getItem('nifTitular'),
       producto: infoProcedure.name

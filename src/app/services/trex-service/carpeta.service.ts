@@ -19,6 +19,9 @@ export class CarpetaService {
   private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_DRAFT = environment.atencion_cliente_url+ UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_DRAFT;
+  private URL_GET_DRAFT_BY_ID = environment.atencion_cliente_url+ UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_DRAFT + UrlConstants.ENDPOINT_GET_DRAFT_BY_ID;
+
+
   private headerInterceptor =  {headers: {useInterceptor:"true"} };
   constructor(
     private http: HttpClient
@@ -72,14 +75,22 @@ public saveDraft(draft:Draft) {
   }));
 }
 
-public getDrafts() {
-  const draft = this.http.get<any>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
-  return draft.pipe(map((response: Draft[]) => {
-    return response;
-  })).pipe(catchError((err: Error) => {
-    throw err;
-  }));
-} 
+  public getDrafts() {
+    const draft = this.http.get<any>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
+    return draft.pipe(map((response: Draft[]) => {
+      return response;
+    })).pipe(catchError((err: Error) => {
+      throw err;
+    }));
+  } 
 
+  public getDraftById(draftId:string) {
+    const draft = this.http.get<any>(`${this.URL_GET_DRAFT_BY_ID}/${draftId}`, this.headerInterceptor);
+    return draft.pipe(map((response: Draft) => {
+      return response;
+    })).pipe(catchError((err: Error) => {
+      throw err;
+    }));
+  } 
   
 }
