@@ -23,8 +23,9 @@ export class InputSelectComponent implements OnInit {
   @Input() error!: boolean;
   @Input() errorText!: string;
   @Input() idSelected!: string;
+  @Input() draft?:string;
   // @Output() onclick = new EventEmitter<string>(); 
-  selectedValue!: any;
+  selectedValue: string = "";
 
   textError: string;
   formControl = new FormControl();
@@ -45,7 +46,11 @@ export class InputSelectComponent implements OnInit {
     this.error = (!this.form.get(this.controlName).valid) ? true : false;
 
   }
+
   ngOnChanges(changes: SimpleChanges) {
+    
+    if(changes.draft) this.selectedValue = changes.draft.currentValue[this.controlName]
+    
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
         this.form.get(this.controlName).clearValidators();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procedure } from 'src/app/models/procedure.model';
@@ -35,9 +35,13 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
+
+  public INTERESTED_CONCEPT = ConceptConstants.APPLICANT_TYPE_INTERESTED;
+  public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
+
   public textError;
   public draft;
-  
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -51,6 +55,7 @@ export class UserIdentificationComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.carpetaUtils.getSession();
+    this.getDraft();
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getProcedureById(this.idProcedure).subscribe(
       (procedure: Procedure) => {
@@ -82,11 +87,10 @@ export class UserIdentificationComponent implements OnInit {
   public getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
       this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
-        data => {
+        (data:Draft) => {
           this.draft = data;
-        }
-      )
-    }
+        })
+      }
   }
 
   onChangeTypeRequester(event) {

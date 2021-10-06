@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-12">
             <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data"
-                (typeOutput)="onChangeTypeRequester($event)"></app-requester-data>
+                (typeOutput)="onChangeTypeRequester($event)" [draft]="draft"></app-requester-data>
         </div>
     </div>
     <div [ngClass]="{ 'd-none': representative == false && interested == false }">

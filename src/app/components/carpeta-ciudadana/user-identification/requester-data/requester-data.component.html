@@ -9,6 +9,7 @@
         <div class="form-group col-md-3">
             <app-input-select (change)="onChangeType($event.target.value)"
             [form]="formRequestData"
+            [draft]="draftRequestData"
             label=" {{ 'carpeta_ciudadana.identification.requester_data.type' | translate }} "
             controlName="typeSelectRequest"
             idValue="type"
