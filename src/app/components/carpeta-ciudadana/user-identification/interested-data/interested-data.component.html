@@ -8,7 +8,7 @@
     <div class="card-body row mx-0">
         <div class="d-contents col-sm-12">
             <div class="form-group col-md-3">
-                <app-input-text [form]="formInterestedData"
+                <app-input-text [form]="formInterestedData" [draft]="draftInterestedData"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                     controlName="interested_data_name" idValue="interested_data_name" nameValue="interested_data_name"
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData"  [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
                     controlName="interested_data_surname1" idValue="interested_data_surname1"
                     nameValue="interested_data_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired"
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData"  [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
                     controlName="interested_data_surname2" idValue="interested_data_surname2"
                     nameValue="interested_data_surname2" [isReadOnly]="readOnly" [isRequired]="false"
@@ -36,7 +36,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData" 
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
                     controlName="interested_data_nif" 
                     idValue="interested_data_nif" 
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData"  [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
                     controlName="interested_data_iae" idValue="interested_data_iae" nameValue="interested_data_iae"
                     [isReadOnly]="readOnly" [isRequired]="isRequired"
@@ -89,7 +89,7 @@
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
                 <div class="form-group col-md-4">
-                    <app-input-text [form]="formInterestedData"
+                    <app-input-text [form]="formInterestedData"  [draft]="draftInterestedData"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
                     controlName="contact_position" idValue="contact_position" nameValue="contact_position"
@@ -170,7 +170,7 @@
             </div>
             <div class="form-group col-md-3">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"
+                    [form]="formInterestedData" [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.telephone' | translate }}"
                     controlName="interested_telephone" idValue="interested_telephone" nameValue="interested_telephone"
                     [isReadOnly]="readOnly" [isRequired]="isRequired"

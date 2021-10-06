@@ -23,12 +23,12 @@
     <div [ngClass]="{ 'd-none': representative == false && interested == false }">
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
-                <app-representative-data [validate]="validate" [isRequired]="representative"
+                <app-representative-data [validate]="validate" [isRequired]="representative" 
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
-                <app-interested-data [validate]="validate" [isRequired]="interested"
+                <app-interested-data [validate]="validate" [isRequired]="interested" [draft]="draft"
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
                 </app-interested-data>
             </div>

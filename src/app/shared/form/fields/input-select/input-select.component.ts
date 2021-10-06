@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { isEmptyObject } from 'jquery';
 import { SelectFieldObject } from './input-select';
 
 @Component({
@@ -49,7 +50,7 @@ export class InputSelectComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     
-    if(changes.draft) this.selectedValue = changes.draft.currentValue[this.controlName]
+    if(changes.draft && !isEmptyObject(changes.draft.currentValue)) this.selectedValue = changes.draft.currentValue[this.controlName]
     
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
