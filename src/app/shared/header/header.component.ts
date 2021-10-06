@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { StyleService } from 'src/app/services/moges-services/style.service';
 import * as DateConstants from 'src/app/utils/constants/date-constants';
 
@@ -12,7 +14,7 @@ export class HeaderComponent implements OnInit {
   public currentDateHeader = '';
   public currentHourHeader = '';
   public src_logo:string;
-
+  private unsubscribe$ = new Subject<void>();
   public currentDate = new Date();
 
   @Input()
@@ -38,12 +40,18 @@ export class HeaderComponent implements OnInit {
   }
 
   private loadStyles() {
-    this.styleService.getStyles().subscribe(
+    this.styleService.getStyles().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => {
         document.documentElement.style.setProperty('--primary-color', data.primaryColor);
         document.documentElement.style.setProperty('--button-edit-color', data.buttonEditColor);
         document.documentElement.style.setProperty('--font-family', data.fontFamily);
         this.src_logo = data.logo;
      });
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

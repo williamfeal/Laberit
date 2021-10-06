@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -24,6 +26,7 @@ export class SocialAddressComponent implements OnInit {
 
   public countrySpainSelected;
   public countrySelected;
+  private unsubscribe$ = new Subject<void>();
 
   errorCharacterLeng: string = 'empty_error';
   
@@ -37,13 +40,17 @@ export class SocialAddressComponent implements OnInit {
   }
 
   public getRoadTypes() {
-    this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public getCountries() {
-    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => {
         this.paises = AppUtils.sortConceptsAlphabetically(data)
         this.getSpainCountries()
@@ -52,13 +59,17 @@ export class SocialAddressComponent implements OnInit {
   }
 
   public getSpainCountries() {
-    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onChangeSpainCountry(event) {
-    this.catalogService.getCatalogByCode(event).subscribe(
+    this.catalogService.getCatalogByCode(event).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data),
       () => this.municipios = []
     )
@@ -67,5 +78,10 @@ export class SocialAddressComponent implements OnInit {
   public onChangeCountry(event) {
     this.countrySelected = event;
   }
+
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 
 }

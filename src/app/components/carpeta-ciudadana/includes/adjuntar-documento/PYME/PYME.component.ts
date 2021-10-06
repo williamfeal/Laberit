@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -33,6 +35,8 @@ export class PymeComponent implements OnInit {
   public tecnic_memory_PYME: boolean = true;
   public documentsTypePyme: DocumentsType;
 
+  private unsubscribe$ = new Subject<void>();
+
   @Input() formAdjPyme: FormGroup;
   constructor(public catalogService: CatalogsService) { }
 
@@ -45,12 +49,18 @@ export class PymeComponent implements OnInit {
   }
 
   genericsDocsType() {
-    this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PYME_DOCUMENTS).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PYME_DOCUMENTS).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.documentsTypePyme = data
     )
   }
   deleteDocument(ev) {
     this[ev.controlName] = true;
     deleteDocument(this.fileListPy, ev);
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

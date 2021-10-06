@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
@@ -25,6 +27,8 @@ export class LineaResistirComponent implements OnInit {
 
     validate: boolean = false;
 
+    private unsubscribe$ = new Subject<void>();
+
     //se bebera de los catalogos
     tipoProyecto = tipoProyecto;
     company_type: string;
@@ -40,7 +44,9 @@ export class LineaResistirComponent implements OnInit {
 
     ngOnInit() {
         this.newForm();
-        this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+        this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             data => this.procedure = data
           )
     }
@@ -60,7 +66,9 @@ export class LineaResistirComponent implements OnInit {
             //TO DO: Llamada al back con los datos 
             this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
         } else {
-            this.translate.get('error_texts.pop_up.form_error').subscribe(
+            this.translate.get('error_texts.pop_up.form_error').pipe(
+                takeUntil(this.unsubscribe$)
+            ).subscribe(
                 error => {
                     SwalUtils.showErrorAlert(
                         error.title, 
@@ -70,5 +78,9 @@ export class LineaResistirComponent implements OnInit {
             )
            
         }
+    }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }

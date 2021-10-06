@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { FileModel } from 'src/app/models/file.model';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import Swal from 'sweetalert2';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-input-document',
@@ -28,6 +30,8 @@ export class InputDocumentComponent implements OnInit {
     validaciones: ValidatorFn[] = [];
     popUpError;
     textError: string;
+
+    private unsubscribe$ = new Subject<void>();
 
     document: FileModel;
     documentExist: boolean = false;
@@ -54,12 +58,16 @@ export class InputDocumentComponent implements OnInit {
     }
 
     ngOnChanges() {
-        this.translateService.get('error_texts.input.' + this.errorText).subscribe(
+        this.translateService.get('error_texts.input.' + this.errorText).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             text => {
                 this.textError = text;
             }
         )
-        this.translateService.get('error_texts.pop_up').subscribe(
+        this.translateService.get('error_texts.pop_up').pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             text => {
                 this.popUpError = text;
             })
@@ -112,5 +120,9 @@ export class InputDocumentComponent implements OnInit {
         // window.open(urlPdf, '_blank');
     }
 
+    ngOnDestroy(): void {
+       this.unsubscribe$.next();
+       this.unsubscribe$.complete();
+    }
 }
 

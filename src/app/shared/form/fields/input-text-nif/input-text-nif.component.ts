@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AppUtils } from 'src/app/utils/app-utils';
 @Component({
     selector: 'app-input-text-nif',
@@ -21,7 +23,7 @@ export class InputTextNifComponent implements OnInit {
     @Input() placeholder!: string;
     @Input() error!: boolean;
     @Input() minLength!: number | null;
-
+    private unsubscribe$ = new Subject<void>();
     textError: string;
     formControl = new FormControl('');
     validaciones: ValidatorFn[] = [];
@@ -82,12 +84,17 @@ export class InputTextNifComponent implements OnInit {
             this.formControl.setValidators(this.validaciones);
             this.form.addControl(this.controlName, this.formControl);
         }
-        this.translateService.get('error_texts.input.' + this.errorText).subscribe(
+        this.translateService.get('error_texts.input.' + this.errorText).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             text => {
                 this.textError = text;
             }
         )
     }
-
+ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+}
 }
 

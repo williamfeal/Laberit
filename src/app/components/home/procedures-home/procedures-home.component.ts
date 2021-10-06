@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
@@ -16,6 +18,9 @@ export class ProceduresHomeComponent implements OnInit {
   public categories: Category[];
   private lang = this.translateService.currentLang;
   loading: boolean = true;
+
+  private unsubscribe$ = new Subject<void>();
+
   constructor(
     private categoriesService: CategoriesService,
     private translateService: TranslateService,
@@ -23,7 +28,9 @@ export class ProceduresHomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.languageService.lang.subscribe(
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       lang => {
         this.lang = lang;
         this.getCategories();
@@ -33,10 +40,16 @@ export class ProceduresHomeComponent implements OnInit {
   }
 
   private getCategories(): void {
-    this.categoriesService.getAllCategories(this.lang).subscribe((categories: Category[]) => {
+    this.categoriesService.getAllCategories(this.lang).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((categories: Category[]) => {
       this.loading = false;
       this.categories = categories;
     }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_CATEGORIES, 'info'));
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

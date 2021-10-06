@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Weather } from 'src/app/models/weather.model';
 import { AuthService } from 'src/app/services/moges-services/auth.service';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
@@ -14,24 +16,34 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 export class WeatherComponent {
 
   public weatherData: any = {};
-
+  private unsubscribe$ = new Subject<void>();
   constructor(
     private weatherService: WeatherService,
     private authService:AuthService,
     private languageService:LanguagesService
   ) {
-    this.languageService.lang.subscribe(lang => {
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(lang => {
       this.getWeatherData();
     })
     this.getWeatherData();
   }
 
   private getWeatherData(): void {
-    this.authService.getToken().subscribe(
+    this.authService.getToken().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => {
-        this.weatherService.getWeather(data).subscribe((weather: Weather) => {
+        this.weatherService.getWeather(data).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe((weather: Weather) => {
           this.weatherData = weather;
         }, error => SwalUtils.showSimpleAlert(AppConstants.TITLE_ERROR, AppConstants.ERROR_LOAD_WEATHER, 'info'));
       })
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

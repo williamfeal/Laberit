@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-conoce-la-sede',
@@ -17,22 +19,30 @@ export class ConoceLaSedeComponent implements OnInit {
     public lista = ['know_sede', 'normative', 'contents', 'services', 'electronic_record', 'signature_certificates', 'document_veriication', 'date', 'calendars', 'records_offices', 'programs_stops'];
     public menuList = [];
 
+    private unsubscribe$ = new Subject<void>();
+
     public fragment:string;
     constructor(
         public translate: TranslateService,
         private activatedRoute:ActivatedRoute,
         ) {
-             this.activatedRoute.fragment.subscribe(
+             this.activatedRoute.fragment.pipe(
+                takeUntil(this.unsubscribe$)
+             ).subscribe(
                 fragment => this.fragment = fragment
             )
         
     }   
     
     ngOnInit() {
-        this.translate.stream('know_sede.components.' + this.fragment).subscribe((texts: any) => {
+        this.translate.stream('know_sede.components.' + this.fragment).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe((texts: any) => {
             this.categoria = texts
         });
-        this.translate.stream('know_sede').subscribe((texts: any) => {
+        this.translate.stream('know_sede').pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe((texts: any) => {
             this.menuList = [];
             this.title = texts.title;
             this.components = texts.components;
@@ -40,5 +50,9 @@ export class ConoceLaSedeComponent implements OnInit {
                 this.menuList.push(this.components[element]);
             }
         });
+    }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }

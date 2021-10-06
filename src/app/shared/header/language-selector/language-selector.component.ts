@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Language } from 'src/app/models/language.model';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
 
@@ -12,9 +14,11 @@ export class LanguageSelectorComponent implements OnInit {
 
     public language:Language[];
     public selectedLang:string;
-    
+    private unsubscribe$ = new Subject<void>();
     constructor(private languagesService: LanguagesService, public translate: TranslateService) {
-        this.languagesService.getLanguages().subscribe((lang: Language[]) => {
+        this.languagesService.getLanguages().pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe((lang: Language[]) => {
             this.language = lang;
             this.language.forEach(element => {
                 translate.addLangs([element.code]);
@@ -35,5 +39,9 @@ export class LanguageSelectorComponent implements OnInit {
         this.translate.use(ev.value);
         this.languagesService.lang.next(ev.value);
         localStorage.setItem('lang', ev.value);
+    }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }

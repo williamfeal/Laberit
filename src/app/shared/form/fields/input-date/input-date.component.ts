@@ -3,6 +3,8 @@ import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } fro
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input-date',
@@ -24,6 +26,8 @@ export class InputDateComponent implements OnInit {
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxDate!: boolean;
+
+  private unsubscribe$ = new Subject<void>();
 
   public dateToday: string;
   textError: string;
@@ -53,7 +57,6 @@ export class InputDateComponent implements OnInit {
     }
     let yyyy = today.getFullYear();
     this.dateToday = yyyy + '-' + mm + '-' + dd;
-    console.log(this.dateToday);
   }
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
@@ -68,12 +71,17 @@ export class InputDateComponent implements OnInit {
       this.formControl.setValidators(Validators.required);
       this.form.addControl(this.controlName, this.formControl);
     }
-    this.translateService.get('error_texts.input.' + this.errorText).subscribe(
+    this.translateService.get('error_texts.input.' + this.errorText).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       text => {
         this.textError = text;
       }
     )
   }
-
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 }
 

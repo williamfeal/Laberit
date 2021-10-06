@@ -6,6 +6,8 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 import { saveDocument, deleteDocument } from './AppUtils.component';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators'; 
 
 @Component({
   selector: 'app-adjuntar-documento',
@@ -23,7 +25,7 @@ export class AdjuntarDocComponent implements OnInit {
 
   public procedure;
   public validate: boolean = false;
-
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private router: Router,
     private procedureService: ProceduresService,
@@ -32,7 +34,9 @@ export class AdjuntarDocComponent implements OnInit {
     public catalogService: CatalogsService
     ) {
 
-    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.procedure = data
     )
   }
@@ -92,5 +96,10 @@ export class AdjuntarDocComponent implements OnInit {
     this.validate = true;
     console.log(this.validate);
   }
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    
   }
 }
