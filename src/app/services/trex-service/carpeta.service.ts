@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Draft } from 'src/app/models/draft.model';
 import { TokenModel } from 'src/app/models/token.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
@@ -17,13 +18,14 @@ export class CarpetaService {
   private URL_GET_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
-  
+  private URL_DRAFT = environment.atencion_cliente_url+ UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_DRAFT;
+  private headerInterceptor =  {headers: {useInterceptor:"true"} };
   constructor(
     private http: HttpClient
   ) { }
   
   public getLoggedUser():Observable<UserCertificado> {
-    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, {headers: {useInterceptor:"true"} });
+    const loggedUser = this.http.get(this.URL_GET_LOGGED_USER, this.headerInterceptor);
     return loggedUser.pipe(map((response:UserCertificado) => {
       return response;
     })).pipe(catchError((err: HttpErrorResponse) => {
@@ -33,8 +35,7 @@ export class CarpetaService {
   }
 
   public refreshToken():Observable<TokenModel> {
-    const refreshToken = this.http.get(this.URL_REFRESH_TOKEN,{
-      headers: new HttpHeaders({ useInterceptor: 'true' }) });
+    const refreshToken = this.http.get(this.URL_REFRESH_TOKEN, this.headerInterceptor);
     return refreshToken.pipe(map((response:TokenModel) => {
       return response;
     })).pipe(catchError((err: Error) => {
@@ -61,6 +62,24 @@ export class CarpetaService {
         throw err;
     }));
 }
+
+public saveDraft(draft:Draft) {
+  const saveDraft = this.http.post<any>(this.URL_DRAFT, draft, this.headerInterceptor);
+  return saveDraft.pipe(map((response: Draft) => {
+    return response;
+  })).pipe(catchError((err: Error) => {
+    throw err;
+  }));
+}
+
+public getDraft() {
+  const draft = this.http.get<any>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
+  return draft.pipe(map((response: Draft[]) => {
+    return response;
+  })).pipe(catchError((err: Error) => {
+    throw err;
+  }));
+} 
 
   
 }

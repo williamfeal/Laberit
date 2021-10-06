@@ -26,7 +26,7 @@ export class UrlConstants {
     public static readonly ENDPOINT_CLAVE = '/clave';
     public static readonly ENDPOINT_LOGGED_USER = '/getLoggedUser';
     public static readonly ENDPOINT_REFRESH_TOKEN = '/refreshToken';
-
+    public static readonly ENDPOINT_DRAFT = '/drafts'
     public static readonly ENDPOINT_CONCEPTS = '/concept'
     public static readonly ENDPOINT_GET_CONCEPT_BY_CODE = '/getConceptByCode';
     public static readonly ENDPOINT_GET_CATALOG_BY_CODE = '/getCatalogByCode';
