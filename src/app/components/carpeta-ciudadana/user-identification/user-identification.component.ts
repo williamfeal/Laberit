@@ -9,6 +9,8 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { TranslateService } from '@ngx-translate/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { Draft } from 'src/app/models/draft.model';
 
 @Component({
   selector: 'app-user-identification',
@@ -40,7 +42,8 @@ export class UserIdentificationComponent implements OnInit {
     private router: Router,
     private proceduresService: ProceduresService,
     private carpetaUtils: CarpetaUtils,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private carpetaService:CarpetaService
   ) {
     
   }
@@ -90,7 +93,22 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
-    console.log(this.formUserIdentification);                                  
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    )
+    const draft:Draft = {
+      fecha: "",
+      key: "",
+      desc: 'Linea Resistir ' + new Date(),
+      info: JSON.stringify(this.formUserIdentification.value),
+      linea: this.procedure.category.name,
+      nif: sessionStorage.getItem('nifTitular'),
+      producto: infoProcedure.name
+    }
+    this.carpetaService.saveDraft(draft).subscribe(
+      data => console.log(data)
+    )
+    
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 

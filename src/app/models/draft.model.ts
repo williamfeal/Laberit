@@ -3,7 +3,7 @@ export class Draft {
     nif:string
     desc:string
     info:string
-    fecha:Date
+    fecha?:string
     linea:string
     producto:string
 }

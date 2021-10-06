@@ -11,7 +11,7 @@
                 <input class="form-control mr-3" id="keywords" placeholder="Buscar" name="keywords" type="text">
                 <button class="btn btn-app-outline-primary" name="search" type="submit">
                     <em class="fas fa-redo"></em>
-                    Recargar listado
+                    {{ 'carpeta_ciudadana.requests-list.reload-list' | translate }}
                 </button>
             </div>
         </div>
@@ -20,41 +20,39 @@
     <table class="table table-bordered">
         <thead>
             <tr class="table-light">
-                <th>Fecha</th>
-                <th>Solictud</th>
-                <th>Interesado</th>
-                <th>Línea</th>
-                <th>Producto</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+                <th> {{ 'carpeta_ciudadana.requests-list.date' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.request' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.interested' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.line' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.product' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.state' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.actions' | translate }} </th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let draft of drafts">
                 <td>
-                    07/07/2021
+                    {{ draft.fecha | date: 'shortDate'}}
                 </td>
                 <td>
-                    Préstamo Bonificado Resistir 2021-00539-E
+                    
                 </td>
                 <td>
-                    11111111H
+                    {{ draft.nif }}
                 </td>
                 <td>
-                    Préstamo bonificado
+                    {{ draft.linea }}
                 </td>
                 <td>
-                    Préstamo bonificado
+                    {{ draft.producto }}
                 </td>
                 <td>
-                    Pendiente de información
+                    Borrador
                 </td>
                 <td>
-                    <button class="btn btn-app-outline-primary rounded-circle btn-small">
-                        <em class="fa fa-eye"></em>
-                    </button>
-                    <button class="btn btn-app-outline-primary rounded-circle btn-small ml-3">
-                        <em class="fa fa-envelope"></em>
+                    <button (click)="navToRequestDraft()"
+                    class="btn btn-app-outline-primary rounded-circle btn-small">
+                        <em class="fa fa-edit"></em>
                     </button>
                 </td>
             </tr>

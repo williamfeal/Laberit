@@ -72,7 +72,7 @@ public saveDraft(draft:Draft) {
   }));
 }
 
-public getDraft() {
+public getDrafts() {
   const draft = this.http.get<any>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
   return draft.pipe(map((response: Draft[]) => {
     return response;
