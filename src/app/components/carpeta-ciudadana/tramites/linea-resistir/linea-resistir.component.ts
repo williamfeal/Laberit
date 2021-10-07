@@ -8,7 +8,7 @@ import { Draft } from 'src/app/models/draft.model';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { IF_PROBLEM_PERSIST, tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
@@ -73,6 +73,7 @@ export class LineaResistirComponent implements OnInit {
             formDatosNotificacion: new FormGroup({})
         });
     }
+
     public goToDocumentation() {
         this.saveDraft();
         if (this.formLineaResistir.valid) {
@@ -94,13 +95,15 @@ export class LineaResistirComponent implements OnInit {
     }
 
     private saveDraft() {
-        const infoJSON = JSON.parse(this.draft.info);
-        infoJSON.formLineaResistir = this.formLineaResistir.value;
-
-        this.draft.info = JSON.stringify(infoJSON);
-        this.carpetaService.saveDraft(this.draft).subscribe(
-            data => console.log(data)
-        )
+        if(this.draft) {
+            const infoJSON = JSON.parse(this.draft.info);
+            infoJSON.formLineaResistir = this.formLineaResistir.value;
+    
+            this.draft.info = JSON.stringify(infoJSON);
+            this.carpetaService.saveDraft(this.draft).subscribe(
+                data => console.log(data)
+            )
+        }      
     }
 
 

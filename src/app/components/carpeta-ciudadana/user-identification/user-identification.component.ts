@@ -116,30 +116,8 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    console.log(this.formUserIdentification)
     let error = 0;
-    const infoProcedure = this.procedure.languages.find(
-      language => language.codigo === localStorage.getItem('lang')
-    );
-    const infoProcedureJSON = { 
-      idProcedure: this.idProcedure,
-      ...this.formUserIdentification.value }
-
-    const draftDate = this.draft ? this.draft.fecha : '';
-    const draftKey = this.draft ? this.draft.key : '';
-    const draft:Draft = {
-      fecha: draftDate,
-      key: draftKey,
-      desc: 'linea-resistir-' + new Date().getMilliseconds(),
-      info: JSON.stringify(infoProcedureJSON),
-      linea: this.procedure.category.name,
-      nif: sessionStorage.getItem('nifTitular'),
-      producto: infoProcedure.name
-    }
-    this.carpetaService.saveDraft(draft).subscribe(
-      data => console.log(data)
-    )
-    
+    this.saveDraft();
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
@@ -174,6 +152,43 @@ export class UserIdentificationComponent implements OnInit {
       this.showErrors = true;
     }
   }
+
+  private saveDraft() {
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    let infoProcedureJSON;
+    if(this.draft) {
+      infoProcedureJSON = JSON.parse(this.draft.info);
+      infoProcedureJSON.formUserIdentification = this.formUserIdentification.value;
+
+      this.draft.info = JSON.stringify(infoProcedureJSON);
+      this.carpetaService.saveDraft(this.draft).subscribe(
+          data => console.log(data)
+      )
+    } else {
+      infoProcedureJSON = { 
+        idProcedure: this.idProcedure,
+        ...this.formUserIdentification.value 
+      }
+      const draft:Draft = {
+        fecha: '',
+        key: '',
+        desc: 'BORRADOR',
+        info: JSON.stringify(infoProcedureJSON),
+        linea: this.procedure.category.name,
+        nif: sessionStorage.getItem('nifTitular'),
+        producto: infoProcedure.name
+      }
+    
+      this.carpetaService.saveDraft(draft).subscribe(
+        data => console.log(data)
+      )
+    }
+    
+  }
+
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
