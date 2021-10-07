@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AdvertisementsModel } from 'src/app/models/advertisements.model';
 import { AdvertisementsService } from 'src/app/services/moges-services/advertisements.service';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
@@ -19,16 +21,21 @@ export class AdvertisementDetailComponent implements OnInit {
   public title;
   
   private lang = this.translate.currentLang;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private advertisementsService: AdvertisementsService,
     private route: ActivatedRoute,
     public translate: TranslateService,
     private languageService:LanguagesService) {
     this.idAnuncio = this.route.snapshot.paramMap.get('idAnuncio');
-    this.translate.get('advertisements_detail').subscribe((texts: any) => {
+    this.translate.get('advertisements_detail').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((texts: any) => {
       this.title = texts.title;
     });
-    this.languageService.lang.subscribe(
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       lang => {    
         this.lang = lang;
         this.loadData();
@@ -38,7 +45,9 @@ export class AdvertisementDetailComponent implements OnInit {
   }
 
   loadData() {
-    this.advertisementsService.getAdvertisementById(sessionStorage.token, this.idAnuncio, this.lang).subscribe((advertisement: AdvertisementsModel) => {
+    this.advertisementsService.getAdvertisementById(sessionStorage.token, this.idAnuncio, this.lang).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((advertisement: AdvertisementsModel) => {
       this.anuncio = advertisement;
       this.anuncio.languages.forEach(element => {
         if (element.codigo == this.lang) {
@@ -61,5 +70,10 @@ export class AdvertisementDetailComponent implements OnInit {
     const urlPdf = URL.createObjectURL(byte);
     window.open(urlPdf, '_blank');
   }
+
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 
 }

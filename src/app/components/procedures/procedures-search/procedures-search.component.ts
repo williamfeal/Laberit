@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
 import { Procedure } from 'src/app/models/procedure.model';
 import { CategoriesService } from 'src/app/services/moges-services/categories.service';
@@ -20,6 +22,7 @@ export class ProceduresSearchComponent implements OnInit {
   public loading:boolean;
 
   private lang = this.translateService.currentLang;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private translateService: TranslateService,
@@ -30,7 +33,9 @@ export class ProceduresSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.keywords = this.activatedRoute.snapshot.queryParams.keywords;
-    this.translateService.get('procedures-search').subscribe(
+    this.translateService.get('procedures-search').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => {
         this.title = data.title
       }
@@ -38,7 +43,9 @@ export class ProceduresSearchComponent implements OnInit {
     if(this.lang) 
       this.loadData();
     
-    this.languageService.lang.subscribe(
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       lang => {
         this.lang = lang;
         this.loadData();
@@ -47,7 +54,9 @@ export class ProceduresSearchComponent implements OnInit {
   }
 
   private loadData() {
-    this.categoriesService.getAllCategories(this.lang).subscribe(
+    this.categoriesService.getAllCategories(this.lang).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       async categories => {
         this.loading = true;
         this.categories = categories;
@@ -84,5 +93,9 @@ export class ProceduresSearchComponent implements OnInit {
           }
       } 
     );
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

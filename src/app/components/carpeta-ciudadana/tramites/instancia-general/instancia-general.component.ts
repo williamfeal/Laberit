@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Procedure } from 'src/app/models/procedure.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
@@ -24,6 +26,8 @@ export class InstanciaGeneralComponent {
   errorCharacterLeng: string = 'num_Characters_error';
   validators = [Validators.required];
   validate: boolean = false;
+
+  private unsubscribe$ = new Subject<void>();
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -39,10 +43,14 @@ export class InstanciaGeneralComponent {
   }
 
   ngOnInit(): void {
-    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).subscribe(
+    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.procedure = data
     )
-    this.carpetaService.getLoggedUser().subscribe(
+    this.carpetaService.getLoggedUser().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       (data: UserCertificado) => {
         this.user = data;
       }
@@ -67,5 +75,9 @@ export class InstanciaGeneralComponent {
     //   this.validate = true;
     //   console.log(this.formInstanciaGeneral);
     // }
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

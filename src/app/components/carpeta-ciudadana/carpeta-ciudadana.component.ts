@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { TokenModel } from 'src/app/models/token.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
@@ -17,6 +19,7 @@ export class CarpetaCiudadanaComponent implements OnInit {
 
   public url_clave: string;
   public draft:string;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private router: Router,
@@ -41,7 +44,9 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   private loadData() {
-    this.carpetaService.getLoggedUser().subscribe(
+    this.carpetaService.getLoggedUser().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       (data: UserCertificado) => {
         if (data !== null) {
           this.carpetaUtils.saveSession(data);
@@ -56,7 +61,9 @@ export class CarpetaCiudadanaComponent implements OnInit {
       const listener = setInterval(() => {
         if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
-          this.carpetaService.sendFirma(firma).subscribe(
+          this.carpetaService.sendFirma(firma).pipe(
+            takeUntil(this.unsubscribe$)
+          ).subscribe(
             data => {
               sessionStorage.setItem('token_user',data.accessToken);
               this.loadData();
@@ -83,5 +90,9 @@ export class CarpetaCiudadanaComponent implements OnInit {
     } else {
       this.router.navigate([UrlConstants.VIEW_REQUEST_LIST]);
     }
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

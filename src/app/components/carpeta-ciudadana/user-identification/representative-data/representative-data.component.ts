@@ -2,6 +2,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Draft } from 'src/app/models/draft.model';
+import { pipe, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -34,6 +36,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public businessTypeSelected;
   public draftRepresentativeData;
 
+  private unsubscribe$ = new Subject<void>();
+
   constructor(
     private catalogService:CatalogsService
   ) { }
@@ -62,37 +66,49 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   public representativeTypeChange(event: string) {
     this.representativeTypeSelected = event;
-    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getCNAEoptions() {
-    this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getRepresentativeType() {
-    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.representativeTypes = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getBelongingCompany() {
-    this.catalogService.getCatalogByCode(ConceptConstants.GROUP_BELONGING_COMPANY).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.GROUP_BELONGING_COMPANY).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.belongingCompany = data
     )
   }
 
   private getCountries() {
-    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.countries = AppUtils.sortConceptsAlphabetically(data)
     )
   }
   
   private getGenders() {
-    this.catalogService.getCatalogByCode(ConceptConstants.GENDERS).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.GENDERS).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.genders = data
     )
   }
@@ -104,6 +120,9 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   public isAutonum() {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS
-
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

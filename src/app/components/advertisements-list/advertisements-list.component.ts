@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 import { AdvertisementsModel } from "src/app/models/advertisements.model";
 import { AdvertisementsService } from "src/app/services/moges-services/advertisements.service";
 import { LanguagesService } from "src/app/services/moges-services/language.service";
@@ -15,6 +17,8 @@ export class AdvertisementsListComponent implements OnInit {
   public anunciosMoges:AdvertisementsModel[];
   public loading = true;
   private lang = this.translate.currentLang;
+  private unsubscribe$ = new Subject<void>();
+
 
   constructor(
     private advertisementsService: AdvertisementsService, 
@@ -24,10 +28,14 @@ export class AdvertisementsListComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.translate.stream("advertisements").subscribe((texts: any) => {
+    this.translate.stream("advertisements").pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((texts: any) => {
       this.title = this.translate.instant('advertisements.title'); 
     });    
-    this.languageService.lang.subscribe(
+    this.languageService.lang.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       lang => {    
         this.loading = true;
         this.lang = lang;
@@ -45,6 +53,10 @@ export class AdvertisementsListComponent implements OnInit {
         this.anunciosMoges = advertisementslList;
         this.loading = false;
     });
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

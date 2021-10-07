@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Draft } from 'src/app/models/draft.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
@@ -25,6 +27,8 @@ export class RequesterDataComponent implements OnInit, OnChanges {
   public representation_power:SelectFieldObject[];
 
   @Output() public typeOutput = new EventEmitter<string>();
+
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private catalogsService:CatalogsService
@@ -51,17 +55,24 @@ export class RequesterDataComponent implements OnInit, OnChanges {
   }
 
   getApplicantTypes() {
-    this.catalogsService.getCatalogByCode(ConceptConstants.APPLICANT_TYPES).subscribe(
+    this.catalogsService.getCatalogByCode(ConceptConstants.APPLICANT_TYPES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.actuation = data
     )
   }
 
   getRepresentativeTypes() {
-    this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).subscribe(
+    this.catalogsService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.representation_power = data
     )
   }
   comprobar(){
   }
-
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+}
 }

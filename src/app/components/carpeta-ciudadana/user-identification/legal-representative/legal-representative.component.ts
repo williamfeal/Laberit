@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Draft } from 'src/app/models/draft.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -32,6 +34,8 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   public countrySpainSelected;
   public countrySelected;
 
+  private unsubscribe$ = new Subject<void>();
+
   constructor(
     private catalogService:CatalogsService
   ) { }
@@ -49,30 +53,42 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   }
 
   private getCountries() {
-    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.paises = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getSpainCountries() {
-    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   private getRoadTypes() {
-    this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).subscribe(
+    this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.typeStreet = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onChangeSpainCountry(event) {
-    this.catalogService.getCatalogByCode(event).subscribe(
+    this.catalogService.getCatalogByCode(event).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
   }
 
   public onChangeCountry(event) {
     this.countrySelected = event;
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

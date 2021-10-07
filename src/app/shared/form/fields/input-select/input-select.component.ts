@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { isEmptyObject } from 'jquery';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { SelectFieldObject } from './input-select';
 
 @Component({
@@ -30,7 +32,7 @@ export class InputSelectComponent implements OnInit {
 
   textError: string;
   formControl = new FormControl();
-
+  private unsubscribe$ = new Subject<void>();
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
@@ -62,10 +64,17 @@ export class InputSelectComponent implements OnInit {
       this.form.addControl(this.controlName, this.formControl);
     }
     
-    this.translateService.get('error_texts.input.' + this.errorText).subscribe(
+    this.translateService.get('error_texts.input.' + this.errorText).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       text => {
         this.textError = text;
       }
     )
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    
   }
 }

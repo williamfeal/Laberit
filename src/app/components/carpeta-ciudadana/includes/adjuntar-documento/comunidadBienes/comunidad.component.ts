@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -27,6 +29,7 @@ export class ComunidadBienesComponent implements OnInit {
     public responsible_declaration: boolean = true;
     public model_303: boolean = true;
     public distribution_by_year: boolean = true;
+    private unsubscribe$ = new Subject<void>();
 
     @Input() formAdjComuni: FormGroup;
     constructor(public catalogService: CatalogsService) { }
@@ -36,7 +39,9 @@ export class ComunidadBienesComponent implements OnInit {
     }
 
     genericsDocsType() {
-        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS).subscribe(
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
             data => this.documentsTypeCommunity = data
             
         )
@@ -48,5 +53,9 @@ export class ComunidadBienesComponent implements OnInit {
     deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListCo, ev);
+    }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
     }
 }
