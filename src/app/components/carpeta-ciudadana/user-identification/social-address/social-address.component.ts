@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Draft } from 'src/app/models/draft.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -14,7 +15,8 @@ export class SocialAddressComponent implements OnInit {
   @Input() formSocialAdress: FormGroup;
   @Input() validate: boolean;
   @Input() isRequired: boolean;
-
+  @Input() draft:Draft;
+  
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
@@ -24,6 +26,7 @@ export class SocialAddressComponent implements OnInit {
 
   public countrySpainSelected;
   public countrySelected;
+  public draftSocialAddressData;
 
   errorCharacterLeng: string = 'empty_error';
   
@@ -34,6 +37,13 @@ export class SocialAddressComponent implements OnInit {
   ngOnInit(): void {
     this.getRoadTypes();
     this.getCountries();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      console.log(JSON.parse(this.draft.info))
+      this.draftSocialAddressData = JSON.parse(this.draft.info).sosial_address;
+    }
   }
 
   public getRoadTypes() {
