@@ -162,8 +162,12 @@ export class UserIdentificationComponent implements OnInit {
     }
     //si no hay errores
     if (error == 0) {
-      //llamada al back para mandar los datos
-      this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
+      //llamada al back para mandar los datosc
+      this.draft ?
+        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+          queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
+        }):
+        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
     } else {
       //saber como notificar al usuario
       SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
