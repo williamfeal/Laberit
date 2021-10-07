@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Draft } from 'src/app/models/draft.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -10,19 +11,20 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
   selector: 'app-productive-establishment-address',
   templateUrl: './productive-establishment-address.component.html'
 })
-export class ProductiveEstablishmentAddressComponent implements OnInit {
+export class ProductiveEstablishmentAddressComponent implements OnInit, OnChanges {
 
   @Input() formProductiveEstablishment: FormGroup;
   @Input() readOnly: boolean;
   @Input() validate: boolean = false;
   @Input() isRequired: boolean;
-
+  @Input() draft:Draft;
 
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
   public typeStreet:SelectFieldObject[];
 
+  public draftProductiveEstablishmentData;
   public countrySelected;
   public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
 
@@ -36,6 +38,12 @@ export class ProductiveEstablishmentAddressComponent implements OnInit {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftProductiveEstablishmentData = JSON.parse(this.draft.info).productive_establishment;
+    }
   }
   
   public getRoadTypes() {
