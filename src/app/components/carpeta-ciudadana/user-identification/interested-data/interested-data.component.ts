@@ -7,6 +7,7 @@ import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-interested-data',
@@ -47,6 +48,9 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
       this.draftInterestedData = JSON.parse(this.draft.info).interested_data;
+      if(!isEmptyObject(this.draftInterestedData.businessType)) {
+        sessionStorage.setItem('company_type', this.draftInterestedData.businessType);
+      }
     }
   }
 
@@ -94,6 +98,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   public businessTypeChange(event) {
     sessionStorage.setItem('company_type', event);
   }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
