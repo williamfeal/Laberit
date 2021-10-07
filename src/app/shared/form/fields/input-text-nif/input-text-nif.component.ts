@@ -66,7 +66,7 @@ export class InputTextNifComponent implements OnInit {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if(changes.draft && !isEmptyObject(changes.draft.currentValue[this.controlName])) 
+        if(changes.draft && !isEmptyObject(this.draft)) 
             this.value = this.draft[this.controlName]
 
         if (changes.error && changes.error.firstChange) {

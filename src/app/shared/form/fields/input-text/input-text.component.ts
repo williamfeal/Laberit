@@ -48,7 +48,7 @@ export class InputTextComponent implements OnInit {
     this.error = !this.form.get(this.controlName).valid ?  true : false;
   }
   ngOnChanges(changes: SimpleChanges) {    
-    if(changes.draft && !isEmptyObject(changes.draft.currentValue[this.controlName])) 
+    if(changes.draft && !isEmptyObject(this.draft)) 
       this.value = this.draft[this.controlName]
 
     if (!this.isRequired) {
