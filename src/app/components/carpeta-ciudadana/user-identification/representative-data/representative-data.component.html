@@ -9,7 +9,7 @@
         <div class="row w-100">
             <div class="form-group col-md-3">
                 <app-input-select (change)="representativeTypeChange($event.target.value)"
-                    [error]="validate && formRepresentativeData.controls['representativeTypes']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['representativeTypes']?.invalid"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }}"
                     controlName="representativeTypes" 
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
@@ -27,7 +27,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                     controlName="represented_data_name" idValue="represented_data_name"
                     nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
-                    [error]="validate && formRepresentativeData.controls['represented_data_name']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_name']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
             <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
@@ -35,8 +35,8 @@
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
                     controlName="represented_data_surname1" idValue="represented_data_surname1"
-                    nameValue="represented_data_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
-                    [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.pristine"
+                    nameValue="represented_data_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
+                    [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
             <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
@@ -54,7 +54,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
                     controlName="represented_data_social_reason" idValue="represented_data_name"
                     nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
             <div class="form-group col-md-3">
@@ -75,18 +75,17 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
                     controlName="represented_data_constitution_date" idValue="represented_data_constitution_date" [maxDate]="true"
                     nameValue="represented_data_constitution_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-date>
             </div>
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
-                    controlName="represented_data_cnae" i
-                    dValue="represented_data_cnae" 
+                    controlName="represented_data_cnae" idValue="represented_data_cnae" 
                     nameValue="represented_data_cnae"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     [isRequired]="isRequired" [fieldOptions]="cnaeOptions"
-                    [error]="validate && formRepresentativeData.controls['represented_data_cnae']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_cnae']?.invalid"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -96,7 +95,7 @@
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
                     controlName="represented_data_iae" idValue="represented_data_iae" nameValue="represented_data_iae"
                     [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formRepresentativeData.controls['represented_data_iae']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_iae']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
             <div class="col-md-3 d-flex">
@@ -105,7 +104,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                         controlName="represented_data_iae_date" idValue="represented_data_iae_date" [maxDate]="true"
                         nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.pristine"
+                        [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-date>
                 </div>
                 <div class="form-group col-md-6 pr-0">
@@ -115,7 +114,7 @@
                         nameValue="represented_data_employees_number" [isRequired]="isRequired"
                         [value]=""
                         [negativos]="negativos"
-                        [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.pristine"
+                        [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.invalid"
                         errorText="empty_error"></app-input-number>
                 </div>
             </div>
@@ -130,7 +129,7 @@
                     nameValue="businessType" [isRequired]="isRequired"
                     [fieldOptions]="businessType" [idSelected]="businessTypeSelected"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
-                    [error]="validate && formRepresentativeData.controls['businessType']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['businessType']?.invalid"
                     [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -144,7 +143,7 @@
                         [isRequired]="isRequired && !isAutonum()"
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " 
                         [fieldOptions]="belongingCompany"
-                        [error]="validate && formRepresentativeData.controls['ownGroup']?.pristine"
+                        [error]="validate && formRepresentativeData.controls['ownGroup']?.invalid"
                         [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>
@@ -154,7 +153,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
                         nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
-                        [error]="validate && formRepresentativeData.controls['represented_data_active']?.pristine"
+                        [error]="validate && formRepresentativeData.controls['represented_data_active']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
                 <div class="form-group col-md-3">
@@ -163,7 +162,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
                         nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
-                        [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.pristine"
+                        [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
             </div>
@@ -175,16 +174,16 @@
                 placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
                 controlName="contact_position" idValue="contact_position" nameValue="contact_position"
-                [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
-                [error]="validate && formRepresentativeData.controls['contact_position']?.pristine"
+                [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
+                [error]="validate && formRepresentativeData.controls['contact_position']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
                 </div>
                 <div class="form-group col-md-4">
                     <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
                         controlName="represented_data_birth_date" idValue="represented_data_birth_date" [maxDate]="true"
-                        nameValue="represented_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
-                        [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.pristine"
+                        nameValue="represented_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
+                        [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-date>
                 </div>
                 <div class="form-group col-md-4">
@@ -192,8 +191,8 @@
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
                         controlName="represented_data_genre" idValue="represented_data_genre"
-                        [error]="validate && formRepresentativeData.controls['represented_data_genre']?.pristine"
-                        nameValue="represented_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
+                        [error]="validate && formRepresentativeData.controls['represented_data_genre']?.invalid"
+                        nameValue="represented_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
                         [fieldOptions]="genders" [errorText]="errorCharacterLeng">
                     </app-input-select>
                 </div>
@@ -203,9 +202,9 @@
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
                     controlName="represented_data_residence_country" idValue="represented_data_residence_country"
-                    nameValue="represented_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
+                    nameValue="represented_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
                     [fieldOptions]="countries"
-                    [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.pristine"
+                    [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-select>
             </div>
         </div>

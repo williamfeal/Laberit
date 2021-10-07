@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Draft } from 'src/app/models/draft.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
@@ -41,8 +42,15 @@ export class SocialAddressComponent implements OnInit {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      console.log(JSON.parse(this.draft.info))
       this.draftSocialAddressData = JSON.parse(this.draft.info).sosial_address;
+      console.log(this.draftSocialAddressData)
+      if(!isEmptyObject(this.draftSocialAddressData.social_country)) {
+        this.countrySelected = this.draftSocialAddressData.social_country;
+        if(!isEmptyObject(this.draftSocialAddressData.social_province)) {
+          this.countrySpainSelected = this.draftSocialAddressData.social_province;
+          this.onChangeSpainCountry(this.countrySpainSelected);
+        }
+      }
     }
   }
 
