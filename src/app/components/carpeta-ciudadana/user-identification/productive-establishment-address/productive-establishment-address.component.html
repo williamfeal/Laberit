@@ -12,7 +12,7 @@
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                 controlName="productive_establishment_via_type" idValue="productive_establishment_via_type"
                 nameValue="productive_establishment_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.pristine"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.invalid"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
 
         </div>
@@ -22,7 +22,7 @@
                 label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                 controlName="productive_establishment_address" idValue="productive_establishment_address"
                 nameValue="productive_establishment_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.pristine"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
@@ -33,7 +33,7 @@
                     controlName="productive_establishment_number" idValue="productive_establishment_number"
                     nameValue="productive_establishment_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [negativos]="true"
-                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.pristine"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
@@ -53,14 +53,14 @@
                     label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
                     controlName="productive_establishment_CP" idValue="productive_establishment_CP"
                     nameValue="productive_establishment_CP" [isReadOnly]="readOnly" [isRequired]="isRequired" [negativos]="true"
-                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.pristine"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
-                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.pristine"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"  (change)="onChangeCountry($event.target.value)"
                     controlName="productive_establishment_country" idValue="productive_establishment_country"
@@ -69,8 +69,8 @@
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
-                <app-input-select [form]="formProductiveEstablishment" (change)="onCountryChange($event.target.value)" [draft]="draftProductiveEstablishmentData"
-                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.pristine"
+                <app-input-select [form]="formProductiveEstablishment" (change)="onChangeSpainCountry($event.target.value)" [draft]="draftProductiveEstablishmentData"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                     controlName="productive_establishment_province" idValue="productive_establishment_province"
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                 <app-input-select [form]="formProductiveEstablishment"  [draft]="draftProductiveEstablishmentData"
-                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.pristine"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                     controlName="productive_establishment_municipality" idValue="productive_establishment_municipality"
