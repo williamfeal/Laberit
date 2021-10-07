@@ -7,20 +7,21 @@
     </div>
     <div class="card-body">
         <div class="form-group">
-            <app-input-text-area [form]="formLineaResistir"
+            <app-input-text-area [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }}"
                 controlName="project_definition" idValue="project_definition" nameValue="project_definition"
-                [error]="validate && formLineaResistir.controls['project_definition']?.pristine" errorText="empty_error"
+                [error]="validate && formLineaResistir.controls['project_definition']?.invalid" errorText="empty_error"
                 [isRequired]="true" placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" value="">
             </app-input-text-area>
         </div>
         <div class="form-group">
-            <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event, 'company_type')"
+            <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event.target.value, 'project_type')"
                 placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_type' | translate }}"
-                [error]="validate && formLineaResistir.controls['company_type']?.pristine" class="col-sm-3"
-                controlName="company_type" idValue="company_type" nameValue="company_type" isReadOnly="false"
-                [isRequired]="true" [fieldOptions]="tipoProyecto" errorText="empty_error">
+                [error]="validate && formLineaResistir.controls['project_type']?.invalid" class="col-sm-3"
+                controlName="project_type" idValue="project_type" nameValue="project_type" isReadOnly="false"
+                [isRequired]="true" [fieldOptions]="tipoProyecto" errorText="empty_error"
+                [draft]="draftDetailCostFinanced">
             </app-input-select>
         </div>
         <!-- Inversion G1 -->
@@ -32,35 +33,35 @@
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}"
-                        [error]="validate && formLineaResistir.controls['ground']?.pristine"
+                        [error]="validate && formLineaResistir.controls['ground']?.invalid"
                         controlName="ground" idValue="ground" nameValue="ground" [isRequired]="showInversion"
-                        value="" errorText="empty_error"></app-input-number>
+                        value="" [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }}"
-                        controlName="properties" idValue="properties" nameValue="properties"
+                        controlName="properties" idValue="properties" nameValue="properties" [draft]="draftDetailCostFinanced"
                         [error]="validate && formLineaResistir.controls['properties']?.pristine"
                         [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }}"
-                        [error]="validate && formLineaResistir.controls['machinery']?.pristine"
+                        [error]="validate && formLineaResistir.controls['machinery']?.invalid" [draft]="draftDetailCostFinanced"
                         controlName="machinery" idValue="machinery" nameValue="machinery" [isRequired]="showInversion"
                         value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }}"
-                        [error]="validate && formLineaResistir.controls['installation']?.pristine"
-                        controlName="installation" idValue="installation" nameValue="installation"
+                        [error]="validate && formLineaResistir.controls['installation']?.invalid"
+                        controlName="installation" idValue="installation" nameValue="installation" [draft]="draftDetailCostFinanced"
                         [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }}"
-                        [error]="validate && formLineaResistir.controls['others']?.pristine"
+                        [error]="validate && formLineaResistir.controls['others']?.invalid"
                         controlName="others" idValue="others" nameValue="others" [isRequired]="showInversion" value=""
                         errorText="empty_error"></app-input-number>
                 </div>
@@ -71,31 +72,31 @@
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}"
                         controlName="own_resources" idValue="own_resources" nameValue="own_resources"
-                        [error]="validate && formLineaResistir.controls['own_resources']?.pristine"
+                        [error]="validate && formLineaResistir.controls['own_resources']?.invalid"
                         [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }}"
-                        [error]="validate && formLineaResistir.controls['grants']?.pristine"
+                        [error]="validate && formLineaResistir.controls['grants']?.invalid"
                         controlName="grants" idValue="grants" nameValue="grants" [isRequired]="showInversion" value=""
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }}"
-                        [error]="validate && formLineaResistir.controls['other_bank_financing']?.pristine"
+                        [error]="validate && formLineaResistir.controls['other_bank_financing']?.invalid"
                         controlName="other_bank_financing" idValue="other_bank_financing"
                         nameValue="other_bank_financing" [isRequired]="showInversion" value="" errorText="empty_error">
                     </app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}"
-                        [error]="validate && formLineaResistir.controls['active_ivf']?.pristine"
+                        [error]="validate && formLineaResistir.controls['active_ivf']?.invalid"
                         controlName="active_ivf" idValue="active_ivf" nameValue="active_ivf"
                         [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
                 </div>
@@ -115,16 +116,16 @@
             </div>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}"
-                        [error]="validate && formLineaResistir.controls['current_assets']?.pristine"
+                        [error]="validate && formLineaResistir.controls['current_assets']?.invalid"
                         controlName="current_assets" idValue="current_assets" nameValue="current_assets"
                         [isRequired]="showCirculante" value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }}"
-                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.pristine"
+                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.invalid"
                         controlName="bankalbe_current_assets" idValue="bankalbe_current_assets"
                         nameValue="bankalbe_current_assets" [isRequired]="showCirculante" value=""
                         errorText="empty_error"></app-input-number>
@@ -133,7 +134,7 @@
         </div>
         <!-- Financiaci�n solicitada G3-->
         <hr>
-        <div [ngClass]="{ 'd-none': company_type != '3' }">
+        <div [ngClass]="{ 'd-none': project_type != '3' }">
             <div class="row col-sm-12">
                 <span class="ml-3">
                     <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_requested.title' | translate
@@ -142,24 +143,24 @@
             </div>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g1' | translate }}"
-                        [error]="validate && formLineaResistir.controls['current_assets']?.pristine"
+                        [error]="validate && formLineaResistir.controls['current_assets']?.invalid"
                         controlName="current_assets" idValue="current_assets" nameValue="current_assets"
                         [isRequired]="showCirculante" value="" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced" 
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g2' | translate }}"
-                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.pristine"
+                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.invalid"
                         controlName="bankalbe_current_assets" idValue="bankalbe_current_assets"
                         nameValue="bankalbe_current_assets" [isRequired]="showCirculante" value=""
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.total_loan' | translate }}"
-                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.pristine"
+                        [error]="validate && formLineaResistir.controls['bankalbe_current_assets']?.invalid"
                         controlName="bankalbe_current_assets" idValue="bankalbe_current_assets"
                         nameValue="bankalbe_current_assets" [isRequired]="showCirculante" value=""
                         errorText="empty_error"></app-input-number>
