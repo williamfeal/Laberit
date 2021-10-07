@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -19,10 +20,12 @@ export class InputTextNifComponent implements OnInit {
     @Input() isReadOnly!: boolean;
     @Input() isRequired!: boolean;
     @Input() errorText!: string;
-    @Input() value!: string;
+    @Input() value: string = "";
     @Input() placeholder!: string;
     @Input() error!: boolean;
     @Input() minLength!: number | null;
+    @Input() draft:Object;
+
     private unsubscribe$ = new Subject<void>();
     textError: string;
     formControl = new FormControl('');
@@ -47,8 +50,6 @@ export class InputTextNifComponent implements OnInit {
             this.formControl.setValidators(this.validaciones);
         }
         this.form.addControl(this.controlName, this.formControl);
-        this.value ?
-            this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
 
         if (this.placeholder == undefined) this.placeholder = '';
     }
@@ -58,7 +59,6 @@ export class InputTextNifComponent implements OnInit {
         console.log(this.form.parent)
         if (nifCode <= 0) {
             this.errorNif = true;
-            // this.form.get(this.controlName).setValue("");
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
             console.log(this.validaciones);
@@ -69,6 +69,8 @@ export class InputTextNifComponent implements OnInit {
     }
 
     ngOnChanges(changes: SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft)) 
+            this.value = this.draft[this.controlName]
 
         if (changes.error && changes.error.firstChange) {
             this.errorNif = true;

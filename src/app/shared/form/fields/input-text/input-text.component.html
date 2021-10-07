@@ -6,6 +6,7 @@
     [formControlName]="controlName" 
     [placeholder]="placeholder"
     [readonly]="isReadOnly" 
+    [(ngModel)]="value"
     (change)="onChangeValue()" 
     [ngClass]="{ 'error-input': error == true }">
     

@@ -18,6 +18,7 @@ import { UrlConstants } from 'src/app/utils/constants/url-constants';
 export class CarpetaCiudadanaComponent implements OnInit {
 
   public url_clave: string;
+  public draft:string;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -73,10 +74,17 @@ export class CarpetaCiudadanaComponent implements OnInit {
   }
 
   private nextPage() {
-    if (this.activatedRoute.snapshot.params.idProcedure) {
+    if(this.activatedRoute.snapshot.queryParams.draft  && this.activatedRoute.snapshot.params.idProcedure)  {
+        this.router.navigate([UrlConstants.VIEW_USER_IDENTIFICATION], {
+          queryParams: {
+            idProcedure: this.activatedRoute.snapshot.params.idProcedure,
+            draft:this.activatedRoute.snapshot.queryParams.draft
+          }
+        });
+    } else if (this.activatedRoute.snapshot.params.idProcedure) {
       this.router.navigate([UrlConstants.VIEW_USER_IDENTIFICATION], {
         queryParams: {
-          idProcedure: this.activatedRoute.snapshot.params.idProcedure
+          idProcedure: this.activatedRoute.snapshot.params.idProcedure,
         }
       });
     } else {

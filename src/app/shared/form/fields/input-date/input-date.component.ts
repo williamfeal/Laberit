@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { isEmptyObject } from 'jquery';
 import * as moment from 'moment';
 import { Moment } from 'moment';
 import { Subject } from 'rxjs';
@@ -21,11 +22,12 @@ export class InputDateComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value!: string;
+  @Input() value: string = "";
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxDate!: boolean;
+  @Input() draft:Object;
 
   private unsubscribe$ = new Subject<void>();
 
@@ -33,6 +35,7 @@ export class InputDateComponent implements OnInit {
   textError: string;
   formControl = new FormControl('');
   validaciones: ValidatorFn[] = [];
+
   constructor(private translateService: TranslateService) {
   }
 
@@ -48,6 +51,7 @@ export class InputDateComponent implements OnInit {
     }
 
   }
+
   validationMax() {
     let today = new Date();
     let dd = today.getDate();
@@ -58,10 +62,15 @@ export class InputDateComponent implements OnInit {
     let yyyy = today.getFullYear();
     this.dateToday = yyyy + '-' + mm + '-' + dd;
   }
+
   onChangeValue() {
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
   }
+
   ngOnChanges(changes: SimpleChanges) {
+    if(changes.draft && !isEmptyObject(this.draft)) 
+      this.value = this.draft[this.controlName];  
+
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
         this.form.get(this.controlName).clearValidators();

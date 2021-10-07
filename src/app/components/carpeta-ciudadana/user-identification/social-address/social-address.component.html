@@ -7,56 +7,56 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <app-input-select [form]="formSocialAdress"
+            <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData"
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}" controlName="via_type"
                 idValue="via_type" nameValue="via_type" [isRequired]="isRequired"
-                [error]="validate && formSocialAdress.controls['via_type']?.pristine" [fieldOptions]="typeStreet"
+                [error]="validate && formSocialAdress.controls['via_type']?.invalid" [fieldOptions]="typeStreet"
                 [errorText]="errorCharacterLeng"></app-input-select>
 
         </div>
         <div class="form-group col-md-6">
-            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftSocialAddressData"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                 controlName="address" idValue="address" nameValue="address" [isRequired]="isRequired"
-                [error]="validate && formSocialAdress.controls['address']?.pristine" [errorText]="errorCharacterLeng">
+                [error]="validate && formSocialAdress.controls['address']?.invalid" [errorText]="errorCharacterLeng">
             </app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
                 <app-input-number
-                    [form]="formSocialAdress"
+                    [form]="formSocialAdress" [draft]="draftSocialAddressData"
                     label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}" controlName="number"
                     idValue="number" nameValue="number" [isRequired]="isRequired"
                     [negativos]="true"
-                    [error]="validate && formSocialAdress.controls['number']?.pristine"
+                    [error]="validate && formSocialAdress.controls['number']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
         <div class="form-group col-md-3">
-            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftSocialAddressData"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
                 controlName="extra" idValue="extra" nameValue="extra"></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
             <div class="col-md-6">
                 <app-input-number 
-                    [form]="formSocialAdress"
+                    [form]="formSocialAdress" [draft]="draftSocialAddressData"
                     label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}" 
                     controlName="social_cp"
                     idValue="social_cp" 
                     nameValue="social_cp" 
                     [isRequired]="isRequired" 
                     negativos="true"
-                    [error]="validate && formSocialAdress.controls['social_cp']?.pristine" 
+                    [error]="validate && formSocialAdress.controls['social_cp']?.invalid" 
                     [errorText]="errorCharacterLeng">
                 </app-input-number>
             </div>
         </div>
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
-                <app-input-select [form]="formSocialAdress"
-                    [error]="validate && formSocialAdress.controls['social_country']?.pristine"
+                <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData"
+                    [error]="validate && formSocialAdress.controls['social_country']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" (change)="onChangeCountry($event.target.value)"
                     controlName="social_country" idValue="social_country" nameValue="social_country" isReadOnly="false"
@@ -64,8 +64,8 @@
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
-                <app-input-select [form]="formSocialAdress"
-                    [error]="validate && formSocialAdress.controls['social_province']?.pristine"
+                <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData"
+                    [error]="validate && formSocialAdress.controls['social_province']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                     controlName="social_province" idValue="social_province" nameValue="social_province" (change)="onChangeSpainCountry($event.target.value)"
@@ -73,8 +73,8 @@
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
-                <app-input-select [form]="formSocialAdress"
-                    [error]="validate && formSocialAdress.controls['social_municipality']?.pristine"
+                <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData"
+                    [error]="validate && formSocialAdress.controls['social_municipality']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                     controlName="social_municipality" idValue="social_municipality" nameValue="social_municipality"
@@ -82,7 +82,7 @@
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain" >
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftSocialAddressData"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
                 controlName="social_region" idValue="social_region" nameValue="social_region"></app-input-text>
             </div>
