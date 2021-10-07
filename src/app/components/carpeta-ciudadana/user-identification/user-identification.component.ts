@@ -40,7 +40,7 @@ export class UserIdentificationComponent implements OnInit {
   public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
 
   public textError;
-  public draft;
+  public draft:Draft;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -107,6 +107,7 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public goToRequestInfo() {
+    console.log(this.formUserIdentification)
     let error = 0;
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
@@ -114,9 +115,12 @@ export class UserIdentificationComponent implements OnInit {
     const infoProcedureJSON = { 
       idProcedure: this.idProcedure,
       ...this.formUserIdentification.value }
+
+    const draftDate = this.draft ? this.draft.fecha : '';
+    const draftKey = this.draft ? this.draft.key : '';
     const draft:Draft = {
-      fecha: "",
-      key: "",
+      fecha: draftDate,
+      key: draftKey,
       desc: 'linea-resistir-' + new Date().getMilliseconds(),
       info: JSON.stringify(infoProcedureJSON),
       linea: this.procedure.category.name,
