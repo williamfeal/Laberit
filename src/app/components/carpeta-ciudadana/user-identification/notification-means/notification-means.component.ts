@@ -43,7 +43,7 @@ export class NotificationMeansComponent implements OnInit, OnChanges {
   }
 
   capturarCorreo(ev) {
-    if (ev.match(EMAIL_REGEX) == null || ev === null) {
+    if (ev.match(EMAIL_REGEX) == null ) {
       this.emailError = true;
     } else {
       this.emailError = false;

@@ -20,7 +20,7 @@ export class InputTextComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value: string;
+  @Input() value: string = "";
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
@@ -52,7 +52,7 @@ export class InputTextComponent implements OnInit {
     this.error = !this.form.get(this.controlName).valid ?  true : false;
   }
   ngOnChanges(changes: SimpleChanges) {    
-    if(changes.draft && !isEmptyObject(this.draft)) 
+    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
       this.value = this.draft[this.controlName]
 
     if (!this.isRequired) {
