@@ -35,7 +35,6 @@ export class AutonomsComponent implements OnInit {
     constructor(public catalogService: CatalogsService) { }
 
     ngOnInit(): void {
-        console.log(this.validate);
        
     }
     ngAfterViewChecked() {
@@ -50,6 +49,7 @@ export class AutonomsComponent implements OnInit {
             }
         )
     }
+    
     saveDocument(ev) {
         this[ev.controlName] = false;
         // this.codes.find((value, index) => {

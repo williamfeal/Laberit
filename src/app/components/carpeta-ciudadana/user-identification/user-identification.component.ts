@@ -117,7 +117,6 @@ export class UserIdentificationComponent implements OnInit {
 
   public goToRequestInfo() {
     let error = 0;
-    this.saveDraft();
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
@@ -141,6 +140,8 @@ export class UserIdentificationComponent implements OnInit {
     //si no hay errores
     if (error == 0) {
       //llamada al back para mandar los datosc
+      this.saveDraftAndNavigate();
+
       this.draft ?
         this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
           queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
@@ -153,7 +154,7 @@ export class UserIdentificationComponent implements OnInit {
     }
   }
 
-  private saveDraft() {
+  private saveDraftAndNavigate() {
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
     );
@@ -164,12 +165,14 @@ export class UserIdentificationComponent implements OnInit {
 
       this.draft.info = JSON.stringify(infoProcedureJSON);
       this.carpetaService.saveDraft(this.draft).subscribe(
-          data => console.log(data)
+          () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+            queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
+          })
       )
     } else {
       infoProcedureJSON = { 
         idProcedure: this.idProcedure,
-        ...this.formUserIdentification.value 
+        formUserIdentification: this.formUserIdentification.value 
       }
       const draft:Draft = {
         fecha: '',
@@ -182,7 +185,9 @@ export class UserIdentificationComponent implements OnInit {
       }
     
       this.carpetaService.saveDraft(draft).subscribe(
-        data => console.log(data)
+        data => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+          queryParams: { draft: data.key }
+        })
       )
     }
     

@@ -8,7 +8,7 @@ import { Draft } from 'src/app/models/draft.model';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { IF_PROBLEM_PERSIST, tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
@@ -62,7 +62,8 @@ export class LineaResistirComponent implements OnInit {
     private getDraft() {
         if(this.activatedRoute.snapshot.queryParams.draft){
             this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
-                data => this.draft = data
+                data => { this.draft = data;
+                        console.log(this.draft) }
             )
         }
     }
@@ -75,10 +76,9 @@ export class LineaResistirComponent implements OnInit {
     }
 
     public goToDocumentation() {
-        this.saveDraft();
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
+            this.saveDraftAndNavigate();
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)
@@ -94,16 +94,18 @@ export class LineaResistirComponent implements OnInit {
         }
     }
 
-    private saveDraft() {
+    private saveDraftAndNavigate() {
         if(this.draft) {
             const infoJSON = JSON.parse(this.draft.info);
             infoJSON.formLineaResistir = this.formLineaResistir.value;
     
             this.draft.info = JSON.stringify(infoJSON);
             this.carpetaService.saveDraft(this.draft).subscribe(
-                data => console.log(data)
+                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
             )
-        }      
+        } else {
+            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
+        }     
     }
 
 
