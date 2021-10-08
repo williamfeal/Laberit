@@ -30,17 +30,14 @@ export class AutonomsComponent implements OnInit {
     public validCodes: boolean[] = [];
     public documentsTypeAutonoms: DocumentsType;
     public codes: string[] = [];
-    private unsubscribe$ = new Subject<void>();
 
+    private unsubscribe$ = new Subject<void>();
     constructor(public catalogService: CatalogsService) { }
 
     ngOnInit(): void {
-        console.log(this.validate);
-       
+        this.genericsDocsType();
     }
-    ngAfterViewChecked() {
-        this.genericsDocsType()
-    }
+
     genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).pipe(
             takeUntil(this.unsubscribe$)
@@ -52,13 +49,6 @@ export class AutonomsComponent implements OnInit {
     }
     saveDocument(ev) {
         this[ev.controlName] = false;
-        // this.codes.find((value, index) => {
-        //     if (value === ev.controlName) {
-        //         this.validCodes[index] = false;
-        //     }
-        // })
-        console.log(this.validCodes);
-        console.log(this.codes);
         saveDocument(this.fileListAu, ev);
     }
     deleteDocument(ev) {
@@ -68,5 +58,8 @@ export class AutonomsComponent implements OnInit {
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
-      }
+    }
+    public openPdf() {
+       this.catalogService.pruebaGet().subscribe(data=>{console.log(data);})
+    }
 }
