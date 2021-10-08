@@ -17,7 +17,7 @@
             [fieldOptions] = "actuation"
             [isRequired]="true"
             placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
-            [error]="validate && formRequestData.controls['typeSelectRequest']?.pristine"
+            [error]="validate && formRequestData.controls['typeSelectRequest']?.invalid"
             [errorText]="errorCharacterLeng"
     ></app-input-select>
         </div>
@@ -31,7 +31,7 @@
             value="Representante legal"
             [isRequired]="type == 'ivf-applicant-types-representantive'"
             isReadOnly="true"
-            [error]="validate && formRequestData.controls['ivf-applicant-types-representantive']?.pristine"
+            [error]="validate && formRequestData.controls['ivf-applicant-types-representantive']?.invalid"
             [errorText]="errorCharacterLeng"
     ></app-input-text>
         </div>

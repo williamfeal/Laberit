@@ -116,30 +116,7 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    console.log(this.formUserIdentification)
     let error = 0;
-    const infoProcedure = this.procedure.languages.find(
-      language => language.codigo === localStorage.getItem('lang')
-    );
-    const infoProcedureJSON = { 
-      idProcedure: this.idProcedure,
-      ...this.formUserIdentification.value }
-
-    const draftDate = this.draft ? this.draft.fecha : '';
-    const draftKey = this.draft ? this.draft.key : '';
-    const draft:Draft = {
-      fecha: draftDate,
-      key: draftKey,
-      desc: 'linea-resistir-' + new Date().getMilliseconds(),
-      info: JSON.stringify(infoProcedureJSON),
-      linea: this.procedure.category.name,
-      nif: sessionStorage.getItem('nifTitular'),
-      producto: infoProcedure.name
-    }
-    this.carpetaService.saveDraft(draft).subscribe(
-      data => console.log(data)
-    )
-    
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
@@ -162,14 +139,61 @@ export class UserIdentificationComponent implements OnInit {
     }
     //si no hay errores
     if (error == 0) {
-      //llamada al back para mandar los datos
-      this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
+      //llamada al back para mandar los datosc
+      this.saveDraftAndNavigate();
+
+      this.draft ?
+        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+          queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
+        }):
+        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
     } else {
       //saber como notificar al usuario
       SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
       this.showErrors = true;
     }
   }
+
+  private saveDraftAndNavigate() {
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    let infoProcedureJSON;
+    if(this.draft) {
+      infoProcedureJSON = JSON.parse(this.draft.info);
+      infoProcedureJSON.formUserIdentification = this.formUserIdentification.value;
+
+      this.draft.info = JSON.stringify(infoProcedureJSON);
+      this.carpetaService.saveDraft(this.draft).subscribe(
+          () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+            queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
+          })
+      )
+    } else {
+      infoProcedureJSON = { 
+        idProcedure: this.idProcedure,
+        formUserIdentification: this.formUserIdentification.value 
+      }
+      const draft:Draft = {
+        fecha: '',
+        key: '',
+        desc: 'BORRADOR',
+        info: JSON.stringify(infoProcedureJSON),
+        linea: this.procedure.category.name,
+        nif: sessionStorage.getItem('nifTitular'),
+        producto: infoProcedure.name
+      }
+    
+      this.carpetaService.saveDraft(draft).subscribe(
+        data => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+          queryParams: { draft: data.key }
+        })
+      )
+    }
+    
+  }
+
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

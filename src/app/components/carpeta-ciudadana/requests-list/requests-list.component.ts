@@ -25,6 +25,7 @@ export class RequestsListComponent implements OnInit {
 
   public navToRequestDraft(draft:Draft) {
     const info = JSON.parse(draft.info);
+    sessionStorage.setItem('idProcedure', info.idProcedure);
     this.router.navigate(['/carpeta-del-ciudadano/transact/' + info.idProcedure ], {
       queryParams: { draft: draft.key}
     })

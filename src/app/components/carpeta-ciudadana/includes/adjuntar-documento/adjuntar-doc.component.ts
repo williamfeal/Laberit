@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FileModel } from 'src/app/models/file.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { saveDocument, deleteDocument } from './AppUtils.component';
@@ -8,6 +8,8 @@ import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'; 
+import { Draft } from 'src/app/models/draft.model';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-adjuntar-documento',
@@ -21,6 +23,8 @@ export class AdjuntarDocComponent implements OnInit {
   public requi: boolean = true;
   public formAdjuntarDoc: FormGroup;
   public documentsType: DocumentsType;
+  public draft:Draft;
+
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 
   public procedure;
@@ -31,21 +35,26 @@ export class AdjuntarDocComponent implements OnInit {
     private procedureService: ProceduresService,
     private cdRef: ChangeDetectorRef,
     private fb: FormBuilder,
-    public catalogService: CatalogsService
+    private carpetaService: CarpetaService,
+    private activatedRoute:ActivatedRoute
     ) {
 
-    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      data => this.procedure = data
-    )
+      this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        data => this.procedure = data
+      )
   }
-  public ngOnChanges(changes: SimpleChanges): void {
+
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes.loadedFileList.currentValue !== undefined) {
       this.fileList = changes.loadedFileList.currentValue;
     }
   }
+
   ngOnInit(): void {
+    this.getDraft();
+    
     if(sessionStorage.getItem('company_type')) {
       this.tipo_empresa = sessionStorage.getItem('company_type');
       
@@ -58,11 +67,21 @@ export class AdjuntarDocComponent implements OnInit {
         sociedad_civil: new FormGroup({})
       });
     }
-    console.log(this.tipo_empresa);
   }
   
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
+  }
+
+  private getDraft() {
+    if(this.activatedRoute.snapshot.queryParams.draft) {
+      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+        data => {
+          this.draft = data
+          console.log(JSON.parse(data.info))
+        } 
+      )
+    }
   }
 
   saveDocument(ev) {
@@ -80,23 +99,30 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    console.log(this.formAdjuntarDoc);
-    if(this.formAdjuntarDoc.valid){
-    // if (this.tipo_empresa === 'ivf-representative-types-juridic-person-autonomous' && this.fileList.length == 10 || this.tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods' && this.fileList.length == 13
-    // || this.tipo_empresa === 'ivf-representative-types-juridic-person-micro-business' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-pyme' && this.fileList.length == 18 ||
-    // this.tipo_empresa === 'ivf-representative-types-juridic-person-big-company' && this.fileList.length == 16 || this.tipo_empresa === 'ivf-representative-types-juridic-person-civil-society' && this.fileList.length == 13) {
-      console.log(this.fileList);
+    if(this.formAdjuntarDoc.valid) {
       this.validate = false;
-      this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
-    // } else {
+      this.saveDraftAndNavigate();
       
-    //}
-  }else{
-    console.log('NO ES VALIDO');
-    this.validate = true;
-    console.log(this.validate);
+    } else{
+      this.validate = true;
+      console.log(this.validate);
+    }
   }
+
+  private saveDraftAndNavigate() {
+    if(this.draft) {
+      const infoJSON = JSON.parse(this.draft.info);
+      infoJSON.formAdjuntarDoc = this.formAdjuntarDoc.value;
+
+      this.draft.info = JSON.stringify(infoJSON);
+      this.carpetaService.saveDraft(this.draft).subscribe(
+          () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], { queryParams: { draft: this.draft.key }})
+      )
+  } else {
+      this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
+  }     
   }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

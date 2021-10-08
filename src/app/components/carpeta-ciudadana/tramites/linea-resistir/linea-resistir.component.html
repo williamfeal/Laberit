@@ -4,8 +4,10 @@
 <div *ngIf="procedure">
     <app-button-back></app-button-back>
     <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
-        <app-procedure-information [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>
-        <app-detail-cost-financed [formLineaResistir]="formLineaResistir" [validate]="validate"></app-detail-cost-financed>
+        <app-procedure-information [draft]="draft"
+            [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>
+        <app-detail-cost-financed [draft]="draft"
+            [formLineaResistir]="formLineaResistir" [validate]="validate"></app-detail-cost-financed>
     </form>
     <div class="text-right px-3">
         <button class="btn-app-primary mr-2" (click)="goToDocumentation()">{{ 'buttons.continue' | translate}}</button>

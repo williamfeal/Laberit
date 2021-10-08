@@ -7,6 +7,7 @@ import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { isEmptyObject } from 'jquery';
 
 
 @Component({
@@ -47,6 +48,12 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
       this.draftProductiveEstablishmentData = JSON.parse(this.draft.info).productive_establishment;
+      if(!isEmptyObject(this.draftProductiveEstablishmentData.productive_establishment_country)) {
+        this.countrySelected = this.draftProductiveEstablishmentData.productive_establishment_country;
+        if(!isEmptyObject(this.draftProductiveEstablishmentData.productive_establishment_province)) {
+          this.onChangeSpainCountry(this.draftProductiveEstablishmentData.productive_establishment_province);
+        }
+      }
     }
   }
   
@@ -74,7 +81,7 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
     )
   }
 
-  public onCountryChange(event) {
+  public onChangeSpainCountry(event) {
     this.catalogsService.getCatalogByCode(event).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(

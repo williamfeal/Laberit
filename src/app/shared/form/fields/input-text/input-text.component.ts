@@ -20,8 +20,7 @@ export class InputTextComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() emailBool!: boolean;
-  @Input() value: string;
+  @Input() value: string = "";
   @Input() placeholder!: string;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
@@ -38,11 +37,7 @@ export class InputTextComponent implements OnInit {
     if (this.isRequired) {
       this.validaciones.push(Validators.required);
     }
-    if(this.emailBool){
-      console.log('ENtra');
-      this.validaciones.push(Validators.email);
-      console.log(this.validaciones);
-    }
+
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
     }
@@ -58,7 +53,7 @@ export class InputTextComponent implements OnInit {
     this.error = !this.form.get(this.controlName).valid ?  true : false;
   }
   ngOnChanges(changes: SimpleChanges) {    
-    if(changes.draft && !isEmptyObject(this.draft)) 
+    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
       this.value = this.draft[this.controlName]
 
     if (!this.isRequired) {

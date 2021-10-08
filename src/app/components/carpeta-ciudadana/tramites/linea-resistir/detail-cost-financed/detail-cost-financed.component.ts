@@ -1,5 +1,7 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
+import { Draft } from 'src/app/models/draft.model';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 
 @Component({
@@ -11,29 +13,37 @@ export class DetailCostFinancedComponent implements OnInit {
 
     @Input() formLineaResistir: FormGroup;
     @Input() validate: boolean;
-
+    @Input() draft:Draft;
     //se bebera de los catalogos
     tipoProyecto = tipoProyecto;
 
     showInversion = false;
     showCirculante = false;
     
-    company_type: string;
+    project_type: string;
+
+    public draftDetailCostFinanced;
 
     constructor(
         private ref: ChangeDetectorRef
     ) { }
 
-    ngOnChanges() {
+    ngOnChanges(changes:SimpleChanges) {
         this.ref.detectChanges();
+        if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info).formLineaResistir) {
+            this.draftDetailCostFinanced = JSON.parse(this.draft.info).formLineaResistir;
+            if(!isEmptyObject(this.draftDetailCostFinanced.project_type)) {
+                this.capturarCampo(this.draftDetailCostFinanced.project_type, 'project_type');
+            }
+        }
     }
 
     ngOnInit() { }
 
     capturarCampo(ev, campo) {
-        this[campo] = ev.target.value;
-        if (campo == 'company_type') {
-            switch (this.company_type) {
+        this[campo] = ev;
+        if (campo == 'project_type') {
+            switch (this.project_type) {
                 case '1':
                     this.showInversion = true;
                     this.showCirculante = false;

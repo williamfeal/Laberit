@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -19,10 +20,12 @@ export class InputTextAreaComponent implements OnInit {
     @Input() isReadOnly!: boolean;
     @Input() isRequired!: boolean;
     @Input() errorText!: string;
-    @Input() value!: string;
+    @Input() value: string = "";
     @Input() placeholder!: string;
     @Input() error!: boolean;
     @Input() minLength!: number | null;
+    @Input() draft;
+
     private unsubscribe$ = new Subject<void>();
     textError: string;
     formControl = new FormControl('');
@@ -41,9 +44,6 @@ export class InputTextAreaComponent implements OnInit {
         }
         this.form.addControl(this.controlName, this.formControl);
 
-        this.value ?
-            this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
-
         if (this.placeholder == undefined) this.placeholder = '';
 
 
@@ -52,7 +52,10 @@ export class InputTextAreaComponent implements OnInit {
     onChangeValue() {
         !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
     }
+
     ngOnChanges(changes: SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft) && this.draft[this.controlName]) 
+            this.value = this.draft[this.controlName]
         if (!this.isRequired) {
             if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
               this.form.get(this.controlName).clearValidators();
