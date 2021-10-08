@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
@@ -12,13 +13,14 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
   selector: 'app-legal-representative',
   templateUrl: './legal-representative.component.html',
 })
-export class LegalRepresentativeComponent implements OnInit {
+export class LegalRepresentativeComponent implements OnInit, OnChanges {
 
   @Input() formLegalRepresentative: FormGroup;
   @Input() readOnly: boolean;
   @Input() isRequired: boolean;
   @Input() validate: boolean;
   @Input() public emailError: boolean;
+  @Input() draft:Draft;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -27,7 +29,8 @@ export class LegalRepresentativeComponent implements OnInit {
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
-  
+  public draftLegalRepresentativeData;
+
   public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
 
   public countrySpainSelected;
@@ -43,6 +46,12 @@ export class LegalRepresentativeComponent implements OnInit {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftLegalRepresentativeData = JSON.parse(this.draft.info).legal_representative_data;
+    }
   }
 
   private getCountries() {

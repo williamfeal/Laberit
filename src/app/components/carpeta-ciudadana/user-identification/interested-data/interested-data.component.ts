@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
@@ -11,19 +12,21 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
   selector: 'app-interested-data',
   templateUrl: './interested-data.component.html'
 })
-export class InterestedDataComponent implements OnInit {
+export class InterestedDataComponent implements OnInit, OnChanges {
 
   @Input() formInterestedData:FormGroup;
   @Input() readOnly:boolean;
   @Input() validate: boolean;
   @Input() isRequired:boolean;
-  
+  @Input() draft:Draft;
+
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
   public belongingCompany:SelectFieldObject[];
   public cnae: SelectFieldObject[];
   public businessType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
+  public draftInterestedData;
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -39,6 +42,12 @@ export class InterestedDataComponent implements OnInit {
     this.getGendersData();
     this.getBelongingCompany();
     this.representativeTypeChange();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftInterestedData = JSON.parse(this.draft.info).interested_data;
+    }
   }
 
   public representativeTypeChange() {

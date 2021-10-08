@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -19,7 +20,7 @@ export class InputNumberComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value!: string;
+  @Input() value: string = "";
   @Input() placeholder: string = "0";
   @Input() error!: boolean;
   @Input() minLength!: number | null;
@@ -27,6 +28,8 @@ export class InputNumberComponent implements OnInit {
   @Input() decimales!: number | null; //numero de decimales
   @Input() step!: number | null; //numero de decimales
   @Input() negativos: boolean;
+  @Input() draft:Object;
+
   textError: string;
   validaciones: ValidatorFn[] = [];
   formControl = new FormControl('');
@@ -48,27 +51,27 @@ export class InputNumberComponent implements OnInit {
     
     this.form.addControl(this.controlName, this.formControl);
 
-    this.value ?
-      this.form.get(this.controlName)?.setValue(this.value) : this.form.get(this.controlName)?.setValue('');
-
     if (this.placeholder == undefined) this.placeholder = '';
 
   }
 
   onChangeValue() {
-    console.log(this.form.get(this.controlName).value);
-    !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
+    this.error = !this.form.get(this.controlName).valid ? true : false;
     if(this.form.get(this.controlName).value <= 0 ){
       this.error=true;
       this.validaciones.push(Validators.min(0));
       this.formControl.setValidators(this.validaciones);
-
-    }else{
+    } else{
       this.error = false;
       this.form.get(this.controlName).valid
     }
   }
   ngOnChanges(changes: SimpleChanges) {
+    
+    if(changes.draft && !isEmptyObject(this.draft) ) 
+      this.value = this.draft[this.controlName];  
+            
+
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
         this.form.get(this.controlName).clearValidators();

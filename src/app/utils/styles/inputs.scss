@@ -2,18 +2,17 @@
 
 .btn-app-outline-primary {
   background-color: transparent;
-  border-color: $blue-100;
+  border-color: $primaryColor;
   border-radius: 3px;
   border: 1px solid;
-  color: $blue-100;
+  color: $primaryColor;
   cursor: pointer;
-  padding: 11px 40px;
   transition: all .25s linear;
   outline: none;
 
   &:hover {
-    background-color: $blue-70;
-    border-color: $blue-70;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
     color: $white;
     transition: all .25s linear;
     -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
@@ -21,8 +20,8 @@
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
   }
   &:active {
-    background-color: $blue-50;
-    border-color: $blue-50;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
     transition: all .25s linear;
     outline: none;
     -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,0.5);
@@ -34,8 +33,8 @@
     outline: none;
   }
   &:disabled {
-    background-color: $blue-200;
-    border-color: $blue-200;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;

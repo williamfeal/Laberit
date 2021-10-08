@@ -1,10 +1,11 @@
 <form [formGroup]="form">
     
     <label>{{ label }} <span *ngIf="isRequired" class="requiredField">*</span> </label>
-    <select data-cy="nameValue" class="form-control" [class]="class" [id]="idValue" [name]="nameValue" [value]="label"
+    <select data-cy="nameValue" class="form-control" [class]="class" [id]="idValue" [name]="nameValue" [(ngModel)]="selectedValue"
         (change)="onChangeValue()" [formControlName]="controlName" [ngClass]="{ 'error-input': error == true }">
         <option *ngIf="placeholder" value="" disabled>{{ placeholder }}</option>
-        <option *ngFor="let item of fieldOptions" [value]="item.concept_code" [attr.selected]="idSelected==item.concept_code ? true : null">{{ item.description }}</option>
+        <option *ngFor="let item of fieldOptions" [value]="item.concept_code" [attr.selected]="idSelected==item.concept_code ? true : null">
+            {{ item.description }}</option>
     </select>
     <p class="error-p" *ngIf='error == true && textError !=""' [innerHTML]="textError">a</p>
 </form>

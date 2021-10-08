@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
+import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
@@ -16,7 +18,8 @@ export class SocialAddressComponent implements OnInit {
   @Input() formSocialAdress: FormGroup;
   @Input() validate: boolean;
   @Input() isRequired: boolean;
-
+  @Input() draft:Draft;
+  
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
@@ -26,6 +29,7 @@ export class SocialAddressComponent implements OnInit {
 
   public countrySpainSelected;
   public countrySelected;
+  public draftSocialAddressData;
   private unsubscribe$ = new Subject<void>();
 
   errorCharacterLeng: string = 'empty_error';
@@ -37,6 +41,20 @@ export class SocialAddressComponent implements OnInit {
   ngOnInit(): void {
     this.getRoadTypes();
     this.getCountries();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftSocialAddressData = JSON.parse(this.draft.info).sosial_address;
+      console.log(this.draftSocialAddressData)
+      if(!isEmptyObject(this.draftSocialAddressData.social_country)) {
+        this.countrySelected = this.draftSocialAddressData.social_country;
+        if(!isEmptyObject(this.draftSocialAddressData.social_province)) {
+          this.countrySpainSelected = this.draftSocialAddressData.social_province;
+          this.onChangeSpainCountry(this.countrySpainSelected);
+        }
+      }
+    }
   }
 
   public getRoadTypes() {

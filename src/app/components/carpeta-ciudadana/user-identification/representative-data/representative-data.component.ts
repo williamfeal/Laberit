@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
+import { Draft } from 'src/app/models/draft.model';
 import { pipe, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
@@ -11,14 +13,15 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
   selector: 'app-representative-data',
   templateUrl: './representative-data.component.html'
 })
-export class RepresentativeDataComponent implements OnInit {
+export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   @Input() formRepresentativeData: FormGroup;
   @Input() readOnly: boolean;
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
-  
+  @Input() draft:Draft;
+
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
 
@@ -31,6 +34,7 @@ export class RepresentativeDataComponent implements OnInit {
   
   public representativeTypeSelected;
   public businessTypeSelected;
+  public draftRepresentativeData;
 
   private unsubscribe$ = new Subject<void>();
 
@@ -45,6 +49,16 @@ export class RepresentativeDataComponent implements OnInit {
     this.getGenders();
     this.getCNAEoptions();
   }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftRepresentativeData = JSON.parse(this.draft.info).representative_data;
+      if(!isEmptyObject(this.draftRepresentativeData.representativeTypes)) {
+        this.representativeTypeChange(this.draftRepresentativeData.representativeTypes);
+      }
+    }
+  }
+
 
   public isJuridicPerson() {
     return this.representativeTypeSelected === ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON;

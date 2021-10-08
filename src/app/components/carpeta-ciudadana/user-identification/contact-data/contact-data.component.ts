@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
@@ -13,7 +14,7 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
   templateUrl: './contact-data.component.html',
   styleUrls: ['./contact-data.component.scss']
 })
-export class ContactDataComponent implements OnInit {
+export class ContactDataComponent implements OnInit, OnChanges {
 
   @Input() formContactData: FormGroup;
   @Input() readOnly: boolean;
@@ -21,6 +22,7 @@ export class ContactDataComponent implements OnInit {
   @Input() validate: boolean;
   @Input() public emailError: boolean;
   @Input() public emailErrorText: string;
+  @Input() draft:Draft;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -31,7 +33,8 @@ export class ContactDataComponent implements OnInit {
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
   public typeStreet: SelectFieldObject[];
-  
+  public draftContactData;
+
   public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
 
   public countrySpainSelected;
@@ -47,6 +50,12 @@ export class ContactDataComponent implements OnInit {
     this.getCountries();
     this.getSpainCountries();
     this.getRoadTypes();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && this.draft) {
+      this.draftContactData = JSON.parse(this.draft.info).contact_data;
+    }
   }
 
   private getRoadTypes() {

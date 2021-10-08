@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procedure } from 'src/app/models/procedure.model';
@@ -9,6 +9,8 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { TranslateService } from '@ngx-translate/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -35,7 +37,13 @@ export class UserIdentificationComponent implements OnInit {
 
   public interested: boolean = false;
   public representative: boolean = false;
+
+  public INTERESTED_CONCEPT = ConceptConstants.APPLICANT_TYPE_INTERESTED;
+  public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
+
   public textError;
+  public draft:Draft;
+
 
   private unsubscribe$ = new Subject<void>();
   
@@ -44,13 +52,15 @@ export class UserIdentificationComponent implements OnInit {
     private router: Router,
     private proceduresService: ProceduresService,
     private carpetaUtils: CarpetaUtils,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private carpetaService:CarpetaService
   ) {
     
   }
 
   ngOnInit(): void {
     this.user = this.carpetaUtils.getSession();
+    this.getDraft();
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
     this.proceduresService.getProcedureById(this.idProcedure).pipe(
       takeUntil(this.unsubscribe$)
@@ -83,6 +93,15 @@ export class UserIdentificationComponent implements OnInit {
     return false;
   }
 
+  public getDraft() {
+    if(this.activatedRoute.snapshot.queryParams.draft) {
+      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+        (data:Draft) => {
+          this.draft = data;
+        })
+      }
+  }
+
   onChangeTypeRequester(event) {
     this.requesterType = event;
     if (this.requesterType == ConceptConstants.APPLICANT_TYPE_INTERESTED) {
@@ -97,8 +116,30 @@ export class UserIdentificationComponent implements OnInit {
   }
 
   public goToRequestInfo() {
+    console.log(this.formUserIdentification)
     let error = 0;
-    console.log(this.formUserIdentification);                                  
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    const infoProcedureJSON = { 
+      idProcedure: this.idProcedure,
+      ...this.formUserIdentification.value }
+
+    const draftDate = this.draft ? this.draft.fecha : '';
+    const draftKey = this.draft ? this.draft.key : '';
+    const draft:Draft = {
+      fecha: draftDate,
+      key: draftKey,
+      desc: 'linea-resistir-' + new Date().getMilliseconds(),
+      info: JSON.stringify(infoProcedureJSON),
+      linea: this.procedure.category.name,
+      nif: sessionStorage.getItem('nifTitular'),
+      producto: infoProcedure.name
+    }
+    this.carpetaService.saveDraft(draft).subscribe(
+      data => console.log(data)
+    )
+    
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
 
