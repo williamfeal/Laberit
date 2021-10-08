@@ -21,8 +21,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
   @Input() readOnly: boolean;
   @Input() interesado: boolean;
   @Input() validate: boolean;
-  @Input() public emailError: boolean;
-  @Input() public emailErrorText: string;
+  @Input() public emailErrorContact: boolean;
   @Input() draft:Draft;
 
   public errorCharacterLeng: string = 'empty_error';
@@ -111,9 +110,9 @@ export class ContactDataComponent implements OnInit, OnChanges {
   }
   capturarCorreo(ev) {
     if (ev.match(EMAIL_REGEX) == null) {
-      this.emailError = true;
+      this.emailErrorContact = true;
     } else {
-      this.emailError = false;
+      this.emailErrorContact = false;
     }
   }
   

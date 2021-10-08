@@ -20,7 +20,7 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   @Input() readOnly: boolean;
   @Input() isRequired: boolean;
   @Input() validate: boolean;
-  @Input() public emailError: boolean;
+  @Input() emailErrorLegal: boolean = false;
   @Input() draft:Draft;
 
   public errorCharacterLeng: string = 'empty_error';
@@ -98,9 +98,9 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   }
   capturarCorreo(ev) {
     if (ev.match(EMAIL_REGEX) == null) {
-      this.emailError = true;
+      this.emailErrorLegal = true;
     } else {
-      this.emailError = false;
+      this.emailErrorLegal = false;
     }
   }
 

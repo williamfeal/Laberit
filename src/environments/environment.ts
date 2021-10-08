@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   envName: 'default',
   app_url: 'http://localhost:4200',
-  atencion_cliente_url: 'http://localhost:8082',
+  atencion_cliente_url: 'http://acli.ivf.alfatecsistemas.es',
   moges_url: 'http://lavenganza.ivf.alfatecsistemas.es',
   carpeta_url:'http://carpeta.ivf.alfatecsistemas.es',
   trex_url: 'http://trex-sede.ivf.alfatecsistemas.es',

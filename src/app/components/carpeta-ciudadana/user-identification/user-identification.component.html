@@ -48,14 +48,14 @@
         </div>
         <div class="row mx-0" [ngClass]="{ 'd-none': representative == false}">
             <div class="col-md-12 mt-2">
-                <app-legal-representative [validate]="validate" [draft]="draft"
+                <app-legal-representative [validate]="validate" [draft]="draft" [emailErrorLegal]="emailErrorLegalRepresnt"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
                     [isRequired]="representative" [readOnly]="false"></app-legal-representative>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-contact-data [validate]="validate" [formContactData]="formUserIdentification.controls.contact_data"
+                <app-contact-data [validate]="validate" [emailErrorContact]="emailErrorContact" [formContactData]="formUserIdentification.controls.contact_data"
                     [interesado]="interested" [readOnly]="false" [draft]="draft">
                 </app-contact-data>
             </div>
