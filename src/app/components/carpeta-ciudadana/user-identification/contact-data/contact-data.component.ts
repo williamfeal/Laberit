@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
@@ -18,6 +19,8 @@ export class ContactDataComponent implements OnInit {
   @Input() readOnly: boolean;
   @Input() interesado: boolean;
   @Input() validate: boolean;
+  @Input() public emailError: boolean;
+  @Input() public emailErrorText: string;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -88,6 +91,13 @@ export class ContactDataComponent implements OnInit {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+  capturarCorreo(ev) {
+    if (ev.match(EMAIL_REGEX) == null) {
+      this.emailError = true;
+    } else {
+      this.emailError = false;
+    }
   }
   
 }

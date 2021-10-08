@@ -20,6 +20,7 @@ export class CatalogsService {
     const data = this.http.get(`${this.URL_GET_CATALOG_BY_CODE}/${code}/${localStorage.getItem('lang')}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('admin:admin')
       }),
     });
     return data.pipe(map((response:any) => {
@@ -28,6 +29,20 @@ export class CatalogsService {
       console.error('Error obteniendo el concepto', err);
         throw err;
     }));   
+  }
+  public pruebaGet(){
+    const data = this.http.get('http://alfresco.apc.alfatecsistemas.es/alfresco/api/-default-/public/alfresco/versions/1/nodes/4a2841cb-24e1-4f09-be86-81037dcfb816/content?attachment=true' , {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('admin:admin')
+      }),
+    })
+    return data.pipe(map((response:any) => {
+      return response.data;
+    })).pipe(catchError((err: Error) => {
+      console.error('Error obteniendo el concepto', err);
+        throw err;
+    })); 
   }
 
   public getConceptByCode(code:string) {

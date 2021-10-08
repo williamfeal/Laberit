@@ -2,15 +2,15 @@
 	margin-left: 1rem;
 	padding: 0.5rem;
 	border: dashed 1px gray;
-	width: 40%;
+	width: 25%;
 	i {
-	  color: grayscale($color: #353535);
+	  color: grayscale($color: #858383);
 	}
   
 	input {
 	  opacity: 0;
 	  position: absolute;
-	  width: 39%;
+	  width: 22%;
 	}
   }
   
@@ -26,4 +26,16 @@
 }
 input.ng-dirty.ng-invalid {
     color: red
+  }
+.center-text{
+	text-align: center !important;
+}
+.overme {
+    width: 680px;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: Ellipsis;
+}
+  .primary-link{
+	  color:red;
   }
