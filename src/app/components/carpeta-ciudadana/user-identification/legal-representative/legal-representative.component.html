@@ -12,7 +12,7 @@
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }}"
                 controlName="legal_representative_name" idValue="legal_representative_name"
                 nameValue="legal_representative_name" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_name']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_name']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3">
@@ -21,7 +21,7 @@
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }}"
                 controlName="legal_representative_surname1" idValue="legal_representative_surname1"
                 nameValue="legal_representative_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_surname1']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_surname1']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3">
@@ -30,7 +30,7 @@
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
                 controlName="legal_representative_surname2" idValue="legal_representative_surname2"
                 nameValue="legal_representative_surname2" [isReadOnly]="readOnly" [isRequired]="false"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_surname2']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_surname2']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3">
@@ -48,7 +48,7 @@
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
                 controlName="legal_representative_position" idValue="legal_representative_position"
                 nameValue="legal_representative_position" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_position']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_position']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3">
@@ -57,7 +57,7 @@
                 label="{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }}"
                 controlName="legal_representative_telephone" idValue="legal_representative_telephone"
                 nameValue="legal_representative_telephone" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_telephone']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_telephone']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3">
@@ -80,7 +80,7 @@
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
                 label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
                 controlName="legal_representative_via_type" idValue="legal_representative_via_type"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_via_type']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_via_type']?.invalid"
                 nameValue="legal_representative_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
 
@@ -91,7 +91,7 @@
                 label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                 controlName="legal_representative_address" idValue="legal_representative_address"
                 nameValue="legal_representative_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                [error]="validate && formLegalRepresentative.controls['legal_representative_address']?.pristine"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_address']?.invalid"
                 [errorText]="errorCharacterLeng"></app-input-text>
         </div>
         <div class="form-group col-md-3 px-0">
@@ -101,7 +101,7 @@
                     controlName="legal_representative_number" idValue="legal_representative_number"
                     nameValue="legal_representative_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [negativos]="true"
-                    [error]="validate && formLegalRepresentative.controls['legal_representative_number']?.pristine"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_number']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-number>
             </div>
         </div>
@@ -124,7 +124,7 @@
                     nameValue="legal_representative_CP" 
                     [isRequired]="isRequired" 
                     [negativos]="true"
-                    [error]="validate && formLegalRepresentative.controls['legal_representative_CP']?.pristine"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_CP']?.invalid"
                     [errorText]="errorCharacterLeng">
                 </app-input-number>
             </div>
@@ -132,7 +132,7 @@
         <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formLegalRepresentative" (change)="onChangeCountry($event.target.value)"
-                    [error]="validate && formLegalRepresentative.controls['legal_representative_country']?.pristine"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_country']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" [draft]="draftLegalRepresentativeData"
                     controlName="legal_representative_country" idValue="legal_representative_country"
@@ -142,7 +142,7 @@
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                 <app-input-select [form]="formLegalRepresentative" (change)="onChangeSpainCountry($event.target.value)"
-                    [error]="validate && formLegalRepresentative.controls['legal_representative_province']?.pristine"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_province']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}" [draft]="draftLegalRepresentativeData"
                     controlName="legal_representative_province" idValue="legal_representative_province"
@@ -152,7 +152,7 @@
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
                 <app-input-select [form]="formLegalRepresentative"
-                    [error]="validate && formLegalRepresentative.controls['legal_representative_municipality']?.pristine"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_municipality']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}" [draft]="draftLegalRepresentativeData"
                     controlName="legal_representative_municipality" idValue="legal_representative_municipality"

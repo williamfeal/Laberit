@@ -8,6 +8,7 @@ import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input
 import { AppUtils } from 'src/app/utils/app-utils';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-legal-representative',
@@ -50,7 +51,13 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftLegalRepresentativeData = JSON.parse(this.draft.info).legal_representative_data;
+      this.draftLegalRepresentativeData = JSON.parse(this.draft.info).legal_representative;
+      if(!isEmptyObject(this.draftLegalRepresentativeData.legal_representative_country)) {
+        this.countrySelected = this.draftLegalRepresentativeData.legal_representative_country;
+        if(!isEmptyObject(this.draftLegalRepresentativeData.legal_representative_province)) {
+          this.onChangeSpainCountry(this.draftLegalRepresentativeData.legal_representative_province);
+        }
+      }
     }
   }
 

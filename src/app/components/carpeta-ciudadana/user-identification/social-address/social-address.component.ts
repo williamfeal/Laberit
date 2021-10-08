@@ -46,7 +46,6 @@ export class SocialAddressComponent implements OnInit {
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
       this.draftSocialAddressData = JSON.parse(this.draft.info).sosial_address;
-      console.log(this.draftSocialAddressData)
       if(!isEmptyObject(this.draftSocialAddressData.social_country)) {
         this.countrySelected = this.draftSocialAddressData.social_country;
         if(!isEmptyObject(this.draftSocialAddressData.social_province)) {

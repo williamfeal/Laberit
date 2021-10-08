@@ -47,6 +47,7 @@ export class AutonomsComponent implements OnInit {
             }
         )
     }
+    
     saveDocument(ev) {
         this[ev.controlName] = false;
         saveDocument(this.fileListAu, ev);

@@ -56,6 +56,9 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
       if(!isEmptyObject(this.draftRepresentativeData.representativeTypes)) {
         this.representativeTypeChange(this.draftRepresentativeData.representativeTypes);
       }
+      if(!isEmptyObject(this.draftRepresentativeData.businessType)) {
+        sessionStorage.setItem('company_type', this.draftRepresentativeData.businessType);
+      }
     }
   }
 
