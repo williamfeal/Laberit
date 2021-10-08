@@ -20,6 +20,7 @@ export class InputTextComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
+  @Input() emailBool!: boolean;
   @Input() value: string;
   @Input() placeholder!: string;
   @Input() error!: boolean;
@@ -37,12 +38,17 @@ export class InputTextComponent implements OnInit {
     if (this.isRequired) {
       this.validaciones.push(Validators.required);
     }
+    if(this.emailBool){
+      console.log('ENtra');
+      this.validaciones.push(Validators.email);
+      console.log(this.validaciones);
+    }
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
     }
-    if (this.validaciones.length > 0) {
+    
       this.formControl.setValidators(this.validaciones);
-    }
+    
     this.form.addControl(this.controlName, this.formControl);
 
     if (this.placeholder == undefined) this.placeholder = '';
