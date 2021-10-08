@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { isEmptyObject } from 'jquery';
 
@@ -19,6 +20,7 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   @Input() readOnly: boolean;
   @Input() isRequired: boolean;
   @Input() validate: boolean;
+  @Input() public emailError: boolean;
   @Input() draft:Draft;
 
   public errorCharacterLeng: string = 'empty_error';
@@ -94,6 +96,14 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   public onChangeCountry(event) {
     this.countrySelected = event;
   }
+  capturarCorreo(ev) {
+    if (ev.match(EMAIL_REGEX) == null) {
+      this.emailError = true;
+    } else {
+      this.emailError = false;
+    }
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
