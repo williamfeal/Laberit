@@ -23,7 +23,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
   @Input() validate: boolean;
   @Input() public emailError: boolean;
   @Input() public emailErrorText: string;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -55,7 +55,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftContactData = JSON.parse(this.draft.info).contact_data;
+      this.draftContactData = this.draft.contact_data;
       if(!isEmptyObject(this.draftContactData.contact_data_country)) {
         this.countrySelected = this.draftContactData.contact_data_country;
         if(!isEmptyObject(this.draftContactData.contact_data_province)) {

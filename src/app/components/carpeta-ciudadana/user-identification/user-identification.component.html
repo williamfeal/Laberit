@@ -12,43 +12,43 @@
         <div class="col-md-6">
             <app-notification-means [readOnly]="false"
                 [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError"
-                [emailErrorText]="emailErrorText" [notificationError]="notificationError" [draft]="draft"
+                [emailErrorText]="emailErrorText" [notificationError]="notificationError" [draft]="draftUserIdentification"
                 [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
             <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data"
-                (typeOutput)="onChangeTypeRequester($event)" [draft]="draft"></app-requester-data>
+                (typeOutput)="onChangeTypeRequester($event)" [draft]="draftUserIdentification"></app-requester-data>
         </div>
     </div>
     <div [ngClass]="{ 'd-none': representative == false && interested == false }">
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
-                <app-representative-data [validate]="validate" [isRequired]="representative" [draft]="draft"
+                <app-representative-data [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
-                <app-interested-data [validate]="validate" [isRequired]="interested" [draft]="draft"
+                <app-interested-data [validate]="validate" [isRequired]="interested" [draft]="draftUserIdentification"
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
                 </app-interested-data>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-social-address [validate]="validate" isRequired="true" [draft]="draft"
+                <app-social-address [validate]="validate" isRequired="true" [draft]="draftUserIdentification"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-productive-establishment-address [validate]="validate" isRequired="true"  [draft]="draft"
+                <app-productive-establishment-address [validate]="validate" isRequired="true"  [draft]="draftUserIdentification"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="false"></app-productive-establishment-address>
             </div>
         </div>
         <div class="row mx-0" [ngClass]="{ 'd-none': representative == false}">
             <div class="col-md-12 mt-2">
-                <app-legal-representative [validate]="validate" [draft]="draft"
+                <app-legal-representative [validate]="validate" [draft]="draftUserIdentification"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
                     [isRequired]="representative" [readOnly]="false"></app-legal-representative>
             </div>
@@ -56,7 +56,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
                 <app-contact-data [validate]="validate" [formContactData]="formUserIdentification.controls.contact_data"
-                    [interesado]="interested" [readOnly]="false" [draft]="draft">
+                    [interesado]="interested" [readOnly]="false" [draft]="draftUserIdentification">
                 </app-contact-data>
             </div>
         </div>

@@ -18,7 +18,7 @@ export class SocialAddressComponent implements OnInit {
   @Input() formSocialAdress: FormGroup;
   @Input() validate: boolean;
   @Input() isRequired: boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
   
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
@@ -45,7 +45,7 @@ export class SocialAddressComponent implements OnInit {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftSocialAddressData = JSON.parse(this.draft.info).sosial_address;
+      this.draftSocialAddressData = this.draft.sosial_address;
       if(!isEmptyObject(this.draftSocialAddressData.social_country)) {
         this.countrySelected = this.draftSocialAddressData.social_country;
         if(!isEmptyObject(this.draftSocialAddressData.social_province)) {

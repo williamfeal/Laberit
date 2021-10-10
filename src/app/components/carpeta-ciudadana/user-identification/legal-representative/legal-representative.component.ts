@@ -21,7 +21,7 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
   @Input() isRequired: boolean;
   @Input() validate: boolean;
   @Input() public emailError: boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -51,7 +51,7 @@ export class LegalRepresentativeComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftLegalRepresentativeData = JSON.parse(this.draft.info).legal_representative;
+      this.draftLegalRepresentativeData = this.draft.legal_representative;
       if(!isEmptyObject(this.draftLegalRepresentativeData.legal_representative_country)) {
         this.countrySelected = this.draftLegalRepresentativeData.legal_representative_country;
         if(!isEmptyObject(this.draftLegalRepresentativeData.legal_representative_province)) {
