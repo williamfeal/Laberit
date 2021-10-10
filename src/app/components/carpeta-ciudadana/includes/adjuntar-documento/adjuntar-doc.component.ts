@@ -24,6 +24,7 @@ export class AdjuntarDocComponent implements OnInit {
   public formAdjuntarDoc: FormGroup;
   public documentsType: DocumentsType;
   public draft:Draft;
+  public draftAdjuntarDoc;
 
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 
@@ -77,8 +78,8 @@ export class AdjuntarDocComponent implements OnInit {
     if(this.activatedRoute.snapshot.queryParams.draft) {
       this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
         data => {
-          this.draft = data
-          console.log(JSON.parse(data.info))
+          this.draft = data;
+          this.draftAdjuntarDoc = JSON.parse(data.info).formAdjuntarDoc;
         } 
       )
     }
@@ -99,6 +100,7 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
+    console.log(this.formAdjuntarDoc)
     if(this.formAdjuntarDoc.valid) {
       this.validate = false;
       this.saveDraftAndNavigate();

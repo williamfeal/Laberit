@@ -3,6 +3,7 @@
 [form]="formAdjMicro"
     label="{{documentsTypeMicroBussines[0].description}}"
     idValue="documentNif" 
+    [draft]="draftMicroEmpresa"
     controlName="documentNif"
     [isRequired]="true" 
     errorText="document_error"
@@ -13,6 +14,7 @@
 
   <app-input-document 
   [form]="formAdjMicro"
+  [draft]="draftMicroEmpresa"
     label="{{documentsTypeMicroBussines[1].description}}"
     idValue="documentHelp" 
     controlName="documentHelp"
@@ -25,6 +27,7 @@
 
   <app-input-document 
   [form]="formAdjMicro"
+  [draft]="draftMicroEmpresa"
     label="{{documentsTypeMicroBussines[2].description}}"
     idValue="responsible_declaration" 
     controlName="responsible_declaration"
@@ -37,6 +40,7 @@
 
   <app-input-document 
   [form]="formAdjMicro"
+  [draft]="draftMicroEmpresa"
     label="{{documentsTypeMicroBussines[3].description}}"
     idValue="distribution_by_year" 
     controlName="distribution_by_year"
@@ -49,6 +53,7 @@
 
   <app-input-document 
     label="{{documentsTypeMicroBussines[4].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="society_constitution_micro" 
     [form]="formAdjMicro"
     controlName="society_constitution_micro"
@@ -61,6 +66,7 @@
 
 <app-input-document 
     label="{{documentsTypeMicroBussines[5].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="beneficial_ownership_micro" 
     [form]="formAdjMicro"
     controlName="beneficial_ownership_micro"
@@ -73,6 +79,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[6].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="legal_representative_micro" 
     [form]="formAdjMicro"
     controlName="legal_representative_micro"
@@ -85,6 +92,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[7].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="annual_accounts_micro" 
     [form]="formAdjMicro"
     controlName="annual_accounts_micro"
@@ -96,6 +104,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[8].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="_commercial_code_micro" 
     [form]="formAdjMicro"
     controlName="_commercial_code_micro"
@@ -108,6 +117,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[9].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="tax_returns_micro" 
     [form]="formAdjMicro"
     controlName="tax_returns_micro"
@@ -120,6 +130,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[10].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="model_347_micro" 
     [form]="formAdjMicro"
     controlName="model_347_micro"
@@ -132,6 +143,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[11].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="model_390_micro"
     [form]="formAdjMicro"
     controlName="model_390_micro" 
@@ -142,18 +154,20 @@
   </app-input-document>
 
   <app-input-document
-  label="{{documentsTypeMicroBussines[12].description}}" 
-  idValue="registered_office_micro"
-  [form]="formAdjMicro"
-  controlName="registered_office_micro" 
-  [isRequired]="true" errorText="document_error"
-  [error]="validate && registered_office_micro"
-  fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
-  (deleteFileDocument)="deleteDocument($event)">
-</app-input-document>
+    label="{{documentsTypeMicroBussines[12].description}}" 
+    [draft]="draftMicroEmpresa"
+    idValue="registered_office_micro"
+    [form]="formAdjMicro"
+    controlName="registered_office_micro" 
+    [isRequired]="true" errorText="document_error"
+    [error]="validate && registered_office_micro"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
 
   <app-input-document
     label="{{documentsTypeMicroBussines[13].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="business_group_micro" 
     [form]="formAdjMicro"
     controlName="business_group_micro"
@@ -166,6 +180,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[14].description}}" 
+    [draft]="draftMicroEmpresa"
     idValue="PYME_micro"
     [form]="formAdjMicro"
     controlName="PYME_micro"
@@ -177,6 +192,7 @@
 
   <app-input-document
     label="{{documentsTypeMicroBussines[15].description}}"
+    [draft]="draftMicroEmpresa"
     idValue="model_303" 
     [form]="formAdjMicro"
     controlName="model_303"

@@ -3,6 +3,7 @@
 label="{{documentsTypeBigBussines[0].description}}"
 idValue="documentNif" 
 [form]="formAdjGranEm"
+[draft]="draftGranEmpresa"
 controlName="documentNif"
 [isRequired]="true" 
 errorText="document_error"
@@ -16,6 +17,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 label="{{documentsTypeBigBussines[1].description}}"
 idValue="documentHelp" 
 [form]="formAdjGranEm"
+[draft]="draftGranEmpresa"
 controlName="documentHelp"
 [isRequired]="true" 
 errorText="document_error"
@@ -28,6 +30,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 <app-input-document
 label="{{documentsTypeBigBussines[2].description}}"
 idValue="responsible_declaration" 
+[draft]="draftGranEmpresa"
 [form]="formAdjGranEm"
 controlName="responsible_declaration"
 [isRequired]="true" 
@@ -40,6 +43,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 
 <app-input-document
 label="{{documentsTypeBigBussines[3].description}}"
+[draft]="draftGranEmpresa"
 idValue="distribution_by_year" 
 [form]="formAdjGranEm"
 controlName="distribution_by_year"
@@ -53,6 +57,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 
 <app-input-document
 label="{{documentsTypeBigBussines[4].description}}"
+[draft]="draftGranEmpresa"
 idValue="model_303" 
 [form]="formAdjGranEm"
 controlName="model_303"
@@ -65,6 +70,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document 
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[5].description}}"
 idValue="society_constitution_big" 
 [form]="formAdjGranEm"
@@ -78,6 +84,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[6].description}}"
 idValue="beneficial_ownership_big"
 [form]="formAdjGranEm"
@@ -91,6 +98,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[7].description}}"
 idValue="legal_representative_big" 
 [form]="formAdjGranEm"
@@ -104,6 +112,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[8].description}}"
 idValue="annual_accounts_big" 
 [form]="formAdjGranEm"
@@ -117,6 +126,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document 
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[9].description}}"
 idValue="_commercial_code_big" 
 [form]="formAdjGranEm"
@@ -130,6 +140,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[10].description}}"
 idValue="tax_returns_big" 
 [form]="formAdjGranEm"
@@ -144,6 +155,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[11].description}}"
 idValue="model_347" 
 [form]="formAdjGranEm"
@@ -157,6 +169,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[12].description}}"
 idValue="model_390" 
 [form]="formAdjGranEm"
@@ -170,6 +183,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[13].description}}"
 idValue="registered_office_big" 
 [form]="formAdjGranEm"
@@ -183,6 +197,7 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 </app-input-document>
 
 <app-input-document
+[draft]="draftGranEmpresa"
 label="{{documentsTypeBigBussines[14].description}}"
 idValue="business_group_big" 
 [form]="formAdjGranEm"
@@ -195,16 +210,17 @@ fileExtension=",.doc,.docx,.msword,.pdf,.xlsx"
 (deleteFileDocument)="deleteDocument($event)">
 </app-input-document>
 
-<app-input-document
-label="{{documentsTypeBigBussines[14].description}}"
-idValue="PYME_big" 
-[form]="formAdjGranEm"
-controlName="PYME_big"
-[isRequired]="true" 
-errorText="document_error"
-[error]="validate && PYME_big"
-fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
-(uploadFileDocument)="saveDocument($event)"
-(deleteFileDocument)="deleteDocument($event)">
-</app-input-document>
+    <app-input-document
+        [draft]="draftGranEmpresa"
+        label="{{documentsTypeBigBussines[14].description}}"
+        idValue="PYME_big" 
+        [form]="formAdjGranEm"
+        controlName="PYME_big"
+        [isRequired]="true" 
+        errorText="document_error"
+        [error]="validate && PYME_big"
+        fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+        (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
 </div>

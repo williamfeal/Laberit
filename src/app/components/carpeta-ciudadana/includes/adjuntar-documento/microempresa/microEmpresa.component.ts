@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
@@ -16,6 +17,8 @@ export class MicroEmpresaComponent implements OnInit {
   @Input() fileListMi: FileModel[] = [];
   @Input() validate: boolean;
   @Input() formAdjMicro: FormGroup;
+  @Input() draft:any;
+
   public beneficial_ownership_micro: boolean = true;
   public society_constitution_micro: boolean = true;
   public legal_representative_micro: boolean = true;
@@ -33,6 +36,7 @@ export class MicroEmpresaComponent implements OnInit {
   public model_303: boolean = true;
   public distribution_by_year: boolean = true;
   public documentsTypeMicroBussines: DocumentsType;
+  public draftMicroEmpresa;
 
   private unsubscribe$ = new Subject<void>();
   
@@ -41,6 +45,13 @@ export class MicroEmpresaComponent implements OnInit {
   ngOnInit(): void {
     this.genericsDocsType();
   }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.micro_empresa)) {
+        this.draftMicroEmpresa = this.draft.micro_empresa
+    }
+  }
+
   saveDocument(ev) {
     this[ev.controlName] = false;
     saveDocument(this.fileListMi, ev);

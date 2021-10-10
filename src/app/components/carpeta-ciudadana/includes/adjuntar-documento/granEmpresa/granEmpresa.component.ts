@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
@@ -14,6 +15,8 @@ import { deleteDocument, saveDocument } from '../AppUtils.component';
 })
 export class GranEmpresaComponent implements OnInit {
     @Input() validate: boolean;
+    @Input() draft:any;
+
     public model_347: boolean = true;
     public PYME_big: boolean = true;
     public business_group_big = true;
@@ -32,6 +35,7 @@ export class GranEmpresaComponent implements OnInit {
     public distribution_by_year: boolean = true;
     @Input() fileListGr: FileModel[] = [];
     public documentsTypeBigBussines: DocumentsType;
+    public draftGranEmpresa;
 
     private unsubscribe$ = new Subject<void>();
 
@@ -42,6 +46,12 @@ export class GranEmpresaComponent implements OnInit {
     ngOnInit(): void {
         this.genericsDocsType();
     }
+
+    ngOnChanges(changes:SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.gran_empresa)) {
+            this.draftGranEmpresa = this.draft.gran_empresa
+        }
+      }
 
     saveDocument(ev) {
         this[ev.controlName] = false;

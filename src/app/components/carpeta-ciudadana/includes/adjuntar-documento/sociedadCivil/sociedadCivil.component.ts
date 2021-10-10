@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
@@ -15,6 +16,8 @@ import { deleteDocument, saveDocument } from '../AppUtils.component';
 export class SociedadCivilComponent implements OnInit {
     @Input() validate: boolean;
     @Input() fileListSo: FileModel[] = [];
+    @Input() draft:any;
+
     public society_constitution_civil: boolean = true;
     public declarations_rent_civil: boolean = true;
     public model_390_civil: boolean = true;
@@ -29,6 +32,7 @@ export class SociedadCivilComponent implements OnInit {
     public model_303: boolean = true;
     public distribution_by_year: boolean = true;
     public documentsTypeCivilSociety: DocumentsType;
+    public draftCivilSociety;
 
     private unsubscribe$ = new Subject<void>();
 
@@ -39,6 +43,14 @@ export class SociedadCivilComponent implements OnInit {
     ngOnInit(): void {
         this.genericsDocsType()
     }
+
+    ngOnChanges(changes:SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.sociedad_civil)) {
+            this.draftCivilSociety = this.draft.sociedad_civil
+            console.log(this.draftCivilSociety)
+        }
+    }
+
     saveDocument(ev) {
         this[ev.controlName] = false;
         saveDocument(this.fileListSo, ev);

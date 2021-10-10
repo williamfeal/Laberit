@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { FileModel } from 'src/app/models/file.model';
@@ -6,6 +6,7 @@ import { AppConstants } from 'src/app/utils/constants/app-constants';
 import Swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { isEmptyObject } from 'jquery';
 
 @Component({
     selector: 'app-input-document',
@@ -23,6 +24,7 @@ export class InputDocumentComponent implements OnInit {
     @Input() errorText: string;
     @Input() controlName!: string;
     @Input() error!: boolean;
+    @Input() draft;
 
     @Output() public uploadFileDocument = new EventEmitter<FileModel>();
     @Output() public deleteFileDocument = new EventEmitter<FileModel>();
@@ -32,6 +34,7 @@ export class InputDocumentComponent implements OnInit {
     textError: string;
 
     private unsubscribe$ = new Subject<void>();
+    private formControl:FormControl;
 
     document: FileModel;
     documentExist: boolean = false;
@@ -40,24 +43,26 @@ export class InputDocumentComponent implements OnInit {
     constructor(private translateService: TranslateService) { }
 
     ngOnInit(): void {
-        let formControl;
         //Hay que ver como hacer que sean campos requeridos
         if (this.isRequired) {
-            formControl = new FormControl([],Validators.required);
-        }else{
-            formControl = new FormControl([]);
+            this.formControl = new FormControl([],Validators.required);
+        } else {
+            this.formControl = new FormControl([]);
         }
         if (this.validaciones.length > 0) {
-            formControl.setValidators(Validators.required);
+            this.formControl.setValidators(Validators.required);
         }
-        this.form.addControl(this.idValue, formControl);
+        this.form.addControl(this.idValue, this.formControl);
+        this.formControl.setValue(this.document.naturalName);
 
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
         // this.docBase64
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes:SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
+            this.setDraft(this.draft[this.controlName])
         this.translateService.get('error_texts.input.' + this.errorText).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
@@ -73,7 +78,13 @@ export class InputDocumentComponent implements OnInit {
             })
     }
 
+    private setDraft(draft:string) {
+        this.documentExist = true;
+        this.document = new FileModel(draft);
+    }
+
     public uploadFile(event: any): void {
+        console.log(event)
         let error = 0;
         const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
         const fileExtension = file.name.split('.').pop();

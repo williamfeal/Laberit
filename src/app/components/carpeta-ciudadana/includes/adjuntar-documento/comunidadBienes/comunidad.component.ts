@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
@@ -15,6 +16,8 @@ import { deleteDocument, saveDocument } from '../AppUtils.component';
 export class ComunidadBienesComponent implements OnInit {
     @Input() fileListCo: FileModel[] = [];
     @Input() validate: boolean;
+    @Input() draft:any;
+
     public registered_office_community: boolean = true;
     public model_347_community: boolean = true;
     public model_130_131_community: boolean = true;
@@ -30,12 +33,20 @@ export class ComunidadBienesComponent implements OnInit {
     public model_303: boolean = true;
     public distribution_by_year: boolean = true;
     private unsubscribe$ = new Subject<void>();
+    public draftComBienes;
 
     @Input() formAdjComuni: FormGroup;
     constructor(public catalogService: CatalogsService) { }
     
     ngOnInit(): void {
         this.genericsDocsType();
+    }
+
+    ngOnChanges(changes:SimpleChanges) {
+        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.cominidad_bienes)) {
+            this.draftComBienes = this.draft.cominidad_bienes
+            console.log(this.draftComBienes)
+        }
     }
 
     genericsDocsType() {

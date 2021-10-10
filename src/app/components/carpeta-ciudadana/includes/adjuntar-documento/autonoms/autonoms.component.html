@@ -3,7 +3,7 @@
     label="{{documentsTypeAutonoms[0].description}}" 
     [form]="formAdjuntarDocAuto"
     controlName="documentNif"
-    idValue="documentNif"
+    idValue="documentNif" [draft]="draftAutonomus"
     [isRequired]="true" errorText="document_error" [error]="validate && documentNif"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
@@ -11,7 +11,7 @@
 
     <app-input-document
     label="{{documentsTypeAutonoms[1].description}}" 
-    [form]="formAdjuntarDocAuto"
+    [form]="formAdjuntarDocAuto" [draft]="draftAutonomus"
     controlName="documentHelp"
     idValue="documentHelp"
     idPlantilla=""
@@ -21,7 +21,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[2].description}}" 
+    label="{{documentsTypeAutonoms[2].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     idPlantilla=""
     controlName="responsible_declaration"
@@ -32,7 +32,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[3].description}}" 
+    label="{{documentsTypeAutonoms[3].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="model_303"
     idValue="model_303"
@@ -42,7 +42,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[4].description}}" 
+    label="{{documentsTypeAutonoms[4].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="distribution_by_year"
     idValue="distribution_by_year"
@@ -53,7 +53,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[5].description}}" 
+    label="{{documentsTypeAutonoms[5].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="tax_returns"
     idValue="tax_returns"
@@ -63,7 +63,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[6].description}}" 
+    label="{{documentsTypeAutonoms[6].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="model_390"
     idValue="model_390"
@@ -73,7 +73,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[7].description}}" 
+    label="{{documentsTypeAutonoms[7].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="self_assessment"
     idValue="self_assessment"
@@ -83,7 +83,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[8].description}}" 
+    label="{{documentsTypeAutonoms[8].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="model_RLC"
     idValue="model_RLC"
@@ -93,7 +93,7 @@
     </app-input-document>
 
     <app-input-document
-    label="{{documentsTypeAutonoms[9].description}}" 
+    label="{{documentsTypeAutonoms[9].description}}" [draft]="draftAutonomus"
     [form]="formAdjuntarDocAuto"
     controlName="model_347_"
     idValue="model_347_"
