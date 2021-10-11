@@ -17,7 +17,9 @@
                 <div *ngFor="let manifestation of manifestations; let i = index">
                     <p class="mb-1 mt-3"> {{ manifestation.description }} </p>
                     <app-confirmation-radio-button [form]="formAceptation" [isRequired]="isRequired" name="{{manifestation.concept_code}}" controlName
-                    [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" ></app-confirmation-radio-button>
+                    [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" 
+                    [draft]="draftFormAceptation"
+                    ></app-confirmation-radio-button>
                 </div>
                 <hr>
                 <span class="font-weight-bold mt-3">
@@ -25,7 +27,8 @@
                 </span>
                 <p class="mt-3"> {{ 'carpeta_ciudadana.aceptation.data_protection.text' | translate }} </p>
                 <div *ngFor="let data of data_protection" class="form-check">
-                   <app-checkbox [form]="formAceptation" [isRequired]="isRequired" [name]="data.concept_code" [text]="data.description"
+                   <app-checkbox [form]="formAceptation" [isRequired]="isRequired"
+                    [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
                     [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
                 </div>
             </div>

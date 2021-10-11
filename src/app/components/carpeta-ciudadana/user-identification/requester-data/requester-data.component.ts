@@ -16,7 +16,7 @@ export class RequesterDataComponent implements OnInit, OnChanges {
 
   @Input() formRequestData: FormGroup;
   @Input() validate: boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public draftRequestData;
 
@@ -41,7 +41,7 @@ export class RequesterDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftRequestData = JSON.parse(this.draft.info).request_data;
+      this.draftRequestData = this.draft.request_data;
       if(!isEmptyObject(this.draftRequestData.typeSelectRequest)) {
         this.type = this.draftRequestData.typeSelectRequest;
         this.typeOutput.emit(this.type);

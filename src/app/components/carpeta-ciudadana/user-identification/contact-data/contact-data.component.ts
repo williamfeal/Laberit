@@ -1,14 +1,20 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { AppUtils } from 'src/app/utils/app-utils';
-import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-contact-data',
@@ -22,7 +28,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
   @Input() interesado: boolean;
   @Input() validate: boolean;
   @Input() public emailErrorContact: boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -54,7 +60,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftContactData = JSON.parse(this.draft.info).contact_data;
+      this.draftContactData = this.draft.contact_data;
       if(!isEmptyObject(this.draftContactData.contact_data_country)) {
         this.countrySelected = this.draftContactData.contact_data_country;
         if(!isEmptyObject(this.draftContactData.contact_data_province)) {

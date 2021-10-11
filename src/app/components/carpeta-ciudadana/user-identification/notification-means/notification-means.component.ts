@@ -14,7 +14,7 @@ export class NotificationMeansComponent implements OnInit, OnChanges {
   @Input() readOnly: boolean;
   @Input() public emailError: boolean;
   @Input() public emailErrorText: string;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   @Input() public notificationError: boolean;
   @Input() public notificationErrorText: string;
@@ -32,7 +32,7 @@ export class NotificationMeansComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftNotificationMeansData = JSON.parse(this.draft.info).notification_means;
+      this.draftNotificationMeansData = this.draft.notification_means;
     }
     this.ref.detectChanges();
   }
