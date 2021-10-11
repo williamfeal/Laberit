@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { FileModel } from 'src/app/models/file.model';
@@ -13,7 +13,7 @@ import { isEmptyObject } from 'jquery';
     templateUrl: './input-document.component.html',
     styleUrls: ['./input-document.component.scss']
 })
-export class InputDocumentComponent implements OnInit {
+export class InputDocumentComponent implements OnInit, OnChanges {
 
     @Input() form: FormGroup = new FormGroup({});
     @Input() label: string = '';
@@ -24,8 +24,15 @@ export class InputDocumentComponent implements OnInit {
     @Input() errorText: string;
     @Input() controlName!: string;
     @Input() error!: boolean;
-    @Input() draft;
+    @Input() set draft(draft) {
+        if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
+            this.documentExist = true;
+            this.document = new FileModel(draft);
+            console.log(this.document)
+        }  
+    }
 
+    public _draft;
     @Output() public uploadFileDocument = new EventEmitter<FileModel>();
     @Output() public deleteFileDocument = new EventEmitter<FileModel>();
 
@@ -53,7 +60,6 @@ export class InputDocumentComponent implements OnInit {
             this.formControl.setValidators(Validators.required);
         }
         this.form.addControl(this.idValue, this.formControl);
-        this.formControl.setValue(this.document.naturalName);
 
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
@@ -61,8 +67,8 @@ export class InputDocumentComponent implements OnInit {
     }
 
     ngOnChanges(changes:SimpleChanges) {
-        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
-            this.setDraft(this.draft[this.controlName])
+        // if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
+        //     this.setDraft(this.draft[this.controlName])
         this.translateService.get('error_texts.input.' + this.errorText).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(

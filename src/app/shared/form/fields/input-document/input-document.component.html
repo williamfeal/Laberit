@@ -8,7 +8,7 @@
         <div class="file-container center-text" [ngClass]="{ 'error-input': error && isRequired == true }">
             <div *ngIf="!documentExist; else nameFile" classs="ml-2">
                 <input type="file" (change)="uploadFile($event)" [formControlName]="controlName" [name]="idValue" [required]="isRequired" [id]="idValue"
-                    [accept]="fileExtension" class="cursor-pointer">
+                    [accept]="fileExtension" class="cursor-pointer" [value]="document.naturalName">
                 <i class="fas fa-cloud-upload-alt mr-2"></i>
                 <span>
                     {{ 'carpeta_ciudadana.instance.doc.drag' | translate }} <label class="primary-link"><u>{{
