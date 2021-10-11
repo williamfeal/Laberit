@@ -27,7 +27,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() set draft(draft) {
         if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
             this.documentExist = true;
-            this.document = new FileModel(draft);
+            this.document = new FileModel(draft[this.controlName]);
             console.log(this.document)
         }  
     }
@@ -82,11 +82,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             text => {
                 this.popUpError = text;
             })
-    }
-
-    private setDraft(draft:string) {
-        this.documentExist = true;
-        this.document = new FileModel(draft);
     }
 
     public uploadFile(event: any): void {
