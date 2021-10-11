@@ -34,7 +34,8 @@ export class UserIdentificationComponent implements OnInit {
   public notificationError = false;
   public notificationErrorText: string = 'empty_error';
   public procedure: Procedure;
-
+  public emailErrorLegalRepresnt: boolean = false;
+  public emailErrorContact: boolean = false;
   public interested: boolean = false;
   public representative: boolean = false;
 
@@ -133,6 +134,18 @@ export class UserIdentificationComponent implements OnInit {
       if (this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
         error++;
         this.emailError = true;
+      }
+      if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+        error++;
+        this.emailErrorLegalRepresnt = true;
+      }
+      if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
+        error++;
+        this.emailErrorContact = true;
+      }
+      if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+        error++;
+        this.emailErrorLegalRepresnt = true;
       }
 
       //Se ha de seleccionar el tipo de persona

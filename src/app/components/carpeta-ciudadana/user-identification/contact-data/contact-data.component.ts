@@ -1,14 +1,20 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { AppUtils } from 'src/app/utils/app-utils';
-import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-contact-data',
@@ -21,8 +27,7 @@ export class ContactDataComponent implements OnInit, OnChanges {
   @Input() readOnly: boolean;
   @Input() interesado: boolean;
   @Input() validate: boolean;
-  @Input() public emailError: boolean;
-  @Input() public emailErrorText: string;
+  @Input() public emailErrorContact: boolean;
   @Input() draft:any;
 
   public errorCharacterLeng: string = 'empty_error';
@@ -111,9 +116,9 @@ export class ContactDataComponent implements OnInit, OnChanges {
   }
   capturarCorreo(ev) {
     if (ev.match(EMAIL_REGEX) == null) {
-      this.emailError = true;
+      this.emailErrorContact = true;
     } else {
-      this.emailError = false;
+      this.emailErrorContact = false;
     }
   }
   

@@ -47,8 +47,7 @@
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
                             controlName="contact_surname2" idValue="contact_surname2" nameValue="contact_surname2"
                             [isReadOnly]="readOnly" [isRequired]="false"
-                            [error]="validate && formContactData.controls['contact_surname2']?.invalid"
-                            [errorText]="errorCharacterLeng"></app-input-text>
+                            ></app-input-text>
                     </div>
                     <div class="form-group col-md-3">
                         <app-input-text-nif [form]="formContactData" [draft]="draftContactData"
@@ -91,7 +90,7 @@
                             nameValue="contact_email"
                             [isReadOnly]="readOnly" 
                             [isRequired]="!isChecked"
-                            [error]="emailError"
+                            [error]="emailErrorContact"
                             [errorText]="errorCharacterLeng">
                         </app-input-text>
                     </div>
