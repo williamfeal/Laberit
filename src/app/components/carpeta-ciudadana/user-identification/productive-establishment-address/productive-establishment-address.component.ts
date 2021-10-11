@@ -22,6 +22,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   @Input() isRequired: boolean;
   @Input() draft:any;
 
+  @Input() subject: Subject<string>;
+  infos: string = "";
+
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
@@ -40,6 +43,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   ) { }
 
   ngOnInit(): void {
+    this.subject.subscribe((text: string) => {
+      this.infos = text;
+    });
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
