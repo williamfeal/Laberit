@@ -61,6 +61,8 @@ export class ContactDataComponent implements OnInit, OnChanges {
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
       this.draftContactData = this.draft.contact_data;
+      if(Object.keys(this.draftContactData).every(
+        field => isEmptyObject(this.draftContactData[field]))) this.isChecked = true;
       if(!isEmptyObject(this.draftContactData.contact_data_country)) {
         this.countrySelected = this.draftContactData.contact_data_country;
         if(!isEmptyObject(this.draftContactData.contact_data_province)) {
