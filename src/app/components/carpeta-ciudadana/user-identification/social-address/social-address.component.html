@@ -16,7 +16,7 @@
 
         </div>
         <div class="form-group col-md-6">
-            <app-input-text (change)="sendInfo($event)"
+            <app-input-text (change)="getInfo($event)"
             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftSocialAddressData"
                 [form]="formSocialAdress" label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
                 controlName="address" idValue="address" nameValue="address" [isRequired]="isRequired"
@@ -74,7 +74,7 @@
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
-                <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData"
+                <app-input-select [form]="formSocialAdress" [draft]="draftSocialAddressData" 
                     [error]="validate && formSocialAdress.controls['social_municipality']?.invalid"
                     placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"

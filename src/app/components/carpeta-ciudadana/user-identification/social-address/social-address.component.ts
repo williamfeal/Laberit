@@ -34,13 +34,29 @@ export class SocialAddressComponent implements OnInit {
   private unsubscribe$ = new Subject<void>();
 
   errorCharacterLeng: string = 'empty_error';
+  sendDate: string = "";
+  sendDates: boolean = false;
+  sendDates_2: boolean = false;
   
   constructor(
     private catalogService:CatalogsService
   ) { }
-  sendInfo(event){
-    this.adreSocial.emit(event.target.value);
+  getInfo(event){
+    this.sendDate = event.target.value;
+    if(this.sendDate){
+    this.sendDates = true;
+    this.sendInfo(this.sendDates,this.sendDates_2);
+  }else{
+    this.sendDates = false;
   }
+    //this.adreSocial.emit(event.target.value);
+  }
+ 
+sendInfo(date1: boolean, date2: boolean){
+  if(date1 && date2){
+    this.adreSocial.emit(this.sendDate);
+  }
+}
 
   ngOnInit(): void {
     this.getRoadTypes();
@@ -88,6 +104,15 @@ export class SocialAddressComponent implements OnInit {
   }
 
   public onChangeSpainCountry(event) {
+    let province: string;
+    province = event;
+    console.log(province);
+    if(province == 'countries-spain-provinces-3' || province == 'countries-spain-provinces-46' || province == 'countries-spain-provinces-12'){
+      this.sendDates_2 = true;
+      this.sendInfo(this.sendDates,this.sendDates_2);
+    }else {
+      this.sendDates_2 = false;
+    }
     this.catalogService.getCatalogByCode(event).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
