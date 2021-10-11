@@ -47,7 +47,8 @@ export class UserIdentificationComponent implements OnInit {
 
 
   private unsubscribe$ = new Subject<void>();
-  
+  subject = new Subject<string>();
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -87,9 +88,13 @@ export class UserIdentificationComponent implements OnInit {
         this.textError = text;
       }
     )
-    console.log(this.formUserIdentification);
+this.subject.subscribe((text: string)=>{
+  console.log(text);
+})
   }
-
+handleInfo(info: string){
+this.subject.next(info);
+}
   public isUserAutonomo(): boolean {
     return false;
   }
@@ -139,10 +144,6 @@ export class UserIdentificationComponent implements OnInit {
       if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
         error++;
         this.emailErrorContact = true;
-      }
-      if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
-        error++;
-        this.emailErrorLegalRepresnt = true;
       }
 
       //Se ha de seleccionar el tipo de persona

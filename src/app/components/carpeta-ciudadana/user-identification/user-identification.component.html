@@ -35,13 +35,13 @@
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-social-address [validate]="validate" isRequired="true" [draft]="draft"
+                <app-social-address (adreSocial)="handleInfo($event)" [validate]="validate" isRequired="true" [draft]="draft"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-productive-establishment-address [validate]="validate" isRequired="true"  [draft]="draft"
+                <app-productive-establishment-address [subject]="subject" [validate]="validate" isRequired="true"  [draft]="draft"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="false"></app-productive-establishment-address>
             </div>

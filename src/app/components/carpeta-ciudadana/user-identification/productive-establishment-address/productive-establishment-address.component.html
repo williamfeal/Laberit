@@ -7,11 +7,15 @@
     </div>
     <div class="card-body row mx-0">
         <div class="form-group col-md-3">
-            <app-input-select [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
+            <app-input-select [form]="formProductiveEstablishment" 
+                [draft]="draftProductiveEstablishmentData"
                 placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
-                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
-                controlName="productive_establishment_via_type" idValue="productive_establishment_via_type"
-                nameValue="productive_establishment_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}" 
+                controlName="productive_establishment_via_type" 
+                idValue="productive_establishment_via_type"
+                nameValue="productive_establishment_via_type" 
+                [isReadOnly]="readOnly" 
+                [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.invalid"
                 [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
 
@@ -20,6 +24,7 @@
             <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                 [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
                 label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                value="{{infos}}"
                 controlName="productive_establishment_address" idValue="productive_establishment_address"
                 nameValue="productive_establishment_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
                 [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.invalid"
