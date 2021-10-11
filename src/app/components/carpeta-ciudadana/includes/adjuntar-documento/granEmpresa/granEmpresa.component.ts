@@ -1,13 +1,18 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+    Component,
+    Input,
+    OnInit,
+    SimpleChanges
+    } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { deleteDocument, saveDocument } from '../AppUtils.component';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { FileModel } from 'src/app/models/file.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FileModel } from 'src/app/models/file.model';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { deleteDocument, saveDocument } from '../AppUtils.component';
 
 @Component({
     selector: 'app-gran-empresa',
@@ -49,7 +54,7 @@ export class GranEmpresaComponent implements OnInit {
 
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.gran_empresa)) {
-            this.draftGranEmpresa = this.draft.gran_empresa
+            this.draftGranEmpresa = this.draft.gran_empresa;
         }
       }
 

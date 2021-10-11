@@ -1,15 +1,23 @@
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FileModel } from 'src/app/models/file.model';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { saveDocument, deleteDocument } from './AppUtils.component';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators'; 
-import { Draft } from 'src/app/models/draft.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  SimpleChanges
+  } from '@angular/core';
+import { deleteDocument, saveDocument } from './AppUtils.component';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { Draft } from 'src/app/models/draft.model';
+import { FileModel } from 'src/app/models/file.model';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+ 
 
 @Component({
   selector: 'app-adjuntar-documento',
@@ -80,6 +88,7 @@ export class AdjuntarDocComponent implements OnInit {
         data => {
           this.draft = data;
           this.draftAdjuntarDoc = JSON.parse(data.info).formAdjuntarDoc;
+
         } 
       )
     }
@@ -100,14 +109,12 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
-    console.log(this.formAdjuntarDoc)
     if(this.formAdjuntarDoc.valid) {
       this.validate = false;
       this.saveDraftAndNavigate();
       
     } else{
       this.validate = true;
-      console.log(this.validate);
     }
   }
 
@@ -120,9 +127,9 @@ export class AdjuntarDocComponent implements OnInit {
       this.carpetaService.saveDraft(this.draft).subscribe(
           () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], { queryParams: { draft: this.draft.key }})
       )
-  } else {
-      this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
-  }     
+    } else {
+        this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
+    }     
   }
 
   ngOnDestroy(): void {
