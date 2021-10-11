@@ -20,7 +20,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -52,7 +52,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftRepresentativeData = JSON.parse(this.draft.info).representative_data;
+      this.draftRepresentativeData = this.draft.representative_data;
       if(!isEmptyObject(this.draftRepresentativeData.representativeTypes)) {
         this.representativeTypeChange(this.draftRepresentativeData.representativeTypes);
       }

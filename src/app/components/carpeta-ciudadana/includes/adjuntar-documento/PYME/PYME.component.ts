@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
@@ -12,9 +13,11 @@ import { deleteDocument, saveDocument } from '../AppUtils.component';
   selector: 'app-pyme',
   templateUrl: './PYME.component.html'
 })
-export class PymeComponent implements OnInit {
+export class PymeComponent implements OnInit, OnChanges {
   @Input() fileListPy: FileModel[] = [];
   @Input() validate: boolean;
+  @Input() draft:any;
+
   public society_constitution_PYME: boolean = true;
   public beneficial_ownership_PYME: boolean = true;
   public legal_representative_PYME: boolean = true;
@@ -34,6 +37,7 @@ export class PymeComponent implements OnInit {
   public PYME: boolean = true;
   public tecnic_memory_PYME: boolean = true;
   public documentsTypePyme: DocumentsType;
+  public draftPYME;
 
   private unsubscribe$ = new Subject<void>();
 
@@ -43,6 +47,13 @@ export class PymeComponent implements OnInit {
   ngOnInit(): void {
     this.genericsDocsType();
   }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.pyme)) {
+        this.draftPYME = this.draft.pyme
+    }
+}
+
   saveDocument(ev) {
     this[ev.controlName] = false;
     saveDocument(this.fileListPy, ev);

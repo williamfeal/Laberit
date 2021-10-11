@@ -20,7 +20,7 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   @Input() readOnly: boolean;
   @Input() validate: boolean = false;
   @Input() isRequired: boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
@@ -47,7 +47,7 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftProductiveEstablishmentData = JSON.parse(this.draft.info).productive_establishment;
+      this.draftProductiveEstablishmentData = this.draft.productive_establishment;
       if(!isEmptyObject(this.draftProductiveEstablishmentData.productive_establishment_country)) {
         this.countrySelected = this.draftProductiveEstablishmentData.productive_establishment_country;
         if(!isEmptyObject(this.draftProductiveEstablishmentData.productive_establishment_province)) {

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { isEmpty, takeUntil } from 'rxjs/operators';
 import { FileModel } from 'src/app/models/file.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
@@ -13,10 +14,13 @@ import { deleteDocument, saveDocument } from '../AppUtils.component';
     templateUrl: './autonoms.component.html',
     styleUrls: ['./autonoms.component.scss']
 })
-export class AutonomsComponent implements OnInit {
+export class AutonomsComponent implements OnInit, OnChanges {
     @Input() formAdjuntarDocAuto: FormGroup;
     @Input() fileListAu: FileModel[] = [];
     @Input() validate: boolean;
+    @Input() draft:any;
+
+    public draftAutonomus;
     public documentNif: boolean = true;
     public documentHelp: boolean = true;
     public responsible_declaration: boolean = true;
@@ -43,15 +47,24 @@ export class AutonomsComponent implements OnInit {
             takeUntil(this.unsubscribe$)
         ).subscribe(
             data => {
+                console.log(data)
                 this.documentsTypeAutonoms = data;
             }
         )
     }
     
+    ngOnChanges(changes:SimpleChanges  ) {
+        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.autonomous)) {
+            this.draftAutonomus = this.draft.autonomous
+            console.log(this.formAdjuntarDocAuto)
+        }
+    }
+
     saveDocument(ev) {
         this[ev.controlName] = false;
         saveDocument(this.fileListAu, ev);
     }
+
     deleteDocument(ev) {
         this[ev.controlName] = true;
         deleteDocument(this.fileListAu, ev);

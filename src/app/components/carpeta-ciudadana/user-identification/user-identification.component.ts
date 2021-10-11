@@ -44,7 +44,7 @@ export class UserIdentificationComponent implements OnInit {
 
   public textError;
   public draft:Draft;
-
+  public draftUserIdentification;
 
   private unsubscribe$ = new Subject<void>();
   
@@ -99,6 +99,9 @@ export class UserIdentificationComponent implements OnInit {
       this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
         (data:Draft) => {
           this.draft = data;
+          if(JSON.parse(data.info).formUserIdentification) {
+            this.draftUserIdentification = JSON.parse(data.info).formUserIdentification;
+          }
         })
       }
   }
@@ -154,12 +157,6 @@ export class UserIdentificationComponent implements OnInit {
     if (error == 0) {
       //llamada al back para mandar los datosc
       this.saveDraftAndNavigate();
-
-      this.draft ?
-        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
-          queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
-        }):
-        this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario]);
     } else {
       //saber como notificar al usuario
       SwalUtils.showErrorAlert(this.textError.title, this.textError.text)

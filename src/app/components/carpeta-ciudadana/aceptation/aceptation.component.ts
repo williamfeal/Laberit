@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Concept } from 'src/app/models/concept.model';
+import { Draft } from 'src/app/models/draft.model';
 import { Procedure } from 'src/app/models/procedure.model';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
@@ -23,16 +25,20 @@ export class AceptationComponent implements OnInit {
   public procedure: Procedure;
   public manifestations: Concept[];
   public data_protection: Concept[];
-
+  
   public isRequired = true;
-
+  public draftFormAceptation;
+  
   private unsubscribe$ = new Subject<void>();
+  private draft:Draft;
 
   constructor(
     private router: Router,
     private translate: TranslateService,
     private proceduresService: ProceduresService,
-    private catalogService: CatalogsService
+    private catalogService: CatalogsService,
+    private activatedRoute:ActivatedRoute,
+    private carpetaService:CarpetaService
   ) { }
 
   ngOnInit(): void {
@@ -62,11 +68,23 @@ export class AceptationComponent implements OnInit {
       data => this.procedure = data
     )
     this.formAceptation = new FormGroup({});
+    this.getDraft();
+  }
+
+  private getDraft() {
+    if(this.activatedRoute.snapshot.queryParams.draft) {
+      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+        (data:Draft) => {
+          this.draft = data;
+          if(JSON.parse(this.draft.info).formAceptation) this.draftFormAceptation = JSON.parse(this.draft.info).formAceptation;
+          console.log(this.draftFormAceptation)
+        })
+    }
   }
 
   public validateForm() {
     if (this.formAceptation.valid) {
-      this.router.navigate(['carpeta-del-ciudadano/firmar'])
+      this.saveDraftAndNavigate();
     } else {
       this.translate.get('error_texts.pop_up.form_error').pipe(
         takeUntil(this.unsubscribe$)
@@ -80,6 +98,21 @@ export class AceptationComponent implements OnInit {
       )
     }
   }
+
+  private saveDraftAndNavigate() {
+    if(this.draft) {
+      const infoJSON = JSON.parse(this.draft.info);
+      infoJSON.formAceptation = this.formAceptation.value;
+
+      this.draft.info = JSON.stringify(infoJSON);
+      this.carpetaService.saveDraft(this.draft).subscribe(
+          () => this.router.navigate(['carpeta-del-ciudadano/firmar'], { queryParams: { draft: this.draft.key }})
+      )
+  } else {
+    this.router.navigate(['carpeta-del-ciudadano/firmar'])
+  }     
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

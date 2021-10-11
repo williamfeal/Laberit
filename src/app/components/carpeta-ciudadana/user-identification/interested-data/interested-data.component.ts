@@ -19,7 +19,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   @Input() readOnly:boolean;
   @Input() validate: boolean;
   @Input() isRequired:boolean;
-  @Input() draft:Draft;
+  @Input() draft:any;
 
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
@@ -47,7 +47,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && this.draft) {
-      this.draftInterestedData = JSON.parse(this.draft.info).interested_data;
+      this.draftInterestedData = this.draft.interested_data;
       if(!isEmptyObject(this.draftInterestedData.businessType)) {
         sessionStorage.setItem('company_type', this.draftInterestedData.businessType);
       }
