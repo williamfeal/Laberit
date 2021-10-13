@@ -27,11 +27,11 @@ export class ConceptConstants {
     //ADJUNTAR DOCUMENTOS LINEA RESISTIR
     public static readonly GENERIC_DOCUMENTS_TYPES = "document-types";
     public static readonly LINEA_RESISTIR_AUTONOMS_DOCUMENTS = "linea-resistir-autonomous-documents";
-    public static readonly LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS = "linea-resistir-micro-bussines";
-    public static readonly LINEA_RESISTIR_PYME_DOCUMENTS = "linea-resistir-pyme";
+    public static readonly LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS = "linea-resistir-micro-bussines-documents";
+    public static readonly LINEA_RESISTIR_PYME_DOCUMENTS = "linea-resistir-pyme-documents";
     public static readonly LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS = "linea-resistir-beneficits-community";
     public static readonly LINEA_RESISTIR_BIG_BUSSINESS_DOCUMENTS= "linea-resistir-big-bussiness-documents";
-    public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society";
+    public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society-documents";
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
     public static readonly DATA_PROTECTION = "data-protection-questionary";
