@@ -26,7 +26,7 @@
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                     controlName="represented_data_name" idValue="represented_data_name"
-                    nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
+                    nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['represented_data_name']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
