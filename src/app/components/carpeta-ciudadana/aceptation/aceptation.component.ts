@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { of, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Concept } from 'src/app/models/concept.model';
-import { Draft } from 'src/app/models/draft.model';
-import { Procedure } from 'src/app/models/procedure.model';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { Component, OnInit } from '@angular/core';
+import { Concept } from 'src/app/models/concept.model';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Draft } from 'src/app/models/draft.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { of, Subject } from 'rxjs';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { SwalUtils } from 'src/app/utils/swal-utils';
+import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-aceptation',
@@ -77,7 +77,6 @@ export class AceptationComponent implements OnInit {
         (data:Draft) => {
           this.draft = data;
           if(JSON.parse(this.draft.info).formAceptation) this.draftFormAceptation = JSON.parse(this.draft.info).formAceptation;
-          console.log(this.draftFormAceptation)
         })
     }
   }
