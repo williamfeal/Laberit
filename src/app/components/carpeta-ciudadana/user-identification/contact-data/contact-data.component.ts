@@ -1,12 +1,15 @@
-import { AppUtils } from 'src/app/utils/app-utils';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
+  AfterContentChecked,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnChanges,
   OnInit,
   SimpleChanges
   } from '@angular/core';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
@@ -21,7 +24,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './contact-data.component.html',
   styleUrls: ['./contact-data.component.scss']
 })
-export class ContactDataComponent implements OnInit, OnChanges {
+export class ContactDataComponent implements OnInit, OnChanges, AfterContentChecked {
 
   @Input() formContactData: FormGroup;
   @Input() readOnly: boolean;
@@ -49,7 +52,8 @@ export class ContactDataComponent implements OnInit, OnChanges {
   private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private catalogService:CatalogsService
+    private catalogService:CatalogsService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -71,6 +75,10 @@ export class ContactDataComponent implements OnInit, OnChanges {
         }
       }
     }
+  }
+
+  ngAfterContentChecked() {
+    this.cdr.detectChanges();
   }
 
   private getRoadTypes() {

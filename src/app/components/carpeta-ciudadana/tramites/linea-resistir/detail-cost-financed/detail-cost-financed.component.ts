@@ -1,7 +1,14 @@
-import { ChangeDetectorRef, Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+    AfterViewChecked,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnInit,
+    SimpleChanges
+    } from '@angular/core';
+import { Draft } from 'src/app/models/draft.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
-import { Draft } from 'src/app/models/draft.model';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 
 @Component({
@@ -29,13 +36,14 @@ export class DetailCostFinancedComponent implements OnInit {
     ) { }
 
     ngOnChanges(changes:SimpleChanges) {
-        this.ref.detectChanges();
         if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info).formLineaResistir) {
             this.draftDetailCostFinanced = JSON.parse(this.draft.info).formLineaResistir;
             if(!isEmptyObject(this.draftDetailCostFinanced.project_type)) {
                 this.capturarCampo(this.draftDetailCostFinanced.project_type, 'project_type');
             }
         }
+        this.ref.detectChanges();
+
     }
 
     ngOnInit() { }
@@ -59,6 +67,7 @@ export class DetailCostFinancedComponent implements OnInit {
                 default:
                     break;
             }
+            this.ref.detectChanges();
         }
     }
 
