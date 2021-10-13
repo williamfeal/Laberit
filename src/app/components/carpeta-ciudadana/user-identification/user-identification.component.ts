@@ -38,6 +38,7 @@ export class UserIdentificationComponent implements OnInit {
   public emailErrorContact: boolean = false;
   public interested: boolean = false;
   public representative: boolean = false;
+  public checked: boolean;
 
   public INTERESTED_CONCEPT = ConceptConstants.APPLICANT_TYPE_INTERESTED;
   public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
@@ -140,13 +141,21 @@ this.subject.next(info);
         error++;
         this.emailError = true;
       }
-      if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
-        error++;
-        this.emailErrorLegalRepresnt = true;
+      if(this.representative){
+        if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorLegalRepresnt = true;
+        }
+      }else{
+        this.emailErrorLegalRepresnt = false;
       }
-      if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
-        error++;
-        this.emailErrorContact = true;
+      if(this.checked){
+        if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorContact = true;
+        }
+      }else{
+        this.emailErrorContact = false;
       }
 
       //Se ha de seleccionar el tipo de persona

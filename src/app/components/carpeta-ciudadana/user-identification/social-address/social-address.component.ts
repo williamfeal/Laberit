@@ -49,7 +49,6 @@ export class SocialAddressComponent implements OnInit {
   }else{
     this.sendDates = false;
   }
-    //this.adreSocial.emit(event.target.value);
   }
  
 sendInfo(date1: boolean, date2: boolean){
@@ -106,7 +105,6 @@ sendInfo(date1: boolean, date2: boolean){
   public onChangeSpainCountry(event) {
     let province: string;
     province = event;
-    console.log(province);
     if(province == 'countries-spain-provinces-3' || province == 'countries-spain-provinces-46' || province == 'countries-spain-provinces-12'){
       this.sendDates_2 = true;
       this.sendInfo(this.sendDates,this.sendDates_2);

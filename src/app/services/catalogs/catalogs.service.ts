@@ -1,5 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
@@ -25,25 +26,17 @@ export class CatalogsService {
     });
     return data.pipe(map((response:any) => {
       return response.data;
-    })).pipe(catchError((err: Error) => {
-      console.error('Error obteniendo el concepto', err);
-        throw err;
-    }));   
+    })).pipe(catchError(error => {
+      let errorMsg: string;
+      if (error.error instanceof ErrorEvent) {
+          errorMsg = `Error: ${error.error.message}`;
+      } else {
+          errorMsg = this.getServerErrorMessage(error);
+      }
+      return throwError(errorMsg);
+  }));   
   }
-  public pruebaGet(){
-    const data = this.http.get('http://alfresco.apc.alfatecsistemas.es/alfresco/api/-default-/public/alfresco/versions/1/nodes/4a2841cb-24e1-4f09-be86-81037dcfb816/content?attachment=true' , {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('admin:admin')
-      }),
-    })
-    return data.pipe(map((response:any) => {
-      return response.data;
-    })).pipe(catchError((err: Error) => {
-      console.error('Error obteniendo el concepto', err);
-        throw err;
-    })); 
-  }
+
 
   public getConceptByCode(code:string) {
     const data = this.http.get(`${this.URL_GET_CONCEPT_BY_CODE}/${code}`, {
@@ -58,4 +51,22 @@ export class CatalogsService {
         throw err;
     }));   
   }
+
+  private getServerErrorMessage(error: HttpErrorResponse): string {
+    switch (error.status) {
+        case 404: {
+            return `Not Found: ${error.message}`;
+        }
+        case 403: {
+            return `Access Denied: ${error.message}`;
+        }
+        case 500: {
+            return `Internal Server Error: ${error.message}`;
+        }
+        default: {
+            return `Unknown Server Error: ${error.message}`;
+        }
+
+    }
+}
 }
