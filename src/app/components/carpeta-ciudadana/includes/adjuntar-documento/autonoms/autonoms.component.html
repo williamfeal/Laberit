@@ -3,8 +3,11 @@
     label="{{doc.description}}" 
     [form]="formAdjuntarDocAuto"
     [controlName]="doc.concept_code"
-    [idValue]="doc.concept_code" [draft]="draftAutonomus"
-    [isRequired]="true" errorText="document_error" [error]="validate && formAdjuntarDocAuto.controls[doc.concept_code].invalid"
+    [idValue]="doc.concept_code" 
+    [draft]="draftAutonomus"
+    [isRequired]="true" 
+    errorText="document_error"
+    [error]="validate && formAdjuntarDocAuto.controls[doc.concept_code].invalid"
     fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
