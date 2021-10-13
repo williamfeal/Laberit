@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { Language } from 'src/app/models/language.model';
 import { LanguagesService } from 'src/app/services/moges-services/language.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-language-selector',
@@ -37,8 +37,8 @@ export class LanguageSelectorComponent implements OnInit {
 
     changeLang(ev) {
         this.translate.use(ev.value);
-        this.languagesService.lang.next(ev.value);
         localStorage.setItem('lang', ev.value);
+        this.languagesService.lang.next(ev.value);
     }
     ngOnDestroy(): void {
         this.unsubscribe$.next();

@@ -15,6 +15,7 @@ import { Draft } from 'src/app/models/draft.model';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { LanguagesService } from './../../../../services/moges-services/language.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -53,10 +54,18 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
 
   constructor(
     private catalogService:CatalogsService,
+    private languageService:LanguagesService,
     private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.languageService.lang.subscribe(
+      () => this.loadData()
+    )
+  }
+
+  private loadData() {
     this.getCountries();
     this.getSpainCountries();
     this.getRoadTypes();

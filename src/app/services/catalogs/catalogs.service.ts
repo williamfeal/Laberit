@@ -1,8 +1,8 @@
+import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

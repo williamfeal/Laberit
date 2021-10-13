@@ -1,8 +1,14 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Draft } from 'src/app/models/draft.model';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
 import { EMAIL_REGEX, selectMeans } from 'src/app/utils/constants/app-constants';
+import { FormGroup } from '@angular/forms';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 
 @Component({
   selector: 'app-notification-means',

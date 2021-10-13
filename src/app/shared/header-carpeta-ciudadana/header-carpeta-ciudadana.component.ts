@@ -1,15 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { BreadcrumbService } from 'angular-crumbs';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Category } from 'src/app/models/category.model';
-import { InfoProcedure } from 'src/app/models/info-procedure.model';
-import { Procedure } from 'src/app/models/procedure.model';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
+import { Category } from 'src/app/models/category.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { InfoProcedure } from 'src/app/models/info-procedure.model';
+import { LanguagesService } from './../../services/moges-services/language.service';
+import { Procedure } from 'src/app/models/procedure.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 
 @Component({
   selector: 'app-header-carpeta-ciudadana',
@@ -32,6 +33,15 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.translateService.onLangChange.subscribe
+    (
+      () => this.loadData()
+    )
+    
+  }
+
+  loadData() {
     if(this.procedure) {
       this.infoProcedure = this.procedure.languages.find(
         language => language.codigo === localStorage.getItem('lang')
@@ -42,18 +52,11 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
       takeUntil(this.unsubscribe$)
     ).subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;
-      this.breadcrumbs.forEach(
-        breadcrumb => {
-          this.translateService.get(breadcrumb.title).pipe(
-            takeUntil(this.unsubscribe$)
-          ).subscribe(
-            title => breadcrumb.title = title
-          )
-        });
     });
   }
-ngOnDestroy(): void {
-  this.unsubscribe$.next();
-  this.unsubscribe$.complete();
-}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
