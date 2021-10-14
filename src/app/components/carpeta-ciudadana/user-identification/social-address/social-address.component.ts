@@ -20,11 +20,12 @@ export class SocialAddressComponent implements OnInit {
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   @Input() draft:any;
-  @Output() adreSocial: EventEmitter<string> = new EventEmitter<string>();
+  @Output() adreSocial: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
   public paises: SelectFieldObject[];
   public typeStreet: SelectFieldObject[];
+  public province: string;
 
   public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
 
@@ -34,7 +35,7 @@ export class SocialAddressComponent implements OnInit {
   private unsubscribe$ = new Subject<void>();
 
   errorCharacterLeng: string = 'empty_error';
-  sendDate: string = "";
+  sendDate: FormGroup;
   sendDates: boolean = false;
   sendDates_2: boolean = false;
   
@@ -42,18 +43,17 @@ export class SocialAddressComponent implements OnInit {
     private catalogService:CatalogsService
   ) { }
   getInfo(event){
-    this.sendDate = event.target.value;
-    if(this.sendDate){
-    this.sendDates = true;
-    this.sendInfo(this.sendDates,this.sendDates_2);
-  }else{
-    this.sendDates = false;
-  }
+    if(event.target.value){
+      this.sendDates = true;
+      this.sendInfo(this.sendDates_2);
+    }else{
+      this.sendDates = false;
+    }
   }
  
-sendInfo(date1: boolean, date2: boolean){
-  if(date1 && date2){
-    this.adreSocial.emit(this.sendDate);
+sendInfo(date2: boolean){
+  if(date2){
+    this.adreSocial.emit(this.formSocialAdress.value);
   }
 }
 
@@ -103,14 +103,9 @@ sendInfo(date1: boolean, date2: boolean){
   }
 
   public onChangeSpainCountry(event) {
-    let province: string;
-    province = event;
-    if(province == 'countries-spain-provinces-3' || province == 'countries-spain-provinces-46' || province == 'countries-spain-provinces-12'){
-      this.sendDates_2 = true;
-      this.sendInfo(this.sendDates,this.sendDates_2);
-    }else {
-      this.sendDates_2 = false;
-    }
+    
+    this.province = event;
+    
     this.catalogService.getCatalogByCode(event).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -122,10 +117,18 @@ sendInfo(date1: boolean, date2: boolean){
   public onChangeCountry(event) {
     this.countrySelected = event;
   }
+  getMunicipality(){
+    if(this.province == 'countries-spain-provinces-3' || this.province == 'countries-spain-provinces-46' || this.province == 'countries-spain-provinces-12'){
+      this.sendDates_2 = true;
+      this.sendInfo(this.sendDates_2);
+    }else {
+      this.sendDates_2 = false;
+    }
+  }
 
-ngOnDestroy(): void {
-  this.unsubscribe$.next();
-  this.unsubscribe$.complete();
-}
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
 }

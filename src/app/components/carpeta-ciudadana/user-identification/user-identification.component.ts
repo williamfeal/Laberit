@@ -89,13 +89,15 @@ export class UserIdentificationComponent implements OnInit {
         this.textError = text;
       }
     )
-this.subject.subscribe((text: string)=>{
+this.subject.subscribe((text: any)=>{
   console.log(text);
 })
+
   }
 handleInfo(info: string){
 this.subject.next(info);
 }
+
   public isUserAutonomo(): boolean {
     return false;
   }

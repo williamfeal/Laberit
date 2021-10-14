@@ -8,6 +8,7 @@ import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input
 import { AppUtils } from 'src/app/utils/app-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { isEmptyObject } from 'jquery';
+import { InfoSocialAddress } from './infoEnvio-model';
 
 
 @Component({
@@ -22,8 +23,8 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   @Input() isRequired: boolean;
   @Input() draft:any;
 
-  @Input() subject: Subject<string>;
-  infos: string = "";
+  @Input() subject: Subject<FormGroup>;
+  public infos?: InfoSocialAddress = {};
 
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
@@ -37,18 +38,40 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   public errorCharacterLeng: string = 'empty_error';
 
   private unsubscribe$ = new Subject<void>();
+  public prov: string;
+  public muni: string;
+
 
   constructor(
     private catalogsService:CatalogsService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.subject.subscribe((text: string) => {
-      this.infos = text;
-    });
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
+    this.subject.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((text: any) => { 
+      this.onChangeSpainCountry(text.social_province);
+     
+      this.infos = text;
+      if(this.infos){
+        this.countrySelected = this.countriesSpain;   
+      } 
+    });
+    this.formProductiveEstablishment.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(()=>{
+      setTimeout(()=>{
+        this.muni = this.infos.social_municipality ;
+        this.prov = this.infos.social_province;
+      }, 2000)
+      
+    })
+    
+    
   }
 
   ngOnChanges(changes:SimpleChanges) {
