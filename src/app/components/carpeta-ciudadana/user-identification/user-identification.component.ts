@@ -1,25 +1,35 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Draft } from 'src/app/models/draft.model';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import { FormGroup } from '@angular/forms';
+import { isEmptyObject } from 'jquery';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
-import { SwalUtils } from 'src/app/utils/swal-utils';
-import { TranslateService } from '@ngx-translate/core';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { Draft } from 'src/app/models/draft.model';
 import { Subject } from 'rxjs';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 
 @Component({
   selector: 'app-user-identification',
   templateUrl: './user-identification.component.html',
-  styleUrls: ['./user-identification.component.scss']
+  styleUrls: ['./user-identification.component.scss'],
 })
-export class UserIdentificationComponent implements OnInit {
+export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public requesterType = '';
 
@@ -56,7 +66,9 @@ export class UserIdentificationComponent implements OnInit {
     private proceduresService: ProceduresService,
     private carpetaUtils: CarpetaUtils,
     private translateService: TranslateService,
-    private carpetaService:CarpetaService
+    private carpetaService:CarpetaService,
+    private readonly changeDetectorRef: ChangeDetectorRef
+
   ) {
     
   }
@@ -89,14 +101,18 @@ export class UserIdentificationComponent implements OnInit {
         this.textError = text;
       }
     )
-this.subject.subscribe((text: any)=>{
-  console.log(text);
-})
-
+    this.subject.subscribe((text: string)=>{
+      console.log(text);
+    })
   }
-handleInfo(info: string){
-this.subject.next(info);
-}
+  
+  ngAfterViewChecked() {
+    this.changeDetectorRef.detectChanges()
+  }
+
+  public handleInfo(info: string){
+    this.subject.next(info);
+  }
 
   public isUserAutonomo(): boolean {
     return false;
@@ -158,6 +174,15 @@ this.subject.next(info);
         }
       }else{
         this.emailErrorContact = false;
+      if(!isEmptyObject(this.formUserIdentification.value.legal_representative.legal_representative_email) &&
+        this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+        error++;
+        this.emailErrorLegalRepresnt = true;
+      }
+      if( !isEmptyObject(this.formUserIdentification.value.contact_data.contact_email) &&
+        this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
+        error++;
+        this.emailErrorContact = true;
       }
 
       //Se ha de seleccionar el tipo de persona
@@ -175,6 +200,7 @@ this.subject.next(info);
       this.showErrors = true;
     }
   }
+}
 
   private saveDraftAndNavigate() {
     const infoProcedure = this.procedure.languages.find(

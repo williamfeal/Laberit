@@ -1,12 +1,22 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChange,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Draft } from 'src/app/models/draft.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
-import { Draft } from 'src/app/models/draft.model';
+import { LanguagesService } from 'src/app/services/moges-services/language.service';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
   selector: 'app-requester-data',
@@ -31,10 +41,17 @@ export class RequesterDataComponent implements OnInit, OnChanges {
   private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private catalogsService:CatalogsService
+    private catalogsService:CatalogsService,
+    private languageService:LanguagesService
   ) { }
 
   ngOnInit(): void {
+    this.languageService.lang.subscribe(
+      () => {
+        this.getApplicantTypes();
+        this.getRepresentativeTypes();
+      }
+    )
     this.getApplicantTypes();
     this.getRepresentativeTypes();
   }

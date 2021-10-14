@@ -1,14 +1,20 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Draft } from 'src/app/models/draft.model';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { InfoSocialAddress } from './infoEnvio-model';
+import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -43,11 +49,37 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
 
 
   constructor(
-    private catalogsService:CatalogsService
-  ) {
-  }
+    private catalogsService:CatalogsService,
+    private languageService:LanguagesService
+  ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.languageService.lang.subscribe(
+      () => this.loadData()
+    )
+    this.subject.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((text: any) => { 
+      this.onChangeSpainCountry(text.social_province);
+     
+      this.infos = text;
+      if(this.infos){
+        this.countrySelected = this.countriesSpain;   
+      } 
+    });
+    this.formProductiveEstablishment.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(()=>{
+      setTimeout(()=>{
+        this.muni = this.infos.social_municipality ;
+        this.prov = this.infos.social_province;
+      }, 2000)
+      
+    })
+  }
+
+  private loadData() {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();

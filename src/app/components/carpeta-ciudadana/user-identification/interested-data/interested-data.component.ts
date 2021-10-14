@@ -1,13 +1,19 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
-import { Draft } from 'src/app/models/draft.model';
+import { isEmptyObject } from 'jquery';
+import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { AppUtils } from 'src/app/utils/app-utils';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-interested-data',
@@ -34,10 +40,18 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   private unsubscribe$ = new Subject<void>();
   
   constructor(
-    private catalogsService:CatalogsService
+    private catalogsService:CatalogsService,
+    private languageService:LanguagesService
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.languageService.lang.subscribe(
+      () => this.loadData()
+    )
+  }
+
+  private loadData() {
     this.loadCNAEdata();
     this.getCountries()
     this.getGendersData();
