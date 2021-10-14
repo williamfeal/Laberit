@@ -32,7 +32,7 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
 export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public requesterType = '';
-
+  public responseSubjectProductive = {}
   public user: UserCertificado;
   public validate: boolean = false;
   public idProcedure: string;

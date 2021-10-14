@@ -51,7 +51,6 @@ export class InputSelectComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    
     if(changes.draft && !isEmptyObject(changes.draft.currentValue)) this.selectedValue = changes.draft.currentValue[this.controlName]
     
     if (!this.isRequired) {

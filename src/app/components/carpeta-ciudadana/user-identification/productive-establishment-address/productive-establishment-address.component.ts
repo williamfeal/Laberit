@@ -62,9 +62,10 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
       takeUntil(this.unsubscribe$)
     ).subscribe((text: any) => { 
       this.onChangeSpainCountry(text.social_province);
-     
       this.infos = text;
       if(this.infos){
+        this.formProductiveEstablishment.controls['productive_establishment_via_type'].setValue(this.infos.via_type);
+        this.formProductiveEstablishment.controls['productive_establishment_country'].setValue(this.infos.social_country);
         this.countrySelected = this.countriesSpain;   
       } 
     });
@@ -74,6 +75,10 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
       setTimeout(()=>{
         this.muni = this.infos.social_municipality ;
         this.prov = this.infos.social_province;
+        if(this.muni && this.prov){
+        this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(this.infos.social_province);
+      this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(this.infos.social_municipality);
+        }
       }, 2000)
       
     })
