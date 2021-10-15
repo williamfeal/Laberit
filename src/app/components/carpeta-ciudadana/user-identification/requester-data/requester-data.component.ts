@@ -32,7 +32,7 @@ export class RequesterDataComponent implements OnInit, OnChanges {
 
   errorCharacterLeng: string = 'empty_error';
 
-  public type = 'interested'; ///ES POSIBLE QUE FALTE AÑADIR EL FORM
+  public type = 'interested'; 
   public actuation: SelectFieldObject[];
   public representation_power:SelectFieldObject[];
 
