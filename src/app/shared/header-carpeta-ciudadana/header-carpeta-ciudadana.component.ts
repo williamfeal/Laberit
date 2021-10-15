@@ -25,6 +25,8 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   @Input() procedure!:Procedure;
   
   public infoProcedure:InfoProcedure;
+  public draft;
+  
   private unsubscribe$ = new Subject<void>();
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -53,6 +55,9 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
     ).subscribe((d:any) => {
       this.breadcrumbs = d.breadcrumb;
     });
+
+    if (this.activatedRoute.snapshot.queryParams.draft)
+      this.draft = { draft: this.activatedRoute.snapshot.queryParams.draft }
   }
 
   ngOnDestroy(): void {
