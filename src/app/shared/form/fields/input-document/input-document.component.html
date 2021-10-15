@@ -20,7 +20,7 @@
                 {{document.naturalName}} <i class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
             </ng-template>
         </div>
-        <div *ngIf="idPlantilla != undefined" class="centrarDivBajo ml-3">
+        <div *ngIf="idplantilla != ''" class="centrarDivBajo ml-3">
             <button type="button" class="btn btn-rounded-circle btn-outline-primary" (click)="verPlantilla()"
                 data-cy="descargarPlantilla">
                 <i class="fas fa-file-download mr-1"></i>

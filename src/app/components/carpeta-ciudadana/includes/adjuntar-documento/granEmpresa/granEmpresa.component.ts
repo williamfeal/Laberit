@@ -62,12 +62,21 @@ export class GranEmpresaComponent implements OnInit {
         this[ev.controlName] = false;
         saveDocument(this.fileListGr, ev);
     }
-
+    async getTemplates(concept: any){
+        this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+            concept.descriptionPlantilla = data[0].description;    
+        })
+    }
     genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_BIG_BUSSINESS_DOCUMENTS).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => this.documentsTypeBigBussines = data
+            data => {
+                data.forEach(element => {
+                    this.getTemplates(element);    
+                });
+                this.documentsTypeBigBussines = data; 
+            }
         )
     }
 

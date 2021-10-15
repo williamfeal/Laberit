@@ -48,12 +48,21 @@ export class ComunidadBienesComponent implements OnInit {
             console.log(this.draftComBienes)
         }
     }
-
+    async getTemplates(concept: any){
+        this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+            concept.descriptionPlantilla = data[0].description;    
+        })
+    }
     genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_GOODS_COMMUNIITY_DOCUMENTS).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => this.documentsTypeCommunity = data
+            data => {
+                data.forEach(element => {
+                    this.getTemplates(element);    
+                });
+                this.documentsTypeCommunity = data; 
+            }
             
         )
     }

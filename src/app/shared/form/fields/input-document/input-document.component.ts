@@ -22,6 +22,7 @@ import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-input-document',
@@ -34,7 +35,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() label: string = '';
     @Input() idValue!: string;
     @Input() isRequired!: boolean;
-    @Input() idPlantilla!: string;
+    @Input() idplantilla!: string;
     @Input() fileExtension: string;
     @Input() errorText: string;
     @Input() controlName!: string;
@@ -61,7 +62,8 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     documentExist: boolean = false;
     private fileReader = new FileReader();
     docBase64: string;
-    constructor(private translateService: TranslateService) { }
+    constructor(private translateService: TranslateService,
+        private router: Router) { }
 
     ngOnInit(): void {
         //Hay que ver como hacer que sean campos requeridos
@@ -141,6 +143,8 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         // const byte = new Blob([byteArray], { type: typeDoc });
         // const urlPdf = URL.createObjectURL(byte);
         // window.open(urlPdf, '_blank');
+        console.log(this.idplantilla);
+        this.router.navigate([this.idplantilla])
     }
 
     ngOnDestroy(): void {

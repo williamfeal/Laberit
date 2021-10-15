@@ -6,6 +6,7 @@
         [controlName]="doc.concept_code"
         [isRequired]="true" 
         errorText="document_error"
+        idplantilla="{{doc.descriptionPlantilla}}"
         [draft]="draftComBienes"
         [error]="validate && formAdjComuni.controls[doc.concept_code].invalid"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
