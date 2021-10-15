@@ -32,7 +32,7 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
 export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public requesterType = '';
-
+  public responseSubjectProductive = {}
   public user: UserCertificado;
   public validate: boolean = false;
   public idProcedure: string;
@@ -48,6 +48,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public emailErrorContact: boolean = false;
   public interested: boolean = false;
   public representative: boolean = false;
+  public checked: boolean;
 
   public INTERESTED_CONCEPT = ConceptConstants.APPLICANT_TYPE_INTERESTED;
   public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
@@ -158,6 +159,21 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         error++;
         this.emailError = true;
       }
+      if(this.representative){
+        if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorLegalRepresnt = true;
+        }
+      }else{
+        this.emailErrorLegalRepresnt = false;
+      }
+      if(this.checked){
+        if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorContact = true;
+        }
+      }else{
+        this.emailErrorContact = false;
       if(!isEmptyObject(this.formUserIdentification.value.legal_representative.legal_representative_email) &&
         this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
         error++;
@@ -184,6 +200,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       this.showErrors = true;
     }
   }
+}
 
   private saveDraftAndNavigate() {
     const infoProcedure = this.procedure.languages.find(

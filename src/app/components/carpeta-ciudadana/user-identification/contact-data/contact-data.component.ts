@@ -36,7 +36,7 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
-  public isChecked: boolean;
+  @Input() isChecked: boolean;
   public showInputs: boolean = true;
 
   public provincias: SelectFieldObject[];

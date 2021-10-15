@@ -10,6 +10,7 @@ import {
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { InfoSocialAddress } from './infoEnvio-model';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
@@ -28,8 +29,8 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   @Input() isRequired: boolean;
   @Input() draft:any;
 
-  @Input() subject: Subject<string>;
-  infos: string = "";
+  @Input() subject: Subject<FormGroup>;
+  public infos?: InfoSocialAddress = {};
 
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
@@ -43,6 +44,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   public errorCharacterLeng: string = 'empty_error';
 
   private unsubscribe$ = new Subject<void>();
+  public prov: string;
+  public muni: string;
+
 
   constructor(
     private catalogsService:CatalogsService,
@@ -50,19 +54,61 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   ) { }
 
   ngOnInit(): void {
-    this.subject.subscribe((text: string) => {
-      this.infos = text;
-    });
     this.loadData();
     this.languageService.lang.subscribe(
       () => this.loadData()
     )
+    this.subject.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((text: any) => { 
+      this.onChangeSpainCountry(text.social_province);
+      this.infos = text;
+      if(this.infos){
+        this.formProductiveEstablishment.controls['productive_establishment_via_type'].setValue(this.infos.via_type);
+        this.formProductiveEstablishment.controls['productive_establishment_country'].setValue(this.infos.social_country);
+        this.countrySelected = this.countriesSpain;   
+      } 
+    });
+    this.formProductiveEstablishment.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(()=>{
+      setTimeout(()=>{
+        this.muni = this.infos.social_municipality ;
+        this.prov = this.infos.social_province;
+        if(this.muni && this.prov){
+        this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(this.infos.social_province);
+      this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(this.infos.social_municipality);
+        }
+      }, 2000)
+      
+    })
   }
 
   private loadData() {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
+    this.subject.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((text: any) => { 
+      this.onChangeSpainCountry(text.social_province);
+     
+      this.infos = text;
+      if(this.infos){
+        this.countrySelected = this.countriesSpain;   
+      } 
+    });
+    this.formProductiveEstablishment.valueChanges.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(()=>{
+      setTimeout(()=>{
+        this.muni = this.infos.social_municipality ;
+        this.prov = this.infos.social_province;
+      }, 2000)
+      
+    })
+    
+    
   }
 
   ngOnChanges(changes:SimpleChanges) {
