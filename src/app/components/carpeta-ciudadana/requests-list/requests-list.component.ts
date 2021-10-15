@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Draft } from 'src/app/models/draft.model';
 import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { Component, OnInit } from '@angular/core';
+import { Draft } from 'src/app/models/draft.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requests-list',
@@ -19,7 +19,10 @@ export class RequestsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.carpetaService.getDrafts().subscribe(
-      (data:Draft[]) => this.drafts = data
+      (data:Draft[]) => {
+        console.log(data)
+        this.drafts = data
+      }
     )
   }
 

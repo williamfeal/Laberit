@@ -1,40 +1,41 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import localeEs from '@angular/common/locales/es-PY';
-
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { registerLocaleData } from '@angular/common';
+import { AdvertisementsModule } from './components/advertisements-list/advertisements.module';
+import { AdvertisementsService } from './services/moges-services/advertisements.service';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppUtils } from './utils/app-utils';
+import { AuthInterceptor } from './interceptors/auth-interceptor.service';
+import { AuthService } from './services/moges-services/auth.service';
+import { BreadcrumbModule } from 'angular-crumbs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
+import { CarpetaUtils } from './utils/carpeta-utils';
+import { CategoriesService } from './services/moges-services/categories.service';
+import { ConcoceSedeModule } from './components/conoce-sede/conoce-sede.module';
+import { ContactModule } from './components/contact/contact.module';
+import { ContractorProfileModule } from './components/contractor-profile/contractor-profile.module';
+import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
+import { HomeModule } from './components/home/home.module';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpFilter } from './interceptors/auth-carpeta-interceptor.service';
+import { LanguagesService } from './services/moges-services/language.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgModule } from '@angular/core';
+import { ProceduresModule } from './components/procedures/procedures.module';
+import { ProceduresService } from './services/moges-services/procedures.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BreadcrumbModule} from 'angular-crumbs';
+import { registerLocaleData } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { WeatherService } from './services/moges-services/weather.service';
+
+
 
 
 
 /* Services */ 
-import { WeatherService } from './services/moges-services/weather.service';
-import { AuthService } from './services/moges-services/auth.service';
-import { CategoriesService } from './services/moges-services/categories.service';
-import { AdvertisementsService } from './services/moges-services/advertisements.service';
-import { ProceduresService } from './services/moges-services/procedures.service';
-import { LanguagesService } from './services/moges-services/language.service';
-import { AppUtils } from './utils/app-utils';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthInterceptor } from './interceptors/auth-interceptor.service';
-import { CarpetaUtils } from './utils/carpeta-utils';
-import { AdvertisementsModule } from './components/advertisements-list/advertisements.module';
-import { SharedModule } from './shared/shared.module';
-import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
-import { HomeModule } from './components/home/home.module';
-import { ElectronicServicesModule } from './components/electronic-services/electronic-services.module';
-import { ContractorProfileModule } from './components/contractor-profile/contractor-profile.module';
-import { ProceduresModule } from './components/procedures/procedures.module';
-import { ConcoceSedeModule } from './components/conoce-sede/conoce-sede.module';
-import { ContactModule } from './components/contact/contact.module';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,11 @@ import { MatDialogModule } from '@angular/material/dialog';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-  }
+  },
+    { provide: HTTP_INTERCEPTORS, 
+      useClass: HttpFilter, 
+      multi: true },
+
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
