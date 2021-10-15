@@ -16,13 +16,17 @@
     <ol class="breadcrumb breadcrumb-header-carpeta pl-0" *ngIf="breadcrumbs">
         <div *ngFor="let breadcrumb of breadcrumbs" >
             <li *ngIf="!breadcrumb.terminal && !breadcrumb.idProcedure && !breadcrumb.my_request" class="breadcrumb-item mr-1">
-                <a [routerLink]="[breadcrumb.url]">{{ breadcrumb.title | translate }}</a> >
+                <a *ngIf="!draft" [routerLink]="[breadcrumb.url]">{{ breadcrumb.title | translate }}</a>
+                <a *ngIf="draft" [routerLink]="[breadcrumb.url]" [queryParams]="draft">{{ breadcrumb.title | translate }}</a> >
             </li>
             <li *ngIf="!breadcrumb.terminal && breadcrumb.idProcedure" class="breadcrumb-item mr-1">
-                <a [routerLink]="[breadcrumb.url]" [queryParams]="{ idProcedure:procedure.id }">{{ breadcrumb.title | translate }}</a> >
+                <a *ngIf="!draft" [routerLink]="[breadcrumb.url]" [queryParams]="{ idProcedure:procedure.id }">{{ breadcrumb.title | translate }}</a>
+                <a *ngIf="draft" [routerLink]="[breadcrumb.url]" [queryParams]="{ idProcedure:procedure.id }" [queryParams]="draft">{{ breadcrumb.title | translate }}</a> >
             </li>
             <li *ngIf="!breadcrumb.terminal && breadcrumb.my_request" class="breadcrumb-item mr-1">
-                <a [routerLink]="[breadcrumb.url + '/' + procedure.rutaFormulario]" >{{ breadcrumb.title | translate }}</a> >
+                <a *ngIf="!draft" [routerLink]="[breadcrumb.url + '/' + procedure.rutaFormulario]" >{{ breadcrumb.title | translate }}</a> 
+                <a *ngIf="draft" [routerLink]="[breadcrumb.url + '/' + procedure.rutaFormulario]" [queryParams]="draft" >{{ breadcrumb.title | translate }}</a> >
+
             </li>
             <li *ngIf="breadcrumb.terminal" class="breadcrumb-item active" aria-current="page">{{ breadcrumb.title | translate}}</li>
         </div>
