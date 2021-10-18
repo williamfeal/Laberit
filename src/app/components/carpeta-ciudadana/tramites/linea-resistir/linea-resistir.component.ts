@@ -1,16 +1,16 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { tipoProyecto } from 'src/app/utils/constants/app-constants';
-import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { Subject } from 'rxjs';
 import { SwalUtils } from 'src/app/utils/swal-utils';
+import { takeUntil } from 'rxjs/operators';
+import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { TranslateService } from '@ngx-translate/core';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Component({
     selector: 'linea-resistir',

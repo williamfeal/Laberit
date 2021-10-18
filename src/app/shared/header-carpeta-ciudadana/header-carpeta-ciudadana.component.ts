@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'angular-crumbs';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { Category } from 'src/app/models/category.model';
 import { Component, Input, OnInit } from '@angular/core';

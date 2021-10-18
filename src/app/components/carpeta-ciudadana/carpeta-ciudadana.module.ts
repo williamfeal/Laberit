@@ -4,7 +4,7 @@ import { AutonomsComponent } from './includes/adjuntar-documento/autonoms/autono
 import { BrowserModule } from '@angular/platform-browser';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { CarpetaCiudadanaRoutingModule } from './carpeta-ciudadana-routing.module';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { CommonModule } from '@angular/common';
 import { ComunidadBienesComponent } from './includes/adjuntar-documento/comunidadBienes/comunidad.component';

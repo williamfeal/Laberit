@@ -9,7 +9,7 @@ import {
   OnInit,
   SimpleChanges
   } from '@angular/core';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';

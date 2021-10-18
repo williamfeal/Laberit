@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { Component, OnInit } from '@angular/core';
 import { Concept } from 'src/app/models/concept.model';

@@ -1,12 +1,17 @@
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  Validators
+  } from '@angular/forms';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Procedure } from 'src/app/models/procedure.model';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
 
 @Component({
   selector: 'app-instancia-general',
