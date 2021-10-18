@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../../services/acli-service/drafts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
@@ -40,6 +41,7 @@ export class LineaResistirComponent implements OnInit {
         private ref: ChangeDetectorRef,
         private procedureService:ProceduresService,
         private translate:TranslateService,
+        private draftService:DraftsService,
         private carpetaService:CarpetaService
     ) {
 
@@ -61,7 +63,7 @@ export class LineaResistirComponent implements OnInit {
 
     private getDraft() {
         if(this.activatedRoute.snapshot.queryParams.draft){
-            this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+            this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
                 data => { this.draft = data;
                         console.log(this.draft) }
             )
@@ -100,7 +102,7 @@ export class LineaResistirComponent implements OnInit {
             infoJSON.formLineaResistir = this.formLineaResistir.value;
     
             this.draft.info = JSON.stringify(infoJSON);
-            this.carpetaService.saveDraft(this.draft).subscribe(
+            this.draftService.saveDraft(this.draft).subscribe(
                 () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
             )
         } else {

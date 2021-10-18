@@ -30,18 +30,13 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WeatherService } from './services/moges-services/weather.service';
-import { BusinessRulesComponent } from './services/acli-service/business-rules/business-rules.component';
-
-
-
 
 
 /* Services */ 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BusinessRulesComponent,
+    AppComponent
   ],
   imports: [
     MatDialogModule,
