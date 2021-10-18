@@ -1,46 +1,77 @@
-import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {
+    BehaviorSubject,
+    Observable,
+    of,
+    throwError
+    } from 'rxjs';
 import { CarpetaService } from '../services/trex-service/carpeta.service';
-import { catchError } from 'rxjs/operators';
+import {
+    catchError,
+    filter,
+    finalize,
+    map,
+    switchMap,
+    take,
+    tap
+    } from 'rxjs/operators';
+import {
+    HttpErrorResponse,
+    HttpEvent,
+    HttpHandler,
+    HttpInterceptor,
+    HttpRequest,
+    HttpResponse
+    } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+    isRefreshingToken = false;
+    tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-    constructor(
-        private carpetaService:CarpetaService
-    ) {
-     }
+    constructor(private carpetaService: CarpetaService) {}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token_user = sessionStorage.getItem('token_user');
-        if(req.headers.get('useInterceptor') === 'true') {
-            if(token_user) {
-                req = req.clone( {
-                    setHeaders: {
-                        'Authorization': `Bearer ${token_user}`
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if(request.headers.get('useInterceptor') === 'true') {
+            return next.handle(request).pipe(
+                catchError((error: any) => {
+                    if (error.status === 403) {
+                        return this.handle403Error(request, next);
                     }
-                });
-            }
-            return next.handle(req).pipe(
-                catchError((err:HttpErrorResponse) => {
-                    if(err.status === 403) {
-                        this.carpetaService.refreshToken().subscribe(
-                            new_token => {
-                                sessionStorage.setItem('token_user', new_token.accessToken)
-                                req = req.clone( {
-                                    setHeaders: {
-                                        'Authorization': `Bearer ${new_token.accessToken}`
-                                    }
-                                });
-                            });
-                        return next.handle(req);
-                    } else {
-                        return next.handle(req);
-                    }
+                    return throwError(error);
                 })
-            );
-    } else {
-        return next.handle(req);
+        );
+        } else { return next.handle(request )}
     }
-  }
+
+    private handle403Error(request: HttpRequest<any>, next: HttpHandler) {
+
+    
+        if (!this.isRefreshingToken) {
+            this.isRefreshingToken = true;
+            this.tokenSubject.next(null);
+            return this.carpetaService.refreshToken().pipe(switchMap(token => {
+                if (token) {
+                    this.tokenSubject.next(token.accessToken);
+                    sessionStorage.setItem("token_user", token.accessToken)
+                    return next.handle(request);
+                }
+            }),
+            catchError(err => {
+                return throwError(err.error);
+            }),
+            finalize(() => {
+                this.isRefreshingToken = false;
+            }));
+        } else {
+            this.isRefreshingToken = false;
+
+            return this.tokenSubject
+                .pipe(filter(token => token != null),
+                take(1),
+                switchMap(token => {
+                    return next.handle(request);
+                }));
+        }
+    }
 }

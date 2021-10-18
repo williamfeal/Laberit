@@ -109,6 +109,7 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   public goToRequestInfo() {
+    console.log(this.formAdjuntarDoc.value)
     if(this.formAdjuntarDoc.valid) {
       this.validate = false;
       this.saveDraftAndNavigate();

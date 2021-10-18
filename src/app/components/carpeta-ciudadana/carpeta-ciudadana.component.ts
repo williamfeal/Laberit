@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
+import { Component, OnInit } from '@angular/core';
+import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TokenModel } from 'src/app/models/token.model';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { MockUpService } from 'src/app/services/mock-service/mockUp.service';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { AppUtils } from 'src/app/utils/app-utils';
-import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 
 @Component({
   selector: 'app-carpeta-ciudadana',
@@ -65,6 +65,7 @@ export class CarpetaCiudadanaComponent implements OnInit {
             takeUntil(this.unsubscribe$)
           ).subscribe(
             data => {
+              sessionStorage.setItem('idSesion', data.idSesion)
               sessionStorage.setItem('token_user',data.accessToken);
               this.loadData();
             });

@@ -1,13 +1,13 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Draft } from 'src/app/models/draft.model';
+import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { Draft } from 'src/app/models/draft.model';
 import { TokenModel } from 'src/app/models/token.model';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
-import { environment } from 'src/environments/environment';
+import { UserCertificado } from 'src/app/models/user-certificate.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class CarpetaService {
 
   private URL_GET_LOGGED_USER = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_LOGGED_USER;
   private URL_GET_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
-  private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REFRESH_TOKEN;
+  private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + '/login' + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_DRAFT = environment.atencion_cliente_url+ UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_DRAFT;
   private URL_GET_DRAFT_BY_ID = environment.atencion_cliente_url+ UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_DRAFT + UrlConstants.ENDPOINT_GET_DRAFT_BY_ID;
@@ -38,7 +38,10 @@ export class CarpetaService {
   }
 
   public refreshToken():Observable<TokenModel> {
-    const refreshToken = this.http.get(this.URL_REFRESH_TOKEN, this.headerInterceptor);
+    const refreshToken = this.http.get(this.URL_REFRESH_TOKEN, { headers: {
+      Authorization: 'Bearer ' + sessionStorage.getItem('token_user'),
+      isRefreshToken: 'true'
+    }});
     return refreshToken.pipe(map((response:TokenModel) => {
       return response;
     })).pipe(catchError((err: Error) => {
@@ -76,10 +79,13 @@ public saveDraft(draft:Draft) {
 }
 
   public getDrafts() {
-    const draft = this.http.get<any>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
-    return draft.pipe(map((response: Draft[]) => {
-      return response;
-    })).pipe(catchError((err: Error) => {
+    const draft = this.http.get<Draft[]>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
+    return draft.pipe(
+      map((response: Draft[]) => {
+      console.log(response);
+      return response
+    })).pipe(
+      catchError((err: Error) => {
       throw err;
     }));
   } 
