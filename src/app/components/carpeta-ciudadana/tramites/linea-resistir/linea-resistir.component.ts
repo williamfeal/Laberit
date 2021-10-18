@@ -1,16 +1,17 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../../services/acli-service/drafts.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
-import { tipoProyecto } from 'src/app/utils/constants/app-constants';
-import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { Subject } from 'rxjs';
 import { SwalUtils } from 'src/app/utils/swal-utils';
+import { takeUntil } from 'rxjs/operators';
+import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { TranslateService } from '@ngx-translate/core';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Component({
     selector: 'linea-resistir',
@@ -40,6 +41,7 @@ export class LineaResistirComponent implements OnInit {
         private ref: ChangeDetectorRef,
         private procedureService:ProceduresService,
         private translate:TranslateService,
+        private draftService:DraftsService,
         private carpetaService:CarpetaService
     ) {
 
@@ -61,7 +63,7 @@ export class LineaResistirComponent implements OnInit {
 
     private getDraft() {
         if(this.activatedRoute.snapshot.queryParams.draft){
-            this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+            this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
                 data => { this.draft = data;
                         console.log(this.draft) }
             )
@@ -100,7 +102,7 @@ export class LineaResistirComponent implements OnInit {
             infoJSON.formLineaResistir = this.formLineaResistir.value;
     
             this.draft.info = JSON.stringify(infoJSON);
-            this.carpetaService.saveDraft(this.draft).subscribe(
+            this.draftService.saveDraft(this.draft).subscribe(
                 () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
             )
         } else {

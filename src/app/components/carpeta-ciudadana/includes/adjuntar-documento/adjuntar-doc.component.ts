@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   ChangeDetectorRef,
@@ -12,6 +12,7 @@ import {
 import { deleteDocument, saveDocument } from './AppUtils.component';
 import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../../services/acli-service/drafts.service';
 import { FileModel } from 'src/app/models/file.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
@@ -45,6 +46,7 @@ export class AdjuntarDocComponent implements OnInit {
     private cdRef: ChangeDetectorRef,
     private fb: FormBuilder,
     private carpetaService: CarpetaService,
+    private draftService:DraftsService,
     private activatedRoute:ActivatedRoute
     ) {
 
@@ -84,7 +86,7 @@ export class AdjuntarDocComponent implements OnInit {
 
   private getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
         data => {
           this.draft = data;
           this.draftAdjuntarDoc = JSON.parse(data.info).formAdjuntarDoc;
@@ -125,7 +127,7 @@ export class AdjuntarDocComponent implements OnInit {
       infoJSON.formAdjuntarDoc = this.formAdjuntarDoc.value;
 
       this.draft.info = JSON.stringify(infoJSON);
-      this.carpetaService.saveDraft(this.draft).subscribe(
+      this.draftService.saveDraft(this.draft).subscribe(
           () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], { queryParams: { draft: this.draft.key }})
       )
     } else {

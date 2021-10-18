@@ -1,10 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { Component, OnInit } from '@angular/core';
 import { Concept } from 'src/app/models/concept.model';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { of, Subject } from 'rxjs';
 import { Procedure } from 'src/app/models/procedure.model';
@@ -38,7 +39,8 @@ export class AceptationComponent implements OnInit {
     private proceduresService: ProceduresService,
     private catalogService: CatalogsService,
     private activatedRoute:ActivatedRoute,
-    private carpetaService:CarpetaService
+    private carpetaService:CarpetaService,
+    private draftService:DraftsService
   ) { }
 
   ngOnInit(): void {
@@ -73,7 +75,7 @@ export class AceptationComponent implements OnInit {
 
   private getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
         (data:Draft) => {
           this.draft = data;
           if(JSON.parse(this.draft.info).formAceptation) this.draftFormAceptation = JSON.parse(this.draft.info).formAceptation;
@@ -104,7 +106,7 @@ export class AceptationComponent implements OnInit {
       infoJSON.formAceptation = this.formAceptation.value;
 
       this.draft.info = JSON.stringify(infoJSON);
-      this.carpetaService.saveDraft(this.draft).subscribe(
+      this.draftService.saveDraft(this.draft).subscribe(
           () => this.router.navigate(['carpeta-del-ciudadano/firmar'], { queryParams: { draft: this.draft.key }})
       )
   } else {

@@ -9,10 +9,11 @@ import {
   OnInit,
   SimpleChanges
   } from '@angular/core';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
@@ -67,6 +68,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private carpetaUtils: CarpetaUtils,
     private translateService: TranslateService,
     private carpetaService:CarpetaService,
+    private draftService:DraftsService,
     private readonly changeDetectorRef: ChangeDetectorRef
 
   ) {
@@ -120,7 +122,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.carpetaService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
         (data:Draft) => {
           this.draft = data;
           if(JSON.parse(data.info).formUserIdentification) {
@@ -212,7 +214,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       infoProcedureJSON.formUserIdentification = this.formUserIdentification.value;
 
       this.draft.info = JSON.stringify(infoProcedureJSON);
-      this.carpetaService.saveDraft(this.draft).subscribe(
+      this.draftService.saveDraft(this.draft).subscribe(
           () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
             queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
           })
@@ -232,7 +234,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         producto: infoProcedure.name
       }
     
-      this.carpetaService.saveDraft(draft).subscribe(
+      this.draftService.saveDraft(draft).subscribe(
         data => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
           queryParams: { draft: data.key }
         })

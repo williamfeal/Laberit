@@ -1,6 +1,7 @@
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,11 +15,12 @@ export class RequestsListComponent implements OnInit {
 
   constructor(
     private carpetaService:CarpetaService,
-    private router:Router
+    private router:Router,
+    private draftService:DraftsService
   ) { }
 
   ngOnInit(): void {
-    this.carpetaService.getDrafts().subscribe(
+    this.draftService.getDrafts().subscribe(
       (data:Draft[]) => {
         console.log(data)
         this.drafts = data

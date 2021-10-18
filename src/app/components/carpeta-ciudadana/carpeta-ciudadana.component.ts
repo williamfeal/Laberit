@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppUtils } from 'src/app/utils/app-utils';
-import { CarpetaService } from 'src/app/services/trex-service/carpeta.service';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { Component, OnInit } from '@angular/core';
 import { MockUpService } from 'src/app/services/mock-service/mockUp.service';

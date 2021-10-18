@@ -32,14 +32,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WeatherService } from './services/moges-services/weather.service';
 
 
-
-
-
 /* Services */ 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     MatDialogModule,
