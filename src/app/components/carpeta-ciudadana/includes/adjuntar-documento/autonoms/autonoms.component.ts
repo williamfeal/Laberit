@@ -33,10 +33,13 @@ export class AutonomsComponent implements OnInit, OnChanges {
         this.genericsDocsType();
         
     }
-
+ 
    async getTemplates(concept: any){
-        this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+        this.catalogService.getCatalogByCodePlantilla(concept.concept_code).subscribe((data)=>{
+            console.log(data);
             concept.descriptionPlantilla = data[0].description;    
+        },  err =>{
+            400
         })
     }
     genericsDocsType() {
@@ -48,6 +51,7 @@ export class AutonomsComponent implements OnInit, OnChanges {
                     this.getTemplates(element);    
                 });
                 this.documentsTypeAutonoms = data; 
+                console.log(this.documentsTypeAutonoms);
             }
         )
     }
