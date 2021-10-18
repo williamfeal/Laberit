@@ -11,6 +11,7 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { Procedure } from 'src/app/models/procedure.model';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -26,7 +27,8 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   @Input() validate: boolean;
   @Input() isRequired:boolean;
   @Input() draft:any;
-
+  @Input() procedure:Procedure;
+  
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
   public belongingCompany:SelectFieldObject[];
@@ -77,11 +79,22 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   private loadCNAEdata() {
-    this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
-    )
+    switch(sessionStorage.getItem('idProcedure')) {
+      case 'bed28de7-7096-4bad-b292-07503232b2b5':
+        this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
+        )
+        break;
+      default:
+        this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
+        )
+    }
+    
   }
 
   private getCountries() {
