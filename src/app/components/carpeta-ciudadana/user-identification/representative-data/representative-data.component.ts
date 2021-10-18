@@ -1,3 +1,4 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
@@ -91,11 +92,23 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   private getCNAEoptions() {
-    this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
-    )
+    console.log(sessionStorage.getItem('idProcedure') === AppConstants.LINEA_RESISTIR_CODE);
+    console.log(sessionStorage.getItem('idProcedure'));
+    switch(sessionStorage.getItem('idProcedure')) {
+      case AppConstants.LINEA_RESISTIR_CODE:
+        this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
+        )
+        break;
+      default:
+        this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnaeOptions = AppUtils.sortConceptsAlphabetically(data)
+        )
+    }
   }
 
   private getRepresentativeType() {
