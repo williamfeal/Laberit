@@ -1,3 +1,4 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
@@ -80,7 +81,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
 
   private loadCNAEdata() {
     switch(sessionStorage.getItem('idProcedure')) {
-      case 'bed28de7-7096-4bad-b292-07503232b2b5':
+      case AppConstants.LINEA_RESISTIR_CODE:
         this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(
           takeUntil(this.unsubscribe$)
         ).subscribe(
