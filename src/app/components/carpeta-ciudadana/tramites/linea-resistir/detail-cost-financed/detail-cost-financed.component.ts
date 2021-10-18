@@ -52,15 +52,15 @@ export class DetailCostFinancedComponent implements OnInit {
         this[campo] = ev;
         if (campo == 'project_type') {
             switch (this.project_type) {
-                case '1':
+                case 'Inversion':
                     this.showInversion = true;
                     this.showCirculante = false;
                     break;
-                case '2':
+                case 'Circulante':
                     this.showInversion = false;
                     this.showCirculante = true;
                     break;
-                case '3':
+                case 'Inversion y Circulante':
                     this.showInversion = true;
                     this.showCirculante = true;
                     break;

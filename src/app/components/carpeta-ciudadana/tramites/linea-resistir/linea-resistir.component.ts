@@ -1,9 +1,17 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { BusinessRule } from './../../../../models/business-rules.model';
+import { BusinessRuleBody } from './../../../../models/business-rules-body.model';
+import { BusinessRulesService } from './../../../../services/acli-service/business-rules.service';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../../services/acli-service/drafts.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+    FormBuilder,
+    FormControl,
+    FormGroup,
+    Validators
+    } from '@angular/forms';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
@@ -24,6 +32,8 @@ export class LineaResistirComponent implements OnInit {
     public draft:Draft;
     public formLineaResistir: FormGroup;
     public procedure:Procedure;
+
+    private businessRuleBody = new BusinessRuleBody;
     
     showInversion = false;
     showCirculante = false;
@@ -42,7 +52,7 @@ export class LineaResistirComponent implements OnInit {
         private procedureService:ProceduresService,
         private translate:TranslateService,
         private draftService:DraftsService,
-        private carpetaService:CarpetaService
+        private businessRuleService:BusinessRulesService
     ) {
 
     }
@@ -64,20 +74,18 @@ export class LineaResistirComponent implements OnInit {
     private getDraft() {
         if(this.activatedRoute.snapshot.queryParams.draft){
             this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
-                data => { this.draft = data;
-                        console.log(this.draft) }
+                data => this.draft = data
             )
         }
     }
 
     newForm() {
         this.formLineaResistir = new FormGroup({
-            formdDatosInteresado: new FormGroup({}),
-            formDatosNotificacion: new FormGroup({})
         });
     }
 
     public goToDocumentation() {
+        console.log(this.formLineaResistir.value)
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
             this.saveDraftAndNavigate();
@@ -100,13 +108,20 @@ export class LineaResistirComponent implements OnInit {
         if(this.draft) {
             const infoJSON = JSON.parse(this.draft.info);
             infoJSON.formLineaResistir = this.formLineaResistir.value;
-    
             this.draft.info = JSON.stringify(infoJSON);
-            this.draftService.saveDraft(this.draft).subscribe(
-                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
-            )
+
+            // this.draftService.saveDraft(this.draft).subscribe(
+            //     () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
+            // )
         } else {
-            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
+            // this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
+            const rule:BusinessRule = { 
+                tableKey: "decisionResistir",
+                body:  this.formLineaResistir.value
+            }
+            this.businessRuleService.businessRuleDecision(rule).subscribe(
+                data => console.log(data)
+            )
         }     
     }
 

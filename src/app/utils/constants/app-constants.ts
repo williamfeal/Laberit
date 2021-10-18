@@ -511,17 +511,17 @@ export const selectMeans = [{
 
   export const tipoProyecto = [
     {
-      concept_code: '1',
+      concept_code: 'Inversion',
       description: 'Inversión',
       selected: false,
     },
     {
-      concept_code: '2',
+      concept_code: 'Circulante',
       description: 'Circulante',
       selected: false
     },
     {
-      concept_code: '3',
+      concept_code: 'Inversion y Circulante',
       description: 'Inversión y Circulante',
       selected: false
     }
