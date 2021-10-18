@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +12,8 @@ import { takeUntil } from 'rxjs/operators';
 export class ContactComponent implements OnInit {
 
   public title;
+  public contactUsText;
+  
   private captcha;
   private errorCaptcha;
 
@@ -32,10 +34,18 @@ export class ContactComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.loadTexts();
+    this.translateService.onLangChange.subscribe(
+      () => this.loadTexts()
+    )
+  }
+
+  private loadTexts() {
     this.translateService.get('contact').pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe((texts: any) => {
       this.title = texts.title;
+      this.contactUsText = texts.contact_us;
     })
   }
 
