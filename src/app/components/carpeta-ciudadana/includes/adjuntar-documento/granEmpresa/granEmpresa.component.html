@@ -6,6 +6,7 @@
         [draft]="draftGranEmpresa"
         [controlName]="doc.concept_code"
         [isRequired]="true" 
+        idplantilla="{{doc.descriptionPlantilla}}"
         errorText="document_error"
         [error]="validate && formAdjGranEm.controls[doc.concept_code].invalid"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 

@@ -1,0 +1,7 @@
+{
+    "/alfresco/api/-default-/public/alfresco/versions": {
+      "target": "http://alfresco.apc.alfatecsistemas.es",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

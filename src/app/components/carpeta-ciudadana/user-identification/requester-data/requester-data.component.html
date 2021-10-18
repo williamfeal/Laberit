@@ -35,8 +35,8 @@
             [errorText]="errorCharacterLeng"
     ></app-input-text>
         </div>
-        <div class="col-md-2 mt-4" *ngIf="type == 'ivf-applicant-types-representantive'">
-            <input type="button" class="btn-app-outline-primary button-round text" (click)="comprobar()" value="{{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}"> 
+        <div class="col-md-2 mt-4 centrarDivVertical" *ngIf="type == 'ivf-applicant-types-representantive'">
+            <button class="btn-app-outline-primary button-round text" (click)="comprobar()" value=""><img src="../../../../../assets/img/img_representa.png" class="mr-2" width="35" height="30">{{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}</button>
         </div>
     </div>
 </div>

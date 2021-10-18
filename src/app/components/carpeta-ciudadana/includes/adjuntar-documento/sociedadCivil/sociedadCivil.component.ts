@@ -55,11 +55,21 @@ export class SociedadCivilComponent implements OnInit {
         this[ev.controlName] = false;
         saveDocument(this.fileListSo, ev);
     }
+    async getTemplates(concept: any){
+        this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+            concept.descriptionPlantilla = data[0].description;    
+        })
+    }
     genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_CIVIL_SOCIETY).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => this.documentsTypeCivilSociety = data
+            data => {
+                data.forEach(element => {
+                    this.getTemplates(element);    
+                });
+                this.documentsTypeCivilSociety = data; 
+            }
         )
     }
     deleteDocument(ev) {

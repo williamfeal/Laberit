@@ -58,12 +58,21 @@ export class PymeComponent implements OnInit, OnChanges {
     this[ev.controlName] = false;
     saveDocument(this.fileListPy, ev);
   }
-
+  async getTemplates(concept: any){
+    this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+        concept.descriptionPlantilla = data[0].description;    
+    })
+}
   genericsDocsType() {
     this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PYME_DOCUMENTS).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.documentsTypePyme = data
+      data => {
+        data.forEach(element => {
+          this.getTemplates(element);    
+      });
+      this.documentsTypePyme = data;
+      }
     )
   }
   deleteDocument(ev) {
