@@ -80,8 +80,7 @@ export class LineaResistirComponent implements OnInit {
     }
 
     newForm() {
-        this.formLineaResistir = new FormGroup({
-        });
+        this.formLineaResistir = new FormGroup({  });
     }
 
     public goToDocumentation() {
@@ -115,9 +114,28 @@ export class LineaResistirComponent implements OnInit {
             // )
         } else {
             // this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
+            const ruleBody:BusinessRuleBody = {
+                importe: this.formLineaResistir.controls['importe'].value,
+                g1terrenos: this.formLineaResistir.controls['g1terrenos'].value,
+                g1inmuebles: this.formLineaResistir.controls['g1inmuebles'].value,
+                g1maquinaria: this.formLineaResistir.controls['g1maquinaria'].value,
+                g1instalaciones: this.formLineaResistir.controls['g1instalaciones'].value,
+                g1otros: this.formLineaResistir.controls['g1otros'].value,
+                recursosPropios: this.formLineaResistir.controls['recursosPropios'].value,
+                subvenciones: this.formLineaResistir.controls['subvenciones'].value,
+                otraFinBancaria: this.formLineaResistir.controls['otraFinBancaria'].value,
+                activoIVF: this.formLineaResistir.controls['activoIVF'].value,
+                g2importeFinanciarCirculante: this.formLineaResistir.controls['g2importeFinanciarCirculante'].value,
+                g2financiacionIVF: this.formLineaResistir.controls['g2financiacionIVF'].value,
+                porcentaje: 100,
+                g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
+                g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
+                g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
+                tipoProyecto: this.formLineaResistir.controls['tipoProyecto'].value,
+            }
             const rule:BusinessRule = { 
                 tableKey: "decisionResistir",
-                body:  this.formLineaResistir.value
+                body:  ruleBody
             }
             this.businessRuleService.businessRuleDecision(rule).subscribe(
                 data => console.log(data)
