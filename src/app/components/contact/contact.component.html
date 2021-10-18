@@ -27,6 +27,9 @@
                 {{ 'contact.send' | translate }}
             </button>
         </div>
+
+        <div class="card card-body" *ngIf="contactUsText" [innerHTML]="contactUsText">
+        </div>
         <div class="card mt-4">
             <div class="card-header text-uppercase">
                 {{ 'contact.info.title' | translate }}
@@ -37,7 +40,6 @@
                 <p><strong>{{ 'contact.info.legitimation' | translate }}</strong>: {{ 'contact.info.legitimation_text' | translate }} </p>
                 <p><strong>{{ 'contact.info.destinataries' | translate }}</strong>: {{ 'contact.info.destinataries_text' | translate }} </p>
                 <p><strong>{{ 'contact.info.rights' | translate }}</strong>:  {{ 'contact.info.rights_text' | translate }}</p>
-                <p><strong>{{ 'contact.info.rights_exercises' | translate }}</strong>: {{ 'contact.info.rights_exercises_text' | translate }}</p>
                 <p> <strong>{{ 'contact.info.origin' | translate }}</strong>: {{ 'contact.info.origin_text' | translate }} </p>    
                 <p> {{ 'contact.info.consult_legal_notice' | translate }}<a [routerLink]="['/aviso-legal']"> {{ 'contact.info.consult_legal_notice_link' | translate }}</a>
             </div>
