@@ -8,7 +8,7 @@ export class AppConstants {
     public static readonly FILE_SIZE_TEXT = '50 MB';
     public static readonly FILE_SIZE_NUMBER = '52428800';
 
-    public static readonly LINEA_RESISTIR_CODE: 'bed28de7-7096-4bad-b292-07503232b2b5';
+    public static readonly LINEA_RESISTIR_CODE = 'bed28de7-7096-4bad-b292-07503232b2b5';
 
 }
 export const actuation = [{
