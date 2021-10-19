@@ -26,11 +26,13 @@
                 <em class="fas fa-at color-primary circle-icon mx-4"></em>
                 {{ 'procedure_detail.online' | translate }}
                 </a>
-            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
+            <!--NO BORRAR; PUEDE QUE EL CLIENTE LO PIDA MÁS ADELANTE 
+                
+                <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.presencial }}" id="nav-presencial-tab"
                 [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'presencial'}">									
                 <em class="fas fa-download color-primary circle-icon mx-4"></em>
                 {{ 'procedure_detail.face' | translate }}
-            </a>
+            </a> -->
         </div>
         <div class="tab-content" id="nav-tab-content">
             <div class="tab-pane fade {{ active.info }}" id="nav-home" role="tabpanel" aria-labelledby="nav-informacion-tab">
