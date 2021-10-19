@@ -22,6 +22,8 @@ import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 
 @Component({
     selector: 'app-input-document',
@@ -34,7 +36,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() label: string = '';
     @Input() idValue!: string;
     @Input() isRequired!: boolean;
-    @Input() idPlantilla!: string;
+    @Input() idplantilla!: string;
     @Input() fileExtension: string;
     @Input() errorText: string;
     @Input() controlName!: string;
@@ -61,7 +63,8 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     documentExist: boolean = false;
     private fileReader = new FileReader();
     docBase64: string;
-    constructor(private translateService: TranslateService) { }
+    constructor(private translateService: TranslateService,
+        public catalogService: CatalogsService) { }
 
     ngOnInit(): void {
         //Hay que ver como hacer que sean campos requeridos
@@ -134,13 +137,16 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         this.documentExist = false;
     }
 
-    verPlantilla() {
+    verPlantilla(id: string) {
         //matizar el tipo de documento que es (typeDoc)
 
         // const byteArray = new Uint8Array(atob(this.docBase64).split('').map(char => char.charCodeAt(0)));
         // const byte = new Blob([byteArray], { type: typeDoc });
         // const urlPdf = URL.createObjectURL(byte);
         // window.open(urlPdf, '_blank');
+        this.catalogService.prueba(id).subscribe((data)=>{
+            console.log(data);
+        });
     }
 
     ngOnDestroy(): void {

@@ -56,12 +56,21 @@ export class MicroEmpresaComponent implements OnInit {
     this[ev.controlName] = false;
     saveDocument(this.fileListMi, ev);
   }
-
+  async getTemplates(concept: any){
+    this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
+        concept.descriptionPlantilla = data[0].description;    
+    })
+}
   genericsDocsType() {
     this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.documentsTypeMicroBussines = data
+      data => {
+        data.forEach(element => {
+          this.getTemplates(element);    
+      });
+      this.documentsTypeMicroBussines = data; 
+      }
     )
   }
 

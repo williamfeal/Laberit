@@ -20,12 +20,12 @@ export class AutonomsComponent implements OnInit, OnChanges {
     @Input() fileListAu: FileModel[] = [];
     @Input() validate: boolean;
     @Input() draft:any;
-
+    public urlPlantilla: string = '';
     public draftAutonomus;
     public validCodes: boolean[] = [];
     public documentsTypeAutonoms: DocumentsType;
     public codes: string[] = [];
-
+    public arrayUrls: string[] = [];
     private unsubscribe$ = new Subject<void>();
     constructor(public catalogService: CatalogsService) { }
 
@@ -33,31 +33,30 @@ export class AutonomsComponent implements OnInit, OnChanges {
         this.genericsDocsType();
         
     }
-
-    getTemplates(concept: string){
-        let datas;
-        this.catalogService.getCatalogByCode(concept).subscribe((data)=>{
-            console.log();
+ 
+   async getTemplates(concept: any){
+        this.catalogService.getCatalogByCodePlantilla(concept.concept_code).subscribe((data)=>{
+            console.log(data);
+            concept.descriptionPlantilla = data[0].description;    
+        },  err =>{
+            400
         })
     }
     genericsDocsType() {
         this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_AUTONOMS_DOCUMENTS).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => {
-                
-                this.documentsTypeAutonoms = data;
-                console.log(this.documentsTypeAutonoms)
+            data => {  
                 data.forEach(element => {
-                
-                    this.getTemplates(element.concept_code);
-
+                    this.getTemplates(element);    
                 });
+                this.documentsTypeAutonoms = data; 
+                console.log(this.documentsTypeAutonoms);
             }
         )
     }
     
-    ngOnChanges(changes:SimpleChanges  ) {
+    ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.autonomous)) {
             this.draftAutonomus = this.draft.autonomous
             console.log(this.formAdjuntarDocAuto)

@@ -5,6 +5,7 @@
         [form]="formAdjSociedad"
         [controlName]="doc.concept_code"
         [isRequired]="true" 
+        idplantilla="{{doc.descriptionPlantilla}}"
         errorText="document_error"
         [error]="validate && formAdjSociedad.controls[doc.concept_code].invalid"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 

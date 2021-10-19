@@ -4,6 +4,7 @@ export class ConceptConstants {
     public static readonly SUPPORTED_LANGUAGES = "ivf-supported-languages";
     public static readonly APPLICANT_TYPES = "ivf-applicant-types";
     public static readonly CNAE_CODES = "cnae-codes";
+    public static readonly CNAE_CODES_LINEA_RESISTIR = "cnae-codes-linea-resistir";
     public static readonly GROUP_BELONGING_COMPANY = "ivf-group-belonging-company";
     public static readonly GENDERS = "genders";
     public static readonly ROAD_TYPES = "road-types";

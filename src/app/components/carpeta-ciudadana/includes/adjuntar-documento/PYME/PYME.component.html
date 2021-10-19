@@ -1,5 +1,19 @@
 <div *ngIf="documentsTypePyme">
-<app-input-document 
+  <app-input-document *ngFor="let doc of documentsTypePyme"
+    label="{{doc.description}}"
+    [form]="formAdjPyme"
+    controlName="documentNif"
+    [draft]="draftPYME"
+    idValue="documentNif" 
+    [isRequired]="true"
+    idplantilla="{{doc.descriptionPlantilla}}"
+    errorText="document_error"
+    [error]="validate && formAdjPyme.controls[doc.concept_code].invalid"
+    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+    (uploadFileDocument)="saveDocument($event)"
+    (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+<!-- <app-input-document 
     label="{{documentsTypePyme[0].description}}"
     [form]="formAdjPyme"
     controlName="documentNif"
@@ -249,6 +263,6 @@ errorText="document_error"
 fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
 (uploadFileDocument)="saveDocument($event)"
 (deleteFileDocument)="deleteDocument($event)">
-</app-input-document>
+</app-input-document> -->
 
 </div>

@@ -1,3 +1,4 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
@@ -11,6 +12,7 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { Procedure } from 'src/app/models/procedure.model';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -26,7 +28,8 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   @Input() validate: boolean;
   @Input() isRequired:boolean;
   @Input() draft:any;
-
+  @Input() procedure:Procedure;
+  
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
   public belongingCompany:SelectFieldObject[];
@@ -77,11 +80,24 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   private loadCNAEdata() {
-    this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
-    )
+    console.log(sessionStorage.getItem('idProcedure') === AppConstants.LINEA_RESISTIR_CODE);
+    console.log(sessionStorage.getItem('idProcedure'));
+    switch(sessionStorage.getItem('idProcedure')) {
+      case AppConstants.LINEA_RESISTIR_CODE:
+        this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
+        )
+        break;
+      default:
+        this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.cnae = AppUtils.sortConceptsAlphabetically(data)
+        )
+    }
+    
   }
 
   private getCountries() {
