@@ -4,6 +4,8 @@ import { BusinessRuleBody } from './../../../../models/business-rules-body.model
 import { BusinessRulesService } from './../../../../services/acli-service/business-rules.service';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Decision } from './../../../../models/decision.model';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../../services/acli-service/drafts.service';
 import {
@@ -84,10 +86,9 @@ export class LineaResistirComponent implements OnInit {
     }
 
     public goToDocumentation() {
-        console.log(this.formLineaResistir.value)
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.saveDraftAndNavigate();
+            this.getDecision();
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)
@@ -103,43 +104,56 @@ export class LineaResistirComponent implements OnInit {
         }
     }
 
+    private getDecision() {
+        const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS ||
+        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS  ?
+        true : false;
+        const ruleBody:BusinessRuleBody = {
+            autonomoMicroEmp: isAutonomoMicroEmp,
+            importe: this.formLineaResistir.controls['importe'].value,
+            g1terrenos: this.formLineaResistir.controls['g1terrenos'].value,
+            g1inmuebles: this.formLineaResistir.controls['g1inmuebles'].value,
+            g1maquinaria: this.formLineaResistir.controls['g1maquinaria'].value,
+            g1instalaciones: this.formLineaResistir.controls['g1instalaciones'].value,
+            g1otros: this.formLineaResistir.controls['g1otros'].value,
+            recursosPropios: this.formLineaResistir.controls['recursosPropios'].value,
+            subvenciones: this.formLineaResistir.controls['subvenciones'].value,
+            otraFinBancaria: this.formLineaResistir.controls['otraFinBancaria'].value,
+            activoIVF: this.formLineaResistir.controls['activoIVF'].value,
+            g2importeFinanciarCirculante: this.formLineaResistir.controls['g2importeFinanciarCirculante'].value,
+            g2financiacionIVF: this.formLineaResistir.controls['g2financiacionIVF'].value,
+            porcentaje: 100,
+            g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
+            g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
+            g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
+            tipoProyecto: this.formLineaResistir.controls['tipoProyecto'].value,
+        }
+        const rule:BusinessRule = { 
+            tableKey: "decisionResistir",
+            body:  ruleBody
+        }
+        this.businessRuleService.businessRuleDecision(rule).subscribe(
+            (data:Decision) => {
+                if(data.decision === true)  this.saveDraftAndNavigate();
+                else SwalUtils.showErrorAlert(
+                    'Error',
+                    data.motive
+                )
+            }
+        )
+    }
+
     private saveDraftAndNavigate() {
         if(this.draft) {
             const infoJSON = JSON.parse(this.draft.info);
             infoJSON.formLineaResistir = this.formLineaResistir.value;
             this.draft.info = JSON.stringify(infoJSON);
 
-            // this.draftService.saveDraft(this.draft).subscribe(
-            //     () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
-            // )
-        } else {
-            // this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
-            const ruleBody:BusinessRuleBody = {
-                importe: this.formLineaResistir.controls['importe'].value,
-                g1terrenos: this.formLineaResistir.controls['g1terrenos'].value,
-                g1inmuebles: this.formLineaResistir.controls['g1inmuebles'].value,
-                g1maquinaria: this.formLineaResistir.controls['g1maquinaria'].value,
-                g1instalaciones: this.formLineaResistir.controls['g1instalaciones'].value,
-                g1otros: this.formLineaResistir.controls['g1otros'].value,
-                recursosPropios: this.formLineaResistir.controls['recursosPropios'].value,
-                subvenciones: this.formLineaResistir.controls['subvenciones'].value,
-                otraFinBancaria: this.formLineaResistir.controls['otraFinBancaria'].value,
-                activoIVF: this.formLineaResistir.controls['activoIVF'].value,
-                g2importeFinanciarCirculante: this.formLineaResistir.controls['g2importeFinanciarCirculante'].value,
-                g2financiacionIVF: this.formLineaResistir.controls['g2financiacionIVF'].value,
-                porcentaje: 100,
-                g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
-                g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
-                g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
-                tipoProyecto: this.formLineaResistir.controls['tipoProyecto'].value,
-            }
-            const rule:BusinessRule = { 
-                tableKey: "decisionResistir",
-                body:  ruleBody
-            }
-            this.businessRuleService.businessRuleDecision(rule).subscribe(
-                data => console.log(data)
+            this.draftService.saveDraft(this.draft).subscribe(
+                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
             )
+        } else {
+            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
         }     
     }
 

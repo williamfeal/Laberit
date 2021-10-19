@@ -11,7 +11,7 @@
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_definition' | translate }}"
                 controlName="project_definition" idValue="project_definition" nameValue="project_definition"
                 [error]="validate && formLineaResistir.controls['project_definition']?.invalid" errorText="empty_error"
-                [isRequired]="true" placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" value="">
+                [isRequired]="true" placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" >
             </app-input-text-area>
         </div>
         <div class="form-group">
@@ -35,34 +35,34 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1terrenos']?.invalid"
                         controlName="g1terrenos" idValue="g1terrenos" nameValue="g1terrenos" [isRequired]="showInversion"
-                        value="" [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-number>
+                         [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }}"
                         controlName="g1inmuebles" idValue="g1inmuebles" nameValue="g1inmuebles" [draft]="draftDetailCostFinanced"
                         [error]="validate && formLineaResistir.controls['g1inmuebles']?.pristine"
-                        [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1maquinaria']?.invalid" [draft]="draftDetailCostFinanced"
                         controlName="g1maquinaria" idValue="g1maquinaria" nameValue="g1maquinaria" [isRequired]="showInversion"
-                        value="" errorText="empty_error"></app-input-number>
+                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1instalaciones']?.invalid"
                         controlName="g1instalaciones" idValue="g1instalaciones" nameValue="g1instalaciones" [draft]="draftDetailCostFinanced"
-                        [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1otros']?.invalid"
-                        controlName="g1otros" idValue="g1otros" nameValue="g1otros" [isRequired]="showInversion" value=""
+                        controlName="g1otros" idValue="g1otros" nameValue="g1otros" [isRequired]="showInversion" 
                         errorText="empty_error"></app-input-number>
                 </div>
             </div>
@@ -76,13 +76,13 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}"
                         controlName="recursosPropios" idValue="recursosPropios" nameValue="recursosPropios"
                         [error]="validate && formLineaResistir.controls['recursosPropios']?.invalid"
-                        [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }}"
                         [error]="validate && formLineaResistir.controls['subvenciones']?.invalid"
-                        controlName="subvenciones" idValue="subvenciones" nameValue="subvenciones" [isRequired]="showInversion" value=""
+                        controlName="subvenciones" idValue="subvenciones" nameValue="subvenciones" [isRequired]="showInversion" 
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
@@ -90,7 +90,7 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }}"
                         [error]="validate && formLineaResistir.controls['otraFinBancaria']?.invalid"
                         controlName="otraFinBancaria" idValue="otraFinBancaria"
-                        nameValue="otraFinBancaria" [isRequired]="showInversion" value="" errorText="empty_error">
+                        nameValue="otraFinBancaria" [isRequired]="showInversion"  errorText="empty_error">
                     </app-input-number>
                 </div>
                 <div class="form-group col-md-3">
@@ -98,7 +98,7 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}"
                         [error]="validate && formLineaResistir.controls['activoIVF']?.invalid"
                         controlName="activoIVF" idValue="activoIVF" nameValue="activoIVF"
-                        [isRequired]="showInversion" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
             </div>
         </div>
@@ -120,21 +120,21 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}"
                         [error]="validate && formLineaResistir.controls['g2importeFinanciarCirculante']?.invalid"
                         controlName="g2importeFinanciarCirculante" idValue="g2importeFinanciarCirculante" nameValue="g2importeFinanciarCirculante"
-                        [isRequired]="showCirculante" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showCirculante"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }}"
                         [error]="validate && formLineaResistir.controls['g2financiacionIVF']?.invalid"
                         controlName="g2financiacionIVF" idValue="g2financiacionIVF"
-                        nameValue="g2financiacionIVF" [isRequired]="showCirculante" value=""
+                        nameValue="g2financiacionIVF" [isRequired]="showCirculante" 
                         errorText="empty_error"></app-input-number>
                 </div>
             </div>
         </div>
         <!-- Financiaci�n solicitada G3-->
         <hr>
-        <div [ngClass]="{ 'd-none': project_type != '3' }">
+        <div [ngClass]="{ 'd-none': project_type != 'Inversion y Circulante' }">
             <div class="row col-sm-12">
                 <span class="ml-3">
                     <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_requested.title' | translate
@@ -147,14 +147,14 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g1' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3inversionActivosFijos']?.invalid"
                         controlName="g3inversionActivosFijos" idValue="g3inversionActivosFijos" nameValue="g3inversionActivosFijos"
-                        [isRequired]="showCirculante" value="" errorText="empty_error"></app-input-number>
+                        [isRequired]="showCirculante" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced" 
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g2' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3inversionActivoCirculante']?.invalid"
                         controlName="g3inversionActivoCirculante" idValue="g3inversionActivoCirculante"
-                        nameValue="g3inversionActivoCirculante" [isRequired]="showCirculante" value=""
+                        nameValue="g3inversionActivoCirculante" [isRequired]="showCirculante"
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
@@ -162,7 +162,7 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.total_loan' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3totalPrestamo']?.invalid"
                         controlName="g3totalPrestamo" idValue="g3totalPrestamo"
-                        nameValue="g3totalPrestamo" [isRequired]="showCirculante" value=""
+                        nameValue="g3totalPrestamo" [isRequired]="showCirculante" 
                         errorText="empty_error"></app-input-number>
                 </div>
             </div>

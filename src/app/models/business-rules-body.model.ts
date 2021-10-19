@@ -1,4 +1,5 @@
 export class BusinessRuleBody {
+    autonomoMicroEmp: boolean
     importe: number
     g1terrenos: number
     g1inmuebles: number

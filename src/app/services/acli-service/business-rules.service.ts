@@ -1,5 +1,6 @@
 import { BusinessRule } from './../../models/business-rules.model';
 import { catchError, map } from 'rxjs/operators';
+import { Decision } from './../../models/decision.model';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,7 +19,7 @@ export class BusinessRulesService {
   ) { }
 
   public businessRuleDecision(rule:BusinessRule) {
-    const loggedUser = this.http.post<any>(this.URL_BUSINESS_RULES, rule, this.headerInterceptor);
+    const loggedUser = this.http.post<Decision>(this.URL_BUSINESS_RULES, rule, this.headerInterceptor);
     return loggedUser.pipe(map((response) => {
       return response;
     })).pipe(catchError((err: Error) => {
