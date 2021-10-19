@@ -1,9 +1,19 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ValidatorFn,
+  Validators
+  } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input-number',
@@ -20,8 +30,8 @@ export class InputNumberComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value: string = "";
-  @Input() placeholder: string = "0";
+  @Input() value:number = 0;
+  @Input() placeholder:number = 0;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
   @Input() maxLength!: number | null;
@@ -51,7 +61,7 @@ export class InputNumberComponent implements OnInit {
     
     this.form.addControl(this.controlName, this.formControl);
 
-    if (this.placeholder == undefined) this.placeholder = '';
+    if (this.placeholder == undefined) this.placeholder = 0;
 
   }
 
