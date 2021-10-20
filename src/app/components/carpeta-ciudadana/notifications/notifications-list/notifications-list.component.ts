@@ -26,5 +26,7 @@ export class NotificationsListComponent implements OnInit {
     
   }
 
-  
+  public navToNotificationView(notification:Notification) {
+    this.router.navigate(['/carpeta-del-ciudadano/notification-view/id'])
+  }
 }

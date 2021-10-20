@@ -7,6 +7,7 @@ import { InstanciaGeneralComponent } from './tramites/instancia-general/instanci
 import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
 import { NgModule } from '@angular/core';
 import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
+import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,27 +16,45 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
 
 const routes:Routes = [
     { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
-  { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
-  { path: 'carpeta-del-ciudadano/notifications-list', component: NotificationsListComponent },
-  { path: 'carpeta-del-ciudadano/identificacion', 
-    component: UserIdentificationComponent, 
+    { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
+    { path: 'carpeta-del-ciudadano/notifications-list', 
+      component: NotificationsListComponent,
+      canActivate: [AuthGuardService],
+      data: {
+        menu: false,
+        breadcrumb: [
+          { title: 'carpeta_ciudadana.notifications.title', url: '', terminal: true }
+        ]
+      } },
+    { path: 'carpeta-del-ciudadano/notification-view/:id', 
+    component: NotificationViewComponent,
     canActivate: [AuthGuardService],
-    data: { 
-      menu : false,
-      breadcrumb:  [
-      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
-      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '', terminal: true }
-    ]},
-  },
-  { path: 'carpeta-del-ciudadano/requests-list', 
-    component: RequestsListComponent, 
-    canActivate: [AuthGuardService],
-    data: { 
-      menu : false,
-      breadcrumb:  [
-      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false },
-      { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
-    ]}
+    data: {
+      menu: false,
+      breadcrumb: [
+        { title: 'carpeta_ciudadana.notifications.title', url: 'carpeta-del-ciudadano/notifications-list', terminal: false },
+        { title: 'carpeta_ciudadana.notification-view.title', url: '', terminal: true }
+      ]
+    } },
+    { path: 'carpeta-del-ciudadano/identificacion', 
+      component: UserIdentificationComponent, 
+      canActivate: [AuthGuardService],
+      data: { 
+        menu : false,
+        breadcrumb:  [
+        { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
+        { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '', terminal: true }
+      ]},
+    },
+    { path: 'carpeta-del-ciudadano/requests-list', 
+      component: RequestsListComponent, 
+      canActivate: [AuthGuardService],
+      data: { 
+        menu : false,
+        breadcrumb:  [
+        { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false },
+        { title: 'carpeta_ciudadana.requests-list.title', url: '', terminal: true } 
+      ]}
     },
     { path: 'carpeta-del-ciudadano/instancia-general', 
     component: InstanciaGeneralComponent, 

@@ -42,6 +42,7 @@ import { SocialAddressComponent } from './user-identification/social-address/soc
 import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
+import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 
 
 
@@ -77,7 +78,8 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
     MicroEmpresaComponent,
     PymeComponent,
     SociedadCivilComponent,
-    NotificationsListComponent
+    NotificationsListComponent,
+    NotificationViewComponent
   ],
   imports: [
     CommonModule,

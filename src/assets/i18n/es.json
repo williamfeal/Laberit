@@ -364,11 +364,15 @@
       "actions": "Acciones"
     },
     "notifications": {
+      "title": "Mis notificaciones",
       "state": "Estado",
       "concept": "Concept",
       "notification-date": "Fecha de notificación",
       "actualization-date": "Fecha de actualización",
       "actions": "Acciones"
+    },
+    "notification-view": {
+      "title": "Ver notificación"
     },
     "instance": {
       "title": "Instancia General",
