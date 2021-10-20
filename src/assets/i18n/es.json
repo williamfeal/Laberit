@@ -363,6 +363,13 @@
       "state": "Estado",
       "actions": "Acciones"
     },
+    "notifications": {
+      "state": "Estado",
+      "concept": "Concept",
+      "notification-date": "Fecha de notificación",
+      "actualization-date": "Fecha de actualización",
+      "actions": "Acciones"
+    },
     "instance": {
       "title": "Instancia General",
       "infoSol": "Información de la solicitud",

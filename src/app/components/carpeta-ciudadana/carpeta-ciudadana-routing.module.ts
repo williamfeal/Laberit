@@ -1,20 +1,22 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { AuthGuardService } from "src/app/services/guards/auth-guard.service";
-import { AceptationComponent } from "./aceptation/aceptation.component";
-import { CarpetaCiudadanaComponent } from "./carpeta-ciudadana.component";
-import { AdjuntarDocComponent } from "./includes/adjuntar-documento/adjuntar-doc.component";
-import { ConfirmacionSolicitudComponent } from "./includes/confirmacion-solicitud/confirmacion-solicitud.component";
-import { PresentarSolicitudComponent } from "./includes/presentar-solicitud/presentar-solicitud.component";
-import { RequestsListComponent } from "./requests-list/requests-list.component";
-import { InstanciaGeneralComponent } from "./tramites/instancia-general/instancia-general.component";
-import { LineaResistirComponent } from "./tramites/linea-resistir/linea-resistir.component";
-import { UserIdentificationComponent } from "./user-identification/user-identification.component";
+import { AceptationComponent } from './aceptation/aceptation.component';
+import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
+import { AuthGuardService } from 'src/app/services/guards/auth-guard.service';
+import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
+import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.component';
+import { InstanciaGeneralComponent } from './tramites/instancia-general/instancia-general.component';
+import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
+import { NgModule } from '@angular/core';
+import { NotificationsListComponent } from './notifications-list/notifications-list.component';
+import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
+import { RequestsListComponent } from './requests-list/requests-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { UserIdentificationComponent } from './user-identification/user-identification.component';
 
 
 const routes:Routes = [
     { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
   { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
+  { path: 'carpeta-del-ciudadano/notifications-list', component: NotificationsListComponent },
   { path: 'carpeta-del-ciudadano/identificacion', 
     component: UserIdentificationComponent, 
     canActivate: [AuthGuardService],
