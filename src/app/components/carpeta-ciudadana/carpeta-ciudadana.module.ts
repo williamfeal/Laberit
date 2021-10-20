@@ -29,7 +29,7 @@ import { MicroEmpresaComponent } from './includes/adjuntar-documento/microempres
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { NotificationMeansComponent } from './user-identification/notification-means/notification-means.component';
-import { NotificationsListComponent } from './notifications-list/notifications-list.component';
+import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { ProcedureInformationComponent } from './tramites/linea-resistir/procedure-information/procedure-information.component';
 import { ProductiveEstablishmentAddressComponent } from './user-identification/productive-establishment-address/productive-establishment-address.component';

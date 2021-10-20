@@ -6,7 +6,7 @@ import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitu
 import { InstanciaGeneralComponent } from './tramites/instancia-general/instancia-general.component';
 import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
 import { NgModule } from '@angular/core';
-import { NotificationsListComponent } from './notifications-list/notifications-list.component';
+import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
 import { RouterModule, Routes } from '@angular/router';
