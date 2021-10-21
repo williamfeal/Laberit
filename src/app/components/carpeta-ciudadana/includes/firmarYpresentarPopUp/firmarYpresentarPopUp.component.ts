@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { AppUtils } from 'src/app/utils/app-utils';
 import Swal from 'sweetalert2';
+import { AppUtils } from 'src/app/utils/app-utils';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-FirmarYPresentarPopUp',
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class FirmarYPresentarPopUp implements OnInit {
     public documentBase64: string = "";
+    public showButtons:boolean;
     public width;
     
     constructor(public appUtils: AppUtils,
@@ -18,7 +19,9 @@ export class FirmarYPresentarPopUp implements OnInit {
         private router: Router,
         public dialogRef: MatDialogRef<FirmarYPresentarPopUp>
     ) {
-        this.documentBase64 = "data:application/pdf;base64," + dialogRef._containerInstance._config.data.base64;
+        this.documentBase64 = "data:application/pdf;base64," + data.base64;
+        this.showButtons = data.showButtons;
+
     }
 
     ngOnInit(): void {

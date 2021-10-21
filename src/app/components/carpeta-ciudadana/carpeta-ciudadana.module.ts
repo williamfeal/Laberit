@@ -43,6 +43,7 @@ import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCi
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
+import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 
 
 
@@ -79,7 +80,8 @@ import { NotificationViewComponent } from './notifications/notification-view/not
     PymeComponent,
     SociedadCivilComponent,
     NotificationsListComponent,
-    NotificationViewComponent
+    NotificationViewComponent,
+    SignNotificationReceiptComponent
   ],
   imports: [
     CommonModule,

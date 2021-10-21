@@ -1,12 +1,12 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { Component, OnInit } from '@angular/core';
+import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { AppUtils } from 'src/app/utils/app-utils';
-import { base64 } from 'src/app/utils/constants/app-constants';
-import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
 @Component({
   selector: 'app-presentar-solicitud',
@@ -39,7 +39,10 @@ export class PresentarSolicitudComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width = '90%';
     dialogConfig.height = '90%';
-    dialogConfig.data = { base64: base64 };
+    dialogConfig.data = { 
+      base64: AppConstants.base64,
+      showButtons: true 
+    };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
   }
   ngOnDestroy(): void {

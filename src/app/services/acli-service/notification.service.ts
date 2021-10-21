@@ -1,3 +1,5 @@
+import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { FileModel } from 'src/app/models/file.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Notification } from 'src/app/models/notification.model';
@@ -35,6 +37,15 @@ export class NotificationService {
     fechaRegistro: new Date()
   }
 
+  private documents:FileModel[] = [
+    {
+      icon: '',
+      naturalName: 'Documento acuse de recibo',
+      idInside: ''
+    }
+  ]
+  
+
   constructor(
     private http:HttpClient
   ) { }
@@ -45,5 +56,9 @@ export class NotificationService {
 
   public getNotificationById(id:string):Observable<Notification> {
     return of(this.notification)
+  }
+
+  public getNotificationDocuments(id:string) {
+    return of(this.documents)
   }
 }
