@@ -11,9 +11,9 @@
     <iframe *ngIf="documentBase64"
         [src]="documentBase64 | safe"
         type="application/pdf" width="100%" height="82%"></iframe>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5" *ngIf="showButtons">
         <button class="btn-app-primary m-button float-right m-1" (click)="singAndPresent()">
             {{'carpeta_ciudadana.instance.present_request.sign' | translate}}</button>
         <button class="btn-app-back m-button float-right m-1" (click)="close()">
             {{'carpeta_ciudadana.instance.present_request.back' | translate}}</button>
-      </div>
+    </div>

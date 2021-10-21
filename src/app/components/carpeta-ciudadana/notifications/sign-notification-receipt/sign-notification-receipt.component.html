@@ -9,7 +9,9 @@
       </div>
       <div class="m-4">
         <label innerHtml="{{ 'carpeta_ciudadana.sign-notification-receipt.text' | translate }}"></label>
-        </div>
+        <button class="btn text-danger" (click)="reviewDoc()"> 
+          <em class="far fa-file-pdf mr-2"></em>{{ 'carpeta_ciudadana.sign-notification-receipt.link' | translate }} </button>
+      </div>
     </div>
   </div>
   <div class="text-center">
