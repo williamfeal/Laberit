@@ -1,0 +1,90 @@
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<div class="mx-3">
+    <div class="card">
+        <div class="card-header background-primary-color">
+            <div class="card-title mb-0 font-weight-bold text-white font-family-default">
+                {{ 'carpeta_ciudadana.notification-view.notification-info' | translate }}
+            </div>
+        </div>
+        <div class="card-body row mx-0 p-0">
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-info-circle fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.notification-id' | translate }} </span>
+                    <span> {{ notification.id }} </span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="far fa-clone fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.concept' | translate }} 
+                    </span>
+                    <span> {{ notification.concept }} </span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-landmark fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.cif' | translate }} 
+                    </span>
+                    <span>{{ notification.cif }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-landmark fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.transmitter-name' | translate }} 
+                    </span>
+                    <span>{{ notification.organismoEmisor }}</span>
+                </div>
+            </div>
+            <div class="col-md-6  d-flex">
+                <em class="far fa-envelope fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.shipping-type' | translate }} 
+                    </span>
+                    <span>{{ notification.tipoEnvio }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="far fa-calendar fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.reception-date' | translate }} 
+                    </span>
+                    <span>{{ notification.fechaRecepcion | date:'shortDate'}}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-barcode fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.register-number' | translate }} 
+                    </span>
+                    <span>{{ notification.numRegistro }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="far fa-calendar fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.register-date' | translate }} 
+                    </span>
+                    <span>{{ notification.fechaRegistro | date:'shortDate' }}</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="text-center mt-2">
+        <button class="btn btn-app-primary button-round">
+            {{ 'carpeta_ciudadana.notification-view.open-notification' | translate }} 
+        </button>
+    </div>
+</div>
