@@ -1,0 +1,67 @@
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<div class="mx-3">
+    <div class="row justify-content-between">
+        <div class="mx-3 col-md-2">
+            <input type="checkbox" name="" id="">
+            <span> Ver solo "no leídas"</span>
+        </div>
+        <div class="col-md-3">
+            <div class="d-flex">
+                <input class="form-control mr-3" id="keywords" placeholder="Buscar" name="keywords" type="text">
+                <button class="btn btn-app-outline-primary" name="search" type="submit">
+                    <em class="fas fa-redo"></em>
+                    {{ 'carpeta_ciudadana.requests-list.reload-list' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-3">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0 table-bordered w-100">
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default">  
+                {{ 'carpeta_ciudadana.notifications.state' | translate }}  </th>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.state }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="concept">
+            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
+                {{ 'carpeta_ciudadana.notifications.concept' | translate }} </th>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.concept }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="notification-date">
+            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
+                {{ 'carpeta_ciudadana.notifications.notification-date' | translate }} </th>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{element.notification_date | date:'shortDate'}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="actualization-date">
+            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
+                {{ 'carpeta_ciudadana.notifications.actualization-date' | translate }} </th>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{element.actualization_date | date:'shortDate'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
+                {{ 'carpeta_ciudadana.notifications.actions' | translate }} </th>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default">  
+                <button class="btn btn-app-outline-primary rounded-circle btn-small">
+                    <em class="fa fa-eye"></em>
+                </button> 
+                <button (click)="navToNotificationView(element)" class="btn btn-app-outline-primary rounded-circle ml-2 btn-small">
+                    <em class="fa fa-envelope"></em>
+                </button> 
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

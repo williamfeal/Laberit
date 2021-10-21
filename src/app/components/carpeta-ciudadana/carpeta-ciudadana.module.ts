@@ -23,10 +23,13 @@ import { InstanciaGeneralComponent } from './tramites/instancia-general/instanci
 import { InterestedDataComponent } from './user-identification/interested-data/interested-data.component';
 import { LegalRepresentativeComponent } from './user-identification/legal-representative/legal-representative.component';
 import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { MicroEmpresaComponent } from './includes/adjuntar-documento/microempresa/microEmpresa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { NotificationMeansComponent } from './user-identification/notification-means/notification-means.component';
+import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { ProcedureInformationComponent } from './tramites/linea-resistir/procedure-information/procedure-information.component';
 import { ProductiveEstablishmentAddressComponent } from './user-identification/productive-establishment-address/productive-establishment-address.component';
@@ -39,6 +42,8 @@ import { SocialAddressComponent } from './user-identification/social-address/soc
 import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
+import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
+import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 
 
 
@@ -73,7 +78,10 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
     GranEmpresaComponent,
     MicroEmpresaComponent,
     PymeComponent,
-    SociedadCivilComponent
+    SociedadCivilComponent,
+    NotificationsListComponent,
+    NotificationViewComponent,
+    SignNotificationReceiptComponent
   ],
   imports: [
     CommonModule,
@@ -84,7 +92,9 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     CarpetaService,

@@ -32,7 +32,9 @@
         </div>
     </ol>
     <div class="row justify-content-end">
-        <a class="text-white mr-4" [routerLink]="['/carpeta-del-ciudadano/requests-list']" ><em class="fas fa-id-card-alt"></em> Mis Solicitudes </a>
-        <a class="text-white" [routerLink]="'#'"><em class="fas fa-envelope"></em> Mis Notificaciones y Comunicaciones </a>
+        <a class="text-white mr-4" [routerLink]="['/carpeta-del-ciudadano/requests-list']" ><em class="fas fa-id-card-alt"></em> 
+            {{ 'carpeta_ciudadana.requests-list.title'| translate }} </a>
+        <a class="text-white" [routerLink]="['/carpeta-del-ciudadano/notifications-list']"><em class="fas fa-envelope"></em> 
+            {{ 'carpeta_ciudadana.notifications.notifications-and-comunications'| translate }} </a>
     </div>
 </div>

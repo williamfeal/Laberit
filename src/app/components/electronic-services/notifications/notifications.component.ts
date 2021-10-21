@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-notifications',
@@ -13,7 +13,7 @@ export class NotificationsComponent implements OnInit {
   public title:string = '';
   public text:string = '';
   public button:string = '';
-  public link = 'https://contrataciondelestado.es/wps/poc?uri=deeplink%3AperfilContratante&idBp=4m5FtivXttEQK2TEfXGy%2BA%3D%3D';
+  public link = '/carpeta-del-ciudadano';
   public enviar = false;
   private unsubscribe$ = new Subject<void>();
 
