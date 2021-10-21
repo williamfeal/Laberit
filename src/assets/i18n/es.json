@@ -383,7 +383,10 @@
       "reception-date": "Fecha de recepción",
       "register-number": "Número de registro",
       "register-date": "Fecha de registro",
-      "open-notification": "Abrir notificación"
+      "open-notification": "Abrir notificación",
+      "documents": "Documentos",
+      "documents-date": "Fecha",
+      "documents-name": "Documento"
     },
     "sign-notification-receipt": {
       "title": "Firmar",
