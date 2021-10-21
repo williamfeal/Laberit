@@ -613,7 +613,36 @@
         }
       },
       "requests-list": {
-        "title": "Les meues Sol·licituds"
+        "title": "Les meues Sol·licituds",
+        "reload-list": "Recarregar llistat",
+        "date": "Data",
+        "request": "Sol·licitud",
+        "interested": "Interessat",
+        "line": "Línia",
+        "product": "Producte",
+        "state": "Estat",
+        "actions": "Accions"
+      },
+      "notifications": {
+        "title": "Les meues notificacions",
+        "state": "Estat",
+        "concept": "Concepte",
+        "notification-date": "Data de notificació",
+        "actualization-date": "Data d'actualització",
+        "actions": "Accions"
+      },
+      "notification-view": {
+        "title": "Veure notificació",
+        "notification-info": "Informació de la notificació",
+        "notification-id": "Identificador de la notificació",
+        "concept": "Concepte",
+        "cif": "CIF",
+        "transmitter-name": "Nom de l'organisme emissor",
+        "shipping-type": "Tipus d'enviament",
+        "reception-date": "Data de recepció",
+        "register-number": "Número de registre",
+        "register-date": "Data de registre",
+        "open-notification": "Obrir notificació"
       },
       "general_instance": {
         "title": "Instància General",

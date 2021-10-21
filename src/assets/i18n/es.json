@@ -363,6 +363,27 @@
       "state": "Estado",
       "actions": "Acciones"
     },
+    "notifications": {
+      "title": "Mis notificaciones",
+      "state": "Estado",
+      "concept": "Concepto",
+      "notification-date": "Fecha de notificación",
+      "actualization-date": "Fecha de actualización",
+      "actions": "Acciones"
+    },
+    "notification-view": {
+      "title": "Ver notificación",
+      "notification-info": "Información de la notificación",
+      "notification-id": "Identificador de la notificación",
+      "concept": "Concepto",
+      "cif": "CIF",
+      "transmitter-name": "Nombre del organismo emisor",
+      "shipping-type": "Tipo de envío",
+      "reception-date": "Fecha de recepción",
+      "register-number": "Número de registro",
+      "register-date": "Fecha de registro",
+      "open-notification": "Abrir notificación"
+    },
     "instance": {
       "title": "Instancia General",
       "infoSol": "Información de la solicitud",
