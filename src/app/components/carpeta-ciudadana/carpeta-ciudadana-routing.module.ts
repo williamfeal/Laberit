@@ -11,6 +11,7 @@ import { NotificationViewComponent } from './notifications/notification-view/not
 import { PresentarSolicitudComponent } from './includes/presentar-solicitud/presentar-solicitud.component';
 import { RequestsListComponent } from './requests-list/requests-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 
 
@@ -34,6 +35,17 @@ const routes:Routes = [
       breadcrumb: [
         { title: 'carpeta_ciudadana.notifications.title', url: 'carpeta-del-ciudadano/notifications-list', terminal: false },
         { title: 'carpeta_ciudadana.notification-view.title', url: '', terminal: true }
+      ]
+    } },
+    { path: 'carpeta-del-ciudadano/sign-notification/:id', 
+    component: SignNotificationReceiptComponent,
+    canActivate: [AuthGuardService],
+    data: {
+      menu: false,
+      breadcrumb: [
+        { title: 'carpeta_ciudadana.notifications.title', url: 'carpeta-del-ciudadano/notifications-list', terminal: false },
+        { title: 'carpeta_ciudadana.notification-view.title', url: 'carpeta-del-ciudadano/sign-notification/{{id}}', terminal: false },
+        { title: 'carpeta_ciudadana.sign-notification-receipt.title', url: '', terminal: true }
       ]
     } },
     { path: 'carpeta-del-ciudadano/identificacion', 

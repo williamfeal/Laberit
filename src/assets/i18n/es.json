@@ -365,6 +365,7 @@
     },
     "notifications": {
       "title": "Mis notificaciones",
+      "notifications-and-comunications": "Mis notificaciones y comunicaciones",
       "state": "Estado",
       "concept": "Concepto",
       "notification-date": "Fecha de notificación",
@@ -383,6 +384,12 @@
       "register-number": "Número de registro",
       "register-date": "Fecha de registro",
       "open-notification": "Abrir notificación"
+    },
+    "sign-notification-receipt": {
+      "title": "Firmar",
+      "receipt": "Acuse de recibo",
+      "text": "Se va a proceder a la firma del documento correspondiente al acuse de recibo de la notificaión. Para ello, usted debe acreditar su identidad mediante el uso de un certificado electrónico. Una vez firmado el acuse de recibo, podrá acceder y visualizar el contenido de la notificación.<br> <br>Actualmente, la Sede Electrónica admite certificados electrónicos de los siguientes proveedores de servicios de certificación: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute;n General de Polic&iacute;a - Ministerio del Interior)</li><li>En general, todos aquellos certificados reconocidos en la plataforma&nbsp;<span><b>@Firma </b></span>&nbsp;del Ministerio de Hacienda y Administraciones P&uacute;blicas</li> </ul> <p>Puede consultar el borrador de la solicitud que va a presentar, pulsando sobre el siguiente enlace:</p>",
+      "button": "Firmar acuse de recibo"
     },
     "instance": {
       "title": "Instancia General",
