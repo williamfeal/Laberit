@@ -1,4 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Notification } from 'src/app/models/notification.model';
+import { NotificationService } from './../../../../services/acli-service/notification.service';
 
 @Component({
   selector: 'app-notification-view',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationViewComponent implements OnInit {
 
-  constructor() { }
+  public notification:Notification;
+
+  constructor(
+    private notificationService:NotificationService,
+    private activatedRoute:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.notificationService.getNotificationById(this.activatedRoute.snapshot.params.id).subscribe(
+      data => this.notification = data
+    )
   }
 
 }

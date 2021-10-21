@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { Notification } from 'src/app/models/notification.model';
+import { NotificationService } from './../../../../services/acli-service/notification.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,20 +11,18 @@ import { Router } from '@angular/router';
 })
 export class NotificationsListComponent implements OnInit {
 
-  public dataSource:Notification[] = [{
-    concept: 'orueba',
-    state: 'prueba',
-    actualization_date: new Date(),
-    notification_date: new Date()
-  }];
+  public dataSource:Notification[];
   public displayedColumns = [ 'state', 'concept', 'notification-date', 'actualization-date', 'actions'];
 
   constructor(
-    private router:Router
+    private router:Router,
+    private notificationService:NotificationService
   ) { }
 
   ngOnInit(): void {
-    
+    this.notificationService.getNotifications().subscribe(
+      (data:Notification[]) => this.dataSource = data
+    )
   }
 
   public navToNotificationView(notification:Notification) {

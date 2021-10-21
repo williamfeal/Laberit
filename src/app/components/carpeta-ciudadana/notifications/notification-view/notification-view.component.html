@@ -13,7 +13,7 @@
                 <div class="ml-2 d-flex flex-column">
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.notification-id' | translate }} </span>
-                    <span>72905783e43d46839</span>
+                    <span> {{ notification.id }} </span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -22,7 +22,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.concept' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span> {{ notification.concept }} </span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -31,7 +31,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.cif' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span>{{ notification.cif }}</span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -40,7 +40,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.transmitter-name' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span>{{ notification.organismoEmisor }}</span>
                 </div>
             </div>
             <div class="col-md-6  d-flex">
@@ -49,7 +49,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.shipping-type' | translate }} 
                     </span>
-                    <span>72905783e43d46839</span>
+                    <span>{{ notification.tipoEnvio }}</span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -58,7 +58,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.reception-date' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span>{{ notification.fechaRecepcion | date:'shortDate'}}</span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -67,7 +67,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.register-number' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span>{{ notification.numRegistro }}</span>
                 </div>
             </div>
             <div class="col-md-6 d-flex">
@@ -76,7 +76,7 @@
                     <span class="d-inline-block text-uppercase font-weight-bold">
                         {{ 'carpeta_ciudadana.notification-view.register-date' | translate }} 
                     </span>
-                    <span>IVF/2021/00011</span>
+                    <span>{{ notification.fechaRegistro | date:'shortDate' }}</span>
                 </div>
             </div>
         </div>
