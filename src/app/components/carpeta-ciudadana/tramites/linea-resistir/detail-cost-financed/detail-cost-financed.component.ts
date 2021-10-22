@@ -10,6 +10,11 @@ import { Draft } from 'src/app/models/draft.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 
 @Component({
     selector: 'app-detail-cost-financed',
@@ -22,17 +27,18 @@ export class DetailCostFinancedComponent implements OnInit {
     @Input() validate: boolean;
     @Input() draft:Draft;
     //se bebera de los catalogos
-    tipoProyecto = tipoProyecto;
+    private unsubscribe$ = new Subject<void>();
 
     showInversion = false;
     showCirculante = false;
-    
+    public actuation: SelectFieldObject[];
     project_type: string;
 
     public draftDetailCostFinanced;
 
     constructor(
-        private ref: ChangeDetectorRef
+        private ref: ChangeDetectorRef,
+        private catalogsService: CatalogsService
     ) { }
 
     ngOnChanges(changes:SimpleChanges) {
@@ -46,8 +52,17 @@ export class DetailCostFinancedComponent implements OnInit {
 
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.getApplicantTypes();
+    }
 
+    getApplicantTypes() {
+        this.catalogsService.getCatalogByCode(ConceptConstants.DETAIL_TYPE_PROJECT).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.actuation = data
+        )
+      }
     capturarCampo(ev, campo) {
         this[campo] = ev;
         if (campo == 'project_type') {
@@ -70,5 +85,9 @@ export class DetailCostFinancedComponent implements OnInit {
             this.ref.detectChanges();
         }
     }
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+      }
 
 }
