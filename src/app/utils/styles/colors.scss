@@ -68,6 +68,11 @@ $transparent-white-70: rgba(255, 255, 255, .7);
   color: $primaryColor;
 }
 
+.background-primary-color {
+  background-color: $primaryColor;
+
+}
+
 .background-body {
   background-color: #F9F9F9;
 }

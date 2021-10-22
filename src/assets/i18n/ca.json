@@ -613,7 +613,46 @@
         }
       },
       "requests-list": {
-        "title": "Les meues Sol·licituds"
+        "title": "Les meues Sol·licituds",
+        "reload-list": "Recarregar llistat",
+        "date": "Data",
+        "request": "Sol·licitud",
+        "interested": "Interessat",
+        "line": "Línia",
+        "product": "Producte",
+        "state": "Estat",
+        "actions": "Accions"
+      },
+      "notifications": {
+        "title": "Les meues notificacions",
+        "state": "Estat",
+        "concept": "Concepte",
+        "notification-date": "Data de notificació",
+        "actualization-date": "Data d'actualització",
+        "actions": "Accions"
+      },
+      "notification-view": {
+        "title": "Veure notificació",
+        "notification-info": "Informació de la notificació",
+        "notification-id": "Identificador de la notificació",
+        "concept": "Concepte",
+        "cif": "CIF",
+        "transmitter-name": "Nom de l'organisme emissor",
+        "shipping-type": "Tipus d'enviament",
+        "reception-date": "Data de recepció",
+        "register-number": "Número de registre",
+        "register-date": "Data de registre",
+        "open-notification": "Obrir notificació",
+        "documents": "Documents",
+        "documents-date": "Data",
+        "documents-name": "Document"
+      },
+      "sign-notification-receipt": {
+        "title": "Signar",
+        "receipt": "Justificant de recepció",
+        "text": "Es procedirà a la signatura del document corresponent al justificant de recepció de la notificació. Per a això, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic. Una vegada signat el justificant de recepció, podrà accedir i visualitzar el contingut de la notificació.<br> <br>Actualment, la Seu Electrònica admet certificats electrònics dels següents proveïdors de serveis de certificació: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute; General de Policia - Ministeri de l'interior)</li><li>En general, tots aquells certificats reconeguts en la plataforma &nbsp;<span><b>@Firma </b></span>&nbsp;del Ministeri d'Hisenda i Administracions P&uacute;bliques</li> </ul> <p>Pot consultar l'esborrany de la sol·licitud que presentarà, prement sobre el següent enllaç:</p>",
+        "link": "Justificant de recepció",
+        "button": "Signar justificant de recepció"
       },
       "general_instance": {
         "title": "Instància General",
