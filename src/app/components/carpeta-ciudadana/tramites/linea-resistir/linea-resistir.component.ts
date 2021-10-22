@@ -106,8 +106,20 @@ export class LineaResistirComponent implements OnInit {
 
     private getDecision() {
         const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS ||
-        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS  ?
-        true : false;
+            sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS  ?
+            true : false;
+        let tipoProyecto;
+        switch(this.formLineaResistir.controls['project_type'].value) {
+            case 'linea-resistir-project-type-G1-investment':
+                tipoProyecto = 'Inversion';
+                break;
+            case 'linea-resistir-project-type-G2-circulating':
+                tipoProyecto = 'Circulante';
+                break;
+            case 'linea-resistir-project-type-G3-investment-and-circulating':
+                tipoProyecto = 'Inversion y Circulante';
+                break;
+        }
         const ruleBody:BusinessRuleBody = {
             autonomoMicroEmp: isAutonomoMicroEmp,
             importe: this.formLineaResistir.controls['importe'].value,
@@ -126,7 +138,7 @@ export class LineaResistirComponent implements OnInit {
             g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
             g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
             g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
-            tipoProyecto: this.formLineaResistir.controls['tipoProyecto'].value,
+            tipoProyecto: tipoProyecto,
         }
         const rule:BusinessRule = { 
             tableKey: "decisionResistir",

@@ -6,15 +6,15 @@ import {
     OnInit,
     SimpleChanges
     } from '@angular/core';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Draft } from 'src/app/models/draft.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
-import { tipoProyecto } from 'src/app/utils/constants/app-constants';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 
 @Component({
     selector: 'app-detail-cost-financed',
@@ -67,15 +67,15 @@ export class DetailCostFinancedComponent implements OnInit {
         this[campo] = ev;
         if (campo == 'project_type') {
             switch (this.project_type) {
-                case 'Inversion':
+                case 'linea-resistir-project-type-G1-investment':
                     this.showInversion = true;
                     this.showCirculante = false;
                     break;
-                case 'Circulante':
+                case 'linea-resistir-project-type-G2-circulating':
                     this.showInversion = false;
                     this.showCirculante = true;
                     break;
-                case 'Inversion y Circulante':
+                case 'linea-resistir-project-type-G3-investment-and-circulating':
                     this.showInversion = true;
                     this.showCirculante = true;
                     break;

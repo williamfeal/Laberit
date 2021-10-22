@@ -56,8 +56,10 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
       this.breadcrumbs = d.breadcrumb;
     });
 
-    if (this.activatedRoute.snapshot.queryParams.draft)
-      this.draft = { draft: this.activatedRoute.snapshot.queryParams.draft }
+    if (this.activatedRoute.snapshot.queryParams.draft) {
+      this.draft = this.activatedRoute.snapshot.queryParams.draft;
+    }
+     
   }
 
   ngOnDestroy(): void {
