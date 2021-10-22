@@ -219,8 +219,12 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     const num_empleados = this.representative ?
       this.formUserIdentification.value.representative_data.represented_data_employees_number :
       this.formUserIdentification.value.interested_data.interested_data_employees_number;  
+    const company_type = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS ?
+      'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME ? 
+      'Pyme' : '';
+    
     const ruleBody:BusinessRuleBodyUserIdentification = {
-      tipoEmpresa: sessionStorage.getItem('company_type'),
+      tipoEmpresa: company_type,
       activo: activo,
       cifraNegocio: turnover,
       numEmpleados: num_empleados
