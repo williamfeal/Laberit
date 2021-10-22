@@ -84,7 +84,9 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   public representativeTypeChange(event: string) {
     this.representativeTypeSelected = event;
-    this.catalogService.getCatalogByCode(ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON).pipe(
+    console.log(this.representativeTypeSelected);
+  
+    this.catalogService.getCatalogByCode(this.representativeTypeSelected).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
       data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
