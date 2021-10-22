@@ -1,4 +1,8 @@
+
 export class BusinessRuleBody {
+
+}
+export class BusinessRuleBodyLineaResistir extends BusinessRuleBody {
     autonomoMicroEmp: boolean
     importe: number
     g1terrenos: number
@@ -17,4 +21,11 @@ export class BusinessRuleBody {
     g3inversionActivoCirculante: number
     g3totalPrestamo: number
     tipoProyecto: string
+}
+
+export class BusinessRuleBodyUserIdentification extends BusinessRuleBody {
+    tipoEmpresa:string
+    activo:number
+    cifraNegocio:number
+    numEmpleados:number
 }

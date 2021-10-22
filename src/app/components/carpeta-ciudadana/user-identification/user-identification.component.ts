@@ -9,9 +9,13 @@ import {
   OnInit,
   SimpleChanges
   } from '@angular/core';
+import { BusinessRule } from './../../../models/business-rules.model';
+import { BusinessRuleBodyUserIdentification } from './../../../models/business-rules-body.model';
+import { BusinessRulesService } from './../../../services/acli-service/business-rules.service';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Decision } from './../../../models/decision.model';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
@@ -67,7 +71,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private proceduresService: ProceduresService,
     private carpetaUtils: CarpetaUtils,
     private translateService: TranslateService,
-    private carpetaService:CarpetaService,
+    private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
     private readonly changeDetectorRef: ChangeDetectorRef
 
@@ -174,28 +178,29 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           error++;
           this.emailErrorContact = true;
         }
-      }else{
+      } else{
         this.emailErrorContact = false;
-      if(!isEmptyObject(this.formUserIdentification.value.legal_representative.legal_representative_email) &&
-        this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
-        error++;
-        this.emailErrorLegalRepresnt = true;
-      }
-      if( !isEmptyObject(this.formUserIdentification.value.contact_data.contact_email) &&
-        this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
-        error++;
-        this.emailErrorContact = true;
-      }
+        if(!isEmptyObject(this.formUserIdentification.value.legal_representative.legal_representative_email) &&
+          this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorLegalRepresnt = true;
+        }
+        if( !isEmptyObject(this.formUserIdentification.value.contact_data.contact_email) &&
+          this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
+          error++;
+          this.emailErrorContact = true;
+        }
 
-      //Se ha de seleccionar el tipo de persona
-      if (this.requesterType == '') {
-        error++;
-      }
+        //Se ha de seleccionar el tipo de persona
+        if (this.requesterType == '') {
+          error++;
+        }
     }
     //si no hay errores
     if (error == 0) {
       //llamada al back para mandar los datosc
-      this.saveDraftAndNavigate();
+      this.checkBusinessRules();
+      // this.saveDraftAndNavigate();
     } else {
       //saber como notificar al usuario
       SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
@@ -203,6 +208,41 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     }
   }
 }
+
+  private checkBusinessRules() {
+    const activo = this.representative ? 
+      this.formUserIdentification.value.representative_data.represented_data_active :
+      this.formUserIdentification.value.interested_data.interested_data_active;
+    const turnover = this.representative ?
+      this.formUserIdentification.value.representative_data.represented_data_turnover :
+      this.formUserIdentification.value.interested_data.interested_data_turnover;
+    const num_empleados = this.representative ?
+      this.formUserIdentification.value.representative_data.represented_data_employees_number :
+      this.formUserIdentification.value.interested_data.interested_data_employees_number;  
+    const company_type = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS ?
+      'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME ? 
+      'Pyme' : '';
+    
+    const ruleBody:BusinessRuleBodyUserIdentification = {
+      tipoEmpresa: company_type,
+      activo: activo,
+      cifraNegocio: turnover,
+      numEmpleados: num_empleados
+    };
+    const rule:BusinessRule = {
+      tableKey: "reglasTipoEmpresa",
+      body: ruleBody
+    }
+    this.businessRulesService.businessRuleDecision(rule).subscribe(
+      (data:Decision) => {
+        data.decision ? this.saveDraftAndNavigate() : 
+          SwalUtils.showErrorAlert(
+            'Error',
+            data.motive
+          )
+      }
+    )
+  }
 
   private saveDraftAndNavigate() {
     const infoProcedure = this.procedure.languages.find(
