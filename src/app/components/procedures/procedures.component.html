@@ -17,14 +17,14 @@
 				<tbody class="table-bordered">
 					<tr *ngFor="let procedure of selectedCategory.procedimientos">
 						<div *ngIf="procedure.publicarEnSede">
-							<td class="col-sm-11">
+							<td class="col-sm-12">
 								<a [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}"
 									class="text-dark">
 									{{procedure.name}}
 								</a>
 							</td>
 							<td class="col-sm-1">
-								<div class="d-flex mx-2">
+								<div class="d-flex ml-1">
 									<a title="Ir al trámite" [routerLink]="['/procedures/' + procedure.id]"
 										[queryParams]="{action: 'info'}">
 										<em class="fas fa-info circle-icon info-icon-class color-primary mr-4"></em>

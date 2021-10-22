@@ -14,6 +14,7 @@ export class ConceptConstants {
     public static readonly COUNTRIES_SPAIN_PROVINCES_12 = "countries-spain-provinces-12";
     public static readonly COUNTRIES_SPAIN_PROVINCES_46 = "countries-spain-provinces-46";
     public static readonly REPRESENTATIVE_TYPES = "ivf-representative-types";
+    public static readonly REPRESENTATIVE_TYPES_PHYSIC_PERSON = "ivf-representative-types-physical-person";
     public static readonly REPRESENTATIVE_TYPES_JURIDIC_PERSON = "ivf-representative-types-juridic-person";
     public static readonly APPLICANT_TYPE_INTERESTED = "ivf-applicant-types-interested";
     public static readonly APPLICANT_TYPE_REPRESENTATIVE = "ivf-applicant-types-representantive";
@@ -36,4 +37,9 @@ export class ConceptConstants {
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
     public static readonly DATA_PROTECTION = "data-protection-questionary";
+
+
+    //DETAIL COST FINANCED
+    public static readonly DETAIL_TYPE_PROJECT = "linea-resistir-project-type";
+    public static readonly INTEST_TYPE_RATE = "linea-resistir-interest-rate-modality";
 }
