@@ -2,6 +2,13 @@
     <div class="card-header text-white bg-color-blue">
         <h2 class="mt-2" id="id-header-category" [innerHTML]="categoria.name"></h2>
     </div>
-    <div class="card-body" id="text-category" [innerHTML]="categoria.texto">
+    <div *ngIf="fragment !== 'calendars'" class="card-body" id="text-category" [innerHTML]="categoria.texto">
+    </div>
+    <div *ngIf="fragment === 'calendars'" class="card-body">
+        <ul >
+            <li *ngFor="let day of daysOff" class="mt-2">
+                {{ day.day }} de {{ monthNames[lang][day.month - 1]}}, {{ day.description }}
+            </li>
+        </ul>
     </div>
 </div>
