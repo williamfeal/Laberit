@@ -1,0 +1,108 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sede-ivf
+  namespace: ivf
+  labels:
+    app: sede-ivf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sede-ivf
+  template:
+    metadata:
+      labels:
+        app: sede-ivf
+    spec:
+      containers:
+        - name: sede-ivf
+          image: hub.alfatecsistemas.es/tdgov/sede-angular:develop
+          imagePullPolicy: Always
+          env:
+            - name: ATENCION_CLIENTE_URL
+              value: https://acli-ivf.laberit.com
+            - name: CARPETA_URL
+              value: https://acli-ivf.laberit.com
+            - name: CATALOG
+              value: https://catalogs-service-ivf.laberit.com
+            - name: ENTITY_UUID
+              value: ca807322-5bcb-11eb-87b5-c4fba02e0591
+            - name: KEYCLOAK_CLIENT_ID
+              value: angular-tasklist
+            - name: KEYCLOAK_REALM
+              value: Angular2
+            - name: KEYCLOAK_URL
+              value: https://keycloak.laberit.com/auth/
+            - name: MOGES_URL
+              value: https://lavenganza-ivf.laberit.com
+            - name: PROFILE
+              value: dev
+            - name: TREX_URL
+              value: http://trex-ivf.laberit.com
+            - name: TRAMITADOR_URL
+              value: http://tramitador-backend-ivf.laberit.com
+          ports:
+            - name: http
+              containerPort: 80
+      imagePullSecrets:
+      - name: image-pull-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sede-ivf
+  namespace: ivf
+spec:
+  selector:
+    app: sede-ivf
+  ports:
+    - name: http
+      port: 4802
+      targetPort: 80
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sede-ivf-tls
+  namespace: ivf
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`sede2-ivf.laberit.com`)
+    kind: Rule
+    services:
+    - name: sede-ivf
+      port: 4802
+      sticky:
+        cookie:
+          httpOnly: true
+          name: galleta
+  tls: {}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sede-ivf
+  namespace: ivf
+
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`sede2-ivf.laberit.com`)
+    kind: Rule
+    services:
+    - name: sede-ivf
+      port: 4802
+      sticky:
+        cookie:
+          httpOnly: true
+          name: galleta
+    middlewares:
+        - name: https-redirect

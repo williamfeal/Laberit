@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-conoce-la-sede',
@@ -29,7 +29,9 @@ export class ConoceLaSedeComponent implements OnInit {
              this.activatedRoute.fragment.pipe(
                 takeUntil(this.unsubscribe$)
              ).subscribe(
-                fragment => this.fragment = fragment
+                (fragment:string) => {
+                    this.fragment = fragment
+                }
             )
         
     }   

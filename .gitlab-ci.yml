@@ -14,4 +14,4 @@ Docker Build:
     - docker push $CI_REGISTRY_IMAGE:develop
     - curl -X POST $PORTAINER_TOKEN
   only:
-    - dev
+    - develop
