@@ -12,7 +12,7 @@ export const environment = {
   trex_url: 'https://trex-ivf.laberit.com',
   mock_url: 'https://mock-ivf.laberit.com',
   keycloak: {
-    issuer: 'http://keycloak.ivf.laberit.es/auth/',
+    issuer: 'http://keycloak.ivf.laberit.com/auth/',
     realm: 'Angular2',
     clientId: 'angular-tasklist'
   },

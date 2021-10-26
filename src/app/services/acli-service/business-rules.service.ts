@@ -20,10 +20,13 @@ export class BusinessRulesService {
 
   public businessRuleDecision(rule:BusinessRule) {
     const loggedUser = this.http.post<Decision>(this.URL_BUSINESS_RULES, rule, this.headerInterceptor);
+    console.log(this.URL_BUSINESS_RULES, rule);
     return loggedUser.pipe(map((response) => {
+      console.log(response);
       return response;
     })).pipe(catchError((err: Error) => {
       throw err;
     }));
+    
   }
 }

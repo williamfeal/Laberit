@@ -108,6 +108,7 @@ export class LineaResistirComponent implements OnInit {
         const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS ||
         sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS  ?
         true : false;
+        
         const ruleBody:BusinessRuleBody = {
             autonomoMicroEmp: isAutonomoMicroEmp,
             importe: this.formLineaResistir.controls['importe'].value,
@@ -126,7 +127,7 @@ export class LineaResistirComponent implements OnInit {
             g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
             g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
             g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
-            tipoProyecto: this.formLineaResistir.controls['tipoProyecto'].value,
+            tipoProyecto: this.formLineaResistir.controls['project_type'].value,
         }
         const rule:BusinessRule = { 
             tableKey: "decisionResistir",
