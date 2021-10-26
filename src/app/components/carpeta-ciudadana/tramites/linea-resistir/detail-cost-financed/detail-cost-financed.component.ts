@@ -31,8 +31,10 @@ export class DetailCostFinancedComponent implements OnInit {
 
     showInversion = false;
     showCirculante = false;
-    public actuation: SelectFieldObject[];
-    project_type: string;
+    showInvCircu = false;
+    public project_type: SelectFieldObject[];
+    public pro: string = '';
+   
 
     public draftDetailCostFinanced;
 
@@ -60,13 +62,14 @@ export class DetailCostFinancedComponent implements OnInit {
         this.catalogsService.getCatalogByCode(ConceptConstants.DETAIL_TYPE_PROJECT).pipe(
           takeUntil(this.unsubscribe$)
         ).subscribe(
-          data => this.actuation = data
+          data => this.project_type = data
         )
       }
     capturarCampo(ev, campo) {
         this[campo] = ev;
-        if (campo == 'project_type') {
-            switch (this.project_type) {
+        console.log(this.pro);
+        if (campo == 'pro') {
+            switch (this.pro) {
                 case 'linea-resistir-project-type-G1-investment':
                     this.showInversion = true;
                     this.showCirculante = false;
