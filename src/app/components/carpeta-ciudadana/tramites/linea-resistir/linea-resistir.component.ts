@@ -14,6 +14,7 @@ import {
     FormGroup,
     Validators
     } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
@@ -50,6 +51,7 @@ export class LineaResistirComponent implements OnInit {
     constructor(
         private activatedRoute:ActivatedRoute,
         private router: Router,
+        private location:Location,
         private ref: ChangeDetectorRef,
         private procedureService:ProceduresService,
         private translate:TranslateService,
@@ -169,7 +171,16 @@ export class LineaResistirComponent implements OnInit {
         }     
     }
 
-
+    public returnToDraft() {
+        this.router.navigate(['/carpeta-del-ciudadano/identificacion'], {
+            queryParams: {
+                idProcedure: sessionStorage.getItem('idProcedure'),
+                draft: this.draft.key
+            }
+        })
+          
+    }
+    
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
