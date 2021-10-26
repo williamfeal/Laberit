@@ -15,12 +15,12 @@
             </app-input-text-area>
         </div>
         <div class="form-group">
-            <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event.target.value, 'project_type')"
+            <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event.target.value, 'pro')"
                 placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_type' | translate }}"
                 [error]="validate && formLineaResistir.controls['project_type']?.invalid" class="col-sm-3"
                 controlName="project_type" idValue="project_type" nameValue="project_type" isReadOnly="false"
-                [isRequired]="true" [fieldOptions]="actuation" errorText="empty_error"
+                [isRequired]="true" [fieldOptions]="project_type" errorText="empty_error"
                 [draft]="draftDetailCostFinanced">
             </app-input-select>
         </div>
@@ -134,7 +134,7 @@
         </div>
         <!-- Financiaci�n solicitada G3-->
         <hr>
-        <div [ngClass]="{ 'd-none': project_type != 'Inversion y Circulante' }">
+        <div [ngClass]="{ 'd-none': pro != 'Inversion y Circulante' }">
             <div class="row col-sm-12">
                 <span class="ml-3">
                     <strong>{{ 'carpeta_ciudadana.request_info.financing.financing_requested.title' | translate
