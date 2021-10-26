@@ -29,7 +29,7 @@
             [isReadOnly] = "readOnly"
             [isRequired]="true"
             placeholder="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
-            [error]="emailError"
+            [error]="validate && formNotificationMeans.controls['email']?.invalid"
             [errorText]="emailErrorText"
             [draft]="draftNotificationMeansData"
         ></app-input-text>
