@@ -22,9 +22,11 @@ spec:
           imagePullPolicy: Always
           env:
             - name: ATENCION_CLIENTE_URL
-              value: http://acli-ivf.laberit.com
+              value: https://acli-ivf.laberit.com
+            - name: CARPETA_URL
+              value: https://acli-ivf.laberit.com
             - name: CATALOG
-              value: http://catalogs-service-ivf.laberit.com
+              value: https://catalogs-service-ivf.laberit.com
             - name: ENTITY_UUID
               value: ca807322-5bcb-11eb-87b5-c4fba02e0591
             - name: KEYCLOAK_CLIENT_ID
@@ -34,7 +36,7 @@ spec:
             - name: KEYCLOAK_URL
               value: https://keycloak.laberit.com/auth/
             - name: MOGES_URL
-              value: http://moges2-ivf.laberit.com
+              value: https://lavenganza-ivf.laberit.com
             - name: PROFILE
               value: dev
             - name: TREX_URL
@@ -42,7 +44,7 @@ spec:
             - name: TRAMITADOR_URL
               value: http://tramitador-backend-ivf.laberit.com
           ports:
-            - name: http 
+            - name: http
               containerPort: 80
       imagePullSecrets:
       - name: image-pull-secret
@@ -50,7 +52,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: sede-ivf
   namespace: ivf
 spec:
@@ -81,7 +83,7 @@ spec:
         cookie:
           httpOnly: true
           name: galleta
-  tls: {} 
+  tls: {}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
