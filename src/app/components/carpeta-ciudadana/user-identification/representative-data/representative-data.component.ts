@@ -84,7 +84,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   public representativeTypeChange(event: string) {
     this.representativeTypeSelected = event;
-    console.log(this.representativeTypeSelected);
   
     this.catalogService.getCatalogByCode(this.representativeTypeSelected).pipe(
       takeUntil(this.unsubscribe$)
@@ -94,8 +93,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   private getCNAEoptions() {
-    console.log(sessionStorage.getItem('idProcedure') === AppConstants.LINEA_RESISTIR_CODE);
-    console.log(sessionStorage.getItem('idProcedure'));
     switch(sessionStorage.getItem('idProcedure')) {
       case AppConstants.LINEA_RESISTIR_CODE:
         this.catalogService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(

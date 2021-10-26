@@ -2,18 +2,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessRule } from './../../../../models/business-rules.model';
 import { BusinessRuleBody } from './../../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../../services/acli-service/business-rules.service';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { Decision } from './../../../../models/decision.model';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../../services/acli-service/drafts.service';
-import {
-    FormBuilder,
-    FormControl,
-    FormGroup,
-    Validators
-    } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
@@ -169,7 +163,16 @@ export class LineaResistirComponent implements OnInit {
         }     
     }
 
-
+    public returnToDraft() {
+        this.router.navigate(['/carpeta-del-ciudadano/identificacion'], {
+            queryParams: {
+                idProcedure: sessionStorage.getItem('idProcedure'),
+                draft: this.draft.key
+            }
+        })
+          
+    }
+    
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
