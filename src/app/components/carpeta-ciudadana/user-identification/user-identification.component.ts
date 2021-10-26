@@ -127,13 +127,14 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public getOrCreateDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification').subscribe(
         (data:Draft) => {
           this.draft = data;
           if(JSON.parse(data.info).formUserIdentification) {
             this.draftUserIdentification = JSON.parse(data.info).formUserIdentification;
           }
-        })
+        },
+        () => this.setDraft() )
       } else {
         const info = { idProcedure: sessionStorage.getItem('idProcedure') };
         const infoProcedure = this.procedure.languages.find(
@@ -149,7 +150,19 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           producto: infoProcedure.name,
           fecha: ''  
         }
+        this.draftService.saveDraft(draft).subscribe(
+          data => this.draft = data
+        )
       }
+  }
+
+  private setDraft() {
+    const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
+      'info', this.activatedRoute.snapshot.queryParams.draft);
   }
 
   onChangeTypeRequester(event) {
@@ -222,40 +235,15 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
     );
-    let infoProcedureJSON;
-    if(this.draft) {
-      infoProcedureJSON = JSON.parse(this.draft.info);
-      infoProcedureJSON.formUserIdentification = this.formUserIdentification.value;
 
-      this.draft.info = JSON.stringify(infoProcedureJSON);
-      this.draftService.saveDraft(this.draft).subscribe(
-          () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
-            queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
-          })
-      )
-    } else {
-      infoProcedureJSON = { 
-        idProcedure: this.idProcedure,
-        formUserIdentification: this.formUserIdentification.value 
-      }
-      const draft:Draft = {
-        fecha: '',
-        key: '',
-        desc: 'BORRADOR',
-        idInfo: 'formUserIdentification',
-        info: JSON.stringify(this.formUserIdentification.value),
-        linea: this.procedure.category.name,
-        nif: sessionStorage.getItem('nifTitular'),
-        producto: infoProcedure.name
-      }
-    
-      this.draftService.saveDraft(draft).subscribe(
-        data => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
-          queryParams: { draft: data.key }
-        })
-      )
-    }
-    
+    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
+      infoProcedure.name, 'forms:formUserIdentification', this.draft.key, '');
+
+    this.draftService.saveDraft(draft).subscribe(
+      () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+        queryParams: { draft: this.draft.key }
+      })
+    )    
   }
 
 
