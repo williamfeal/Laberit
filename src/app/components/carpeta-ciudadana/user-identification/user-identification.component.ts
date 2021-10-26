@@ -91,7 +91,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
     this.user = this.carpetaUtils.getSession();
 
-    this.getOrCreateDraft();
 
     this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
 
@@ -100,6 +99,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     ).subscribe(
       (procedure: Procedure) => {
         this.procedure = procedure;
+        this.getOrCreateDraft();
     })
     
     this.translateService.get('error_texts.pop_up.form_error').pipe(
@@ -135,20 +135,20 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           }
         })
       } else {
-        // const info = { idProcedure: sessionStorage.getItem('idProcedure') };
-        // const infoProcedure = this.procedure.languages.find(
-        //   language => language.codigo === localStorage.getItem('lang')
-        // );
-        // const draft:Draft = {
-        //   key: '',
-        //   desc: 'Borrador',
-        //   idInfo: 'info',
-        //   info: JSON.stringify(info),
-        //   linea: this.procedure.category.name,
-        //   nif: sessionStorage.getItem('nifTitular'),
-        //   producto: infoProcedure.name,
-        //   fecha: ''  
-        // }
+        const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+        const infoProcedure = this.procedure.languages.find(
+          language => language.codigo === localStorage.getItem('lang')
+        );
+        const draft:Draft = {
+          key: '',
+          desc: 'Borrador',
+          idInfo: 'info',
+          info: JSON.stringify(info),
+          linea: this.procedure.category.name,
+          nif: sessionStorage.getItem('nifTitular'),
+          producto: infoProcedure.name,
+          fecha: ''  
+        }
       }
   }
 
