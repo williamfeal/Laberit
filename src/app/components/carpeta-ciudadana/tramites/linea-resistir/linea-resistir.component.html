@@ -2,7 +2,13 @@
     [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-spinner *ngIf="!procedure"></app-spinner>
 <div *ngIf="procedure">
-    <app-button-back></app-button-back>
+    <app-button-back *ngIf="!draft"></app-button-back>
+    <div class="row mr-0 ml-4" *ngIf="draft">
+        <a (click)="returnToDraft()" class="btn color-return-btn text-left my-2">
+            <em class="fas fa-chevron-left mr-1"></em>
+            {{ 'buttons.back' | translate}}
+        </a>
+    </div>
     <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
         <app-procedure-information [draft]="draft"
             [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>
