@@ -130,9 +130,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification').subscribe(
         (data:Draft) => {
           this.draft = data;
-          if(JSON.parse(data.info).formUserIdentification) {
-            this.draftUserIdentification = JSON.parse(data.info).formUserIdentification;
-          }
+          this.draftUserIdentification = JSON.parse(data.info);
         },
         () => this.setDraft() )
       } else {

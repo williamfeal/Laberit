@@ -42,8 +42,8 @@ export class DetailCostFinancedComponent implements OnInit {
     ) { }
 
     ngOnChanges(changes:SimpleChanges) {
-        if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info).formLineaResistir) {
-            this.draftDetailCostFinanced = JSON.parse(this.draft.info).formLineaResistir;
+        if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info)) {
+            this.draftDetailCostFinanced = JSON.parse(this.draft.info);
             if(!isEmptyObject(this.draftDetailCostFinanced.project_type)) {
                 this.capturarCampo(this.draftDetailCostFinanced.project_type, 'project_type');
             }
