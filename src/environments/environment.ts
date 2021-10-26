@@ -10,7 +10,7 @@ export const environment = {
   production: false,
   envName: 'default',
   app_url: 'http://localhost:4200',
-  atencion_cliente_url: 'https://acli-ivf.laberit.com',
+  atencion_cliente_url: 'http://localhost:8082',
   moges_url: 'https://lavenganza-ivf.laberit.com',
   carpeta_url:'https://acli-ivf.laberit.com',
   trex_url: 'http://trex-sede.apc.alfatecsistemas.es',

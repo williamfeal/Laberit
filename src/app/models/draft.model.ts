@@ -6,4 +6,5 @@ export class Draft {
     fecha?:string
     linea:string
     producto:string
+    idInfo:string;
 }
