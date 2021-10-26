@@ -32,7 +32,6 @@ export class DraftsService {
       const draft = this.http.get<Draft[]>(`${this.URL_DRAFT}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
       return draft.pipe(
         map((response: Draft[]) => {
-        console.log(response);
         return response
       })).pipe(
         catchError((err: Error) => {

@@ -22,7 +22,6 @@ export class RequestsListComponent implements OnInit {
   ngOnInit(): void {
     this.draftService.getDrafts().subscribe(
       (data:Draft[]) => {
-        console.log(data)
         this.drafts = data
       }
     )

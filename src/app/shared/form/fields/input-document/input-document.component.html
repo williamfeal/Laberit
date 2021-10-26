@@ -2,7 +2,7 @@
 <form [formGroup]="form">
 <div class="m-2 mb-3">
     <div class="mx-3 row">
-        <span maxlength="30" class="overme">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
+        <span maxlength="30">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
     </div>
     <div class="pl-3 row">
         <div class="file-container center-text" [ngClass]="{ 'error-input': error && isRequired == true }">
