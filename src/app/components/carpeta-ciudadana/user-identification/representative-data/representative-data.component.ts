@@ -38,7 +38,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public countries:SelectFieldObject[];
   public genders:SelectFieldObject[];
   public cnaeOptions:SelectFieldObject[];
-  
+  public comunidadBienes: boolean = false;
+
   public representativeTypeSelected;
   public businessTypeSelected;
   public draftRepresentativeData;
@@ -51,6 +52,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' || 
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-physic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
     this.loadData();
     this.languageService.lang.subscribe(
       () => this.loadData()
@@ -145,6 +148,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public businessTypeChange(event: string) {
     this.businessTypeSelected = event;
     sessionStorage.setItem('company_type', event);
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' || 
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-physic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
   public isAutonum() {

@@ -38,6 +38,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   public siNo: SelectFieldObject[];
   public draftInterestedData;
   public comunidadBienes: boolean = false;
+  public autonom: string;
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -49,6 +50,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
     this.loadData();
     this.languageService.lang.subscribe(
       () => this.loadData()
@@ -125,9 +127,9 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event) {
+    this.autonom = event;
     sessionStorage.setItem('company_type', event);
-    event === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
-    console.log(this.comunidadBienes);
+    sessionStorage.getItem('company_type') === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
   ngOnDestroy(): void {

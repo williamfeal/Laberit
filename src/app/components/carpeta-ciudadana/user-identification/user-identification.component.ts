@@ -150,6 +150,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   public goToRequestInfo() {
+    console.log(this.formUserIdentification);
+
     let error = 0;
     //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
