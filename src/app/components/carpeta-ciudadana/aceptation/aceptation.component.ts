@@ -47,8 +47,8 @@ export class AceptationComponent implements OnInit {
     const idProcedure = sessionStorage.getItem('idProcedure');
     if (sessionStorage.getItem('company_type')) {
       const company_type = (sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS ||
-        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ||
-        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY) ?
+        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_COMMUNITY_OF_GOODS ||
+        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY) || sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_CIVIL_SOCIETY ?
         ConceptConstants.MANIFESTATIONS_TYPES_AUTO_COMBIENES : ConceptConstants.MANIFESTATIONS_TYPES_MICRO_PYME_GEMP;
       this.catalogService.getCatalogByCode(company_type).pipe(
         takeUntil(this.unsubscribe$)
