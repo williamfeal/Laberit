@@ -45,7 +45,6 @@ export class ComunidadBienesComponent implements OnInit {
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.cominidad_bienes)) {
             this.draftComBienes = this.draft.cominidad_bienes
-            console.log(this.draftComBienes)
         }
     }
     async getTemplates(concept: any){

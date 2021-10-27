@@ -141,7 +141,7 @@ export class LineaResistirComponent implements OnInit {
             g3inversionActivosFijos: this.formLineaResistir.controls['g3inversionActivosFijos'].value,
             g3inversionActivoCirculante: this.formLineaResistir.controls['g3inversionActivoCirculante'].value,
             g3totalPrestamo: this.formLineaResistir.controls['g3totalPrestamo'].value,
-            tipoProyecto: tipoProyecto,
+            tipoProyecto: this.formLineaResistir.controls['project_type'].value,
         }
         const rule:BusinessRule = { 
             tableKey: "decisionResistir",

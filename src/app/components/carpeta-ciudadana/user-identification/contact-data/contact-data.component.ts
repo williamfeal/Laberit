@@ -127,7 +127,6 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   }
 
   public checkValue() {
-    console.log(this.isChecked)
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();

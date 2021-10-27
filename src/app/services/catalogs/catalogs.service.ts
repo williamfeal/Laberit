@@ -33,7 +33,6 @@ export class CatalogsService {
       return response.data;
     })).pipe(catchError(error => {
       let errorMsg: string;
-      console.log(error.status);
       if (error.error instanceof ErrorEvent) {
           errorMsg = `Error: ${error.error.message}`;
       } else {
@@ -48,7 +47,6 @@ export class CatalogsService {
       return response.data;
     })).pipe(catchError(error => {
       let errorMsg: string;
-      console.log(error.status);
       if (error.error instanceof ErrorEvent) {
           errorMsg = `Error: ${error.error.message}`;
       } else {
@@ -64,7 +62,6 @@ export class CatalogsService {
       return response.data;
     })).pipe(catchError(error => {
       let errorMsg: string;
-      console.log(error.status);
       if (error.error instanceof ErrorEvent) {
           errorMsg = `Error: ${error.error.message}`;
       } else {

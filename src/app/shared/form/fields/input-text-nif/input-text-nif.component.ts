@@ -56,13 +56,10 @@ export class InputTextNifComponent implements OnInit {
     onChangeValue(ev) {
         const nifCode = AppUtils.callCheckNif(ev);
         this.valNif = nifCode;
-        console.log(this.form.parent)
         if (nifCode <= 0) {
             this.errorNif = true;
             this.form.controls[this.controlName].setErrors({'incorrect': true})
         } else {
-            console.log(this.validaciones);
-
             this.errorNif = false;
         }
         this.error = !this.form.get(this.controlName).valid ?  true : false;

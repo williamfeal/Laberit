@@ -29,6 +29,8 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
     //se bebera de los catalogos
     public tipoInteres: SelectFieldObject[];
     private unsubscribe$ = new Subject<void>();
+    public term: SelectFieldObject[];
+    public lack: SelectFieldObject[];
 
     public draftProcedureInformation;
     constructor(
@@ -37,6 +39,8 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
 
     ngOnInit() { 
         this.getApplicantTypes();
+        this.getApplicantPlazos();
+        this.getApplicantLack();
     }
     getApplicantTypes() {
         this.catalogsService.getCatalogByCode(ConceptConstants.INTEST_TYPE_RATE).pipe(
@@ -44,12 +48,30 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
         ).subscribe(
           data => this.tipoInteres = data
         )
-      }
+    }
+
+    getApplicantPlazos(){
+      this.catalogsService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PLAZOS).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        data => this.term = data
+      )
+    } 
+
+    getApplicantLack(){
+      this.catalogsService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_LACK).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        data => this.lack = data
+      )
+    } 
+
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info)) {
             this.draftProcedureInformation = JSON.parse(this.draft.info);
         }
     }
+
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();

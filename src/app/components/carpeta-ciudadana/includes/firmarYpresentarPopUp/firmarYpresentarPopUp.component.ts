@@ -30,7 +30,6 @@ export class FirmarYPresentarPopUp implements OnInit {
     singAndPresent() {
         try{
         this.appUtils.signDocument(this.documentBase64).then((documentSinged) => {
-            console.log('documentSinged :>> ', documentSinged);
             this.dialogRef.close(false);
             setInterval(() =>{
                 this.router.navigate(['carpeta-del-ciudadano/confirmacion']);

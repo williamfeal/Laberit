@@ -14,24 +14,45 @@
                 errorText="empty_error"></app-input-number>
         </div>
         <div class="col-md-2 form-group">
-            <app-input-number [form]="formLineaResistir" [draft]="draftProcedureInformation"
-                label="{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}" controlName="term"
+            <app-input-select [form]="formLineaResistir" 
+                [draft]="draftProcedureInformation"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.term' | translate }}" 
+                controlName="term"
                 [error]="validate && formLineaResistir.controls['term']?.invalid"
-                idValue="term" nameValue="term" isRequired=true value="" errorText="empty_error"></app-input-number>
+                idValue="term" 
+                nameValue="term" 
+                isRequired=true 
+                value="" 
+                [fieldOptions]="term"
+                errorText="empty_error">
+            </app-input-select>
         </div>
 
         <div class="col-md-2 form-group">
-            <app-input-number [form]="formLineaResistir" [draft]="draftProcedureInformation"
-                label="{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}" controlName="lack"
-                [error]="validate && formLineaResistir.controls['lack']?.invalid"
-                idValue="lack" nameValue="lack" isRequired=true value="" errorText="empty_error"></app-input-number>
+            <app-input-select [form]="formLineaResistir" 
+                [draft]="draftProcedureInformation"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.lack' | translate }}" 
+                controlName="lack"
+                [error]="validate && formLineaResistir.controls['lack']?.invalid" 
+                [fieldOptions]="tipoInteres"
+                idValue="lack" 
+                nameValue="lack" 
+                isRequired=true 
+                [fieldOptions]="lack"
+                value="" 
+                errorText="empty_error"></app-input-select>
         </div>
         <div class="form-group col-md-3">
-            <app-input-select [form]="formLineaResistir" [draft]="draftProcedureInformation"
+            <app-input-select [form]="formLineaResistir" 
+                [draft]="draftProcedureInformation"
                 placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
                 label="{{ 'carpeta_ciudadana.request_info.procedure_info.modality' | translate }}"
                 [error]="validate && formLineaResistir.controls['modality']?.invalid"
-                controlName="modality" idValue="modality" nameValue="modality" isReadOnly="false" isRequired="true"
+                controlName="modality" 
+                idValue="modality" 
+                nameValue="modality" 
+                isReadOnly="false" 
+                isRequired="true"
                 [fieldOptions]="tipoInteres" errorText="empty_error"></app-input-select>
         </div>
     </div>
