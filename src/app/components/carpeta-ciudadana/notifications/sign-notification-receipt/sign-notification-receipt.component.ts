@@ -40,7 +40,6 @@ export class SignNotificationReceiptComponent implements OnInit {
     const documentBase64 = "data:application/pdf;base64," + AppConstants.base64;
     try{
       this.appUtils.signDocument(documentBase64).then((documentSinged) => {
-          console.log('documentSinged :>> ', documentSinged);
           setInterval(() =>{
               this.router.navigate(['carpeta-del-ciudadano/notification-view/id']);
           },3000);

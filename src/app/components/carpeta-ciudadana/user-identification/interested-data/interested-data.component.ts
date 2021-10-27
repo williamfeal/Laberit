@@ -80,8 +80,6 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   private loadCNAEdata() {
-    console.log(sessionStorage.getItem('idProcedure') === AppConstants.LINEA_RESISTIR_CODE);
-    console.log(sessionStorage.getItem('idProcedure'));
     switch(sessionStorage.getItem('idProcedure')) {
       case AppConstants.LINEA_RESISTIR_CODE:
         this.catalogsService.getCatalogByCode(ConceptConstants.CNAE_CODES_LINEA_RESISTIR).pipe(

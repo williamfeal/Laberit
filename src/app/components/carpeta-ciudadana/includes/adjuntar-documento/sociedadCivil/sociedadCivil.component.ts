@@ -47,7 +47,6 @@ export class SociedadCivilComponent implements OnInit {
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.sociedad_civil)) {
             this.draftCivilSociety = this.draft.sociedad_civil
-            console.log(this.draftCivilSociety)
         }
     }
 

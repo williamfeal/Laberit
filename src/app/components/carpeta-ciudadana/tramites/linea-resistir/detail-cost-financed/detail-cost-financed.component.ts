@@ -67,7 +67,6 @@ export class DetailCostFinancedComponent implements OnInit {
       }
     capturarCampo(ev, campo) {
         this[campo] = ev;
-        console.log(this.pro);
         if (campo == 'pro') {
             switch (this.pro) {
                 case 'linea-resistir-project-type-G1-investment':

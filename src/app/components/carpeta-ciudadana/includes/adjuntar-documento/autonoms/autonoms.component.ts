@@ -36,7 +36,6 @@ export class AutonomsComponent implements OnInit, OnChanges {
  
    async getTemplates(concept: any){
         this.catalogService.getCatalogByCodePlantilla(concept.concept_code).subscribe((data)=>{
-            console.log(data);
             concept.descriptionPlantilla = data[0].description;    
         },  err =>{
             400
@@ -51,7 +50,6 @@ export class AutonomsComponent implements OnInit, OnChanges {
                     this.getTemplates(element);    
                 });
                 this.documentsTypeAutonoms = data; 
-                console.log(this.documentsTypeAutonoms);
             }
         )
     }
@@ -59,7 +57,6 @@ export class AutonomsComponent implements OnInit, OnChanges {
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.autonomous)) {
             this.draftAutonomus = this.draft.autonomous
-            console.log(this.formAdjuntarDocAuto)
         }
     }
 
