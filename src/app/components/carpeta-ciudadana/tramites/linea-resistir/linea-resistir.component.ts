@@ -54,12 +54,14 @@ export class LineaResistirComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getDraft();
         this.formLineaResistir = new FormGroup({});
         this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => this.procedure = data
+            (data:Procedure) => {
+                this.procedure = data;
+                this.getDraft();
+            } 
           )
     }
 
@@ -90,7 +92,8 @@ export class LineaResistirComponent implements OnInit {
     public goToDocumentation() {
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.getDecision();
+            //this.getDecision();
+            this.saveDraftAndNavigate()
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)

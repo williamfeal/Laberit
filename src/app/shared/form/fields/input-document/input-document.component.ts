@@ -11,6 +11,7 @@ import {
     ViewChild
     } from '@angular/core';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { FileModel } from 'src/app/models/file.model';
 import {
     FormControl,
@@ -19,11 +20,10 @@ import {
     Validators
     } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 
 @Component({
     selector: 'app-input-document',
@@ -45,6 +45,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
             this.documentExist = true;
             this.document = new FileModel(draft[this.controlName]);
+            console.log("set draft: === > " + this.document.naturalName)
         }  
     }
     public _draft;
@@ -78,6 +79,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         }
         this.form.addControl(this.idValue, this.formControl);
         this.formControl.setValue(this.document?.naturalName);
+        console.log("ngOnInit: === > " + this.document.naturalName)
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
         // this.docBase64

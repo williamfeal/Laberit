@@ -95,8 +95,7 @@ export class AceptationComponent implements OnInit {
             error.title,
             error.text);
           this.validate = true;
-        }
-      )
+        })
     }
   }
 
