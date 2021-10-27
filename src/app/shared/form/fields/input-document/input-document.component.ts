@@ -45,7 +45,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
             this.documentExist = true;
             this.document = new FileModel(draft[this.controlName]);
-            console.log("set draft: === > " + this.document.naturalName)
         }  
     }
     public _draft;
@@ -79,7 +78,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         }
         this.form.addControl(this.idValue, this.formControl);
         this.formControl.setValue(this.document?.naturalName);
-        console.log("ngOnInit: === > " + this.document.naturalName)
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
         // this.docBase64
