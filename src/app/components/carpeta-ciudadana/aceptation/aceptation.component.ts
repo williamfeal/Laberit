@@ -67,20 +67,33 @@ export class AceptationComponent implements OnInit {
     this.proceduresService.getProcedureById(idProcedure).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.procedure = data
+      (data:Procedure) => {
+        this.procedure = data;
+        this.getDraft();
+      }
     )
     this.formAceptation = new FormGroup({});
-    this.getDraft();
   }
 
   private getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formAceptation').subscribe(
         (data:Draft) => {
           this.draft = data;
-          if(JSON.parse(this.draft.info).formAceptation) this.draftFormAceptation = JSON.parse(this.draft.info).formAceptation;
-        })
+          this.draftFormAceptation = JSON.parse(data.info);
+        },
+        () => this.setDraft()
+      )
     }
+  }
+
+  private setDraft() {
+    const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
+      'info', this.activatedRoute.snapshot.queryParams.draft);
   }
 
   public validateForm() {
@@ -100,17 +113,14 @@ export class AceptationComponent implements OnInit {
   }
 
   private saveDraftAndNavigate() {
-    if(this.draft) {
-      const infoJSON = JSON.parse(this.draft.info);
-      infoJSON.formAceptation = this.formAceptation.value;
+    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formAceptation.value), this.procedure.category.name,
+      this.draft.producto, 'forms:formAceptation', this.draft.key, '');
 
-      this.draft.info = JSON.stringify(infoJSON);
-      this.draftService.saveDraft(this.draft).subscribe(
-          () => this.router.navigate(['carpeta-del-ciudadano/firmar'], { queryParams: { draft: this.draft.key }})
-      )
-  } else {
-    this.router.navigate(['carpeta-del-ciudadano/firmar'])
-  }     
+    this.draftService.saveDraft(draft).subscribe(
+      () => this.router.navigate(['carpeta-del-ciudadano/firmar'], {
+        queryParams: { draft: this.draft.key }
+      })
+    )    
   }
 
   ngOnDestroy(): void {
