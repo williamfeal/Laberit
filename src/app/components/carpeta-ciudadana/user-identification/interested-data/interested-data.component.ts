@@ -37,6 +37,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   public businessType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
   public draftInterestedData;
+  public comunidadBienes: boolean = false;
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -125,6 +126,8 @@ export class InterestedDataComponent implements OnInit, OnChanges {
 
   public businessTypeChange(event) {
     sessionStorage.setItem('company_type', event);
+    event === 'ivf-representative-types-juridic-person-linea-resisitir-community-of-goods' ? this.comunidadBienes = true : this.comunidadBienes = false;
+    console.log(this.comunidadBienes);
   }
 
   ngOnDestroy(): void {
