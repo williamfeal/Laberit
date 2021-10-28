@@ -54,12 +54,14 @@ export class LineaResistirComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getDraft();
-        this.newForm();
+        this.formLineaResistir = new FormGroup({});
         this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
             takeUntil(this.unsubscribe$)
         ).subscribe(
-            data => this.procedure = data
+            (data:Procedure) => {
+                this.procedure = data;
+                this.getDraft();
+            } 
           )
     }
 
@@ -69,20 +71,29 @@ export class LineaResistirComponent implements OnInit {
 
     private getDraft() {
         if(this.activatedRoute.snapshot.queryParams.draft){
-            this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
-                data => this.draft = data
+            this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formLineaResistir').subscribe(
+                (data:Draft) => {
+                    this.draft = data;
+                }, 
+                () => this.setDraft()
             )
         }
     }
 
-    newForm() {
-        this.formLineaResistir = new FormGroup({  });
+    private setDraft() {
+        const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+        const infoProcedure = this.procedure.languages.find(
+          language => language.codigo === localStorage.getItem('lang')
+        );
+        this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
+          'info', this.activatedRoute.snapshot.queryParams.draft);
     }
 
     public goToDocumentation() {
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.getDecision();
+            //this.getDecision();
+            this.saveDraftAndNavigate()
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)
@@ -92,9 +103,7 @@ export class LineaResistirComponent implements OnInit {
                         error.title, 
                         error.text)
                     this.validate = true;
-                }
-            )
-           
+                })  
         }
     }
 
@@ -150,17 +159,17 @@ export class LineaResistirComponent implements OnInit {
     }
 
     private saveDraftAndNavigate() {
-        if(this.draft) {
-            const infoJSON = JSON.parse(this.draft.info);
-            infoJSON.formLineaResistir = this.formLineaResistir.value;
-            this.draft.info = JSON.stringify(infoJSON);
+        const infoProcedure = this.procedure.languages.find(
+            language => language.codigo === localStorage.getItem('lang')
+          );
+      
+        const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formLineaResistir.value), this.procedure.category.name,
+        infoProcedure.name, 'forms:formLineaResistir', this.draft.key, '');
 
-            this.draftService.saveDraft(this.draft).subscribe(
-                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
-            )
-        } else {
-            this.router.navigate([UrlConstants.VIEW_ADJUNTAR]);
-        }     
+        this.draftService.saveDraft(draft).subscribe(
+            () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
+        )
+        
     }
 
     public returnToDraft() {

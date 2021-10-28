@@ -88,9 +88,10 @@
                             controlName="contact_email" 
                             idValue="contact_email" 
                             nameValue="contact_email"
+                            [isMail]="true"
                             [isReadOnly]="readOnly" 
                             [isRequired]="!isChecked"
-                            [error]="emailErrorContact"
+                            [error]="validate && formContactData.controls['contact_email']?.invalid"
                             [errorText]="errorCharacterLeng">
                         </app-input-text>
                     </div>

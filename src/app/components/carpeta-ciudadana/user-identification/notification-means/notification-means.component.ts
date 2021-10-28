@@ -24,7 +24,8 @@ export class NotificationMeansComponent implements OnInit, OnChanges {
 
   @Input() public notificationError: boolean;
   @Input() public notificationErrorText: string;
-
+  @Input() public validate:boolean = false;
+  
   public selectMeans: SelectFieldObject[];
   public select;
   public draftNotificationMeansData;

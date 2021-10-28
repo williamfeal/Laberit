@@ -10,7 +10,7 @@
                 [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
         </div>
         <div class="col-md-6">
-            <app-notification-means [readOnly]="false"
+            <app-notification-means [readOnly]="false" [validate]="validate"
                 [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError"
                 [emailErrorText]="emailErrorText" [notificationError]="notificationError" [draft]="draftUserIdentification"
                 [notificationErrorText]="notificationErrorText"></app-notification-means>

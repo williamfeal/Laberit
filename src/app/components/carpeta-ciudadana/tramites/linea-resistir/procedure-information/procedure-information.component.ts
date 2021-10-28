@@ -1,13 +1,19 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { Draft } from 'src/app/models/draft.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Draft } from 'src/app/models/draft.model';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { tipoInteres } from 'src/app/utils/constants/app-constants';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
     selector: 'app-procedure-information',
@@ -61,8 +67,8 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
     } 
 
     ngOnChanges(changes:SimpleChanges) {
-        if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info).formLineaResistir) {
-            this.draftProcedureInformation = JSON.parse(this.draft.info).formLineaResistir;
+        if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info)) {
+            this.draftProcedureInformation = JSON.parse(this.draft.info);
         }
     }
 
