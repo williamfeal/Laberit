@@ -21,7 +21,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { HttpFilter } from './interceptors/auth-carpeta-interceptor.service';
 import { LanguagesService } from './services/moges-services/language.service';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ProceduresModule } from './components/procedures/procedures.module';
 import { ProceduresService } from './services/moges-services/procedures.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +30,8 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WeatherService } from './services/moges-services/weather.service';
+import { initializer } from './utils/keycloak/keycloak-init';
+import { KeycloakService } from 'keycloak-angular';
 
 
 /* Services */ 
@@ -81,6 +83,7 @@ import { WeatherService } from './services/moges-services/weather.service';
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpFilter, 
       multi: true },
+      { provide: APP_INITIALIZER, useFactory: initializer, deps: [KeycloakService], multi: true },
 
   ],
   bootstrap: [AppComponent],
