@@ -34,15 +34,15 @@ spec:
             - name: KEYCLOAK_REALM
               value: Angular2
             - name: KEYCLOAK_URL
-              value: https://keycloak.laberit.com/auth/
+              value: https://keycloak-tdgov.laberit.com/auth/
             - name: MOGES_URL
-              value: https://lavenganza-ivf.laberit.com
+              value: https://moges2-backend-ivf.laberit.com
             - name: PROFILE
               value: dev
             - name: TREX_URL
-              value: http://trex-ivf.laberit.com
+              value: https://trex-ivf.laberit.com
             - name: TRAMITADOR_URL
-              value: http://tramitador-backend-ivf.laberit.com
+              value: https://tramitador-backend-ivf.laberit.com
           ports:
             - name: http
               containerPort: 80
@@ -60,7 +60,7 @@ spec:
     app: sede-ivf
   ports:
     - name: http
-      port: 4802
+      port: 80
       targetPort: 80
 
 ---
@@ -78,10 +78,10 @@ spec:
     kind: Rule
     services:
     - name: sede-ivf
-      port: 4802
+      port: 80
       sticky:
         cookie:
-          httpOnly: true
+          httpOnly: "true"
           name: galleta
   tls: {}
 ---
@@ -99,10 +99,10 @@ spec:
     kind: Rule
     services:
     - name: sede-ivf
-      port: 4802
+      port: 80
       sticky:
         cookie:
-          httpOnly: true
+          httpOnly: "true"
           name: galleta
     middlewares:
         - name: https-redirect
