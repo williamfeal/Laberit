@@ -79,10 +79,6 @@ spec:
     services:
     - name: sede-ivf
       port: 80
-      sticky:
-        cookie:
-          httpOnly: "true"
-          name: galleta
   tls: {}
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -100,9 +96,5 @@ spec:
     services:
     - name: sede-ivf
       port: 80
-      sticky:
-        cookie:
-          httpOnly: "true"
-          name: galleta
     middlewares:
         - name: https-redirect
