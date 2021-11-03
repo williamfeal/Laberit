@@ -101,6 +101,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
 
     public uploadFile(event: any): void {
         let error = 0;
+        console.log(event);
         const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
         const fileExtension = file.name.split('.').pop();
         const fileExtensionAllowed = this.fileExtension.split(',.');
