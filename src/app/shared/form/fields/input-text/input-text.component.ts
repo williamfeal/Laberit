@@ -1,9 +1,20 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
+import {
+  FormControl,
+  FormGroup,
+  ValidatorFn,
+  Validators
+  } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input-text',
@@ -19,6 +30,7 @@ export class InputTextComponent implements OnInit {
   @Input() nameValue!: string;
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
+  @Input() isMail:boolean = false;
   @Input() errorText!: string;
   @Input() value: string = "";
   @Input() placeholder!: string;
@@ -27,31 +39,43 @@ export class InputTextComponent implements OnInit {
   @Input() draft;
 
   private unsubscribe$ = new Subject<void>();
-  textError: string;
-  formControl = new FormControl('');
-  validaciones: ValidatorFn[] = [];
+  
+  public textError: string;
+  
+  private formControl = new FormControl('');
+  private validaciones: ValidatorFn[] = [];
 
-  constructor(private translateService: TranslateService) { }
+  constructor(
+    private translateService: TranslateService
+  ) { }
+
+  emailValidator(control: FormControl) { 
+    return control.value.match(EMAIL_REGEX) == null ?  { incorrectEmail : true } : null;
+  }
 
   ngOnInit(): void {
+    this.setValidaciones();
+    this.form.addControl(this.controlName, this.formControl);
+    if (this.placeholder == undefined) this.placeholder = '';
+  }
+
+  private setValidaciones() {
     if (this.isRequired) {
       this.validaciones.push(Validators.required);
+      if(this.isMail) this.validaciones.push(this.emailValidator);
     }
 
     if (this.minLength != null) {
       this.validaciones.push(Validators.minLength(this.minLength));
     }
     
-      this.formControl.setValidators(this.validaciones);
-    
-    this.form.addControl(this.controlName, this.formControl);
-
-    if (this.placeholder == undefined) this.placeholder = '';
+    this.formControl.setValidators(this.validaciones);
   }
 
   onChangeValue() {
     this.error = !this.form.get(this.controlName).valid ?  true : false;
   }
+
   ngOnChanges(changes: SimpleChanges) {    
     if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
       this.value = this.draft[this.controlName]
@@ -62,9 +86,10 @@ export class InputTextComponent implements OnInit {
         this.form.get(this.controlName).updateValueAndValidity();
       }
     } else {
-      this.formControl.setValidators(Validators.required);
+      this.setValidaciones();
       this.form.addControl(this.controlName, this.formControl);
     }
+
     this.translateService.get('error_texts.input.' + this.errorText).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -73,9 +98,10 @@ export class InputTextComponent implements OnInit {
       }
     )
   }
-ngOnDestroy(): void {
-  this.unsubscribe$.next();
-  this.unsubscribe$.complete();
-}
+  
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
 

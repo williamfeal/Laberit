@@ -70,8 +70,9 @@
                 idValue="legal_representative_email"
                 nameValue="legal_representative_email" 
                 [isReadOnly]="readOnly" 
+                [isMail]="true"
                 [isRequired]="isRequired"
-                [error]="emailErrorLegal"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_email']?.invalid"
                 [errorText]="errorCharacterLeng">
             </app-input-text>
         </div>

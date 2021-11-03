@@ -19,7 +19,7 @@ import { Decision } from './../../../models/decision.model';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Procedure } from 'src/app/models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
@@ -55,9 +55,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public representative: boolean = false;
   public checked: boolean;
 
-  public INTERESTED_CONCEPT = ConceptConstants.APPLICANT_TYPE_INTERESTED;
-  public REPRESENTATIVE_CONCEPT = ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE;
-
   public textError;
   public draft:Draft;
   public draftUserIdentification;
@@ -80,15 +77,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
-    this.user = this.carpetaUtils.getSession();
-    this.getDraft();
-    this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
-    this.proceduresService.getProcedureById(this.idProcedure).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      (procedure: Procedure) => {
-        this.procedure = procedure;
-      })
     this.formUserIdentification = new FormGroup({
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
@@ -100,6 +88,20 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       contact_data: new FormGroup({}),
       sosial_address: new FormGroup({})
     });
+
+    this.user = this.carpetaUtils.getSession();
+
+
+    this.idProcedure = this.activatedRoute.snapshot.queryParams.idProcedure;
+
+    this.proceduresService.getProcedureById(this.idProcedure).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
+      (procedure: Procedure) => {
+        this.procedure = procedure;
+        this.getOrCreateDraft();
+    })
+    
     this.translateService.get('error_texts.pop_up.form_error').pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -107,10 +109,9 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.textError = text;
       }
     )
-    this.subject.subscribe((text: string)=>{
-      console.log(text);
-    })
+   
   }
+
   
   ngAfterViewChecked() {
     this.changeDetectorRef.detectChanges()
@@ -124,16 +125,42 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     return false;
   }
 
-  public getDraft() {
+  public getOrCreateDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification').subscribe(
         (data:Draft) => {
           this.draft = data;
-          if(JSON.parse(data.info).formUserIdentification) {
-            this.draftUserIdentification = JSON.parse(data.info).formUserIdentification;
-          }
-        })
+          this.draftUserIdentification = JSON.parse(data.info);
+        },
+        () => this.setDraft() )
+      } else {
+        const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+        const infoProcedure = this.procedure.languages.find(
+          language => language.codigo === localStorage.getItem('lang')
+        );
+        const draft:Draft = {
+          key: '',
+          desc: 'Borrador',
+          idInfo: 'info',
+          info: JSON.stringify(info),
+          linea: this.procedure.category.name,
+          nif: sessionStorage.getItem('nifTitular'),
+          producto: infoProcedure.name,
+          fecha: ''  
+        }
+        this.draftService.saveDraft(draft).subscribe(
+          data => this.draft = data
+        )
       }
+  }
+
+  private setDraft() {
+    const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
+      'info', this.activatedRoute.snapshot.queryParams.draft);
   }
 
   onChangeTypeRequester(event) {
@@ -153,63 +180,21 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     console.log(this.formUserIdentification);
 
     let error = 0;
-    //para poder hacer pruebas para instancia general no se comprobara ningun campo
     if (this.procedure.rutaFormulario != 'instancia-general') {
-
       if (this.formUserIdentification.valid) {
         this.validate = false;
       } else {
         this.validate = true;
         error++;
       }
-      //Es necesario el correo con buen formato
-      if (this.formUserIdentification.value.notification_means.email.match(EMAIL_REGEX) == null) {
-        error++;
-        this.emailError = true;
+      if (error == 0) {
+        this.checkBusinessRules();
+      } else {
+        SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
+        this.showErrors = true;
       }
-      if(this.representative){
-        if(this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
-          error++;
-          this.emailErrorLegalRepresnt = true;
-        }
-      }else{
-        this.emailErrorLegalRepresnt = false;
-      }
-      if(this.checked){
-        if(this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
-          error++;
-          this.emailErrorContact = true;
-        }
-      } else{
-        this.emailErrorContact = false;
-        if(!isEmptyObject(this.formUserIdentification.value.legal_representative.legal_representative_email) &&
-          this.formUserIdentification.value.legal_representative.legal_representative_email.match(EMAIL_REGEX) == null){
-          error++;
-          this.emailErrorLegalRepresnt = true;
-        }
-        if( !isEmptyObject(this.formUserIdentification.value.contact_data.contact_email) &&
-          this.formUserIdentification.value.contact_data.contact_email.match(EMAIL_REGEX) == null){
-          error++;
-          this.emailErrorContact = true;
-        }
-
-        //Se ha de seleccionar el tipo de persona
-        if (this.requesterType == '') {
-          error++;
-        }
-    }
-    //si no hay errores
-    if (error == 0) {
-      //llamada al back para mandar los datosc
-      this.checkBusinessRules();
-      // this.saveDraftAndNavigate();
-    } else {
-      //saber como notificar al usuario
-      SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
-      this.showErrors = true;
     }
   }
-}
 
   private checkBusinessRules() {
     const activo = this.representative ? 
@@ -250,39 +235,15 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
     );
-    let infoProcedureJSON;
-    if(this.draft) {
-      infoProcedureJSON = JSON.parse(this.draft.info);
-      infoProcedureJSON.formUserIdentification = this.formUserIdentification.value;
 
-      this.draft.info = JSON.stringify(infoProcedureJSON);
-      this.draftService.saveDraft(this.draft).subscribe(
-          () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
-            queryParams: { draft: this.activatedRoute.snapshot.queryParams.draft }
-          })
-      )
-    } else {
-      infoProcedureJSON = { 
-        idProcedure: this.idProcedure,
-        formUserIdentification: this.formUserIdentification.value 
-      }
-      const draft:Draft = {
-        fecha: '',
-        key: '',
-        desc: 'BORRADOR',
-        info: JSON.stringify(infoProcedureJSON),
-        linea: this.procedure.category.name,
-        nif: sessionStorage.getItem('nifTitular'),
-        producto: infoProcedure.name
-      }
-    
-      this.draftService.saveDraft(draft).subscribe(
-        data => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
-          queryParams: { draft: data.key }
-        })
-      )
-    }
-    
+    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
+      infoProcedure.name, 'forms:formUserIdentification', this.draft.key, '');
+
+    this.draftService.saveDraft(draft).subscribe(
+      () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
+        queryParams: { draft: this.draft.key }
+      })
+    )    
   }
 
 

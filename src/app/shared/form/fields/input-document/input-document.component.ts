@@ -11,6 +11,7 @@ import {
     ViewChild
     } from '@angular/core';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { FileModel } from 'src/app/models/file.model';
 import {
     FormControl,
@@ -19,11 +20,10 @@ import {
     Validators
     } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 
 @Component({
     selector: 'app-input-document',

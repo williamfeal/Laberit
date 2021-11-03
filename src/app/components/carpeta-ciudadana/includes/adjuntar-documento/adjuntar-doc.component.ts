@@ -15,6 +15,7 @@ import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../../services/acli-service/drafts.service';
 import { FileModel } from 'src/app/models/file.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Procedure } from './../../../../models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -50,11 +51,7 @@ export class AdjuntarDocComponent implements OnInit {
     private activatedRoute:ActivatedRoute
     ) {
 
-      this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
-        takeUntil(this.unsubscribe$)
-      ).subscribe(
-        data => this.procedure = data
-      )
+     
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,7 +61,14 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getDraft();
+    this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
+      (data:Procedure) => {
+        this.procedure = data;
+        this.getDraft();
+
+      })
     
     if(sessionStorage.getItem('company_type')) {
       this.tipo_empresa = sessionStorage.getItem('company_type');
@@ -85,14 +89,23 @@ export class AdjuntarDocComponent implements OnInit {
 
   private getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
-      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft).subscribe(
-        data => {
+      this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:documents').subscribe(
+        (data:Draft) => {
           this.draft = data;
-          this.draftAdjuntarDoc = JSON.parse(data.info).formAdjuntarDoc;
-
-        } 
+          this.draftAdjuntarDoc = JSON.parse(data.info);
+        },
+        () => this.setDraft()
       )
     }
+  }
+
+  private setDraft() {
+    const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+    const infoProcedure = this.procedure.languages.find(
+      language => language.codigo === localStorage.getItem('lang')
+    );
+    this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
+      'info', this.activatedRoute.snapshot.queryParams.draft);
   }
 
   saveDocument(ev) {
@@ -119,18 +132,15 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
 
-  private saveDraftAndNavigate() {
-    if(this.draft) {
-      const infoJSON = JSON.parse(this.draft.info);
-      infoJSON.formAdjuntarDoc = this.formAdjuntarDoc.value;
+  private saveDraftAndNavigate() { 
+    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formAdjuntarDoc.value), this.procedure.category.name,
+      this.draft.producto, 'forms:documents', this.draft.key, '');
 
-      this.draft.info = JSON.stringify(infoJSON);
-      this.draftService.saveDraft(this.draft).subscribe(
-          () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], { queryParams: { draft: this.draft.key }})
-      )
-    } else {
-        this.router.navigate(['carpeta-del-ciudadano/aceptacion']);
-    }     
+    this.draftService.saveDraft(draft).subscribe(
+      () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], {
+        queryParams: { draft: this.draft.key }
+      })
+    )    
   }
 
   ngOnDestroy(): void {
