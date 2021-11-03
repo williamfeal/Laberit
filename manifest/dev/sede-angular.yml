@@ -22,9 +22,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: ATENCION_CLIENTE_URL
-              value: http://acli-ivf.laberit.com
+              value: https://acli-ivf.laberit.com
             - name: CATALOG
-              value: http://catalogs-service-ivf.laberit.com
+              value: https://catalogs-service-ivf.laberit.com
             - name: ENTITY_UUID
               value: ca807322-5bcb-11eb-87b5-c4fba02e0591
             - name: KEYCLOAK_CLIENT_ID
@@ -32,15 +32,15 @@ spec:
             - name: KEYCLOAK_REALM
               value: Angular2
             - name: KEYCLOAK_URL
-              value: https://keycloak.laberit.com/auth/
+              value: https://keycloak-tdgov.laberit.com/auth/
             - name: MOGES_URL
-              value: http://moges2-ivf.laberit.com
+              value: https://moges2-ivf.laberit.com
             - name: PROFILE
               value: dev
             - name: TREX_URL
-              value: http://trex-ivf.laberit.com
+              value: https://trex-ivf.laberit.com
             - name: TRAMITADOR_URL
-              value: http://tramitador-backend-ivf.laberit.com
+              value: https://tramitador-backend-ivf.laberit.com
           ports:
             - name: http
               containerPort: 80
