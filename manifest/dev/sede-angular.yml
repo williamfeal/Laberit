@@ -21,27 +21,27 @@ spec:
           image: hub.alfatecsistemas.es/tdgov/sede-angular:develop
           imagePullPolicy: Always
           env:
-            - name: ATENCION_CLIENTE_URL
+            - name: atencion_cliente_url
               value: https://acli-ivf.laberit.com
-            - name: CARPETA_URL
+            - name: carpetaUrl
               value: https://acli-ivf.laberit.com
-            - name: CATALOG
+            - name: catalog
               value: https://catalogs-service-ivf.laberit.com
-            - name: ENTITY_UUID
+            - name: entity_uuid
               value: ca807322-5bcb-11eb-87b5-c4fba02e0591
-            - name: KEYCLOAK_CLIENT_ID
+            - name: keycloakClientId
               value: angular-tasklist
-            - name: KEYCLOAK_REALM
+            - name: keycloakRealm
               value: Angular2
-            - name: KEYCLOAK_URL
+            - name: keycloakUrl
               value: https://keycloak-tdgov.laberit.com/auth/
-            - name: MOGES_URL
+            - name: mogesUrl
               value: https://moges2-backend-ivf.laberit.com
             - name: PROFILE
               value: dev
-            - name: TREX_URL
+            - name: trexUrl
               value: https://trex-ivf.laberit.com
-            - name: TRAMITADOR_URL
+            - name: tramitadorUrl
               value: https://tramitador-backend-ivf.laberit.com
           ports:
             - name: http
