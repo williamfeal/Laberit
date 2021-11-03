@@ -34,7 +34,7 @@ spec:
             - name: KEYCLOAK_URL
               value: https://keycloak-tdgov.laberit.com/auth/
             - name: MOGES_URL
-              value: https://moges2-ivf.laberit.com
+              value: https://moges2-backend-ivf.laberit.com
             - name: PROFILE
               value: dev
             - name: TREX_URL
