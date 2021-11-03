@@ -42,7 +42,7 @@ spec:
             - name: TRAMITADOR_URL
               value: http://tramitador-backend-ivf.laberit.com
           ports:
-            - name: http 
+            - name: http
               containerPort: 80
       imagePullSecrets:
       - name: image-pull-secret
@@ -50,7 +50,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: sede-ivf
   namespace: ivf
 spec:
@@ -81,7 +81,7 @@ spec:
         cookie:
           httpOnly: true
           name: galleta
-  tls: {} 
+  tls: {}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
