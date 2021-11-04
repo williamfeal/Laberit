@@ -13,10 +13,11 @@ export const environment = {
   atencion_cliente_url: 'https://acli-ivf.laberit.com',
   moges_url: 'https://moges2-backend-ivf.laberit.com',
   carpeta_url:'https://acli-ivf.laberit.com',
-  trex_url: 'http://trex-sede.apc.alfatecsistemas.es',
+  trex_url: 'https://trex-ivf.laberit.com',
+  tramitador_url: 'https://tramitador-backend-ivf.laberit.com',
   mock_url: 'https://mock-ivf.laberit.com',
   keycloak: {
-    issuer: 'https://keycloak-tdgov.laberit.com/',
+    issuer: 'https://keycloak-ivf.laberit.com/auth/',
     realm: 'Angular2',
     clientId: 'angular-tasklist'
   },
