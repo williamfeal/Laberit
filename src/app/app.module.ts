@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppUtils } from './utils/app-utils';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 import { AuthService } from './services/moges-services/auth.service';
-import { BreadcrumbModule } from 'angular-crumbs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
@@ -31,7 +30,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WeatherService } from './services/moges-services/weather.service';
 import { initializer } from './utils/keycloak/keycloak-init';
-import { KeycloakService } from 'keycloak-angular';
+import { BreadcrumbModule } from 'angular-crumbs';
 
 
 /* Services */ 
@@ -83,8 +82,6 @@ import { KeycloakService } from 'keycloak-angular';
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpFilter, 
       multi: true },
-      { provide: APP_INITIALIZER, useFactory: initializer, deps: [KeycloakService], multi: true },
-
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]
