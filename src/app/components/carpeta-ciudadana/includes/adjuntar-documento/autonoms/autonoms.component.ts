@@ -61,6 +61,7 @@ export class AutonomsComponent implements OnInit, OnChanges {
     }
 
     saveDocument(ev) {
+        console.log(ev.base64);
         this[ev.controlName] = false;
         saveDocument(this.fileListAu, ev);
     }
