@@ -20,11 +20,15 @@ export class ConceptConstants {
     public static readonly APPLICANT_TYPE_REPRESENTATIVE = "ivf-applicant-types-representantive";
 
     public static readonly REPRESENTATIVE_PERSON_AUTONOMOUS = "ivf-representative-types-juridic-person-autonomous";
-    public static readonly REPRESENTATIVE_MICRO_BUSINESS = "ivf-representative-types-juridic-person-micro-business";
-    public static readonly REPRESENTATIVE_PYME = "ivf-representative-types-juridic-person-pyme";
-    public static readonly REPRESENTATIVE_BIG_COMPANY = "ivf-representative-types-juridic-person-big-company";
-    public static readonly REPRESENTATIVE_COMMUNITY_OF_GOODS = "ivf-representative-types-juridic-person-community-of-goods";
-    public static readonly REPRESENTATIVE_CIVIL_SOCIETY = "ivf-representative-types-juridic-person-civil-society";
+    public static readonly REPRESENTATIVE_MICRO_BUSINESS = "ivf-representative-types-juridic-person-linea-resisitir-micro-business";
+    public static readonly REPRESENTATIVE_PYME = "ivf-representative-types-juridic-person-linea-resisitir-pyme";
+    public static readonly REPRESENTATIVE_COMMUNITY_OF_GOODS = "ivf-representative-types-juridic-person-linea-resisitir-community-of-goods";
+    public static readonly REPRESENTATIVE_CIVIL_SOCIETY = "ivf-representative-types-juridic-person-linea-resisitir-civil-society";
+
+    public static readonly REPRESTATIVE_PHISYC_MICRO_BUSINESS = "ivf-representative-types-physic-person-linea-resisitir-micro-business";
+    public static readonly REPRESTATIVE_PHISYC_PYME = "'ivf-representative-types-physic-person-linea-resisitir-resistir-pyme";
+    public static readonly REPRESTATIVE_PHISYC_COMMUNITY_OF_GOODS = "ivf-representative-types-physic-person-linea-resisitir-community-of-goods";
+    public static readonly REPRESTATIVE_PHISYC_CIVIL_SOCIETY = "ivf-representative-types-physic-person-linea-resisitir-civil-society";
 
     //ADJUNTAR DOCUMENTOS LINEA RESISTIR
     public static readonly GENERIC_DOCUMENTS_TYPES = "document-types";

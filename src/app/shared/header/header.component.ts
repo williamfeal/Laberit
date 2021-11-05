@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { StyleService } from 'src/app/services/moges-services/style.service';
-import * as DateConstants from 'src/app/utils/constants/date-constants';
 
 @Component({
   selector: 'app-header',
