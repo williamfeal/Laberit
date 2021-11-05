@@ -108,7 +108,7 @@ export class LineaResistirComponent implements OnInit {
 
     private getDecision() {
         const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS ||
-            sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS  ?
+            sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_MICRO_BUSINESS ?
             true : false;
         let tipoProyecto;
         switch(this.formLineaResistir.controls['project_type'].value) {
