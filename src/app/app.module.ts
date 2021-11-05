@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppUtils } from './utils/app-utils';
 import { AuthInterceptor } from './interceptors/auth-interceptor.service';
 import { AuthService } from './services/moges-services/auth.service';
-import { BreadcrumbModule } from 'angular-crumbs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarpetaCiudadanaModule } from './components/carpeta-ciudadana/carpeta-ciudadana.module';
@@ -21,7 +20,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { HttpFilter } from './interceptors/auth-carpeta-interceptor.service';
 import { LanguagesService } from './services/moges-services/language.service';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ProceduresModule } from './components/procedures/procedures.module';
 import { ProceduresService } from './services/moges-services/procedures.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +29,8 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { WeatherService } from './services/moges-services/weather.service';
+import { initializer } from './utils/keycloak/keycloak-init';
+import { BreadcrumbModule } from 'angular-crumbs';
 
 
 /* Services */ 
@@ -81,7 +82,6 @@ import { WeatherService } from './services/moges-services/weather.service';
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpFilter, 
       multi: true },
-
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

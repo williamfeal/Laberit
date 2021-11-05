@@ -36,5 +36,9 @@ export class UrlConstants {
 
     public static readonly ENDPOINT_BUSINESS_RULES = '/rule';
     public static readonly URL_REDIRECT_CLAVE = 'http://clave.apc.alfatecsistemas.es/SPClave/TokenServlet?urlvuelta=' + 
-        environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_CLAVE + '?url=';
+    environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_LOGIN + UrlConstants.ENDPOINT_CLAVE + '?url=';
+
+    public static readonly URL_ALFRESCO_ATTACH_DOC = 'https://alfresco-tdgov.laberit.com/alfresco/api/-default-/public/alfresco/versions/1/nodes/-my-/children';
+    public static readonly URL_ALFRESO_DELETE_DOC = 'https://alfresco-tdgov.laberit.com/alfresco/api/-default-/public/alfresco/versions/1/nodes/';
+    public static readonly URL_ALFRESCO_GET_TEMPLATE = 'https://alfresco-tdgov.laberit.com/alfresco/api/-default-/public/alfresco/versions/1/nodes/';    
 }
