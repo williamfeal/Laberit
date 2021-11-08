@@ -70,7 +70,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         public atachService: atachService
         ) { }
 
-    ngOnInit(): void {
+    ngOnInit(): void {       
         //Hay que ver como hacer que sean campos requeridos
         if (this.isRequired) {
             this.formControl = new FormControl([],Validators.required);
@@ -105,7 +105,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
 
     public uploadFile(event: any): void {
         let error = 0;
-        console.log(event);
         const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
         const fileExtension = file.name.split('.').pop();
         const fileExtensionAllowed = this.fileExtension.split(',.');
@@ -135,10 +134,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             this.uploadFileDocument.emit(this.document);
             
         };
-        this.atachService.attachDocument(file).subscribe((data)=>{
-            console.log(data);
-            this.idDoc = data.id//Provisional hasta que se compruebe el id que devuelve
-        })
+       
     }
 
     deleteFile() {

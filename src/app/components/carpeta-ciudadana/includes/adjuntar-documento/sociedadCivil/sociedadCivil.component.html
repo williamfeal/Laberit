@@ -1,5 +1,5 @@
-<div *ngIf="documentsTypeCivilSociety">
-    <app-input-document *ngFor="let doc of documentsTypeCivilSociety"
+<div *ngIf="mandatoryDocs">
+    <app-input-document *ngFor="let doc of mandatoryDocs"
         label="{{doc.description}}"
         [idValue]="doc.concept_code" 
         [form]="formAdjSociedad"
@@ -8,6 +8,19 @@
         idplantilla="{{doc.descriptionPlantilla}}"
         errorText="document_error"
         [error]="validate && formAdjSociedad.controls[doc.concept_code].invalid"
+        fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+        (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+        </app-input-document>
+</div>
+<div *ngIf="optionalDocs">
+    <app-input-document *ngFor="let doc of optionalDocs"
+        label="{{doc.description}}"
+        [idValue]="doc.concept_code" 
+        [form]="formAdjSociedad"
+        [controlName]="doc.concept_code"
+        [isRequired]="false" 
+        idplantilla="{{doc.descriptionPlantilla}}"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
