@@ -24,7 +24,6 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { atachService } from 'src/app/services/attachDocs/atach.service';
 
 @Component({
     selector: 'app-input-document',
@@ -67,7 +66,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     docBase64: string;
     constructor(private translateService: TranslateService,
         public catalogService: CatalogsService,
-        public atachService: atachService
         ) { }
 
     ngOnInit(): void {
@@ -105,7 +103,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
 
     public uploadFile(event: any): void {
         let error = 0;
-        console.log(event);
+        
         const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
         const fileExtension = file.name.split('.').pop();
         const fileExtensionAllowed = this.fileExtension.split(',.');
@@ -133,20 +131,15 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             this.documentExist = true;
             this.document = newFile;
             this.uploadFileDocument.emit(this.document);
+            
         };
-        this.atachService.attachDocument(file).subscribe((data)=>{
-            console.log(data);
-            this.idDoc = data.id//Provisional hasta que se compruebe el id que devuelve
-        })
+       
     }
 
     deleteFile() {
         this.formControl.setValue('');
         this.deleteFileDocument.emit(this.document);
         this.documentExist = false;
-        this.atachService.deleteDocument(this.idDoc).subscribe((data)=>{
-            
-        })
     }
 
     verPlantilla(id: string) {
