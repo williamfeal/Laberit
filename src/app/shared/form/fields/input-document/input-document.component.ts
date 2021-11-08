@@ -11,6 +11,7 @@ import {
     ViewChild
     } from '@angular/core';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { atachService } from 'src/app/services/attachDocs/atach.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { FileModel } from 'src/app/models/file.model';
 import {
@@ -24,7 +25,6 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { atachService } from 'src/app/services/attachDocs/atach.service';
 
 @Component({
     selector: 'app-input-document',
@@ -133,6 +133,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             this.documentExist = true;
             this.document = newFile;
             this.uploadFileDocument.emit(this.document);
+            
         };
         this.atachService.attachDocument(file).subscribe((data)=>{
             console.log(data);

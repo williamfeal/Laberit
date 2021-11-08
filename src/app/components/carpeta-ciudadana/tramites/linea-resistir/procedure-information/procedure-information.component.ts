@@ -38,15 +38,15 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
     ) { }
 
     ngOnInit() { 
-        this.getApplicantTypes();
         this.getApplicantPlazos();
         this.getApplicantLack();
+        this.getApplicantTypes();
     }
     getApplicantTypes() {
         this.catalogsService.getCatalogByCode(ConceptConstants.INTEST_TYPE_RATE).pipe(
           takeUntil(this.unsubscribe$)
         ).subscribe(
-          data => this.tipoInteres = data
+          data1 => this.tipoInteres = data1
         )
     }
 
@@ -54,7 +54,7 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
       this.catalogsService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_PLAZOS).pipe(
         takeUntil(this.unsubscribe$)
       ).subscribe(
-        data => this.term = data
+        data2 => this.term = data2
       )
     } 
 
@@ -62,7 +62,7 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
       this.catalogsService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_LACK).pipe(
         takeUntil(this.unsubscribe$)
       ).subscribe(
-        data => this.lack = data
+        data3 => this.lack = data3
       )
     } 
 
