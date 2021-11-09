@@ -1,13 +1,18 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import {
+  Component,
+  Input,
+  OnInit,
+  SimpleChanges
+  } from '@angular/core';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
+import { deleteDocument, saveDocument } from '../AppUtils.component';
+import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
+import { FileModel } from 'src/app/models/file.model';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FileModel } from 'src/app/models/file.model';
-import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
-import { DocumentsType } from 'src/app/shared/form/fields/input-document/input-document';
-import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
-import { deleteDocument, saveDocument } from '../AppUtils.component';
 
 @Component({
   selector: 'app-micro-empresa',
@@ -19,36 +24,25 @@ export class MicroEmpresaComponent implements OnInit {
   @Input() formAdjMicro: FormGroup;
   @Input() draft:any;
 
-  public beneficial_ownership_micro: boolean = true;
-  public society_constitution_micro: boolean = true;
-  public legal_representative_micro: boolean = true;
-  public annual_accounts_micro: boolean = true;
-  public _commercial_code_micro: boolean = true;
-  public tax_returns_micro: boolean = true;
-  public model_390_micro: boolean = true;
-  public model_347_micro: boolean = true;
-  public registered_office_micro: boolean = true;
-  public PYME_micro: boolean = true;
-  public business_group_micro: boolean = true;
-  public documentNif: boolean = true;
-  public documentHelp: boolean = true;
-  public responsible_declaration: boolean = true;
-  public model_303: boolean = true;
-  public distribution_by_year: boolean = true;
   public documentsTypeMicroBussines: DocumentsType;
   public draftMicroEmpresa;
+  
+  public mandatoryDocs: DocumentsType[];
+  public optionalDocs: DocumentsType[];
 
   private unsubscribe$ = new Subject<void>();
   
   constructor(public catalogService: CatalogsService) { }
 
   ngOnInit(): void {
-    this.genericsDocsType();
+    this.getMandatoryDocs();
+    this.getOptionalDocs();
+
   }
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.micro_empresa)) {
-        this.draftMicroEmpresa = this.draft.micro_empresa
+        this.draftMicroEmpresa = this.draft
     }
   }
 
@@ -56,11 +50,39 @@ export class MicroEmpresaComponent implements OnInit {
     this[ev.controlName] = false;
     saveDocument(this.fileListMi, ev);
   }
+
   async getTemplates(concept: any){
     this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
         concept.descriptionPlantilla = data[0].description;    
     })
-}
+  }
+
+  private getMandatoryDocs() {
+    this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICROBUSINESS_MANDATORY_DOCUMENTS).pipe(
+        takeUntil(this.unsubscribe$)
+    ).subscribe(
+        data => {  
+            data.forEach(element => {
+                this.getTemplates(element);    
+            });
+            this.mandatoryDocs = data; 
+        }
+    )
+  }
+
+    private getOptionalDocs() {
+        this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICROBUSINESS_OPTIONAL_DOCUMENTS).pipe(
+            takeUntil(this.unsubscribe$)
+        ).subscribe(
+            data => {  
+                data.forEach(element => {
+                    this.getTemplates(element);    
+                });
+                this.optionalDocs = data; 
+            }
+        )
+    }
+
   genericsDocsType() {
     this.catalogService.getCatalogByCode(ConceptConstants.LINEA_RESISTIR_MICRO_BUISSINES_DOCUMENTS).pipe(
       takeUntil(this.unsubscribe$)

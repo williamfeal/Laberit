@@ -93,6 +93,7 @@ export class AdjuntarDocComponent implements OnInit {
         (data:Draft) => {
           this.draft = data;
           this.draftAdjuntarDoc = JSON.parse(data.info);
+          this.fileList = this.draftAdjuntarDoc
         },
         () => this.setDraft()
       )
@@ -133,7 +134,7 @@ export class AdjuntarDocComponent implements OnInit {
   }
 
   private saveDraftAndNavigate() { 
-    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formAdjuntarDoc.value), this.procedure.category.name,
+    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.fileList), this.procedure.category.name,
       this.draft.producto, 'forms:documents', this.draft.key, '');
 
     this.draftService.saveDraft(draft).subscribe(
