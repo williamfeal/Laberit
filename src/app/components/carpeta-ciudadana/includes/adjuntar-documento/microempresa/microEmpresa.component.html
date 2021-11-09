@@ -1,5 +1,5 @@
-<div *ngIf="documentsTypeMicroBussines">
-  <app-input-document *ngFor="let doc of documentsTypeMicroBussines"
+<div *ngIf="mandatoryDocs">
+  <app-input-document *ngFor="let doc of mandatoryDocs"
     [form]="formAdjMicro"
       label="{{doc.description}}"
       [idValue]="doc.concept_code" 
@@ -9,6 +9,19 @@
       idplantilla="{{doc.descriptionPlantilla}}"
       errorText="document_error"
       [error]="validate && formAdjMicro.controls[doc.concept_code].invalid"
+      fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+      (deleteFileDocument)="deleteDocument($event)">
+  </app-input-document>
+</div>
+<div *ngIf="optionalDocs">
+  <app-input-document *ngFor="let doc of optionalDocs"
+    [form]="formAdjMicro"
+      label="{{doc.description}}"
+      [idValue]="doc.concept_code" 
+      [draft]="draftMicroEmpresa"
+      [controlName]="doc.concept_code"
+      [isRequired]="false" 
+      idplantilla="{{doc.descriptionPlantilla}}"
       fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
       (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>

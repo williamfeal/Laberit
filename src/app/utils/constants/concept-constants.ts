@@ -42,6 +42,17 @@ export class ConceptConstants {
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
     public static readonly DATA_PROTECTION = "data-protection-questionary";
 
+    public static readonly LINEA_RESISTIR_AUTONOMOUS_MANDATORY_DOCUMENTS = 'linea-resistir-autonomous-mandatory-documents';
+    public static readonly LINEA_RESISTIR_AUTONOMOUS_OPTIONAL_DOCUMENTS = 'linea-resistir-autonomous-optional-documents';
+    public static readonly LINEA_RESISTIR_MICROBUSINESS_MANDATORY_DOCUMENTS = 'linea-resistir-microbusiness-mandatory-documents';
+    public static readonly LINEA_RESISTIR_MICROBUSINESS_OPTIONAL_DOCUMENTS = 'linea-resistir-microbusiness-optional-documents';
+    public static readonly LINEA_RESISTIR_PYME_MANDATORY_DOCUMENTS = 'linea-resistir-pyme-mandatory-documents';
+    public static readonly LINEA_RESISTIR_PYME_OPTIONAL_DOCUMENTS = 'linea-resistir-pyme-optional-documents';
+    public static readonly LINEA_RESISTIR_GOODS_COMMUNITY_MANDATORY_DOCUMENTS = 'linea-resistir-com-bienes-mandatory-documents';
+    public static readonly LINEA_RESISTIR_GOODS_COMMUNITY_OPTIONAL_DOCUMENTS = 'linea-resistir-com-bienes-optional-documents';
+    public static readonly LINEA_RESISTIR_CIVIL_SOCIETY_MANDATORY_DOCUMENTS = 'linea-resistir-civil-society-optional-documents';
+    public static readonly LINEA_RESISTIR_CIVIL_SOCIETY_OPTIONAL_DOCUMENTS = 'linea-resistir-civil-society-mandatory-documents';
+
 
     //DETAIL COST FINANCED
     public static readonly DETAIL_TYPE_PROJECT = "linea-resistir-project-type";

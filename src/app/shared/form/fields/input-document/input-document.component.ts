@@ -11,6 +11,7 @@ import {
     ViewChild
     } from '@angular/core';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { atachService } from 'src/app/services/attachDocs/atach.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { FileModel } from 'src/app/models/file.model';
 import {
@@ -42,10 +43,13 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() controlName!: string;
     @Input() error!: boolean;
     @Input() set draft(draft) {
-        if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
+        if(!isEmptyObject(draft) && 
+            draft.some(element => element.controlName === this.controlName)) {
             this.documentExist = true;
-            this.document = new FileModel(draft[this.controlName]);
-        }  
+            let element = draft.find(element => element.controlName === this.controlName)
+            this.document = new FileModel(element.naturalName);
+            if(this.formControl) this.form.get(this.controlName).setValue(element.naturalName,  {emitModelToViewChange: false})
+        } 
     }
     public _draft;
     public idDoc: string;
@@ -66,9 +70,10 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     docBase64: string;
     constructor(private translateService: TranslateService,
         public catalogService: CatalogsService,
+        public atachService: atachService
         ) { }
 
-    ngOnInit(): void {
+    ngOnInit(): void {       
         //Hay que ver como hacer que sean campos requeridos
         if (this.isRequired) {
             this.formControl = new FormControl([],Validators.required);
@@ -79,7 +84,9 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             this.formControl.setValidators(Validators.required);
         }
         this.form.addControl(this.idValue, this.formControl);
-        this.formControl.setValue(this.document?.naturalName);
+        if(this.formControl) this.form.get(this.controlName).setValue(this.document?.naturalName, {emitModelToViewChange: false})
+
+        // this.formControl.setValue(this.document?.naturalName);
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
         // this.docBase64
@@ -103,7 +110,6 @@ export class InputDocumentComponent implements OnInit, OnChanges {
 
     public uploadFile(event: any): void {
         let error = 0;
-        
         const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
         const fileExtension = file.name.split('.').pop();
         const fileExtensionAllowed = this.fileExtension.split(',.');
@@ -140,6 +146,9 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         this.formControl.setValue('');
         this.deleteFileDocument.emit(this.document);
         this.documentExist = false;
+        this.atachService.deleteDocument(this.idDoc).subscribe((data)=>{
+            
+        })
     }
 
     verPlantilla(id: string) {
