@@ -67,8 +67,12 @@ export class InputNumberComponent implements OnInit {
 
   onChangeValue() {
     this.error = !this.form.get(this.controlName).valid ? true : false;
-    if(this.form.get(this.controlName).value <= 0 ){
-      this.error=true;
+    if(this.form.get(this.controlName).value < 0 ){
+      this.error = true;
+      this.validaciones.push(Validators.min(0));
+      this.formControl.setValidators(this.validaciones);
+    } else if(this.form.get(this.controlName).value === 0 && this.isRequired) {
+      this.error = true;
       this.validaciones.push(Validators.min(0));
       this.formControl.setValidators(this.validaciones);
     } else{
@@ -76,12 +80,11 @@ export class InputNumberComponent implements OnInit {
       this.form.get(this.controlName).valid
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
-    
-    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
+    if(changes.draft && !isEmptyObject(this.draft) && this.draft[this.controlName] !== 0) 
       this.value = this.draft[this.controlName];  
             
-
     if (!this.isRequired) {
       if (changes.isRequired != undefined && changes.isRequired.firstChange == false) {
         this.form.get(this.controlName).clearValidators();
@@ -91,16 +94,19 @@ export class InputNumberComponent implements OnInit {
       this.formControl.setValidators(Validators.required);
       this.form.addControl(this.controlName, this.formControl);
     }
-    this.translateService.get('error_texts.input.' + this.errorText).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      text => {
-        this.textError = text;
-      }
-    )
+
+    if(this.errorText) {
+      this.translateService.get('error_texts.input.' + this.errorText).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        text => {
+          this.textError = text;
+      })
+    }
   }
-ngOnDestroy(): void {
-  this.unsubscribe$.next();
-  this.unsubscribe$.complete();
-}
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
