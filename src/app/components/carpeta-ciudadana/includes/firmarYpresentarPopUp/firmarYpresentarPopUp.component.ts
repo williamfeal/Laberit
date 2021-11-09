@@ -13,6 +13,7 @@ export class FirmarYPresentarPopUp implements OnInit {
     public documentBase64: string = "";
     public showButtons:boolean;
     public width;
+    public draftId: string;
     
     constructor(public appUtils: AppUtils,
         @Inject(MAT_DIALOG_DATA) data: any,
@@ -25,7 +26,10 @@ export class FirmarYPresentarPopUp implements OnInit {
     }
 
     ngOnInit(): void {
-        
+        this.draftId = window.location.href.split(":")[4];
+        console.log(window.location.href);
+        localStorage.setItem('draftId', this.draftId);
+        console.log(this.draftId);        
     }
     singAndPresent() {
         try{
