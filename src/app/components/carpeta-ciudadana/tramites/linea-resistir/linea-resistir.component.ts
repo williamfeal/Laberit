@@ -131,7 +131,7 @@ export class LineaResistirComponent implements OnInit {
             g1instalaciones: this.formLineaResistir.controls['g1instalaciones'].value || 0,
             g1otros: this.formLineaResistir.controls['g1otros'].value || 0,
             recursosPropios: this.formLineaResistir.controls['recursosPropios'].value || 0,
-            subvenciones: this.formLineaResistir.controls['subvenciones'].value,
+            subvenciones: this.formLineaResistir.controls['subvenciones'].value || 0,
             otraFinBancaria: this.formLineaResistir.controls['otraFinBancaria'].value || 0,
             activoIVF: this.formLineaResistir.controls['activoIVF'].value || 0,
             g2importeFinanciarCirculante: this.formLineaResistir.controls['g2importeFinanciarCirculante'].value || 0,
