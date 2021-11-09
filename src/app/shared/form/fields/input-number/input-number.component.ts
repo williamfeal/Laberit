@@ -77,8 +77,7 @@ export class InputNumberComponent implements OnInit {
     }
   }
   ngOnChanges(changes: SimpleChanges) {
-    
-    if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
+    if(changes.draft && !isEmptyObject(this.draft) && this.draft[this.controlName] !== 0) 
       this.value = this.draft[this.controlName];  
             
 
