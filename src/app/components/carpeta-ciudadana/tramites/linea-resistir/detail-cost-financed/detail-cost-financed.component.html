@@ -61,9 +61,8 @@
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }}"
-                        [error]="validate && formLineaResistir.controls['g1otros']?.invalid"
-                        controlName="g1otros" idValue="g1otros" nameValue="g1otros" [isRequired]="showInversion" 
-                        errorText="empty_error"></app-input-number>
+                        controlName="g1otros" idValue="g1otros" nameValue="g1otros" [isRequired]="false" 
+                        ></app-input-number>
                 </div>
             </div>
             <hr>
@@ -88,9 +87,8 @@
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }}"
-                        [error]="validate && formLineaResistir.controls['otraFinBancaria']?.invalid"
                         controlName="otraFinBancaria" idValue="otraFinBancaria"
-                        nameValue="otraFinBancaria" [isRequired]="showInversion"  errorText="empty_error">
+                        nameValue="otraFinBancaria" [isRequired]="false">
                     </app-input-number>
                 </div>
                 <div class="form-group col-md-3">

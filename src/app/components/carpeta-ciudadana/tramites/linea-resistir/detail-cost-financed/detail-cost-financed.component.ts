@@ -47,7 +47,8 @@ export class DetailCostFinancedComponent implements OnInit {
         if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info)) {
             this.draftDetailCostFinanced = JSON.parse(this.draft.info);
             if(!isEmptyObject(this.draftDetailCostFinanced.project_type)) {
-                this.capturarCampo(this.draftDetailCostFinanced.project_type, 'project_type');
+                this.pro = this.draftDetailCostFinanced.project_type;
+                this.capturarCampo(this.draftDetailCostFinanced.project_type, 'pro');
             }
         }
         this.ref.detectChanges();
