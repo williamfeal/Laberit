@@ -7,7 +7,7 @@
         [isRequired]="true" 
         errorText="document_error"
         idplantilla="{{doc.descriptionPlantilla}}"
-        [draft]="draftComBienes"
+        [draft]="draft"
         [error]="validate && formAdjComuni.controls[doc.concept_code].invalid"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
         (uploadFileDocument)="saveDocument($event)"
@@ -22,7 +22,7 @@
         [controlName]="doc.concept_code"
         [isRequired]="false" 
         idplantilla="{{doc.descriptionPlantilla}}"
-        [draft]="draftComBienes"
+        [draft]="draft"
         fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
