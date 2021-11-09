@@ -23,19 +23,6 @@ export class SociedadCivilComponent implements OnInit {
     @Input() fileListSo: FileModel[] = [];
     @Input() draft:any;
 
-    public society_constitution_civil: boolean = true;
-    public declarations_rent_civil: boolean = true;
-    public model_390_civil: boolean = true;
-    public model_184_entities_civil: boolean = true;
-    public voucher_pay_civil: boolean = true;
-    public model_130_131_civil: boolean = true;
-    public model_347_civil: boolean = true;
-    public registered_office_civil: boolean = true;
-    public documentNif: boolean = true;
-    public documentHelp: boolean = true;
-    public responsible_declaration: boolean = true;
-    public model_303: boolean = true;
-    public distribution_by_year: boolean = true;
     public documentsTypeCivilSociety: DocumentsType;
     public draftCivilSociety;
 
@@ -50,12 +37,12 @@ export class SociedadCivilComponent implements OnInit {
 
     ngOnInit(): void {
         this.getMandatoryDocs();
-    this.getOptionalDocs();
+        this.getOptionalDocs();
     }
 
     ngOnChanges(changes:SimpleChanges) {
-        if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.sociedad_civil)) {
-            this.draftCivilSociety = this.draft.sociedad_civil
+        if(changes.draft && !isEmptyObject(this.draft)) {
+            this.draftCivilSociety = this.draft;
         }
     }
 

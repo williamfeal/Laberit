@@ -24,24 +24,6 @@ export class PymeComponent implements OnInit, OnChanges {
   @Input() validate: boolean;
   @Input() draft:any;
 
-  public society_constitution_PYME: boolean = true;
-  public beneficial_ownership_PYME: boolean = true;
-  public legal_representative_PYME: boolean = true;
-  public annual_accounts_PYME: boolean = true;
-  public _commercial_code_PYME: boolean = true;
-  public tax_returns_PYME: boolean = true;
-  public risk_inform_PYME: boolean = true;
-  public model_390_PYME: boolean = true;
-  public model_347_PYME: boolean = true;
-  public registered_office_PYME: boolean = true;
-  public business_group_PYME: boolean = true;
-  public documentNif: boolean = true;
-  public documentHelp: boolean = true;
-  public responsible_declaration: boolean = true;
-  public model_303: boolean = true;
-  public distribution_by_year: boolean = true;
-  public PYME: boolean = true;
-  public tecnic_memory_PYME: boolean = true;
   public documentsTypePyme: DocumentsType;
   public draftPYME;
 
@@ -59,7 +41,7 @@ export class PymeComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.pyme)) {
-        this.draftPYME = this.draft.pyme
+        this.draftPYME = this.draft
     }
 }
 

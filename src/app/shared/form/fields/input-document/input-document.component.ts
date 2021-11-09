@@ -43,10 +43,13 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() controlName!: string;
     @Input() error!: boolean;
     @Input() set draft(draft) {
-        if(!isEmptyObject(draft) && !isEmptyObject(draft[this.controlName])) {
+        if(!isEmptyObject(draft) && 
+            draft.some(element => element.controlName === this.controlName)) {
             this.documentExist = true;
-            this.document = new FileModel(draft[this.controlName]);
-        }  
+            let element = draft.find(element => element.controlName === this.controlName)
+            this.document = new FileModel(element.naturalName);
+            if(this.formControl) this.form.get(this.controlName).setValue(element.naturalName,  {emitModelToViewChange: false})
+        } 
     }
     public _draft;
     public idDoc: string;
@@ -81,7 +84,9 @@ export class InputDocumentComponent implements OnInit, OnChanges {
             this.formControl.setValidators(Validators.required);
         }
         this.form.addControl(this.idValue, this.formControl);
-        this.formControl.setValue(this.document?.naturalName);
+        if(this.formControl) this.form.get(this.controlName).setValue(this.document?.naturalName, {emitModelToViewChange: false})
+
+        // this.formControl.setValue(this.document?.naturalName);
         //habr� que llamar con el idPlantilla al back para que nos de el documento a descargar
         // this.idPlantilla;
         // this.docBase64

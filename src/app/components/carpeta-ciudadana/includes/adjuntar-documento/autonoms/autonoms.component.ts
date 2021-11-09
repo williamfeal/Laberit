@@ -80,8 +80,7 @@ export class AutonomsComponent implements OnInit, OnChanges {
     
     ngOnChanges(changes:SimpleChanges) {
         if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.autonomous)) {
-            this.draftAutonomus = this.draft.autonomous
-            console.log(this.draftAutonomus)
+            this.draftAutonomus = this.draft
         }
     }
 

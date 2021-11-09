@@ -24,22 +24,6 @@ export class MicroEmpresaComponent implements OnInit {
   @Input() formAdjMicro: FormGroup;
   @Input() draft:any;
 
-  public beneficial_ownership_micro: boolean = true;
-  public society_constitution_micro: boolean = true;
-  public legal_representative_micro: boolean = true;
-  public annual_accounts_micro: boolean = true;
-  public _commercial_code_micro: boolean = true;
-  public tax_returns_micro: boolean = true;
-  public model_390_micro: boolean = true;
-  public model_347_micro: boolean = true;
-  public registered_office_micro: boolean = true;
-  public PYME_micro: boolean = true;
-  public business_group_micro: boolean = true;
-  public documentNif: boolean = true;
-  public documentHelp: boolean = true;
-  public responsible_declaration: boolean = true;
-  public model_303: boolean = true;
-  public distribution_by_year: boolean = true;
   public documentsTypeMicroBussines: DocumentsType;
   public draftMicroEmpresa;
   
@@ -58,7 +42,7 @@ export class MicroEmpresaComponent implements OnInit {
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft.micro_empresa)) {
-        this.draftMicroEmpresa = this.draft.micro_empresa
+        this.draftMicroEmpresa = this.draft
     }
   }
 
@@ -66,6 +50,7 @@ export class MicroEmpresaComponent implements OnInit {
     this[ev.controlName] = false;
     saveDocument(this.fileListMi, ev);
   }
+
   async getTemplates(concept: any){
     this.catalogService.getCatalogByCode(concept.concept_code).subscribe((data)=>{
         concept.descriptionPlantilla = data[0].description;    
