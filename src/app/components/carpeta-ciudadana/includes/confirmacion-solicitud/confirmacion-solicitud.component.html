@@ -55,8 +55,8 @@
                     </h1>
                     <div class="col-sm-3 small-text-size pt-3 pb-3">
                         {{ 'carpeta_ciudadana.confirmation.resum_pdf' | translate }}
-                        <div class="">
-                            <a download="Solicitud firmada" (click)="viewDoc(base64Request)"
+                        <div class="color-link">
+                            <a download="Solicitud firmada" class="color-link" (click)="viewDoc(base64Request)"
                                 title="Solicitud firmada">
                                 <i class="fa fa-external-link"></i>  {{ 'carpeta_ciudadana.confirmation.download_resum' | translate }}
                             </a>
@@ -68,7 +68,7 @@
                     </h1>
                     <div class="col-sm-3">
                         {{ 'carpeta_ciudadana.confirmation.sup_doc' | translate }}
-                        <div>
+                        <div class="color-link">
                             <a download="Justificante de Registro"
                             (click)="viewDoc(base64Resum)"
                                 title="Justificante de Registro"><i class="fa fa-external-link"></i>{{ 'carpeta_ciudadana.confirmation.download_sup' | translate }}</a>

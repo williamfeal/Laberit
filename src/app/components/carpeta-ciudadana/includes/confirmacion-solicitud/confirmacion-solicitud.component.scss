@@ -11,6 +11,9 @@
 .small-text-size {
 	font-size: 14px;
 }
-a{
+.color-link{
     color: $red-header;
+}
+.color-link:hover{
+  cursor: pointer;
 }

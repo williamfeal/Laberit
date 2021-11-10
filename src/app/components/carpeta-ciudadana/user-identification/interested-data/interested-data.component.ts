@@ -35,6 +35,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   public belongingCompany:SelectFieldObject[];
   public cnae: SelectFieldObject[];
   public businessType: SelectFieldObject[];
+  public autonomType: SelectFieldObject[];
   public siNo: SelectFieldObject[];
   public draftInterestedData;
   public comunidadBienes: boolean = false;
@@ -50,7 +51,14 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
+    this.businessType = [{
+      concept_code:'ivf-representative-types-physical-person-autonomous',
+      description:'Autónomo',
+      selected: true
+    }];
+    
+    sessionStorage.setItem('company_type', ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS)
+    // sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
     this.loadData();
     this.languageService.lang.subscribe(
       () => this.loadData()
@@ -62,7 +70,6 @@ export class InterestedDataComponent implements OnInit, OnChanges {
     this.getCountries()
     this.getGendersData();
     this.getBelongingCompany();
-    this.representativeTypeChange();
   }
 
   ngOnChanges(changes:SimpleChanges) {
@@ -127,6 +134,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event) {
+    console.log(event);
     this.autonom = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;

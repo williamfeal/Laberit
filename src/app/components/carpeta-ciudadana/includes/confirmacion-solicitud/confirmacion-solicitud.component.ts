@@ -25,19 +25,11 @@ export class ConfirmacionSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.procedureService.getToken().subscribe((data)=>{
-      console.log(data);
-      this.tokenValido = data;
-      this.getRequest(this.tokenValido);
-      this.getResum(this.tokenValido);
+      this.getResum(data.accessToken);
     })
-    
+  
   }
 
-  getRequest(token){
-    this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.base64Request = data;
-    })
-  }
   getResum(token){
     this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
       this.base64Request = data;

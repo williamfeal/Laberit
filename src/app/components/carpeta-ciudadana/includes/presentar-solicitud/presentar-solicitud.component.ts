@@ -14,8 +14,9 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./presentar-solicitud.component.scss']
 })
 export class PresentarSolicitudComponent implements OnInit {
-
+  public draftId: string;
   private unsubscribe$ = new Subject<void>();
+  base64Request: string;
   procedure;
   public documentBase64 = '';
   constructor(public appUtils: AppUtils,
@@ -31,16 +32,34 @@ export class PresentarSolicitudComponent implements OnInit {
                }
 
   ngOnInit(): void {
+    this.draftId = window.location.href.split(":")[4];
+        console.log(window.location.href);
+        localStorage.setItem('draftId', this.draftId);
+        console.log(this.draftId); 
+    this.procedureService.getToken().subscribe((data)=>{
+      console.log(data.accessToken);
+      this.getRequest(data.accessToken);
+      //this.getResum(data.accessToken);
+    })
   }
-
+  getRequest(token){
+    this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
+      this.base64Request = data;
+    })
+  }
+  // getResum(token){
+  //   this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
+  //     this.base64Request = data;
+  //   })
+  // }
   reviewDoc() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.disableClose = true;
     dialogConfig.width = '90%';
     dialogConfig.height = '90%';
-    dialogConfig.data = { 
-      base64: AppConstants.base64,
+    dialogConfig.data = {
+      base64: this.base64Request,
       showButtons: true 
     };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
