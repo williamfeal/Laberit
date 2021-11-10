@@ -32,7 +32,7 @@ export class PresentarSolicitudComponent implements OnInit {
                }
 
   ngOnInit(): void {
-    this.draftId = window.location.href.split(":")[4];
+    this.draftId = window.location.href.split(":")[3];
         console.log(window.location.href);
         localStorage.setItem('draftId', this.draftId);
         console.log(this.draftId); 
