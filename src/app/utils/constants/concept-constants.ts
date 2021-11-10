@@ -20,7 +20,7 @@ export class ConceptConstants {
     public static readonly APPLICANT_TYPE_REPRESENTATIVE = "ivf-applicant-types-representantive";
 
     public static readonly REPRESENTATIVE_PERSON_AUTONOMOUS = "ivf-representative-types-juridic-person-autonomous";
-    public static readonly REPRESENTATIVE_PERSON_PHISYC = "ivf-representative-types-physical";
+    public static readonly REPRESENTATIVE_PERSON_PHISYC = "ivf-representative-types-physical-person";
     public static readonly REPRESENTATIVE_MICRO_BUSINESS = "ivf-representative-types-juridic-person-linea-resisitir-micro-business";
     public static readonly REPRESENTATIVE_PYME = "ivf-representative-types-juridic-person-linea-resisitir-pyme";
     public static readonly REPRESENTATIVE_COMMUNITY_OF_GOODS = "ivf-representative-types-juridic-person-linea-resisitir-community-of-goods";
