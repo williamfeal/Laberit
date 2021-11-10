@@ -15,7 +15,7 @@
                     {{ 'carpeta_ciudadana.aceptation.manifestations.title' | translate }}
                 </p>
                 <div *ngFor="let manifestation of manifestations; let i = index">
-                    <p class="mb-1 mt-3"> {{ manifestation.description }} </p>
+                    <p class="mb-1 mt-3"> {{ manifestation.description }} <b>*</b></p>
                     <app-confirmation-radio-button [form]="formAceptation" [isRequired]="isRequired" name="{{manifestation.concept_code}}" controlName
                     [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" 
                     [draft]="draftFormAceptation"
