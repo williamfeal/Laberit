@@ -53,7 +53,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
-    sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
+    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
     this.loadData();
     this.languageService.lang.subscribe(
       () => this.loadData()
@@ -149,11 +149,11 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     this.businessTypeSelected = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
-    sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
+    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
   public isAutonum() {
-    return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PERSON_AUTONOMOUS
+    return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
