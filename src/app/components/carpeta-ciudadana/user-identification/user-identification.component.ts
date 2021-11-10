@@ -179,13 +179,13 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   private checkBusinessRules() {
     const activo = this.representative ? 
       this.formUserIdentification.value.representative_data.represented_data_active :
-      this.formUserIdentification.value.interested_data.interested_data_active;
+      this.formUserIdentification.value.interested_data.interested_data_active || 0;
     const turnover = this.representative ?
       this.formUserIdentification.value.representative_data.represented_data_turnover :
-      this.formUserIdentification.value.interested_data.interested_data_turnover;
+      this.formUserIdentification.value.interested_data.interested_data_turnover || 0;
     const num_empleados = this.representative ?
       this.formUserIdentification.value.representative_data.represented_data_employees_number :
-      this.formUserIdentification.value.interested_data.interested_data_employees_number;  
+      this.formUserIdentification.value.interested_data.interested_data_employees_number || 0;  
     const company_type = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_MICRO_BUSINESS ?
       'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME || sessionStorage.getItem('company_type') ===  ConceptConstants.REPRESTATIVE_PHISYC_PYME ? 
       'Pyme' : '';

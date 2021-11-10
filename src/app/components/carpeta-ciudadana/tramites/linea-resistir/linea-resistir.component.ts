@@ -73,7 +73,7 @@ export class LineaResistirComponent implements OnInit {
         if(this.activatedRoute.snapshot.queryParams.draft){
             this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formLineaResistir').subscribe(
                 (data:Draft) => {
-                    this.draft = data;
+                    data !== null ? this.draft = data : this.setDraft();
                 }, 
                 () => this.setDraft()
             )
