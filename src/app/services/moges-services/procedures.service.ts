@@ -61,7 +61,7 @@ export class ProceduresService {
     }));   
   }
 
-  public getRequest(draftId: string, token: string){
+  public getRequest(draftId: string, token){
     const data = this.http.get(`${this.request_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export class ProceduresService {
     return throwError(errorMsg);
 })); 
   }
-  public getResum(draftId: string, token: string){
+  public getResum(draftId: string, token){
     const data = this.http.get(`${this.resum_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -101,14 +101,14 @@ export class ProceduresService {
   }
 
   public getToken(){
-    const data = this.http.post(`${this.get_token}`, {
+    const data = this.http.post(`${this.get_token}`,sessionStorage.b64Certificate, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`
       }),
     });
   return data.pipe(map((response:any) => {
-    return response.data;
+    return response;
   })).pipe(catchError(error => {
     let errorMsg: string;
     if (error.error instanceof ErrorEvent) {
