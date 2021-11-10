@@ -21,7 +21,7 @@
                 </app-input-select>
                 
             </div>
-            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': isJuridicPerson() }">
                 <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
@@ -30,7 +30,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_name']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': isJuridicPerson() }">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
@@ -39,7 +39,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3" *ngIf="!isJuridicPerson()">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': isJuridicPerson() }">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [isRequired]="false"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
@@ -198,7 +198,7 @@
             </div>
             
         </div>
-        <div class="row w-100" *ngIf="!isJuridicPerson()">
+        <div class="row w-100" [ngClass]="{ 'd-none': isJuridicPerson() }">
             <div class="form-group col-md-6 px-0 d-flex">
                 <div class="form-group col-md-4">
                 <app-input-text [form]="formRepresentativeData" [draft]="draftRepresentativeData"
