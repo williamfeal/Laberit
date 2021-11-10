@@ -177,8 +177,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   public goToRequestInfo() {
-    console.log(this.formUserIdentification);
-
     let error = 0;
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
