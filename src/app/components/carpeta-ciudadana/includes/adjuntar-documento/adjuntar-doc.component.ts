@@ -91,9 +91,13 @@ export class AdjuntarDocComponent implements OnInit {
     if(this.activatedRoute.snapshot.queryParams.draft) {
       this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:documents').subscribe(
         (data:Draft) => {
-          this.draft = data;
-          this.draftAdjuntarDoc = JSON.parse(data.info);
-          this.fileList = this.draftAdjuntarDoc
+          if(data !== null) {
+            this.draft = data;
+            this.draftAdjuntarDoc = JSON.parse(data.info);
+            this.fileList = this.draftAdjuntarDoc
+          } else {
+            this.setDraft();
+          }
         },
         () => this.setDraft()
       )

@@ -79,8 +79,8 @@ export class AceptationComponent implements OnInit {
     if(this.activatedRoute.snapshot.queryParams.draft) {
       this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formAceptation').subscribe(
         (data:Draft) => {
-          this.draft = data;
-          this.draftFormAceptation = JSON.parse(data.info);
+          data !== null ? this.draft = data : this.setDraft();
+          this.draftFormAceptation = JSON.parse(this.draft.info);
         },
         () => this.setDraft()
       )
