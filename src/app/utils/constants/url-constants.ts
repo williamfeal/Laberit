@@ -35,6 +35,7 @@ export class UrlConstants {
     public static readonly ENDPOINT_GET_DRAFT_BY_ID = '/getDraftById';
     public static readonly ENDPOINT_REQUEST = '/api/v1/registro/crear/';
     public static readonly ENDPOINT_JUSTIFICANT = '/api/v1/registro/guardar/';
+    public static readonly ENDPOINT_TOKEN_VALIDAR = '/api/v1/login/validar';
 
     public static readonly ENDPOINT_BUSINESS_RULES = '/rule';
     public static readonly URL_REDIRECT_CLAVE = 'http://clave.apc.alfatecsistemas.es/SPClave/TokenServlet?urlvuelta=' + 

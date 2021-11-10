@@ -12,6 +12,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   base64Request: string;
   base64Resum: string;
   procedure;
+  public tokenValido: string;
   private unsubscribe$ = new Subject<void>();
   constructor(private procedureService: ProceduresService) {
     
@@ -23,17 +24,21 @@ export class ConfirmacionSolicitudComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getRequest();
-    this.getResum();
+    this.procedureService.getToken().subscribe((data)=>{
+      console.log(data);
+      this.tokenValido = data;
+    })
+    this.getRequest(this.tokenValido);
+    this.getResum(this.tokenValido);
   }
 
-  getRequest(){
-    this.procedureService.getRequest(localStorage.getItem("draftId")).subscribe((data)=>{
+  getRequest(token){
+    this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
       this.base64Request = data;
     })
   }
-  getResum(){
-    this.procedureService.getResum(localStorage.getItem("draftId")).subscribe((data)=>{
+  getResum(token){
+    this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
       this.base64Request = data;
     })
   }

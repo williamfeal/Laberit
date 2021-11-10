@@ -20,6 +20,7 @@ export class ProceduresService {
   private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
   private request_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_REQUEST;
   private resum_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_JUSTIFICANT;
+  public get_token = environment.atencion_cliente_url + UrlConstants.ENDPOINT_TOKEN_VALIDAR;
   
   lang = this.translate.currentLang;
 
@@ -60,11 +61,11 @@ export class ProceduresService {
     }));   
   }
 
-  public getRequest(draftId: string){
+  public getRequest(draftId: string, token: string){
     const data = this.http.get(`${this.request_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${sessionStorage.token}`
+        'Authorization': `Bearer ${token}`
       }),
     });
   return data.pipe(map((response:any) => {
@@ -79,8 +80,28 @@ export class ProceduresService {
     return throwError(errorMsg);
 })); 
   }
-  public getResum(draftId: string){
+  public getResum(draftId: string, token: string){
     const data = this.http.get(`${this.resum_URL}${draftId}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }),
+    });
+  return data.pipe(map((response:any) => {
+    return response.data;
+  })).pipe(catchError(error => {
+    let errorMsg: string;
+    if (error.error instanceof ErrorEvent) {
+        errorMsg = `Error: ${error.error.message}`;
+    } else {
+        errorMsg = this.getServerErrorMessage(error);
+    }
+    return throwError(errorMsg);
+})); 
+  }
+
+  public getToken(){
+    const data = this.http.post(`${this.get_token}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${sessionStorage.token}`
