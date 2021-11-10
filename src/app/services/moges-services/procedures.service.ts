@@ -62,6 +62,7 @@ export class ProceduresService {
   }
 
   public getRequest(draftId: string, token){
+    console.log(draftId, token);
     const data = this.http.get(`${this.request_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ export class ProceduresService {
       }),
     });
   return data.pipe(map((response:any) => {
-    return response.data;
+    return response;
   })).pipe(catchError(error => {
     let errorMsg: string;
     if (error.error instanceof ErrorEvent) {

@@ -32,19 +32,18 @@ export class PresentarSolicitudComponent implements OnInit {
                }
 
   ngOnInit(): void {
-    this.draftId = window.location.href.split(":")[3];
-        console.log(window.location.href);
-        localStorage.setItem('draftId', this.draftId);
-        console.log(this.draftId); 
+    this.draftId =window.location.href.split("=")[1];
+    console.log(this.draftId);
+    localStorage.setItem('draftId', this.draftId);
     this.procedureService.getToken().subscribe((data)=>{
       console.log(data.accessToken);
       this.getRequest(data.accessToken);
-      //this.getResum(data.accessToken);
     })
   }
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.base64Request = data;
+      console.log(data);
+      //this.base64Request = data;
     })
   }
   // getResum(token){
