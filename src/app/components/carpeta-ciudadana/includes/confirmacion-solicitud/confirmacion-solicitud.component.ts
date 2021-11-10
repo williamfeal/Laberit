@@ -27,9 +27,10 @@ export class ConfirmacionSolicitudComponent implements OnInit {
     this.procedureService.getToken().subscribe((data)=>{
       console.log(data);
       this.tokenValido = data;
+      this.getRequest(this.tokenValido);
+      this.getResum(this.tokenValido);
     })
-    this.getRequest(this.tokenValido);
-    this.getResum(this.tokenValido);
+    
   }
 
   getRequest(token){
