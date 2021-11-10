@@ -99,7 +99,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     ).subscribe(
       (procedure: Procedure) => {
         this.procedure = procedure;
-        this.getOrCreateDraft();
+        this.getDraft();
     })
     
     this.translateService.get('error_texts.pop_up.form_error').pipe(
@@ -125,7 +125,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     return false;
   }
 
-  public getOrCreateDraft() {
+  public getDraft() {
     if(this.activatedRoute.snapshot.queryParams.draft) {
       this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification').subscribe(
         (data:Draft) => {
@@ -133,24 +133,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           this.draftUserIdentification = JSON.parse(data.info);
         },
         () => this.setDraft() )
-      } else {
-        const info = { idProcedure: sessionStorage.getItem('idProcedure') };
-        const infoProcedure = this.procedure.languages.find(
-          language => language.codigo === localStorage.getItem('lang')
-        );
-        const draft:Draft = {
-          key: '',
-          desc: 'Borrador',
-          idInfo: 'info',
-          info: JSON.stringify(info),
-          linea: this.procedure.category.name,
-          nif: sessionStorage.getItem('nifTitular'),
-          producto: infoProcedure.name,
-          fecha: ''  
-        }
-        this.draftService.saveDraft(draft).subscribe(
-          data => this.draft = data
-        )
       }
   }
 
@@ -198,15 +180,15 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   private checkBusinessRules() {
     const activo = this.representative ? 
       this.formUserIdentification.value.representative_data.represented_data_active :
-      this.formUserIdentification.value.interested_data.interested_data_active;
+      this.formUserIdentification.value.interested_data.interested_data_active || 0;
     const turnover = this.representative ?
       this.formUserIdentification.value.representative_data.represented_data_turnover :
-      this.formUserIdentification.value.interested_data.interested_data_turnover;
+      this.formUserIdentification.value.interested_data.interested_data_turnover || 0;
     const num_empleados = this.representative ?
       this.formUserIdentification.value.representative_data.represented_data_employees_number :
       this.formUserIdentification.value.interested_data.interested_data_employees_number;  
-    const company_type = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESTATIVE_PHISYC_MICRO_BUSINESS ?
-      'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME || sessionStorage.getItem('company_type') ===  ConceptConstants.REPRESTATIVE_PHISYC_PYME ? 
+    const company_type = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_MICRO_BUSINESS ?
+      'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME || sessionStorage.getItem('company_type') ===  ConceptConstants.REPRESENTATIVE_PYME ? 
       'Pyme' : '';
     
     const ruleBody:BusinessRuleBodyUserIdentification = {
@@ -231,20 +213,43 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   private saveDraftAndNavigate() {
+    if(this.draft) {
+      this.saveDraftUserIdentification();    
+    }  else {
+      const info = { idProcedure: sessionStorage.getItem('idProcedure') };
+      const infoProcedure = this.procedure.languages.find(
+        language => language.codigo === localStorage.getItem('lang')
+      );
+      const draft:Draft = {
+        key: '',
+        desc: 'Borrador',
+        idInfo: 'info',
+        info: JSON.stringify(info),
+        linea: this.procedure.category.name,
+        nif: sessionStorage.getItem('nifTitular'),
+        producto: infoProcedure.name,
+        fecha: ''  
+      }
+      this.draftService.saveDraft(draft).subscribe(
+        data => {
+          this.draft = data;
+          this.saveDraftUserIdentification();
+        });
+    }
+  }
+
+  private saveDraftUserIdentification() {
     const infoProcedure = this.procedure.languages.find(
       language => language.codigo === localStorage.getItem('lang')
     );
-
-    const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
+    const draftUserIdentification:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
       infoProcedure.name, 'forms:formUserIdentification', this.draft.key, '');
-
-    this.draftService.saveDraft(draft).subscribe(
+    this.draftService.saveDraft(draftUserIdentification).subscribe(
       () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
         queryParams: { draft: this.draft.key }
       })
-    )    
+    )
   }
-
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
