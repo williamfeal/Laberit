@@ -141,7 +141,7 @@
                         controlName="ownGroup" 
                         idValue="ownGroup" 
                         nameValue="ownGroup"
-                        [isRequired]="isRequired && !isAutonum()"
+                        [isRequired]="isRequired"
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " 
                         [fieldOptions]="belongingCompany"
                         [error]="validate && formRepresentativeData.controls['ownGroup']?.invalid"
@@ -150,10 +150,14 @@
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                        [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                        [form]="formRepresentativeData" 
+                        [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
-                        controlName="represented_data_active" idValue="represented_data_active"
-                        nameValue="represented_data_active" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
+                        controlName="represented_data_active" 
+                        idValue="represented_data_active"
+                        nameValue="represented_data_active" 
+                        [isReadOnly]="readOnly" 
+                        [isRequired]="isRequired"
                         [error]="validate && formRepresentativeData.controls['represented_data_active']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>
@@ -161,8 +165,11 @@
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
-                        controlName="represented_data_turnover" idValue="represented_data_turnover"
-                        nameValue="represented_data_turnover" [isReadOnly]="readOnly" [isRequired]="isRequired && !isAutonum()"
+                        controlName="represented_data_turnover" 
+                        idValue="represented_data_turnover"
+                        nameValue="represented_data_turnover" 
+                        [isReadOnly]="readOnly" 
+                        [isRequired]="isRequired"
                         [error]="validate && formRepresentativeData.controls['represented_data_turnover']?.invalid"
                         [errorText]="errorCharacterLeng"></app-input-number>
                 </div>

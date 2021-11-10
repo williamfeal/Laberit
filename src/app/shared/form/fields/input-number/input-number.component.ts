@@ -30,7 +30,7 @@ export class InputNumberComponent implements OnInit {
   @Input() isReadOnly!: boolean;
   @Input() isRequired!: boolean;
   @Input() errorText!: string;
-  @Input() value:number = 0;
+  @Input() value:number;
   @Input() placeholder:number = 0;
   @Input() error!: boolean;
   @Input() minLength!: number | null;
@@ -58,7 +58,8 @@ export class InputNumberComponent implements OnInit {
     if (this.validaciones.length > 0) {
       this.formControl.setValidators(this.validaciones);
     }
-    
+    this.formControl.setValidators(this.validaciones);
+
     this.form.addControl(this.controlName, this.formControl);
 
     if (this.placeholder == undefined) this.placeholder = 0;
