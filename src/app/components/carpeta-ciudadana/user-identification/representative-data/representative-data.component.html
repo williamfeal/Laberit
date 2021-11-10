@@ -134,7 +134,7 @@
                 </app-input-select>
             </div>
             <div class="w-100 d-contents" [ngClass]="{ 'd-none': isAutonum() }">
-                <div class="w-100 d-contents" *ngIf="!comunidadBienes">
+                <div class="w-100 d-contents" *ngIf="!comunidadBienes && businessTypeSelected === ''">
                 <div class="form-group col-md-3">
                     <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
