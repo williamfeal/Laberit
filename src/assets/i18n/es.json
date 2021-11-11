@@ -451,7 +451,7 @@
     "identification": {
       "title": "Identificación de Usuario",
       "identity_data": {
-        "title": "Datos de identificación",
+        "title": "Datos del presentador",
         "name_and_surname": "Nombre y Apellidos",
         "nif": "NIF"
       },
@@ -479,7 +479,7 @@
         "check": "Comprobar"
       },
       "represented_data": {
-        "title": "Datos del representado",
+        "title": "Datos del solicitante",
         "type": "Tipo",
         "social_reason": "Razón Social",
         "name": "Nombre",
