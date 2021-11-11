@@ -66,8 +66,9 @@ export class ProceduresService {
     const data = this.http.get(`${this.request_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`,
       }),
+      'responseType': 'text'
     });
   return data.pipe(map((response:any) => {
     return response;
@@ -87,9 +88,10 @@ export class ProceduresService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }),
+      'responseType': 'text'
     });
   return data.pipe(map((response:any) => {
-    return response.data;
+    return response;
   })).pipe(catchError(error => {
     let errorMsg: string;
     if (error.error instanceof ErrorEvent) {

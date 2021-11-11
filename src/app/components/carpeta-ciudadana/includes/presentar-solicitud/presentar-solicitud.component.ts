@@ -43,14 +43,9 @@ export class PresentarSolicitudComponent implements OnInit {
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
       console.log(data);
-      //this.base64Request = data;
+      this.base64Request = data;
     })
   }
-  // getResum(token){
-  //   this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
-  //     this.base64Request = data;
-  //   })
-  // }
   reviewDoc() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
