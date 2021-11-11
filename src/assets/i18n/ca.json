@@ -389,7 +389,7 @@
       "identification": {
         "title": "Identificació d'Usuari",
         "identity_data": {
-          "title": "Dades d'identificació",
+          "title": "Dades del presentador",
           "name_and_surname": "Nom i Cognoms",
           "nif": "NIF"
         },
@@ -417,7 +417,7 @@
           "check": "Comprovar"
         },
         "represented_data": {
-          "title": "Dades del representat",
+          "title": "Dades del solicitant",
           "type": "Tipus",
           "social_reason": "Raó Social",
           "name": "Nom",
