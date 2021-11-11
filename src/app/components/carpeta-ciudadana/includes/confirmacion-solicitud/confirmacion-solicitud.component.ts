@@ -13,6 +13,8 @@ import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentar
 export class ConfirmacionSolicitudComponent implements OnInit {
   base64Request: string;
   base64Resum: string;
+  public data64: boolean = false;
+
   procedure;
   public tokenValido: string;
   private unsubscribe$ = new Subject<void>();
@@ -38,7 +40,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   }
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      console.log(data);
+      this.data64 = true;
       this.base64Request = data;
     })
   }

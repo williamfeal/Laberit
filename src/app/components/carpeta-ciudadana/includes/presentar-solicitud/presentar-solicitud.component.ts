@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 export class PresentarSolicitudComponent implements OnInit {
   public draftId: string;
   private unsubscribe$ = new Subject<void>();
+  public data64: boolean = false;
   base64Request: string;
   procedure;
   public documentBase64 = '';
@@ -39,12 +40,15 @@ export class PresentarSolicitudComponent implements OnInit {
       console.log(data.accessToken);
       this.getRequest(data.accessToken);
     })
+    console.log(this.data64);
   }
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      console.log(data);
+      console.log(this.data64);
+      this.data64 = true;
       this.base64Request = data;
     })
+    
   }
   reviewDoc() {
     const dialogConfig = new MatDialogConfig();

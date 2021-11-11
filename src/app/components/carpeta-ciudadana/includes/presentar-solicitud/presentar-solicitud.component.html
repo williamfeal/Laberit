@@ -15,5 +15,5 @@
   </div>
 </div>
 <div class="container-fluid w-50">
-  <button class="btn-app-primary-rounded m-button" (click)="reviewDoc()">{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
+  <button class="btn-app-primary-rounded m-button" (click)="reviewDoc()" [disabled]="!data64"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
 </div>
