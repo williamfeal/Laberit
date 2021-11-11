@@ -2,7 +2,7 @@
     <input class="form-check-input" [formControlName]="name" type="checkbox" 
         value="" id="name">
     <label class="form-check-label" for="{{name}}">
-        {{ text }}
+        {{ text }} <b *ngIf="isRequired">*</b>
     </label>
     <p class="error-p" *ngIf="error">
         {{ 'error_texts.input.empty_error' | translate}} </p>

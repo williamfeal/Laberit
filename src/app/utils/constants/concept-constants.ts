@@ -61,4 +61,10 @@ export class ConceptConstants {
     public static readonly INTEST_TYPE_RATE = "linea-resistir-interest-rate-modality";
     public static readonly LINEA_RESISTIR_PLAZOS = "linea-resistir-term";
     public static readonly LINEA_RESISTIR_LACK = "linea-resistir-lack";
+
+    //AUTORIZATIONS
+    public static readonly DATA_PROTECTION_QUESTIONARY_MANDATORY = 'data-protection-questionary-mandatory';
+    public static readonly DATA_PROTECTION_QUESTIONARY_OPTIONAL = 'data-protection-questionary-optional';
+    public static readonly DATA_PROTECTION_QUESTIONARY_MANDATORY_PYME = 'data-protection-questionary-mandatory-PYME';
+    public static readonly DATA_PROTECTION_QUESTIONARY_OPTIONAL_PYME = 'data-protection-questionary-optional-PYME';
 }
