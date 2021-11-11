@@ -26,11 +26,16 @@
                     {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
                 </span>
                 <p class="mt-3"> {{ 'carpeta_ciudadana.aceptation.data_protection.text' | translate }} </p>
-                <div *ngFor="let data of data_protection" class="form-check">
-                   <app-checkbox [form]="formAceptation" [isRequired]="isRequired"
+                <div *ngFor="let data of data_protection_mandatory" class="form-check">
+                   <app-checkbox [form]="formAceptation" [isRequired]="true"
                     [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
                     [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
                 </div>
+                <div *ngFor="let data of data_protection_optional" class="form-check">
+                    <app-checkbox [form]="formAceptation" [isRequired]="false"
+                     [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
+                     [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
+                 </div>
             </div>
             
         </div>

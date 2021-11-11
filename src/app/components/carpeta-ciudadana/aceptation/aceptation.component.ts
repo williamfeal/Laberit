@@ -25,8 +25,10 @@ export class AceptationComponent implements OnInit {
   public validate: boolean = false;
   public procedure: Procedure;
   public manifestations: Concept[];
-  public data_protection: Concept[];
-  
+
+  public data_protection_mandatory: Concept[];
+  public data_protection_optional: Concept[];
+
   public isRequired = true;
   public draftFormAceptation;
   
@@ -57,13 +59,7 @@ export class AceptationComponent implements OnInit {
       )
     }
 
-    this.catalogService.getCatalogByCode(ConceptConstants.DATA_PROTECTION).pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(
-      (data: Concept[]) => this.data_protection = data
-    )
-
-
+    this.getDataProtection();
     this.proceduresService.getProcedureById(idProcedure).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -73,6 +69,24 @@ export class AceptationComponent implements OnInit {
       }
     )
     this.formAceptation = new FormGroup({});
+  }
+
+  private getDataProtection() {
+    if(sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME) {
+      this.catalogService.getCatalogByCode(ConceptConstants.DATA_PROTECTION_QUESTIONARY_MANDATORY_PYME).subscribe(
+        (data:Concept[]) => this.data_protection_mandatory = data
+      )
+      this.catalogService.getCatalogByCode(ConceptConstants.DATA_PROTECTION_QUESTIONARY_OPTIONAL_PYME).subscribe(
+        (data:Concept[]) => this.data_protection_optional = data
+      )
+    } else {
+      this.catalogService.getCatalogByCode(ConceptConstants.DATA_PROTECTION_QUESTIONARY_MANDATORY).subscribe(
+        (data:Concept[]) => this.data_protection_mandatory = data
+      )
+      this.catalogService.getCatalogByCode(ConceptConstants.DATA_PROTECTION_QUESTIONARY_OPTIONAL).subscribe(
+        (data:Concept[]) => this.data_protection_optional = data
+      )
+    }
   }
 
   private getDraft() {
