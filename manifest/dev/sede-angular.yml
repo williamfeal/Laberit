@@ -28,9 +28,9 @@ spec:
             - name: ENTITY_UUID
               value: ca807322-5bcb-11eb-87b5-c4fba02e0591
             - name: KEYCLOAK_CLIENT_ID
-              value: angular-tasklist
+              value: tramitador
             - name: KEYCLOAK_REALM
-              value: Angular2
+              value: IVF
             - name: KEYCLOAK_URL
               value: https://keycloak-tdgov.laberit.com/auth/
             - name: MOGES_URL
