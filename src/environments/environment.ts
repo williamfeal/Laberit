@@ -14,8 +14,8 @@ export const environment = {
   mock_url: 'https://mock-ivf.laberit.com',
   keycloak: {
     issuer: 'https://keycloak-ivf.laberit.com/auth/',
-    realm: 'Angular2',
-    clientId: 'angular-tasklist'
+    realm: 'IVF',
+    clientId: 'tramitador'
   },
   entity_uuid: 'ca807322-5bcb-11eb-87b5-c4fba02e0591',
   catalogs_url: 'https://catalogs-service-ivf.laberit.com'
