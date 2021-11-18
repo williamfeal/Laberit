@@ -146,9 +146,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         this.formControl.setValue('');
         this.deleteFileDocument.emit(this.document);
         this.documentExist = false;
-        this.atachService.deleteDocument(this.idDoc).subscribe((data)=>{
-            
-        })
+     
     }
 
     verPlantilla(id: string) {
@@ -159,7 +157,10 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         // const urlPdf = URL.createObjectURL(byte);
         // window.open(urlPdf, '_blank');
         this.catalogService.prueba(id).subscribe((data)=>{
-            console.log(data);
+            var file = new Blob([data], {type: 'application/pdf'});
+            var fileURL = URL.createObjectURL(file);
+    
+            window.open(fileURL, '_blank')
         });
     }
 

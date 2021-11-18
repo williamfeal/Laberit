@@ -15,6 +15,7 @@ import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
     selector: 'app-detail-cost-financed',
@@ -26,15 +27,21 @@ export class DetailCostFinancedComponent implements OnInit {
     @Input() formLineaResistir: FormGroup;
     @Input() validate: boolean;
     @Input() draft:Draft;
+    public provincias: SelectFieldObject[];
+    public municipios: SelectFieldObject[];
+    public paises: SelectFieldObject[];
+    public province: string;
     //se bebera de los catalogos
     private unsubscribe$ = new Subject<void>();
-
+    public countrySpainSelected;
+    public countrySelected;
+    public countriesSpain = ConceptConstants.COUNTRIES_SPAIN;
     showInversion = false;
     showCirculante = false;
     showInvCircu = false;
     public project_type: SelectFieldObject[];
     public pro: string = '';
-   
+    errorCharacterLeng: string = 'empty_error';
 
     public draftDetailCostFinanced;
 
@@ -57,6 +64,7 @@ export class DetailCostFinancedComponent implements OnInit {
 
     ngOnInit() { 
         this.getApplicantTypes();
+        this.getCountries();
     }
 
     getApplicantTypes() {
@@ -88,6 +96,41 @@ export class DetailCostFinancedComponent implements OnInit {
             this.ref.detectChanges();
         }
     }
+    public onChangeCountry(event) {
+        this.countrySelected = event;
+      }
+    public getCountries() {
+        this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => {
+            this.paises = AppUtils.sortConceptsAlphabetically(data)
+            this.getSpainCountries()
+          }
+        )
+      }
+    
+      public getSpainCountries() {
+        this.catalogsService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.provincias = AppUtils.sortConceptsAlphabetically(data)
+        )
+      }
+    
+      public onChangeSpainCountry(event) {
+        
+        this.province = event;
+        
+        this.catalogsService.getCatalogByCode(event).pipe(
+          takeUntil(this.unsubscribe$)
+        ).subscribe(
+          data => this.municipios = AppUtils.sortConceptsAlphabetically(data),
+          () => this.municipios = []
+        )
+      }
+   
+
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();

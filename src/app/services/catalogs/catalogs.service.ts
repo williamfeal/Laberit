@@ -16,8 +16,8 @@ export class CatalogsService {
   public httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic YWRtaW46YWRtaW4=' 
-    })
+      'Authorization': 'Basic YWRtaW46YWRtaW4='
+        })
   };
   constructor(
     private http:HttpClient
@@ -42,9 +42,15 @@ export class CatalogsService {
   }));   
   }
   public prueba(code: string){
-    const data = this.http.get(`${this.URL_GET_TEMPLATE}${code}'/content?attachment=true'`, this.httpOptions);
+    console.log(code);
+    const data = this.http.get(`${this.URL_GET_TEMPLATE}5e3fb40e-f430-422f-909f-157b066c2299/content?attachment=true`, {
+      headers: new HttpHeaders({
+        'Authorization': `Basic YWRtaW46YWRtaW4=`,
+      }),
+      'responseType': 'blob'
+    });
     return data.pipe(map((response:any) => {
-      return response.data;
+      return response;
     })).pipe(catchError(error => {
       let errorMsg: string;
       if (error.error instanceof ErrorEvent) {
