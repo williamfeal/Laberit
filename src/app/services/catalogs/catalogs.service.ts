@@ -43,7 +43,7 @@ export class CatalogsService {
   }
   public prueba(code: string){
     console.log(code);
-    const data = this.http.get(`${this.URL_GET_TEMPLATE}5e3fb40e-f430-422f-909f-157b066c2299/content?attachment=true`, {
+    const data = this.http.get(`${code}`, {
       headers: new HttpHeaders({
         'Authorization': `Basic YWRtaW46YWRtaW4=`,
       }),
