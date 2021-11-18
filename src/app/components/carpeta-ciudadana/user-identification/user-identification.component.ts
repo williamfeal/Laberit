@@ -225,9 +225,9 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         desc: 'Borrador',
         idInfo: 'info',
         info: JSON.stringify(info),
-        linea: this.procedure.category.name,
+        linea: infoProcedure.name,
         nif: sessionStorage.getItem('nifTitular'),
-        producto: infoProcedure.name,
+        producto: this.procedure.category.name,
         fecha: ''  
       }
       this.draftService.saveDraft(draft).subscribe(
