@@ -18,6 +18,7 @@ export class CarpetaService {
   private URL_GET_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + '/login' + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
+  private URL_CAN_PROCEDURE = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REPRESENTA_CAN_PROCEDURE;
 
   private headerInterceptor =  {headers: {useInterceptor:"true"} };
   constructor(
@@ -64,8 +65,16 @@ export class CarpetaService {
     })).pipe(catchError((err: Error) => {
         throw err;
     }));
-}
-
+  }
+  
+  public canRepresentativeProcedure(nifRepresentante:string, nifRepresentado:string): Observable<any> {
+    const obs = this.http.post<any>(this.URL_CAN_PROCEDURE, { "nif": nifRepresentante, "poderdante": nifRepresentado}, this.headerInterceptor);
+      return obs.pipe(map((resp: any) => {
+          return resp;
+      })).pipe(catchError((err: Error) => {
+          throw err;
+      }));
+  }
 
   
 }

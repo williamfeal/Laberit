@@ -1,5 +1,6 @@
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
@@ -44,11 +45,13 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public businessTypeSelected;
   public draftRepresentativeData;
 
+  
   private unsubscribe$ = new Subject<void>();
 
   constructor(
     private catalogService:CatalogsService,
-    private languageService:LanguagesService
+    private languageService:LanguagesService,
+    private carpetaService:CarpetaService
   ) { }
 
   ngOnInit(): void {
@@ -80,12 +83,17 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     }
   }
 
+  public showRepresentaBtn():boolean {
+    return sessionStorage.getItem('nifTitular') !== this.formRepresentativeData.value.represented_data_nif;
+  
+  }
 
   public isJuridicPerson() {
     return this.representativeTypeSelected === ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON;
   }
 
   public representativeTypeChange(event: string) {
+    this.businessType=[];
     this.representativeTypeSelected = event;
   
     this.catalogService.getCatalogByCode(this.representativeTypeSelected).pipe(
@@ -149,12 +157,21 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     this.businessTypeSelected = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
-    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
+    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || this.businessTypeSelected === 'ivf-representative-types-physical-person-autonomous' ?  this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
   public isAutonum() {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
+
+  public callRepresenta() {
+    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      data => {
+        console.log(data)
+      }
+    )
+  }
+  
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
