@@ -44,6 +44,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public businessTypeSelected;
   public draftRepresentativeData;
 
+  
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -80,6 +81,10 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     }
   }
 
+  public showRepresentaBtn():boolean {
+    return sessionStorage.getItem('nifTitular') !== this.formRepresentativeData.value.represented_data_nif;
+  
+  }
 
   public isJuridicPerson() {
     return this.representativeTypeSelected === ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON;
@@ -156,6 +161,11 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public isAutonum() {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
+
+  public callRepresenta() {
+
+  }
+  
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
