@@ -10,7 +10,7 @@ import {
   SimpleChanges
   } from '@angular/core';
 import { BusinessRule } from './../../../models/business-rules.model';
-import { BusinessRuleBodyUserIdentification } from './../../../models/business-rules-body.model';
+import { BusinessRuleBodyAddress, BusinessRuleBodyCompanyType } from './../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../services/acli-service/business-rules.service';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
@@ -169,7 +169,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         error++;
       }
       if (error == 0) {
-        this.checkBusinessRules();
+        this.checkBusinessRuleCompanyType();
       } else {
         SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
         this.showErrors = true;
@@ -177,7 +177,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  private checkBusinessRules() {
+  private checkBusinessRuleCompanyType() {
     const activo = this.representative ? 
       this.formUserIdentification.value.representative_data.represented_data_active :
       this.formUserIdentification.value.interested_data.interested_data_active || 0;
@@ -191,7 +191,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME || sessionStorage.getItem('company_type') ===  ConceptConstants.REPRESENTATIVE_PYME ? 
       'Pyme' : '';
     
-    const ruleBody:BusinessRuleBodyUserIdentification = {
+    const ruleBody:BusinessRuleBodyCompanyType = {
       tipoEmpresa: company_type,
       activo: activo,
       cifraNegocio: turnover,
@@ -199,6 +199,29 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     };
     const rule:BusinessRule = {
       tableKey: "reglasTipoEmpresa",
+      body: ruleBody
+    }
+    this.businessRulesService.businessRuleDecision(rule).subscribe(
+      (data:Decision) => {
+        data.decision ? this.checkBusinessRulesAddress() : 
+          SwalUtils.showErrorAlert(
+            'Error',
+            data.motive
+          )
+      }
+    )
+  }
+
+  private checkBusinessRulesAddress() {
+    const ruleBody:BusinessRuleBodyAddress = {
+      paisDomicilioSocial: this.formUserIdentification.controls.sosial_address.value.social_country,
+      provinciaDomicilioSocial: this.formUserIdentification.controls.sosial_address.value.social_province || "",
+      paisLocalidadProyecto: this.formUserIdentification.controls.productive_establishment.value.productive_establishment_country,
+      provinciaLocalidadProyecto: this.formUserIdentification.controls.productive_establishment.value.productive_establishment_province || ""
+    };
+    console.log(ruleBody)
+    const rule:BusinessRule = {
+      tableKey: "reglasDireccion",
       body: ruleBody
     }
     this.businessRulesService.businessRuleDecision(rule).subscribe(
