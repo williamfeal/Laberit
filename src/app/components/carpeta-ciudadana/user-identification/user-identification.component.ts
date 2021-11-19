@@ -70,6 +70,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private translateService: TranslateService,
     private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
+    private carpetaService:CarpetaService,
     private readonly changeDetectorRef: ChangeDetectorRef
 
   ) {
@@ -168,13 +169,29 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.validate = true;
         error++;
       }
+
       if (error == 0) {
-        this.checkBusinessRules();
+        this.callRepresenta();
       } else {
         SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
         this.showErrors = true;
       }
     }
+  }
+
+  private callRepresenta() {
+    this.carpetaService.canRepresentativeProcedure(
+      this.formUserIdentification.controls.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      data => {
+        if(data === true ) {
+          this.checkBusinessRules();
+        } else if( data === false) {  
+          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto');
+        } else {
+          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
+        }
+      }
+    )
   }
 
   private checkBusinessRules() {

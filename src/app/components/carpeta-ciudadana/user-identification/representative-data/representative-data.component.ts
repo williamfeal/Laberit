@@ -15,6 +15,7 @@ import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -166,7 +167,13 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public callRepresenta() {
     this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
-        console.log(data)
+        if(data === true) {
+          SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
+        } else if( data === false) {
+          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto')
+        } else {
+          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
+        }
       }
     )
   }
