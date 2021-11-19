@@ -140,7 +140,7 @@
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
                         controlName="ownGroup" 
                         idValue="ownGroup"
-                        [isRequired]="!comunidadBienes" 
+                        [isRequired]="isRequired && !comunidadBienes" 
                         nameValue="ownGroup"
                         placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " 
                         [fieldOptions]="belongingCompany"
@@ -152,7 +152,7 @@
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
-                        [isRequired]="!comunidadBienes"
+                        [isRequired]="isRequired && !comunidadBienes"
                         nameValue="represented_data_active" [isReadOnly]="readOnly"
                         ></app-input-number>
                 </div>
@@ -161,7 +161,7 @@
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
-                        [isRequired]="!comunidadBienes"
+                        [isRequired]="isRequired && !comunidadBienes"
                         nameValue="represented_data_turnover" [isReadOnly]="readOnly"></app-input-number>
                 </div>
             </div>
