@@ -1,5 +1,6 @@
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
@@ -49,7 +50,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   constructor(
     private catalogService:CatalogsService,
-    private languageService:LanguagesService
+    private languageService:LanguagesService,
+    private carpetaService:CarpetaService
   ) { }
 
   ngOnInit(): void {
@@ -163,7 +165,11 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   public callRepresenta() {
-
+    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      data => {
+        console.log(data)
+      }
+    )
   }
   
   ngOnDestroy(): void {

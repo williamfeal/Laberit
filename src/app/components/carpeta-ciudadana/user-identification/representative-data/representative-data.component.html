@@ -209,7 +209,9 @@
                     [errorText]="errorCharacterLeng"></app-input-select>
             </div>
             <div class="col-md-2 centrarDivVertical" *ngIf="showRepresentaBtn()">
-                <button class="btn-app-outline-primary button-round text" (click)="callRepresenta()" value=""><img src="../../../../../assets/img/img_representa.png" class="mr-2" width="35" height="30">{{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}</button>
+                <button class="btn-app-outline-primary button-round text" (click)="callRepresenta()" type ="button"
+                    value=""><img src="../../../../../assets/img/img_representa.png" class="mr-2" width="35" height="30">
+                    {{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}</button>
             </div>
         </div>
     </div>
