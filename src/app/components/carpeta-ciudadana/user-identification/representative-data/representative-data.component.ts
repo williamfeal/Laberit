@@ -58,7 +58,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     this.languageService.lang.subscribe(
       () => this.loadData()
     )
-    console.log(this.isJuridicPerson());
   }
   
   private loadData() {
@@ -152,7 +151,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || this.businessTypeSelected === 'ivf-representative-types-physical-person-autonomous' ?  this.comunidadBienes = true : this.comunidadBienes = false;
-    console.log(this.businessTypeSelected);
   }
 
   public isAutonum() {
