@@ -86,10 +86,9 @@ export class RequesterDataComponent implements OnInit, OnChanges {
       data => this.representation_power = data
     )
   }
-  comprobar(){
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
-ngOnDestroy(): void {
-  this.unsubscribe$.next();
-  this.unsubscribe$.complete();
-}
 }

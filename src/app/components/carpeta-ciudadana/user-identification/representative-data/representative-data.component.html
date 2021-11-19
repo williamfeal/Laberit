@@ -52,8 +52,8 @@
                 <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
-                    controlName="represented_data_social_reason" idValue="represented_data_name"
-                    nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isJuridicPerson()"
+                    controlName="represented_data_social_reason" idValue="represented_data_social_reason"
+                    nameValue="represented_data_social_reason" [isReadOnly]="readOnly" [isRequired]="isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
@@ -244,6 +244,9 @@
                     [fieldOptions]="countries"
                     [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-select>
+            </div>
+            <div class="col-md-2 centrarDivVertical" *ngIf="showRepresentaBtn()">
+                <button class="btn-app-outline-primary button-round text" (click)="callRepresenta()" value=""><img src="../../../../../assets/img/img_representa.png" class="mr-2" width="35" height="30">{{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}</button>
             </div>
         </div>
     </div>
