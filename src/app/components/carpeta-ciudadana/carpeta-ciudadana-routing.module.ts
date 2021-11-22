@@ -125,6 +125,7 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano', my_request: true, terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: '/carpeta-del-ciudadano/adjuntar', terminal: false },
+      { title: 'carpeta_ciudadana.aceptation.title', url: '/carpeta-del-ciudadano/aceptacion', terminal: false },
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
     ]},
   },
