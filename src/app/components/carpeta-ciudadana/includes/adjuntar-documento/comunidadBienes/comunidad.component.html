@@ -9,7 +9,7 @@
         idplantilla="{{doc.descriptionPlantilla}}"
         [draft]="draft"
         [error]="validate && formAdjComuni.controls[doc.concept_code].invalid"
-        fileExtension=".pdf" 
+        fileExtension=",.pdf" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
         </app-input-document>
@@ -23,7 +23,7 @@
         [isRequired]="false" 
         idplantilla="{{doc.descriptionPlantilla}}"
         [draft]="draft"
-        fileExtension=".pdf" 
+        fileExtension=",.pdf" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
         </app-input-document>

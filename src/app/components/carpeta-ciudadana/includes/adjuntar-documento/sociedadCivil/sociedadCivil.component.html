@@ -9,7 +9,7 @@
         errorText="document_error"
         [draft]="draft"
         [error]="validate && formAdjSociedad.controls[doc.concept_code].invalid"
-        fileExtension=".pdf" 
+        fileExtension=",.pdf" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
         </app-input-document>
@@ -23,7 +23,7 @@
         [controlName]="doc.concept_code"
         [isRequired]="false" 
         idplantilla="{{doc.descriptionPlantilla}}"
-        fileExtension=".pdf" 
+        fileExtension=",.pdf" 
         (uploadFileDocument)="saveDocument($event)"
         (deleteFileDocument)="deleteDocument($event)">
         </app-input-document>
