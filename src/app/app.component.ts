@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './services/moges-services/auth.service';
+import { SpinnerService } from './services/moges-services/spinner.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,13 +11,15 @@ import { AuthService } from './services/moges-services/auth.service';
 export class AppComponent implements OnInit {
   public title = 'sede-angular';
   public token: boolean;
-  
+  public isLoading = false;
+
   public hiddenMenu:boolean;
 
   constructor(    
     private authService: AuthService,
     private router:Router,
-    private translate:TranslateService
+    private translate:TranslateService,
+    private spinnerService: SpinnerService
   ) {
     const selectedLang = localStorage.getItem('lang') ? localStorage.getItem('lang') :
             this.translate.getBrowserLang() ? this.translate.getBrowserLang() : 'es';
@@ -42,4 +45,10 @@ export class AppComponent implements OnInit {
         this.token = true;
       });
   }
+  public ngAfterViewInit(): void {
+    this.spinnerService.httpProgress().subscribe((status: boolean) => {
+      this.isLoading = status;
+    });
+  }
+
 }

@@ -74,6 +74,7 @@
                             <a download="Justificante de Registro"
                             (click)="viewDoc(base64Resum)"
                                 title="Justificante de Registro">
+                                <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  dataR64}"></i>
                                 <i class="fa fa-external-link"></i>{{ 'carpeta_ciudadana.confirmation.download_sup' | translate }}</a>
                         </div>
                     </div>
