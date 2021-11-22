@@ -14,6 +14,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   base64Request: string;
   base64Resum: string;
   public data64: boolean = false;
+  public dataR64: boolean = false;
 
   procedure;
   public tokenValido: string;
@@ -33,7 +34,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   ngOnInit(): void {
     
     this.procedureService.getToken().subscribe((data)=>{
-      this.getRequest(data.accessToken);
+      //this.getRequest(data.accessToken);
       this.getResum(data.accessToken);
     })
   
@@ -46,7 +47,9 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   }
   getResum(token){
     this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
+      this.dataR64 = true;
       this.base64Resum = data;
+      console.log(this.base64Resum);
     })
   }
   ngOnDestroy(): void {
