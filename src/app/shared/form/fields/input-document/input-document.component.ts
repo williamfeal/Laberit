@@ -157,7 +157,8 @@ export class InputDocumentComponent implements OnInit, OnChanges {
         // const urlPdf = URL.createObjectURL(byte);
         // window.open(urlPdf, '_blank');
         this.catalogService.prueba(id).subscribe((data)=>{
-            var file = new Blob([data], {type: 'application/pdf'});
+            console.log(data);
+            var file = new Blob([data], {type: data.type});
             var fileURL = URL.createObjectURL(file);
     
             window.open(fileURL, '_blank')

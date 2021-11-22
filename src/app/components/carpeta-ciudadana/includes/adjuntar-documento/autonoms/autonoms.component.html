@@ -9,7 +9,7 @@
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
     [error]="validate && formAdjuntarDocAuto.controls[doc.concept_code].invalid"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>
@@ -23,7 +23,7 @@
     [isRequired]="false"
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>

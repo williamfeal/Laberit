@@ -547,6 +547,7 @@
     },
     "request_info": {
       "title": "Información de la solicitud",
+      "ubication-proyect": "Localidad del proyecto",
       "financing": {
         "title": "Detalle de los costes a financiar",
         "investment": {

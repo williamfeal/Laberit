@@ -369,7 +369,7 @@
           "CP": "Codi Postal",
           "country": "País",
           "province": "Província",
-          "municipality": "Municipio",
+          "municipality": "Municipi",
           "resum": "Resum",
           "expone": "Exposa",
           "request": "Sol·licita",
@@ -477,7 +477,7 @@
           "country": "País",
           "province": "Província",
           "municipality": "Municipi",
-          "social_region": "Región o Ciudad"
+          "social_region": "Regió o Ciutat"
 
         }
       },
@@ -486,6 +486,7 @@
       },
       "request_info": {
         "title": "Informació de la sol·licitud",
+        "ubication-proyect": "Localitat del projecte",
         "financing": {
           "title": "Detall dels costos a finançar",
           "investment": {

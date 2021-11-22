@@ -25,7 +25,14 @@
                     [isRequired]="true" [fieldOptions]="project_type" errorText="empty_error"
                     [draft]="draftDetailCostFinanced">
                 </app-input-select>
+            </div> 
+        </div>
+            <div class="d-flex w-100">
+            <span class="ml-3">
+                <strong>{{ 'carpeta_ciudadana.request_info.ubication-proyect' | translate }}</strong>
+            </span>
             </div>
+            <div class="d-flex w-100">
             <div class="form-group col-md-3">
                 <app-input-select [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                     [error]="validate && formLineaResistir.controls['social_country']?.invalid"
