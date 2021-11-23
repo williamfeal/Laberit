@@ -9,7 +9,8 @@
   "error": {
     "error_fields_form": {
       "title": "Faltan campos",
-      "message": "Revise los campos, por favor"
+      "message": "Revise los campos, por favor",
+      "docs":"Faltan documentos por subir"
     }
   },
   "home": {
@@ -320,7 +321,8 @@
       },
       "form_error" : {
         "title": "Faltan campos",
-        "text": "Revise los campos, por favor"
+        "text": "Revise los campos, por favor",
+        "docs":"Faltan documentos por subir"
       }
     }
   },
