@@ -19,6 +19,8 @@ import { Procedure } from './../../../../models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SwalUtils } from 'src/app/utils/swal-utils';
+import { TranslateService } from '@ngx-translate/core';
  
 
 @Component({
@@ -34,6 +36,7 @@ export class AdjuntarDocComponent implements OnInit {
   public formAdjuntarDoc: FormGroup;
   public documentsType: DocumentsType;
   public draft:Draft;
+  public showErrors = false;
   public draftAdjuntarDoc;
 
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
@@ -41,13 +44,14 @@ export class AdjuntarDocComponent implements OnInit {
   public procedure;
   public validate: boolean = false;
   private unsubscribe$ = new Subject<void>();
-
+  public textError;
   constructor(private router: Router,
     private procedureService: ProceduresService,
     private cdRef: ChangeDetectorRef,
     private fb: FormBuilder,
     private carpetaService: CarpetaService,
     private draftService:DraftsService,
+    private translateService: TranslateService,
     private activatedRoute:ActivatedRoute
     ) {
 
@@ -81,6 +85,15 @@ export class AdjuntarDocComponent implements OnInit {
         sociedad_civil: new FormGroup({})
       });
     }
+
+    this.translateService.get('error_texts.pop_up.form_error').pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
+      text => {
+        console.log(text);
+        this.textError = text;
+      }
+    )
   }
   
   ngAfterViewChecked() {
@@ -133,6 +146,7 @@ export class AdjuntarDocComponent implements OnInit {
       this.saveDraftAndNavigate();
       
     } else{
+      SwalUtils.showErrorAlert(this.textError.title, this.textError.docs)
       this.validate = true;
     }
   }
