@@ -15,6 +15,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   base64Resum: string;
   public data64: boolean = false;
   public dataR64: boolean = false;
+  public registerCode: string;
 
   procedure;
   public tokenValido: string;
@@ -34,24 +35,20 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   ngOnInit(): void {
     
     this.procedureService.getToken().subscribe((data)=>{
-      //this.getRequest(data.accessToken);
-      this.getResum(data.accessToken);
+      this.getRegisterCodec(data.accessToken);
+      
     })
   
   }
-  getRequest(token){
-    this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.data64 = true;
-      this.base64Request = data;
+  
+  getRegisterCodec(token){
+    this.procedureService.getRegisterCodec(localStorage.getItem("draftId"), token).subscribe((data)=>{
+     this.registerCode = data;
+     this.getReceipt(token);
+      this.getDemand(token);
     })
   }
-  getResum(token){
-    this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.dataR64 = true;
-      this.base64Resum = data;
-      console.log(this.base64Resum);
-    })
-  }
+  
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
@@ -67,5 +64,19 @@ export class ConfirmacionSolicitudComponent implements OnInit {
       showButtons: false 
     };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+    }
+    getReceipt(token){
+      this.procedureService.getRegisterReceipt(this.registerCode, token).subscribe((data)=>{
+          this.base64Request = data;
+          this.dataR64=true;
+          console.log(this.base64Request);
+      })
+    }
+    getDemand(token){
+      this.procedureService.getSignedRequest(this.registerCode, token).subscribe((data)=>{
+        this.base64Resum = data;
+        this.data64=true;
+        console.log(this.base64Resum);
+      })
     }
 }
