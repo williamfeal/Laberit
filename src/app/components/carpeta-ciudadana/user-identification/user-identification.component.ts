@@ -193,35 +193,12 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     
     const ruleBody:BusinessRuleBodyCompanyType = {
       tipoEmpresa: company_type,
-      activo: activo,
-      cifraNegocio: turnover,
-      numEmpleados: num_empleados
+      activo: activo || 0,
+      cifraNegocio: turnover || 0,
+      numEmpleados: num_empleados || 0
     };
     const rule:BusinessRule = {
       tableKey: "reglasTipoEmpresa",
-      body: ruleBody
-    }
-    this.businessRulesService.businessRuleDecision(rule).subscribe(
-      (data:Decision) => {
-        data.decision ? this.checkBusinessRulesAddress() : 
-          SwalUtils.showErrorAlert(
-            'Error',
-            data.motive
-          )
-      }
-    )
-  }
-
-  private checkBusinessRulesAddress() {
-    const ruleBody:BusinessRuleBodyAddress = {
-      paisDomicilioSocial: this.formUserIdentification.controls.sosial_address.value.social_country,
-      provinciaDomicilioSocial: this.formUserIdentification.controls.sosial_address.value.social_province || "",
-      paisLocalidadProyecto: this.formUserIdentification.controls.productive_establishment.value.productive_establishment_country,
-      provinciaLocalidadProyecto: this.formUserIdentification.controls.productive_establishment.value.productive_establishment_province || ""
-    };
-    console.log(ruleBody)
-    const rule:BusinessRule = {
-      tableKey: "reglasDireccion",
       body: ruleBody
     }
     this.businessRulesService.businessRuleDecision(rule).subscribe(
