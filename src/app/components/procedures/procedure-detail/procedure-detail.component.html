@@ -102,8 +102,7 @@
                         {{ 'procedure_detail.online_transaction' | translate }}
                     </h4>
                 </div>
-                <div class="p-2">
-                    {{ 'procedure_detail.online_transaction_text' | translate }}
+                <div class="p-2" innerHTML="{{ 'procedure_detail.online_transaction_text' | translate }}">
                 </div>
                 <div class="row justify-content-center" *ngIf="procedure.tramitacionElectronica == true">
                     <a class="btn btn-app-primary-rounded mx-auto my-3" 

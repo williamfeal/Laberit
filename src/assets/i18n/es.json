@@ -176,8 +176,8 @@
     "cost": "Coste",
     "associatedDocs": "Documentos asociados",
     "contact": "Contacto",
-    "online_transaction": "Tramitación Online",
-    "online_transaction_text": "Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve",
+    "online_transaction": "Tramitación",
+    "online_transaction_text": "<p>Para proceder a la tramitación online pulse sobre el siguiente enlace. Deber disponer de un certificado electrónico, ya sea expedido por cualquier entidad certificadora reconocida en todo el territorio nacional, con el DNI electrónico o a través del sistema de autenticación Cl@ve.</p><br><p>Las solicitudes podrán ser tramitadas, en función de la línea de financiación:</p><ol><li>Por el propio <strong>interesado,</strong> en caso de autónomos.</li><li>Por el <strong>representante legal o apoderado</strong> de la sociedad solicitante. En este caso, se verificará que dicha representación está acreditada con certificado de representante (<a href=\"https://www.sede.fnmt.gob.es/certificados/certificado-de-representante\">https://www.sede.fnmt.gob.es/certificados/certificado-de-representante</a>).</li><li>Por un <strong>tercero autorizado por la solicitante para realizar el trámite de solicitud</strong>. Dicha autorización se verificará mediante la comprobación de la inclusión de la misma en REPRESENTA (<a href='https://administracionelectronica.gob.es/ctt/representa'>https://administracionelectronica.gob.es/ctt/representa</a>).</li></ol>",
     "transact": "Tramitar",
     "procedure_not_available": "Trámite no disponible",
     "procedure_not_available_text1": "Esta opción no está disponible en estos momentos.",
@@ -350,7 +350,7 @@
       "footer_tab": "Una vez iniciada la tramitación de su solicitud, puede consultar el estado de la misma accediendo al listado de Solicitudes del"
     },
     "init_page": {
-      "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica del Ayuntamiento admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace: </p>",
+      "text": "<p>Para acceder a la tramitación electrónica, así como a la carpeta del ciudadano y a toda la información personal relacionada, usted debe acreditar su identidad mediante el uso de un certificado electrónico.</p><p>Actualmente, la Sede Electrónica admite certificados electrónicos de los siguientes proveedores de servicios de certificación. <ul><li><strong>DNI electrónico </strong> (Dirección General de Policía - Ministerio del Interior).</li> <li> <strong>ACCV </strong> (Agencia de Tecnología y Certificación Electrónica de la Generalitat Valenciana). </li><li>En general, todos aquellos reconocidos en la plataforma <strong>@Firma</strong> del ministerio de Hacienda y Administraciones Públicas.</li></ul></p><p>Puede acceder con su certificado electrónico a través del siguiente enlace:</p>",
       "btn_electronic_certificate": "Acceso con certificado electrónico",
       "btn_clave": "Acceso con clave"
     },
