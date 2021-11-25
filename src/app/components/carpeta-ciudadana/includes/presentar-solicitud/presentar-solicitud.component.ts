@@ -34,7 +34,6 @@ export class PresentarSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.draftId =window.location.href.split("=")[1];
-    console.log(this.draftId);
     localStorage.setItem('draftId', this.draftId);
     this.procedureService.getToken().subscribe((data)=>{
       console.log(data.accessToken);
@@ -44,7 +43,6 @@ export class PresentarSolicitudComponent implements OnInit {
   }
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      console.log(this.data64);
       this.data64 = true;
       this.base64Request = data;
     })

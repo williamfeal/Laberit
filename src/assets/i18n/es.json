@@ -409,7 +409,7 @@
         "linkDates": "Puede editar sus datos personales en ",
         "link": "este enlace"
       },
-      "docAdd": "Documentación adicional",
+      "docAdd": "Documentación a aportar",
       "doc": {
         "drag": "Arrastre aquí el archivo para adjuntarlo o",
         "explore": "explorar"
@@ -554,11 +554,11 @@
         "title": "Detalle de los costes a financiar",
         "investment": {
           "title": "Inversión en activos fijos",
-          "ground": "G1 - Terrenos",
-          "properties": "G1 - Inmuebles y construcciones",
-          "machinery": "G1 - Maquinaria y utillaje",
-          "installation": "G1 - Instalaciones",
-          "others": "G1 - Otros"
+          "ground": "Terrenos",
+          "properties": "Inmuebles y construcciones",
+          "machinery": "Maquinaria y utillaje",
+          "installation": "Instalaciones",
+          "others": "Otros"
         },
         "financing_fixed": {
           "title": "Financiación prevista en activos fijos",
@@ -569,19 +569,19 @@
         },
         "financing_assets": {
           "title": "Financiación prevista en activos circulantes",
-          "current_assets": "G2 - Importe a financiar activo circulante",
-          "bankalbe_current_assets": "G2 - Financiable activo circulante"
+          "current_assets": "Importe a financiar activo circulante",
+          "bankalbe_current_assets": "Financiable activo circulante"
         },
         "financing_requested": {
           "title": "Financiación solicitada",
-          "g1": "Para inversión en activos Fijos (G1)",
-          "g2": "Para inversión en activo circulante (G2)",
+          "g1": "Para inversión en activos Fijos ",
+          "g2": "Para inversión en activo circulante",
           "total_loan": "Total préstamo solicitado IVF (*)"
         }
       },
       
       "procedure_info": {
-        "title": "Información del trámite",
+        "title": "Condiciones solicitadas",
         "term": "Plazo (años)",
         "lack": "Carencia (meses)",
         "modality": "Modalidad tipo de interés",
@@ -679,7 +679,7 @@
     "linea_resistir_instance": {
       "section_title_1": "Condiciones de la solicitud",
       "section_title_2": "Detalle de los costes a financiar",
-      "text_1": "Se entiende por inversión en capital circulante los importes destinados al sostenimiento el capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
+      "text_1": "Importes destinados al sostenimiento del capital circulante de la empresa, incluyendo la contratación de mano de obra, la adquisición de bienes y servicios ligados al ciclo de la explotación, la financiación de clientes, la inversión en existencias y tesorería operativa de la empresa, así como la cancelación de la deuda a corto plazo de naturaleza comercial y financiera."
     },
     "aceptation": {
       "title": "Aceptación",

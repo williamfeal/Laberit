@@ -346,7 +346,7 @@
           "linkDates": "Pot editar les seues dades personals en ",
           "link": "aquest enllaç"
         },
-        "docAdd": "Documentació addicional",
+        "docAdd": "Documentació a aportar",
         "doc": {
           "drag": "Arrossegue ací l'arxiu per a adjuntar-lo o",
           "explore": "explorar"
@@ -491,11 +491,11 @@
           "title": "Detall dels costos a finançar",
           "investment": {
             "title": "Inversió en actius fixos",
-            "ground": "G1 - Terrenys",
-            "properties": "G1 - Immobles i construccions",
-            "machinery": "G1 - Maquinària i utillatge",
-            "installation": "G1 - Instal·lacions",
-            "others": "G1 - Altres"
+            "ground": "Terrenys",
+            "properties": "Immobles i construccions",
+            "machinery": "Maquinària i utillatge",
+            "installation": "Instal·lacions",
+            "others": "Altres"
           },
           "financing_fixed": {
             "title": "Finançament previst en actius fixos",
@@ -506,18 +506,18 @@
           },
           "financing_assets": {
             "title": "Finançament previst en actius circulants",
-            "current_assets": "G2 - Import a finançar actiu circulant",
-            "bankalbe_current_assets": "G2 - Finançable actiu circulant"
+            "current_assets": "Import a finançar actiu circulant",
+            "bankalbe_current_assets": "Finançable actiu circulant"
           },
           "financing_requested": {
             "title": "Finançament sol·licitat",
-            "g1": "Per a inversió en actius Fixos (G1)",
-            "g2": "Per a inversió en actiu circulant (G2)",
+            "g1": "Per a inversió en actius Fixos",
+            "g2": "Per a inversió en actiu circulant",
             "total_loan": "Total préstec sol·licitat IVF (*)"
           }
         },
         "procedure_info": {
-          "title": "Informació del tràmit",
+          "title": "Condicions solicitades",
           "import": "Import",
           "term": "Termini (anys)",
           "lack": "Carencia (mesos)",
@@ -666,7 +666,7 @@
       "linea_resistir_instance": {
         "section_title_1": "Condicions de la sol·licitud",
         "section_title_2": "Detall dels costos a finançar",
-        "text_1": "S'entén per inversió en capital circulant els imports destinats al sosteniment el capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
+        "text_1": "Imports destinats al sosteniment del capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
       },
       "aceptation": {
         "title": "Acceptació",

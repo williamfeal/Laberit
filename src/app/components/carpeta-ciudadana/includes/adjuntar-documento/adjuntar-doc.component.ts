@@ -151,10 +151,12 @@ export class AdjuntarDocComponent implements OnInit {
     }
   }
 
-  private saveDraftAndNavigate() { 
+  private saveDraftAndNavigate() {
+   let enviDocs =  JSON.stringify(this.fileList)
+    localStorage.setItem('documents', enviDocs);
     const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.fileList), this.procedure.category.name,
       this.draft.producto, 'forms:documents', this.draft.key, '');
-
+  
     this.draftService.saveDraft(draft).subscribe(
       () => this.router.navigate(['carpeta-del-ciudadano/aceptacion'], {
         queryParams: { draft: this.draft.key }

@@ -155,6 +155,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
 
   public businessTypeChange(event: string) {
     this.businessTypeSelected = event;
+    console.log(this.businessTypeSelected);
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
       this.businessTypeSelected === 'ivf-representative-types-physical-person-autonomous' ?  
