@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessRule } from './../../../../models/business-rules.model';
-import { BusinessRuleBody } from './../../../../models/business-rules-body.model';
+import { BusinessRuleBody, BusinessRuleBodyAddress } from './../../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../../services/acli-service/business-rules.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
@@ -30,7 +30,8 @@ export class LineaResistirComponent implements OnInit {
     public procedure:Procedure;
 
     private businessRuleBody = new BusinessRuleBody;
-    
+    private formUserIdentification;
+
     showInversion = false;
     showCirculante = false;
 
@@ -61,12 +62,22 @@ export class LineaResistirComponent implements OnInit {
             (data:Procedure) => {
                 this.procedure = data;
                 this.getDraft();
+                this.getFormUserIdentification();
             } 
           )
     }
 
     ngOnChanges() {
         this.ref.detectChanges();
+    }
+
+    private getFormUserIdentification() {
+        this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification')
+        .subscribe(
+            (data:Draft) => {
+                console.log(JSON.parse(data.info))
+                if(data !== null) this.formUserIdentification = JSON.parse(data.info);
+            });
     }
 
     private getDraft() {
@@ -92,7 +103,7 @@ export class LineaResistirComponent implements OnInit {
     public goToDocumentation() {
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.getDecision();
+            this.checkBusinessRulesAddress();
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)
@@ -105,6 +116,28 @@ export class LineaResistirComponent implements OnInit {
                 })  
         }
     }
+
+    private checkBusinessRulesAddress() {
+        const ruleBody:BusinessRuleBodyAddress = {
+          paisDomicilioSocial: this.formUserIdentification.sosial_address.social_country,
+          provinciaDomicilioSocial: this.formUserIdentification.sosial_address.social_province || "",
+          paisLocalidadProyecto: this.formLineaResistir.value.social_country,
+          provinciaLocalidadProyecto: this.formLineaResistir.value.social_province || ""
+        };
+        const rule:BusinessRule = {
+          tableKey: "reglasDireccion",
+          body: ruleBody
+        }
+        this.businessRuleService.businessRuleDecision(rule).subscribe(
+          (data:Decision) => {
+            data.decision ? this.getDecision() : 
+              SwalUtils.showErrorAlert(
+                'Error',
+                data.motive
+              )
+          }
+        )
+      }
 
     private getDecision() {
         const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ||
