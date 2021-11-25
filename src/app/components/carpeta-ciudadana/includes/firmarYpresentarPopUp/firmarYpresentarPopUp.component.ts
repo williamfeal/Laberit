@@ -41,7 +41,6 @@ export class FirmarYPresentarPopUp implements OnInit {
 
   ngOnInit(): void {
     this.fileList = JSON.parse(localStorage.getItem('documents'));
-    console.log(this.fileList);
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -85,7 +84,6 @@ export class FirmarYPresentarPopUp implements OnInit {
           controlName: 'signedDocument'
         };
         this.fileList.push(objSigned)
-        console.log(this.fileList);
         const draft: Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.fileList), this.procedure.category.name,
           this.draft.producto, 'forms:documents', this.draft.key, '');
 
