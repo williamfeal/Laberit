@@ -134,7 +134,6 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event) {
-    console.log(event);
     this.autonom = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;

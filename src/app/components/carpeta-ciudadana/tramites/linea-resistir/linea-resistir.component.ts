@@ -75,7 +75,6 @@ export class LineaResistirComponent implements OnInit {
         this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification')
         .subscribe(
             (data:Draft) => {
-                console.log(JSON.parse(data.info))
                 if(data !== null) this.formUserIdentification = JSON.parse(data.info);
             });
     }

@@ -69,14 +69,12 @@ export class ConfirmacionSolicitudComponent implements OnInit {
       this.procedureService.getRegisterReceipt(this.registerCode, token).subscribe((data)=>{
           this.base64Request = data;
           this.dataR64=true;
-          console.log(this.base64Request);
       })
     }
     getDemand(token){
       this.procedureService.getSignedRequest(this.registerCode, token).subscribe((data)=>{
         this.base64Resum = data;
         this.data64=true;
-        console.log(this.base64Resum);
       })
     }
 }
