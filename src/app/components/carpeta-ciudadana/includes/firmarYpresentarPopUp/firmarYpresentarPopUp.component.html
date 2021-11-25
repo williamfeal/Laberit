@@ -9,7 +9,7 @@
     </div>
 </div>
     <iframe *ngIf="documentBase64"
-        [src]="documentBase64 | safe"
+        [src]="documentBase64 | safe" 
         type="application/pdf" width="100%" height="82%"></iframe>
     <div class="container-fluid mb-5" *ngIf="showButtons">
         <button class="btn-app-primary m-button float-right m-1" (click)="singAndPresent()">

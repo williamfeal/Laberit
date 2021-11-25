@@ -517,7 +517,7 @@
           }
         },
         "procedure_info": {
-          "title": "Informació del tràmit",
+          "title": "Condicions solicitades",
           "import": "Import",
           "term": "Termini (anys)",
           "lack": "Carencia (mesos)",

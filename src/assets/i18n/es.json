@@ -581,7 +581,7 @@
       },
       
       "procedure_info": {
-        "title": "Información del trámite",
+        "title": "Condiciones solicitadas",
         "term": "Plazo (años)",
         "lack": "Carencia (meses)",
         "modality": "Modalidad tipo de interés",
