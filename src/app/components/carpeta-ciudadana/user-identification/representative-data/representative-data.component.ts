@@ -51,7 +51,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   constructor(
     private catalogService:CatalogsService,
     private languageService:LanguagesService,
-    private carpetaService:CarpetaService
   ) { }
 
   ngOnInit(): void {
@@ -165,13 +164,6 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
 
-  public callRepresenta() {
-    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
-      data => {
-        console.log(data)
-      }
-    )
-  }
   
   ngOnDestroy(): void {
     this.unsubscribe$.next();

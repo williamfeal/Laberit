@@ -81,6 +81,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
       notification_means: new FormGroup({}),
+      representative_power: new FormGroup({}),
       interested_data: new FormGroup({}),
       productive_establishment: new FormGroup({}),
       representative_data: new FormGroup({}),

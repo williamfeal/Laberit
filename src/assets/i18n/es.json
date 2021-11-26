@@ -472,10 +472,11 @@
         "type": "Tipo",
         "type_interested": "Interesado",
         "type_representative": "Representante",
-        "representation_power": "Poder de representación"
+        "representation_power": "Representante en el Registro Electrónico de Apoderamiento"
       },
       "actuation_data": {
         "title": "Datos de actuación",
+        "title_power": "Comprobar poder de representación",
         "actuation": "Actuación en el trámite",
         "representation_power": "Poder de representación",
         "check": "Comprobar"

@@ -32,6 +32,13 @@
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
                 </app-interested-data>
             </div>
+            
+        </div>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
+                <app-poder-representacion [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
+                 [formRepresentativePower]="formUserIdentification.controls.representative_power"></app-poder-representacion>
+            </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">

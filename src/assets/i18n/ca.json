@@ -408,10 +408,11 @@
           "type": "Tipus",
           "type_interested": "Interessat",
           "type_representative": "Representant",
-          "representation_power": "Poder de representació"
+          "representation_power": "Representant en el Registre Electrónic de Apoderament"
         },
         "actuation_data": {
           "title": "Dades d'actuació",
+          "title_power": "Comprobar poder de representació",
           "actuation": "Actuació en el tràmit",
           "representation_power": "Poder de representació",
           "check": "Comprovar"
