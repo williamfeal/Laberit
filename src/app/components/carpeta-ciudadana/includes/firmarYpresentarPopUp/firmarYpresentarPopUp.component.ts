@@ -88,9 +88,11 @@ export class FirmarYPresentarPopUp implements OnInit {
           this.draft.producto, 'forms:documents', this.draft.key, '');
 
         this.draftService.saveDraft(draft).subscribe(
-          () => this.router.navigate(['carpeta-del-ciudadano/confirmacion'], {
+          () =>{ 
+            this.dialogRef.close(false);
+            this.router.navigate(['carpeta-del-ciudadano/confirmacion'], {
             queryParams: { draft: this.draft.key }
-          })
+          })}
         )
 
       });

@@ -1,16 +1,12 @@
 import { ActivatedRoute } from '@angular/router';
-import { BreadcrumbService } from 'angular-crumbs';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
-import { Category } from 'src/app/models/category.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
-import { LanguagesService } from './../../services/moges-services/language.service';
 import { Procedure } from 'src/app/models/procedure.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-carpeta-ciudadana',
@@ -26,12 +22,12 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   
   public infoProcedure:InfoProcedure;
   public draft;
-  
   private unsubscribe$ = new Subject<void>();
   constructor(
     private activatedRoute:ActivatedRoute,
     private translateService:TranslateService,
-    private carpetaUtils:CarpetaUtils
+    private carpetaUtils:CarpetaUtils,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +46,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
       )
     }
     this.user = this.carpetaUtils.getSession();
+    console.log(this.user);
     this.activatedRoute.data.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe((d:any) => {
@@ -61,7 +58,13 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
     }
      
   }
-
+ editThird(nif: string){
+  this.router.navigate(['/carpeta-del-ciudadano/solicitudes/' + nif]);
+ }
+ exit(){
+  window.sessionStorage.clear();
+  this.router.navigate(['/inicio']);
+ }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

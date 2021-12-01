@@ -37,6 +37,7 @@ import localeCa from '@angular/common/locales/ca-ES-VALENCIA';
 import localeEs from '@angular/common/locales/es';
 import { LocalizedDatePipe } from '../utils/pipes/localized-date.pipe';
 import { CheckboxComponent } from './form/aceptation-view/checkbox/checkbox.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 registerLocaleData(localeEs, 'es');
 
@@ -79,7 +80,8 @@ registerLocaleData(localeCa, 'ca-ES');
     SharedRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatMenuModule
   ],
   exports: [
     ButtonBackComponent,

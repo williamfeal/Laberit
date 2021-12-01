@@ -92,7 +92,6 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
       takeUntil(this.unsubscribe$)
     ).subscribe((text: any) => { 
       this.onChangeSpainCountry(text.social_province);
-     
       this.infos = text;
       if(this.infos){
         this.countrySelected = this.countriesSpain;   

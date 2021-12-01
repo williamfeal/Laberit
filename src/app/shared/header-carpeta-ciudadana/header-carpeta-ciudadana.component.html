@@ -6,10 +6,15 @@
             </h3>
         </div>
         <div class="col-md-6 d-flex justify-content-end text-white">
-            <div class="mr-1"><em class="fas fa-user"></em></div>
-            <div *ngIf="user">
+            <button mat-button [matMenuTriggerFor]="menu" class="button-user">
+                <div *ngIf="user">
+                <em class="fas fa-user mr-2"></em>
                 <strong>{{ user.nombreTitular }} {{ user.apellidosTitular }} </strong>
-            </div>
+            </div></button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editThird(user.nifTitular)">Datos personales</button>
+                <button mat-menu-item (click)="exit()">Salir</button>
+                </mat-menu>
         </div>
     </div>
     <h3 class="text-white" *ngIf="infoProcedure">{{ procedure.category.name }} - {{ infoProcedure.name }}</h3>
