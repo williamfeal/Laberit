@@ -45,7 +45,8 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
 import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/poder-representacion.component';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/pod
     NotificationsListComponent,
     NotificationViewComponent,
     SignNotificationReceiptComponent,
-    PoderRepresentacionComponent
+    PoderRepresentacionComponent,
+    EdicionSolicitudComponent
   ],
   imports: [
     CommonModule,
@@ -96,7 +98,8 @@ import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/pod
     HttpClientModule,
     BrowserModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatStepperModule
   ],
   providers: [
     CarpetaService,
