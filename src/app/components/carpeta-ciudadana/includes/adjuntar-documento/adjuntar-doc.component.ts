@@ -21,6 +21,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { TranslateService } from '@ngx-translate/core';
+import { AppUtils } from 'src/app/utils/app-utils';
  
 
 @Component({
@@ -53,7 +54,8 @@ export class AdjuntarDocComponent implements OnInit {
     private carpetaService: CarpetaService,
     private draftService:DraftsService,
     private translateService: TranslateService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    public appUtils: AppUtils
     ) {
 
      
@@ -168,6 +170,8 @@ export class AdjuntarDocComponent implements OnInit {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    
   }
+  return() {
+    this.appUtils.return();
+}
 }

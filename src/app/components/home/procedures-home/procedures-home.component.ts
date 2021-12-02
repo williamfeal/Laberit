@@ -25,7 +25,9 @@ export class ProceduresHomeComponent implements OnInit {
     private categoriesService: CategoriesService,
     private translateService: TranslateService,
     private languageService: LanguagesService
-  ) { }
+  ) {
+    console.log(window.sessionStorage);
+   }
 
   ngOnInit(): void {
     this.languageService.lang.pipe(

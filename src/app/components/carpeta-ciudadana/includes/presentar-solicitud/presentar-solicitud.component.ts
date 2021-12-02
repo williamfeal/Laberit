@@ -63,5 +63,7 @@ export class PresentarSolicitudComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
+  return() {
+    this.appUtils.return();
+}
 }

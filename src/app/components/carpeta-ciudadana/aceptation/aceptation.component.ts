@@ -13,6 +13,7 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-aceptation',
@@ -43,7 +44,8 @@ export class AceptationComponent implements OnInit {
     private catalogService: CatalogsService,
     private activatedRoute:ActivatedRoute,
     private carpetaService:CarpetaService,
-    private draftService:DraftsService
+    private draftService:DraftsService,
+    public appUtils: AppUtils
   ) { }
 
   ngOnInit(): void {
@@ -142,4 +144,7 @@ export class AceptationComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+  return() {
+    this.appUtils.return();
+}
 }

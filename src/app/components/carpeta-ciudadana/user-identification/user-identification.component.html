@@ -2,15 +2,10 @@
     [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-spinner *ngIf="!procedure"></app-spinner>
 <div *ngIf="procedure">
-<app-button-back></app-button-back>
-<!-- <mat-horizontal-stepper [selectedIndex]="2" [labelPosition]="'bottom'">
-    <mat-step label="1"></mat-step>
-    <mat-step label="2"></mat-step>
-    <mat-step label="3"></mat-step>
-</mat-horizontal-stepper> -->
 <app-breadcrum *ngIf="procedure" 
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <form [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
+    <!-- <div class="container"> -->
     <div class="row mx-0 mt-2">
         <div class="col-md-6">
             <app-identity-data [readOnly]="true" [user]="user"
@@ -76,8 +71,14 @@
         </div>
     </div>
     <br>
+    <div class="foot-buttons">
+    <div class="text-left px-3">
+        <button class="btn-app-primary mr-2" (click)="return()">{{ 'buttons.back' | translate}}</button>
+    </div>
     <div class="text-right px-3">
         <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
     </div>
+</div>
+<!-- </div> -->
 </form>
 </div>
