@@ -114,7 +114,6 @@ body { margin: 0; }
     &::before{
         font-family: "Font Awesome 5 Free";
         content: "\f00c";
-        padding-right: 3px;
         vertical-align: middle;
         font-weight:900;
         color: white;
@@ -132,7 +131,7 @@ body { margin: 0; }
         content: "";
         position: absolute;
         width: 100%;
-        height: 2px;
+        height: 1px;
         background-color: $primaryColor;
         color:$primaryColor;
         top: 15px;
@@ -169,6 +168,11 @@ body { margin: 0; }
 .progressBar li.inactive{
     color: $primaryColor;
     font-size: smaller;
+}
+
+.foot-buttons{
+    display: flex!important;
+    justify-content: space-around;
 }
 
 
