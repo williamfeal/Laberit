@@ -498,11 +498,11 @@
         "birth_date": "Fecha de nacimiento",
         "constitution_date": "Fecha de constitución",
         "genre": "Género",
-        "active": "Activo",
-        "turnover": "Cifra de negocio",
+        "active": "Importe del balance del último ejercicio cerrado",
+        "turnover": "Ventas del último ejercicio cerrado",
         "group_belong": "Pertenece a grupo",
         "telephone": "Teléfono",
-        "ownGroup": "Pertenece al grupo",
+        "ownGroup": "Pertenece a un grupo empresarial",
         "businessType": "Tipo de empresa"
       },
       "social_address": {
