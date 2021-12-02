@@ -1,5 +1,7 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-button-back></app-button-back>
+<app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div class="container-fluid">
   <div class="card mb-2">
     <div class="card-header background-card-header pb-0">

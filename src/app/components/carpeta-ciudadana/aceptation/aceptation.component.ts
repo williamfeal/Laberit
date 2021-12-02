@@ -34,6 +34,7 @@ export class AceptationComponent implements OnInit {
   
   private unsubscribe$ = new Subject<void>();
   private draft:Draft;
+  public viewMyRequest: string = 'manifestations';
 
   constructor(
     private router: Router,

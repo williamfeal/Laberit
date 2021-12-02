@@ -38,6 +38,7 @@ export class AdjuntarDocComponent implements OnInit {
   public draft:Draft;
   public showErrors = false;
   public draftAdjuntarDoc;
+  public viewMyRequest: string = 'documents';
 
   @Output() public uploadFileDocument = new EventEmitter<FileModel[]>();
 

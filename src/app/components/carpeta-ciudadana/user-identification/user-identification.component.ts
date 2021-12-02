@@ -54,6 +54,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public interested: boolean = false;
   public representative: boolean = false;
   public checked: boolean;
+  public viewMyRequest: string = 'solicitante';
 
   public textError;
   public draft:Draft;

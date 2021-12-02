@@ -28,7 +28,7 @@ export class LineaResistirComponent implements OnInit {
     public draft:Draft;
     public formLineaResistir: FormGroup;
     public procedure:Procedure;
-
+    public viewMyRequest: string = 'solicitud';
     private businessRuleBody = new BusinessRuleBody;
     private formUserIdentification;
 

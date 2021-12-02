@@ -20,6 +20,7 @@ export class PresentarSolicitudComponent implements OnInit {
   base64Request: string;
   procedure;
   public documentBase64 = '';
+  public viewMyRequest: string = 'sign';
   constructor(public appUtils: AppUtils,
               public dialog: MatDialog,
               private router: Router,

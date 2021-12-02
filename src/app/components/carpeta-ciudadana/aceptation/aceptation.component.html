@@ -1,6 +1,8 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-spinner *ngIf="!procedure"></app-spinner>
 <div *ngIf="procedure">
+    <app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
     <app-button-back></app-button-back>
     <form  (ngSubmit)="validateForm()" [formGroup]="formAceptation">
         <div class="mx-3 card mt-2">
