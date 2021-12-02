@@ -1,6 +1,8 @@
 <app-header-carpeta-ciudadana *ngIf="procedure"
     [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-spinner *ngIf="!procedure"></app-spinner>
+<app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div *ngIf="procedure">
     <app-button-back *ngIf="!draft"></app-button-back>
     <div class="row mr-0 ml-4" *ngIf="draft">

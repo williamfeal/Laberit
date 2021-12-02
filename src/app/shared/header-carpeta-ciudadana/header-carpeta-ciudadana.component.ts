@@ -24,7 +24,6 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   public draft;
   private unsubscribe$ = new Subject<void>();
   constructor(
-    private activatedRoute:ActivatedRoute,
     private translateService:TranslateService,
     private carpetaUtils:CarpetaUtils,
     private router: Router
@@ -47,15 +46,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
     }
     this.user = this.carpetaUtils.getSession();
     console.log(this.user);
-    this.activatedRoute.data.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe((d:any) => {
-      this.breadcrumbs = d.breadcrumb;
-    });
-
-    if (this.activatedRoute.snapshot.queryParams.draft) {
-      this.draft = this.activatedRoute.snapshot.queryParams.draft;
-    }
+    
      
   }
  editThird(nif: string){
