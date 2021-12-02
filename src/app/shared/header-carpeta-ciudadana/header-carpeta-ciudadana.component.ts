@@ -15,47 +15,55 @@ import { Router } from '@angular/router';
 })
 export class HeaderCarpetaCiudadanaComponent implements OnInit {
 
-  public breadcrumbs:any[];
+  public breadcrumbs: any[];
   public user;
-  
-  @Input() procedure!:Procedure;
-  
-  public infoProcedure:InfoProcedure;
+
+  @Input() procedure!: Procedure;
+
+  public infoProcedure: InfoProcedure;
   public draft;
   private unsubscribe$ = new Subject<void>();
   constructor(
-    private translateService:TranslateService,
-    private carpetaUtils:CarpetaUtils,
+    private translateService: TranslateService,
+    private carpetaUtils: CarpetaUtils,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.loadData();
     this.translateService.onLangChange.subscribe
-    (
-      () => this.loadData()
-    )
-    
+      (
+        () => this.loadData()
+      )
+
   }
 
   loadData() {
-    if(this.procedure) {
+    if (this.procedure) {
       this.infoProcedure = this.procedure.languages.find(
         language => language.codigo === localStorage.getItem('lang')
       )
     }
     this.user = this.carpetaUtils.getSession();
     console.log(this.user);
-    
-     
+
+
   }
- editThird(nif: string){
-  this.router.navigate(['/carpeta-del-ciudadano/solicitudes/' + nif]);
- }
- exit(){
-  window.sessionStorage.clear();
-  this.router.navigate(['/inicio']);
- }
+  editThird(nif: string) {
+    this.router.navigate(['/carpeta-del-ciudadano/solicitudes/' + nif]);
+  }
+  exit() {
+    console.log(window.sessionStorage);
+    this.cleanStorage();
+    console.log(window.sessionStorage);
+
+   this.router.navigateByUrl('/inicio');
+  }
+  cleanStorage() {
+    let token = window.sessionStorage.getItem('token');
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem('token', token);
+  }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

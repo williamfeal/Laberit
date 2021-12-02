@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { TranslateService } from '@ngx-translate/core';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
     selector: 'linea-resistir',
@@ -49,7 +50,8 @@ export class LineaResistirComponent implements OnInit {
         private procedureService:ProceduresService,
         private translate:TranslateService,
         private draftService:DraftsService,
-        private businessRuleService:BusinessRulesService
+        private businessRuleService:BusinessRulesService,
+        public appUtils: AppUtils
     ) {
 
     }
@@ -216,5 +218,8 @@ export class LineaResistirComponent implements OnInit {
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
+    }
+    return() {
+        this.appUtils.return();
     }
 }

@@ -28,6 +28,7 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-user-identification',
@@ -71,7 +72,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private translateService: TranslateService,
     private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
-    private readonly changeDetectorRef: ChangeDetectorRef
+    private readonly changeDetectorRef: ChangeDetectorRef,
+    public appUtils: AppUtils
 
   ) {
     
@@ -257,5 +259,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+  return() {
+    this.appUtils.return();
+}
 }
 
