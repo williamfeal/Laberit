@@ -32,7 +32,7 @@ export class LineaResistirComponent implements OnInit {
     public viewMyRequest: string = 'solicitud';
     private businessRuleBody = new BusinessRuleBody;
     private formUserIdentification;
-
+    public readOnlyView: boolean = false;
     showInversion = false;
     showCirculante = false;
 
@@ -53,7 +53,7 @@ export class LineaResistirComponent implements OnInit {
         private businessRuleService:BusinessRulesService,
         public appUtils: AppUtils
     ) {
-
+        localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
     }
 
     ngOnInit() {

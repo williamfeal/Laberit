@@ -5,9 +5,9 @@
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div *ngIf="procedure">
     <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
-        <app-procedure-information [draft]="draft"
+        <app-procedure-information [draft]="draft" [readOnly]="readOnlyView"
             [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>
-        <app-detail-cost-financed [draft]="draft"
+        <app-detail-cost-financed [draft]="draft" [readOnly]="readOnlyView"
             [formLineaResistir]="formLineaResistir" [validate]="validate"></app-detail-cost-financed>
     </form>
     <div class="foot-buttons">

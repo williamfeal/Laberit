@@ -64,6 +64,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   private unsubscribe$ = new Subject<void>();
   subject = new Subject<string>();
 
+  public readOnlyView: boolean =false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -74,9 +75,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private draftService:DraftsService,
     private readonly changeDetectorRef: ChangeDetectorRef,
     public appUtils: AppUtils
-
   ) {
-    
+    localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
   }
 
   ngOnInit(): void {

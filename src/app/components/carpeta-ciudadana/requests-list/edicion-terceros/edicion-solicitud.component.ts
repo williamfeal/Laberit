@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { EdicionTerceroService } from 'src/app/services/acli-service/edicion-tercero.service';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
     selector: 'app-edicion-solicitud',
@@ -14,20 +15,42 @@ import { EdicionTerceroService } from 'src/app/services/acli-service/edicion-ter
 export class EdicionSolicitudComponent implements OnInit {
     @Input() formUserIdentification:FormGroup;
     private unsubscribe$ = new Subject<void>();
+    public validate: boolean = false;
+    public readOnlyView: boolean =false;
+    public emailError = false;
+    public emailErrorText: string = 'format_error';
+    public notificationError = false;
+    public notificationErrorText: string = 'empty_error';
+    public draftUserIdentification;
+    public emailErrorLegalRepresnt: boolean = false;
+    public emailErrorContact: boolean = false;
+    public interested: boolean = false;
+    public representative: boolean = false;
+    public checked: boolean;
+
     @Input() user:UserCertificado;
     subject = new Subject<string>();
     isJuridic: boolean = false;
     isPhysic: boolean = false;
 
     constructor(private carpetaService: CarpetaService,
-                private edicionService: EdicionTerceroService
+                private edicionService: EdicionTerceroService,
+                public appUtils: AppUtils
         ) { }
 
     ngOnInit(): void { 
         this.formUserIdentification = new FormGroup({
+            request_data: new FormGroup({}),
             identity_data: new FormGroup({}),
-            productive_establishment: new FormGroup({})
-        })
+            notification_means: new FormGroup({}),
+            representative_power: new FormGroup({}),
+            interested_data: new FormGroup({}),
+            productive_establishment: new FormGroup({}),
+            representative_data: new FormGroup({}),
+            legal_representative: new FormGroup({}),
+            contact_data: new FormGroup({}),
+            sosial_address: new FormGroup({})
+          });
 
         this.carpetaService.getLoggedUser().pipe(
             takeUntil(this.unsubscribe$)
@@ -53,4 +76,7 @@ export class EdicionSolicitudComponent implements OnInit {
               console.log(data);
           })
       }
+      return() {
+        this.appUtils.return();
+    }
 }

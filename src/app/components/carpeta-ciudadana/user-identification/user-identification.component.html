@@ -12,13 +12,13 @@
                 [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
         </div>
         <div class="col-md-6">
-            <app-notification-means [readOnly]="false" [validate]="validate"
+            <app-notification-means [validate]="validate" [readOnly]="readOnlyView"
                 [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError"
                 [emailErrorText]="emailErrorText" [notificationError]="notificationError" [draft]="draftUserIdentification"
                 [notificationErrorText]="notificationErrorText"></app-notification-means>
         </div>
         <div class="col-md-12">
-            <app-requester-data [validate]="validate" [formRequestData]="formUserIdentification.controls.request_data"
+            <app-requester-data [validate]="validate" [readOnly]="readOnlyView" [formRequestData]="formUserIdentification.controls.request_data"
                 (typeOutput)="onChangeTypeRequester($event)" [draft]="draftUserIdentification"></app-requester-data>
         </div>
     </div>
@@ -26,12 +26,12 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
                 <app-representative-data [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
-                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
+                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="readOnlyView">
                 </app-representative-data>
             </div>
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
                 <app-interested-data [validate]="validate" [isRequired]="interested" [draft]="draftUserIdentification" 
-                    [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
+                    [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="readOnlyView">
                 </app-interested-data>
             </div>
             
@@ -39,12 +39,12 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
                 <app-poder-representacion [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
-                 [formRepresentativePower]="formUserIdentification.controls.representative_power"></app-poder-representacion>
+                 [formRepresentativePower]="formUserIdentification.controls.representative_power" [readOnly]="readOnlyView"></app-poder-representacion>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-social-address (adreSocial)="handleInfo($event)" [validate]="validate"  isRequired="true" [draft]="draftUserIdentification"
+                <app-social-address (adreSocial)="handleInfo($event)" [validate]="validate"  isRequired="true" [readOnly]="readOnlyView" [draft]="draftUserIdentification"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
         </div>
@@ -52,20 +52,20 @@
             <div class="col-md-12 mt-2">
                 <app-productive-establishment-address [subject]="subject" [validate]="validate" isRequired="true"  [draft]="draftUserIdentification"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
-                    [readOnly]="false"></app-productive-establishment-address>
+                    [readOnly]="readOnlyView"></app-productive-establishment-address>
             </div>
         </div>
         <div class="row mx-0" [ngClass]="{ 'd-none': representative == false}">
             <div class="col-md-12 mt-2">
                 <app-legal-representative [validate]="validate" [draft]="draftUserIdentification" [emailErrorLegal]="emailErrorLegalRepresnt"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
-                    [isRequired]="representative" [readOnly]="false"></app-legal-representative>
+                    [isRequired]="representative" [readOnly]="readOnlyView"></app-legal-representative>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
                 <app-contact-data [isChecked]="checked" [validate]="validate" [emailErrorContact]="emailErrorContact" [formContactData]="formUserIdentification.controls.contact_data"
-                    [interesado]="interested" [readOnly]="false" [draft]="draftUserIdentification">
+                    [interesado]="interested" [readOnly]="readOnlyView" [draft]="draftUserIdentification">
                 </app-contact-data>
             </div>
         </div>

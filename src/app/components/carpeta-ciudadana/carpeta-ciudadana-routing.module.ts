@@ -19,7 +19,7 @@ import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edic
 const routes:Routes = [
     { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
     { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
-    { path: 'carpeta-del-ciudadano/solicitudes/:draftId', 
+    { path: 'carpeta-del-ciudadano/edit-request/:draftId', 
     component: EdicionSolicitudComponent,
     canActivate: [AuthGuardService],
     data: {
