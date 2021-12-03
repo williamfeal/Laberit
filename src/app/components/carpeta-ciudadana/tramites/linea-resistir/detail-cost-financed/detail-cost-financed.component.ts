@@ -27,6 +27,7 @@ export class DetailCostFinancedComponent implements OnInit {
     @Input() formLineaResistir: FormGroup;
     @Input() validate: boolean;
     @Input() draft:Draft;
+    @Input() readOnly: boolean;
     public provincias: SelectFieldObject[];
     public municipios: SelectFieldObject[];
     public paises: SelectFieldObject[];

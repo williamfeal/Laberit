@@ -50,7 +50,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
 
   }
   editThird(nif: string) {
-    this.router.navigate(['/carpeta-del-ciudadano/solicitudes/' + nif]);
+    this.router.navigate(['/carpeta-del-ciudadano/edit-request/' + nif]);
   }
   exit() {
     console.log(window.sessionStorage);

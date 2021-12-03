@@ -20,6 +20,7 @@ export class SocialAddressComponent implements OnInit {
   @Input() validate: boolean;
   @Input() isRequired: boolean;
   @Input() draft:any;
+  @Input() readOnly: boolean;
   @Output() adreSocial: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   public provincias: SelectFieldObject[];
   public municipios: SelectFieldObject[];
