@@ -54,6 +54,7 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
   }
   exit() {
     console.log(window.sessionStorage);
+    localStorage.setItem("ReadOnly", "false");
     this.cleanStorage();
     console.log(window.sessionStorage);
 
