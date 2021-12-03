@@ -6,6 +6,7 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { EdicionTerceroService } from 'src/app/services/acli-service/edicion-tercero.service';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 
 @Component({
     selector: 'app-edicion-solicitud',
@@ -14,6 +15,7 @@ import { AppUtils } from 'src/app/utils/app-utils';
 })
 export class EdicionSolicitudComponent implements OnInit {
     @Input() formUserIdentification:FormGroup;
+    public requesterType = '';
     private unsubscribe$ = new Subject<void>();
     public validate: boolean = false;
     public readOnlyView: boolean =false;
@@ -75,6 +77,18 @@ export class EdicionSolicitudComponent implements OnInit {
           this.edicionService.postDatesThird(this.formUserIdentification.value).subscribe((data)=>{
               console.log(data);
           })
+      }
+      onChangeTypeRequester(event) {
+        this.requesterType = event;
+        if (this.requesterType == ConceptConstants.APPLICANT_TYPE_INTERESTED) {
+          this.interested = true;
+          this.representative = false;
+        }
+    
+        if (this.requesterType == ConceptConstants.APPLICANT_TYPE_REPRESENTATIVE) {
+          this.interested = false;
+          this.representative = true;
+        }                         
       }
       return() {
         this.appUtils.return();
