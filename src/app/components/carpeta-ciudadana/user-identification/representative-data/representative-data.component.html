@@ -63,7 +63,7 @@
                     [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
                 </app-input-text-nif>
             </div>
-            <div class="form-group col-md-2" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
                 <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
                     controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
@@ -140,7 +140,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_iae']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3 pl-0">
+            <div class="form-group col-md-3">
                 <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
                     controlName="represented_data_iae_date" idValue="represented_data_iae_date" [maxDate]="true"
@@ -160,7 +160,7 @@
                         [fieldOptions]="belongingCompany">
                     </app-input-select>
                 </div>
-                <div class="form-group col-md-3 pr-0">
+                <div class="form-group col-md-3">
                     <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="represented_data_employees_number" idValue="represented_data_employees_number"
