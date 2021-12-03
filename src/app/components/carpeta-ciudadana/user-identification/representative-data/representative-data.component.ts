@@ -16,10 +16,13 @@ import { LanguagesService } from './../../../../services/moges-services/language
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { BussinesType } from './dialog-bussinesType/bussinesType.component';
 
 @Component({
   selector: 'app-representative-data',
-  templateUrl: './representative-data.component.html'
+  templateUrl: './representative-data.component.html',
+  styleUrls: ['./representative-data.component.css']
 })
 export class RepresentativeDataComponent implements OnInit, OnChanges {
 
@@ -51,6 +54,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   constructor(
     private catalogService:CatalogsService,
     private languageService:LanguagesService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -164,7 +168,17 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
 
+  openDialog(): void {debugger
+    let dialogRef = this.dialog.open(BussinesType, {
+      width: '1250px',
+      //data: { name: this.name, animal: this.animal }
+    });
   
+    //dialogRef.afterClosed().subscribe(result => {
+      //this.animal = result;
+    //});
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

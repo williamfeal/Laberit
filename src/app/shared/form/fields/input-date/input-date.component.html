@@ -5,6 +5,7 @@
         class="form-control" 
         [id]="idValue"
         maxDate="maxDate" 
+        onkeydown="return false"
         max="{{dateToday | date:'yyyy-MM-dd'}}"
         [name]="nameValue" 
         (change)="onChangeValue()" 

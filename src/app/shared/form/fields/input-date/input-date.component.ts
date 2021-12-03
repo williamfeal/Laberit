@@ -31,6 +31,7 @@ export class InputDateComponent implements OnInit {
 
   private unsubscribe$ = new Subject<void>();
 
+  editar: boolean = false;
   public dateToday: string;
   textError: string;
   formControl = new FormControl('');
@@ -92,5 +93,6 @@ ngOnDestroy(): void {
   this.unsubscribe$.next();
   this.unsubscribe$.complete();
 }
+
 }
 

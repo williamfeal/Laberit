@@ -45,6 +45,8 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
 import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/poder-representacion.component';
+import { BussinesType } from './user-identification/representative-data/dialog-bussinesType/bussinesType.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -83,8 +85,12 @@ import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/pod
     NotificationsListComponent,
     NotificationViewComponent,
     SignNotificationReceiptComponent,
-    PoderRepresentacionComponent
+    PoderRepresentacionComponent,
+    BussinesType
   ],
+
+  entryComponents: [BussinesType],
+
   imports: [
     CommonModule,
     SharedModule,
@@ -96,7 +102,8 @@ import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/pod
     HttpClientModule,
     BrowserModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     CarpetaService,
