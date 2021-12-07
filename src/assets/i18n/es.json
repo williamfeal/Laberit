@@ -308,7 +308,8 @@
       "empty_error": "Falta por rellenar el campo",
       "nif_error": "Falta por rellenar el campo o nif incorrecto",
       "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres ",
-      "document_error": "Falta documento"
+      "document_error": "Falta documento",
+      "date_today_invalid": "Fecha mayor a la actual"
     },
     "pop_up" : {
       "format_error" : {
