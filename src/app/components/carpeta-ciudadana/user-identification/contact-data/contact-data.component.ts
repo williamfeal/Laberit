@@ -33,6 +33,7 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   @Input() validate: boolean;
   @Input() public emailErrorContact: boolean;
   @Input() draft:any;
+  @Input() position: boolean;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -49,7 +50,7 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
 
   public countrySpainSelected;
   public countrySelected;
-
+  public position_contact;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -84,6 +85,8 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
         }
       }
     }
+    //Validation: when the company type is Anonimus, the "cargo" field is removed
+    this.position_contact = changes.position.currentValue;
   }
 
   ngAfterContentChecked() {

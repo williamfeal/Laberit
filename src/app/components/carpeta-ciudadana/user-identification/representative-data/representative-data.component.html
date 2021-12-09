@@ -20,14 +20,15 @@
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     [fieldOptions]="representativeTypes">
                 </app-input-select>
-                
+
             </div>
             <div class="form-group col-md-3" [ngClass]="{ 'd-none': isJuridicPerson() }">
-                <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.name' | translate }}"
                     controlName="represented_data_name" idValue="represented_data_name"
-                    nameValue="represented_data_name" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
+                    nameValue="represented_data_name" [isReadOnly]="readOnly"
+                    [isRequired]="isRequired && !isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['represented_data_name']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
@@ -36,7 +37,8 @@
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname1' | translate }}"
                     controlName="represented_data_surname1" idValue="represented_data_surname1"
-                    nameValue="represented_data_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
+                    nameValue="represented_data_surname1" [isReadOnly]="readOnly"
+                    [isRequired]="isRequired && !isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['represented_data_surname1']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
@@ -45,12 +47,11 @@
                     [form]="formRepresentativeData" [isRequired]="false"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.surname2' | translate }}"
                     controlName="represented_data_surname2" idValue="represented_data_surname2"
-                    nameValue="represented_data_surname2" [isReadOnly]="readOnly"
-                    [error]="" [draft]="draftRepresentativeData"
-                    [errorText]=""></app-input-text>
+                    nameValue="represented_data_surname2" [isReadOnly]="readOnly" [error]=""
+                    [draft]="draftRepresentativeData" [errorText]=""></app-input-text>
             </div>
             <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
-                <app-input-text  placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.social_reason' | translate }}"
                     controlName="represented_data_social_reason" idValue="represented_data_social_reason"
@@ -62,22 +63,66 @@
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
-                    controlName="represented_data_nif" 
-                    idValue="represented_data_nif" 
-                    nameValue="represented_data_nif"
-                    [isReadOnly]="readOnly" 
-                    [isRequired]="isRequired" 
-                    [error]="validate" 
-                    [errorText]="errorNif">
+                    controlName="represented_data_nif" idValue="represented_data_nif" nameValue="represented_data_nif"
+                    [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
                 </app-input-text-nif>
             </div>
-            <div class="form-group col-md-2" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
                 <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
-                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date" [maxDate]="true"
-                    nameValue="represented_data_constitution_date" [isReadOnly]="readOnly" [isRequired]="isJuridicPerson()"
+                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
+                    [maxDate]="true" nameValue="represented_data_constitution_date" [isReadOnly]="readOnly"
+                    [isRequired]="isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-date>
+            </div>
+        </div>
+
+        <div class="row w-100" [ngClass]="{ 'd-none': isJuridicPerson() }">
+            <div class="form-group col-md-3">
+                <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
+                    controlName="represented_data_birth_date" idValue="represented_data_birth_date" [maxDate]="true"
+                    nameValue="represented_data_birth_date" [isReadOnly]="readOnly"
+                    [isRequired]="isRequired && !isJuridicPerson()"
+                    [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-date>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
+                    controlName="represented_data_genre" idValue="represented_data_genre"
+                    [error]="validate && formRepresentativeData.controls['represented_data_genre']?.invalid"
+                    nameValue="represented_data_genre" [isReadOnly]="readOnly"
+                    [isRequired]="isRequired && !isJuridicPerson()" [fieldOptions]="genders"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
+                    controlName="represented_data_residence_country" idValue="represented_data_residence_country"
+                    nameValue="represented_data_residence_country" [isReadOnly]="readOnly"
+                    [isRequired]="isRequired && !isJuridicPerson()" [fieldOptions]="countries"
+                    [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-select>
+            </div>
+        </div>
+
+        <div class="row w-100">
+            <div class="form-group col-md-3">
+                <div class="fas fa-info-circle icon-float" (click)="openDialog()"></div>
+                <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+                    controlName="businessType" [draft]="draftRepresentativeData" idValue="businessType"
+                    nameValue="businessType" [isRequired]="isRequired" [fieldOptions]="businessType"
+                    [idSelected]="businessTypeSelected"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                    [error]="validate && formRepresentativeData.controls['businessType']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
             </div>
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
@@ -99,16 +144,27 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_iae']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="col-md-3 d-flex">
-                <div class="form-group col-md-6 pl-0">
-                    <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
-                        controlName="represented_data_iae_date" idValue="represented_data_iae_date" [maxDate]="true"
-                        nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.invalid"
-                        [errorText]="errorCharacterLeng"></app-input-date>
+            <div class="form-group col-md-3">
+                <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
+                    controlName="represented_data_iae_date" idValue="represented_data_iae_date" [maxDate]="true"
+                    nameValue="represented_data_iae_date" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formRepresentativeData.controls['represented_data_iae_date']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-date>
+            </div>
+        </div>
+
+        <div class="row w-100">
+            <div class="w-100 d-contents">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                    <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                        label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
+                        controlName="ownGroup" idValue="ownGroup" [isRequired]="isRequired && !comunidadBienes"
+                        nameValue="ownGroup" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                        [fieldOptions]="belongingCompany">
+                    </app-input-select>
                 </div>
-                <div class="form-group col-md-6 pr-0">
+                <div class="form-group col-md-3">
                     <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="represented_data_employees_number" idValue="represented_data_employees_number"
@@ -119,101 +175,37 @@
                         [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.invalid"
                         errorText="empty_error"></app-input-number>
                 </div>
-            </div>
-            
-        </div>
-        <div class="row w-100">
-            <div class="form-group col-md-3">
-                <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
-                    controlName="businessType" [draft]="draftRepresentativeData"
-                    idValue="businessType" 
-                    nameValue="businessType" [isRequired]="isRequired"
-                    [isReadOnly] = "readOnly"
-                    [fieldOptions]="businessType" [idSelected]="businessTypeSelected"
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
-                    [error]="validate && formRepresentativeData.controls['businessType']?.invalid"
-                    [errorText]="errorCharacterLeng">
-                </app-input-select>
-            </div>
-            <div class="w-100 d-contents" [ngClass]="{ 'd-none': !isJuridicPerson() }">
-            <div class="w-100 d-contents">
-                <div class="form-group col-md-4">
-                    <app-input-text [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
-                    controlName="contact_position" idValue="contact_position" nameValue="contact_position"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
-                    [error]="validate && formRepresentativeData.controls['contact_position']?.invalid"
-                    [errorText]="errorCharacterLeng"></app-input-text>
-                    </div>
-                <div class="form-group col-md-3">
-                    <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
-                        controlName="ownGroup" 
-                        idValue="ownGroup"
-                        [isRequired]="isRequired && !comunidadBienes" 
-                        nameValue="ownGroup"
-                        [isReadOnly]="readOnly"
-                        placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} " 
-                        [fieldOptions]="belongingCompany"
-                        >
-                    </app-input-select>
-                </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
-                        [isRequired]="isRequired && !comunidadBienes"
-                        nameValue="represented_data_active" [isReadOnly]="readOnly"
-                        ></app-input-number>
+                        [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_active"
+                        [isReadOnly]="readOnly"></app-input-number>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
-                        [isRequired]="isRequired && !comunidadBienes"
-                        nameValue="represented_data_turnover" [isReadOnly]="readOnly"></app-input-number>
+                        [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_turnover"
+                        [isReadOnly]="readOnly"></app-input-number>
                 </div>
             </div>
-            </div>
-            
         </div>
-        <div class="row w-100" [ngClass]="{ 'd-none': isJuridicPerson() }">
-            <div class="form-group col-md-6 px-0 d-flex">
-              
-                <div class="form-group col-md-4">
-                    <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
-                        controlName="represented_data_birth_date" idValue="represented_data_birth_date" [maxDate]="true"
-                        nameValue="represented_data_birth_date" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
-                        [error]="validate && formRepresentativeData.controls['represented_data_birth_date']?.invalid"
-                        [errorText]="errorCharacterLeng"></app-input-date>
-                </div>
-                <div class="form-group col-md-4">
-                    <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                        placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.genre' | translate }}"
-                        controlName="represented_data_genre" idValue="represented_data_genre"
-                        [error]="validate && formRepresentativeData.controls['represented_data_genre']?.invalid"
-                        nameValue="represented_data_genre" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
-                        [fieldOptions]="genders" [errorText]="errorCharacterLeng">
-                    </app-input-select>
-                </div>
+
+        <div class="row w-100">
+            <div class="w-100 d-contents" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                    <div class="form-group col-md-3">
+                        <app-input-text [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
+                            controlName="contact_position" idValue="contact_position" nameValue="contact_position"
+                            [isReadOnly]="readOnly" [isRequired]="isRequired && isJuridicPerson()"
+                            [error]="validate && formRepresentativeData.controls['contact_position']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div>
             </div>
-            <div class="form-group col-md-3">
-                <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.residence_country' | translate }}"
-                    controlName="represented_data_residence_country" idValue="represented_data_residence_country"
-                    nameValue="represented_data_residence_country" [isReadOnly]="readOnly" [isRequired]="isRequired && !isJuridicPerson()"
-                    [fieldOptions]="countries"
-                    [error]="validate && formRepresentativeData.controls['represented_data_residence_country']?.invalid"
-                    [errorText]="errorCharacterLeng"></app-input-select>
-            </div>
-            
         </div>
     </div>
 </div>

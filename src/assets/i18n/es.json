@@ -309,7 +309,8 @@
       "empty_error": "Falta por rellenar el campo",
       "nif_error": "Falta por rellenar el campo o nif incorrecto",
       "num_Characters_error": "Falta por rellenar el campo o no cumple con un mínimo de 10 caracteres ",
-      "document_error": "Falta documento"
+      "document_error": "Falta documento",
+      "date_today_invalid": "Fecha mayor a la actual"
     },
     "pop_up" : {
       "format_error" : {
@@ -499,11 +500,11 @@
         "birth_date": "Fecha de nacimiento",
         "constitution_date": "Fecha de constitución",
         "genre": "Género",
-        "active": "Activo",
-        "turnover": "Cifra de negocio",
+        "active": "Importe del balance del último ejercicio cerrado",
+        "turnover": "Ventas del último ejercicio cerrado",
         "group_belong": "Pertenece a grupo",
         "telephone": "Teléfono",
-        "ownGroup": "Pertenece al grupo",
+        "ownGroup": "Pertenece a un grupo empresarial",
         "businessType": "Tipo de empresa"
       },
       "social_address": {
