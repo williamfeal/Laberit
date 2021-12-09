@@ -45,6 +45,9 @@ import { UserIdentificationComponent } from './user-identification/user-identifi
 import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/poder-representacion.component';
+import { BussinesType } from './user-identification/representative-data/dialog-bussinesType/bussinesType.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { MatStepperModule } from '@angular/material/stepper';
 import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 
@@ -85,8 +88,12 @@ import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edic
     NotificationViewComponent,
     SignNotificationReceiptComponent,
     PoderRepresentacionComponent,
+    BussinesType,
     EdicionSolicitudComponent
   ],
+
+  entryComponents: [BussinesType],
+
   imports: [
     CommonModule,
     SharedModule,
@@ -99,6 +106,7 @@ import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edic
     BrowserModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
     MatStepperModule
   ],
   providers: [

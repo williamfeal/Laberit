@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
@@ -38,7 +38,7 @@ export class InputSelectComponent implements OnInit {
   ngOnInit(): void {
     this.form.addControl(this.controlName, this.formControl);
     if (this.isRequired) {
-      this.formControl.setValidators(Validators.required);
+      this.formControl.setValidators([Validators.required]);
     }
     if(this.placeholder){
       this.form.controls[this.controlName].setValue('');
@@ -47,7 +47,6 @@ export class InputSelectComponent implements OnInit {
 
   onChangeValue() {
     this.error = (!this.form.get(this.controlName).valid) ? true : false;
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
