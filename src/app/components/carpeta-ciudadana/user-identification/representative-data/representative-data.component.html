@@ -11,8 +11,12 @@
                 <app-input-select (change)="representativeTypeChange($event.target.value)"
                     [error]="validate && formRepresentativeData.controls['representativeTypes']?.invalid"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.type' | translate }}"
-                    controlName="representativeTypes" [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                    idValue="representativeTypes" nameValue="representativeTypes" [isRequired]="isRequired"
+                    controlName="representativeTypes" 
+                    [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    [isReadOnly] = "readOnly"
+                    idValue="representativeTypes" 
+                    nameValue="representativeTypes" 
+                    [isRequired]="isRequired" 
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     [fieldOptions]="representativeTypes">
                 </app-input-select>
@@ -123,8 +127,8 @@
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
-                    controlName="represented_data_cnae" idValue="represented_data_cnae"
-                    nameValue="represented_data_cnae"
+                    controlName="represented_data_cnae" idValue="represented_data_cnae" 
+                    nameValue="represented_data_cnae" [isReadOnly] = "readOnly"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     [isRequired]="isJuridicPerson()" [fieldOptions]="cnaeOptions"
                     [error]="validate && formRepresentativeData.controls['represented_data_cnae']?.invalid"
@@ -164,7 +168,9 @@
                     <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="represented_data_employees_number" idValue="represented_data_employees_number"
-                        nameValue="represented_data_employees_number" [isRequired]="isRequired" [value]=""
+                        nameValue="represented_data_employees_number" [isRequired]="isRequired"
+                        [isReadOnly] = "readOnly"
+                        [value]=""
                         [negativos]="negativos"
                         [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.invalid"
                         errorText="empty_error"></app-input-number>

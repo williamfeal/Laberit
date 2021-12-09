@@ -1,6 +1,7 @@
 {
     "TITLE": "SEU ELECTRÒNICA",
     "buttons": {
+      "save": "Guardar",
       "back": "Arrere",
       "continue": "Continuar",
       "presentSign": "Signar i presentar",

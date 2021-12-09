@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { TranslateService } from '@ngx-translate/core';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
     selector: 'linea-resistir',
@@ -28,10 +29,10 @@ export class LineaResistirComponent implements OnInit {
     public draft:Draft;
     public formLineaResistir: FormGroup;
     public procedure:Procedure;
-
+    public viewMyRequest: string = 'solicitud';
     private businessRuleBody = new BusinessRuleBody;
     private formUserIdentification;
-
+    public readOnlyView: boolean = false;
     showInversion = false;
     showCirculante = false;
 
@@ -49,9 +50,10 @@ export class LineaResistirComponent implements OnInit {
         private procedureService:ProceduresService,
         private translate:TranslateService,
         private draftService:DraftsService,
-        private businessRuleService:BusinessRulesService
+        private businessRuleService:BusinessRulesService,
+        public appUtils: AppUtils
     ) {
-
+        localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
     }
 
     ngOnInit() {
@@ -216,5 +218,8 @@ export class LineaResistirComponent implements OnInit {
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
+    }
+    return() {
+        this.appUtils.return();
     }
 }

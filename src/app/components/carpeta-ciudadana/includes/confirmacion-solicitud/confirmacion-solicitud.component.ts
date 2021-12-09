@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DraftsService } from 'src/app/services/acli-service/drafts.service';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
@@ -23,22 +24,28 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   
   constructor(private procedureService: ProceduresService,
     public dialog: MatDialog,
+    private draftService: DraftsService
     ) {
     
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.procedure = data
+      data => {this.procedure = data
+      console.log(data)
+      }
     )
    }
 
   ngOnInit(): void {
-    
+    console.log(localStorage.getItem("draftId"));
     this.procedureService.getToken().subscribe((data)=>{
       this.getRegisterCodec(data.accessToken);
-      
+      console.log(data);
     })
   
+    this.draftService.getDraftById(localStorage.getItem("draftId")+ ':forms:formConfirmation').subscribe((data)=>{
+    console.log(data);
+    })
   }
   
   getRegisterCodec(token){
@@ -46,6 +53,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
      this.registerCode = data;
      this.getReceipt(token);
       this.getDemand(token);
+      console.log('draftId----->' + data);
     })
   }
   

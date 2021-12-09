@@ -28,6 +28,7 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-user-identification',
@@ -55,6 +56,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public representative: boolean = false;
   public checked: boolean;
   public position_contact: boolean;
+  public viewMyRequest: string = 'solicitante';
 
   public textError;
   public draft:Draft;
@@ -63,6 +65,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   private unsubscribe$ = new Subject<void>();
   subject = new Subject<string>();
 
+  public readOnlyView: boolean =false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -71,10 +74,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private translateService: TranslateService,
     private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
-    private readonly changeDetectorRef: ChangeDetectorRef
-
+    private readonly changeDetectorRef: ChangeDetectorRef,
+    public appUtils: AppUtils
   ) {
-    
+    localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
   }
 
   ngOnInit(): void {
@@ -262,5 +265,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+  return() {
+    this.appUtils.return();
+}
 }
 

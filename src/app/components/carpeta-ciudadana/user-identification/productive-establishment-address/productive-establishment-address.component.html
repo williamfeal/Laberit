@@ -54,7 +54,7 @@
                 [error]=""
                 [errorText]=""></app-input-text>
         </div>
-        <div class="form-group col-md-3 px-0">
+        <div class="form-group col-md-6 px-0">
             <div class="col-md-6">
                 <app-input-number
                     [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
@@ -74,7 +74,7 @@
                     idSelected="{{infos.social_country}}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" (change)="onChangeCountry($event.target.value)"
                     controlName="productive_establishment_country" idValue="productive_establishment_country"
-                    nameValue="productive_establishment_country" isReadOnly="false" [isRequired]="isRequired"
+                    nameValue="productive_establishment_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [fieldOptions]="paises" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -85,7 +85,7 @@
                     idSelected="{{prov}}"
                     label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
                     controlName="productive_establishment_province" idValue="productive_establishment_province"
-                    nameValue="productive_establishment_province" isReadOnly="false" [isRequired]="isRequired"
+                    nameValue="productive_establishment_province" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
@@ -96,14 +96,14 @@
                     idSelected="{{muni}}"
                     label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
                     controlName="productive_establishment_municipality" idValue="productive_establishment_municipality"
-                    nameValue="productive_establishment_municipality" isReadOnly="false" [isRequired]="isRequired"
+                    nameValue="productive_establishment_municipality" [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [fieldOptions]="municipios" [errorText]="errorCharacterLeng">
                 </app-input-select>
             </div>
             <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftProductiveEstablishmentData"
                 [form]="formProductiveEstablishment" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
-                value="{{infos.social_region}}"
+                value="{{infos.social_region}}" [isReadOnly]="readOnly"
                 controlName="productive_establishment_region" idValue="productive_establishment_region" nameValue="productive_establishment_region"></app-input-text>
             </div>
         </div>

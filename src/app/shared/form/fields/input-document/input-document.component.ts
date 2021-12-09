@@ -37,6 +37,7 @@ export class InputDocumentComponent implements OnInit, OnChanges {
     @Input() label: string = '';
     @Input() idValue!: string;
     @Input() isRequired!: boolean;
+    @Input() isReadOnly!: boolean;
     @Input() idplantilla!: string;
     @Input() fileExtension: string;
     @Input() errorText: string;

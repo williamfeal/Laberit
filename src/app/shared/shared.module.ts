@@ -37,6 +37,8 @@ import localeCa from '@angular/common/locales/ca-ES-VALENCIA';
 import localeEs from '@angular/common/locales/es';
 import { LocalizedDatePipe } from '../utils/pipes/localized-date.pipe';
 import { CheckboxComponent } from './form/aceptation-view/checkbox/checkbox.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { BreadcrumComponent } from './migaspan/breadcrum.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -71,7 +73,8 @@ registerLocaleData(localeCa, 'ca-ES');
     ConfirmationRadioButtonComponent,
     SafePipe,
     LocalizedDatePipe,
-    CheckboxComponent
+    CheckboxComponent,
+    BreadcrumComponent
   ],
   imports: [
     CommonModule,
@@ -79,7 +82,8 @@ registerLocaleData(localeCa, 'ca-ES');
     SharedRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatMenuModule
   ],
   exports: [
     ButtonBackComponent,
@@ -109,7 +113,8 @@ registerLocaleData(localeCa, 'ca-ES');
     HeaderComponent,
     ConfirmationRadioButtonComponent,
     SafePipe,
-    CheckboxComponent
+    CheckboxComponent,
+    BreadcrumComponent
   ],
   providers: [
     WeatherService,

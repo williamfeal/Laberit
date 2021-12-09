@@ -8,7 +8,8 @@
     <div class="card-body row">
         <div class="form-group col-md-3">
             <app-input-number [form]="formLineaResistir" [draft]="draftProcedureInformation"
-                label="{{ 'carpeta_ciudadana.request_info.procedure_info.amount' | translate }}"
+                label="{{ 'carpeta_ciudadana.request_info.procedure_info.amount' | translate }}" 
+                [isReadOnly]="readOnly"
                 controlName="importe" idValue="importe" nameValue="importe" isRequired=true value=""
                 [error]="validate && formLineaResistir.controls['importe']?.invalid"
                 errorText="empty_error"></app-input-number>
@@ -22,6 +23,7 @@
                 idValue="term" 
                 nameValue="term" 
                 isRequired=true 
+                [isReadOnly]="readOnly"
                 value="" 
                 [fieldOptions]="term"
                 errorText="empty_error">
@@ -35,10 +37,11 @@
                 controlName="lack"
                 [error]="validate && formLineaResistir.controls['lack']?.invalid" 
                 idValue="lack" 
-                nameValue="lack" 
+                nameValue="lack"
+                [isReadOnly]="readOnly" 
                 isRequired=true 
                 [fieldOptions]="lack"
-                value="" 
+                value=""
                 errorText="empty_error"></app-input-select>
         </div>
         <div class="form-group col-md-3">
@@ -49,7 +52,8 @@
                 [error]="validate && formLineaResistir.controls['modality']?.invalid"
                 controlName="modality" 
                 idValue="modality" 
-                nameValue="modality" 
+                nameValue="modality"
+                [isReadOnly]="readOnly" 
                 isReadOnly="false" 
                 isRequired="true"
                 [fieldOptions]="tipoInteres" errorText="empty_error"></app-input-select>

@@ -1,16 +1,12 @@
 import { ActivatedRoute } from '@angular/router';
-import { BreadcrumbService } from 'angular-crumbs';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
-import { Category } from 'src/app/models/category.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
-import { LanguagesService } from './../../services/moges-services/language.service';
 import { Procedure } from 'src/app/models/procedure.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-carpeta-ciudadana',
@@ -19,49 +15,56 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
 })
 export class HeaderCarpetaCiudadanaComponent implements OnInit {
 
-  public breadcrumbs:any[];
+  public breadcrumbs: any[];
   public user;
-  
-  @Input() procedure!:Procedure;
-  
-  public infoProcedure:InfoProcedure;
+
+  @Input() procedure!: Procedure;
+
+  public infoProcedure: InfoProcedure;
   public draft;
-  
   private unsubscribe$ = new Subject<void>();
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private translateService:TranslateService,
-    private carpetaUtils:CarpetaUtils
+    private translateService: TranslateService,
+    private carpetaUtils: CarpetaUtils,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.loadData();
     this.translateService.onLangChange.subscribe
-    (
-      () => this.loadData()
-    )
-    
+      (
+        () => this.loadData()
+      )
+
   }
 
   loadData() {
-    if(this.procedure) {
+    if (this.procedure) {
       this.infoProcedure = this.procedure.languages.find(
         language => language.codigo === localStorage.getItem('lang')
       )
     }
     this.user = this.carpetaUtils.getSession();
-    this.activatedRoute.data.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe((d:any) => {
-      this.breadcrumbs = d.breadcrumb;
-    });
+    console.log(this.user);
 
-    if (this.activatedRoute.snapshot.queryParams.draft) {
-      this.draft = this.activatedRoute.snapshot.queryParams.draft;
-    }
-     
+
   }
+  editThird(nif: string) {
+    this.router.navigate(['/carpeta-del-ciudadano/edit-request/' + nif]);
+  }
+  exit() {
+    console.log(window.sessionStorage);
+    localStorage.setItem("ReadOnly", "false");
+    this.cleanStorage();
+    console.log(window.sessionStorage);
 
+   this.router.navigateByUrl('/inicio');
+  }
+  cleanStorage() {
+    let token = window.sessionStorage.getItem('token');
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem('token', token);
+  }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

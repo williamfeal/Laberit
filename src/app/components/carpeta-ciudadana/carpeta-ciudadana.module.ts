@@ -48,6 +48,8 @@ import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/pod
 import { BussinesType } from './user-identification/representative-data/dialog-bussinesType/bussinesType.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 
 
 @NgModule({
@@ -86,7 +88,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     NotificationViewComponent,
     SignNotificationReceiptComponent,
     PoderRepresentacionComponent,
-    BussinesType
+    BussinesType,
+    EdicionSolicitudComponent
   ],
 
   entryComponents: [BussinesType],
@@ -103,7 +106,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatStepperModule
   ],
   providers: [
     CarpetaService,

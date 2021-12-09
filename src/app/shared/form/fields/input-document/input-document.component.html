@@ -7,7 +7,7 @@
     <div class="pl-3 row">
         <div class="file-container center-text" [ngClass]="{ 'error-input': error && isRequired == true }">
             <div *ngIf="!documentExist; else nameFile" class="ml-2">
-                <input type="file" (change)="uploadFile($event)" [formControlName]="controlName" [name]="idValue" [required]="isRequired" [id]="idValue"
+                <input type="file" (change)="uploadFile($event)" [formControlName]="controlName" [name]="idValue" [readOnly]="isReadOnly" [required]="isRequired" [id]="idValue"
                     [accept]="fileExtension" class="cursor-pointer">
                 <i class="fas fa-cloud-upload-alt mr-2"></i>
                 <span>
@@ -17,7 +17,7 @@
             </div>
             <ng-template #nameFile>
 
-                {{document.naturalName}} <i class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
+                {{document.naturalName}} <i *ngIf="!isReadOnly" class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
             </ng-template>
         </div>
         <div *ngIf="idplantilla != ''" class="centrarDivBajo ml-3">

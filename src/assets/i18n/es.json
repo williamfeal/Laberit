@@ -1,6 +1,7 @@
 {
   "TITLE": "SEDE ELECTRÓNICA",
   "buttons": {
+    "save": "Guardar",
     "back": "Atrás",
     "continue": "Continuar",
     "presentSign": "Firmar y presentar",

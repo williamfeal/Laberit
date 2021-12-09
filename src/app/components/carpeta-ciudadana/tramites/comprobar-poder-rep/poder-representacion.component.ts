@@ -12,6 +12,7 @@ export class PoderRepresentacionComponent implements OnInit {
     @Input() validate: boolean;
     @Input() draft:any;
     @Input() isRequired: boolean;
+    @Input() readOnly: boolean;
 
     errorCharacterLeng: string = 'empty_error';
     public type = 'interested'; 

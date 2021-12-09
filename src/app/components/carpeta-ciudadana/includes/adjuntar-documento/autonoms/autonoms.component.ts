@@ -26,6 +26,7 @@ export class AutonomsComponent implements OnInit, OnChanges {
     @Input() fileListAu: FileModel[] = [];
     @Input() validate: boolean;
     @Input() draft:any;
+    @Input() readOnly: boolean;
     public urlPlantilla: string = '';
     public draftAutonomus;
     public validCodes: boolean[] = [];

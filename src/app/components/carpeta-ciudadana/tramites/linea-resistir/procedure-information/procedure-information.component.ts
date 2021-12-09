@@ -25,6 +25,7 @@ export class ProcedureInformationComponent implements OnInit, OnChanges {
     @Input() formLineaResistir: FormGroup;
     @Input() validate: boolean;
     @Input() draft:Draft;
+    @Input() readOnly: boolean;
 
     //se bebera de los catalogos
     public tipoInteres: SelectFieldObject[];
