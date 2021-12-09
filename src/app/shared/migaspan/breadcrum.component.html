@@ -34,7 +34,7 @@
 
 
 
-<div class="row" *ngIf="view === 'solicitante'">
+<div class="row mb-5" *ngIf="view === 'solicitante'">
     <div class="col-xs-12 col-md-8 offset-md-2 block">
       <div class="wrapper-progressBar">
         <ul class="progressBar">
@@ -60,7 +60,7 @@
                             }}</a>
 
                     </li>
-                    <li *ngIf="breadcrumbs[1].terminal" class="inactive">{{ breadcrumbs[1].title | translate}}</li>
+                    <li *ngIf="breadcrumbs[1].terminal" class="selected"><strong>{{ breadcrumbs[1].title | translate}}</strong></li>
                     <li class="inactive">Mi solicitud</li>
                     <li class="inactive">Documentación a aportar</li>
                     <li class="inactive">Aceptación</li>
@@ -71,7 +71,7 @@
 </div>
 
 
-<div class="row" *ngIf="view === 'solicitud'">
+<div class="row mb-5" *ngIf="view === 'solicitud'">
     <div class="col-xs-12 col-md-8 offset-md-2 block">
       <div class="wrapper-progressBar">
         <ul class="progressBar">
@@ -117,7 +117,7 @@
                             [queryParams]="{draft: draft}" >{{ breadcrumbs[1].title | translate
                             }}</a>
                     </li>
-                    <li *ngIf="breadcrumbs[2].terminal" class="inactive">{{ breadcrumbs[2].title | translate}}</li>
+                    <li *ngIf="breadcrumbs[2].terminal" class="selected"><strong>{{ breadcrumbs[2].title | translate}}</strong></li>
                     <li class="inactive">Documentación a aportar</li>
                     <li class="inactive">Aceptación</li>
                     <li class="inactive">Presentar Solicitud</li>
@@ -128,7 +128,7 @@
 
 
 
-<div class="row" *ngIf="view === 'documents'">
+<div class="row mb-5" *ngIf="view === 'documents'">
     <div class="col-xs-12 col-md-8 offset-md-2 block">
       <div class="wrapper-progressBar">
         <ul class="progressBar">
@@ -195,7 +195,7 @@
                         [queryParams]="{draft: draft}" >{{ breadcrumbs[2].title | translate
                         }}</a>
                 </li>
-                    <li *ngIf="breadcrumbs[3].terminal" class="inactive">{{ breadcrumbs[3].title | translate}}</li>
+                    <li *ngIf="breadcrumbs[3].terminal" class="selected"><strong>{{ breadcrumbs[3].title | translate}}</strong></li>
                     <li class="inactive">Aceptación</li>
                     <li class="inactive">Presentar Solicitud</li>
         </ul>
@@ -203,7 +203,7 @@
     </div>
 </div>
 
-<div class="row" *ngIf="view === 'manifestations'">
+<div class="row mb-5" *ngIf="view === 'manifestations'">
     <div class="col-xs-12 col-md-8 offset-md-2 block">
       <div class="wrapper-progressBar">
         <ul class="progressBar">
@@ -291,7 +291,7 @@
                         [queryParams]="{draft: draft}" >{{ breadcrumbs[3].title | translate
                         }}</a>
                 </li>
-                    <li *ngIf="breadcrumbs[4].terminal" class="inactive">{{ breadcrumbs[4].title | translate}}</li>
+                    <li *ngIf="breadcrumbs[4].terminal" class="selected"><strong>{{ breadcrumbs[4].title | translate}}</strong></li>
                     <li class="inactive">Presentar Solicitud</li>
         </ul>
       </div>
@@ -299,7 +299,7 @@
 </div>
 
 
-<div class="row" *ngIf="view === 'sign'">
+<div class="row mb-5" *ngIf="view === 'sign'">
     <div class="col-xs-12 col-md-8 offset-md-2 block">
       <div class="wrapper-progressBar">
         <ul class="progressBar">
@@ -408,7 +408,7 @@
                     [queryParams]="{draft: draft}" >{{ breadcrumbs[4].title | translate
                     }}</a>
             </li>
-                    <li *ngIf="breadcrumbs[5].terminal" class="inactive">{{ breadcrumbs[5].title | translate}}</li>
+                    <li *ngIf="breadcrumbs[5].terminal" class="selected"><strong>{{ breadcrumbs[5].title | translate}}</strong></li>
         </ul>
       </div>
     </div>

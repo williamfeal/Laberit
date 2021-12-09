@@ -17,7 +17,7 @@
             </div>
             <ng-template #nameFile>
 
-                {{document.naturalName}} <i *ngIf="isReadOnly" class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
+                {{document.naturalName}} <i *ngIf="!isReadOnly" class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
             </ng-template>
         </div>
         <div *ngIf="idplantilla != ''" class="centrarDivBajo ml-3">
