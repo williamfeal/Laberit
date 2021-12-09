@@ -23,12 +23,14 @@
     <div [ngClass]="{ 'd-none': representative == false && interested == false }">
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
-                <app-representative-data [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
+                <app-representative-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
+                    [isRequired]="representative" [draft]="draftUserIdentification"
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
-                <app-interested-data [validate]="validate" [isRequired]="interested" [draft]="draftUserIdentification" 
+                <app-interested-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
+                    [isRequired]="interested" [draft]="draftUserIdentification" 
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="false">
                 </app-interested-data>
             </div>
@@ -62,7 +64,7 @@
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-contact-data [isChecked]="checked" [validate]="validate" [emailErrorContact]="emailErrorContact" [formContactData]="formUserIdentification.controls.contact_data"
+                <app-contact-data [position]="position_contact" [isChecked]="checked" [validate]="validate" [emailErrorContact]="emailErrorContact" [formContactData]="formUserIdentification.controls.contact_data"
                     [interesado]="interested" [readOnly]="false" [draft]="draftUserIdentification">
                 </app-contact-data>
             </div>

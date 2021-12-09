@@ -4,9 +4,11 @@ import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges
   } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
@@ -32,6 +34,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
   @Input() draft:any;
+
+  @Output() public businessTypeOutput = new EventEmitter<string>();
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -81,6 +85,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
         this.representativeTypeChange(this.draftRepresentativeData.representativeTypes);
       }
       if(!isEmptyObject(this.draftRepresentativeData.businessType)) {
+        this.businessTypeOutput.emit(this.draftRepresentativeData.businessType);
         sessionStorage.setItem('company_type', this.draftRepresentativeData.businessType);
       }
     }
@@ -157,10 +162,11 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event: string) {
+    this.businessTypeOutput.emit(event);
     this.businessTypeSelected = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
-      this.businessTypeSelected === 'ivf-representative-types-physical-person-autonomous' ?  
+      this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ?  
       this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
@@ -168,15 +174,10 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
 
-  openDialog(): void {debugger
+  openDialog(): void {
     let dialogRef = this.dialog.open(BussinesType, {
       width: '1250px',
-      //data: { name: this.name, animal: this.animal }
     });
-  
-    //dialogRef.afterClosed().subscribe(result => {
-      //this.animal = result;
-    //});
   }
 
   ngOnDestroy(): void {
