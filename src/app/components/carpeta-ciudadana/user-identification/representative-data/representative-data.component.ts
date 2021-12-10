@@ -47,7 +47,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public genders:SelectFieldObject[];
   public cnaeOptions:SelectFieldObject[];
   public comunidadBienes: boolean = false;
-
+  public communityOfGoods: boolean;
   public representativeTypeSelected;
   public businessTypeSelected;
   public draftRepresentativeData;
@@ -168,6 +168,9 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
       this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ?  
       this.comunidadBienes = true : this.comunidadBienes = false;
+    
+    //Validation to show the fields "active, represent_data_turnover" according to type of company
+    this.communityOfGoods = event === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? true : false;
   }
 
   public isAutonum() {

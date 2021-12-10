@@ -175,7 +175,7 @@
                         [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.invalid"
                         errorText="empty_error"></app-input-number>
                 </div>
-                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
@@ -183,7 +183,7 @@
                         [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_active"
                         [isReadOnly]="readOnly"></app-input-number>
                 </div>
-                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
