@@ -48,7 +48,12 @@ body {
         }
     }
 } 
-
+a{
+    color: $primaryColor;
+   &:hover{
+    color: $primaryColor !important;
+   }
+}
 .capitalize-first-letter::first-letter {
     text-transform:uppercase;
   }
@@ -62,7 +67,8 @@ body {
 }
 
 .background-card-header {
-    background-color: $card-header !important;
+    background-color: $headerTab !important;
+    color: $primaryColor;
 }
 .card-text{
     flex: 1 1 auto;
