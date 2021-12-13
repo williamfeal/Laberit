@@ -43,16 +43,15 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
   
   
   public callRepresenta() {
-    // this.carpetaService.canRepresentativeProcedure(this.formRepresentativePower.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
-    //   data => {
-    //     if(data === true) {
-    //       SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
-    //     } else if( data === false) {
-    //       SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto')
-    //     } else {
-    //       SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
-    //     }
-    //   });
-    console.log(this.formRepresentativeData)
+    this.carpetaService.canRepresentativeProcedure(this.formRepresentativePower.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      data => {
+        if(data === true) {
+          SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
+        } else if( data === false) {
+          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto')
+        } else {
+          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
+        }
+      });
   }
 }
