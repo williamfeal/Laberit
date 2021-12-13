@@ -1,6 +1,7 @@
 <app-header-carpeta-ciudadana *ngIf="procedure"
     [procedure]="procedure"></app-header-carpeta-ciudadana>
 <app-spinner *ngIf="!procedure"></app-spinner>
+<app-button-back></app-button-back>
 <app-breadcrum *ngIf="procedure" 
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div *ngIf="procedure">
@@ -11,9 +12,6 @@
             [formLineaResistir]="formLineaResistir" [validate]="validate"></app-detail-cost-financed>
     </form>
     <div class="foot-buttons">
-        <div class="text-left px-3">
-            <button *ngIf="draft" class="btn-app-primary mr-2"(click)="returnToDraft()">{{ 'buttons.back' | translate}}</button>
-        </div>
         <div class="text-right px-3">
             <button class="btn-app-primary mr-2" (click)="goToDocumentation()">{{ 'buttons.continue' | translate}}</button>
         </div>
