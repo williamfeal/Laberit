@@ -171,7 +171,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   public goToRequestInfo() {
-    console.log(this.formUserIdentification);
     let error = 0;
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
@@ -182,7 +181,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       }
 
       if (error == 0) {
-        this.representative === true ? 
+        (this.representative === true && sessionStorage.getItem('nifTitular') !== this.formUserIdentification.value.representative_data.represented_data_nif) ? 
           this.callRepresenta() :
           this.checkBusinessRuleCompanyType();
       } else {
