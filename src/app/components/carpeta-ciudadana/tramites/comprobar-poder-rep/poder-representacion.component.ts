@@ -1,6 +1,7 @@
+import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
     selector: 'app-poder-representacion',
@@ -27,11 +28,17 @@ export class PoderRepresentacionComponent implements OnInit {
     return sessionStorage.getItem('nifTitular') !== this.formRepresentativePower.value.represented_data_nif;
   }
   
+  
   public callRepresenta() {
     this.carpetaService.canRepresentativeProcedure(this.formRepresentativePower.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
-        console.log(data)
-      }
-    )
+        if(data === true) {
+          SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
+        } else if( data === false) {
+          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto')
+        } else {
+          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
+        }
+      });
   }
 }

@@ -1,9 +1,9 @@
 <div class="card mb-2" >
     <form [formGroup]="formIdentityData">
         <div class="card-header background-card-header pb-0">
-            <div class="card-title text-white">
-                <em class="fas fa-user"></em>
-                <span> {{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</span>
+            <div class="card-title">
+                <em class="fas fa-user mr-3"></em>
+                <span> <strong>{{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</strong></span>
             </div>
         </div>
         <div class="card-body row" *ngIf="user">

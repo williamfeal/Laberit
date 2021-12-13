@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
         document.documentElement.style.setProperty('--primary-color', data.primaryColor);
         document.documentElement.style.setProperty('--button-edit-color', data.buttonEditColor);
         document.documentElement.style.setProperty('--font-family', data.fontFamily);
+        document.documentElement.style.setProperty('--header-tab', data.headerTableColor);
         this.src_logo = data.logo;
      });
   }

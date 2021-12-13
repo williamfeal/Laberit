@@ -9,6 +9,7 @@ import {
   OnInit,
   SimpleChanges
   } from '@angular/core';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { BusinessRule } from './../../../models/business-rules.model';
 import { BusinessRuleBodyAddress, BusinessRuleBodyCompanyType } from './../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../services/acli-service/business-rules.service';
@@ -28,7 +29,6 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
-import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-user-identification',
@@ -63,7 +63,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public draftUserIdentification;
 
   private unsubscribe$ = new Subject<void>();
-  subject = new Subject<string>();
+  
+  public subject = new Subject<string>();
 
   public readOnlyView: boolean =false;
   constructor(
@@ -74,6 +75,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private translateService: TranslateService,
     private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
+    private carpetaService:CarpetaService,
     private readonly changeDetectorRef: ChangeDetectorRef,
     public appUtils: AppUtils
   ) {
@@ -169,7 +171,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   public goToRequestInfo() {
-    console.log(this.formUserIdentification);
     let error = 0;
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
@@ -178,13 +179,31 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.validate = true;
         error++;
       }
+
       if (error == 0) {
-        this.checkBusinessRuleCompanyType();
+        (this.representative === true && sessionStorage.getItem('nifTitular') !== this.formUserIdentification.value.representative_data.represented_data_nif) ? 
+          this.callRepresenta() :
+          this.checkBusinessRuleCompanyType();
       } else {
         SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
         this.showErrors = true;
       }
     }
+  }
+
+  private callRepresenta() {
+    this.carpetaService.canRepresentativeProcedure(
+      this.formUserIdentification.controls.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      data => {
+        if(data === true ) {
+          this.checkBusinessRuleCompanyType();
+        } else if( data === false) {  
+          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto');
+        } else {
+          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
+        }
+      }
+    )
   }
 
   private checkBusinessRuleCompanyType() {
