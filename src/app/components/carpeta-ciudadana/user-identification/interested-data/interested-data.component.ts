@@ -3,9 +3,11 @@ import { AppUtils } from 'src/app/utils/app-utils';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges
   } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
@@ -30,6 +32,8 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   @Input() draft:any;
   @Input() procedure:Procedure;
   
+  @Output() public businessTypeOutput = new EventEmitter<string>();
+
   public genders:SelectFieldObject[];
   public paises: SelectFieldObject[];
   public belongingCompany:SelectFieldObject[];
@@ -76,6 +80,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
     if(changes.draft && this.draft) {
       this.draftInterestedData = this.draft.interested_data;
       if(!isEmptyObject(this.draftInterestedData.businessType)) {
+        this.businessTypeOutput.emit(this.draftInterestedData.businessType);
         sessionStorage.setItem('company_type', this.draftInterestedData.businessType);
       }
     }
@@ -134,7 +139,7 @@ export class InterestedDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event) {
-    console.log(event);
+    this.businessTypeOutput.emit(event);
     this.autonom = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;

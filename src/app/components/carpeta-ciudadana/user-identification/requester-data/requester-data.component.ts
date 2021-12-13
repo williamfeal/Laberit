@@ -27,6 +27,7 @@ export class RequesterDataComponent implements OnInit, OnChanges {
   @Input() formRequestData: FormGroup;
   @Input() validate: boolean;
   @Input() draft:any;
+  @Input() readOnly: boolean;
 
   public draftRequestData;
 

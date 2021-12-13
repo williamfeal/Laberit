@@ -1,8 +1,10 @@
 <div class="card">
     <div class="card-header background-card-header pb-0">
-        <div class="card-title text-white">
-            <em class="fas fa-info-circle"></em>
-            {{ 'carpeta_ciudadana.identification.actuation_data.title' | translate }}
+        <div class="card-title">
+            <em class="fas fa-info-circle mr-3"></em>
+            <strong>
+                {{ 'carpeta_ciudadana.identification.actuation_data.title' | translate }}
+            </strong>
         </div>
     </div>
     <div class="card-body row">
@@ -14,26 +16,13 @@
             controlName="typeSelectRequest"
             idValue="type"
             nameValue="type"
+            [isReadOnly]="readOnly"
             [fieldOptions] = "actuation"
             [isRequired]="true"
             placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
             [error]="validate && formRequestData.controls['typeSelectRequest']?.invalid"
             [errorText]="errorCharacterLeng"
     ></app-input-select>
-        </div>
-        <div class="form-group col-md-6" [ngClass]="{ 'd-none': type != 'ivf-applicant-types-representantive'}">
-            <app-input-text
-            [form]="formRequestData"
-            label=" {{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} "
-            controlName="representation_power"
-            idValue="representation_power"
-            nameValue="representation_power"
-            value="Representante legal"
-            [isRequired]="type == 'ivf-applicant-types-representantive'"
-            isReadOnly="true"
-            [error]="validate && formRequestData.controls['ivf-applicant-types-representantive']?.invalid"
-            [errorText]="errorCharacterLeng"
-    ></app-input-text>
         </div>
     </div>
 </div>

@@ -1,4 +1,35 @@
+@import '../../utils/styles/colors.scss';
+
+
+.text-header-pos{
+    position: relative;
+    z-index: 2;
+}
 .background-img {
-    background-image: url(../../../assets/img/servicios_electronicos.png);
-    background-size: cover;
+    overflow: hidden;
+    background: $primaryColor;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1rem;
+    &::before{
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.6;
+        background-image: url(../../../assets/img/servicios_electronicos.png);
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: cover;
+    }
+}
+
+.button-user{
+    background-color: inherit;
+    border: none;
+    color: $white;
 }

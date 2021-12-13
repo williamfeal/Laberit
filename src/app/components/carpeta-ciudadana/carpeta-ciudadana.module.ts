@@ -44,7 +44,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 import { NotificationViewComponent } from './notifications/notification-view/notification-view.component';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
+import { PoderRepresentacionComponent } from './tramites/comprobar-poder-rep/poder-representacion.component';
+import { BussinesType } from './user-identification/representative-data/dialog-bussinesType/bussinesType.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 
 
 @NgModule({
@@ -81,8 +86,14 @@ import { SignNotificationReceiptComponent } from './notifications/sign-notificat
     SociedadCivilComponent,
     NotificationsListComponent,
     NotificationViewComponent,
-    SignNotificationReceiptComponent
+    SignNotificationReceiptComponent,
+    PoderRepresentacionComponent,
+    BussinesType,
+    EdicionSolicitudComponent
   ],
+
+  entryComponents: [BussinesType],
+
   imports: [
     CommonModule,
     SharedModule,
@@ -94,7 +105,9 @@ import { SignNotificationReceiptComponent } from './notifications/sign-notificat
     HttpClientModule,
     BrowserModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatStepperModule
   ],
   providers: [
     CarpetaService,

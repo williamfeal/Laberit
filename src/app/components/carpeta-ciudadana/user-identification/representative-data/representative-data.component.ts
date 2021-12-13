@@ -1,18 +1,22 @@
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
+import { BussinesType } from './dialog-bussinesType/bussinesType.component';
+import { CarpetaService } from './../../../../services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges
   } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { MatDialog } from '@angular/material/dialog';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { SwalUtils } from 'src/app/utils/swal-utils';
@@ -20,7 +24,8 @@ import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-representative-data',
-  templateUrl: './representative-data.component.html'
+  templateUrl: './representative-data.component.html',
+  styleUrls: ['./representative-data.component.css']
 })
 export class RepresentativeDataComponent implements OnInit, OnChanges {
 
@@ -30,6 +35,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
   @Input() draft:any;
+
+  @Output() public businessTypeOutput = new EventEmitter<string>();
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -52,6 +59,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   constructor(
     private catalogService:CatalogsService,
     private languageService:LanguagesService,
+    private dialog: MatDialog,
     private carpetaService:CarpetaService
   ) { }
 
@@ -79,6 +87,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
         this.representativeTypeChange(this.draftRepresentativeData.representativeTypes);
       }
       if(!isEmptyObject(this.draftRepresentativeData.businessType)) {
+        this.businessTypeOutput.emit(this.draftRepresentativeData.businessType);
         sessionStorage.setItem('company_type', this.draftRepresentativeData.businessType);
       }
     }
@@ -94,6 +103,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   public representativeTypeChange(event: string) {
+    this.businessType=[];
     this.representativeTypeSelected = event;
   
     this.catalogService.getCatalogByCode(this.representativeTypeSelected).pipe(
@@ -154,30 +164,24 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   }
 
   public businessTypeChange(event: string) {
+    this.businessTypeOutput.emit(event);
     this.businessTypeSelected = event;
     sessionStorage.setItem('company_type', event);
     sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
-    sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? this.comunidadBienes = true : this.comunidadBienes = false;
+      this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ?  
+      this.comunidadBienes = true : this.comunidadBienes = false;
   }
 
   public isAutonum() {
     return this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS
   }
 
-  public callRepresenta() {
-    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
-      data => {
-        if(data === true) {
-          SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
-        } else if( data === false) {
-          SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto')
-        } else {
-          SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
-        }
-      }
-    )
+  openDialog(): void {
+    let dialogRef = this.dialog.open(BussinesType, {
+      width: '1250px',
+    });
   }
-  
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

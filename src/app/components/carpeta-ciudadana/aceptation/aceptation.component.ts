@@ -13,6 +13,7 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-aceptation',
@@ -34,6 +35,7 @@ export class AceptationComponent implements OnInit {
   
   private unsubscribe$ = new Subject<void>();
   private draft:Draft;
+  public viewMyRequest: string = 'manifestations';
 
   constructor(
     private router: Router,
@@ -42,20 +44,35 @@ export class AceptationComponent implements OnInit {
     private catalogService: CatalogsService,
     private activatedRoute:ActivatedRoute,
     private carpetaService:CarpetaService,
-    private draftService:DraftsService
+    private draftService:DraftsService,
+    public appUtils: AppUtils
   ) { }
 
   ngOnInit(): void {
     const idProcedure = sessionStorage.getItem('idProcedure');
     if (sessionStorage.getItem('company_type')) {
-      const company_type = (sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ||
-        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ||
-        sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY) || sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY ?
-        ConceptConstants.MANIFESTATIONS_TYPES_AUTO_COMBIENES : ConceptConstants.MANIFESTATIONS_TYPES_MICRO_PYME_GEMP;
+      let company_type;
+      // ( sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ||
+      //   sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS || 
+      //   sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_CIVIL_SOCIETY) ?
+      //   ConceptConstants.MANIFESTATIONS_TYPES_AUTO_COMBIENES : ConceptConstants.MANIFESTATIONS_TYPES_MICRO_PYME_GEMP;
+        switch (sessionStorage.getItem('company_type')){
+          case ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS:
+              company_type = ConceptConstants.MANIFESTATIONS_TYPES_AUTONOMOUS;
+            break;
+          default:
+            company_type = ConceptConstants.MANIFESTATIONS_TYPES_MICRO_PYME_GEMP;
+        }
       this.catalogService.getCatalogByCode(company_type).pipe(
         takeUntil(this.unsubscribe$)
       ).pipe().subscribe(
-        (data: Concept[]) => this.manifestations = data
+        (data: Concept[]) => {
+          console.log(data);
+          this.manifestations = data.filter((dates)=>{
+            return dates.concept_code !== 'manifestations-types-autonomous-07'
+          });
+          console.log(this.manifestations);
+        }
       )
     }
 
@@ -141,4 +158,7 @@ export class AceptationComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+  return() {
+    this.appUtils.return();
+}
 }

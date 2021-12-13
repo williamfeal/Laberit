@@ -42,6 +42,7 @@ export class ConceptConstants {
     public static readonly LINEA_RESISTIR_CIVIL_SOCIETY = "linea-resistir-civil-society-documents";
     public static readonly MANIFESTATIONS_TYPES_MICRO_PYME_GEMP = "manifestations-types-micro-pyme-gemp";
     public static readonly MANIFESTATIONS_TYPES_AUTO_COMBIENES = "manifestations-types-auto-combienes";
+    public static readonly MANIFESTATIONS_TYPES_AUTONOMOUS = "manifestations-types-autonomous";
     public static readonly DATA_PROTECTION = "data-protection-questionary";
 
     public static readonly LINEA_RESISTIR_AUTONOMOUS_MANDATORY_DOCUMENTS = 'linea-resistir-autonomous-mandatory-documents';

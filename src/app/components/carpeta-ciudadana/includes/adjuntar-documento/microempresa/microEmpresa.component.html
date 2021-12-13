@@ -9,7 +9,7 @@
       idplantilla="{{doc.descriptionPlantilla}}"
       errorText="document_error"
       [error]="validate && formAdjMicro.controls[doc.concept_code].invalid"
-      fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+      fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
       (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>
@@ -22,7 +22,7 @@
       [controlName]="doc.concept_code"
       [isRequired]="false" 
       idplantilla="{{doc.descriptionPlantilla}}"
-      fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+      fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
       (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>

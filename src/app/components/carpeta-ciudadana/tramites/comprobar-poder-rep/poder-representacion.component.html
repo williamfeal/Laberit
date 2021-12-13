@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <strong>
+            <em class="fas fa-info-circle mr-3"></em>
+            {{ 'carpeta_ciudadana.identification.actuation_data.title_power' | translate }}
+        </strong>
+        </div>
+    </div>
+    <div class="row">
+<div class="form-group col-md-4 m-4" >
+    <app-input-text
+    [form]="formRepresentativePower"
+    label=" {{ 'carpeta_ciudadana.identification.requester_data.representation_power' | translate }} "
+    controlName="representation_power"
+    idValue="representation_power"
+    nameValue="representation_power"
+    value="Representante legal"
+    [isRequired]="type == 'ivf-applicant-types-representantive'"
+    isReadOnly="true"
+    [error]="validate && formRepresentativePower.controls['ivf-applicant-types-representantive']?.invalid"
+    [errorText]="errorCharacterLeng"
+></app-input-text>
+</div>
+<div class="col-md-3 centrarDivVertical mt-4" *ngIf="showRepresentaBtn()">
+    <button class="btn-app-outline-primary button-round text" (click)="callRepresenta()" type ="button"
+        value=""><img src="../../../../../assets/img/img_representa.png" class="mr-2" width="35" height="30">
+        {{ 'carpeta_ciudadana.identification.actuation_data.check' | translate }}</button>
+</div>
+</div>
+</div>

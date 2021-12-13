@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessRule } from './../../../../models/business-rules.model';
-import { BusinessRuleBody } from './../../../../models/business-rules-body.model';
+import { BusinessRuleBody, BusinessRuleBodyAddress } from './../../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../../services/acli-service/business-rules.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 import { tipoProyecto } from 'src/app/utils/constants/app-constants';
 import { TranslateService } from '@ngx-translate/core';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
+import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
     selector: 'linea-resistir',
@@ -28,9 +29,10 @@ export class LineaResistirComponent implements OnInit {
     public draft:Draft;
     public formLineaResistir: FormGroup;
     public procedure:Procedure;
-
+    public viewMyRequest: string = 'solicitud';
     private businessRuleBody = new BusinessRuleBody;
-    
+    private formUserIdentification;
+    public readOnlyView: boolean = false;
     showInversion = false;
     showCirculante = false;
 
@@ -48,9 +50,10 @@ export class LineaResistirComponent implements OnInit {
         private procedureService:ProceduresService,
         private translate:TranslateService,
         private draftService:DraftsService,
-        private businessRuleService:BusinessRulesService
+        private businessRuleService:BusinessRulesService,
+        public appUtils: AppUtils
     ) {
-
+        localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
     }
 
     ngOnInit() {
@@ -61,12 +64,21 @@ export class LineaResistirComponent implements OnInit {
             (data:Procedure) => {
                 this.procedure = data;
                 this.getDraft();
+                this.getFormUserIdentification();
             } 
           )
     }
 
     ngOnChanges() {
         this.ref.detectChanges();
+    }
+
+    private getFormUserIdentification() {
+        this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:formUserIdentification')
+        .subscribe(
+            (data:Draft) => {
+                if(data !== null) this.formUserIdentification = JSON.parse(data.info);
+            });
     }
 
     private getDraft() {
@@ -92,7 +104,7 @@ export class LineaResistirComponent implements OnInit {
     public goToDocumentation() {
         if (this.formLineaResistir.valid) {
             //TO DO: Llamada al back con los datos 
-            this.getDecision();
+            this.checkBusinessRulesAddress();
         } else {
             this.translate.get('error_texts.pop_up.form_error').pipe(
                 takeUntil(this.unsubscribe$)
@@ -105,6 +117,28 @@ export class LineaResistirComponent implements OnInit {
                 })  
         }
     }
+
+    private checkBusinessRulesAddress() {
+        const ruleBody:BusinessRuleBodyAddress = {
+          paisDomicilioSocial: this.formUserIdentification.sosial_address.social_country,
+          provinciaDomicilioSocial: this.formUserIdentification.sosial_address.social_province || "",
+          paisLocalidadProyecto: this.formLineaResistir.value.social_country,
+          provinciaLocalidadProyecto: this.formLineaResistir.value.social_province || ""
+        };
+        const rule:BusinessRule = {
+          tableKey: "reglasDireccion",
+          body: ruleBody
+        }
+        this.businessRuleService.businessRuleDecision(rule).subscribe(
+          (data:Decision) => {
+            data.decision ? this.getDecision() : 
+              SwalUtils.showErrorAlert(
+                'Error',
+                data.motive
+              )
+          }
+        )
+      }
 
     private getDecision() {
         const isAutonomoMicroEmp = sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ||
@@ -184,5 +218,8 @@ export class LineaResistirComponent implements OnInit {
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
+    }
+    return() {
+        this.appUtils.return();
     }
 }

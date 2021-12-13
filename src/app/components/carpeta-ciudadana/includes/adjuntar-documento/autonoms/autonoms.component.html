@@ -6,10 +6,11 @@
     [idValue]="doc.concept_code" 
     [draft]="draft"
     [isRequired]="true"
+    [isReadOnly]="readOnly"
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
     [error]="validate && formAdjuntarDocAuto.controls[doc.concept_code].invalid"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>
@@ -18,12 +19,13 @@
     label="{{doc.description}}" 
     [form]="formAdjuntarDocAuto"
     [controlName]="doc.concept_code"
+    [isReadOnly]="readOnly"
     [idValue]="doc.concept_code" 
     [draft]="draft"
     [isRequired]="false"
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" (uploadFileDocument)="saveDocument($event)"
+    fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>

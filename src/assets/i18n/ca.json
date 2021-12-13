@@ -1,6 +1,7 @@
 {
     "TITLE": "SEU ELECTRÒNICA",
     "buttons": {
+      "save": "Guardar",
       "back": "Arrere",
       "continue": "Continuar",
       "presentSign": "Signar i presentar",
@@ -169,7 +170,7 @@
       "cost": "Cost",
       "associatedDocs": "Documents associats",
       "contact": "Contacte",
-      "online_transaction": "Tramitació En línia",
+      "online_transaction": "Tramitació",
       "online_transaction_text": "Per a procedir a la tramitació en línia prema sobre el següent enllaç. Haver de disposar d'un certificat electrònic, ja siga expedit per qualsevol entitat certificadora reconeguda en tot el territori nacional, amb el DNI electrònic o a través del sistema d'autenticació Cl@ve",
       "transact": "Tramitar",
       "procedure_not_available": "Tràmit no disponible",
@@ -330,7 +331,7 @@
         "footer_tab": "Una vegada iniciada la tramitació de la seua sol·licitud, pot consultar l'estat de la mateixa accedint al llistat de Sol·licituds del"
       },
       "init_page": {
-        "text": "<p>Per a accedir a la tramitació electrònica, així com a al Àrea del client i a tota la informació personal relacionada, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic.</p><p>Actualment, la Seu Electrònica de l'Ajuntament admet certificats electrònics dels següents proveïdors de serveis de certificació <ul><li><strong>DNI electrònic  </strong> (Direcció General de Policia - Ministeri de l'Interior).</li> <li> <strong>ACCV </strong> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana). </li><li>En general, tots aquells reconeguts en la plataforma <strong>@Firma</strong> el ministeri d'Hisenda i Administracions Públiques.</li></ul></p><p>Pot accedir amb el seu certificat electrònic a través del següent enllaç: </p>",
+        "text": "<p>Per a accedir a la tramitació electrònica, així com a al Àrea del client i a tota la informació personal relacionada, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic.</p><p>Actualment, la Seu Electrònica de admet certificats electrònics dels següents proveïdors de serveis de certificació <ul><li><strong>DNI electrònic  </strong> (Direcció General de Policia - Ministeri de l'Interior).</li> <li> <strong>ACCV </strong> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana). </li><li>En general, tots aquells reconeguts en la plataforma <strong>@Firma</strong> el ministeri d'Hisenda i Administracions Públiques.</li></ul></p><p>Pot accedir amb el seu certificat electrònic a través del següent enllaç: </p>",
         "btn_electronic_certificate": "Accés amb certificat electrònic",
         "btn_clave": "Accés amb clau"
       },
@@ -346,7 +347,7 @@
           "linkDates": "Pot editar les seues dades personals en ",
           "link": "aquest enllaç"
         },
-        "docAdd": "Documentació addicional",
+        "docAdd": "Documentació a aportar",
         "doc": {
           "drag": "Arrossegue ací l'arxiu per a adjuntar-lo o",
           "explore": "explorar"
@@ -369,7 +370,7 @@
           "CP": "Codi Postal",
           "country": "País",
           "province": "Província",
-          "municipality": "Municipio",
+          "municipality": "Municipi",
           "resum": "Resum",
           "expone": "Exposa",
           "request": "Sol·licita",
@@ -408,10 +409,11 @@
           "type": "Tipus",
           "type_interested": "Interessat",
           "type_representative": "Representant",
-          "representation_power": "Poder de representació"
+          "representation_power": "Representant en el Registre Electrónic de Apoderament"
         },
         "actuation_data": {
           "title": "Dades d'actuació",
+          "title_power": "Comprobar poder de representació",
           "actuation": "Actuació en el tràmit",
           "representation_power": "Poder de representació",
           "check": "Comprovar"
@@ -477,7 +479,7 @@
           "country": "País",
           "province": "Província",
           "municipality": "Municipi",
-          "social_region": "Región o Ciudad"
+          "social_region": "Regió o Ciutat"
 
         }
       },
@@ -486,15 +488,16 @@
       },
       "request_info": {
         "title": "Informació de la sol·licitud",
+        "ubication-proyect": "Localitat del projecte",
         "financing": {
           "title": "Detall dels costos a finançar",
           "investment": {
             "title": "Inversió en actius fixos",
-            "ground": "G1 - Terrenys",
-            "properties": "G1 - Immobles i construccions",
-            "machinery": "G1 - Maquinària i utillatge",
-            "installation": "G1 - Instal·lacions",
-            "others": "G1 - Altres"
+            "ground": "Terrenys",
+            "properties": "Immobles i construccions",
+            "machinery": "Maquinària i utillatge",
+            "installation": "Instal·lacions",
+            "others": "Altres"
           },
           "financing_fixed": {
             "title": "Finançament previst en actius fixos",
@@ -505,18 +508,18 @@
           },
           "financing_assets": {
             "title": "Finançament previst en actius circulants",
-            "current_assets": "G2 - Import a finançar actiu circulant",
-            "bankalbe_current_assets": "G2 - Finançable actiu circulant"
+            "current_assets": "Import a finançar actiu circulant",
+            "bankalbe_current_assets": "Finançable actiu circulant"
           },
           "financing_requested": {
             "title": "Finançament sol·licitat",
-            "g1": "Per a inversió en actius Fixos (G1)",
-            "g2": "Per a inversió en actiu circulant (G2)",
+            "g1": "Per a inversió en actius Fixos",
+            "g2": "Per a inversió en actiu circulant",
             "total_loan": "Total préstec sol·licitat IVF (*)"
           }
         },
         "procedure_info": {
-          "title": "Informació del tràmit",
+          "title": "Condicions solicitades",
           "import": "Import",
           "term": "Termini (anys)",
           "lack": "Carencia (mesos)",
@@ -665,7 +668,7 @@
       "linea_resistir_instance": {
         "section_title_1": "Condicions de la sol·licitud",
         "section_title_2": "Detall dels costos a finançar",
-        "text_1": "S'entén per inversió en capital circulant els imports destinats al sosteniment el capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
+        "text_1": "Imports destinats al sosteniment del capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
       },
       "aceptation": {
         "title": "Acceptació",

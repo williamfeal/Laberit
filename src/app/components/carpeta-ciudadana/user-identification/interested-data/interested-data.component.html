@@ -1,9 +1,11 @@
 <div class="card">
     <div class="card-header background-card-header pb-0">
-        <div class="card-title text-white">
-            <em class="fas fa-id-card"></em>
-            <span> {{ 'carpeta_ciudadana.identification.interested_data.title' | translate }}</span>
-        </div>
+        <div class="card-title">
+            <em class="fas fa-id-card mr-3"></em>
+            <strong>
+                <span> {{ 'carpeta_ciudadana.identification.interested_data.title' | translate }}</span>
+            </strong>
+    </div>
     </div>
     <div class="card-body row mx-0">
         <div class="d-contents col-sm-12">
@@ -48,70 +50,7 @@
                 </app-input-text-nif>
             </div>
         </div>
-        <div class="d-contents col-sm-12">
-            <div class="form-group col-md-3">
-                <app-input-select [form]="formInterestedData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
-                    controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
-                    [isRequired]="isRequired" [draft]="draftInterestedData"
-                    [fieldOptions]="cnae"
-                    [error]="validate && formInterestedData.controls['interested_data_cnae']?.invalid"
-                    [errorText]="errorCharacterLeng">
-                </app-input-select>
-            </div>
-            <div class="form-group col-md-3">
-                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    [form]="formInterestedData"  [draft]="draftInterestedData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
-                    controlName="interested_data_iae" idValue="interested_data_iae" nameValue="interested_data_iae"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formInterestedData.controls['interested_data_iae']?.invalid"
-                    [errorText]="errorCharacterLeng"></app-input-text>
-            </div>
-            <div class="form-group col-md-6 px-0 d-flex">
-                <div class="form-group col-md-4">
-                    <app-input-date [form]="formInterestedData" 
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
-                        controlName="interested_data_iae_date" idValue="interested_data_iae_date" [maxDate]="true"
-                        nameValue="interested_data_iae_date" [isRequired]="isRequired" [draft]="draftInterestedData"
-                        [error]="validate && formInterestedData.controls['interested_data_iae_date']?.invalid"
-                        [errorText]="errorCharacterLeng"></app-input-date>
-                </div>
 
-                <div class="form-group col-md-4">
-                    <app-input-number [form]="formInterestedData" [draft]="draftInterestedData"
-                        label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
-                        controlName="interested_data_employees_number" idValue="interested_data_employees_number"
-                        nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
-                        [negativos]="true" 
-                        [error]="validate && formInterestedData.controls['interested_data_employees_number']?.invalid"
-                        [errorText]="errorCharacterLeng"></app-input-number>
-                </div>
-                <div class="form-group col-md-4">
-                    <app-input-text [form]="formInterestedData"  [draft]="draftInterestedData"
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
-                    label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
-                    controlName="contact_position" idValue="contact_position" nameValue="contact_position"
-                    [isReadOnly]="readOnly" [isRequired]="isRequired"
-                    [error]="validate && formInterestedData.controls['contact_position']?.invalid"
-                    [errorText]="errorCharacterLeng"></app-input-text>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex w-100">
-            <div class="form-group col-md-3" >
-                <app-input-select [form]="formInterestedData" (change)="businessTypeChange($event.target.value)"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" [draft]="draftInterestedData"
-                    controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
-                    [fieldOptions]="businessType" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
-                    [error]="validate && formInterestedData.controls['businessType']?.invalid" [draft]="draftInterestedData"
-                    [errorText]="errorCharacterLeng">
-                </app-input-select>
-            </div>
-
-
-        </div>
         <div class="d-contents col-sm-12">
             <div class="form-group col-md-3">
                 <app-input-select placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
@@ -122,7 +61,7 @@
                     [error]="validate && formInterestedData.controls['interested_data_residence_country']?.invalid"
                     [fieldOptions]="paises" [errorText]="errorCharacterLeng"></app-input-select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <app-input-date [form]="formInterestedData" [draft]="draftInterestedData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.birth_date' | translate }}"
                     controlName="interested_data_birth_date" idValue="interested_data_birth_date" [maxDate]="true"
@@ -148,6 +87,58 @@
                     [isReadOnly]="readOnly" [isRequired]="isRequired"
                     [error]="validate && formInterestedData.controls['interested_telephone']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
+            </div>
+        </div>
+
+        <div class="d-contents col-sm-12">
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formInterestedData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                    controlName="interested_data_cnae" idValue="interested_data_cnae" nameValue="interested_data_cnae"
+                    [isRequired]="isRequired" [draft]="draftInterestedData"
+                    [fieldOptions]="cnae"
+                    [error]="validate && formInterestedData.controls['interested_data_cnae']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    [form]="formInterestedData"  [draft]="draftInterestedData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae' | translate }}"
+                    controlName="interested_data_iae" idValue="interested_data_iae" nameValue="interested_data_iae"
+                    [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [error]="validate && formInterestedData.controls['interested_data_iae']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-text>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-date [form]="formInterestedData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.iae_date' | translate }}"
+                    controlName="interested_data_iae_date" idValue="interested_data_iae_date" [maxDate]="true"
+                    nameValue="interested_data_iae_date" [isRequired]="isRequired" [draft]="draftInterestedData"
+                    [error]="validate && formInterestedData.controls['interested_data_iae_date']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-date>
+            </div>
+            
+            <div class="form-group col-md-3">
+                <app-input-number [form]="formInterestedData" [draft]="draftInterestedData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
+                    controlName="interested_data_employees_number" idValue="interested_data_employees_number"
+                    nameValue="interested_data_employees_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [negativos]="true"
+                    [error]="validate && formInterestedData.controls['interested_data_employees_number']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-number>
+            </div>
+        </div>
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3" >
+                <app-input-select [form]="formInterestedData" (change)="businessTypeChange($event.target.value)"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" [draft]="draftInterestedData"
+                    controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
+                    [fieldOptions]="businessType" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                    [error]="validate && formInterestedData.controls['businessType']?.invalid" [draft]="draftInterestedData"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
             </div>
         </div>
     </div>

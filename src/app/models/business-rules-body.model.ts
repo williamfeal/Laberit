@@ -23,9 +23,16 @@ export class BusinessRuleBodyLineaResistir extends BusinessRuleBody {
     tipoProyecto: string
 }
 
-export class BusinessRuleBodyUserIdentification extends BusinessRuleBody {
+export class BusinessRuleBodyCompanyType extends BusinessRuleBody {
     tipoEmpresa:string
     activo:number
     cifraNegocio:number
     numEmpleados:number
+}
+
+export class BusinessRuleBodyAddress extends BusinessRuleBody {
+    paisLocalidadProyecto:string
+    provinciaLocalidadProyecto:string
+    paisDomicilioSocial:string
+    provinciaDomicilioSocial:string
 }

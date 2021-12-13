@@ -1,8 +1,10 @@
 <div class="card">
     <div class="card-header background-card-header pb-0">
-        <div class="card-title text-white">
-            <em class="fas fa-phone-alt icon-flip"></em>
+        <div class="card-title">
+            <em class="fas fa-phone-alt icon-flip mr-3"></em>
+            <strong>
             {{ 'carpeta_ciudadana.identification.contact_data.title' | translate }}
+        </strong>
         </div>
     </div>
     <div class="card-body">
@@ -61,7 +63,7 @@
                 </div>
                 <div class="d-flex w-100">
 
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3" [ngClass]="{ 'd-none': position_contact == false}">
                         <app-input-text [form]="formContactData" [draft]="draftContactData"
                             placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                             label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"

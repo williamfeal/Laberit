@@ -9,7 +9,7 @@
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
     [error]="validate && formAdjPyme.controls[doc.concept_code].invalid"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+    fileExtension=",.pdf" 
     (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
@@ -25,7 +25,7 @@
     idplantilla="{{doc.descriptionPlantilla}}"
     errorText="document_error"
     [error]="validate && formAdjPyme.controls[doc.concept_code].invalid"
-    fileExtension=",.doc,.docx,.msword,.pdf,.xlsx" 
+    fileExtension=",.pdf" 
     (uploadFileDocument)="saveDocument($event)"
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>

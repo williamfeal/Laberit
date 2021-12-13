@@ -20,6 +20,7 @@ export class PresentarSolicitudComponent implements OnInit {
   base64Request: string;
   procedure;
   public documentBase64 = '';
+  public viewMyRequest: string = 'sign';
   constructor(public appUtils: AppUtils,
               public dialog: MatDialog,
               private router: Router,
@@ -34,17 +35,13 @@ export class PresentarSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.draftId =window.location.href.split("=")[1];
-    console.log(this.draftId);
     localStorage.setItem('draftId', this.draftId);
     this.procedureService.getToken().subscribe((data)=>{
-      console.log(data.accessToken);
       this.getRequest(data.accessToken);
     })
-    console.log(this.data64);
   }
   getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      console.log(this.data64);
       this.data64 = true;
       this.base64Request = data;
     })
@@ -66,5 +63,7 @@ export class PresentarSolicitudComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
+  return() {
+    this.appUtils.return();
+}
 }

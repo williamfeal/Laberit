@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DraftsService } from 'src/app/services/acli-service/drafts.service';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 
@@ -14,6 +15,8 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   base64Request: string;
   base64Resum: string;
   public data64: boolean = false;
+  public dataR64: boolean = false;
+  public registerCode: string;
 
   procedure;
   public tokenValido: string;
@@ -21,34 +24,39 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   
   constructor(private procedureService: ProceduresService,
     public dialog: MatDialog,
+    private draftService: DraftsService
     ) {
     
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.procedure = data
+      data => {this.procedure = data
+      console.log(data)
+      }
     )
    }
 
   ngOnInit(): void {
-    
+    console.log(localStorage.getItem("draftId"));
     this.procedureService.getToken().subscribe((data)=>{
-      this.getRequest(data.accessToken);
-      this.getResum(data.accessToken);
+      this.getRegisterCodec(data.accessToken);
+      console.log(data);
     })
   
-  }
-  getRequest(token){
-    this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.data64 = true;
-      this.base64Request = data;
+    this.draftService.getDraftById(localStorage.getItem("draftId")+ ':forms:formConfirmation').subscribe((data)=>{
+    console.log(data);
     })
   }
-  getResum(token){
-    this.procedureService.getResum(localStorage.getItem("draftId"), token).subscribe((data)=>{
-      this.base64Resum = data;
+  
+  getRegisterCodec(token){
+    this.procedureService.getRegisterCodec(localStorage.getItem("draftId"), token).subscribe((data)=>{
+     this.registerCode = data;
+     this.getReceipt(token);
+      this.getDemand(token);
+      console.log('draftId----->' + data);
     })
   }
+  
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
@@ -64,5 +72,17 @@ export class ConfirmacionSolicitudComponent implements OnInit {
       showButtons: false 
     };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+    }
+    getReceipt(token){
+      this.procedureService.getRegisterReceipt(this.registerCode, token).subscribe((data)=>{
+          this.base64Request = data;
+          this.dataR64=true;
+      })
+    }
+    getDemand(token){
+      this.procedureService.getSignedRequest(this.registerCode, token).subscribe((data)=>{
+        this.base64Resum = data;
+        this.data64=true;
+      })
     }
 }

@@ -59,7 +59,6 @@
                             <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>
                             <a [ngClass]="{ 'd-none':  !data64}" download="Solicitud firmada" class="color-link" (click)="viewDoc(base64Request)"
                                 title="Solicitud firmada">
-                                <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>
                                 <i class="fa fa-external-link"></i>  {{ 'carpeta_ciudadana.confirmation.download_resum' | translate }}
                             </a>
                         </div>
@@ -71,7 +70,8 @@
                     <div class="col-sm-3">
                         {{ 'carpeta_ciudadana.confirmation.sup_doc' | translate }}
                         <div class="color-link">
-                            <a download="Justificante de Registro"
+                            <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  dataR64}"></i>
+                            <a [ngClass]="{ 'd-none':  !dataR64}" download="Justificante de Registro"
                             (click)="viewDoc(base64Resum)"
                                 title="Justificante de Registro">
                                 <i class="fa fa-external-link"></i>{{ 'carpeta_ciudadana.confirmation.download_sup' | translate }}</a>

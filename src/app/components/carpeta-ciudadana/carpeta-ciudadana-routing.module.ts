@@ -13,11 +13,22 @@ import { RequestsListComponent } from './requests-list/requests-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
+import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 
 
 const routes:Routes = [
     { path: 'carpeta-del-ciudadano', component: CarpetaCiudadanaComponent },
     { path: 'carpeta-del-ciudadano/transact/:idProcedure', component: CarpetaCiudadanaComponent },
+    { path: 'carpeta-del-ciudadano/edit-request/:draftId', 
+    component: EdicionSolicitudComponent,
+    canActivate: [AuthGuardService],
+    data: {
+      menu: false,
+      breadcrumb: [
+        { title: 'carpeta_ciudadana.notifications.title', url: 'carpeta-del-ciudadano/notifications-list', terminal: false },
+        { title: 'carpeta_ciudadana..breadcrumb.my_request', url: '', terminal: true }
+      ]
+    }},
     { path: 'carpeta-del-ciudadano/notifications-list', 
       component: NotificationsListComponent,
       canActivate: [AuthGuardService],
@@ -125,6 +136,7 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano', my_request: true, terminal: false },
       { title: 'carpeta_ciudadana.instance.docAdd', url: '/carpeta-del-ciudadano/adjuntar', terminal: false },
+      { title: 'carpeta_ciudadana.aceptation.title', url: '/carpeta-del-ciudadano/aceptacion', terminal: false },
       { title: 'carpeta_ciudadana.instance.presentarSolicitud', url: '', terminal: true },
     ]},
   },

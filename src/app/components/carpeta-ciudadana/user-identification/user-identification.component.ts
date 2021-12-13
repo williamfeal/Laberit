@@ -9,8 +9,9 @@ import {
   OnInit,
   SimpleChanges
   } from '@angular/core';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { BusinessRule } from './../../../models/business-rules.model';
-import { BusinessRuleBodyUserIdentification } from './../../../models/business-rules-body.model';
+import { BusinessRuleBodyAddress, BusinessRuleBodyCompanyType } from './../../../models/business-rules-body.model';
 import { BusinessRulesService } from './../../../services/acli-service/business-rules.service';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
@@ -54,14 +55,18 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public interested: boolean = false;
   public representative: boolean = false;
   public checked: boolean;
+  public position_contact: boolean;
+  public viewMyRequest: string = 'solicitante';
 
   public textError;
   public draft:Draft;
   public draftUserIdentification;
 
   private unsubscribe$ = new Subject<void>();
-  subject = new Subject<string>();
+  
+  public subject = new Subject<string>();
 
+  public readOnlyView: boolean =false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -71,10 +76,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     private businessRulesService:BusinessRulesService,
     private draftService:DraftsService,
     private carpetaService:CarpetaService,
-    private readonly changeDetectorRef: ChangeDetectorRef
-
+    private readonly changeDetectorRef: ChangeDetectorRef,
+    public appUtils: AppUtils
   ) {
-    
+    localStorage.getItem("ReadOnly") === 'true' ? this.readOnlyView=true : this.readOnlyView=false;
   }
 
   ngOnInit(): void {
@@ -82,6 +87,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
       notification_means: new FormGroup({}),
+      representative_power: new FormGroup({}),
       interested_data: new FormGroup({}),
       productive_establishment: new FormGroup({}),
       representative_data: new FormGroup({}),
@@ -159,6 +165,11 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     }                         
   }
 
+  onChangeBusinessTypeOutput(event) {
+    //Eliminate the 'position' field in "Contact details" when the company type is Anonimus
+    this.position_contact = event === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ? false : true;
+  }
+
   public goToRequestInfo() {
     console.log(this.formUserIdentification);
     let error = 0;
@@ -171,7 +182,9 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       }
 
       if (error == 0) {
-        this.callRepresenta();
+        this.representative === true ? 
+          this.callRepresenta() :
+          this.checkBusinessRuleCompanyType();
       } else {
         SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
         this.showErrors = true;
@@ -184,7 +197,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       this.formUserIdentification.controls.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
         if(data === true ) {
-          this.checkBusinessRules();
+          this.checkBusinessRuleCompanyType();
         } else if( data === false) {  
           SwalUtils.showErrorAlert('', 'El poder de representación no se encuentra en Representa, por favor introduzca un CIF o NIF correcto');
         } else {
@@ -194,7 +207,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     )
   }
 
-  private checkBusinessRules() {
+  private checkBusinessRuleCompanyType() {
     const activo = this.representative ? 
       this.formUserIdentification.value.representative_data.represented_data_active :
       this.formUserIdentification.value.interested_data.interested_data_active || 0;
@@ -208,11 +221,11 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       'Microempresa' : sessionStorage.getItem('company_type') === ConceptConstants.REPRESENTATIVE_PYME || sessionStorage.getItem('company_type') ===  ConceptConstants.REPRESENTATIVE_PYME ? 
       'Pyme' : '';
     
-    const ruleBody:BusinessRuleBodyUserIdentification = {
+    const ruleBody:BusinessRuleBodyCompanyType = {
       tipoEmpresa: company_type,
-      activo: activo,
-      cifraNegocio: turnover,
-      numEmpleados: num_empleados
+      activo: activo || 0,
+      cifraNegocio: turnover || 0,
+      numEmpleados: num_empleados || 0
     };
     const rule:BusinessRule = {
       tableKey: "reglasTipoEmpresa",
@@ -272,5 +285,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+  return() {
+    this.appUtils.return();
+}
 }
 

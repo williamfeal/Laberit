@@ -1,40 +1,28 @@
-<div class="background-img jumbotron rounded-0">
+<div class="background-img filter-color rounded-0 mb-5">
     <div class="row">
         <div class="col-md-6">
-            <h3 class="text-white text-uppercase" id="header-title">
+            <h3 class="text-white text-uppercase text-header-pos" id="header-title">
                 {{ 'carpeta_ciudadana.title' | translate }}
             </h3>
         </div>
         <div class="col-md-6 d-flex justify-content-end text-white">
-            <div class="mr-1"><em class="fas fa-user"></em></div>
-            <div *ngIf="user">
-                <strong>{{ user.nombreTitular }} {{ user.apellidosTitular }} </strong>
-            </div>
+            <button mat-button [matMenuTriggerFor]="menu" class="button-user">
+                <div *ngIf="user">
+                <em class="fas fa-user mr-2 text-header-pos"></em>
+                <strong class="text-header-pos">{{ user.nombreTitular }} {{ user.apellidosTitular }} </strong>
+            </div></button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editThird(user.nifTitular)">Datos personales</button>
+                <button mat-menu-item (click)="exit()">Salir</button>
+                </mat-menu>
         </div>
     </div>
-    <h3 class="text-white" *ngIf="infoProcedure">{{ procedure.category.name }} - {{ infoProcedure.name }}</h3>
-    <ol class="breadcrumb breadcrumb-header-carpeta pl-0" *ngIf="breadcrumbs">
-        <div *ngFor="let breadcrumb of breadcrumbs" >
-            <li *ngIf="!breadcrumb.terminal && !breadcrumb.idProcedure && !breadcrumb.my_request" class="breadcrumb-item mr-1">
-                <a *ngIf="!draft" [routerLink]="[breadcrumb.url]">{{ breadcrumb.title | translate }}</a>
-                <a *ngIf="draft" [routerLink]="[breadcrumb.url]" [queryParams]="{ draft: draft}">{{ breadcrumb.title | translate }}</a> >
-            </li>
-            <li *ngIf="!breadcrumb.terminal && breadcrumb.idProcedure" class="breadcrumb-item mr-1">
-                <a *ngIf="!draft" [routerLink]="[breadcrumb.url]" [queryParams]="{ idProcedure:procedure.id }">{{ breadcrumb.title | translate }}</a>
-                <a *ngIf="draft" [routerLink]="[breadcrumb.url]" [queryParams]="{ idProcedure:procedure.id, draft: draft }">{{ breadcrumb.title | translate }}</a> >
-            </li>
-            <li *ngIf="!breadcrumb.terminal && breadcrumb.my_request" class="breadcrumb-item mr-1">
-                <a *ngIf="!draft" [routerLink]="[breadcrumb.url + '/' + procedure.rutaFormulario]" >{{ breadcrumb.title | translate }}</a> 
-                <a *ngIf="draft" [routerLink]="[breadcrumb.url + '/' + procedure.rutaFormulario]" [queryParams]="{draft: draft}" >{{ breadcrumb.title | translate }}</a> >
-
-            </li>
-            <li *ngIf="breadcrumb.terminal" class="breadcrumb-item active" aria-current="page">{{ breadcrumb.title | translate}}</li>
-        </div>
-    </ol>
+    <h3 class="text-white text-header-pos" *ngIf="infoProcedure">{{ procedure.category.name }} - {{ infoProcedure.name }}</h3>
+    
     <div class="row justify-content-end">
-        <a class="text-white mr-4" [routerLink]="['/carpeta-del-ciudadano/requests-list']" ><em class="fas fa-id-card-alt"></em> 
+        <a class="text-white text-header-pos mr-4" [routerLink]="['/carpeta-del-ciudadano/requests-list']" ><em class="fas fa-id-card-alt text-header-pos"></em> 
             {{ 'carpeta_ciudadana.requests-list.title'| translate }} </a>
-        <a class="text-white" [routerLink]="['/carpeta-del-ciudadano/notifications-list']"><em class="fas fa-envelope"></em> 
+        <a class="text-white text-header-pos" [routerLink]="['/carpeta-del-ciudadano/notifications-list']"><em class="fas fa-envelope text-header-pos"></em> 
             {{ 'carpeta_ciudadana.notifications.notifications-and-comunications'| translate }} </a>
     </div>
 </div>

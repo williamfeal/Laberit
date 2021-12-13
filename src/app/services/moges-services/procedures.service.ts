@@ -18,9 +18,11 @@ export class ProceduresService {
   };
   private API_URL = environment.moges_url + UrlConstants.API_SUFFIX;
   private API_PROCEDURES_ENDPOINT = this.API_URL + UrlConstants.ENDPOINT_PROCEDURES;
-  private request_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_REQUEST;
-  private resum_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_JUSTIFICANT;
   public get_token = environment.atencion_cliente_url + UrlConstants.ENDPOINT_TOKEN_VALIDAR;
+  private request_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_REQUEST; // Devuelve el pdf sin firmar
+  private resum_URL = environment.atencion_cliente_url + UrlConstants.ENDPOINT_JUSTIFICANT;//Devuelve el codigo del registro
+  private recibo_ENDPOINT = environment.atencion_cliente_url + UrlConstants.ENDPOINT_RECIBO; //Devuelve recibo registro(resumen)
+  private signedRequest_ENDPOINT =  environment.atencion_cliente_url + UrlConstants.ENDPOINT_SOLICITUD; //Devuelve solicitud firmada
   
   lang = this.translate.currentLang;
 
@@ -60,7 +62,50 @@ export class ProceduresService {
         throw err;
     }));   
   }
+  //Devuelve la solicitud firmada con el CSV
+  public getSignedRequest(codeRegister: string, token){
+    const data = this.http.get(`${this.signedRequest_ENDPOINT}${codeRegister}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }),
+      'responseType':'text'
+    });
+    return data.pipe(map((response:any) => {
+      return response;
+    })).pipe(catchError(error => {
+      let errorMsg: string;
+      if (error.error instanceof ErrorEvent) {
+          errorMsg = `Error: ${error.error.message}`;
+      } else {
+          errorMsg = this.getServerErrorMessage(error);
+      }
+      return throwError(errorMsg);
+  })); 
+  }
 
+  //Devuelve el recibo del registro
+  public getRegisterReceipt(codeRegister: string, token){
+    const data = this.http.get(`${this.recibo_ENDPOINT}${codeRegister}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }),
+      'responseType':'text'
+    });
+    return data.pipe(map((response:any) => {
+      return response;
+    })).pipe(catchError(error => {
+      let errorMsg: string;
+      if (error.error instanceof ErrorEvent) {
+          errorMsg = `Error: ${error.error.message}`;
+      } else {
+          errorMsg = this.getServerErrorMessage(error);
+      }
+      return throwError(errorMsg);
+  })); 
+  }
+//Devuelve el Pdf sin firmar
   public getRequest(draftId: string, token){
     console.log(draftId, token);
     const data = this.http.get(`${this.request_URL}${draftId}`, {
@@ -82,7 +127,8 @@ export class ProceduresService {
     return throwError(errorMsg);
 })); 
   }
-  public getResum(draftId: string, token){
+ //Devuelve el codigo del registro para poder sacar el justificante y el resumen de la solicitud
+  public getRegisterCodec(draftId: string, token){
     const data = this.http.get(`${this.resum_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -102,7 +148,7 @@ export class ProceduresService {
     return throwError(errorMsg);
 })); 
   }
-
+//Llamada para refrescar Token en la pantalla de confirmación
   public getToken(){
     const data = this.http.post(`${this.get_token}`,sessionStorage.b64Certificate, {
       headers: new HttpHeaders({
