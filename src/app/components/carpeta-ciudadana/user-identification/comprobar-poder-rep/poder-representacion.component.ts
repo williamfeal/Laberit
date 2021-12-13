@@ -1,5 +1,12 @@
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit
+  } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
@@ -8,8 +15,9 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
     templateUrl: './poder-representacion.component.html',
     styleUrls: ['./poder-representacion.component.scss']
 })
-export class PoderRepresentacionComponent implements OnInit {
+export class PoderRepresentacionComponent implements OnInit, OnChanges {
     @Input() formRepresentativePower: FormGroup;
+    @Input() formRepresentativeData:FormGroup;
     @Input() validate: boolean;
     @Input() draft:any;
     @Input() isRequired: boolean;
@@ -18,15 +26,20 @@ export class PoderRepresentacionComponent implements OnInit {
     errorCharacterLeng: string = 'empty_error';
     public type = 'interested'; 
 
-    constructor(    private carpetaService:CarpetaService
-        ) { }
+    constructor(    
+      private carpetaService:CarpetaService,
+      private cdr:ChangeDetectorRef
+    ) { }
 
     ngOnInit(): void { }
 
+    ngOnChanges():void {
+      this.cdr.detectChanges();
+    }
     
-  public showRepresentaBtn():boolean {
-    return sessionStorage.getItem('nifTitular') !== this.formRepresentativePower.value.represented_data_nif;
-  }
+    public showRepresentaBtn():boolean {
+      return sessionStorage.getItem('nifTitular') !== this.formRepresentativeData.value.represented_data_nif;
+    }
   
   
   public callRepresenta() {

@@ -41,6 +41,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
                 <app-poder-representacion [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
+                [formRepresentativeData]="formUserIdentification.controls.representative_data"
                  [formRepresentativePower]="formUserIdentification.controls.representative_power" [readOnly]="readOnlyView"></app-poder-representacion>
             </div>
         </div>
