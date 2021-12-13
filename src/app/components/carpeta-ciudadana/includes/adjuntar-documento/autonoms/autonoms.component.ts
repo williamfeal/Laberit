@@ -31,6 +31,8 @@ export class AutonomsComponent implements OnInit, OnChanges {
     public draftAutonomus;
     public validCodes: boolean[] = [];
     public documentsTypeAutonoms: DocumentsType;
+    public collapse:boolean = true;
+    public collapse2:boolean = false;
 
     public mandatoryDocs: DocumentsType[];
     public optionalDocs: DocumentsType[];

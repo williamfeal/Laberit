@@ -412,6 +412,8 @@
         "link": "este enlace"
       },
       "docAdd": "Documentación a aportar",
+      "doc-required":"Documentos obligatorios",
+      "doc-optional": "Documentos opcionales",
       "doc": {
         "drag": "Arrastre aquí el archivo para adjuntarlo o",
         "explore": "explorar"
