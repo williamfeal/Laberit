@@ -41,7 +41,7 @@ export class InputTextComponent implements OnInit {
   private unsubscribe$ = new Subject<void>();
   
   public textError: string;
-  
+  private inputTextEmpty: boolean;
   private formControl = new FormControl('');
   private validaciones: ValidatorFn[] = [];
 
@@ -74,8 +74,24 @@ export class InputTextComponent implements OnInit {
 
   onChangeValue() {
     this.error = !this.form.get(this.controlName).valid ?  true : false;
+    this.vacio(this.formControl);
   }
 
+  vacio(control: any){
+    if ( control.value && control.value !== null && control.value.trim() === '' && this.isRequired) {
+      this. inputTextEmpty = true;
+      this.error = true;
+      this.translateService.get('error_texts.input.empty_error').pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        text => {
+          this.textError = text;
+        }
+      )
+    }else{
+      this. inputTextEmpty = false;
+    }
+  }
   ngOnChanges(changes: SimpleChanges) {    
     if(changes.draft && !isEmptyObject(this.draft) && !isEmptyObject(this.draft[this.controlName])) 
       this.value = this.draft[this.controlName]

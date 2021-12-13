@@ -392,7 +392,7 @@
       "identification": {
         "title": "Identificació d'Usuari",
         "identity_data": {
-          "title": "Dades del presentador",
+          "title": "Dades de a qui presenta la sol·licitud",
           "name_and_surname": "Nom i Cognoms",
           "nif": "NIF"
         },
@@ -414,7 +414,7 @@
           "representation_power": "Representant en el Registre Electrónic de Apoderament"
         },
         "actuation_data": {
-          "title": "Dades d'actuació",
+          "title": "Vostè accedeix en qualitat de",
           "title_power": "Comprobar poder de representació",
           "actuation": "Actuació en el tràmit",
           "representation_power": "Poder de representació",
