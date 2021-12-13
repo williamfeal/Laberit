@@ -390,7 +390,7 @@
       "identification": {
         "title": "Identificació d'Usuari",
         "identity_data": {
-          "title": "Dades de quien presenta la sol·licitud",
+          "title": "Dades de a qui presenta la sol·licitud",
           "name_and_surname": "Nom i Cognoms",
           "nif": "NIF"
         },

@@ -156,7 +156,7 @@
 
         <div class="row w-100">
             <div class="w-100 d-contents">
-                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
                     <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.ownGroup' | translate }}"
                         controlName="ownGroup" idValue="ownGroup" [isRequired]="isRequired && !comunidadBienes"
