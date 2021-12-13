@@ -1,6 +1,7 @@
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
-import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
+import { BussinesType } from './dialog-bussinesType/bussinesType.component';
+import { CarpetaService } from './../../../../services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
   Component,
@@ -15,11 +16,11 @@ import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
+import { MatDialog } from '@angular/material/dialog';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
+import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
-import { BussinesType } from './dialog-bussinesType/bussinesType.component';
 
 @Component({
   selector: 'app-representative-data',
@@ -58,7 +59,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   constructor(
     private catalogService:CatalogsService,
     private languageService:LanguagesService,
-    public dialog: MatDialog
+    private dialog: MatDialog,
+    private carpetaService:CarpetaService
   ) { }
 
   ngOnInit(): void {
