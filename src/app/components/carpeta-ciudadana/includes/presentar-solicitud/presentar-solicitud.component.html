@@ -1,4 +1,5 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
 <app-breadcrum *ngIf="procedure" 
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div class="container-fluid">
@@ -18,8 +19,5 @@
   </div>
 </div>
 <div class="foot-buttons">
-  <div class="text-left px-3">
-    <button class="btn-app-primary mr-2" (click)="return()">{{ 'buttons.back' | translate}}</button>
-</div>
   <button class="btn-app-primary-rounded" (click)="reviewDoc()" [disabled]="!data64"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
 </div>
