@@ -348,6 +348,8 @@
           "link": "aquest enllaç"
         },
         "docAdd": "Documentació a aportar",
+        "doc-required":"Documents obligatoris",
+      "doc-optional": "Documents opcionals",
         "doc": {
           "drag": "Arrossegue ací l'arxiu per a adjuntar-lo o",
           "explore": "explorar"

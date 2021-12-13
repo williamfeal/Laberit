@@ -3,13 +3,7 @@
 <div *ngIf="procedure">
 <app-breadcrum *ngIf="procedure" 
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
-<div class="card mx-4">
-  <div class="card-header background-card-header pb-0">
-    <div class="card-title text-white">
-      <em class="far fa-file mr-2"></em>
-      <label>{{ 'carpeta_ciudadana.instance.docAdd' | translate }}</label>
-    </div>
-  </div>
+
 
   <app-autonoms *ngIf="tipo_empresa === 'ivf-representative-types-physical-person-autonomous'" [draft]="draftAdjuntarDoc"
     [fileListAu]="fileList" [validate]="validate" [formAdjuntarDocAuto]="formAdjuntarDoc.controls.autonomous"></app-autonoms>
@@ -27,7 +21,6 @@
     [fileListSo]="fileList" [validate]="validate" [formAdjSociedad]="formAdjuntarDoc.controls.sociedad_civil"></app-sociedad-civil>
 
     
-</div>
 </div>
 <div class="foot-buttons mb-3 mt-3">
   <div class="text-left px-3">

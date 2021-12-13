@@ -1,5 +1,17 @@
+
+<div class="card mx-4">
+  <div class="card-header background-card-header pb-0">
+    <div class="card-title card-space">
+      <strong>
+        <em class="far fa-file mr-3"></em>
+      <label>{{ 'carpeta_ciudadana.instance.doc-required' | translate }}</label>
+    </strong>
+    <em class="fas fa-angle-right" *ngIf="collapse === false" (click)="collapse = !collapse"></em>
+    <em class="fas fa-angle-down" *ngIf="collapse === true" (click)="collapse = !collapse"></em>
+    </div>
+  </div>
 <div *ngIf="mandatoryDocs">
-  <app-input-document *ngFor="let doc of mandatoryDocs"
+  <app-input-document *ngFor="let doc of mandatoryDocs" [ngClass]="{ 'd-none':  !collapse}"
     label="{{doc.description}}" 
     [form]="formAdjuntarDocAuto"
     [controlName]="doc.concept_code"
@@ -14,8 +26,20 @@
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>
+</div>
+<div class="card mx-4">
+  <div class="card-header background-card-header pb-0">
+    <div class="card-title card-space">
+      <strong>
+        <em class="far fa-file mr-3"></em>
+      <label>{{ 'carpeta_ciudadana.instance.doc-optional' | translate }}</label>
+    </strong>
+    <em class="fas fa-angle-right" *ngIf="collapse2 === false" (click)="collapse2 = !collapse2"></em>
+    <em class="fas fa-angle-down" *ngIf="collapse2 === true" (click)="collapse2 = !collapse2"></em>
+    </div>
+  </div>
 <div *ngIf="optionalDocs">
-  <app-input-document *ngFor="let doc of optionalDocs"
+  <app-input-document *ngFor="let doc of optionalDocs" [ngClass]="{ 'd-none':  !collapse2}"
     label="{{doc.description}}" 
     [form]="formAdjuntarDocAuto"
     [controlName]="doc.concept_code"
@@ -29,3 +53,5 @@
     (deleteFileDocument)="deleteDocument($event)">
   </app-input-document>
 </div>
+</div>
+
