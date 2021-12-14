@@ -9,8 +9,8 @@ Docker Build:
   tags:
     - shell
   script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN hub.alfatecsistemas.es
     - docker build -t $CI_REGISTRY_IMAGE:develop .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN hub.alfatecsistemas.es
     - docker push $CI_REGISTRY_IMAGE:develop
   only:
     - develop

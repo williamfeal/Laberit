@@ -43,7 +43,7 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
   
   
   public callRepresenta() {
-    this.carpetaService.canRepresentativeProcedure(this.formRepresentativePower.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
         if(data === true) {
           SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
