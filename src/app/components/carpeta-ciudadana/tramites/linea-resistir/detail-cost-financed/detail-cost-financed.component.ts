@@ -15,11 +15,13 @@ import { isEmptyObject } from 'jquery';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { tipoProyecto } from 'src/app/utils/constants/app-constants';
+import { MatDialog } from '@angular/material/dialog';
+import { ActiveIVF } from './dialog-activeIVF/activeIVFcomponent';
 
 @Component({
     selector: 'app-detail-cost-financed',
-    templateUrl: 'detail-cost-financed.component.html'
+    templateUrl: 'detail-cost-financed.component.html',
+    styleUrls: ['detail-cost-financed.component.css']
 })
 
 export class DetailCostFinancedComponent implements OnInit {
@@ -49,12 +51,15 @@ export class DetailCostFinancedComponent implements OnInit {
 
     public draftDetailCostFinanced;
 
+    public showInformationPopUp: boolean;
+
     constructor(
         private ref: ChangeDetectorRef,
-        private catalogsService: CatalogsService
+        private catalogsService: CatalogsService,
+        private dialog: MatDialog,
     ) { }
 
-    ngOnChanges(changes:SimpleChanges) {
+    ngOnChanges(changes:SimpleChanges) { 
         if(changes.draft && !isEmptyObject(this.draft) && JSON.parse(this.draft.info)) {
             this.draftDetailCostFinanced = JSON.parse(this.draft.info);
             if(!isEmptyObject(this.draftDetailCostFinanced.project_type)) {
@@ -91,16 +96,19 @@ export class DetailCostFinancedComponent implements OnInit {
         if (campo == 'pro') {
             switch (this.pro) {
                 case 'linea-resistir-project-type-G1-investment':
+                    this.showInformationPopUp = true;
                     this.showInversion = true;
                     this.showCirculante = false;
                     break;
                 case 'linea-resistir-project-type-G2-circulating':
                     this.showInversion = false;
                     this.showCirculante = true;
+                    this.showInformationPopUp = false;
                     break;
                 case 'linea-resistir-project-type-G3-investment-and-circulating':
                     this.showInversion = true;
                     this.showCirculante = true;
+                    this.showInformationPopUp = false;
                     break;
                 default:
                     break;
@@ -143,6 +151,11 @@ export class DetailCostFinancedComponent implements OnInit {
       )
     }
   
+    openDialog(): void {
+      let dialogRef = this.dialog.open(ActiveIVF, {
+        width: '450px',
+      });
+    }
 
     ngOnDestroy(): void {
         this.unsubscribe$.next();
