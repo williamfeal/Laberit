@@ -167,15 +167,14 @@
                     </app-input-select>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    <app-input-currency [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.employees_number' | translate }}"
                         controlName="represented_data_employees_number" idValue="represented_data_employees_number"
                         nameValue="represented_data_employees_number" [isRequired]="isRequired"
                         [isReadOnly] = "readOnly"
-                        [value]=""
-                        [negativos]="negativos"
+                        [value]="" [maxLength]="12"
                         [error]="validate && formRepresentativeData.controls['represented_data_employees_number']?.invalid"
-                        errorText="empty_error"></app-input-number>
+                        errorText="empty_error"></app-input-currency>
                 </div>
                 <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
                     <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
