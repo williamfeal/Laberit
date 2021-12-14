@@ -36,6 +36,7 @@ import { UserCertificado } from 'src/app/models/user-certificate.model';
   styleUrls: ['./user-identification.component.scss'],
 })
 export class UserIdentificationComponent implements OnInit, AfterViewChecked {
+  isLoading:boolean=false;
 
   public requesterType = '';
   public responseSubjectProductive = {}
@@ -232,11 +233,17 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     }
     this.businessRulesService.businessRuleDecision(rule).subscribe(
       (data:Decision) => {
-        data.decision ? this.saveDraftAndNavigate() : 
-          SwalUtils.showErrorAlert(
+          if(data.decision){
+            this.saveDraftAndNavigate();
+            this.isLoading = false;
+          }else{
+            SwalUtils.showErrorAlert(
             'Error',
             data.motive
           )
+          this.isLoading = true;
+          }
+
       }
     )
   }
