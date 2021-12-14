@@ -193,7 +193,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   private callRepresenta() {
     this.carpetaService.canRepresentativeProcedure(
-      this.formUserIdentification.controls.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      this.formUserIdentification.controls.representative_data.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
         if(data === true ) {
           this.checkBusinessRuleCompanyType();
