@@ -115,7 +115,7 @@
 
         <div class="row w-100">
             <div class="form-group col-md-3">
-                <div class="fas fa-info-circle icon-float" (click)="openDialog()"></div>
+                <i class="fas fa-info-circle icon-float" (click)="openDialog()"></i>
                 <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
                     controlName="businessType" [draft]="draftRepresentativeData" idValue="businessType"
