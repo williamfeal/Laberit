@@ -55,7 +55,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public emailErrorContact: boolean = false;
   public interested: boolean = false;
   public representative: boolean = false;
-  public checked: boolean;
+  public checked: boolean = false;
   public position_contact: boolean;
   public viewMyRequest: string = 'solicitante';
 
@@ -173,6 +173,57 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public goToRequestInfo() {
     let error = 0;
+    console.log(this.interested);
+    if(this.checked == false){
+      if(this.interested == true){
+        console.log('ENTRA interested');
+
+      this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.interested_data.interested_data_name);
+      this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.interested_data.interested_data_surname1);
+      this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.interested_data.interested_data_surname2);
+      this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.interested_data.interested_data_nif);
+      this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.interested_data.interested_telephone);
+      this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.sosial_address.via_type);
+      this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.sosial_address.number);
+      this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.sosial_address.address);
+      this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
+      this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
+      this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
+        setTimeout(()=>{
+          this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
+        }, 1000)
+        setTimeout(()=>{
+          this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
+        },2000)
+      }
+      if(this.representative == true){
+        console.log('ENTRA repres');
+
+        this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.representative_data.represented_data_nif);
+        this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.representative_data.represented_data_telephone);
+        this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.sosial_address.via_type);
+        if(this.position_contact = true){
+          this.formUserIdentification.controls['contact_data'].get('contact_position').setValue(this.formUserIdentification.value.representative_data.contact_position);
+          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_name);
+          this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.representative_data.represented_data_surname1);
+          this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.representative_data.represented_data_surname2);
+        }else{
+          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_social_reason);
+
+        }
+        this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.sosial_address.number);
+        this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.sosial_address.address);
+        this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
+        this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
+        this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
+          setTimeout(()=>{
+            this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
+          }, 1000)
+          setTimeout(()=>{
+            this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
+          },2000)
+        }
+    }
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
         this.validate = false;
