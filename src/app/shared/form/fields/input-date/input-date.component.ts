@@ -66,7 +66,6 @@ export class InputDateComponent implements OnInit {
   }
 
   onChangeValue() {
-    debugger
     !this.form.get(this.controlName).valid ? this.error = true : this.error = false;
 
     let toDay = new Date();
