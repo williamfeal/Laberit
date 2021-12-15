@@ -16,7 +16,7 @@ import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { ActiveIVF } from './dialog-activeIVF/activeIVFcomponent';
+import { ActiveIVF } from './dialog-activeIVF/activeIVF.component';
 
 @Component({
     selector: 'app-detail-cost-financed',
