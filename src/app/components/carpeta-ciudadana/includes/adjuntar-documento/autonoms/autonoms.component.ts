@@ -48,8 +48,8 @@ export class AutonomsComponent implements OnInit, OnChanges {
    async getTemplates(concept: any){
         this.catalogService.getCatalogByCodePlantilla(concept.concept_code).subscribe((data)=>{
             concept.descriptionPlantilla = data[0].description;    
-        },  err =>{
-            400
+        },  err => {
+            concept.descriptionPlantilla = ''
         })
     }
 

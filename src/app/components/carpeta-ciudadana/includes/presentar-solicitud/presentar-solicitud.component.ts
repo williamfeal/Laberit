@@ -15,23 +15,26 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class PresentarSolicitudComponent implements OnInit {
   public draftId: string;
-  private unsubscribe$ = new Subject<void>();
   public data64: boolean = false;
-  base64Request: string;
-  procedure;
-  public documentBase64 = '';
+  
+  private unsubscribe$ = new Subject<void>();
+  private base64Request: string;
+  
+  public procedure;
+  public documentBase64:string = '';
   public viewMyRequest: string = 'sign';
+
   constructor(public appUtils: AppUtils,
               public dialog: MatDialog,
               private router: Router,
               private procedureService: ProceduresService
               ) {
-                this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
-                  takeUntil(this.unsubscribe$)
-                ).subscribe(
-                  data => this.procedure = data
-                )
-               }
+      this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(
+        data => this.procedure = data
+      )
+      }
 
   ngOnInit(): void {
     this.draftId =window.location.href.split("=")[1];
@@ -40,14 +43,15 @@ export class PresentarSolicitudComponent implements OnInit {
       this.getRequest(data.accessToken);
     })
   }
-  getRequest(token){
+
+  private getRequest(token){
     this.procedureService.getRequest(localStorage.getItem("draftId"), token).subscribe((data)=>{
       this.data64 = true;
       this.base64Request = data;
     })
-    
   }
-  reviewDoc() {
+
+  public reviewDoc() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.disableClose = true;
@@ -59,11 +63,13 @@ export class PresentarSolicitudComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
   }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-  return() {
+
+  public return() {
     this.appUtils.return();
-}
+  }
 }
