@@ -1,0 +1,10 @@
+.config-background {
+    color: #fff;
+    background-color: #c8102e;
+}
+
+.config-icon{
+    float: right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

@@ -202,8 +202,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         } else {
           SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
         }
-      }
-    )
+      },
+      err => SwalUtils.showErrorAlert('', 'Ha habido un error comprobando el poder de representación. Si el error persiste, contacte con el administrador.'));
   }
 
   private checkBusinessRuleCompanyType() {

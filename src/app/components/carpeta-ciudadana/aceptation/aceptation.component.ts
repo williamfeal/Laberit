@@ -1,4 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { Component, OnInit } from '@angular/core';
@@ -70,11 +71,9 @@ export class AceptationComponent implements OnInit {
         takeUntil(this.unsubscribe$)
       ).pipe().subscribe(
         (data: Concept[]) => {
-          console.log(data);
           this.manifestations = data.filter((dates)=>{
             return dates.concept_code !== 'manifestations-types-autonomous-07'
           });
-          console.log(this.manifestations);
         }
       )
     }

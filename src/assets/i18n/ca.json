@@ -506,7 +506,10 @@
             "own_resources": "Recursos propis",
             "grants": "Subvencions",
             "other_bank_financing": "Un altre finançament bancari",
-            "active_ivf": "Finançable IVF actiu"
+            "active_ivf": "Finançable IVF actiu",
+            "dialogActiveinf": {
+              "alert": "Import del préstec sol·licitat no pot superar el 80% de la suma de la inversió en actius fixos."
+            }
           },
           "financing_assets": {
             "title": "Finançament previst en actius circulants",

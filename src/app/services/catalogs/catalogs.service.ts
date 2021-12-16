@@ -1,8 +1,8 @@
-import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpErrorResponse,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Injectable({
@@ -68,6 +68,7 @@ export class CatalogsService {
       return response.data;
     })).pipe(catchError(error => {
       let errorMsg: string;
+      console.log("error")
       if (error.error instanceof ErrorEvent) {
           errorMsg = `Error: ${error.error.message}`;
       } else {

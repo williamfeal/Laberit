@@ -1,4 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import {
@@ -18,10 +19,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Procedure } from './../../../../models/procedure.model';
 import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { SwalUtils } from 'src/app/utils/swal-utils';
+import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { AppUtils } from 'src/app/utils/app-utils';
  
 
 @Component({
@@ -116,8 +116,7 @@ export class AdjuntarDocComponent implements OnInit {
           }
         },
         () => this.setDraft()
-      )
-    }
+      )}
   }
 
   private setDraft() {
@@ -129,34 +128,28 @@ export class AdjuntarDocComponent implements OnInit {
       'info', this.activatedRoute.snapshot.queryParams.draft);
   }
 
-  saveDocument(ev) {
+  public saveDocument(ev) {
     this[ev.controlName] = false;
     saveDocument(this.fileList, ev);
   }
 
-  deleteDocument(ev) {
+  public deleteDocument(ev) {
     this[ev.controlName] = true;
     deleteDocument(this.fileList, ev);
   }
 
-  validationDocuments() {
-
-  }
 
   public goToRequestInfo() {
     if(this.formAdjuntarDoc.valid) {
       this.validate = false;
       this.saveDraftAndNavigate();
-      
-    } else{
+    } else {
       SwalUtils.showErrorAlert(this.textError.title, this.textError.docs)
       this.validate = true;
     }
   }
 
   private saveDraftAndNavigate() {
-   let enviDocs =  JSON.stringify(this.fileList)
-    localStorage.setItem('documents', enviDocs);
     const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.fileList), this.procedure.category.name,
       this.draft.producto, 'forms:documents', this.draft.key, '');
   

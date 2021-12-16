@@ -49,6 +49,7 @@ import { SocialAddressComponent } from './user-identification/social-address/soc
 import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCivil/sociedadCivil.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
+import { ActiveIVF } from './tramites/linea-resistir/detail-cost-financed/dialog-activeIVF/activeIVF.component';
 import { Aceptation } from './aceptation/dialog-aceptation/aceptation.component';
 
 
@@ -91,10 +92,11 @@ import { Aceptation } from './aceptation/dialog-aceptation/aceptation.component'
     PoderRepresentacionComponent,
     BussinesType,
     EdicionSolicitudComponent,
-    Aceptation
+    Aceptation,
+    ActiveIVF
   ],
 
-  entryComponents: [BussinesType, Aceptation],
+  entryComponents: [BussinesType, Aceptation,ActiveIVF],
 
   imports: [
     CommonModule,

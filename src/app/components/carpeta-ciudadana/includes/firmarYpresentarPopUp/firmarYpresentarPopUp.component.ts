@@ -1,15 +1,15 @@
 import Swal from 'sweetalert2';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { Procedure } from 'src/app/models/procedure.model';
-import { DraftsService } from 'src/app/services/acli-service/drafts.service';
 import { Draft } from 'src/app/models/draft.model';
+import { DraftsService } from 'src/app/services/acli-service/drafts.service';
 import { FileModel } from 'src/app/models/file.model';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Procedure } from 'src/app/models/procedure.model';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-FirmarYPresentarPopUp',
@@ -40,7 +40,6 @@ export class FirmarYPresentarPopUp implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fileList = JSON.parse(localStorage.getItem('documents'));
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -50,6 +49,7 @@ export class FirmarYPresentarPopUp implements OnInit {
 
       })
   }
+
   private getDraft() {
     if (this.activatedRoute.snapshot.queryParams.draft) {
       this.draftService.getDraftById(this.activatedRoute.snapshot.queryParams.draft + ':forms:documents').subscribe(
@@ -66,6 +66,7 @@ export class FirmarYPresentarPopUp implements OnInit {
       )
     }
   }
+
   private setDraft() {
     const info = { idProcedure: sessionStorage.getItem('idProcedure') };
     const infoProcedure = this.procedure.languages.find(
@@ -74,7 +75,8 @@ export class FirmarYPresentarPopUp implements OnInit {
     this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
       'info', this.activatedRoute.snapshot.queryParams.draft);
   }
-  singAndPresent() {
+
+  public singAndPresent() {
     try {
       this.appUtils.signDocument(this.documentBase64).then((documentSinged) => {
         //this.dialogRef.close(false);
@@ -88,8 +90,9 @@ export class FirmarYPresentarPopUp implements OnInit {
           this.draft.producto, 'forms:documents', this.draft.key, '');
 
         this.draftService.saveDraft(draft).subscribe(
-          () =>{ 
+          () => { 
             this.dialogRef.close(false);
+            console.log(this.fileList)
             this.router.navigate(['carpeta-del-ciudadano/confirmacion'], {
             queryParams: { draft: this.draft.key }
           })}
