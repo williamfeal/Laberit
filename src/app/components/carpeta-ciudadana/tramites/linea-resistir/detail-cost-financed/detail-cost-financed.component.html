@@ -76,38 +76,38 @@
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1terrenos']?.invalid" [isReadOnly]="readOnly"
                         controlName="g1terrenos" idValue="g1terrenos" nameValue="g1terrenos" [isRequired]="showInversion"
-                         [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-currency>
+                         [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }}"
                         controlName="g1inmuebles" idValue="g1inmuebles" nameValue="g1inmuebles" [draft]="draftDetailCostFinanced"
                         [error]="validate && formLineaResistir.controls['g1inmuebles']?.pristine" [isReadOnly]="readOnly"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-currency>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir"
+                    <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1maquinaria']?.invalid" [draft]="draftDetailCostFinanced"
                         controlName="g1maquinaria" idValue="g1maquinaria" nameValue="g1maquinaria" [isRequired]="showInversion" [isReadOnly]="readOnly"
-                         errorText="empty_error"></app-input-currency>
+                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1instalaciones']?.invalid" [isReadOnly]="readOnly"
                         controlName="g1instalaciones" idValue="g1instalaciones" nameValue="g1instalaciones" [draft]="draftDetailCostFinanced"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-currency>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.others' | translate }}"
                         controlName="g1otros" idValue="g1otros" nameValue="g1otros" [isRequired]="false" [isReadOnly]="readOnly"
-                        ></app-input-currency>
+                        ></app-input-number>
                 </div>
             </div>
             <hr>
@@ -116,33 +116,33 @@
             </span>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}"
                         controlName="recursosPropios" idValue="recursosPropios" nameValue="recursosPropios"
                         [error]="validate && formLineaResistir.controls['recursosPropios']?.invalid" [isReadOnly]="readOnly"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-currency>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }}"
                         [error]="validate && formLineaResistir.controls['subvenciones']?.invalid" [isReadOnly]="readOnly"
                         controlName="subvenciones" idValue="subvenciones" nameValue="subvenciones" [isRequired]="showInversion" 
-                        errorText="empty_error"></app-input-currency>
+                        errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.other_bank_financing' | translate }}"
                         controlName="otraFinBancaria" idValue="otraFinBancaria" [isReadOnly]="readOnly"
                         nameValue="otraFinBancaria" [isRequired]="false">
-                    </app-input-currency>
+                    </app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-					<i class="fas fa-info-circle icon-float" (click)="openDialog()" [ngClass]="{ 'd-none': showInformationPopUp==false }"></i>
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <i class="fas fa-info-circle icon-float" (click)="openDialog()" [ngClass]="{ 'd-none': showInformationPopUp==false }"></i>
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.active_ivf' | translate }}"
                         [error]="validate && formLineaResistir.controls['activoIVF']?.invalid"
                         controlName="activoIVF" idValue="activoIVF" nameValue="activoIVF" [isReadOnly]="readOnly"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-currency>
+                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
                 </div>
             </div>
         </div>
@@ -160,19 +160,19 @@
             </div>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.current_assets' | translate }}"
                         [error]="validate && formLineaResistir.controls['g2importeFinanciarCirculante']?.invalid"
                         controlName="g2importeFinanciarCirculante" idValue="g2importeFinanciarCirculante" nameValue="g2importeFinanciarCirculante"
-                        [isRequired]="showCirculante"  errorText="empty_error"></app-input-currency>
+                        [isRequired]="showCirculante"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_assets.bankalbe_current_assets' | translate }}"
                         [error]="validate && formLineaResistir.controls['g2financiacionIVF']?.invalid"
                         controlName="g2financiacionIVF" idValue="g2financiacionIVF"
                         nameValue="g2financiacionIVF" [isRequired]="showCirculante" 
-                        errorText="empty_error"></app-input-currency>
+                        errorText="empty_error"></app-input-number>
                 </div>
             </div>
         </div>
@@ -187,27 +187,27 @@
             </div>
             <div class="row justify-content-start mx-0">
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g1' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3inversionActivosFijos']?.invalid"
                         controlName="g3inversionActivosFijos" idValue="g3inversionActivosFijos" nameValue="g3inversionActivosFijos"
-                        [isRequired]="showInversion && showCirculante" errorText="empty_error"></app-input-currency>
+                        [isRequired]="showInversion && showCirculante" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced" 
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced" 
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.g2' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3inversionActivoCirculante']?.invalid"
                         controlName="g3inversionActivoCirculante" idValue="g3inversionActivoCirculante"
                         nameValue="g3inversionActivoCirculante" [isRequired]="showInversion && showCirculante"
-                        errorText="empty_error"></app-input-currency>
+                        errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
-                    <app-input-currency [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_requested.total_loan' | translate }}"
                         [error]="validate && formLineaResistir.controls['g3totalPrestamo']?.invalid"
                         controlName="g3totalPrestamo" idValue="g3totalPrestamo"
                         nameValue="g3totalPrestamo" [isRequired]="showInversion && showCirculante" 
-                        errorText="empty_error"></app-input-currency>
+                        errorText="empty_error"></app-input-number>
                 </div>
             </div>
         </div>
