@@ -469,7 +469,7 @@
         "paper": "Papel"
       },
       "interested_data": {
-        "title": "Datos del interesado"
+        "title": "Datos del solicitante"
       },
       "requester_data": {
         "title": "Datos del solicitante",
@@ -570,7 +570,10 @@
           "own_resources": "Recursos propios",
           "grants": "Subvenciones",
           "other_bank_financing": "Otra financiación bancaria",
-          "active_ivf": "Financiable IVF activo"
+          "active_ivf": "Financiable IVF activo",
+          "dialogActiveinf": {
+            "alert": "El importe del préstamo solicitado no podrá superar el 80% de la suma de la inversión en activos fijos."
+          }
         },
         "financing_assets": {
           "title": "Financiación prevista en activos circulantes",

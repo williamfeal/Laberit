@@ -1,11 +1,16 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Procedure } from 'src/app/models/procedure.model';
-import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { environment } from 'src/environments/environment';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpRequest
+  } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { Procedure } from 'src/app/models/procedure.model';
+import { TranslateService } from '@ngx-translate/core';
+import { UrlConstants } from 'src/app/utils/constants/url-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -107,7 +112,6 @@ export class ProceduresService {
   }
 //Devuelve el Pdf sin firmar
   public getRequest(draftId: string, token){
-    console.log(draftId, token);
     const data = this.http.get(`${this.request_URL}${draftId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

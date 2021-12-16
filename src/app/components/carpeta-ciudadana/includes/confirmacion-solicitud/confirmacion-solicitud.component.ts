@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { DraftsService } from 'src/app/services/acli-service/drafts.service';
-import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
 import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentarPopUp.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ProceduresService } from 'src/app/services/moges-services/procedures.service';
+import { Subject } from 'rxjs';
+import { SwalUtils } from 'src/app/utils/swal-utils';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-confirmacion-solicitud',
@@ -12,14 +13,14 @@ import { FirmarYPresentarPopUp } from '../firmarYpresentarPopUp/firmarYpresentar
   styleUrls: ['./confirmacion-solicitud.component.scss']
 })
 export class ConfirmacionSolicitudComponent implements OnInit {
-  base64Request: string;
-  base64Resum: string;
+  public base64Request: string;
+  public base64Resum: string;
   public data64: boolean = false;
   public dataR64: boolean = false;
   public registerCode: string;
   public info: any;
 
-  procedure;
+  public procedure;
   public tokenValido: string;
   private unsubscribe$ = new Subject<void>();
   
@@ -31,14 +32,11 @@ export class ConfirmacionSolicitudComponent implements OnInit {
     this.procedureService.getProcedureById(sessionStorage.getItem('idProcedure')).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => {this.procedure = data
-      console.log(data)
-      }
+      data => this.procedure = data
     )
    }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem("draftId"));
     this.procedureService.getToken().subscribe((data)=>{
       this.getRegisterCodec(data.accessToken);
       console.log(data);
@@ -52,10 +50,15 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   
   getRegisterCodec(token){
     this.procedureService.getRegisterCodec(localStorage.getItem("draftId"), token).subscribe((data)=>{
-     this.registerCode = data;
-     this.getReceipt(token);
+      this.registerCode = data;
+      this.getReceipt(token);
       this.getDemand(token);
-      console.log('draftId----->' + data);
+    },
+    err => {
+      SwalUtils.showErrorAlert(
+        'Error',
+        'Ha habido un problema guardando la solicitud. Si el error persiste, contacte con el administrador.'
+      )
     })
   }
   
@@ -63,8 +66,9 @@ export class ConfirmacionSolicitudComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-    viewDoc(docBase64: string){
-      const dialogConfig = new MatDialogConfig();
+    
+  public viewDoc(docBase64: string){
+    const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.disableClose = true;
     dialogConfig.width = '90%';
@@ -73,18 +77,20 @@ export class ConfirmacionSolicitudComponent implements OnInit {
       base64: docBase64,
       showButtons: false 
     };
-    const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
-    }
-    getReceipt(token){
-      this.procedureService.getRegisterReceipt(this.registerCode, token).subscribe((data)=>{
-          this.base64Request = data;
-          this.dataR64=true;
-      })
-    }
-    getDemand(token){
-      this.procedureService.getSignedRequest(this.registerCode, token).subscribe((data)=>{
-        this.base64Resum = data;
-        this.data64=true;
-      })
-    }
+    this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+  }
+  
+  private getReceipt(token){
+    this.procedureService.getRegisterReceipt(this.registerCode, token).subscribe((data)=>{
+        this.base64Request = data;
+        this.dataR64 = true;
+    })
+  }
+
+  private getDemand(token){
+    this.procedureService.getSignedRequest(this.registerCode, token).subscribe((data)=>{
+      this.base64Resum = data;
+      this.data64 = true;
+    })
+  }
 }

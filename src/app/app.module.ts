@@ -81,7 +81,7 @@ import { BreadcrumbModule } from 'angular-crumbs';
   },
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpFilter, 
-      multi: true },
+      multi: true }
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

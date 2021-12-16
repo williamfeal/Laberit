@@ -1,4 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppUtils } from 'src/app/utils/app-utils';
 import { CarpetaService } from 'src/app/services/acli-service/carpeta.service';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,6 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { AppUtils } from 'src/app/utils/app-utils';
 
 @Component({
   selector: 'app-aceptation',
@@ -67,11 +67,9 @@ export class AceptationComponent implements OnInit {
         takeUntil(this.unsubscribe$)
       ).pipe().subscribe(
         (data: Concept[]) => {
-          console.log(data);
           this.manifestations = data.filter((dates)=>{
             return dates.concept_code !== 'manifestations-types-autonomous-07'
           });
-          console.log(this.manifestations);
         }
       )
     }
