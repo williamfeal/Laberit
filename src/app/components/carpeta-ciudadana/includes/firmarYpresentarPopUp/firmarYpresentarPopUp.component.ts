@@ -58,7 +58,6 @@ export class FirmarYPresentarPopUp implements OnInit {
             this.draft = data;
             this.draftAdjuntarDoc = JSON.parse(data.info);
             this.fileList = this.draftAdjuntarDoc;
-            console.log(this.fileList)
           } else {
             this.setDraft();
           }
@@ -91,8 +90,9 @@ export class FirmarYPresentarPopUp implements OnInit {
           this.draft.producto, 'forms:documents', this.draft.key, '');
 
         this.draftService.saveDraft(draft).subscribe(
-          () =>{ 
+          () => { 
             this.dialogRef.close(false);
+            console.log(this.fileList)
             this.router.navigate(['carpeta-del-ciudadano/confirmacion'], {
             queryParams: { draft: this.draft.key }
           })}
