@@ -9,7 +9,6 @@ import { isEmptyObject } from 'jquery';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { CurrencyPipe } from '@angular/common';
 import { AppUtils } from '../../../../utils/app-utils';
 
 @Component({
@@ -40,8 +39,7 @@ export class InputCurrencyComponent implements OnInit {
   private deleting: boolean = false;
   private unsubscribe$ = new Subject<void>();
   constructor(
-    private translateService: TranslateService,
-    private currencyPipe: CurrencyPipe
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
