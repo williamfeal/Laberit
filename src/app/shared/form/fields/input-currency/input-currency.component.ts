@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { CurrencyPipe } from '@angular/common';
+import { AppUtils } from '../../../../utils/app-utils';
 
 @Component({
   selector: 'app-input-currency',
@@ -83,8 +84,7 @@ export class InputCurrencyComponent implements OnInit {
     This method transfor the text into field to currency value
   */
   private transformationToValueCurrency(value: any) {
-    let texto: string = value + '';
-    texto = texto.replace(/\D/g, '').replace(/^0+/, '');
+    let numero = AppUtils.formatCurrencyToNumber(value + '');
     this.form.get(this.controlName).patchValue(
       new Intl.NumberFormat('es-ES', {
         style: 'currency',
@@ -92,7 +92,7 @@ export class InputCurrencyComponent implements OnInit {
         minimumIntegerDigits: 1,
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
-      }).format(Number(texto)),
+      }).format(Number(numero)),
       { emitEvent: false }
     );
   }
