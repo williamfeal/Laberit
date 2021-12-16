@@ -14,6 +14,8 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { AppUtils } from 'src/app/utils/app-utils';
+import { MatDialog } from '@angular/material/dialog';
+import { Aceptation } from './dialog-aceptation/aceptation.component';
 
 @Component({
   selector: 'app-aceptation',
@@ -45,7 +47,8 @@ export class AceptationComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private carpetaService:CarpetaService,
     private draftService:DraftsService,
-    public appUtils: AppUtils
+    public appUtils: AppUtils,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -152,6 +155,12 @@ export class AceptationComponent implements OnInit {
         queryParams: { draft: this.draft.key }
       })
     )    
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(Aceptation, {
+      width: '1250px',
+    });
   }
 
   ngOnDestroy(): void {
