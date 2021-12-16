@@ -50,7 +50,7 @@ import { SociedadCivilComponent } from './includes/adjuntar-documento/sociedadCi
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 import { ActiveIVF } from './tramites/linea-resistir/detail-cost-financed/dialog-activeIVF/activeIVF.component';
-import { Aceptation } from './aceptation/dialog-aceptation/aceptation.component';
+import { Aceptation } from './aceptation/dialog-data-protection/data-protection.component';
 
 
 

@@ -29,7 +29,7 @@
                 <span class="font-weight-bold mt-3">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
                 </span>
-                <div *ngFor="let data of data_protection_mandatory" class="form-check">
+                <div *ngFor="let data of data_protection_mandatory" class="form-check mt-3">
                    <app-checkbox [form]="formAceptation" [isRequired]="true"
                     [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
                     [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
