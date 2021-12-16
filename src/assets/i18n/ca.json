@@ -161,6 +161,7 @@
       "procedure_name": "Nom del tràmit",
       "info": "Informació",
       "online": "En línia",
+      "tramit": "Tramitar",
       "face": "Presencial",
       "description": "Descripció",
       "destinataries": "Destinataris",
@@ -171,7 +172,6 @@
       "associatedDocs": "Documents associats",
       "contact": "Contacte",
       "online_transaction": "Tramitació",
-      "online_transaction_text": "Per a procedir a la tramitació en línia prema sobre el següent enllaç. Haver de disposar d'un certificat electrònic, ja siga expedit per qualsevol entitat certificadora reconeguda en tot el territori nacional, amb el DNI electrònic o a través del sistema d'autenticació Cl@ve",
       "transact": "Tramitar",
       "procedure_not_available": "Tràmit no disponible",
       "procedure_not_available_text1": "Aquesta opció no està disponible en aquests moments.",
@@ -404,7 +404,7 @@
           "paper": "Paper"
         },
         "interested_data": {
-          "title": "Dades de l'interessat"
+          "title": "Dades del sol·licitant"
         },
         "requester_data": {
           "title": "Dades del sol·licitant",
@@ -506,7 +506,10 @@
             "own_resources": "Recursos propis",
             "grants": "Subvencions",
             "other_bank_financing": "Un altre finançament bancari",
-            "active_ivf": "Finançable IVF actiu"
+            "active_ivf": "Finançable IVF actiu",
+            "dialogActiveinf": {
+              "alert": "Import del préstec sol·licitat no pot superar el 80% de la suma de la inversió en actius fixos."
+            }
           },
           "financing_assets": {
             "title": "Finançament previst en actius circulants",

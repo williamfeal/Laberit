@@ -193,7 +193,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   private callRepresenta() {
     this.carpetaService.canRepresentativeProcedure(
-      this.formUserIdentification.controls.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+      this.formUserIdentification.controls.representative_data.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
         if(data === true ) {
           this.checkBusinessRuleCompanyType();
@@ -202,8 +202,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         } else {
           SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
         }
-      }
-    )
+      },
+      err => SwalUtils.showErrorAlert('', 'Ha habido un error comprobando el poder de representación. Si el error persiste, contacte con el administrador.'));
   }
 
   private checkBusinessRuleCompanyType() {

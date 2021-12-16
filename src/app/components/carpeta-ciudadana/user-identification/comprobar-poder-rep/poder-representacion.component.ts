@@ -26,6 +26,8 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
     errorCharacterLeng: string = 'empty_error';
     public type = 'interested'; 
 
+    public showSpinner:boolean = false;
+    
     constructor(    
       private carpetaService:CarpetaService,
       private cdr:ChangeDetectorRef
@@ -43,7 +45,8 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
   
   
   public callRepresenta() {
-    this.carpetaService.canRepresentativeProcedure(this.formRepresentativePower.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
+    this.showSpinner = true;
+    this.carpetaService.canRepresentativeProcedure(this.formRepresentativeData.value.represented_data_nif, sessionStorage.getItem('nifTitular')).subscribe(
       data => {
         if(data === true) {
           SwalUtils.showSuccessAlert('', 'Se ha validado el poder de representación con éxito')
@@ -52,6 +55,11 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
         } else {
           SwalUtils.showErrorAlert('', 'Ha habido un error interno. Si el error persiste, contacte con el administrador.')
         }
+        this.showSpinner = false;
+      },
+      err => {
+        SwalUtils.showErrorAlert('', 'Ha habido un error comprobando el poder de representación. Si el error persiste, contacte con el administrador.') 
+        this.showSpinner = false;
       });
   }
 }

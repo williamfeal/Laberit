@@ -1,4 +1,5 @@
 <div class="card">
+    <app-spinner *ngIf="showSpinner"></app-spinner>
     <div class="card-header background-card-header pb-0">
         <div class="card-title">
             <strong>
@@ -15,7 +16,7 @@
     controlName="representation_power"
     idValue="representation_power"
     nameValue="representation_power"
-    value="Representante legal"
+    value="Representante"
     [isRequired]="type == 'ivf-applicant-types-representantive'"
     isReadOnly="true"
     [error]="validate && formRepresentativePower.controls['ivf-applicant-types-representantive']?.invalid"
