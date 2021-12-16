@@ -63,7 +63,7 @@
             <div class="col-md-12 mt-2">
                 <app-legal-representative [validate]="validate" [draft]="draftUserIdentification" [emailErrorLegal]="emailErrorLegalRepresnt"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
-                    [isRequired]="representative" [readOnly]="readOnlyView"></app-legal-representative>
+                    [isRequired]="representative && position_contact" [readOnly]="readOnlyView"></app-legal-representative>
             </div>
         </div>
         <div class="row mx-0">
@@ -77,7 +77,7 @@
     <br>
     <div class="foot-buttons">
     <div class="text-right px-3">
-        <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
+        <button class="btn-app-primary mr-2" type="submit"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  showErrors == false}"></i>{{ 'buttons.continue' | translate}}</button>
     </div>
 </div>
 </form>
