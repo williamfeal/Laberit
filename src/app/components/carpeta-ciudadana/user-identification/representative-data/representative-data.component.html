@@ -178,20 +178,20 @@
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
-                    <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    <app-input-currency placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
                         controlName="represented_data_active" idValue="represented_data_active"
                         [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_active"
-                        [isReadOnly]="readOnly"></app-input-number>
+                        [isReadOnly]="readOnly"></app-input-currency>
                 </div>
                 <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() || comunidadBienes }">
-                    <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    <app-input-currency placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
                         controlName="represented_data_turnover" idValue="represented_data_turnover"
                         [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_turnover"
-                        [isReadOnly]="readOnly"></app-input-number>
+                        [isReadOnly]="readOnly"></app-input-currency>
                 </div>
             </div>
         </div>
