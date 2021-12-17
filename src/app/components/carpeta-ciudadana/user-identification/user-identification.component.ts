@@ -57,6 +57,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   public checked: boolean;
   public position_contact: boolean;
   public viewMyRequest: string = 'solicitante';
+  public representativeLabel: string = 'Representante';
 
   public textError;
   public draft:Draft;
@@ -165,9 +166,17 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     }                         
   }
 
-  onChangeBusinessTypeOutput(event) {
+  onChangeBusinessTypeOutput(event: any) {
     //Eliminate the 'position' field in "Contact details" when the company type is Anonimus
     this.position_contact = event === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS ? false : true;
+  }
+
+  onChangebusinessTypeData(event: any){
+    if(event === ConceptConstants.REPRESENTATIVE_TYPES_JURIDIC_PERSON){
+      this.representativeLabel = 'Representante legal';
+    }else{
+      this.representativeLabel = 'Representante';
+    }    
   }
 
   public goToRequestInfo() {
