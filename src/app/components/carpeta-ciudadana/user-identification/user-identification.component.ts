@@ -292,13 +292,22 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       (data: Decision) => {
         if (data.decision) {
           this.saveDraftAndNavigate();
-          this.isLoading = false;
+          //this.isLoading = false;
         } else {
-          SwalUtils.showErrorAlert(
-            'Error',
-            data.motive
-          )
-          this.isLoading = true;
+          // SwalUtils.showErrorAlert(
+          //   'Error',
+          //   data.motive
+          // )
+          // this.isLoading = true;
+          this.showErrors = true;
+          Swal.fire({
+            title:  'Error',
+            text: data.motive,
+          }).then((result)=>{
+            if(result.isConfirmed){
+              this.showErrors = false;
+            }
+          })
         }
 
       }
