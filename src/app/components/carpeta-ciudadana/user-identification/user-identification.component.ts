@@ -284,11 +284,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       cifraNegocio: turnover || 0,
       numEmpleados: num_empleados || 0
     };
-<<<<<<< HEAD
     const rule: BusinessRule = {
-=======
-    const rule:BusinessRule = {
->>>>>>> 659bd416be998cb28d37201a2051a7a867e83fa7
       tableKey: "reglasTipoEmpresa",
       body: ruleBody
     }

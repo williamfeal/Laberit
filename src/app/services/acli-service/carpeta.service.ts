@@ -37,7 +37,12 @@ export class CarpetaService {
     }));
   }
   public getRequestList():Observable<RequestList> {
-    const refreshToken = this.http.get(this.URL_REQUEST_LIST, this.headerInterceptor);
+    const refreshToken = this.http.get(this.URL_REQUEST_LIST, { 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.token}`,
+      })
+    });
     return refreshToken.pipe(map((response:RequestList) => {
       return response;
     })).pipe(catchError((err: Error) => {
