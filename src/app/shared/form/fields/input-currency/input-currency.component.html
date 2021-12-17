@@ -5,6 +5,7 @@
         [formControlName]="controlName"
         [name]="nameValue"
         (keydown)="validateKeyDown($event)"
+        maxlength="31"
         (change)="onChangeValue()" 
         [(ngModel)]="value"
         [placeholder]="placeholder"
