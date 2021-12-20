@@ -26,7 +26,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
                 <app-representative-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
-                    [isRequired]="representative" [draft]="draftUserIdentification" [position]="position_contact"
+                    [isRequired]="representative" [draft]="draftUserIdentification" [position]="position_contact" (businessTypeData)="onChangebusinessTypeData($event)"
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
@@ -41,7 +41,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
                 <app-poder-representacion [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
-                [formRepresentativeData]="formUserIdentification.controls.representative_data"
+                [formRepresentativeData]="formUserIdentification.controls.representative_data" [representativeLabel]="representativeLabel"
                  [formRepresentativePower]="formUserIdentification.controls.representative_power" [readOnly]="readOnlyView"></app-poder-representacion>
             </div>
         </div>

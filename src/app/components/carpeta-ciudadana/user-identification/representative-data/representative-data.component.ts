@@ -38,6 +38,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   @Input() position: boolean;
   @Input() public emailErrorContact: boolean;
   @Output() public businessTypeOutput = new EventEmitter<string>();
+  @Output() public businessTypeData = new EventEmitter<string>();
 
   errorCharacterLeng: string = 'empty_error';
   errorNif: string = 'nif_error';
@@ -106,12 +107,14 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public representativeTypeChange(event: string) {
     this.businessType=[];
     this.representativeTypeSelected = event;
+    this.businessTypeData.emit(this.representativeTypeSelected);
   
     this.catalogService.getCatalogByCode(this.representativeTypeSelected).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.businessType = AppUtils.sortConceptsAlphabetically(data)
-    )
+      (data:any) => {
+        this.businessType = AppUtils.sortConceptsAlphabetically(data);
+      });
   }
 
   private getCNAEoptions() {

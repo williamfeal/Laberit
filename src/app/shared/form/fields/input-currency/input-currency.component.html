@@ -1,0 +1,15 @@
+<form [formGroup]="form" autocomplete="off">
+    <label for="nameValue">{{ label }} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </label>
+    <input type="text" class="form-control" 
+        [id]="idValue"
+        [formControlName]="controlName"
+        [name]="nameValue"
+        (keydown)="validateKeyDown($event)"
+        maxlength="31"
+        (change)="onChangeValue()" 
+        [(ngModel)]="value"
+        [placeholder]="placeholder"
+        [readOnly]="isReadOnly"
+        [ngClass]="{ 'error-input': error == true }">    
+        <p class="error-p" *ngIf='error' [innerHTML]="textError"></p>    
+</form>
