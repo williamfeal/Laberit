@@ -235,7 +235,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           this.checkBusinessRuleCompanyType();
       } else {
         this.showErrors = true;
-        // SwalUtils.showErrorAlert(this.textError.title, this.textError.text)
         Swal.fire({
           title: this.textError.title,
           text: this.textError.text,
@@ -292,13 +291,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       (data: Decision) => {
         if (data.decision) {
           this.saveDraftAndNavigate();
-          //this.isLoading = false;
         } else {
-          // SwalUtils.showErrorAlert(
-          //   'Error',
-          //   data.motive
-          // )
-          // this.isLoading = true;
           this.showErrors = true;
           Swal.fire({
             title:  'Error',
