@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { TokenModel } from 'src/app/models/token.model';
 import { UrlConstants } from 'src/app/utils/constants/url-constants';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
+import { RequestList } from 'src/app/models/request-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class CarpetaService {
   private URL_REFRESH_TOKEN = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + '/login' + UrlConstants.ENDPOINT_REFRESH_TOKEN;
   private URL_SEND_FIRMA =  environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_USER_LOGIN;
   private URL_CAN_PROCEDURE = environment.atencion_cliente_url + UrlConstants.API_SUFFIX + UrlConstants.ENDPOINT_REPRESENTA_CAN_PROCEDURE;
+  private URL_REQUEST_LIST = environment.atencion_cliente_url + UrlConstants.ENDPOINT_REQUEST_LIST;
 
   private headerInterceptor =  {headers: {useInterceptor:"true"} };
   constructor(
@@ -34,7 +36,15 @@ export class CarpetaService {
       throw err;
     }));
   }
-
+  public getRequestList():Observable<RequestList> {
+    const refreshToken = this.http.get(this.URL_REQUEST_LIST, this.headerInterceptor);
+    return refreshToken.pipe(map((response:RequestList) => {
+      return response;
+    })).pipe(catchError((err: Error) => {
+      console.error(AppConstants.ERROR_LOAD_LOGGED_USER, err);
+      throw err;
+    }));
+  }
   public refreshToken():Observable<TokenModel> {
     const refreshToken = this.http.get(this.URL_REFRESH_TOKEN, { headers: {
       Authorization: 'Bearer ' + sessionStorage.getItem('token_user'),

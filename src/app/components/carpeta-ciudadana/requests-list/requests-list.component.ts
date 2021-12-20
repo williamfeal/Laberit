@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Draft } from 'src/app/models/draft.model';
 import { DraftsService } from './../../../services/acli-service/drafts.service';
 import { Router } from '@angular/router';
+import { RequestList } from 'src/app/models/request-list.model';
 
 @Component({
   selector: 'app-requests-list',
@@ -20,11 +21,17 @@ export class RequestsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getRequestList();
     this.draftService.getDrafts().subscribe(
       (data:Draft[]) => {
         this.drafts = data
       }
     )
+  }
+  public getRequestList(){
+    this.carpetaService.getRequestList().subscribe((data: RequestList)=>{
+      console.log(data);
+    })
   }
 
   public navToRequestDraft(draft:Draft) {
