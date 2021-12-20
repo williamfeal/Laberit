@@ -21,18 +21,18 @@ export class RequestsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getRequestList();
+    //this.getRequestList();
     this.draftService.getDrafts().subscribe(
       (data:Draft[]) => {
         this.drafts = data
       }
     )
   }
-  public getRequestList(){
-    this.carpetaService.getRequestList().subscribe((data: RequestList)=>{
-      console.log(data);
-    })
-  }
+  // public getRequestList(){
+  //   this.carpetaService.getRequestList().subscribe((data: RequestList)=>{
+  //     console.log(data);
+  //   })
+  // }
 
   public navToRequestDraft(draft:Draft) {
     localStorage.setItem("ReadOnly", "false");
