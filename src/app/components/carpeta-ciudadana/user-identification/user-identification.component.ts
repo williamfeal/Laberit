@@ -288,8 +288,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
     const ruleBody: BusinessRuleBodyCompanyType = {
       tipoEmpresa: company_type,
-      activo: AppUtils.formatCurrencyToNumber(activo) || 0,
-      cifraNegocio: AppUtils.formatCurrencyToNumber(turnover) || 0,
+      activo: activo || 0,
+      cifraNegocio: turnover || 0,
       numEmpleados: num_empleados || 0
     };
     const rule: BusinessRule = {

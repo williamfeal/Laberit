@@ -112,7 +112,7 @@ export class ProceduresService {
   }
 //Devuelve el Pdf sin firmar
   public getRequest(draftId: string, token){
-    const data = this.http.get(`${this.request_URL}${draftId}`, {
+    const data = this.http.get(`${this.request_URL}${draftId}?lang=${localStorage.getItem('lang')}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -133,7 +133,7 @@ export class ProceduresService {
   }
  //Devuelve el codigo del registro para poder sacar el justificante y el resumen de la solicitud
   public getRegisterCodec(draftId: string, token){
-    const data = this.http.get(`${this.resum_URL}${draftId}`, {
+    const data = this.http.get(`${this.resum_URL}${draftId}?lang=${localStorage.getItem('lang')}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`

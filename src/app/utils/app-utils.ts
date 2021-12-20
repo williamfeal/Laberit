@@ -102,22 +102,7 @@ export class AppUtils implements OnInit {
       if(a.description < b.description) { return -1; }
       if(a.description > b.description) { return 1; }
       return 0;
-    })
-  }
-
-  /**
-   * This method tranform value String to Number
-   * @param value the value to convert
-   * @returns the value converted
-   */
-   public static formatCurrencyToNumber(value: any): number {
-    if (value) {
-      let texto = value + '';
-      texto = texto.replace(/\D/g, '').replace(/^0+/, '');
-      return Number(texto);
-    }else{
-      return 0;
-    }
-  }
+  })
+}
 
 }
