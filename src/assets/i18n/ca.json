@@ -437,11 +437,11 @@
           "birth_date": "Data de naixement",
           "constitution_date": "Data de constitució",
           "genre": "Gènere",
-          "active": "Actiu",
-          "turnover": "Xifra de negoci",
+          "active": "Import del balanç de l'últim exercici tancat",
+          "turnover": "Ventes de l'últim exercici tancat",
           "group_belong": "Pertany a grup",
           "telephone": "Telèfon",
-          "ownGroup": "Pertany al grup",
+          "ownGroup": "Pertany a un grup empresarial",
           "businessType": "Tipus d'empresa"
         },
         "social_address": {
