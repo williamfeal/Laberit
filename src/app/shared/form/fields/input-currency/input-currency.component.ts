@@ -10,6 +10,11 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { AppUtils } from '../../../../utils/app-utils';
+import { CurrencyPipe } from '@angular/common';
+
+import { registerLocaleData } from '@angular/common';
+import localeDe from "@angular/common/locales/de";
+registerLocaleData(localeDe, 'de');
 
 @Component({
   selector: 'app-input-currency',
@@ -39,7 +44,8 @@ export class InputCurrencyComponent implements OnInit {
   private deleting: boolean = false;
   private unsubscribe$ = new Subject<void>();
   constructor(
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private currencyPipe: CurrencyPipe
   ) {}
 
   ngOnInit(): void {
@@ -83,16 +89,8 @@ export class InputCurrencyComponent implements OnInit {
   */
   private transformationToValueCurrency(value: any) {
     let numero = AppUtils.formatCurrencyToNumber(value + '');
-    this.form.get(this.controlName).patchValue(
-      new Intl.NumberFormat('es-ES', {
-        style: 'currency',
-        currency: 'EUR',
-        minimumIntegerDigits: 1,
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      }).format(Number(numero)),
-      { emitEvent: false }
-    );
+    this.form.get(this.controlName).patchValue(this.currencyPipe.transform(numero,'EUR','symbol-narrow','1.0-0','de'),{ emitEvent: false });
+
   }
 
   onChangeValue() {

@@ -24,7 +24,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ProceduresModule } from './components/procedures/procedures.module';
 import { ProceduresService } from './services/moges-services/procedures.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CurrencyPipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -81,7 +81,8 @@ import { BreadcrumbModule } from 'angular-crumbs';
   },
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpFilter, 
-      multi: true }
+      multi: true },
+      CurrencyPipe
   ],
   bootstrap: [AppComponent],
   exports: [ TranslateModule ]

@@ -61,7 +61,7 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_social_reason']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-text>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3" >
                 <app-input-text-nif placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.nif' | translate }}"
@@ -69,6 +69,35 @@
                     [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
                 </app-input-text-nif>
             </div>
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': position == true}">
+                <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.instance.interested.telephone' | translate }}"
+                    controlName="represented_data_telephone" idValue="represented_data_telephone"
+                    nameValue="represented_data_telephone" [isRequired]="isRequired"
+                    [isReadOnly] = "readOnly"
+                    [value]=""
+                    [negativos]="negativos"
+                    [error]="validate && formRepresentativeData.controls['represented_data_telephone']?.invalid"
+                    errorText="empty_error"></app-input-number>
+            </div>
+           
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': position == true}">
+                <app-input-text (change)="capturarCorreo($event.target.value)"
+                    [form]="formRepresentativeData"
+                    [draft]="draftRepresentativeData"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                    label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
+                    controlName="contact_email" 
+                    idValue="contact_email" 
+                    nameValue="contact_email"
+                    [isMail]="true"
+                    [isReadOnly]="readOnly" 
+                    [isRequired]="isRequired"
+                    [error]="validate && formRepresentativeData.controls['contact_email']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-text>
+            </div>
+
             <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
                 <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
@@ -181,7 +210,7 @@
                     <app-input-currency placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.active' | translate }}"
-                        controlName="represented_data_active" idValue="represented_data_active" [maxLength]="15"
+                        controlName="represented_data_active" idValue="represented_data_active"
                         [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_active"
                         [isReadOnly]="readOnly"></app-input-currency>
                 </div>
@@ -189,7 +218,7 @@
                     <app-input-currency placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                         [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                         label="{{ 'carpeta_ciudadana.identification.represented_data.turnover' | translate }}"
-                        controlName="represented_data_turnover" idValue="represented_data_turnover" [maxLength]="15"
+                        controlName="represented_data_turnover" idValue="represented_data_turnover"
                         [isRequired]="isRequired && !comunidadBienes" nameValue="represented_data_turnover"
                         [isReadOnly]="readOnly"></app-input-currency>
                 </div>

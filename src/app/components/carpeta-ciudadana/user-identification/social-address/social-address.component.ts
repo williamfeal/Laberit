@@ -89,8 +89,8 @@ sendInfo(date2: boolean){
       takeUntil(this.unsubscribe$)
     ).subscribe(
       data => {
-        this.paises = AppUtils.sortConceptsAlphabetically(data)
-        this.getSpainCountries()
+        this.paises = AppUtils.sortConceptsAlphabetically(data);
+        this.getSpainCountries();
       }
     )
   }

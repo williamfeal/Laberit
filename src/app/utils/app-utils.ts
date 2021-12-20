@@ -8,37 +8,39 @@ declare function getBase64Certificate();
 declare function signDocumentByCertificate(document);
 
 @Component({
-  template: '',
+  template: ''
 })
+
 export class AppUtils implements OnInit {
+
   public documentSigned = '';
   private previousUrl: string = undefined;
   private currentUrl: string = undefined;
-
-  constructor(
-    private ngZone: NgZone,
+  
+  constructor(private ngZone: NgZone,
     private router: Router,
-    private location: Location
-  ) {
+    private location: Location) {
     this.currentUrl = this.router.url;
-    router.events.subscribe((event) => {
+    router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.previousUrl = this.currentUrl;
         this.currentUrl = event.url;
-      }
+
+      };
     });
   }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+  }
 
   public getSign(): Promise<string> {
     window['appUtilsReference'] = { component: this, zone: this.ngZone };
     getBase64Certificate();
     return new Promise((resolve, reject) => {
       const listener = setInterval(() => {
-        if (sessionStorage.getItem('b64Certificate') != 'null') {
+        if (sessionStorage.getItem("b64Certificate") != 'null') {
           clearInterval(listener);
-          resolve(sessionStorage.getItem('b64Certificate'));
+          resolve(sessionStorage.getItem("b64Certificate"));
         }
       }, 500);
     });
@@ -92,19 +94,15 @@ export class AppUtils implements OnInit {
    * @return validation code ( > 0 = Correct - < 0 = Incorrect)
    */
   public static callCheckNif(nif: string): number {
-    return checkNif(nif);
+  return checkNif(nif);
   }
 
-  public static sortConceptsAlphabetically(data: SelectFieldObject[]) {
-    return data.sort(function (a, b) {
-      if (a.description < b.description) {
-        return -1;
-      }
-      if (a.description > b.description) {
-        return 1;
-      }
+  public static sortConceptsAlphabetically(data:SelectFieldObject[]) {
+    return data.sort(function(a, b){
+      if(a.description < b.description) { return -1; }
+      if(a.description > b.description) { return 1; }
       return 0;
-    });
+    })
   }
 
   /**
@@ -112,7 +110,7 @@ export class AppUtils implements OnInit {
    * @param value the value to convert
    * @returns the value converted
    */
-  public static formatCurrencyToNumber(value: any): number {
+   public static formatCurrencyToNumber(value: any): number {
     if (value) {
       let texto = value + '';
       texto = texto.replace(/\D/g, '').replace(/^0+/, '');
@@ -121,4 +119,5 @@ export class AppUtils implements OnInit {
       return 0;
     }
   }
+
 }
