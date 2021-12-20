@@ -1,6 +1,6 @@
 <app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana><app-button-back></app-button-back>
 <div class="container-fluid">
-    <div class="mb-3">
+    <div class="mb-3" *ngIf="info">
             <div class="p-0">
                 <div class="presentada p-2">
                     <div class="mb-0">
@@ -15,7 +15,9 @@
                     </h1>
                     <div class="col-sm-3  pt-3 pb-3">
                         {{ 'carpeta_ciudadana.confirmation.interested' | translate }}
-                        <div class=""></div>
+                        <div class="">
+                            {{info.tercero.personaNombre}} {{info.tercero.personaApellido1}} {{info.tercero.personaApellido2}}
+                        </div>
                     </div>
                     <div class="col-sm-2"></div>
                     <h1 class="col-sm-1">
@@ -23,7 +25,9 @@
                     </h1>
                     <div class="col-sm-3 pt-3 pb-3">
                         {{ 'carpeta_ciudadana.confirmation.date' | translate }}
-                        <div class=""></div>
+                        <div class="">
+                            {{info.tercero.fechaPresentado | date}}
+                        </div>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>

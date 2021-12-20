@@ -6,7 +6,6 @@
 <app-breadcrum *ngIf="procedure" 
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <form [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
-    <!-- <div class="container"> -->
     <div class="row mx-0 mt-2">
         <div class="col-md-6">
             <app-identity-data [readOnly]="true" [user]="user"
@@ -27,7 +26,7 @@
         <div class="row mx-0">
             <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
                 <app-representative-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
-                    [isRequired]="representative" [draft]="draftUserIdentification"
+                    [isRequired]="representative" [draft]="draftUserIdentification" [position]="position_contact"
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
@@ -59,11 +58,11 @@
                     [readOnly]="readOnlyView"></app-productive-establishment-address>
             </div>
         </div>
-        <div class="row mx-0" [ngClass]="{ 'd-none': representative == false}">
+        <div class="row mx-0" [ngClass]="{ 'd-none': representative == false || position_contact == false }">
             <div class="col-md-12 mt-2">
                 <app-legal-representative [validate]="validate" [draft]="draftUserIdentification" [emailErrorLegal]="emailErrorLegalRepresnt"
                     [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
-                    [isRequired]="representative" [readOnly]="readOnlyView"></app-legal-representative>
+                    [isRequired]="representative && position_contact" [readOnly]="readOnlyView"></app-legal-representative>
             </div>
         </div>
         <div class="row mx-0">
@@ -77,9 +76,8 @@
     <br>
     <div class="foot-buttons">
     <div class="text-right px-3">
-        <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
+        <button class="btn-app-primary mr-2" type="submit"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  showErrors == false}"></i>{{ 'buttons.continue' | translate}}</button>
     </div>
 </div>
-<!-- </div> -->
 </form>
 </div>

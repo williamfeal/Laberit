@@ -18,6 +18,7 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   public data64: boolean = false;
   public dataR64: boolean = false;
   public registerCode: string;
+  public info: any;
 
   public procedure;
   public tokenValido: string;
@@ -38,6 +39,8 @@ export class ConfirmacionSolicitudComponent implements OnInit {
   ngOnInit(): void {
     this.procedureService.getToken().subscribe((data)=>{
       this.getRegisterCodec(data.accessToken);
+      console.log(data);
+      this.info = data;
     })
   
     this.draftService.getDraftById(localStorage.getItem("draftId")+ ':forms:formConfirmation').subscribe((data)=>{

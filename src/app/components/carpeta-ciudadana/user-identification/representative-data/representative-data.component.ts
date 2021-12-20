@@ -1,4 +1,4 @@
-import { AppConstants } from 'src/app/utils/constants/app-constants';
+import { AppConstants, EMAIL_REGEX } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { BussinesType } from './dialog-bussinesType/bussinesType.component';
 import { CarpetaService } from './../../../../services/acli-service/carpeta.service';
@@ -35,7 +35,8 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   @Input() isRequired: boolean;
   @Input() negativos: boolean = true;
   @Input() draft:any;
-
+  @Input() position: boolean;
+  @Input() public emailErrorContact: boolean;
   @Output() public businessTypeOutput = new EventEmitter<string>();
 
   errorCharacterLeng: string = 'empty_error';
@@ -184,7 +185,13 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
       width: '1250px',
     });
   }
-
+  capturarCorreo(ev) {
+    if (ev.match(EMAIL_REGEX) == null) {
+      this.emailErrorContact = true;
+    } else {
+      this.emailErrorContact = false;
+    }
+  }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
