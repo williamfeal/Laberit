@@ -22,6 +22,7 @@ export class PoderRepresentacionComponent implements OnInit, OnChanges {
     @Input() draft:any;
     @Input() isRequired: boolean;
     @Input() readOnly: boolean;
+    @Input() representativeLabel:string;
 
     errorCharacterLeng: string = 'empty_error';
     public type = 'interested'; 
