@@ -9,12 +9,12 @@ import {
   } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
-import { isEmptyObject } from 'jquery';
 import { InfoSocialAddress } from './infoEnvio-model';
+import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
-import { Subject } from 'rxjs';
 import { startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -62,7 +62,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
     this.subject.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe((text: any) => { 
+      console.log(text)
       this.onChangeSpainCountry(text.social_province);
+      this.onChangeMunicipy(text.social_municipality);
       this.infos = text;
       if(this.infos){
         this.countrySelected = this.countriesSpain;   
@@ -154,6 +156,7 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   }
 
   public onChangeSpainCountry(event) {
+    this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(event);
     this.catalogsService.getCatalogByCode(event).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -161,11 +164,13 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
     )
   }
 
+  public onChangeMunicipy(event) {
+    this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(event);
+
+  }
+
   public onChangeCountry(event) {
     this.countrySelected = event;
-    this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(this.infos.social_province);
-    this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(this.infos.social_municipality);
-
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
