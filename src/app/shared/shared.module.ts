@@ -20,6 +20,7 @@ import { HowElectronicCertificateComponent } from './footer/how-electronic-certi
 import { TechnicalRequirementsComponent } from './footer/technical-requirements/technical-requirements.component';
 import { GenericStaticHelpComponent } from './generic-static-help/generic-static-help.component';
 import { InputNumberComponent } from './form/fields/input-number/input-number.component';
+import { InputCurrencyComponent } from './form/fields/input-currency/input-currency.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HelpHomeComponent } from './footer/help-home/help-home.component';
@@ -57,6 +58,7 @@ registerLocaleData(localeCa, 'ca-ES');
     InputSelectComponent,
     InputTextAreaComponent,
     InputNumberComponent,
+    InputCurrencyComponent,
     InputDocumentComponent,
     ContactPopoverComponent,
     HeaderSearchComponent,
@@ -74,7 +76,7 @@ registerLocaleData(localeCa, 'ca-ES');
     SafePipe,
     LocalizedDatePipe,
     CheckboxComponent,
-    BreadcrumComponent
+    BreadcrumComponent,
   ],
   imports: [
     CommonModule,
@@ -114,7 +116,8 @@ registerLocaleData(localeCa, 'ca-ES');
     ConfirmationRadioButtonComponent,
     SafePipe,
     CheckboxComponent,
-    BreadcrumComponent
+    BreadcrumComponent,
+    InputCurrencyComponent
   ],
   providers: [
     WeatherService,
