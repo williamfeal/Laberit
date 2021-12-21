@@ -73,7 +73,7 @@
                 <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.instance.interested.telephone' | translate }}"
                     controlName="represented_data_telephone" idValue="represented_data_telephone"
-                    nameValue="represented_data_telephone" [isRequired]="isRequired"
+                    nameValue="represented_data_telephone" [isRequired]="isRequired && !isJuridicPerson()"
                     [isReadOnly] = "readOnly"
                     [value]=""
                     [negativos]="negativos"
@@ -92,7 +92,7 @@
                     nameValue="contact_email"
                     [isMail]="true"
                     [isReadOnly]="readOnly" 
-                    [isRequired]="isRequired"
+                    [isRequired]="isRequired && !isJuridicPerson()"
                     [error]="validate && formRepresentativeData.controls['contact_email']?.invalid"
                     [errorText]="errorCharacterLeng">
                 </app-input-text>
