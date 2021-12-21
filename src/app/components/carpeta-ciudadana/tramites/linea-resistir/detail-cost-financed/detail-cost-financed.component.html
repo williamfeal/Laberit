@@ -79,21 +79,21 @@
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.ground' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1terrenos']?.invalid" [isReadOnly]="readOnly"
-                        controlName="g1terrenos" idValue="g1terrenos" nameValue="g1terrenos" [isRequired]="showInversion"
+                        controlName="g1terrenos" idValue="g1terrenos" nameValue="g1terrenos" [isRequired]="false"
                          [draft]="draftDetailCostFinanced" errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.properties' | translate }}"
                         controlName="g1inmuebles" idValue="g1inmuebles" nameValue="g1inmuebles" [draft]="draftDetailCostFinanced"
-                        [error]="validate && formLineaResistir.controls['g1inmuebles']?.pristine" [isReadOnly]="readOnly"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
+                        [error]="validate && formLineaResistir.controls['g1inmuebles']?.invalid" [isReadOnly]="readOnly"
+                        [isRequired]="false"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir"
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.machinery' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1maquinaria']?.invalid" [draft]="draftDetailCostFinanced"
-                        controlName="g1maquinaria" idValue="g1maquinaria" nameValue="g1maquinaria" [isRequired]="showInversion" [isReadOnly]="readOnly"
+                        controlName="g1maquinaria" idValue="g1maquinaria" nameValue="g1maquinaria" [isRequired]="false" [isReadOnly]="readOnly"
                          errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
@@ -101,7 +101,7 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.investment.installation' | translate }}"
                         [error]="validate && formLineaResistir.controls['g1instalaciones']?.invalid" [isReadOnly]="readOnly"
                         controlName="g1instalaciones" idValue="g1instalaciones" nameValue="g1instalaciones" [draft]="draftDetailCostFinanced"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
+                        [isRequired]="false"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
@@ -120,13 +120,13 @@
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.own_resources' | translate }}"
                         controlName="recursosPropios" idValue="recursosPropios" nameValue="recursosPropios"
                         [error]="validate && formLineaResistir.controls['recursosPropios']?.invalid" [isReadOnly]="readOnly"
-                        [isRequired]="showInversion"  errorText="empty_error"></app-input-number>
+                        [isRequired]="false"  errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
                     <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
                         label="{{ 'carpeta_ciudadana.request_info.financing.financing_fixed.grants' | translate }}"
                         [error]="validate && formLineaResistir.controls['subvenciones']?.invalid" [isReadOnly]="readOnly"
-                        controlName="subvenciones" idValue="subvenciones" nameValue="subvenciones" [isRequired]="showInversion" 
+                        controlName="subvenciones" idValue="subvenciones" nameValue="subvenciones" [isRequired]="false" 
                         errorText="empty_error"></app-input-number>
                 </div>
                 <div class="form-group col-md-3">
