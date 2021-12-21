@@ -74,49 +74,12 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
     });
    
 }
-    // this.formProductiveEstablishment.valueChanges.pipe(
-    //   takeUntil(this.unsubscribe$)
-    // ).subscribe(()=>{
-  //     if(this.formProductiveEstablishment.controls['productive_establishment_country']) {
-  // debugger
-  //     }
-  //     setTimeout(()=>{
-  //       this.muni = this.infos.social_municipality ;
-  //       this.prov = this.infos.social_province;
-  //       if(this.muni && this.prov){
-  //       this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(this.infos.social_province);
-  //     this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(this.infos.social_municipality);
-  //       }
-  //     }, 2000)
-      
-    // })
-  
   
 
   private loadData() {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
-    // this.subject.pipe(
-    //   takeUntil(this.unsubscribe$)
-    // ).subscribe((text: any) => { 
-    //   this.onChangeSpainCountry(text.social_province);
-    //   this.infos = text;
-    //   if(this.infos){
-    //     this.countrySelected = this.countriesSpain;   
-    //   } 
-    // });
-    // this.formProductiveEstablishment.valueChanges.pipe(
-    //   takeUntil(this.unsubscribe$)
-    // ).subscribe(()=>{
-    //   setTimeout(()=>{
-    //     this.muni = this.infos.social_municipality ;
-    //     this.prov = this.infos.social_province;
-    //   }, 2000)
-      
-    // })
-    
-    
   }
 
   ngOnChanges(changes:SimpleChanges) {
