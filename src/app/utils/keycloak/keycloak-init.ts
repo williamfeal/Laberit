@@ -17,7 +17,7 @@ export function initializer(keycloak: KeycloakService): () => Promise<any> {
           },
           bearerExcludedUrls: []
         });
-        resolve();
+        resolve(true);
       } catch (error) {
         reject(error);
         console.error(error);

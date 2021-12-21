@@ -165,7 +165,7 @@ var unicode = {};
       }
       if (m == LetrasNIF[l2])
       {
-        if ( paramString == "00000001R" || paramString == "00000000T" || paramString == "99999999R") {
+        if ( paramString == "00000001R" || paramString == "00000000T") {// || paramString == "99999999R" SE RETIRA DEL IF PARA PODER HACER PRUEBAS, PERO NO ES DIFINITIVO
           return -1;
         }
         return 1;
