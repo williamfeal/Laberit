@@ -9,12 +9,12 @@ import {
   } from '@angular/core';
 import { ConceptConstants } from 'src/app/utils/constants/concept-constants';
 import { FormGroup } from '@angular/forms';
-import { isEmptyObject } from 'jquery';
 import { InfoSocialAddress } from './infoEnvio-model';
+import { isEmptyObject } from 'jquery';
 import { LanguagesService } from './../../../../services/moges-services/language.service';
 import { SelectFieldObject } from 'src/app/shared/form/fields/input-select/input-select';
+import { startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -22,7 +22,6 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './productive-establishment-address.component.html'
 })
 export class ProductiveEstablishmentAddressComponent implements OnInit, OnChanges {
-
   @Input() formProductiveEstablishment: FormGroup;
   @Input() readOnly: boolean;
   @Input() validate: boolean = false;
@@ -51,7 +50,9 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   constructor(
     private catalogsService:CatalogsService,
     private languageService:LanguagesService
-  ) { }
+  ) {
+    
+   }
 
   ngOnInit(): void {
     this.loadData();
@@ -61,53 +62,24 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
     this.subject.pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe((text: any) => { 
+      console.log(text)
       this.onChangeSpainCountry(text.social_province);
+      this.onChangeMunicipy(text.social_municipality);
       this.infos = text;
       if(this.infos){
+        this.countrySelected = this.countriesSpain;   
         this.formProductiveEstablishment.controls['productive_establishment_via_type'].setValue(this.infos.via_type);
         this.formProductiveEstablishment.controls['productive_establishment_country'].setValue(this.infos.social_country);
-        this.countrySelected = this.countriesSpain;   
       } 
     });
-    this.formProductiveEstablishment.valueChanges.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(()=>{
-      setTimeout(()=>{
-        this.muni = this.infos.social_municipality ;
-        this.prov = this.infos.social_province;
-        if(this.muni && this.prov){
-        this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(this.infos.social_province);
-      this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(this.infos.social_municipality);
-        }
-      }, 2000)
-      
-    })
-  }
+   
+}
+  
 
   private loadData() {
     this.getRoadTypes();
     this.getCountries();
     this.getSpainCountries();
-    this.subject.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe((text: any) => { 
-      this.onChangeSpainCountry(text.social_province);
-      this.infos = text;
-      if(this.infos){
-        this.countrySelected = this.countriesSpain;   
-      } 
-    });
-    this.formProductiveEstablishment.valueChanges.pipe(
-      takeUntil(this.unsubscribe$)
-    ).subscribe(()=>{
-      setTimeout(()=>{
-        this.muni = this.infos.social_municipality ;
-        this.prov = this.infos.social_province;
-      }, 2000)
-      
-    })
-    
-    
   }
 
   ngOnChanges(changes:SimpleChanges) {
@@ -147,11 +119,17 @@ export class ProductiveEstablishmentAddressComponent implements OnInit, OnChange
   }
 
   public onChangeSpainCountry(event) {
+    this.formProductiveEstablishment.controls['productive_establishment_province'].setValue(event);
     this.catalogsService.getCatalogByCode(event).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
       data => this.municipios = AppUtils.sortConceptsAlphabetically(data)
     )
+  }
+
+  public onChangeMunicipy(event) {
+    this.formProductiveEstablishment.controls['productive_establishment_municipality'].setValue(event);
+
   }
 
   public onChangeCountry(event) {

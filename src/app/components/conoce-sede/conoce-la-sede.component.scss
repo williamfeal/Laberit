@@ -4,12 +4,14 @@
 }
 
 .activado {
-  color: blue !important
+  color: #c8102e !important;
+  font-weight: bold;
 }
 
 .nav-link {
   background: none!important;
   border: none;
-  color: #069;
+  color: black;
   text-align: left !important;
+  text-transform: uppercase;
 }

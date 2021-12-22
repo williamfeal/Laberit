@@ -39,6 +39,7 @@ export class UrlConstants {
     public static readonly ENDPOINT_RECIBO = '/api/v1/registro/recibo/';
     public static readonly ENDPOINT_SOLICITUD = '/api/v1/registro/solicitud/';
     public static readonly ENDPOINT_TOKEN_VALIDAR = '/api/v1/login/validar';
+    public static readonly ENDPOINT_REQUEST_LIST= '/api/v1/trex/solicitudes';
 
     public static readonly ENDPOINT_REPRESENTA_CAN_PROCEDURE = '/representa/puedeRealizarTramite';
 

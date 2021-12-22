@@ -34,10 +34,11 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   @Input() public emailErrorContact: boolean;
   @Input() draft:any;
   @Input() position: boolean;
+  @Input() isChecked: boolean = false;
+  @Input() isCheckedDates: boolean = true;
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
-  @Input() isChecked: boolean;
   public showInputs: boolean = true;
 
   public provincias: SelectFieldObject[];
@@ -64,11 +65,15 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
     this.languageService.lang.subscribe(
       () => this.loadData()
     )
+    this.formContactData.valueChanges.subscribe((data)=>{
+      if(data.contact_data_country == 'countries-españa'){
+        this.countrySelected = 'countries-españa';
+      }
+    })
   }
 
   private loadData() {
     this.getCountries();
-    this.getSpainCountries();
     this.getRoadTypes();
   }
 
@@ -87,12 +92,15 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
     }
     //Validation: when the company type is Anonimus, the "cargo" field is removed
     this.position_contact = changes.position.currentValue;
+    
   }
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();
   }
-
+  sendBool(even: boolean){
+    this.isChecked = even;
+  }
   private getRoadTypes() {
     this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).pipe(
       takeUntil(this.unsubscribe$)
@@ -105,11 +113,14 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
-      data => this.paises = AppUtils.sortConceptsAlphabetically(data)
+      data => {this.paises = AppUtils.sortConceptsAlphabetically(data);
+        this.getSpainCountries();
+      }
     )
   }
 
   private getSpainCountries() {
+    console.log('asdadasdasd');
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -126,6 +137,7 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   }
 
   public onChangeCountry(event) {
+    console.log('asd');
     this.countrySelected = event;
   }
 
