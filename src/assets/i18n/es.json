@@ -563,7 +563,8 @@
           "properties": "Inmuebles y construcciones",
           "machinery": "Maquinaria y utillaje",
           "installation": "Instalaciones",
-          "others": "Otros"
+          "others": "Otros",
+          "totalInvestmentAssets": "Total inversión en activos"
         },
         "financing_fixed": {
           "title": "Financiación prevista en activos fijos",
@@ -571,6 +572,7 @@
           "grants": "Subvenciones",
           "other_bank_financing": "Otra financiación bancaria",
           "active_ivf": "Financiable IVF activo",
+          "totalPlannedFinancing": "Total financiación prevista",
           "dialogActiveinf": {
             "alert": "El importe del préstamo solicitado no podrá superar el 80% de la suma de la inversión en activos fijos."
           }

@@ -50,6 +50,9 @@ export class DetailCostFinancedComponent implements OnInit {
     public errorCharacterLeng: string = 'empty_error';
 
     public draftDetailCostFinanced;
+    public totalInvestmentAssets: number;
+    public totalPlannedFinancing: number;
+    public sowInputsTotalActivos: boolean;
 
     public showInformationPopUp: boolean;
 
@@ -81,6 +84,12 @@ export class DetailCostFinancedComponent implements OnInit {
     ngOnInit() { 
         this.getApplicantTypes();
         this.getCountries();
+
+        if(sessionStorage.getItem('idProcedure') == ConceptConstants.LINEA_AFIN_INVIERTE_MICRO){
+          this.sowInputsTotalActivos = true;
+        }else{
+          this.sowInputsTotalActivos = false;
+        }
     }
 
     private getApplicantTypes() {
@@ -156,6 +165,25 @@ export class DetailCostFinancedComponent implements OnInit {
         width: '450px',
       });
     }
+
+    onChangeTotalInvestmentAssets(event){
+      let ground = this.formLineaResistir.controls.g1terrenos.value == undefined ? 0 : this.formLineaResistir.controls.g1terrenos.value;
+      let properties = this.formLineaResistir.controls.g1inmuebles.value == undefined ? 0 : this.formLineaResistir.controls.g1inmuebles.value;
+      let machinery = this.formLineaResistir.controls.g1maquinaria.value == undefined ? 0 : this.formLineaResistir.controls.g1maquinaria.value;
+      let installation = this.formLineaResistir.controls.g1instalaciones.value == undefined ? 0 : this.formLineaResistir.controls.g1instalaciones.value;
+      let others = this.formLineaResistir.controls.g1otros.value == undefined ? 0 : this.formLineaResistir.controls.g1otros.value;
+      this.totalInvestmentAssets = ground + properties + machinery + installation + others;
+    }
+
+    onChangeTotalFinanciacionPrevista(event){
+      let own_resources = this.formLineaResistir.controls.recursosPropios.value == undefined ? 0 : this.formLineaResistir.controls.recursosPropios.value;
+      let grants = this.formLineaResistir.controls.subvenciones.value == undefined ? 0 : this.formLineaResistir.controls.subvenciones.value;
+      let other_bank_financing = this.formLineaResistir.controls.otraFinBancaria.value == undefined ? 0 : this.formLineaResistir.controls.otraFinBancaria.value;
+      let active_ivf = this.formLineaResistir.controls.activoIVF.value == undefined ? 0 : this.formLineaResistir.controls.activoIVF.value;
+      this.totalPlannedFinancing = own_resources + grants + other_bank_financing + active_ivf;
+    }
+
+    onChangeProperties
 
     ngOnDestroy(): void {
         this.unsubscribe$.next();

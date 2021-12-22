@@ -101,6 +101,17 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '', terminal: true }
     ]}
     },
+    { path: 'carpeta-del-ciudadano/afin-invierte-micro', 
+    component: LineaResistirComponent, 
+    canActivate: [AuthGuardService],
+    data: {
+      menu : false,
+      breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '', terminal: true }
+    ]}
+    },
     { path: 'carpeta-del-ciudadano/adjuntar', 
     component: AdjuntarDocComponent, 
     canActivate: [AuthGuardService],
