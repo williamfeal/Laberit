@@ -26,10 +26,13 @@
                     ></app-confirmation-radio-button>
                 </div>
                 <hr>
-                <i class="fas fa-info-circle icon-float" (click)="openDialog()" *ngIf="validateDialogDataProtection()"></i>
-                <span class="font-weight-bold mt-3">
-                    {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
-                </span>
+                <div class="col-md-2">
+                    <i class="fas fa-info-circle icon-float" (click)="openDialog()" *ngIf="validateDialogDataProtection()" style="left: -30px;"></i>
+                    <span class="font-weight-bold mt-3">
+                        {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
+                    </span>
+                </div>
+                
                 <div *ngFor="let data of data_protection_mandatory" class="form-check mt-3">
                    <app-checkbox [form]="formAceptation" [isRequired]="true"
                     [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
