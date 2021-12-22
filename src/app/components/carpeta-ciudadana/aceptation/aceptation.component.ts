@@ -165,7 +165,15 @@ export class AceptationComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
   return() {
     this.appUtils.return();
-}
+  }
+
+  validateDialogDataProtection(): boolean{
+    if(sessionStorage.getItem('idProcedure') === ConceptConstants.LINEA_AFIN_INVIERTE_MICRO){
+      return true;
+    }
+    return false;
+  }
 }

@@ -26,7 +26,7 @@
                     ></app-confirmation-radio-button>
                 </div>
                 <hr>
-                <i class="fas fa-info-circle icon-float" (click)="openDialog()"></i>
+                <i class="fas fa-info-circle icon-float" (click)="openDialog()" *ngIf="validateDialogDataProtection()"></i>
                 <span class="font-weight-bold mt-3">
                     {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
                 </span>
