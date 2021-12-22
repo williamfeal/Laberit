@@ -67,7 +67,9 @@
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2">
-                <app-contact-data [position]="position_contact" [isChecked]="checked" [validate]="validate" [emailErrorContact]="emailErrorContact" [formContactData]="formUserIdentification.controls.contact_data"
+                <app-contact-data [position]="position_contact" [isChecked]="checked" [validate]="validate" 
+                    [emailErrorContact]="emailErrorContact" (changeChecked)="onChangeChecked($event)"
+                    [formContactData]="formUserIdentification.controls.contact_data"
                     [interesado]="interested" [readOnly]="readOnlyView" [draft]="draftUserIdentification">
                 </app-contact-data>
             </div>

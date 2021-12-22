@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   AfterViewChecked,
@@ -8,7 +9,7 @@ import {
   OnChanges,
   OnInit,
   SimpleChanges
-} from '@angular/core';
+  } from '@angular/core';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { BusinessRule } from './../../../models/business-rules.model';
 import { BusinessRuleBodyAddress, BusinessRuleBodyCompanyType } from './../../../models/business-rules-body.model';
@@ -29,7 +30,6 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-identification',
@@ -37,7 +37,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user-identification.component.scss'],
 })
 export class UserIdentificationComponent implements OnInit, AfterViewChecked {
-  isLoading: boolean = false;
+  public isLoading: boolean = false;
 
   public requesterType = '';
   public responseSubjectProductive = {}
@@ -117,11 +117,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     ).subscribe(
       text => {
         this.textError = text;
-      }
-    )
-
+      });
   }
-
 
   ngAfterViewChecked() {
     this.changeDetectorRef.detectChanges()
@@ -133,6 +130,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public isUserAutonomo(): boolean {
     return false;
+  }
+
+  public onChangeChecked(event) {
+    this.checked = event;
   }
 
   public getDraft() {
@@ -183,8 +184,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public goToRequestInfo() {
     let error = 0;
-    console.log(this.formUserIdentification);
+    this.changeDetectorRef.detectChanges();
     if (this.checked == true) {
+      this.formUserIdentification.controls['contact_data'].get('contact_email').setValue(this.formUserIdentification.value.notification_means.email);
+
       if (this.interested == true) {
         this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.interested_data.interested_data_name);
         this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.interested_data.interested_data_surname1);
@@ -197,12 +200,12 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
         this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
         this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
           this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
-        }, 1000)
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
-        }, 2000)
       }
       if (this.representative == true) {
         this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.representative_data.represented_data_nif);
@@ -222,12 +225,12 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
         this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
         this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
           this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
-        }, 1000)
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
-        }, 2000)
       }
     }
     if (this.procedure.rutaFormulario != 'instancia-general') {
