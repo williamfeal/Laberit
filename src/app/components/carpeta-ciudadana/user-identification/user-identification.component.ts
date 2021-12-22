@@ -86,6 +86,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
+
     this.formUserIdentification = new FormGroup({
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
@@ -121,6 +122,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
+    if(this.formUserIdentification.value.representative_data.businessType)
+      this.position_contact = 
+      this.formUserIdentification.value.representative_data.businessType === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS 
+        ? false : true;
     this.changeDetectorRef.detectChanges()
   }
 
@@ -184,10 +189,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public goToRequestInfo() {
     let error = 0;
-    this.changeDetectorRef.detectChanges();
     if (this.checked == true) {
       this.formUserIdentification.controls['contact_data'].get('contact_email').setValue(this.formUserIdentification.value.notification_means.email);
-
       if (this.interested == true) {
         this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.interested_data.interested_data_name);
         this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.interested_data.interested_data_surname1);
@@ -207,19 +210,14 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
           && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
       }
-      if (this.representative == true) {
+      else if (this.representative == true && this.position_contact == false) {
         this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.representative_data.represented_data_nif);
         this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.representative_data.represented_data_telephone);
         this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.sosial_address.via_type);
-        if (this.position_contact = true) {
-          this.formUserIdentification.controls['contact_data'].get('contact_position').setValue(this.formUserIdentification.value.representative_data.contact_position);
-          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_name);
-          this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.representative_data.represented_data_surname1);
-          this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.representative_data.represented_data_surname2);
-        } else {
-          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_social_reason);
-
-        }
+        this.formUserIdentification.controls['contact_data'].get('contact_position').setValue(this.formUserIdentification.value.representative_data.contact_position);
+        this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_name);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.representative_data.represented_data_surname1);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.representative_data.represented_data_surname2);
         this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.sosial_address.number);
         this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.sosial_address.address);
         this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
@@ -231,8 +229,28 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
           && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
+      } else if(this.representative == true && this.position_contact == true) {
+        this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.legal_representative.legal_representative_nif);
+        this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.legal_representative.legal_representative_telephone);
+        this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.legal_representative.legal_representative_via_type);
+        this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.legal_representative.legal_representative_name);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.legal_representative.legal_representative_surname1);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.legal_representative.legal_representative_surname2);
+        this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.legal_representative.legal_representative_number);
+        this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.legal_representative.legal_representative_address);
+        this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.legal_representative.legal_representative_extra);
+        this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.legal_representative.legal_representative_CP);
+        this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.legal_representative.legal_representative_country);
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
+          this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
+          this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
+  
       }
     }
+    console.log(this.formUserIdentification)
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
         this.validate = false;
