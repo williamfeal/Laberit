@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-10 text-center">
+        <h3 class="font-weight-bold ml-5">{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.title' | translate }}</h3>
+    </div>
+    <div class="col-md-2">
+        <i class="far fa-times-circle config-icon fa-2x" (click)="onCancel()"></i>
+    </div>
+</div>
+
+<mat-dialog-content>
+    <table class="table table-bordered">
+        <tr>
+            <th scope="row" colspan="4" >
+                <h4 class="font-weight-bold">{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.information' | translate }}</h4>
+            </th>
+        </tr>
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.responsible' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.responsible_text' | translate }}"></h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.purpose' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.purpose_text' | translate }}"></h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.conservation_period' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.conservation_period_text' | translate }}"></h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.legitimation' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.legitimation_text' | translate }}"></h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.addressees' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.addressees_text' | translate }}"></h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th>{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.rights' | translate }}</th>
+            <th>
+                <h5 class="text-justify" innerHTML="{{ 'carpeta_ciudadana.aceptation.dialog_data_protection.rights_text' | translate }}"></h5>
+            </th>
+        </tr>
+        
+    </table>
+</mat-dialog-content>

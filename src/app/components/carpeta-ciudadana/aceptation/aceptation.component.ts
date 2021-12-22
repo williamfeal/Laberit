@@ -14,6 +14,8 @@ import { ProceduresService } from 'src/app/services/moges-services/procedures.se
 import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Aceptation } from './dialog-data-protection/data-protection.component';
 
 @Component({
   selector: 'app-aceptation',
@@ -45,7 +47,8 @@ export class AceptationComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private carpetaService:CarpetaService,
     private draftService:DraftsService,
-    public appUtils: AppUtils
+    public appUtils: AppUtils,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -152,11 +155,25 @@ export class AceptationComponent implements OnInit {
     )    
   }
 
+  openDialog(): void {
+    this.dialog.open(Aceptation, {
+      width: '1250px',
+    });
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
   return() {
     this.appUtils.return();
-}
+  }
+
+  validateDialogDataProtection(): boolean{
+    if(sessionStorage.getItem('idProcedure') === ConceptConstants.LINEA_AFIN_INVIERTE_MICRO){
+      return true;
+    }
+    return false;
+  }
 }
