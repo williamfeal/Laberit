@@ -68,4 +68,8 @@ export class ConceptConstants {
     public static readonly DATA_PROTECTION_QUESTIONARY_OPTIONAL = 'data-protection-questionary-optional';
     public static readonly DATA_PROTECTION_QUESTIONARY_MANDATORY_PYME = 'data-protection-questionary-mandatory-PYME';
     public static readonly DATA_PROTECTION_QUESTIONARY_OPTIONAL_PYME = 'data-protection-questionary-optional-PYME';
+
+    //ID-PROCESS
+    public static readonly LINEA_RESISTIR = 'bed28de7-7096-4bad-b292-07503232b2b5';
+    public static readonly LINEA_AFIN_INVIERTE_MICRO = 'b3ad2ce7-d4b6-42a5-b83e-c38c1c1bdb47';
 }
