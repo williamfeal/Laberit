@@ -3,9 +3,11 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges
   } from '@angular/core';
 import { AppUtils } from 'src/app/utils/app-utils';
@@ -36,6 +38,8 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   @Input() position: boolean;
   @Input() isChecked: boolean = false;
   @Input() isCheckedDates: boolean = true;
+
+  @Output() changeChecked = new EventEmitter<boolean>();
 
   public errorCharacterLeng: string = 'empty_error';
   public errorNif: string = 'nif_error';
@@ -91,16 +95,19 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
       }
     }
     //Validation: when the company type is Anonimus, the "cargo" field is removed
-    this.position_contact = changes.position.currentValue;
+    if(changes.position) this.position_contact = changes.position.currentValue;
     
   }
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();
   }
-  sendBool(even: boolean){
-    this.isChecked = even;
+
+  public sendBool(event: boolean){
+    this.isChecked = event;
+    this.changeChecked.emit(event);
   }
+
   private getRoadTypes() {
     this.catalogService.getCatalogByCode(ConceptConstants.ROAD_TYPES).pipe(
       takeUntil(this.unsubscribe$)
@@ -120,7 +127,6 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   }
 
   private getSpainCountries() {
-    console.log('asdadasdasd');
     this.catalogService.getCatalogByCode(ConceptConstants.COUNTRIES_SPAIN).pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe(
@@ -137,16 +143,16 @@ export class ContactDataComponent implements OnInit, OnChanges, AfterContentChec
   }
 
   public onChangeCountry(event) {
-    console.log('asd');
     this.countrySelected = event;
   }
 
-  public checkValue() {
-  }
+  public checkValue() { }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
   capturarCorreo(ev) {
     if (ev.match(EMAIL_REGEX) == null) {
       this.emailErrorContact = true;

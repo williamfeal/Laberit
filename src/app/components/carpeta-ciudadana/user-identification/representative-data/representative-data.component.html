@@ -81,9 +81,9 @@
                     errorText="empty_error"></app-input-number>
             </div>
            
-            <div class="form-group col-md-3" [ngClass]="{ 'd-none': position == true}">
+            <div class="form-group col-md-3" >
                 <app-input-text (change)="capturarCorreo($event.target.value)"
-                    [form]="formRepresentativeData"
+                    [form]="formRepresentativeData" [ngClass]="{ 'd-none': position == true}"
                     [draft]="draftRepresentativeData"
                     placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
