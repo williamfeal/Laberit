@@ -16,7 +16,7 @@ import { CatalogsAfinService } from 'src/app/services/catalogs/catalogAfin.servi
   
   @Component({
     selector: 'app-micro-empresa-afin',
-    templateUrl: './microEmpresa-afin.component.html'
+    templateUrl: './microempresa-afin.component.html'
   })
   export class MicroEmpresaAfinComponent implements OnInit {
     @Input() fileListMi: FileModel[] = [];
