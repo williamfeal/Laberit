@@ -37,7 +37,8 @@ export class CarpetaService {
     }));
   }
   public getRequestList():Observable<RequestList> {
-    const refreshToken = this.http.get(this.URL_REQUEST_LIST, this.headerInterceptor);
+    console.log(sessionStorage);
+    const refreshToken = this.http.get(`${this.URL_REQUEST_LIST}/${sessionStorage.getItem('nifTitular')}`, this.headerInterceptor);
     return refreshToken.pipe(map((response:RequestList) => {
       return response;
     })).pipe(catchError((err: Error) => {

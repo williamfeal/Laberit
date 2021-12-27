@@ -51,6 +51,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 import { ActiveIVF } from './tramites/linea-resistir/detail-cost-financed/dialog-activeIVF/activeIVF.component';
 import { Aceptation } from './aceptation/dialog-data-protection/data-protection.component';
+import { AceptationAfinComponent } from './aceptation-afin/aceptation-afin.component';
+import { AdjuntarDocAfin } from './includes/adjuntar-doc-afin/adjuntar-doc-afin.component';
+import { AutonomAfinComponent } from './includes/adjuntar-doc-afin/autonoms-afin/autonoms-afin.component';
+import { ComunidadBienesAfinComponent } from './includes/adjuntar-doc-afin/comunidad-bienes-afin/comunidad-bienes-afin.component';
+import { MicroEmpresaAfinComponent } from './includes/adjuntar-doc-afin/microempresa-afin/microempresa-afin.component';
+import { PymeAfinComponent } from './includes/adjuntar-doc-afin/pyme-afin/pyme-afin.component';
+import { SociedadCivilAfinComponent } from './includes/adjuntar-doc-afin/sociedad-civil-afin/sociedad-civil-afin.component';
 
 
 
@@ -93,7 +100,14 @@ import { Aceptation } from './aceptation/dialog-data-protection/data-protection.
     BussinesType,
     EdicionSolicitudComponent,
     Aceptation,
-    ActiveIVF
+    ActiveIVF,
+    AceptationAfinComponent,
+    AdjuntarDocAfin,
+    AutonomAfinComponent,
+    ComunidadBienesAfinComponent,
+    MicroEmpresaAfinComponent,
+    PymeAfinComponent,
+    SociedadCivilAfinComponent
   ],
 
   entryComponents: [BussinesType, Aceptation,ActiveIVF],
