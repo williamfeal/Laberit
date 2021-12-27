@@ -72,4 +72,28 @@ export class ConceptConstants {
     //ID-PROCESS
     public static readonly LINEA_RESISTIR = 'bed28de7-7096-4bad-b292-07503232b2b5';
     public static readonly LINEA_AFIN_INVIERTE_MICRO = 'b3ad2ce7-d4b6-42a5-b83e-c38c1c1bdb47';
+
+
+    //afin 
+    //MANDATORY DOCUMENTS
+    public static readonly MANDATORY_DOCS_AFIN = 'mandatory-document-types';
+    public static readonly OPTIONAL_DOCS_AFIN = 'optional-document-types';
+    public static readonly TEMPLATES_DOCS_AFIN = 'document-templates';
+
+    public static readonly DOCS_AFIN_AUTONOMOUS = 'ivf-representative-types-physical-person-autonomous';
+    public static readonly DOCS_AFIN_COMUNITY = 'ivf-representative-types-juridic-person-community-of-goods';
+    public static readonly DOCS_AFIN_MICRO_BUSINESS = 'ivf-representative-types-juridic-person-micro-business';
+    public static readonly DOCS_AFIN_PYME = 'ivf-representative-types-juridic-person-pyme';
+    public static readonly DOCS_AFIN_CIVIL_SOCIETY = 'ivf-representative-types-juridic-person-civil-society';
+
+    //MANIFESTATIONS
+    public static readonly DOCS_AFIN_MANIFESTATION_TYPES = 'manifestation-types';
+
+    public static readonly DOCS_AFIN_MANIFESTATION_PYME = 'ivf-representative-types-juridic-person-pyme';
+    public static readonly DOCS_AFIN_MANIFESTATION_MICROEMPRESA = 'ivf-representative-types-juridic-person-micro-business';
+    public static readonly DDOCS_AFIN_MANIFESTATION_AUTONOMOUS = 'ivf-representative-types-physical-person-autonomous';
+    public static readonly DOCS_AFIN_MANIFESTATION_COMUNITY_OF_GODS = 'ivf-representative-types-juridic-person-community-of-goods';
+    public static readonly DOCS_AFIN_MANIFESTATION_CIVIL_SOCIETY = 'ivf-representative-types-juridic-person-civil-society';
+
+
 }

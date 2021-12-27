@@ -1,0 +1,56 @@
+<app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-spinner *ngIf="!procedure"></app-spinner>
+<div *ngIf="procedure">
+    <app-button-back></app-button-back>
+    <app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
+    <form  (ngSubmit)="validateForm()" [formGroup]="formAceptation">
+        <div class="mx-3 card mt-2">
+            <div class="card-header background-card-header pb-0">
+                <div class="card-title">
+                    <strong>
+                    <em class="fas fa-info-circle mr-3"></em>
+                    {{ 'carpeta_ciudadana.aceptation.manifestations_data_protection' | translate }}
+                </strong>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="font-weight-bold">
+                    {{ 'carpeta_ciudadana.aceptation.manifestations.title' | translate }}
+                </p>
+                <div *ngFor="let manifestation of manifestations; let i = index">
+                    <p class="mb-1 mt-3"> {{ manifestation.description }} <b class="requiredField">*</b></p>
+                    <app-confirmation-radio-button [form]="formAceptation" [isRequired]="isRequired" name="{{manifestation.concept_code}}" controlName
+                    [error]="validate &&  formAceptation.controls[manifestation.concept_code].pristine === true" 
+                    [draft]="draftFormAceptation"
+                    ></app-confirmation-radio-button>
+                </div>
+                <hr>
+                <div class="col-md-2">
+                    <i class="fas fa-info-circle icon-float" (click)="openDialog()" *ngIf="validateDialogDataProtection()"></i>
+                    <span class="font-weight-bold mt-3">
+                        {{ 'carpeta_ciudadana.aceptation.data_protection.title' | translate }}
+                    </span>
+                </div>
+                
+                <div *ngFor="let data of data_protection_mandatory" class="form-check mt-3">
+                   <app-checkbox [form]="formAceptation" [isRequired]="true"
+                    [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
+                    [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
+                </div>
+                <div *ngFor="let data of data_protection_optional" class="form-check">
+                    <app-checkbox [form]="formAceptation" [isRequired]="false"
+                     [name]="data.concept_code" [text]="data.description" [draft]="draftFormAceptation"
+                     [error]="validate &&  formAceptation.controls[data.concept_code].pristine === true"></app-checkbox>
+                 </div>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="foot-buttons">
+            <div class="text-right px-3">
+                <button class="btn-app-primary mr-2" type="submit">{{ 'buttons.continue' | translate}}</button>
+            </div>
+        </div>
+    </form>
+</div>

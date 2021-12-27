@@ -8,6 +8,8 @@ export class UrlConstants {
     
     public static readonly VIEW_TRANSACT = UrlConstants.ENDPOINT_CARPETA + '/transact';
     public static readonly VIEW_ADJUNTAR = UrlConstants.ENDPOINT_CARPETA + '/adjuntar';
+    public static readonly VIEW_ADJUNTAR_AFIN = UrlConstants.ENDPOINT_CARPETA + '/afin-adjuntar';
+
 
     /* API */
     public static readonly API_SUFFIX = '/api/v1'
@@ -32,6 +34,7 @@ export class UrlConstants {
     public static readonly ENDPOINT_CONCEPTS = '/concept'
     public static readonly ENDPOINT_GET_CONCEPT_BY_CODE = '/getConceptByCode';
     public static readonly ENDPOINT_GET_CATALOG_BY_CODE = '/getCatalogByCode';
+    public static readonly ENDPOINT_GET_CATALOG_BY_CODE_AND_CONCEPT = '/getCatalogByCodeAndConcept';
     public static readonly ENDPOINT_GET_DRAFT_BY_ID = '/getDraftById';
 
     public static readonly ENDPOINT_REQUEST = '/api/v1/registro/crear/';
