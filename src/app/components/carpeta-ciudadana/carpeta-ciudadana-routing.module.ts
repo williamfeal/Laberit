@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
 import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
+import { AdjuntarDocAfin } from './includes/adjuntar-doc-afin/adjuntar-doc-afin.component';
+import { AceptationAfinComponent } from './aceptation-afin/aceptation-afin.component';
 
 
 const routes:Routes = [
@@ -112,6 +114,31 @@ const routes:Routes = [
       { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '', terminal: true }
     ]}
     },
+    { path: 'carpeta-del-ciudadano/afin-adjuntar', 
+  component: AdjuntarDocAfin, 
+  canActivate: [AuthGuardService],
+  data: { 
+    menu : false,
+    breadcrumb:  [
+    { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
+    { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
+    { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano', my_request: true, terminal: false },
+    { title: 'carpeta_ciudadana.instance.docAdd', url: '', terminal: true },
+  ]},
+},
+  { path: 'carpeta-del-ciudadano/afin-aceptacion',
+    component: AceptationAfinComponent, 
+    canActivate: [AuthGuardService],
+    data: { 
+      menu : false,
+      breadcrumb:  [
+      { title: 'carpeta_ciudadana.title', url: '/inicio', terminal: false }, 
+      { title: 'carpeta_ciudadana.breadcrumb.applicant', url: '/carpeta-del-ciudadano/identificacion', idProcedure: true, terminal: false },
+      { title: 'carpeta_ciudadana.breadcrumb.my_request', url: '/carpeta-del-ciudadano',  my_request: true, terminal: false },
+      { title: 'carpeta_ciudadana.instance.docAdd', url: '/carpeta-del-ciudadano/adjuntar', terminal: false },
+      { title: 'carpeta_ciudadana.aceptation.title', url: '', terminal: true }
+    ]},
+  },
     { path: 'carpeta-del-ciudadano/adjuntar', 
     component: AdjuntarDocComponent, 
     canActivate: [AuthGuardService],
