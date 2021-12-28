@@ -353,7 +353,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         linea: infoProcedure.name,
         nif: sessionStorage.getItem('nifTitular'),
         producto: this.procedure.category.name,
-        fecha: ''
+        fecha: '',
+        nombre: sessionStorage.getItem('nombreTitular'),
       }
       this.draftService.saveDraft(draft).subscribe(
         data => {

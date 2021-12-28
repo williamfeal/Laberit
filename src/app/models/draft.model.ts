@@ -7,8 +7,9 @@ export class Draft {
     linea:string
     producto:string
     idInfo:string;
+    nombre: string;
 
-    constructor(nif:string, desc:string, info:string, linea:string, producto:string, idInfo:string, key?:string, fecha?:string) {
+    constructor(nif:string, desc:string, info:string, linea:string, producto:string, idInfo:string,nombre: string, key?:string, fecha?:string, ) {
         this.key = key;
         this.nif = nif;
         this.desc = desc;
@@ -17,6 +18,6 @@ export class Draft {
         this.linea = linea;
         this.producto = producto;
         this.idInfo = idInfo;
-
+        this.nombre = nombre
     }
 }
