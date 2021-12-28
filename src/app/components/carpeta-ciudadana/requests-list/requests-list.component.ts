@@ -44,6 +44,7 @@ export class RequestsListComponent implements OnInit {
   }
   public getRequestList(){
     this.carpetaService.getRequestList().subscribe((data: any)=>{
+      console.log(data);
       data.forEach(element => {
         let prod = element.tipoSol.descTipoSol.split('-');
         this.requestDraft.push(
