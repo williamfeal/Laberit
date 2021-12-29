@@ -2,10 +2,6 @@
 <app-button-back></app-button-back>
 <div class="mx-3">
     <div class="row justify-content-between">
-        <div class="mx-3 col-md-2">
-            <input type="checkbox" name="" id="">
-            <span> Ver solo "no leídas"</span>
-        </div>
         <div class="col-md-3">
             <div class="d-flex">
                 <input class="form-control mr-3" id="keywords" placeholder="Buscar" name="keywords" type="text">
@@ -30,31 +26,31 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let draft of drafts">
+            <tr *ngFor="let reqDraf of requestDraft">
                 <td>
-                    {{ draft.fecha | date: 'shortDate'}}
+                    {{ reqDraf.date | date: 'shortDate'}}
                 </td>
                 <td>
-                    
+                    {{ reqDraf.requestCode}}
                 </td>
                 <td>
-                    {{ draft.nif }}
+                    {{ reqDraf.interested }}
                 </td>
                 <td>
-                    {{ draft.linea }}
+                    {{ reqDraf.line }}
                 </td>
                 <td>
-                    {{ draft.producto }}
+                    {{ reqDraf.product }}
                 </td>
                 <td>
-                    Borrador
+                    {{ reqDraf.state}}
                 </td>
                 <td>
-                    <button (click)="navToRequestDraft(draft)"
+                    <button (click)="navToRequestDraft(reqDraf)" *ngIf="reqDraf.state == 'Borrador'"
                     class="btn btn-app-outline-primary rounded-circle btn-small">
                         <em class="fa fa-edit"></em>
                     </button>
-                    <button (click)="navToRequestViewDraft(draft)"
+                    <button (click)="navToRequestViewDraft(reqDraf)" *ngIf="reqDraf.state !== 'Borrador'"
                     class="btn btn-app-outline-primary rounded-circle btn-small">
                         <em class="fa fa-eye"></em>
                     </button>

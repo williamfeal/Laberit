@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   AfterViewChecked,
@@ -8,7 +9,7 @@ import {
   OnChanges,
   OnInit,
   SimpleChanges
-} from '@angular/core';
+  } from '@angular/core';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { BusinessRule } from './../../../models/business-rules.model';
 import { BusinessRuleBodyAddress, BusinessRuleBodyCompanyType } from './../../../models/business-rules-body.model';
@@ -29,7 +30,6 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { UserCertificado } from 'src/app/models/user-certificate.model';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-identification',
@@ -37,7 +37,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user-identification.component.scss'],
 })
 export class UserIdentificationComponent implements OnInit, AfterViewChecked {
-  isLoading: boolean = false;
+  public isLoading: boolean = false;
 
   public requesterType = '';
   public responseSubjectProductive = {}
@@ -86,6 +86,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
+
     this.formUserIdentification = new FormGroup({
       request_data: new FormGroup({}),
       identity_data: new FormGroup({}),
@@ -117,13 +118,14 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
     ).subscribe(
       text => {
         this.textError = text;
-      }
-    )
-
+      });
   }
 
-
   ngAfterViewChecked() {
+    if(this.formUserIdentification.value.representative_data.businessType)
+      this.position_contact = 
+      this.formUserIdentification.value.representative_data.businessType === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS 
+        ? false : true;
     this.changeDetectorRef.detectChanges()
   }
 
@@ -133,6 +135,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public isUserAutonomo(): boolean {
     return false;
+  }
+
+  public onChangeChecked(event) {
+    this.checked = event;
   }
 
   public getDraft() {
@@ -183,8 +189,8 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
 
   public goToRequestInfo() {
     let error = 0;
-    console.log(this.formUserIdentification);
     if (this.checked == true) {
+      this.formUserIdentification.controls['contact_data'].get('contact_email').setValue(this.formUserIdentification.value.notification_means.email);
       if (this.interested == true) {
         this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.interested_data.interested_data_name);
         this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.interested_data.interested_data_surname1);
@@ -197,39 +203,54 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
         this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
         this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
           this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
-        }, 1000)
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
-        }, 2000)
       }
-      if (this.representative == true) {
+      else if (this.representative == true && this.position_contact == false) {
         this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.representative_data.represented_data_nif);
         this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.representative_data.represented_data_telephone);
         this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.sosial_address.via_type);
-        if (this.position_contact = true) {
-          this.formUserIdentification.controls['contact_data'].get('contact_position').setValue(this.formUserIdentification.value.representative_data.contact_position);
-          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_name);
-          this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.representative_data.represented_data_surname1);
-          this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.representative_data.represented_data_surname2);
-        } else {
-          this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_social_reason);
-
-        }
+        this.formUserIdentification.controls['contact_data'].get('contact_position').setValue(this.formUserIdentification.value.representative_data.contact_position);
+        this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.representative_data.represented_data_name);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.representative_data.represented_data_surname1);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.representative_data.represented_data_surname2);
         this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.sosial_address.number);
         this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.sosial_address.address);
         this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.sosial_address.extra);
         this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.sosial_address.social_cp);
         this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.sosial_address.social_country);
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
           this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
-        }, 1000)
-        setTimeout(() => {
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
           this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
-        }, 2000)
+      } else if(this.representative == true && this.position_contact == true) {
+        this.formUserIdentification.controls['contact_data'].get('contact_nif').setValue(this.formUserIdentification.value.legal_representative.legal_representative_nif);
+        this.formUserIdentification.controls['contact_data'].get('contact_telephone').setValue(this.formUserIdentification.value.legal_representative.legal_representative_telephone);
+        this.formUserIdentification.controls['contact_data'].get('contact_via_type').setValue(this.formUserIdentification.value.legal_representative.legal_representative_via_type);
+        this.formUserIdentification.controls['contact_data'].get('contact_name').setValue(this.formUserIdentification.value.legal_representative.legal_representative_name);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname1').setValue(this.formUserIdentification.value.legal_representative.legal_representative_surname1);
+        this.formUserIdentification.controls['contact_data'].get('contact_surname2').setValue(this.formUserIdentification.value.legal_representative.legal_representative_surname2);
+        this.formUserIdentification.controls['contact_data'].get('contact_number').setValue(this.formUserIdentification.value.legal_representative.legal_representative_number);
+        this.formUserIdentification.controls['contact_data'].get('contact_address').setValue(this.formUserIdentification.value.legal_representative.legal_representative_address);
+        this.formUserIdentification.controls['contact_data'].get('contact_extra').setValue(this.formUserIdentification.value.legal_representative.legal_representative_extra);
+        this.formUserIdentification.controls['contact_data'].get('contact_CP').setValue(this.formUserIdentification.value.legal_representative.legal_representative_CP);
+        this.formUserIdentification.controls['contact_data'].get('contact_data_country').setValue(this.formUserIdentification.value.legal_representative.legal_representative_country);
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_province')
+          && this.formUserIdentification.value.sosial_address.social_province)
+          this.formUserIdentification.controls['contact_data'].get('contact_data_province').setValue(this.formUserIdentification.value.sosial_address.social_province);
+        if(this.formUserIdentification.controls['contact_data'].get('contact_data_municipality')
+          && this.formUserIdentification.value.sosial_address.social_municipality)
+          this.formUserIdentification.controls['contact_data'].get('contact_data_municipality').setValue(this.formUserIdentification.value.sosial_address.social_municipality);
+  
       }
     }
+    console.log(this.formUserIdentification)
     if (this.procedure.rutaFormulario != 'instancia-general') {
       if (this.formUserIdentification.valid) {
         this.validate = false;
@@ -332,8 +353,10 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         linea: infoProcedure.name,
         nif: sessionStorage.getItem('nifTitular'),
         producto: this.procedure.category.name,
-        fecha: ''
+        fecha: '',
+        nombre: sessionStorage.getItem('nombreTitular'),
       }
+      debugger
       this.draftService.saveDraft(draft).subscribe(
         data => {
           this.draft = data;
@@ -347,7 +370,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       language => language.codigo === localStorage.getItem('lang')
     );
     const draftUserIdentification: Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
-      infoProcedure.name, 'forms:formUserIdentification', this.draft.key, '');
+      infoProcedure.name, 'forms:formUserIdentification', this.draft.nombre, this.draft.key, '');
     this.draftService.saveDraft(draftUserIdentification).subscribe(
       () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
         queryParams: { draft: this.draft.key }

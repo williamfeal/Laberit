@@ -4,7 +4,7 @@
   <div class="centrar-izquierda ml-4 col-sm-3">
     <ul class="nav flex-column navbar-expand-lg shadow " role="tablist">
       <li *ngFor="let item of menuList" class="nav-item py-2 border-top w-100">
-        <a class="nav-link text-dark text-uppercase" [routerLink]="['/conoce-la-sede']"
+        <a class="nav-link" [routerLink]="['/conoce-la-sede']"
         [fragment]="item.url" [ngClass]="{ 'activado': item == categoria }"
         (click)="categoria = item">
         {{item.name}} </a>

@@ -1,0 +1,32 @@
+<div *ngIf="mandatoryDocs">
+    <app-input-document *ngFor="let doc of mandatoryDocs"
+      label="{{doc.description}}"
+      [form]="formAdjPyme"
+      controlName="documentNif"
+      [draft]="draft"
+      idValue="documentNif" 
+      [isRequired]="true"
+      idplantilla="{{doc.descriptionPlantilla}}"
+      errorText="document_error"
+      [error]="validate && formAdjPyme.controls[doc.concept_code].invalid"
+      fileExtension=",.pdf" 
+      (uploadFileDocument)="saveDocument($event)"
+      (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+  </div>
+  <div *ngIf="optionalDocs">
+    <app-input-document *ngFor="let doc of optionalDocs"
+      label="{{doc.description}}"
+      [form]="formAdjPyme"
+      controlName="documentNif"
+      [draft]="draft"
+      idValue="documentNif" 
+      [isRequired]="false"
+      idplantilla="{{doc.descriptionPlantilla}}"
+      errorText="document_error"
+      [error]="validate && formAdjPyme.controls[doc.concept_code].invalid"
+      fileExtension=",.pdf" 
+      (uploadFileDocument)="saveDocument($event)"
+      (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+  </div>

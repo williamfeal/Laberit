@@ -164,10 +164,12 @@ export class LineaResistirComponent implements OnInit {
             g1maquinaria: this.formLineaResistir.controls['g1maquinaria'].value || 0,
             g1instalaciones: this.formLineaResistir.controls['g1instalaciones'].value || 0,
             g1otros: this.formLineaResistir.controls['g1otros'].value || 0,
+            g1totalInvercionActivos: this.formLineaResistir.controls['g1totalInvercionActivos'].value || 0,
             recursosPropios: this.formLineaResistir.controls['recursosPropios'].value || 0,
             subvenciones: this.formLineaResistir.controls['subvenciones'].value || 0,
             otraFinBancaria: this.formLineaResistir.controls['otraFinBancaria'].value || 0,
             activoIVF: this.formLineaResistir.controls['activoIVF'].value || 0,
+            totalFinanciacionPrevista: this.formLineaResistir.controls['totalFinanciacionPrevista'].value || 0,
             g2importeFinanciarCirculante: this.formLineaResistir.controls['g2importeFinanciarCirculante'].value || 0,
             g2financiacionIVF: this.formLineaResistir.controls['g2financiacionIVF'].value || 0,
             porcentaje: 100,
@@ -199,11 +201,18 @@ export class LineaResistirComponent implements OnInit {
         const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formLineaResistir.value), this.procedure.category.name,
         infoProcedure.name, 'forms:formLineaResistir', this.draft.key, '');
 
+        if(this.procedure.rutaFormulario==="afin-invierte-micro"){
+            this.draftService.saveDraft(draft).subscribe(
+                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR_AFIN], { queryParams: { draft: this.draft.key }})
+            )
+        }else{
         this.draftService.saveDraft(draft).subscribe(
             () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
         )
+        }
         
     }
+
 
     public returnToDraft() {
         this.router.navigate(['/carpeta-del-ciudadano/identificacion'], {
