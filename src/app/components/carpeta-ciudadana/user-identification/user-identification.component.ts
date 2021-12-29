@@ -356,6 +356,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         fecha: '',
         nombre: sessionStorage.getItem('nombreTitular'),
       }
+      debugger
       this.draftService.saveDraft(draft).subscribe(
         data => {
           this.draft = data;
@@ -369,7 +370,7 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
       language => language.codigo === localStorage.getItem('lang')
     );
     const draftUserIdentification: Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formUserIdentification.value), this.procedure.category.name,
-      infoProcedure.name, 'forms:formUserIdentification', this.draft.key, '');
+      infoProcedure.name, 'forms:formUserIdentification', this.draft.nombre, this.draft.key, '');
     this.draftService.saveDraft(draftUserIdentification).subscribe(
       () => this.router.navigate(['carpeta-del-ciudadano/' + this.procedure.rutaFormulario], {
         queryParams: { draft: this.draft.key }
