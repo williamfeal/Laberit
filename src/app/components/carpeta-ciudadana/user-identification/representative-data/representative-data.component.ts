@@ -54,6 +54,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
   public representativeTypeSelected;
   public businessTypeSelected;
   public draftRepresentativeData;
+  public showEmailPhone: boolean = false;
 
   
   private unsubscribe$ = new Subject<void>();
@@ -177,6 +178,12 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     
     //Validation to show the fields "active, represent_data_turnover" according to type of company
     this.communityOfGoods = event === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? true : false;
+
+    if(event){
+      this.showEmailPhone = true;
+    }else{
+      this.showEmailPhone = false;
+    }
   }
 
   public isAutonum() {

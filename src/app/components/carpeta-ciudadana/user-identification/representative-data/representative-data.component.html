@@ -69,7 +69,7 @@
                     [isReadOnly]="readOnly" [isRequired]="isRequired" [error]="validate" [errorText]="errorNif">
                 </app-input-text-nif>
             </div>
-            <div class="form-group col-md-3" [ngClass]="{ 'd-none': position == true}">
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': position == true}" *ngIf="showEmailPhone">
                 <app-input-number [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.instance.interested.telephone' | translate }}"
                     controlName="represented_data_telephone" idValue="represented_data_telephone"
@@ -81,7 +81,7 @@
                     errorText="empty_error"></app-input-number>
             </div>
            
-            <div class="form-group col-md-3" >
+            <div class="form-group col-md-3"  *ngIf="showEmailPhone">
                 <app-input-text (change)="capturarCorreo($event.target.value)"
                     [form]="formRepresentativeData" [ngClass]="{ 'd-none': position == true}"
                     [draft]="draftRepresentativeData"
