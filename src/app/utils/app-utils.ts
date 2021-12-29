@@ -102,7 +102,16 @@ export class AppUtils implements OnInit {
       if(a.description < b.description) { return -1; }
       if(a.description > b.description) { return 1; }
       return 0;
-  })
-}
+    })
+  }
+
+  /**
+   * This method replace all break line into text param with spaces
+   * @param text text to replace break line with spaces
+   * @returns text witout break line
+   */
+  public static removeBreakLine(text:string):string{
+    return text.replace(/(\r\n|\n|\r)/gm, " ");
+  }
 
 }
