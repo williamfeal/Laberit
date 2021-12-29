@@ -201,11 +201,18 @@ export class LineaResistirComponent implements OnInit {
         const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formLineaResistir.value), this.procedure.category.name,
         infoProcedure.name, 'forms:formLineaResistir', this.draft.key, '');
 
+        if(this.procedure.rutaFormulario==="afin-invierte-micro"){
+            this.draftService.saveDraft(draft).subscribe(
+                () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR_AFIN], { queryParams: { draft: this.draft.key }})
+            )
+        }else{
         this.draftService.saveDraft(draft).subscribe(
             () => this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
         )
+        }
         
     }
+
 
     public returnToDraft() {
         this.router.navigate(['/carpeta-del-ciudadano/identificacion'], {
