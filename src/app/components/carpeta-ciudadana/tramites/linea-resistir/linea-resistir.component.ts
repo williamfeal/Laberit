@@ -198,6 +198,7 @@ export class LineaResistirComponent implements OnInit {
             language => language.codigo === localStorage.getItem('lang')
           );
       
+        this.formLineaResistir.value.project_definition = AppUtils.removeBreakLine(this.formLineaResistir.value.project_definition);
         const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formLineaResistir.value), this.procedure.category.name,
         infoProcedure.name, 'forms:formLineaResistir', this.draft.key, '');
 
