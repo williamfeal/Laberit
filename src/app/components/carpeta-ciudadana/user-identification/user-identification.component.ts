@@ -356,7 +356,6 @@ export class UserIdentificationComponent implements OnInit, AfterViewChecked {
         fecha: '',
         nombre: sessionStorage.getItem('nombreTitular'),
       }
-      debugger
       this.draftService.saveDraft(draft).subscribe(
         data => {
           this.draft = data;
