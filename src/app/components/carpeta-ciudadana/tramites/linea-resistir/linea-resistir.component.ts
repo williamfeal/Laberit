@@ -78,6 +78,7 @@ export class LineaResistirComponent implements OnInit {
         .subscribe(
             (data:Draft) => {
                 if(data !== null) this.formUserIdentification = JSON.parse(data.info);
+                console.log(data);
             });
     }
 
@@ -98,7 +99,7 @@ export class LineaResistirComponent implements OnInit {
           language => language.codigo === localStorage.getItem('lang')
         );
         this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
-          'info', this.activatedRoute.snapshot.queryParams.draft);
+          'info', sessionStorage.getItem('nombreTitular'), this.activatedRoute.snapshot.queryParams.draft);
     }
 
     public goToDocumentation() {
@@ -198,8 +199,9 @@ export class LineaResistirComponent implements OnInit {
             language => language.codigo === localStorage.getItem('lang')
           );
       
+        this.formLineaResistir.value.project_definition = AppUtils.removeBreakLine(this.formLineaResistir.value.project_definition);
         const draft:Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formLineaResistir.value), this.procedure.category.name,
-        infoProcedure.name, 'forms:formLineaResistir', this.draft.key, '');
+        infoProcedure.name, 'forms:formLineaResistir', this.draft.nombre, this.draft.key, '');
 
         if(this.procedure.rutaFormulario==="afin-invierte-micro"){
             this.draftService.saveDraft(draft).subscribe(

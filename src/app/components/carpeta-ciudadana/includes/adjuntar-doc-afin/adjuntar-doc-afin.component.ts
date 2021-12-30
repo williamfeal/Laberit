@@ -110,7 +110,7 @@ export class AdjuntarDocAfin implements OnInit {
       language => language.codigo === localStorage.getItem('lang')
     );
     this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
-      'info', this.activatedRoute.snapshot.queryParams.draft);
+      'info',sessionStorage.getItem('nombreTitular'), this.activatedRoute.snapshot.queryParams.draft);
   }
 
   public saveDocument(ev) {
@@ -135,7 +135,7 @@ export class AdjuntarDocAfin implements OnInit {
 
   private saveDraftAndNavigate() {
     const draft: Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.fileList), this.procedure.category.name,
-      this.draft.producto, 'forms:documents', this.draft.key, '');
+      this.draft.producto, 'forms:documents',this.draft.nombre, this.draft.key, '');
     if (this.procedure.rutaFormulario === "afin-invierte-micro") {
       this.draftService.saveDraft(draft).subscribe(
         () => this.router.navigate(['carpeta-del-ciudadano/afin-aceptacion'], {

@@ -129,7 +129,7 @@ export class AceptationAfinComponent implements OnInit {
             language => language.codigo === localStorage.getItem('lang')
         );
         this.draft = new Draft(sessionStorage.getItem('nifTitular'), 'Borrador', JSON.stringify(info), this.procedure.category.name, infoProcedure.name,
-            'info', this.activatedRoute.snapshot.queryParams.draft);
+            'info',sessionStorage.getItem('nombreTitular'), this.activatedRoute.snapshot.queryParams.draft);
     }
 
     public validateForm() {
@@ -150,7 +150,7 @@ export class AceptationAfinComponent implements OnInit {
 
     private saveDraftAndNavigate() {
         const draft: Draft = new Draft(sessionStorage.getItem('nifTitular'), 'BORRADOR', JSON.stringify(this.formAceptation.value), this.procedure.category.name,
-            this.draft.producto, 'forms:formAceptation', this.draft.key, '');
+            this.draft.producto, 'forms:formAceptation',this.draft.nombre, this.draft.key, '');
 
         this.draftService.saveDraft(draft).subscribe(
             () => this.router.navigate(['carpeta-del-ciudadano/firmar'], {

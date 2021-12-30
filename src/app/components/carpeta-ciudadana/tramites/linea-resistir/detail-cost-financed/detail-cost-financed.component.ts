@@ -183,8 +183,6 @@ export class DetailCostFinancedComponent implements OnInit {
       this.totalPlannedFinancing = own_resources + grants + other_bank_financing + active_ivf;
     }
 
-    onChangeProperties
-
     ngOnDestroy(): void {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
