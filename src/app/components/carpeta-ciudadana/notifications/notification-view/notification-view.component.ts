@@ -17,6 +17,8 @@ export class NotificationViewComponent implements OnInit {
   public identificador:string;
   public estado:string;
   
+  public showSpinner:boolean = false;
+  
   private acuseReciboBase64:string;
 
   constructor(
@@ -27,6 +29,7 @@ export class NotificationViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showSpinner = true;
     this.identificador = this.activatedRoute.snapshot.params.id;
     this.notificationService.infoEnvio(this.activatedRoute.snapshot.params.id).subscribe(
       (data) => {
@@ -35,6 +38,7 @@ export class NotificationViewComponent implements OnInit {
         if(this.estado === 'Notificada') {
           this.acuseReciboBase64 = data.certificacion
         }
+        this.showSpinner = false;
       })
   }
 
