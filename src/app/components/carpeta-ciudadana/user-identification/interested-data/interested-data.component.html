@@ -5,9 +5,23 @@
             <strong>
                 <span> {{ 'carpeta_ciudadana.identification.interested_data.title' | translate }}</span>
             </strong>
+        </div>
     </div>
-    </div>
+    
     <div class="card-body row mx-0">
+
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3" >
+                <app-input-select [form]="formInterestedData" (change)="businessTypeChange($event.target.value)"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" [draft]="draftInterestedData"
+                    controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
+                    [fieldOptions]="businessType" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+                    [error]="validate && formInterestedData.controls['businessType']?.invalid" [draft]="draftInterestedData"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+        </div>
+
         <div class="d-contents col-sm-12">
             <div class="form-group col-md-3">
                 <app-input-text [form]="formInterestedData" [draft]="draftInterestedData"
@@ -128,17 +142,6 @@
                     [negativos]="true"
                     [error]="validate && formInterestedData.controls['interested_data_employees_number']?.invalid"
                     [errorText]="errorCharacterLeng"></app-input-number>
-            </div>
-        </div>
-        <div class="d-flex w-100">
-            <div class="form-group col-md-3" >
-                <app-input-select [form]="formInterestedData" (change)="businessTypeChange($event.target.value)"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}" [draft]="draftInterestedData"
-                    controlName="businessType" idValue="businessType" nameValue="businessType" [isRequired]="isRequired"
-                    [fieldOptions]="businessType" placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
-                    [error]="validate && formInterestedData.controls['businessType']?.invalid" [draft]="draftInterestedData"
-                    [errorText]="errorCharacterLeng">
-                </app-input-select>
             </div>
         </div>
     </div>
