@@ -1,8 +1,11 @@
+import { AceptationAfinComponent } from './aceptation-afin/aceptation-afin.component';
 import { AceptationComponent } from './aceptation/aceptation.component';
+import { AdjuntarDocAfin } from './includes/adjuntar-doc-afin/adjuntar-doc-afin.component';
 import { AdjuntarDocComponent } from './includes/adjuntar-documento/adjuntar-doc.component';
 import { AuthGuardService } from 'src/app/services/guards/auth-guard.service';
 import { CarpetaCiudadanaComponent } from './carpeta-ciudadana.component';
 import { ConfirmacionSolicitudComponent } from './includes/confirmacion-solicitud/confirmacion-solicitud.component';
+import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
 import { InstanciaGeneralComponent } from './tramites/instancia-general/instancia-general.component';
 import { LineaResistirComponent } from './tramites/linea-resistir/linea-resistir.component';
 import { NgModule } from '@angular/core';
@@ -13,9 +16,6 @@ import { RequestsListComponent } from './requests-list/requests-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SignNotificationReceiptComponent } from './notifications/sign-notification-receipt/sign-notification-receipt.component';
 import { UserIdentificationComponent } from './user-identification/user-identification.component';
-import { EdicionSolicitudComponent } from './requests-list/edicion-terceros/edicion-solicitud.component';
-import { AdjuntarDocAfin } from './includes/adjuntar-doc-afin/adjuntar-doc-afin.component';
-import { AceptationAfinComponent } from './aceptation-afin/aceptation-afin.component';
 
 
 const routes:Routes = [
@@ -57,7 +57,7 @@ const routes:Routes = [
       menu: false,
       breadcrumb: [
         { title: 'carpeta_ciudadana.notifications.title', url: 'carpeta-del-ciudadano/notifications-list', terminal: false },
-        { title: 'carpeta_ciudadana.notification-view.title', url: 'carpeta-del-ciudadano/sign-notification/{{id}}', terminal: false },
+        { title: 'carpeta_ciudadana.notification-view.title', url: 'carpeta-del-ciudadano/sign-notification/:id', terminal: false },
         { title: 'carpeta_ciudadana.sign-notification-receipt.title', url: '', terminal: true }
       ]
     } },
