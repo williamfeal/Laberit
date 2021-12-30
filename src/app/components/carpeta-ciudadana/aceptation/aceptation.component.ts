@@ -20,7 +20,7 @@ import { Aceptation } from './dialog-data-protection/data-protection.component';
 @Component({
   selector: 'app-aceptation',
   templateUrl: './aceptation.component.html',
-  styleUrls: ['./aceptation.component.css']
+  styleUrls: ['./aceptation.component.scss']
 })
 export class AceptationComponent implements OnInit {
 
