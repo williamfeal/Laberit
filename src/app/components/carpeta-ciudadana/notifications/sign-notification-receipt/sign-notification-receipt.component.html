@@ -1,8 +1,9 @@
 <app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
 <app-button-back></app-button-back>
+<app-spinner *ngIf="showSpinner"></app-spinner>
 <div class="container-fluid">
     <div class="card mb-2">
-      <div class="card-header background-card-header pb-0">
+      <div class="card-header bg-secondary pb-0">
         <div class="card-title font-size-30 text-white">
            {{ 'carpeta_ciudadana.sign-notification-receipt.receipt' | translate }}
         </div>

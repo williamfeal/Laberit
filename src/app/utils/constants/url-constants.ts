@@ -44,6 +44,12 @@ export class UrlConstants {
     public static readonly ENDPOINT_TOKEN_VALIDAR = '/api/v1/login/validar';
     public static readonly ENDPOINT_REQUEST_LIST= '/api/v1/trex/solicitudes';
 
+    public static readonly ENDPOINT_NOTIFICA_SEDE = '/notificaSede';
+    public static readonly ENDPOINT_GET_ENVIOS = '/getEnvios2';
+    public static readonly ENDPOINT_INFO_ENVIO = '/infoEnvio';
+    public static readonly ENDPOINT_GET_PLANTILLA_ACUSE = '/getPlantillaAcuse';
+    public static readonly ENDPOINT_CERTIFICACION_SEDE = '/certificacionSede';
+
     public static readonly ENDPOINT_REPRESENTA_CAN_PROCEDURE = '/representa/puedeRealizarTramite';
 
     public static readonly ENDPOINT_BUSINESS_RULES = '/rule';
