@@ -7,7 +7,9 @@
             </strong>
         </div>
     </div>
+
     <div class="card-body row mx-0">
+
         <div class="row w-100">
             <div class="form-group col-md-3">
                 <app-input-select (change)="representativeTypeChange($event.target.value)"
@@ -22,8 +24,23 @@
                     placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
                     [fieldOptions]="representativeTypes">
                 </app-input-select>
-
             </div>
+
+            <div class="form-group col-md-3">
+                <i class="fas fa-info-circle icon-float" (click)="openDialog()"></i>
+                <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
+                    controlName="businessType" [draft]="draftRepresentativeData" idValue="businessType"
+                    nameValue="businessType" [isRequired]="isRequired" [fieldOptions]="businessType"
+                    [idSelected]="businessTypeSelected"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                    [error]="validate && formRepresentativeData.controls['businessType']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+        </div>
+
+        <div class="row w-100">
             <div class="form-group col-md-3" [ngClass]="{ 'd-none': isJuridicPerson() }">
                 <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
                     [form]="formRepresentativeData" [draft]="draftRepresentativeData"
@@ -80,6 +97,16 @@
                     [error]="validate && formRepresentativeData.controls['represented_data_telephone']?.invalid"
                     errorText="empty_error"></app-input-number>
             </div>
+
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
+                <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
+                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
+                    [maxDate]="true" nameValue="represented_data_constitution_date" [isReadOnly]="readOnly"
+                    [isRequired]="isJuridicPerson()"
+                    [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-date>
+            </div>
            
             <div class="form-group col-md-3"  *ngIf="showEmailPhone">
                 <app-input-text (change)="capturarCorreo($event.target.value)"
@@ -98,15 +125,6 @@
                 </app-input-text>
             </div>
 
-            <div class="form-group col-md-3" [ngClass]="{ 'd-none': !isJuridicPerson() }">
-                <app-input-date [form]="formRepresentativeData" [draft]="draftRepresentativeData"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.constitution_date' | translate }}"
-                    controlName="represented_data_constitution_date" idValue="represented_data_constitution_date"
-                    [maxDate]="true" nameValue="represented_data_constitution_date" [isReadOnly]="readOnly"
-                    [isRequired]="isJuridicPerson()"
-                    [error]="validate && formRepresentativeData.controls['represented_data_constitution_date']?.invalid"
-                    [errorText]="errorCharacterLeng"></app-input-date>
-            </div>
         </div>
 
         <div class="row w-100" [ngClass]="{ 'd-none': isJuridicPerson() }">
@@ -143,18 +161,6 @@
         </div>
 
         <div class="row w-100">
-            <div class="form-group col-md-3">
-                <i class="fas fa-info-circle icon-float" (click)="openDialog()"></i>
-                <app-input-select [form]="formRepresentativeData" (change)="businessTypeChange($event.target.value)"
-                    label="{{ 'carpeta_ciudadana.identification.represented_data.businessType' | translate }}"
-                    controlName="businessType" [draft]="draftRepresentativeData" idValue="businessType"
-                    nameValue="businessType" [isRequired]="isRequired" [fieldOptions]="businessType"
-                    [idSelected]="businessTypeSelected"
-                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
-                    [error]="validate && formRepresentativeData.controls['businessType']?.invalid"
-                    [errorText]="errorCharacterLeng">
-                </app-input-select>
-            </div>
             <div class="form-group col-md-3">
                 <app-input-select [form]="formRepresentativeData" [draft]="draftRepresentativeData"
                     label="{{ 'carpeta_ciudadana.identification.represented_data.cnae' | translate }}"
