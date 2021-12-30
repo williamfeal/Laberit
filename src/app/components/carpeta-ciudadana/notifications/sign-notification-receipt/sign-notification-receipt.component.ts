@@ -17,6 +17,8 @@ export class SignNotificationReceiptComponent implements OnInit {
 
   private base64:string;
 
+  public showSpinner:boolean = false;
+  
   constructor(
     private dialog: MatDialog,
     private appUtils:AppUtils,
@@ -47,13 +49,18 @@ export class SignNotificationReceiptComponent implements OnInit {
 
   public signReceipt() {
     const documentBase64 = "data:application/pdf;base64," + this.base64;
-    try{
+    try {
+      this.showSpinner = true;
       this.appUtils.signDocument(documentBase64).then((documentSigned) => {
         this.notificationService.certificacionSede(this.activatedRoute.snapshot.params.id, documentSigned).subscribe(
-          (data) => this.router.navigate(['carpeta-del-ciudadano/notification-view/' + data.envioDestinatarioId]))          
+          (data) => {
+            this.router.navigate(['carpeta-del-ciudadano/notification-view/' + data.envioDestinatarioId]);
+            this.showSpinner = false;
+          })          
         });
       } catch(e){
           SwalUtils.showErrorAlert('Error', 'En la firma del documento');
+          this.showSpinner = false;
       }
     }
 }
