@@ -22,35 +22,30 @@
         <ng-container matColumnDef="state">
             <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default">  
                 {{ 'carpeta_ciudadana.notifications.state' | translate }}  </th>
-            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.state }} </td>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.estado }} </td>
         </ng-container>
     
         <ng-container matColumnDef="concept">
             <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
                 {{ 'carpeta_ciudadana.notifications.concept' | translate }} </th>
-            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.concept }} </td>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{ element.concepto }} </td>
         </ng-container>
     
         <ng-container matColumnDef="notification-date">
             <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
                 {{ 'carpeta_ciudadana.notifications.notification-date' | translate }} </th>
-            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{element.notification_date | date:'shortDate'}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="actualization-date">
-            <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
-                {{ 'carpeta_ciudadana.notifications.actualization-date' | translate }} </th>
-            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{element.actualization_date | date:'shortDate'}} </td>
+            <td mat-cell *matCellDef="let element" class="px-2 font-family-default"> {{element.fechaCreacion | date:'shortDate'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef class="bg-light text-dark font-weight-bold px-2 font-family-default"> 
                 {{ 'carpeta_ciudadana.notifications.actions' | translate }} </th>
             <td mat-cell *matCellDef="let element" class="px-2 font-family-default">  
-                <button class="btn btn-app-outline-primary rounded-circle btn-small">
+                <button class="btn btn-app-outline-primary rounded-circle btn-small" *ngIf="element.estado === 'Notificada'">
                     <em class="fa fa-eye"></em>
                 </button> 
-                <button (click)="navToNotificationView(element)" class="btn btn-app-outline-primary rounded-circle ml-2 btn-small">
+                <button (click)="navToNotificationView(element)"  *ngIf="element.estado === 'Pendiente'" 
+                    class="btn btn-app-outline-primary rounded-circle ml-2 btn-small">
                     <em class="fa fa-envelope"></em>
                 </button> 
             </td>

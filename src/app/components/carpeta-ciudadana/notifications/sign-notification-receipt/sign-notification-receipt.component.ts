@@ -1,9 +1,11 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppConstants } from 'src/app/utils/constants/app-constants';
 import { AppUtils } from 'src/app/utils/app-utils';
 import { Component, OnInit } from '@angular/core';
 import { FirmarYPresentarPopUp } from './../../includes/firmarYpresentarPopUp/firmarYpresentarPopUp.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Notification } from 'src/app/models/notification.model';
+import { NotificationService } from './../../../../services/acli-service/notification.service';
 import { SwalUtils } from 'src/app/utils/swal-utils';
 
 @Component({
@@ -13,13 +15,20 @@ import { SwalUtils } from 'src/app/utils/swal-utils';
 })
 export class SignNotificationReceiptComponent implements OnInit {
 
+  private base64:string;
+
   constructor(
-    public dialog: MatDialog,
-    public appUtils:AppUtils,
-    public router:Router
+    private dialog: MatDialog,
+    private appUtils:AppUtils,
+    private router:Router,
+    private activatedRoute:ActivatedRoute,
+    private notificationService:NotificationService
   ) { }
 
   ngOnInit(): void {
+    this.notificationService.getPlantillaAcuse(this.activatedRoute.snapshot.params.id).subscribe(
+      (data) => 
+        this.base64 = data.plantillaBase64)
   }
   
   public reviewDoc() {
@@ -29,21 +38,19 @@ export class SignNotificationReceiptComponent implements OnInit {
     dialogConfig.width = '90%';
     dialogConfig.height = '90%';
     dialogConfig.data = { 
-      base64: AppConstants.base64,
+      base64: this.base64,
       showButtons: false
     };
     
-    const dialogRef = this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
+    this.dialog.open(FirmarYPresentarPopUp , dialogConfig);
   }
 
   public signReceipt() {
-    const documentBase64 = "data:application/pdf;base64," + AppConstants.base64;
+    const documentBase64 = "data:application/pdf;base64," + this.base64;
     try{
-      this.appUtils.signDocument(documentBase64).then((documentSinged) => {
-          setInterval(() =>{
-              this.router.navigate(['carpeta-del-ciudadano/notification-view/id']);
-          },3000);
-          
+      this.appUtils.signDocument(documentBase64).then((documentSigned) => {
+        this.notificationService.certificacionSede(this.activatedRoute.snapshot.params.id, documentSigned).subscribe(
+          (data) => this.router.navigate(['carpeta-del-ciudadano/notification-view/' + data.envioDestinatarioId]))          
         });
       } catch(e){
           SwalUtils.showErrorAlert('Error', 'En la firma del documento');

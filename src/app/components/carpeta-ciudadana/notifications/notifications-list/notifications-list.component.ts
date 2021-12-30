@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NotificationsListComponent implements OnInit {
 
   public dataSource:Notification[];
-  public displayedColumns = [ 'state', 'concept', 'notification-date', 'actualization-date', 'actions'];
+  public displayedColumns = [ 'state', 'concept', 'notification-date',  'actions'];
 
   constructor(
     private router:Router,
@@ -20,12 +20,12 @@ export class NotificationsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.notificationService.getNotifications().subscribe(
+    this.notificationService.getEnvios2().subscribe(
       (data:Notification[]) => this.dataSource = data
     )
   }
 
   public navToNotificationView(notification:Notification) {
-    this.router.navigate(['/carpeta-del-ciudadano/notification-view/id'])
+    this.router.navigate(['/carpeta-del-ciudadano/notification-view/' + notification.envioDestinatario])
   }
 }

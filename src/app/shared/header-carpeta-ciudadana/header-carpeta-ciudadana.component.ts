@@ -3,10 +3,10 @@ import { CarpetaUtils } from 'src/app/utils/carpeta-utils';
 import { Component, Input, OnInit } from '@angular/core';
 import { InfoProcedure } from 'src/app/models/info-procedure.model';
 import { Procedure } from 'src/app/models/procedure.model';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-carpeta-ciudadana',
@@ -45,26 +45,24 @@ export class HeaderCarpetaCiudadanaComponent implements OnInit {
       )
     }
     this.user = this.carpetaUtils.getSession();
-    console.log(this.user);
-
-
   }
+
   editThird(nif: string) {
     this.router.navigate(['/carpeta-del-ciudadano/edit-request/' + nif]);
   }
+
   exit() {
-    console.log(window.sessionStorage);
     localStorage.setItem("ReadOnly", "false");
     this.cleanStorage();
-    console.log(window.sessionStorage);
-
-   this.router.navigateByUrl('/inicio');
+    this.router.navigateByUrl('/inicio');
   }
+
   cleanStorage() {
     let token = window.sessionStorage.getItem('token');
     window.sessionStorage.clear();
     window.sessionStorage.setItem('token', token);
   }
+  
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
