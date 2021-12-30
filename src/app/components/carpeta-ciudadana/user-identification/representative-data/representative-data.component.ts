@@ -183,7 +183,7 @@ export class RepresentativeDataComponent implements OnInit, OnChanges {
     //Validation to show the fields "active, represent_data_turnover" according to type of company
     this.communityOfGoods = event === ConceptConstants.REPRESENTATIVE_COMMUNITY_OF_GOODS ? true : false;
 
-    if(this.businessTypeSelected && this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS){debugger
+    if(this.businessTypeSelected && this.businessTypeSelected === ConceptConstants.REPRESENTATIVE_PHYSIC_AUTONOMOUS){
       this.showEmailPhone = true;
     }else{
       this.showEmailPhone = false;
