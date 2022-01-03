@@ -81,6 +81,7 @@ export class ProcedureDetailComponent implements OnInit {
   }
 
   public navToTransact() {
+    localStorage.setItem("ReadOnly", "false");
     sessionStorage.removeItem('idProcedure');
     sessionStorage.setItem('idProcedure',  this.procedure.id);
   }

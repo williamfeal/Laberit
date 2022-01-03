@@ -55,6 +55,7 @@ export class RequestsListComponent implements OnInit {
           line: prod[1],
           product: prod[0],
           requestCode: element.numeroAsientoReg,
+          info: element.solIdProcedimiento
         }
         );
       });
@@ -70,11 +71,11 @@ export class RequestsListComponent implements OnInit {
       queryParams: { draft: draft.requestCode}
     })
   }
-  public navToRequestViewDraft(draft:RequestAndDraft) {
+  public navToRequestViewDraft(draft: RequestAndDraft) {
     localStorage.setItem("ReadOnly", "true");
-    const info = JSON.parse(draft.info);
-    sessionStorage.setItem('idProcedure', info.idProcedure);
-    this.router.navigate(['/carpeta-del-ciudadano/transact/' + info.idProcedure ], {
+    console.log(draft);
+    sessionStorage.setItem('idProcedure', draft.info);
+    this.router.navigate(['/carpeta-del-ciudadano/transact/' + draft.info ], {
       queryParams: { draft: draft.requestCode}
     })
   }
