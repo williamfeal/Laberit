@@ -8,7 +8,9 @@
 
 //  color gris primario #567b97
 
-$primaryColor: var(--primary-color);
+//$primaryColor: var(--primary-color);
+/* Aqui cambie el color*/
+$primaryColor: #29993a;
 $button-edit-color: var(--button-edit-color);
 $headerTab: var(--header-tab);
 
@@ -43,7 +45,8 @@ $red-50: #9F2B2B;
 $red-70: #c13c3c;
 $red-100: #df4f4f;
 $red-200: #ff8a8a;
-$red-header: #c8102e;
+//aqui cambie a #29993a y era #c8102e
+$red-header: #29993a;
 
 $orange-100: #cb6d33;
 
