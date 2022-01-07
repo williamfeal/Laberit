@@ -1,0 +1,201 @@
+<!-- Se ponen en comentario los campos que se deben ocultar -->
+<!-- autor: @William 5 Enero 2022 -->
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <em class="fas fa-phone-alt icon-flip mr-3"></em>
+            <strong>
+            {{ 'carpeta_ciudadana.identification.contact_data.title' | translate }}
+        </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- <div class="checkbox">
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="check" id="check" class="custom-control-input" (change)="sendBool($event.target.checked)" [checked]="false" />
+                <span class="custom-control-indicator"></span>
+                 <label class="custom-control-description" for="check" *ngIf="interesado; else notInteresado"> {{
+                    'carpeta_ciudadana.identification.contact_data.check_user'
+                    | translate }}</label> 
+                <ng-template #notInteresado>
+                    <label class="custom-control-description" for="check"> {{
+                        'carpeta_ciudadana.identification.contact_data.check' |
+                        translate}}</label>
+                </ng-template>
+            </label>
+        </div> -->
+        <div class="card-body row mx-0">
+            <div class="d-contents" [ngClass]="{ 'd-none': isChecked == true}">
+                <div class="d-flex w-100">
+                    <!-- <div class="form-group col-md-3">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }}"
+                            controlName="contact_name" idValue="contact_name" nameValue="contact_name"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_name']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }}"
+                            controlName="contact_surname1" idValue="contact_surname1" nameValue="contact_surname1"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_surname1']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
+                            controlName="contact_surname2" idValue="contact_surname2" nameValue="contact_surname2"
+                            [isReadOnly]="readOnly" [isRequired]="false"
+                            ></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-text-nif [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
+                            controlName="contact_nif" idValue="contact_nif" nameValue="contact_nif"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate"
+                            [errorText]="errorNif"></app-input-text-nif>
+                    </div> -->
+                </div>
+                <div class="d-flex w-100">
+
+                    <!-- <div class="form-group col-md-3" [ngClass]="{ 'd-none': position_contact == false}">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
+                            controlName="contact_position" idValue="contact_position" nameValue="contact_position"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_position']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div> -->
+                    <div class="form-group col-md-3">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }}"
+                            controlName="contact_telephone" idValue="contact_telephone" nameValue="contact_telephone"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_telephone']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <app-input-text (change)="capturarCorreo($event.target.value)"
+                            [form]="formContactData"
+                            [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
+                            controlName="contact_email" 
+                            idValue="contact_email" 
+                            nameValue="contact_email"
+                            [isMail]="true"
+                            [isReadOnly]="readOnly" 
+                            [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_email']?.invalid"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-text>
+                    </div>
+                </div>
+                <div class="d-flex w-100">
+                    <div class="form-group col-md-3">
+                        <app-input-select [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                            label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
+                            [error]="validate && formContactData.controls['contact_via_type']?.invalid"
+                            controlName="contact_via_type" idValue="contact_via_type" nameValue="contact_via_type"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked" [fieldOptions]="typeStreet"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                            controlName="contact_address" idValue="contact_address" nameValue="contact_address"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                            [error]="validate && formContactData.controls['contact_address']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <app-input-text [form]="formContactData" [draft]="draftContactData"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                                controlName="contact_number" idValue="contact_number" nameValue="contact_number"
+                                [isReadOnly]="readOnly" [isRequired]="!isChecked"
+                                [error]="validate && formContactData.controls['contact_number']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex w-100">
+                    <div class="form-group col-md-3">
+                        <app-input-text [form]="formContactData" [draft]="draftContactData"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
+                            controlName="contact_extra" idValue="contact_extra" nameValue="contact_extra"
+                            [isReadOnly]="readOnly"
+                            [error]=""
+                            [errorText]=""></app-input-text>
+                    </div>
+                    <div class="form-group col-md-3 px-0">
+                        <div class="col-md-6">
+                            <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                [form]="formContactData" [draft]="draftContactData"
+                                label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                                controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
+                                [isRequired]="!isChecked"
+                                [error]="validate && formContactData.controls['contact_CP']?.invalid"
+                                [errorText]="errorCharacterLeng"
+                                [negativos]="true"
+                                >
+                                
+                            </app-input-number>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex w-100">
+                    <div class="form-group col-md-3">
+                        <app-input-select [form]="formContactData" (change)="onChangeCountry($event.target.value)"
+                            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                            label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
+                            controlName="contact_data_country" idValue="contact_data_country" nameValue="contact_data_country" [isReadOnly]="readOnly"
+                            [isRequired]="!isChecked" [fieldOptions]="paises" [draft]="draftContactData"
+                            [error]="validate && formContactData.controls['contact_data_country']?.invalid"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-select>
+                    </div>
+                    <div class="form-group col-md-3" [ngClass]="{ 'd-none':  countrySelected !== countriesSpain }">
+                        <app-input-select [form]="formContactData" (change)="onChangeSpainCountry($event.target.value)"
+                            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                            label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
+                            controlName="contact_data_province" idValue="contact_data_province" nameValue="contact_data_province" [isReadOnly]="readOnly"
+                            [isRequired]="!isChecked" [fieldOptions]="provincias" [draft]="draftContactData"
+                            [error]="validate && formContactData.controls['contact_data_province']?.invalid"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-select>
+                    </div>
+                    <div class="form-group col-md-3" [ngClass]="{ 'd-none':  countrySelected !== countriesSpain }">
+                        <app-input-select [form]="formContactData" 
+                            placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                            label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
+                            controlName="contact_data_municipality" idValue="contact_data_municipality" nameValue="contact_data_municipality"
+                            [isReadOnly]="readOnly" [isRequired]="!isChecked" [fieldOptions]="municipios" [draft]="draftContactData"
+                            [error]="validate && formContactData.controls['contact_data_municipality']?.invalid"
+                            [errorText]="errorCharacterLeng">
+                        </app-input-select>
+                    </div>
+                    <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain" >
+                        <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftContactData"
+                        [form]="formContactData" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
+                        controlName="contact_data_region" idValue="contact_data_region" nameValue="contact_data_region"></app-input-text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

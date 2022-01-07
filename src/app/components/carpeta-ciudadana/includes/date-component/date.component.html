@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+
+<div class="input-group">
+    
+    <input class="form-control"  
+    placeholder="dd-mm-yyyy" 
+    name="dp" 
+    ngbDatepicker #d="ngbDatepicker"
+    [id]="idValue" 
+    [name]="nameValue" 
+    [(ngModel)]="model"
+    [formControlName]="controlName"
+    (dateSelect)="onChangeValue()" 
+    value=""
+    >
+    
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">📅</button>
+    </div>
+
+  </div>
+  <hr />
+  </form>

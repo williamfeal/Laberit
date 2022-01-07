@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:
+  sede-angular:
+    image: hub.alfatecsistemas.es/tdgov/sede-angular:latest
+    networks:
+      - traefik2
+    ports:
+      - "4220:80"
+    environment:
+      - DOCKER_TIMEZONE=Europe/Madrid
+      - MOGES_URL=http://lavenganza.apc.alfatecsistemas.es/api/v1
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:                                                                             
+        - "traefik.enable=true"
+        - "traefik.http.routers.sede2.entrypoints=web"
+        - "traefik.http.routers.sede2.rule=Host(`sede2.apc.alfatecsistemas.es`)" 
+        - "traefik.http.services.sede2.loadbalancer.server.port=80"
+        
+networks:      
+  db_databases:
+    external: true
+  traefik2:
+    external: true
+    

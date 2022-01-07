@@ -1,0 +1,12 @@
+<app-header-category title="{{ 'carpeta_ciudadana.title' | translate }}"></app-header-category>
+
+<div class="card col-md-8 m-auto">
+    <div class="card-body" innerHTML="{{ 'carpeta_ciudadana.init_page.text' | translate }}"></div>
+    <div class="col-md-6 d-flex flex-column m-auto">
+        <button class="button-round btn-app-primary text-uppercase" (click)="getCertificado()">
+            {{ 'carpeta_ciudadana.init_page.btn_electronic_certificate' | translate }}
+        </button>
+         <a href="{{ url_clave }}" class=" button-round btn-app-orange text-uppercase my-2 text-white text-center text-decoration-none">
+            {{ 'carpeta_ciudadana.init_page.btn_clave' | translate }}</a> 
+    </div>
+</div>

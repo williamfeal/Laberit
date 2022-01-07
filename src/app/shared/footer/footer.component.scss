@@ -1,0 +1,14 @@
+@import '../../utils/styles/colors.scss';
+
+.fa-facebook-square, .fa-twitter, .fa-instagram, .fa-youtube {
+    color: $primaryColor;
+    height:18px;
+    width:18px;
+    margin: 9px; 
+}
+.proportions{
+    height: 100%;
+    width: auto;
+    margin-left: -60%;
+    margin-top: -8%;
+}

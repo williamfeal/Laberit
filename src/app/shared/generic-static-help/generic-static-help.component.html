@@ -1,0 +1,10 @@
+<app-header-category *ngIf="enviar" [title]="title"></app-header-category>
+<div class="row justify-content-center">
+    <div class="col-md-10 card bg-light mb-3">
+        <div class="card-body">
+            <h5 class="card-title" id="header_card" [innerHTML] = "texts.header_card"> </h5>
+            <div class="card-text" id="text_card" [innerHTML] = "texts.text">
+            </div>
+        </div>
+    </div>
+</div>

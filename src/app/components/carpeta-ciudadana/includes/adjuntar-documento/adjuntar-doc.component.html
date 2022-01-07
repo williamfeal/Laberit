@@ -1,0 +1,30 @@
+<app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-spinner *ngIf="!procedure"></app-spinner>
+<div *ngIf="procedure">
+  <app-button-back></app-button-back>
+<app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
+
+
+  <app-autonoms *ngIf="tipo_empresa === 'ivf-representative-types-physical-person-autonomous'" [draft]="draftAdjuntarDoc"
+    [fileListAu]="fileList" [validate]="validate" [formAdjuntarDocAuto]="formAdjuntarDoc.controls.autonomous"></app-autonoms>
+
+  <app-comunidadBienes *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-community-of-goods' || tipo_empresa ==='ivf-representative-types-physic-person-community-of-goods'" [draft]="draftAdjuntarDoc"
+    [fileListCo]="fileList" [validate]="validate" [formAdjComuni]="formAdjuntarDoc.controls.cominidad_bienes"></app-comunidadBienes>
+
+  <app-micro-empresa *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-micro-business' || tipo_empresa ==='ivf-representative-types-physic-person-micro-business'" [draft]="draftAdjuntarDoc"
+    [fileListMi]="fileList" [validate]="validate" [formAdjMicro]="formAdjuntarDoc.controls.micro_empresa"></app-micro-empresa>
+                                     
+  <app-pyme *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-pyme' || tipo_empresa ==='ivf-representative-types-physic-person-resistir-pyme'" [draft]="draftAdjuntarDoc"
+    [fileListPy]="fileList" [validate]="validate" [formAdjPyme]="formAdjuntarDoc.controls.pyme"></app-pyme>
+
+  <app-sociedad-civil *ngIf="tipo_empresa === 'ivf-representative-types-juridic-person-civil-society' || tipo_empresa ==='ivf-representative-types-physic-person-civil-society'" [draft]="draftAdjuntarDoc"
+    [fileListSo]="fileList" [validate]="validate" [formAdjSociedad]="formAdjuntarDoc.controls.sociedad_civil"></app-sociedad-civil>
+
+    
+</div>
+<div class="foot-buttons mb-3 mt-3">
+  <div class="text-right px-3">
+      <button class="btn-app-primary mr-2" (click)="goToRequestInfo()">{{ 'buttons.continue' | translate}}</button>
+  </div>
+</div>

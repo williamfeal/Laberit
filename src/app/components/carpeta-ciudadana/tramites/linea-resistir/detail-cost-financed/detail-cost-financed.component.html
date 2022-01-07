@@ -1,0 +1,153 @@
+<div class="mx-3 my-3 card">
+    <div class="card-header background-card-header">
+        <div class="card-title">
+            <em class="fas fa-info-circle mr-3"> </em>
+            <strong>
+            {{ 'carpeta_ciudadana.request_info.financing.title' | translate }}
+        </strong>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3">
+                <!-- <app-input-select [form]="formLineaResistir" (change)="capturarCampo($event.target.value, 'pro')"
+                    placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }}"
+                    label="{{ 'carpeta_ciudadana.request_info.procedure_info.project_type' | translate }}"
+                    [error]="validate && formLineaResistir.controls['project_type']?.invalid"
+                    controlName="project_type" idValue="project_type" nameValue="project_type" [isReadOnly]="readOnly"
+                    [isRequired]="true" [fieldOptions]="project_type" errorText="empty_error"
+                    [draft]="draftDetailCostFinanced">
+                </app-input-select> -->
+                <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                            placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            label="{{ 'carpeta_ciudadana.identification.address.direction_leakage' | translate }}"
+                            controlName="contact_address" idValue="contact_address" nameValue="contact_address"
+                            [isReadOnly]="readOnly" [isRequired]="true"
+                            [error]="validate && formLineaResistir.controls['contact_address']?.invalid"
+                            [errorText]="errorCharacterLeng"></app-input-text>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formLineaResistir" 
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}"
+                    controlName="contact_data_country" idValue="contact_data_country" nameValue="contact_data_country" [isReadOnly]="true"
+                    [fieldOptions]="paises" [draft]="draftDetailCostFinanced" [isRequired]="true"
+                    [error]="validate && formLineaResistir.controls['contact_data_country']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div> 
+            <!-- quitar codigo [ngClass]="{ 'd-none':  countrySelected !== countriesSpain }" -->
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formLineaResistir"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
+                    controlName="contact_data_province" idValue="contact_data_province" nameValue="contact_data_province" [isReadOnly]="true"
+                     [fieldOptions]="provincias" [draft]="draftDetailCostFinanced" [isRequired]="true"
+                    [error]="validate && formLineaResistir.controls['contact_data_province']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formLineaResistir" 
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                    label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}" [isRequired]="true"
+                    controlName="contact_data_municipality" idValue="contact_data_municipality" nameValue="contact_data_municipality"
+                    [isReadOnly]="readOnly" [fieldOptions]="municipios" [draft]="draftDetailCostFinanced"
+                    [error]="validate && formLineaResistir.controls['contact_data_municipality']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+        </div>
+            <div class="d-flex w-100">
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.via_type' | translate }}"
+                                controlName="via_type" idValue="via_type" nameValue="via_type"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['via_type']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                                controlName="address" idValue="address" nameValue="address"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['address']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+                <div class="form-group col-md-3">
+                    <app-input-number [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                                controlName="number" idValue="number" nameValue="number"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['number']?.invalid"
+                                [errorText]="errorCharacterLeng"
+                                [negativos]="true"></app-input-number>
+                </div>
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
+                                controlName="extra" idValue="extra" nameValue="extra"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['extra']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+            </div>
+            <div class="d-flex w-100">
+                <div class="form-group col-md-3">
+                        <app-input-number placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                            [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                            label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                            controlName="contact_CP" idValue="contact_CP" nameValue="contact_CP"
+                            [error]="validate && formLineaResistir.controls['contact_CP']?.invalid"
+                            [errorText]="errorCharacterLeng" [isRequired]="true"
+                            [negativos]="true"
+                            >
+                        </app-input-number>
+                </div>
+                <div  class="form-group col-md-3">
+                    <app-input-date [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                        label="{{ 'carpeta_ciudadana.identification.address.reparation_date' | translate }}"
+                        controlName="reparation_date" idValue="reparation_date" [isRequired]="true"
+                        [maxDate]="true" nameValue="reparation_date" [isReadOnly]="readOnly"
+                        [error]="validate && formLineaResistir.controls['reparation_date']?.invalid"
+                        [errorText]="errorCharacterLeng">
+                    </app-input-date>
+                </div>
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.water_supply_entity' | translate }}"
+                                controlName="water_supply_entity" idValue="water_supply_entity" nameValue="water_supply_entity"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['water_supply_entity']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.bill' | translate }}"
+                                controlName="bill" idValue="bill" nameValue="bill"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['bill']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+                
+            </div>
+            <div class="d-flex w-100">
+                <div class="form-group col-md-3">
+                    <app-input-text [form]="formLineaResistir" [draft]="draftDetailCostFinanced"
+                                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                                label="{{ 'carpeta_ciudadana.identification.address.period' | translate }}"
+                                controlName="period" idValue="period" nameValue="period"
+                                [isReadOnly]="readOnly" [isRequired]="true"
+                                [error]="validate && formLineaResistir.controls['period']?.invalid"
+                                [errorText]="errorCharacterLeng"></app-input-text>
+                </div>
+            </div>
+    </div>
+</div>

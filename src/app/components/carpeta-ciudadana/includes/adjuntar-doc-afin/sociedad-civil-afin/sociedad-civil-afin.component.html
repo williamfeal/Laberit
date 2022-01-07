@@ -1,0 +1,15 @@
+<div *ngIf="mandatoryDocs">
+    <app-input-document *ngFor="let doc of mandatoryDocs" label="{{doc.description}}" [idValue]="doc.concept_code"
+        [form]="formAdjSociedad" [controlName]="doc.concept_code" [isRequired]="true"
+        idplantilla="{{doc.descriptionPlantilla}}" errorText="document_error" [draft]="draft"
+        [error]="validate && formAdjSociedad.controls[doc.concept_code].invalid" fileExtension=",.pdf"
+        (uploadFileDocument)="saveDocument($event)" (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+</div>
+<div *ngIf="optionalDocs">
+    <app-input-document *ngFor="let doc of optionalDocs" label="{{doc.description}}" [idValue]="doc.concept_code"
+        [draft]="draft" [form]="formAdjSociedad" [controlName]="doc.concept_code" [isRequired]="false"
+        idplantilla="{{doc.descriptionPlantilla}}" fileExtension=",.pdf" (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+</div>

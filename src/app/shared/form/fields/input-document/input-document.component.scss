@@ -1,0 +1,42 @@
+.file-container {
+	margin-left: 1rem;
+	padding: 0.5rem;
+	border: dashed 1px gray;
+	
+	i {
+	  color: grayscale($color: #858383);
+	}
+  
+	input {
+	  opacity: 0;
+	  position: absolute;
+	  width: 98%;
+	  margin-left: -20%;
+	}
+  }
+  
+  .input-file-border {
+	border: dashed 1px gray;
+  }
+  
+  .file-name {
+	padding-top: 5px;
+  }
+.w-40 {
+	width: 40%;
+}
+input.ng-dirty.ng-invalid {
+    color: red
+  }
+.center-text{
+	text-align: center !important;
+}
+.overme {
+    width: 680px;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: Ellipsis;
+}
+  .primary-link{
+	  color:red;
+  }

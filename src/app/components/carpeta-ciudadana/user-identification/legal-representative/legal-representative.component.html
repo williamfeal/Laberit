@@ -1,0 +1,174 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <em class="fas fa-user-shield mr-3"></em>
+            <strong>
+            {{ 'carpeta_ciudadana.identification.legal_representative.title' | translate }}
+            </strong>
+        </div>
+    </div>
+    <div class="card-body row mx-0">
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.name' | translate }}"
+                controlName="legal_representative_name" idValue="legal_representative_name"
+                nameValue="legal_representative_name" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_name']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.surname1' | translate }}"
+                controlName="legal_representative_surname1" idValue="legal_representative_surname1"
+                nameValue="legal_representative_surname1" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_surname1']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.surname2' | translate }}"
+                controlName="legal_representative_surname2" idValue="legal_representative_surname2"
+                nameValue="legal_representative_surname2" [isReadOnly]="readOnly" [isRequired]="false"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_surname2']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text-nif [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.nif' | translate }}"
+                controlName="legal_representative_nif" idValue="legal_representative_nif"
+                nameValue="legal_representative_nif" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate"
+                [errorText]="errorNif"></app-input-text-nif>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.position' | translate }}"
+                controlName="legal_representative_position" idValue="legal_representative_position"
+                nameValue="legal_representative_position" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_position']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.telephone' | translate }}"
+                controlName="legal_representative_telephone" idValue="legal_representative_telephone"
+                nameValue="legal_representative_telephone" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_telephone']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text (change)="capturarCorreo($event.target.value)"
+                [form]="formLegalRepresentative"
+                [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.legal_representative.email' | translate }}"
+                controlName="legal_representative_email" 
+                idValue="legal_representative_email"
+                nameValue="legal_representative_email" 
+                [isReadOnly]="readOnly" 
+                [isMail]="true"
+                [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_email']?.invalid"
+                [errorText]="errorCharacterLeng">
+            </app-input-text>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-3">
+            <app-input-select [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}"
+                controlName="legal_representative_via_type" idValue="legal_representative_via_type"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_via_type']?.invalid"
+                nameValue="legal_representative_via_type" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
+
+        </div>
+        <div class="form-group col-md-6">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                controlName="legal_representative_address" idValue="legal_representative_address"
+                nameValue="legal_representative_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formLegalRepresentative.controls['legal_representative_address']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3 px-0">
+            <div class="col-md-6">
+                <app-input-number [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                    controlName="legal_representative_number" idValue="legal_representative_number"
+                    nameValue="legal_representative_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [negativos]="true"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_number']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-number>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
+                controlName="legal_representative_extra" idValue="legal_representative_extra"
+                nameValue="legal_representative_extra" [isReadOnly]="readOnly"
+                [error]=""
+                [errorText]=""></app-input-text>
+        </div>
+        <div class="form-group col-md-3 px-0">
+            <div class="col-md-6">
+                <app-input-number 
+                    [form]="formLegalRepresentative" [draft]="draftLegalRepresentativeData"
+                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                    controlName="legal_representative_CP" 
+                    idValue="legal_representative_CP"
+                    nameValue="legal_representative_CP" 
+                    [isRequired]="isRequired" 
+                    [negativos]="true"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_CP']?.invalid"
+                    [errorText]="errorCharacterLeng">
+                </app-input-number>
+            </div>
+        </div>
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formLegalRepresentative" (change)="onChangeCountry($event.target.value)"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_country']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" [draft]="draftLegalRepresentativeData"
+                    controlName="legal_representative_country" idValue="legal_representative_country"
+                    nameValue="legal_representative_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [fieldOptions]="paises" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
+                <app-input-select [form]="formLegalRepresentative" (change)="onChangeSpainCountry($event.target.value)"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_province']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}" [draft]="draftLegalRepresentativeData"
+                    controlName="legal_representative_province" idValue="legal_representative_province"
+                    nameValue="legal_representative_province" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [fieldOptions]="provincias" [errorText]="errorCharacterLeng" >
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3" *ngIf="countrySelected === countriesSpain">
+                <app-input-select [form]="formLegalRepresentative"
+                    [error]="validate && formLegalRepresentative.controls['legal_representative_municipality']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                    label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}" [draft]="draftLegalRepresentativeData"
+                    controlName="legal_representative_municipality" idValue="legal_representative_municipality"
+                    nameValue="legal_representative_municipality" [isReadOnly]="readOnly" isRequired="isRequired"
+                    [fieldOptions]="municipios" [errorText]="errorCharacterLeng" >
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain" >
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftLegalRepresentativeData"
+                [form]="formLegalRepresentative" [isReadOnly]="readOnly" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
+                controlName="legal_representative_region" idValue="legal_representative_region" nameValue="legal_representative_region"></app-input-text>
+            </div>
+        </div>
+    </div>
+</div>

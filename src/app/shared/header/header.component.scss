@@ -1,0 +1,83 @@
+@import "../../utils/styles/inputs.scss";
+@import "../../utils/styles/colors.scss";
+.header {
+  -webkit-box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+  -moz-box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+  box-shadow: 0 3px 8px 0 rgba(129, 129, 129, .19);
+}
+
+.capitalize-first-letter {
+  
+}
+.header-nav {
+  background-color: $body-background;
+}
+
+.header-search {
+  right: 0;
+  top: 15px;
+  width: 50%;
+}
+
+.link-color-primary {
+  span {
+    color: $red-header !important;
+  }
+}
+
+// Responsive rules
+
+@media screen and (max-width: 770px) {
+  .weather-data {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .date-data {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .hour-data {
+    display: none;
+  }
+}
+
+
+.dropdown-toggle {
+  width: 300px;
+  display: block;
+}
+
+.dropdown-menu {
+  top: -5px;
+}
+
+@media screen and (max-width: 991px) {
+  .css-dropdown .css-dropdown-menu {
+    margin-top: -5px;
+    display: none;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .css-dropdown .css-dropdown-menu {
+    margin-top: -5px;
+    display: none;
+    width: 22%;
+  }
+}
+.css-dropdown:hover .css-dropdown-menu {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  background-color: #F9F9F9;
+}
+
+.border-right-solid-gray{
+  border-right: 1px solid silver;
+}
+

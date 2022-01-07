@@ -1,0 +1,11 @@
+/*aqui cambie a #29993a y era #c8102e*/
+.config-background {
+    color: #fff;
+    background-color: #29993a;
+}
+
+.config-icon{
+    float: right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

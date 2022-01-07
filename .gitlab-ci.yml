@@ -1,0 +1,16 @@
+stages:
+  - build
+
+Docker Build:
+  image: jaweewo/docker:custom
+  services:
+    - docker:dind
+  stage: build
+  tags:
+    - shell
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:develop .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN hub.alfatecsistemas.es
+    - docker push $CI_REGISTRY_IMAGE:develop
+  only:
+    - develop

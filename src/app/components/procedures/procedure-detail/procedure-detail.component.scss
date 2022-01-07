@@ -1,0 +1,15 @@
+@import "../../../utils/styles/colors.scss";
+.nav-link.active {
+    border-bottom: 2px solid $primaryColor;
+    font-weight: 600;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+}
+
+.rectangle{
+    border-left: 14px solid $primaryColor;
+    background-color: rgba(86, 123, 151, 0.15);
+}
+
+$breadcrumb-divider: quote(">");

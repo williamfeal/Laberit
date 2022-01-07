@@ -1,0 +1,85 @@
+<app-header-carpeta-ciudadana *ngIf="procedure" 
+    [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-spinner *ngIf="!procedure"></app-spinner>
+<div *ngIf="procedure">
+    <app-button-back></app-button-back>
+<app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
+<form [formGroup]="formUserIdentification" (ngSubmit)="goToRequestInfo()">
+    <div class="row mx-0 mt-2">
+        <div class="col-md-6">
+            <app-identity-data [readOnly]="true" [user]="user"
+                [formIdentityData]="formUserIdentification.controls.identity_data"></app-identity-data>
+        </div>
+        <div class="col-md-6">
+            <app-notification-means [validate]="validate" [readOnly]="readOnlyView"
+                [formNotificationMeans]="formUserIdentification.controls.notification_means" [emailError]="emailError"
+                [emailErrorText]="emailErrorText" [notificationError]="notificationError" [draft]="draftUserIdentification"
+                [notificationErrorText]="notificationErrorText"></app-notification-means>
+        </div>
+        <div class="col-md-12">
+            <app-requester-data [validate]="validate" [readOnly]="readOnlyView" [formRequestData]="formUserIdentification.controls.request_data"
+                (typeOutput)="onChangeTypeRequester($event)" [draft]="draftUserIdentification"></app-requester-data>
+        </div>
+    </div>
+    <div [ngClass]="{ 'd-none': representative == false && interested == false }">
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': representative == false}">
+                <app-representative-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
+                    [isRequired]="representative" [draft]="draftUserIdentification" [position]="position_contact" (businessTypeData)="onChangebusinessTypeData($event)"
+                    [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
+                </app-representative-data>
+            </div>
+            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
+                <app-interested-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
+                    [isRequired]="interested" [draft]="draftUserIdentification" 
+                    [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="readOnlyView">
+                </app-interested-data>
+            </div>
+            
+        </div>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
+                <app-poder-representacion [validate]="validate" [isRequired]="representative" [draft]="draftUserIdentification"
+                [formRepresentativeData]="formUserIdentification.controls.representative_data" [representativeLabel]="representativeLabel"
+                 [formRepresentativePower]="formUserIdentification.controls.representative_power" [readOnly]="readOnlyView"></app-poder-representacion>
+            </div>
+        </div>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-social-address (adreSocial)="handleInfo($event)" [validate]="validate"  isRequired="true" [readOnly]="readOnlyView" [draft]="draftUserIdentification"
+                    [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
+            </div>
+        </div>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-productive-establishment-address [subject]="subject" [validate]="validate" isRequired="true"  [draft]="draftUserIdentification"
+                    [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
+                    [readOnly]="readOnlyView"></app-productive-establishment-address>
+            </div>
+        </div>
+        <div class="row mx-0" [ngClass]="{ 'd-none': representative == false || position_contact == false }">
+            <div class="col-md-12 mt-2">
+                <app-legal-representative [validate]="validate" [draft]="draftUserIdentification" [emailErrorLegal]="emailErrorLegalRepresnt"
+                    [formLegalRepresentative]="formUserIdentification.controls.legal_representative"
+                    [isRequired]="representative && position_contact" [readOnly]="readOnlyView"></app-legal-representative>
+            </div>
+        </div>
+        <div class="row mx-0">
+            <div class="col-md-12 mt-2">
+                <app-contact-data [position]="position_contact" [isChecked]="checked" [validate]="validate" 
+                    [emailErrorContact]="emailErrorContact" (changeChecked)="onChangeChecked($event)"
+                    [formContactData]="formUserIdentification.controls.contact_data"
+                    [interesado]="interested" [readOnly]="readOnlyView" [draft]="draftUserIdentification">
+                </app-contact-data>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="foot-buttons">
+    <div class="text-right px-3">
+        <button class="btn-app-primary mr-2" type="submit"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  showErrors == false}"></i>{{ 'buttons.continue' | translate}}</button>
+    </div>
+</div>
+</form>
+</div>

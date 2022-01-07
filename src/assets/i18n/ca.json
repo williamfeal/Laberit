@@ -1,0 +1,689 @@
+{
+    "TITLE": "SEU ELECTRÒNICA",
+    "buttons": {
+      "save": "Guardar",
+      "back": "Arrere",
+      "continue": "Continuar",
+      "presentSign": "Signar i presentar",
+      "previous": "Anterior"
+    },
+    "home": {
+      "TITLE": "Inici",
+      "carpeta": "Àrea de Client",
+      "advertisements": "Tauler d'anuncis",
+      "contractor_profile": "Perfil de contractant",
+      "electronic_services": "Serveis Electrònics",
+      "valide": "Validació de signatures i certificats",
+      "electronic_invoice": "Factura electrònica",
+      "document_verification": "Verificació de Documents",
+      "notifications": "Notificacions"
+    },
+    "SLIDER_HOME": {
+      "TITLE": "Què pots fer?"
+    },
+    "PROCEDURES_HOME": {
+      "TITLE": "Tràmits",
+      "SEE_ALL": "Veure tots"
+    },
+    "HELP_HOME": {
+      "TITLE": "Ajuda",
+      "INFO_SEDE": "Coneix la Seu Electrònica",
+      "ELECTRONIC_CERTIFICATE": "Com obtindre el certificat electrònic",
+      "TECHNICAL_REQUIREMENTS": "Requisits tècnics",
+      "PROCEDURES_SEARCH": "Cercador de tràmits"
+    },
+    "procedures-search": {
+      "title": "Cercador de tràmits"
+    },
+    "advertisements": {
+      "title": "TAULER D'ANUNCIS",
+      "created": "Data creació:",
+      "seeMore": "Llegir més"
+    },
+    "advertisements_detail": {
+      "title": "TAULER D'ANUNCIS",
+      "back": "Tornar",
+      "validity": "Vigència",
+      "since": " Des de",
+      "until": "fins al",
+      "created": "Creat el:",
+      "show": "Veure document",
+      "no_document": "No hi ha documentació descarregable"
+    },
+    "contact": {
+      "title": "Contacta amb nosaltres",
+      "name": "Nom",
+      "email": "Email",
+      "message": "Missatge",
+      "policy": "He llegit i accepte la Política de Privacitat i Protecció de Dades de Caràcter Personal",
+      "send": "Enviar",
+      "contact_us":"<p>La seu de Entitat Pública de Sanejament d'Aigües Residuals (EPSAR) està en:</p><p class=\"text-secondary mb-0\">Plaza de Nápoles y Sicilia, 6</p><p class=\"text-secondary\">46003 - Valencia</p><p>Contacta amb nosaltres:</p><p><strong>Contacte finançament empresarial</strong></p><table class=\"table table-bordered\"><tr><td class=\"text-secondary\">Línia Finançament Bonificat EPSAR-RESISTIR(anterior modalidad HORECA)</td><td class=\"text-secondary w-25\">960 992 544</td><td>liquidezcovid@epsar.es</td></tr><tr><td class=\"text-secondary\">Línia Finançament Bonificat EPSAR-RENAIXER i un altre finançament</td> <td class=\"text-secondary\">609 018 217</td> <td>financiacion@epsar.es</td> </tr> <tr><td class=\"text-secondary\">Línia Finançament amb Fons FEDER</td> <td class=\"text-secondary\">960 992 544</td><td>tramitaciones.fondos@epsar.es</td></tr></table><p>Horari d'atenció telefònica: de dilluns a dijous de 9 a 17 hores, i divendres de 9 a 14,30 hores</p>",
+      "info": {
+        "title": "Informació bàsica sobre la protecció de les seues dades",
+        "responsable": "Responsable",
+        "responsable_text": "ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS",
+        "purpose": "Finalitat",
+        "purpose_text": "Incorporar les seues dades a una base de dades d'usuaris per a registrar el seu missatge.",
+        "legitimation": "Legitimació",
+        "legitimation_text": "Consentiment de l'interessat.",
+        "destinataries": "Destinataris",
+        "destinataries_text": "ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS. No se cediran dades a tercers, excepte obligació legal.",
+        "rights": "Drets",
+        "rights_text": "Accés, rectificació, supressió, oposició, limitació del tractament i, en el seu cas oposició portabilitat de les dades.",
+        "origin": "Procedència",
+        "origin_text": "El propi interessat, el seu representant legal.",
+        "consult_legal_notice": "Consulte el nostre Avís Legal i Política de Privacitat en el següent",
+        "consult_legal_notice_link": "enllaç"
+      }
+    },
+    "contractor-profile": {
+      "title": "PERFIL DE CONTRACTANT",
+      "text": "El perfil del contractant és l'eina a través de la qual es facilita als interessats, a través d'internet, informació sobre l'activitat contractual del ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS, assegurant així la transparència i l'accés públic a la informació en aquesta matèria. Prement el següent enllaç, eixirà de la Seu Electrònica i accedirà a la <b>Plataforma de Contratación del Sector Público (PLACSP)</b>, on podrà consultar informació sobre les licitacions del ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS.",
+      "button": "Anar a Plataforma Contractació"
+    },
+    "web_map": {
+      "title": "Mapa Web",
+      "home":"Home",
+      "citizen_folder":{
+        "title": "Àrea del Client",
+        "notification_mailbox":"Bústia de notificacions",
+        "request":"Sol·licituds",
+        "personal_information":"Dades Personals"
+      },
+      "bulletin_board":"Tauler d'anuncis",
+      "contractor_profile":"Perfil de Contractant",
+      "electronic_services":{
+        "title":"Serveis electrònics",
+        "csv":"Verificació de documents per CSV",
+        "signature_certificate":"Validació de Signatures i Certificats",
+        "electronic_bill":"Factura Electrònica",
+        "notification":"Notificacions"
+      },
+      "procedure":{
+        "procedures":"Tràmits",
+        "general_instances":"Instàncies Generals",
+        "bonus_loans":"Préstecs Bonificats"
+      },
+      "help":{
+        "title": "Ajuda",
+        "know_sede":{
+          "know_sede":"Coneix la Seu Electrònica",
+          "normative":"Normativa de la Seu",
+          "contents":"Continguts de la Seu",
+          "services":"Serveis de la seu",
+          "electronic_record":"Registre electrònic",
+          "signature_certificates":"Signatura electrònica i Certificats admesos",
+          "document_veriication":"Verificació de documents",
+          "date":"Data i Hora Oficial",
+          "calendars":"Calendari de dies inhàbils",
+          "records_offices":"Oficina d'assistència en matèria de registres",
+          "programs_stops":"Parades programades"
+        },
+        "how_certificate":"Com obtindre el certificat electrònic",
+        "technical_requirements":"Requisits tècnics",
+        "procedures_finder":"Cercador de tràmits"
+      },
+      "footer":{
+        "contact":{
+          "title":"Contactes",
+          "information": "Sol·licitar informació"
+        },
+        "access": {
+          "title":"Accessos",
+          "Accessibility":"Accessibilitat",
+          "web_map":"Mapa Web",
+          "legal_warning":"Avís legal"
+        }
+      }
+    },
+    "footer": {
+      "contacts": "Contactes",
+      "ask_for_information": "Sol·licitar informació",
+      "help": "Ajuda",
+      "technical_requirements": "Requisits tècnics",
+      "user_guide": "Guia d'usuari",
+      "access": "Accessos",
+      "carpeta": "Àrea del client",
+      "complaints_and_suggestions": "Queixes i suggeriments",
+      "date_and_time": "Data i hora oficial",
+      "advertisements": "Tauler d'anuncis",
+      "document_verification": "Verificació de documents",
+      "valide": "Validació de signatures i certificats",
+      "electronic_invoice": "Factura electrònica",
+      "procedures": "Tràmits",
+      "contractor_profile": "Perfil de contractant",
+      "contact_popover": {
+        "title": "Necessites ajuda?",
+        "body": "Si tens algun problema amb la Seu electrònica, pots contactar amb el CAU a través d'aques <a href='/contact'>enllaç</a> o trucant al telèfon 868.990.414.</p> També pots consultar o descarregar la Guia d'usuari ací.."
+      }
+    },
+    "procedure_detail": {
+      "procedure_name": "Nom del tràmit",
+      "info": "Informació",
+      "online": "En línia",
+      "tramit": "Tramitar",
+      "face": "Presencial",
+      "description": "Descripció",
+      "destinataries": "Destinataris",
+      "observations": "Observacions",
+      "start": "Data d'inici",
+      "faqs": "Preguntes freqüents",
+      "cost": "Cost",
+      "associatedDocs": "Documents associats",
+      "contact": "Contacte",
+      "online_transaction": "Tramitació",
+      "transact": "Tramitar",
+      "procedure_not_available": "Tràmit no disponible",
+      "procedure_not_available_text1": "Aquesta opció no està disponible en aquests moments.",
+      "procedure_not_available_text2": "Per a qualsevol tràmit amb la Seu Electrònica pot utilitzar una",
+      "general_instance": "Instància general",
+      "face_transaction": "Tramitació presencial",
+      "download_application_form": "Descarregar model de sol·licitud"
+    },
+    "header": {
+      "carpeta": "Àrea del Client",
+      "find_procedures": "Trobar tràmits"
+    },
+    "electronic-services": {
+      "document-verification": {
+        "title": "SERVEIS ELECTRÒNICS: <br> VERIFICACIÓ DE DOCUMENTS PER CSV",
+        "text": "Els documents electrònics generats per ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS en la seua Seu Electrònica inclouen en les seues pàgines un codi que es denomina Codi Segur de Verificació (o *CSV). Aquest codi és el que permet comprovar l'autenticitat del document imprés en paper per un tercer interessat. <br><br> Per a verificar un document amb *CSV haurà d'introduir el seu codi en la casella següent i prémer el botó \"Verificar document\". El resultat serà un document electrònic, fidel reflex del document a acarar, que podrà usar per a verificar la coincidència de les dades que té ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS amb el document en paper del qual es disposa.",
+        "button": "Acceptar",
+        "placeholder_csv": "Introduïsca el CSV",
+        "error_captcha": "Ha de marcar el captcha.",
+        "error_csv": "Aquest camp és obligatori.",
+        "error_csv_mal": "Aquest csv no existeix.",
+        "where_title": "On es troba el Codi Segur de Verificació",
+        "where_text": "El codi CSV és l'es troba imprés en la part inferior dels documents electrònics generats per ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS, just davall de \"Codi segur de validació\"."
+      },
+      "electronic-invoice": {
+        "title": "SERVEIS ELECTRÒNICS: <br>  FACTURA ELECTRÒNICA",
+        "text": "ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS es troba adherida al Punt General d'Entrada de Factures Electròniques (FACe) de l'Administració General de l'Estat. La plataforma FACe permet a proveïdors la remissió de factures electròniques, simplificant l'enviament d'aquestes. <br> Prement el següent enllaç, eixirà de la Seu Electrònica i accedirà FACe.",
+        "button": "Anar a FACe"
+      },
+      "notifications": {
+        "title": "SERVEIS ELECTRÒNICS: <br>  FACTURA ELECTRÒNICA",
+        "text": "La bústia de comunicacions és el lloc on gestionar les seues notificacions electròniques rebudes, o aquelles de tercers a les quals haja sigut autoritzat. Pot consultar el detall de les notificacions electròniques rebudes accedint al Àrea del Client, emprant per a això el seu certificat electrònic. <br> Una vegada en el Àrea del Client, dirigisca's a l'apartat \"Les teues notificacions i comunicacions\"",
+        "button": "Anar a Àrea del Client"
+      },
+      "valide": {
+        "title": "SERVEIS ELECTRÒNICS: <br>  VALIDACIÓ DE SIGNATURES I CERTIFICATS",
+        "text": "L'objectiu d'aquest servei és permetre comprovar que el certificat electrònic utilitzat és un certificat vàlid i que no ha sigut revocat. També permet comprovar la validesa d'una signatura electrònica realitzada mitjançant certificat digital emés per un prestador de serveis de certificació reconegut, i realitzar signatures mitjançant certificat digital del qual es dispose de la clau privada corresponent. <br> Prement el següent enllaç, eixirà de la Seu Electrònica i accedirà a VALIDe, servei en línia oferit pel Ministeri de Política Territorial i Funció Pública per a la validació de Signatures i Certificats electrònics.",
+        "button": "Anar a VALIDe"
+      }
+    },
+    "know_sede": {
+      "title": "CONEIX LA SEU ELECTRÒNICA",
+      "components": {
+        "know_sede": {
+          "name": "Coneix la seu electrònica",
+          "texto": "La <b>Seu Electrònica de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</b> és l'adreça electrònica disponible per als ciutadans a través de xarxes de telecomunicacions la titularitat de les quals, gestió i administració correspon a la pròpia ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS en l'exercici de les seues competències. <br><br> D'acord amb la definició establida en la Llei 11/2007, de 22 de juny, d'accés electrònic dels ciutadans als Serveis Públics, en el seu Article 10.1, la <b>Seu Electrònica</b> seria l'equivalent en els serveis que subministra <b>ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</b>  pel canal digital, a una seu física i els serveis que aquest subministra pel canal presencial. <br><br> Els serveis i informació que aquesta Llei prescriu, encara que no exclou altres informacions, se centren clarament en allò que comporten els actes administratius portadors de drets i obligacions, és a dir, quant a actes amb contingut jurídic o tràmits, més la informació directament relacionada amb ells. <br> <br> <br> <b>NORMATIVA VIGENT</b> <br> <br> Les dues normes vigents més importants per a determinar el contingut de la Seu Electrònica de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS, amb rang de Llei de l'Estat, són les següents: <br><br> <b>Llei 39/2015, d'1 d'octubre, del Procediment Administratiu Comú de les Administracions Públiques</b> <br> Aquesta Llei subsumeix tant la primera Llei específicament dedicada a l'Administració Electrònica, és a dir, la Llei 11/2007, de 22 de juny, d'accés electrònic dels ciutadans als Serveis Públics, com a part de la Llei 30/1992, de 26 de novembre, de Règim Jurídic de les Administracions Públiques i del Procediment Administratiu Comú, en aquest cas tot el referit al que el seu propi nom indica. En ella es prescriu, de manera inequívoca, el format de documents i expedients com obligatòriament digitals, i es regula clarament el contingut mínim de les seus, encara que no prohibeix la inclusió d'altres apartats.  <br><br> <b>Llei 40/2015, d'1 d'octubre, de Règim Jurídic del Sector Públic</b> <br> Aquesta Llei subsumeix l'altre aspecte de la Llei 30/1992 que recull en el nom. Encara que d'enorme importància per a alguns dels components fonamentals de l'Administració Electrònica, respecte a la Seu Electrònica només estableix, en el seu article 38, unes certes regles i principis d'actuació de les seus electròniques, com a transparència, publicitat, responsabilitat, qualitat, seguretat, disponibilitat, accessibilitat, neutralitat i interoperabilitat, però no prescriu continguts específics.. "
+        },
+        "normative": {
+          "name": "Normativa de la seu",
+          "texto": "<table class=\"table table-bordered table-striped\"><thead style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><th class=\"col-2\">Norma</th><th class=\"col-2\">Article</th><th class=\"col-8\" >Text</th></tr></thead><tbody style=\"box-sizing: border-box;\"><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Llei 39/2015</a></span></td><td class=\"col-2\"><span>Art. 5.<br>Representació</span></td><td class=\"col-8 text-justify\"><span>4. La representació podrà acreditar-se mitjançant qualsevol mitjà vàlid en Dret que deixe constància fidedigna de la seua existència. A aquest efecte, s'entendrà acreditada la representació realitzada mitjançant apoderament d'acta efectuat per compareixença personal o compareixença electrònica en la corresponent seu electrònica, o a través de l'acreditació de la seua inscripció en el registre electrònic d'apoderaments de l'Administració Pública competent.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 6.<br>Registres electrònics d'apoderaments</span></td><td class=\"col-8 text-justify\"><span>5. L'apoderament «apud acta» s'atorgarà mitjançant compareixença electrònica en la corresponent seu electrònica fent ús dels sistemes de signatura electrònica previstos en aquesta Llei, o bé mitjançant compareixença personal en les oficines d'assistència en matèria de registres.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 16.<br>Registres</span></td><td class=\"col-8 text-justify\"><span>En la seu electrònica d'accés a cada registre figurarà la relació actualitzada de tràmits que poden iniciar-se en aquest.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 16.<br>Registres</span></td><td class=\"col-8 text-justify\"><span>Les disposicions de creació dels registres electrònics es publicaran en el diari oficial corresponent i el seu text íntegre haurà d'estar disponible per a consulta en la seu electrònica d'accés al registre. En tot cas, les disposicions de creació de registres electrònics especificaran l'òrgan o unitat responsable de la seua gestió, així com la data i hora oficial i els dies declarats com a inhàbils.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 27.<br>Validesa i eficàcia de les còpies realitzades per les Administracions Públiques</span></td><td class=\"col-8 text-justify\"><span>A aquest efecte, les Administracions faran públics, a través de la seu electrònica corresponent, els codis segurs de verificació o un altre sistema de verificació utilitzat.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 31.<br>Còmput de terminis en els registres</span></td><td class=\"col-8 text-justify\"><span>2. El registre electrònic de cada Administració o Organisme es regirà a l'efecte de còmput dels terminis, per la data i hora oficial de la seu electrònica d'accés, que haurà de comptar amb les mesures de seguretat necessàries per a garantir la seua integritat i figurar de manera accessible i visible.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 32.<br>Ampliació</span></td><td class=\"col-8 text-justify\"><span>4. Quan una incidència tècnica haja impossibilitat el funcionament ordinari del sistema o aplicació que corresponga, i fins que se solucione el problema, l'Administració podrà determinar una ampliació dels terminis no vençuts, havent de publicar en la seu electrònica tant la incidència tècnica esdevinguda com l'ampliació concreta del termini no vençut.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 41.<br>Condicions generals per a la pràctica de les notificacions</span></td><td class=\"col-8 text-justify\"><span>6. Amb independència que la notificació es realitze en paper o per mitjans electrònics, les Administracions Públiques enviaran un avís al dispositiu electrònic i/o a l'adreça de correu electrònic de l'interessat que aquest haja comunicat, informant-lo de la posada a la disposició d'una notificació en la seu electrònica de l'Administració o Organisme corresponent o en l'adreça electrònica habilitada única. La falta de pràctica d'aquest avís no impedirà que la notificació siga considerada plenament vàlida.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 42.<br>Pràctica dels notificacions en paper.</span></td><td class=\"col-8 text-justify\"><span>1. Totes les notificacions que es practiquen en paper hauran de ser posades a la disposició de l'interessat en la seu electrònica de l'Administració o Organisme actuant perquè puga accedir al contingut de les mateixes de manera voluntària.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 42.<br>Práctica de las notificaciones en papel.</span></td><td class=\"col-8 text-justify\"><span>3. Quan l'interessat accedira al contingut de la notificació en seu electrònica, se li oferirà la possibilitat que la resta de notificacions es puguen realitzar a través de mitjans electrònics.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 43.<br>Pràctica de les notificacions a través de mitjans electrònics</span></td><td class=\"col-8 text-justify\"><span>1. Les notificacions per mitjans electrònics es practicaran mitjançant compareixença en la seu electrònica de l'Administració o Organisme actuant, a través de l'adreça electrònica habilitada única o mitjançant tots dos sistemes, segons dispose cada Administració o Organisme. Als efectes previstos en aquest Art., s'entén per compareixença en la seu electrònica, l'accés per l'interessat o el seu representant degudament identificat al contingut de la notificació. 3. S'entendrà complida l'obligació a la qual es refereix l'Art. 40.4 amb la posada a la disposició de la notificació en la seu electrònica de l'Administració o Organisme actuant o en l'adreça electrònica habilitada única.</span></td></tr><tr class=\"d-flex\"><td class=\"col-2\"><span><a class=\"primary-color\" href=\"https://www.boe.es/buscar/pdf/2015/BOE-A-2015-10565-consolidado.pdf\" target=\"_blank\">Ley 39/2015</a></span></td><td class=\"col-2\"><span>Art. 53.<br>Drets de l'interessat en el procediment administratiu</span></td><td class=\"col-8 text-justify\"><span>1. A més de la resta de drets previstos en aquesta Llei, els interessats en un procediment administratiu, tenen els següents drets:a) A conéixer, en qualsevol moment, l'estat de la tramitació dels procediments en els quals tinguen la condició d'interessats; el sentit del silenci administratiu que corresponga, en cas que l'Administració no dicte ni notifique resolució expressa en termini; l'òrgan competent per a la seua instrucció, si escau, i resolució; i els actes de tràmit dictats. Així mateix, també tindran dret a accedir i a obtindre còpia dels documents continguts en els citats procediments.</span></td></tr></tbody></table>"
+        },
+        "contents": {
+          "name": "Contingut de la seu",
+          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">A partir de les exigències legals que es van relacionar en l'epígraf anterior, s'expressen de forma abreujada els elements de seu electrònica citats i, per als casos en què es considera més adequada la publicació d'un element en un altre entorn web diferent a la Seu Electrònica, es consigna l'entorn o els entorns designats per ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS. Els elements s'agrupen per un conjunt de categories:</p> <ul><li><strong>Identificació:</strong> elements necessaris per a identificació o acreditació amb garanties de la pròpia seu, interessats, representants, etc</li><li><strong>Publicació/Informació:</strong> Publicacions i informacions no transaccionals, dirigides al públic en general i l'ús del qual no requereix autenticació</li><li><strong>Procediments i Registre:</strong> serveis transaccionals per excel·lència de presentació telemàtica de documents a procediments</li><li><strong>Verificació: </strong>serveis de comprovació de certificats, CSV, segells d'òrgan, etc</li><li><strong>Enllaços</strong></li></ul></div>"
+        },
+        "services": {
+          "name": "Serveis de la seu",
+          "texto": "<div class=\"card-body\"><p class=\"px-2 text-justify\">La Seu Electrònica de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS ofereix els següents serveis als usuaris:</p><ol class=\"list-letter\"><li><span>Es permet realitzar tràmits per mitjans electrònics i poder realitzar una cerca d'ells fàcilment, amb indicació dels requisits essencials per a la tramitació, a més de la recepció de notificacions, incloent-se així mateix la possibilitat de descàrrega de la sol·licitud  presentada i del seu respectiu justificant</span></li><li><span>Serveis electrònics com la validació de signatures i certificats, la factura electrònica i la verificació de documents.</span></li><li><span>Informació sobre la Seu i informació essencial per a l'usuari com la normativa, la data i hora, el calendari de dies inhàbils, la direcció de la seu física i el número de telèfon per a l'atenció ciutadana.</span></li><li><span>Informació sobre com obtindre el certificat electrònic.</span></li><li><span>Informació sobre els requisits tècnics requerits.</span></li><li><span>Atenció al client per a interposar queixes i suggeriments.</span></li><li><span>Tauler d'anuncis per a estar informat de notícies d'interés.</span></li><li><span>Servei d'informació per a sol·licitar i obtindre informació rellevant.</span></li><li><span>Accés al Àrea del Client.</span></li><li><span>Accés al Perfil de Contractant.</span></li></ol></div>"
+        },
+        "electronic_record": {
+          "name": "Registre electrònic",
+          "texto": "<div class=\"card-body\"><p class=\"px-2\">El<strong> Registre electrònic de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</strong> és el canal electrònic que permet la presentació telemàtica de documents com ara escrits, sol·licituds i comunicacions relacionades amb els tràmits. Es tracta d'un canal alternatiu a la presentació d'aqueixos mateixos documents en les oficines de registre.</p><p class=\"px-2\">El servei de Registre Electrònic està disponible 24 hores al dia, tots els dies de l'any, a excepció de les interrupcions que siguen necessàries per raons tècniques i que seran anunciades amb la deguda antelació a través de la pròpia Seu Electrònica.</p></div>"
+        },
+        "signature_certificates": {
+          "name": "Signa electrònica i certificats admesos",
+          "texto": "<div class=\"card-body\"><p class=\"px-2\">La <strong>ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</strong> usa els certificats electrònics per a la identificació i signatura electròniques en aquells supòsits en els quals la normativa vigent, bé ho permet o bé ho exigeix.</p><p class=\"px-2\">Actualment s'està treballant en la implantació gradual d'altres mecanismes alternatius i actualment admesos en l'àmbit de les Administracions Públiques, com ara autenticació d'usuari certificada, Cl@ve i Cl@ve PIN, entre altres.</p></div>"
+        },
+        "document_veriication": {
+          "name": "Verificació de documents",
+          "texto": "<p class=\"px-2\">Els documents electrònics generats per <strong>ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</strong> en la seua Seu Electrònica inclouen en les seues pàgines un codi que es denomina Codi Segur de Verificació (o CSV). Aquest codi és el que permet comprovar l'autenticitat del document imprés en paper per un tercer interessat. </p>"
+        },
+        "date": {
+          "name": "Data i hora oficial",
+          "texto": "<ul> <li> <strong>Llei 39/2015, d'1 d'octubre, del Procediment Administratiu Comú de les Administracions Públiques.</strong> En el seu art. 31.2 assenyala que \"El registre electrònic de cada Administració o Organisme es regirà a l'efecte de còmput dels terminis, per la data i hora oficial de la seu electrònica d'accés, que haurà de comptar amb les mesures de seguretat necessàries per a garantir la seua integritat i figurar de manera accessible i visible\".</li><li> <strong>Reial decret 4/2010, de 8 de gener, pel qual es regula l'Esquema Nacional d'Interoperabilitat en l'àmbit de l'Administració Electrònica,</strong> assenyala en l'article 15.2 que la sincronització de la data i l'hora es realitzarà amb el Real Institut i Observatori de l'Armada, de conformitat amb el que es preveu sobre l'hora legal en el Reial decret 1308/1992, de 23 d'octubre.</li></ul> <p class=\"px-2\">En compliment de tals disposicions, la data i hora oficials de la Seu Electrònica de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS es troben sincronitzades automàticament amb el rellotge del Real Institut i Observatori de l'Armada. Així mateix, es trobaran permanentment visibles en la fitxa de cada procediment en fase de tramitació en línia.</p>"
+        },
+        "calendars": {
+          "name": "Calendari de dies inhàbils",
+          "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\"> <ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem;\"><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">25 de Desembre , Nadal</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Gener</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 de Març</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 d'Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">18 d'Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">19 d'Abril</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Maig</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">10 de Juny</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">15 d'Agost</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">27 de Setembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">12 d'Octubre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">1 de Novembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">6 de Desembre</li><li class=\"dia-inhabil\" style=\"box-sizing: border-box;\">11 de Gener</li></ul></div>"
+        },
+        "records_offices": {
+          "name": "Oficines d'assistència en matèria de registres",
+          "texto": "<div class=\"card-title py-2 px-3 mt-3 mx-3 bg-light font-weight-bold text-uppercase\">Atenció presencial</div><div class=\"card-body\"><p class=\"px-2\"><strong>Oficines de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</strong></p><p class=\"px-2\">Direcció  <span class=\"ml-3 font-italic\">Plaza de Nápoles y Sicilia, 6, 46003 – Valencia.</span></p>  <p class=\"px-2\">Telèfon<span class=\"ml-4 font-italic\">961 97 17 00</span></p> <p class=\"px-2\">Localització</p> </div>"
+        },
+        "programs_stops": {
+          "name": "Parades programades",
+          "texto": "<div class=\"card-body\"><p class=\"px-2\">No existeixen parades programades per al servei que presta la Seu Electrònica.</p></div>"
+        }
+      }
+    },
+    "technical_requirements": {
+      "title": "REQUISITS TÈCNICS",
+      "header_card": "COMPONENTS DE SOFTWARE",
+      "text": "Per al correcte funcionament de l'aplicació són necessaris: <br><br><ul><li><b>Certificat electrònic. </b> Existeixen actualment tres opcions:<br><ul><ol>El DNI electrònic (DNIe) </ol><ol>Altres certificats admesos pels Organismes de l'Administració Pública Espanyola. </ol></ul></li><li><b>Adobe Acrobat Reader.</b> Disposem de la descàrrega gratuïta en:<a href=”http://get.adobe.com/es/reader”>http://get.adobe.com/es/reader</a> </li><li><b>Programa Autofirma </b> del Ministeri d'Hisenda i Administracions Públiques. Disposem de la descàrrega gratuïta en: <a href=”https://firmaelectronica.gob.es/Home/Descargas.html”> https://firmaelectronica.gob.es/Home/Descargas.html</a> L'ús de AutoFirma  com a eina de signatura integrada dins del procés de signatura de tràmits web té els següents requeriments quant a sistema operatiu:<br><li>Microsoft Windows 7 o superior.Suportat directament en 7, 8, 8.1 y 10.En 32 o 64 bits. </li><li>LinuxGuadalinex, Ubuntu. </li><li>Apple OS X Yosemite o superior.Suportat directament en Yosemite, El Capitán o Sierra. </li></li>"
+    },
+    "how_electronic": {
+      "title": "COM OBTINDRE EL CERTIFICAT ELECTRÒNIC",
+      "header_card": "DNI ELECTRÒNIC",
+      "text": "El nou Document Nacional d'Identitat electrònic (<b>DNIe</b>), és el document similar al tradicional DNI i que acredita -des de fa més de 50 anys- la identitat, les dades personals que en ell apareixen i la nacionalitat espanyola del seu titular. La principal novetat del nou DNIe és que incorpora un microxip capaç de guardar de manera segura informació i de processar-la internament.<br><br> El nou DNIe conté a l'interior del seu microxip dos certificats electrònics que serveixen per a realitzar sengles funcions, dins de l'àmbit de la tramitació electrònica: <br><br> <ol><li><b>Acreditar la identitat de la persona </b> electrònicament i de manera indubtable</li><li><b>Signar digitalment documents electrònics</b>, atorgant-los una validesa jurídica equivalent a la que els proporciona la signatura manuscrita </li> </ol><br> Si vosté disposa del nou DNI Electrònic, ha d'assegurar-se que té activats els certificats electrònics anteriorment esmentats, per al que haurà d'acreditar la seua identitat mitjançant l'empremta digital en qualsevol seu física de l'Oficina del DNI en Territori Espanyol: <a href=\"https://www.policia.es/_es/dependencias_localizador_accesible.php\">https://www.policia.es/_es/dependencias_localizador_accesible.php</a> <br><br> Si no disposa del nou DNI Electrònic, té l'opció d'expedir un nou en qualsevol oficina del DNI en Territori Espanyol o optar per l'ús dels altres tipus de certificats que s'esmenten més endavant en aquesta pàgina."
+    },
+    "accesibility": {
+      "title": "Accessibilitat",
+      "header_card": "COMPONENTS DE SOFTWARE",
+      "text": "És el nostre objectiu posar tota la informació d'aquesta Seu a la disposició del major nombre de ciutadans, evitant l'exclusió i promovent l'accessibilitat per a aconseguir la universalització de la informació. L'objectiu és que el major nombre possible de persones puguen navegar per les seues pàgines sense trobar dificultats d'accés. <br><br> La grandària de les fonts utilitzades és adaptable i el visitant pot canviar-lo conforme a les seues necessitats. La majoria dels navegadors disposa d'una opció de menú (Veure - Grandària de text) que li permetrà engrandir i reduir les fonts, i pot aconseguir el mateix efecte girant la roda del ratolí mentre prem la tecla Control. <br><br> Aquesta Seu Electrònica ha sigut desenvolupada seguint la norma UNEIX 139803:2012 i s'ajusta a les pautes definides pel grup de treball permanent<a href=\"https://www.w3.org/WAI/\">Web Accessibility Initiative (WAI)</a> del Consorci per a la World Wide Web (W3C) per al seu <a href=\"https://www.w3.org/TR/WCAG20/\"> nivell AA.</a> <br><br> El nostre treball i el nostre esforç van encaminats a continuar millorant de manera contínua l'accessibilitat d'aquesta Seu. Per això esperem la seua col·laboració i els convidem a ajudar-nos a continuar millorant aquest lloc web mitjançant l'enviament dels seus comentaris i suggeriments en la secció de \"Contacte\" que figura al peu de pàgina d'aquesta Seu."
+    },
+    "legal_warning": {
+      "title": "Avís legal",
+      "header_card": "INTRODUCCIÓ",
+      "text":  "<p dir=\"ltr\"><strong>1. DADES IDENTIFICATIVES DEL TITULAR DEL PORTAL</strong></p><p dir=\"ltr\">1.1. Titular d'aquest lloc web i de la marca</p><p>Denominació: EPSAR, ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS</p><p>CIF: Q-9650010C</p><p>Domicili: Plaza Nápoles y Sicilia, 6 46003 València</p>      <p>Els noms de domini, titularitat d'EPSAR- Generalitat Valenciana, afectes a la present política són:</p><ul><li>www.prestamos.epsar.es</li><li>www.solicitudes.epsar.es</li>      <li>www.epsar.es</li>      <li>www.epsar.gva.es</li></ul>      <p dir=\"ltr\"><strong>2. OBJECTE I ÀMBIT D'APLICACIÓ</strong></p>      <p dir=\"ltr\">2.1. Aquestes són les condicions generals que regulen l'accés, navegació i ús dels llocs web sota els dominis abans indicats (d'ara en avant, web de l'EPSAR), així com les responsabilitats derivades de la utilització dels seus continguts (entenent d'ara en avant per continguts els textos, gràfics, dibuixos, dissenys, codis, programari, fotografies, música, vídeos, sons, bases de dades, imatges, expressions i informacions, així com qualsevol altra creació protegida per les lleis nacionals i els tractats internacionals sobre propietat intel·lectual i industrial).</p><p dir=\"ltr\">2.2. S'entendrà que l'accés o la mera utilització de la web de l'EPSAR per part de l'usuari implica l'adhesió d'aquest a les condicions generals que l'EPSAR tinga publicades a cada moment en el qual accedisca a la web de l'EPSAR. En conseqüència, l'usuari ha de llegir atentament aquestes condicions generals. S'entendrà per usuari a tota persona que accedisca, navegue, utilitze o participe en els serveis i activitats, gratuïtes o oneroses, desenvolupades en la web de l'EPSAR.</p>      <p dir=\"ltr\">Aquestes condicions generals tenen per objecte regular l'accés, navegació i ús de la web de l'EPSAR, però, independentment d'aquestes, l'EPSAR podrà establir unes condicions particulars que regulen la utilització o contractació de serveis específics oferits als usuaris a través de la web de l'EPSAR. És a dir, si contracta serveis a través de la pàgina web de l'EPSAR haurà d'assegurar-se de conéixer i acceptar les condicions del producte que contracta que estaran disponibles en la mateixa web. Així mateix, a través de la web de l'EPSAR, l'EPSAR podrà habilitar a altres entitats perquè publiciten o presten els seus serveis. En aquests casos, l'EPSAR no serà responsable d'establir les condicions generals i particulars que hauran de tindre's en compte en la utilització, prestació o contractació d'aquests serveis per tercers i, per tant, no podrà ser considerat responsable d'ells.</p>      <p dir=\"ltr\">Abans d'utilitzar o contractar aquests serveis específics prestats per l'EPSAR, l'usuari haurà de llegir atentament les corresponents condicions particulars creades a aquest efecte per l'EPSAR. La utilització o la contractació d'aquests serveis específics impliquen l'acceptació de les condicions particulars que els regulen en la versió publicada per l'EPSAR en el moment en què es produïsca aquesta utilització o contractació.</p>      <p dir=\"ltr\"><strong>3. DRETS DE PROPIETAT INTEL·LECTUAL I INDUSTRIAL</strong></p>      <p dir=\"ltr\">3.1. L'EPSAR és titular o té la corresponent llicència sobre els drets d'explotació de propietat intel·lectual i industrial de la web de l'EPSAR, així com dels drets de propietat intel·lectual, industrial i d'imatge sobre els continguts disponibles a través del domini.</p>      <p dir=\"ltr\">3.2. En cap cas s'entendrà que l'accés i navegació de l'usuari implica una renúncia, transmissió, llicència o cessió total ni parcial d'aquests drets per part de l'EPSAR.</p>      <p dir=\"ltr\">3.3. En conseqüència, no està permés suprimir, eludir o manipular l'avís dels drets d'autor (copyright) i qualssevol altres dades d'identificació dels drets de l'EPSAR o dels seus titulars incorporats als continguts, així com els dispositius tècnics de protecció, les empremtes digitals o qualssevol mecanismes d'informació o d'identificació que pogueren trobar-se en els continguts.</p>      <p dir=\"ltr\">3.4. Així mateix està prohibit modificar, copiar, reutilitzar, explotar, reproduir, comunicar públicament, fer segones o posteriors publicacions, carregar arxius, enviar per correu, transmetre, usar, tractar o distribuir de qualsevol forma la totalitat o part dels continguts inclosos en la web de l'EPSAR per a propòsits públics o comercials, si no es compta amb l'autorització expressa i per escrit de l'EPSAR o, en el seu cas, del titular dels drets al fet que corresponga.</p>      <p dir=\"ltr\"><strong>4. ACCÉS</strong></p><p dir=\"ltr\">4.1. L'accés a la web de l'EPSAR per part dels usuaris té caràcter lliure i gratuït; no obstant això, alguns dels serveis i continguts oferits per l'EPSAR o tercers a través de la web de l'EPSAR poden trobar-se subjectes a la contractació prèvia del servei o producte i al pagament d'una quantitat de diners en la forma que es determine en les corresponents condicions particulars, i en aquest cas es posaran a la seua disposició de manera clara.</p><p dir=\"ltr\">4.2. Quan siga necessari que l'usuari es registre o aporte dades personals per a poder accedir a algun dels serveis específics, la recollida, el tractament i, en el seu cas, la cessió o l'accés de les dades personals dels usuaris, serà aplicable el que es disposa en la política de privacitat especificada més endavant en aquest document.</p><p dir=\"ltr\">4.3. Queda prohibida la contractació de productes i serveis a través de la web de l'EPSAR per part de menors d'edat: aquests hauran d'obtindre obligatòriament i amb anterioritat el consentiment dels seus pares, tutors o representants legals, els quals seran considerats responsables dels actes que duguen a terme els menors al seu càrrec, conforme a la normativa vigent.</p><p dir=\"ltr\"><strong>5. UTILITZACIÓ DEL LLOC WEB</strong></p><p dir=\"ltr\">5.1. Si per a la utilització o contractació d'un servei en la web de l'EPSAR, l'usuari haguera de registrar-se, aquest serà responsable d'aportar informació veraç i lícita. Si a conseqüència del registre es dotara a l'usuari d'una contrasenya, aquest es compromet a fer un ús diligent i a mantindre en secret la contrasenya per a accedir a aquests serveis. En conseqüència, els usuaris són responsables de l'adequada custòdia i confidencialitat de qualssevol identificadors o contrasenyes que li siguen subministrades per l'EPSAR, i es comprometen a no cedir el seu ús a tercers, ja siga temporal o permanent, ni a permetre el seu accés a persones alienes. Serà responsabilitat de l'usuari la utilització il·lícita dels serveis per qualsevol tercer il·legítim que empre a aquest efecte una contrasenya a causa d'una utilització no diligent o de la pèrdua d'aquesta per l'usuari.</p><p dir=\"ltr\">5.2. En virtut de l'anterior, l'usuari està obligat a notificar de manera immediata als gestors de la web de l'EPSAR qualsevol fet que permeta l'ús indegut dels identificadors o contrasenyes, com ara el robatori, extraviament o l'accés no autoritzat a aquests, amb la finalitat de procedir a la seua immediata cancel·lació. Mentre no es comuniquen tals fets, l'EPSAR quedarà eximida de qualsevol responsabilitat que poguera derivar-se de l'ús indegut per part de tercers dels identificadors o contrasenyes no autoritzats.</p><p dir=\"ltr\">5.3. L'accés, navegació i ús de la web de l'EPSAR és responsabilitat de l'usuari, per la qual cosa aquest es compromet a observar diligent i fidelment qualsevol instrucció addicional impartida per l'EPSAR o pel personal autoritzat de l'EPSAR relativa a l'ús de la web de l'EPSAR i dels seus continguts.</p><p dir=\"ltr\">5.4. Per tant, l'usuari s'obliga a usar els continguts de manera diligent, correcta i lícita i, en particular, es compromet a abstindre's de:<ul><li>Utilitzar els continguts amb finalitats o efectes contraris a la llei, la moral i els bons costums generalment acceptades, o a l'ordre públic</li><li>Reproduir o copiar, distribuir, permetre l'accés del públic a través de qualsevol modalitat de comunicació pública, transformar o modificar els continguts, llevat que es compte amb l'autorització del titular dels corresponents drets o això resulte legalment permés.</li></ul></p><p dir=\"ltr\"><strong>6. LLICÈNCIA SOBRE LES COMUNICACIONS</strong></p><p dir=\"ltr\">6.1. En el cas que l'usuari envie informació de qualsevol tipus a la web de l'EPSAR, el primer declara, garanteix i accepta que té dret a fer-ho lliurement, que aquesta informació no infringeix cap dret de propietat intel·lectual, de marca, de patent, secret comercial o qualsevol altre dret de tercer, que aquesta informació no té caràcter confidencial ni és perjudicial per a tercers.</p><p dir=\"ltr\">6.2. L'usuari reconeix assumir la responsabilitat i deixarà indemne a l'EPSAR per qualsevol comunicació que subministre personalment o al seu nom; aqueixa responsabilitat inclou, sense cap restricció, l'exactitud, legalitat, originalitat i titularitat d'aquesta.</p><p dir=\"ltr\">6.3. L'acceptació d'aquestes condicions generals implica la cessió en exclusiva per part de l'usuari de qualsevol dret d'explotació de propietat intel·lectual o industrial que l'usuari poguera posseir sobre les comunicacions que realitze a través de la web de l'EPSAR.</p><p dir=\"ltr\"><strong>7. RESPONSABILITATS I GARANTIES</strong></p><p dir=\"ltr\">7.1. L'EPSAR no garanteix ni es fa responsable de:<ul><li>La continuïtat dels continguts de la web de l'EPSAR.</li><li>L'absència d'errors en aquests continguts ni la correcció de qualsevol defecte que poguera ocórrer.</li><li>L'absència de virus o altres components nocius en la web de l'EPSAR o en el servidor que el subministra.</li><li>La invulnerabilitat de la web de l'EPSAR o la inexpugnabilidad de les mesures de seguretat que s'adopten en el domini.</li><li>La falta d'utilitat o rendiment dels continguts de la web de l'EPSAR.</li><li>Els danys o perjudicis que causara, a si mateix o a un tercer, qualsevol persona que infringira les condicions, normes i instruccions que l'IVF estableix en la web de l'IVF o a través de la vulneració dels sistemes de seguretat de la web de l'IVF.</li></ul>No obstant això, l'IVF declara que ha adoptat totes les mesures necessàries, dins de les seues possibilitats i de l'estat de la tecnologia, per a garantir el funcionament de la web de l'IVF i evitar l'existència i transmissió de virus i altres components nocius als usuaris.</p><p dir=\"ltr\"><strong>8. ENLLAÇOS</strong></p><p dir=\"ltr\">Enllaços a altres llocs web</p><p dir=\"ltr\">8.1. En la web de l'IVF, l'usuari podrà trobar enllaços a altres llocs web mitjançant diferents botons, links, bàners, etc. Aquests llocs són gestionats per tercers. L'IVF no té facultat ni mitjans humans ni tècnics per a conéixer, controlar ni aprovar tota la informació, continguts, productes o serveis facilitats per altres llocs web amb els quals s'estableixen enllaços des de la web de l'IVF. En conseqüència, l'IVF no pot assumir cap mena de responsabilitat per qualsevol aspecte relatiu a la pàgina web amb la qual s'estableix un enllaç des de la web de l'IVF; en concret, a títol enunciatiu i no taxatiu, sobre el seu funcionament, accés, dades, informació, arxius, qualitat i fiabilitat dels seus productes i serveis, els seus propis enllaços o qualsevol dels seus continguts, en general.</p><p dir=\"ltr\">8.2. L'establiment de qualsevol mena d'enllaç per part de la web de l'IVF amb un altre lloc web alié no implica que existisca algun tipus de relació, col·laboració o dependència entre l'IVF i el responsable del lloc web alié.</p><p dir=\"ltr\">Enllaços en altres llocs web amb destinació a la web de l'IVF</p><p dir=\"ltr\">8.3. Si qualsevol usuari, entitat o lloc web desitjara establir algun tipus d'enllaç amb destinació a la web de l'IVF, haurà d'atindre's a les següents estipulacions:<ul><li>L'enllaç solament es podrà dirigir a la pàgina principal o home de la web de l'IVF, excepte autorització expressa i per escrit de l'IVF.</li><li>L'enllaç ha de ser absolut i complet, és a dir, ha de portar a l'usuari, mitjançant un clic, a la pròpia direcció url de l'IVF http://prestamos.ivf.es, http://solicitudes.ivf.es, http://ivf.es, http://ivf.gva.es i ha d'abastar completament tota l'extensió de la pantalla de la pàgina principal del lloc web. En cap cas, llevat que l'IVF l'autoritze de manera expressa i per escrit, el lloc web que realitza l'enllaç podrà reproduir, de qualsevol manera, la web de l'IVF, incloure'l com a part del seu web o dins d'un dels seus marcs o crear un navegador sobre qualsevol de les pàgines de la web de l'IVF.</li><li>En la pàgina que estableix l'enllaç no es podrà declarar de cap manera que l'IVF ha autoritzat tal enllaç, llevat que l'IVF ho haja fet expressament i per escrit. Si l'entitat que realitza l'enllaç correctament des de la seua pàgina a la web de l'IVF desitjara incloure en la seua pàgina web la marca, denominació, nom comercial, rètol, logotip, eslògan o qualsevol altre tipus d'element identificatiu de l'IVF, haurà de comptar prèviament amb la seua autorització expressa i per escrit.</li><li>L'IVF no autoritza l'establiment d'un enllaç a la web de l'IVF des d'aquelles pàgines web que continguen materials, informació o continguts il·lícits, il·legals, degradants, obscens i, en general, que contravinguen la moral, l'ordre públic o les normes socials generalment acceptades.</li></ul></p><p dir=\"ltr\">8.4. L'IVF no té facultat ni mitjans humans i tècnics per a conéixer, controlar ni aprovar tota la informació, continguts, productes o serveis facilitats per altres llocs web que tinguen establits enllaços amb destinació a la web de l'IVF. L'IVF no assumeix cap mena de responsabilitat per qualsevol aspecte relatiu a l'IVF que estableix aqueix enllaç amb destinació a la web de l'IVF, en concret, a títol enunciatiu i no taxatiu, sobre el seu funcionament, accés, dades, informació, arxius, qualitat i fiabilitat dels seus productes i serveis, els seus propis enllaços o qualsevol dels seus continguts en general.</p><p dir=\"ltr\"><strong>9. DURACIÓ I MODIFICACIÓ</strong></p><p dir=\"ltr\">9.1. L'IVF podrà modificar els termes i condicions ací estipulades, totalment o parcialment, publicant qualsevol canvi en la mateixa forma en què apareixen aquestes condicions generals o a través de qualsevol mena de comunicació dirigida als usuaris.</p><p dir=\"ltr\">9.2. La vigència temporal d'aquestes condicions generals coincideix, per tant, amb el temps de la seua exposició, fins que siguen modificades totalment o parcialment, moment en el qual passaran a tindre vigència les condicions generals modificades.</p><p dir=\"ltr\">9.3. Amb independència del que es disposa en les condicions particulars, l'IVF podrà donar per acabat, suspendre o interrompre, en qualsevol moment i sense necessitat de preavís, l'accés als continguts de la pàgina, sense possibilitat per part de l'usuari d'exigir cap indemnització. Després d'aquesta extinció, continuaran vigents les prohibicions d'ús dels continguts exposades anteriorment en aquestes condicions generals.</p><p dir=\"ltr\"><strong>10. GENERALITATS</strong></p><p dir=\"ltr\">10.1. Els encapçalaments de les diferents clàusules són únicament informatius, i no afectaran, qualificaran o ampliaran la interpretació de les condicions generals.</p><p dir=\"ltr\">10.2. En cas d'existir discrepància entre el que s'estableix en aquestes condicions generals i les condicions particulars de cada servei específic, prevaldrà el que es disposa en aquestes últimes.</p><p dir=\"ltr\">10.3. En el cas que qualsevol disposició d'aquestes condicions generals fóra considerades nul·la o inaplicable, íntegrament o en part, per qualsevol jutjat, tribunal o òrgan administratiu competent, aquesta nul·litat o inaplicació no afectarà les altres disposicions de les condicions generals ni a les condicions particulars dels diferents serveis de l'IVF.</p><p dir=\"ltr\">10.4. El no exercici o execució per part de l'IVF de qualsevol dret o disposició continguda en aquestes condicions generals no constituirà una renúncia, excepte reconeixement i acord per escrit per part seua.</p><p dir=\"ltr\"><strong>11. JURISDICCIÓ</strong></p><p dir=\"ltr\">Les relacions establides entre l'IVF i l'usuari es regiran pel que es disposa en la normativa vigent sobre la legislació aplicable i la jurisdicció competent. No obstant això, per als casos en els quals la normativa preveja la possibilitat que les parts se sotmeten a un fur, l'IVF i l'usuari, amb renúncia expressa a qualsevol altre fur que poguera correspondre'ls, se sotmeten als jutjats i tribunals de la ciutat de València.</p><p dir=\"ltr\"><strong>12. NAVEGACIÓ ANÒNIMA A TRAVÉS DE LES PÀGINES WEB</strong></p><p dir=\"ltr\">L'IVF, titular de la web solament obté i conserva la següent informació sobre els visitants de la web:<ul><li>El nom del domini del proveïdor PSI o adreça IP que els dóna accés a la xarxa. D'aquesta manera serà possible elaborar estadístiques sobre els països i servidors que visiten més sovint aquesta web.</li><li>La data i hora d'accés a la web. Això ens permet esbrinar les hores de més afluència i dur a terme els ajustos precisos per a evitar problemes de saturació en hores punta.</li><li>L'adreça d'internet des de la qual va partir el link que dirigeix a la web. Aquesta dada farà possible conéixer l'efectivitat dels diferents bàners i enllaços que apunten al servidor de la web de préstecs, amb la finalitat de potenciar els que oferisquen millors resultats.</li><li>La referència de peticions http de cada secció. Això permetrà conéixer les àrees de més èxit i augmentar i millorar el seu contingut, amb la finalitat que els usuaris obtinguen un resultat més satisfactori.</li></ul>La informació obtinguda d'aquesta manera és totalment anònima, i en cap cas pot ser associada a un usuari concret i identificat.</p><p dir=\"ltr\"><strong>13. NAVEGACIÓ AMB COOKIES</strong></p><p dir=\"ltr\">Les pàgines web podrien utilitzar cookies, que són xicotets fitxers de dades que es descarrega en l'ordinador de l'usuari i que permeten a l'IVF obtindre dades com ara:<ul><li>La data i hora de l'última vegada que l'usuari va visitar les webs.</li><li>El disseny de continguts que l'usuari va triar en la seua primera visita a les webs.</li><li>Elements de seguretat que intervenen en el control d'accés a les àrees restringides.</li><li>L'usuari té l'opció d'impedir la generació de cookies mitjançant la selecció de la corresponent opció en el seu programa navegador.No obstant això, l'IVF adverteix que no es responsabilitza que la seua desactivació impedisca el bon funcionament de les pàgines.  Pot obtindre més informació sobre les cookies en <a href=\"http://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_Cookies.pdf\">http://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_Cookies.pdf</a> </li></ul></p>"
+    },
+    "areas": {
+      "title": "Áreas"
+    },
+    "error_texts": {
+      "input": {
+        "format_error": "Format incorrecte",
+        "empty_error": "Falta per emplenar el camp",
+        "nif_error": "Falta per emplenar el camp o nif incorrecte",
+        "num_Characters_error": "Falta per emplenar el camp o no compleix amb un mínim de 10 caràcters ",
+        "document_error": "Falta document"
+      },
+      "pop_up" : {
+        "format_error" : {
+          "title": "Extensió no permesa",
+          "text": "Les extensions d'arxiu permeses són:"
+        },
+        "size_error" : {
+          "title": "Grandària invàlida",
+          "text": "Arxiu massa gran. Màxim permés:"
+        },
+        "form_error" : {
+          "title": "Falten camps",
+          "text": "Revise els camps, per favor"
+        }
+      }
+    },
+    "carpeta_ciudadana": {
+      "title": "Àrea del Client",
+      "breadcrumb": {
+        "applicant": "Sol·licitant",
+        "my_request": "La meua sol·licitud"
+      },
+      "placeholder": {
+        "input": "Escriga ací",
+        "select": "Selecciona"
+      },
+      "confirmation": {
+        "title": "Resum",
+        "exit": "La seua sol·licitud ha sigut presentada amb èxit",
+        "interested": "INTERESSAT",
+        "date": "DATA DE PRESENTACIÓ",
+        "thing": "ASSUMPTE",
+        "register_number": "NÚMERO REGISTRE ENTRADA",
+        "resum_pdf": "RESUM DE LA SEUA SOL·LICITUD",
+        "sup_doc": "JUSTIFICANT REGISTRE D'ENTRADA",
+        "download_sup": "Descarregar justificant",
+        "download_resum": "Descarregar sol·licitud",
+        "footer_tab": "Una vegada iniciada la tramitació de la seua sol·licitud, pot consultar l'estat de la mateixa accedint al llistat de Sol·licituds del"
+      },
+      "init_page": {
+        "text": "<p>Per a accedir a la tramitació electrònica, així com a al Àrea del client i a tota la informació personal relacionada, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic.</p><p>Actualment, la Seu Electrònica de admet certificats electrònics dels següents proveïdors de serveis de certificació <ul><li><strong>DNI electrònic  </strong> (Direcció General de Policia - Ministeri de l'Interior).</li> <li> <strong>ACCV </strong> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana). </li><li>En general, tots aquells reconeguts en la plataforma <strong>@Firma</strong> el ministeri d'Hisenda i Administracions Públiques.</li></ul></p><p>Pot accedir amb el seu certificat electrònic a través del següent enllaç: </p>",
+        "btn_electronic_certificate": "Accés amb certificat electrònic",
+        "btn_clave": "Accés amb clau"
+      },
+      "instance": {
+        "title": "Instància General",
+        "infoSol": "Informació de la sol·licitud",
+        "interested": {
+          "title": "Dades Interessat",
+          "name_and_surname": "Nom i Cognoms",
+          "nifCif": "NIF o CIF",
+          "telephone": "Telèfon",
+          "email": "E-mail",
+          "linkDates": "Pot editar les seues dades personals en ",
+          "link": "aquest enllaç"
+        },
+        "docAdd": "Documentació a aportar",
+        "doc-required":"Documents obligatoris",
+      "doc-optional": "Documents opcionals",
+        "doc": {
+          "drag": "Arrossegue ací l'arxiu per a adjuntar-lo o",
+          "explore": "explorar"
+        },
+        "presentarSolicitud": "Presentar sol·licitud",
+        "present_request": {
+          "title": "Presentar sol·licitud",
+          "back": "Tornar",
+          "button": "REVISAR SOL·LICITUD",
+          "sign":"Firmar y Presentar",
+          "text_link": "Sol·licitud",
+          "text": "Es procedirà a la signatura i presentació de la seua sol·licitud mitjançant el seu certificat electrònic <br> <br> Per a presentar l'expedient, Vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic. <br> Actualment, la Seu Electrònica de ENTITAT PÚBLICA DE SANEJAMENT D'AIGÜES RESIDUALS admet certificats electrònics dels següents proveïdors de serveis de certificació: <br> <br> <ul> <li><span><b>DNI electrònic</b></span>(Direcció General de Policia - Ministeri de l'Interior)</li><li><b>ACCV</b> (Agència de Tecnologia i Certificació Electrònica de la Generalitat Valenciana)</li> <li>En general, tots aquells certificats reconeguts en la plataforma<span><b>@Firma </b></span>del Ministeri d'Hisenda i Administracions Públiques</li> </ul> <p>Pot consultar l'esborrany de la sol·licitud que presentarà, prement sobre el següent enllaç:</p>"
+        },
+        "notification": {
+          "title": "Dades a Efecte de Notificació",
+          "type": "Tipus de via",
+          "direction": "Direcció",
+          "number": "Número",
+          "extra": "Extra",
+          "CP": "Codi Postal",
+          "country": "País",
+          "province": "Província",
+          "municipality": "Municipi",
+          "resum": "Resum",
+          "expone": "Exposa",
+          "request": "Sol·licita",
+          "street": "Carrer",
+          "avenue": "Avinguda",
+          "square": "Plaça",
+          "promenade": "Passeig",
+          "lane": "Camí",
+          "boulevard": "Rambla",
+          "passage": "Passatge",
+          "selectStreet": "Seleccione via",
+          "selectCountry": "Seleccione País",
+          "selectProvince": "Seleccione província",
+          "selectMunicipality": "Seleccione municipi"
+        }
+      },
+      "identification": {
+        "title": "Identificació d'Usuari",
+        "identity_data": {
+          "title": "Dades de a qui presenta la sol·licitud",
+          "name_and_surname": "Nom i Cognoms",
+          "nif": "NIF"
+        },
+        "means_of_notification": {
+          "title": "Mitjà de notificació",
+          "means": "Mitjà de notificació",
+          "email": "Email a efecte de notificació",
+          "electronic": "Electrònica",
+          "paper": "Paper"
+        },
+        "interested_data": {
+          "title": "Dades del sol·licitant"
+        },
+        "requester_data": {
+          "title": "Dades del sol·licitant",
+          "type": "Tipus",
+          "type_interested": "Interessat",
+          "type_representative": "Representant",
+          "representation_power": "Representant en el Registre Electrónic de Apoderament"
+        },
+        "actuation_data": {
+          "title": "Vostè accedeix en qualitat de",
+          "title_power": "Comprobar poder de representació",
+          "actuation": "Actuació en el tràmit",
+          "representation_power": "Poder de representació",
+          "check": "Comprovar"
+        },
+        "represented_data": {
+          "title": "Dades del solicitant",
+          "type": "Tipus",
+          "social_reason": "Raó Social",
+          "name": "Nom",
+          "surname1": "Cognom 1",
+          "surname2": "Cognom 2",
+          "nif": "NIF",
+          "cnae": "CNAE",
+          "iae": "IAE",
+          "iae_date": "Data d'alta en la IAE",
+          "employees_number": "Núm. d'empleats",
+          "ambit": "Àmbit",
+          "residence_country": "País de residència",
+          "birth_date": "Data de naixement",
+          "constitution_date": "Data de constitució",
+          "genre": "Gènere",
+          "active": "Import del balanç de l'últim exercici tancat",
+          "turnover": "Ventes de l'últim exercici tancat",
+          "group_belong": "Pertany a grup",
+          "telephone": "Telèfon",
+          "ownGroup": "Pertany a un grup empresarial",
+          "businessType": "Tipus d'empresa"
+        },
+        "social_address": {
+          "title": "Domicili Social"
+        },
+        "productive_establishment_address": {
+          "title": "Domicilie establiment productiu"
+        },
+        "legal_representative": {
+          "title": "Representant Legal",
+          "name": "Nom",
+          "surname1": "Cognom 1",
+          "surname2": "Cognom 2",
+          "nif": "NIF",
+          "position": "Càrrec",
+          "telephone": "Telèfon",
+          "email": "Email"
+        },
+        "contact_data": {
+          "title": "Dades de contacte",
+          "check": "Les dades de contacte coincideixen amb els de Representant Legal",
+          "check_user": "Les dades de contacte coincideixen amb els de l'interessat",
+          "name": "Nom",
+          "surname1": "Cognom 1",
+          "surname2": "Cognom 2",
+          "nif": "NIF",
+          "position": "Càrrec",
+          "telephone": "Telèfon",
+          "email": "Email"
+        },
+        "address": {
+          "via_type": "Tipus de via",
+          "address": "Direcció",
+          "number": "Número",
+          "extra": "Extra",
+          "CP": "Codi Postal",
+          "country": "País",
+          "province": "Província",
+          "municipality": "Municipi",
+          "social_region": "Regió o Ciutat"
+
+        }
+      },
+      "linear_resistance": {
+        "title": "Línia resistir"
+      },
+      "request_info": {
+        "title": "Informació de la sol·licitud",
+        "ubication-proyect": "Localitat del projecte",
+        "financing": {
+          "title": "Detall dels costos a finançar",
+          "investment": {
+            "title": "Inversió en actius fixos",
+            "ground": "Terrenys",
+            "properties": "Immobles i construccions",
+            "machinery": "Maquinària i utillatge",
+            "installation": "Instal·lacions",
+            "others": "Altres"
+          },
+          "financing_fixed": {
+            "title": "Finançament previst en actius fixos",
+            "own_resources": "Recursos propis",
+            "grants": "Subvencions",
+            "other_bank_financing": "Un altre finançament bancari",
+            "active_ivf": "Finançable EPSAR actiu",
+            "dialogActiveinf": {
+              "alert": "Import del préstec sol·licitat no pot superar el 80% de la suma de la inversió en actius fixos."
+            }
+          },
+          "financing_assets": {
+            "title": "Finançament previst en actius circulants",
+            "current_assets": "Import a finançar actiu circulant",
+            "bankalbe_current_assets": "Finançable actiu circulant"
+          },
+          "financing_requested": {
+            "title": "Finançament sol·licitat",
+            "g1": "Per a inversió en actius Fixos",
+            "g2": "Per a inversió en actiu circulant",
+            "total_loan": "Total préstec sol·licitat EPSAR (*)"
+          }
+        },
+        "procedure_info": {
+          "title": "Condicions solicitades",
+          "import": "Import",
+          "term": "Termini (anys)",
+          "lack": "Carencia (mesos)",
+          "modality": "Modalitat tipus d'interés",
+          "company_type": "Tipus d'empresa",
+          "project_type": "Tipus de projecte",
+          "project_definition": "Definició del projecte",
+          "amount":"Import"
+        }
+      },
+      "notification_means": {
+        "title": "Mitjà de notificació",
+        "email": "Email a efecte de notificació"
+      },
+      "documentation": {
+        "title": "Documentació",
+        "documents": "Documents",
+        "download": "Descarregar Plantilla",
+        "generic": {
+          "dni":"Fotocopia DNI, passaport o targeta de residència del sol·licitant",
+          "help":"Declaració d'ajudes rebudes i/o sol·licitades per a les mateixes despeses elegibles",
+          "responsible_declaration":"Declaració responsable del compliment dels requisits per a ser beneficiari i compromís exprés del compliment de les obligacions que en cas de resultar beneficiari correspondrien al sol·licitant",
+          "model_303":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_347":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "distribution_by_year":"Distribució per any de venciment de les obligacions financeres, incloses aquelles que resulten de préstecs atorgats per les administracions públiques en el marc de la seua activitat de promoció econòmica. No és obligatòria la seua presentació en cas que la sol·licitud siga d'import inferior o igual a 50.000 euros "
+        },
+        "autonom": {
+          "tax_returns":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament",
+          "model_390":"Declaracions resumen-anual de l'IVA (model 390) corresponents als exercicis 2020 i 2019",
+          "self_assessment":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament",
+          "model_RLC":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social"
+        },
+        "micro_business" :{
+          "society_constitution_micro":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_micro":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_micro":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_micro":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "42_commercial_code_micro":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents.",
+          "tax_returns_micro":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "model_390_micro":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "registered_office_micro":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
+          "business_group_micro":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup.",
+          "PYME_micro":"Model de declaració de la condició de PYME"
+        },
+        "PYME":{
+          "society_constitution_PYME":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_PYME":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_PYME":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_PYME":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "_commercial_code_PYME":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents als dos últims exercicis tancats.",
+          "tax_returns_PYME":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "risk_inform":"Informe actualitzat de riscos emés per la Central d'Informació de Riscos del Banc d'Espanya",
+          "model_390_PYME":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_PYME":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_347_PYME":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_PYME":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià",
+          "business_group_PYME":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup s'indicarà el nombre d'empleats, balanç i volum de negoci anual",
+          "PYME":"Memòria Tècnica (Pla de Negoci)",
+          "tecnic_memory_PYME":"Memoria Tècnica (Pla de Negoci)"
+        },
+        "big_business":{
+          "society_constitution_big":"Fotocòpia de l'escriptura de constitució de la societat",
+          "beneficial_ownership_big":"Fotocòpia de l'escriptura de titularitat real de la societat o declaració de titularitat real",
+          "legal_representative_big":"Fotocòpia de l'escriptura d'apoderament del representant legal",
+          "annual_accounts_big":"Comptes anuals depositats en el Registre dels dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament",
+          "_commercial_code_big":"Si forma part d'un grup d'empreses, definit conforme a l'article 42 del Codi de Comerç, obligat a elaborar estats financers consolidats, haurà d'adjuntar també els comptes anuals consolidats del grup, corresponents als dos últims exercicis tancats.",
+          "tax_returns_big":"Declaracions de l'impost de societats corresponents als dos últims exercicis tancats amb anterioritat a la data de la sol·licitud de finançament (només en cas de societats no auditades)",
+          "risk_inform_big":"Informe actualitzat de riscos emés per la Central d'Informació de Riscos del Banc d'Espanya",
+          "model_303_big":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "registered_office_big":"En caso de que el domicilio social esté ubicado fuera de la Comunitat Valenciana, documentación acreditativa de que la empresa dispone al menos de un establecimiento de desarrollo de actividad en territorio valenciano",
+          "business_group_big":"Si la societat mercantil forma part d'un grup d'empreses, s'identificaran les empreses del grup en un organigrama que inclourà els percentatges de participació en cada societat, i per a cada empresa del grup s'indicarà el nombre d'empleats, balanç i volum de negoci anual",
+          "PYME_big":"Memòria Tècnica (Pla de Negoci)",
+          "tecnic_memory_big":"Memoria Tècnica (Pla de Negoci)"
+        },
+        "beneficits_community":{
+          "declarations_rent_community":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament de tots els socis",
+          "model_390_community":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_community":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_184_entities_community": "Model 184 d'Entitats en règim d'atribució de rendes",
+          "voucher_pay_community":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model *RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social de tots els socis",
+          "model_130_131_community":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament de tots els socis",
+          "model_347_community":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_community":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià"
+        },
+        "civil_society":{
+          "declarations_rent_civil":"Declaracions de l'impost sobre la renda de les persones físiques corresponents als dos anys immediatament anteriors a la data de la sol·licitud de finançament de tots els socis",
+          "model_390_civil":"Declaració resumeixen-anual de l'IVA (model 390) dels dos exercicis tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_303_civil":"Declaracions trimestrals de l'IVA (model 303) corresponents a l'últim trimestre de 2019 i als quatre trimestres de 2020, així com les relatives als trimestres de 2021 tancats amb caràcter previ a la sol·licitud de finançament",
+          "model_184_entities_civil": "Model 184 d'Entitats en règim d'atribució de rendes",
+          "voucher_pay_civil":"Justificant de pagament dels dos últims rebuts mensuals de liquidació de cotitzacions (model *RLC), corresponents al Règim Especial de Treballadors Autònoms de la Seguretat Social de tots els socis",
+          "model_130_131_civil":"Autoliquidació del pagament fraccionat de l'IRPF (model 130 o 131), corresponent a l'últim trimestre tancat amb caràcter previ a la sol·licitud de finançament de tots els socis",
+          "model_347_civil":"Última declaració anual d'operacions amb terceres persones (Model 347)",
+          "registered_office_civil":"En cas que el domicili social estiga situat fora de la Comunitat Valenciana, documentació acreditativa que l'empresa disposa almenys d'un establiment de desenvolupament d'activitat en territori valencià"
+        }
+      },
+      "requests-list": {
+        "title": "Les meues Sol·licituds",
+        "reload-list": "Recarregar llistat",
+        "date": "Data",
+        "request": "Sol·licitud",
+        "interested": "Interessat",
+        "line": "Línia",
+        "product": "Producte",
+        "state": "Estat",
+        "actions": "Accions"
+      },
+      "notifications": {
+        "title": "Les meues notificacions",
+        "state": "Estat",
+        "concept": "Concepte",
+        "notification-date": "Data de notificació",
+        "actualization-date": "Data d'actualització",
+        "actions": "Accions"
+      },
+      "notification-view": {
+        "title": "Veure notificació",
+        "notification-info": "Informació de la notificació",
+        "notification-id": "Identificador de la notificació",
+        "concept": "Concepte",
+        "cif": "CIF",
+        "transmitter-name": "Nom de l'organisme emissor",
+        "shipping-type": "Tipus d'enviament",
+        "reception-date": "Data de recepció",
+        "register-number": "Número de registre",
+        "register-date": "Data de registre",
+        "open-notification": "Obrir notificació",
+        "documents": "Documents",
+        "documents-date": "Data",
+        "documents-name": "Document"
+      },
+      "sign-notification-receipt": {
+        "title": "Signar",
+        "receipt": "Justificant de recepció",
+        "text": "Es procedirà a la signatura del document corresponent al justificant de recepció de la notificació. Per a això, vosté ha d'acreditar la seua identitat mitjançant l'ús d'un certificat electrònic. Una vegada signat el justificant de recepció, podrà accedir i visualitzar el contingut de la notificació.<br> <br>Actualment, la Seu Electrònica admet certificats electrònics dels següents proveïdors de serveis de certificació: <br> <br> <ul> <li><span><b>DNI electr&oacute;nico</b></span>&nbsp;(Direcci&oacute; General de Policia - Ministeri de l'interior)</li><li>En general, tots aquells certificats reconeguts en la plataforma &nbsp;<span><b>@Firma </b></span>&nbsp;del Ministeri d'Hisenda i Administracions P&uacute;bliques</li> </ul> <p>Pot consultar l'esborrany de la sol·licitud que presentarà, prement sobre el següent enllaç:</p>",
+        "link": "Justificant de recepció",
+        "button": "Signar justificant de recepció"
+      },
+      "general_instance": {
+        "title": "Instància General",
+        "request_info": {
+          "summary": "Resum",
+          "expose": "Exposa",
+          "request": "Sol·licita"
+        }
+      },
+      "linea_resistir_instance": {
+        "section_title_1": "Condicions de la sol·licitud",
+        "section_title_2": "Detall dels costos a finançar",
+        "text_1": "Imports destinats al sosteniment del capital circulant de l'empresa, incloent la contractació de mà d'obra, l'adquisició de béns i serveis lligats al cicle de l'explotació, el finançament de clients, la inversió en existències i tresoreria operativa de l'empresa, així com la cancel·lació del deute a curt termini de naturalesa comercial i financera."
+      },
+      "aceptation": {
+        "title": "Acceptació",
+        "manifestations_data_protection": "Manifestacions / Protecció de dades",
+        "manifestations": {
+          "title": "Manifestacions"    },
+        "data_protection": {
+          "title": "Protecció de dades",
+          "text": "L'EPSAR està obligat a guardar reserva de les informacions relatives als saldos, posicions, transaccions i altres operacions dels seus clients sense que les mateixes puguen ser comunicades a tercers o objecte de divulgació. S'exceptuen d'aquest deure les informacions respecte de les quals el client o les lleis permeten la seua comunicació o divulgació a tercers o que, en el seu cas, els siguen requerides o hagen de remetre a les respectives autoritats de supervisió o en el marc del compliment de les obligacions establides en la Llei 10/2010, de 28 d'abril, de prevenció del blanqueig de capitals i el finançament del terrorisme. En aquest cas, l'EPSAR podrà facilitar les dades que li siguen reclamats per l'autoritat competent, així com efectuar les comprovacions oportunes sobre la documentació facilitada. La revelació de dades també podrà tindre lloc en tot cas atés un mandat judicial o resolució administrativa. Queden així mateix exceptuades del deure de reserva els intercanvis d'informació entre entitats pertanyents a la Generalitat Valenciana i el seu sector públic amb la finalitat indicada en la clàusula de protecció de dades següent. El que es preveu en aquesta clàusula s'aplicarà sense perjudici del que s'estableix en la normativa de protecció de dades de caràcter personal. A l'efecte del present compromís de confidencialitat, s'entendrà per informació confidencial tota aquella que, rebuda de l'empresa o autònom sol·licitant, i no de tercers, no siga pública i notòria, o no puga ser obtinguda per l'EPSAR de registres públics o d'altres fonts d'informació a les quals tinga accés qualsevol tercer."
+        }
+      }
+    }
+  }

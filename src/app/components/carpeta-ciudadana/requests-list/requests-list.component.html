@@ -1,0 +1,61 @@
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<div class="mx-3">
+    <div class="row justify-content-between">
+        <div class="col-md-3">
+            <div class="d-flex">
+                <input class="form-control mr-3" id="keywords" placeholder="Buscar" name="keywords" type="text">
+                <button class="btn btn-app-outline-primary" name="search" type="submit">
+                    <em class="fas fa-redo"></em>
+                    {{ 'carpeta_ciudadana.requests-list.reload-list' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-light">
+                <th> {{ 'carpeta_ciudadana.requests-list.date' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.request' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.interested' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.line' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.product' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.state' | translate }} </th>
+                <th> {{ 'carpeta_ciudadana.requests-list.actions' | translate }} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reqDraf of requestDraft">
+                <td>
+                    {{ reqDraf.date | date: 'shortDate'}}
+                </td>
+                <td>
+                    {{ reqDraf.requestCode}}
+                </td>
+                <td>
+                    {{ reqDraf.interested }}
+                </td>
+                <td>
+                    {{ reqDraf.line }}
+                </td>
+                <td>
+                    {{ reqDraf.product }}
+                </td>
+                <td>
+                    {{ reqDraf.state}}
+                </td>
+                <td>
+                    <button (click)="navToRequestDraft(reqDraf)" *ngIf="reqDraf.state == 'Borrador'"
+                    class="btn btn-app-outline-primary rounded-circle btn-small">
+                        <em class="fa fa-edit"></em>
+                    </button>
+                    <button (click)="navToRequestViewDraft(reqDraf)" *ngIf="reqDraf.state !== 'Borrador'"
+                    class="btn btn-app-outline-primary rounded-circle btn-small">
+                        <em class="fa fa-eye"></em>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

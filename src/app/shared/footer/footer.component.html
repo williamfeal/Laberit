@@ -1,0 +1,37 @@
+<app-help-home></app-help-home>
+<footer class="col-10 mx-auto mt-5 font-size-12">
+	<div class="row auto-margin">
+		<div class="col-md-4">
+			<img *ngIf="src_logo" alt="Logo Puerto de Cartagena"
+				class="proportions" src="../../../assets/img/logoepsar2.png" />			
+		</div>
+		<div class="col-md-2">
+			<ul class="list-inline">
+				<li>
+					<strong class="text-uppercase">{{ 'footer.help' | translate }}</strong>
+				</li>
+				<li><a [routerLink]="'/requisitos-tecnicos'" class="text-dark">{{ 'footer.technical_requirements' | translate }}</a></li>
+				<li><a href="../../../../assets/docs/guia_de_usuario.pdf" target="_blank" class="text-dark">{{ 'footer.user_guide' | translate }}</a></li>
+			</ul>
+		</div>
+		<div class="col-md-2">
+			<ul class="list-inline">
+				<li>
+                    <strong class="text-uppercase"> {{ 'footer.contacts' | translate }} </strong>
+                </li>
+				<li><a [routerLink]="['/contact']" class="text-dark" class="text-dark">  {{ 'footer.ask_for_information' | translate }} </a> </li>
+				</ul>
+		</div>
+		<div class="col-md-2">
+			<ul class="list-inline">
+			<strong class="text-uppercase"> {{ 'footer.access' | translate }}</strong>
+				<li><a [routerLink]="'/accesibilidad'" class="text-dark"> {{ 'accesibility.title' | translate }} </a> </li>
+                <li><a [routerLink]="'/mapa-web'" class="text-dark"> {{ 'web_map.title' | translate }} </a> </li>
+				<li><a [routerLink]="'/aviso-legal'" class="text-dark">{{ 'legal_warning.title' | translate }}</a></li>
+			</ul>
+			<div class="d-flex justify-content-end align-items-end" style="height: 100px">
+			</div>
+		</div>
+		<app-contact-popover></app-contact-popover>
+	</div>
+</footer>

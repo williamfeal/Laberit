@@ -1,0 +1,24 @@
+@import "../../../utils/styles/colors.scss";
+.slider-home {
+    #myCarousel {
+		height: 320px;
+		.carousel-inner {
+			height: 100%;
+            img {
+                width: 100%;
+                object-fit: cover;
+				border-bottom: 3.5px solid $red-header;
+            }
+		}
+	}
+
+    .title-slider {
+		height: 68px;
+		padding-top: 17px;
+		h1 {
+			font-size: 24px;
+			font-weight: 900;
+			color: $red-header;
+			}
+	}
+}

@@ -1,0 +1,30 @@
+<div *ngIf="mandatoryDocs">
+    <app-input-document *ngFor="let doc of mandatoryDocs"
+        [form]="formAdjComuni"
+        label="{{doc.description}}" 
+        [idValue]="doc.concept_code"
+        [controlName]="doc.concept_code"
+        [isRequired]="true" 
+        errorText="document_error"
+        idplantilla="{{doc.descriptionPlantilla}}"
+        [draft]="draft"
+        [error]="validate && formAdjComuni.controls[doc.concept_code].invalid"
+        fileExtension=",.pdf" 
+        (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+        </app-input-document>
+</div>
+<div *ngIf="optionalDocs">
+    <app-input-document *ngFor="let doc of optionalDocs"
+        [form]="formAdjComuni"
+        label="{{doc.description}}" 
+        [idValue]="doc.concept_code"
+        [controlName]="doc.concept_code"
+        [isRequired]="false" 
+        idplantilla="{{doc.descriptionPlantilla}}"
+        [draft]="draft"
+        fileExtension=",.pdf" 
+        (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+        </app-input-document>
+</div>

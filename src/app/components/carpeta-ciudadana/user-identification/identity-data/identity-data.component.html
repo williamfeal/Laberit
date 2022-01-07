@@ -1,0 +1,36 @@
+<div class="card mb-2" >
+    <form [formGroup]="formIdentityData">
+        <div class="card-header background-card-header pb-0">
+            <div class="card-title">
+                <em class="fas fa-user mr-3"></em>
+                <span> <strong>{{ 'carpeta_ciudadana.identification.identity_data.title' | translate }}</strong></span>
+            </div>
+        </div>
+        <div class="card-body row" *ngIf="user">
+            <div class="form-group col-md-8 col-sm-12">
+                <app-input-text 
+                    [form]="formIdentityData"
+                    label="{{ 'carpeta_ciudadana.identification.identity_data.name_and_surname' | translate }}"
+                    controlName="name_and_surname"
+                    idValue="name_and_surname"
+                    nameValue="name_and_surname"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.nombreTitular + ' ' + user.apellidosTitular"
+                ></app-input-text>
+                 </div>
+            <div class="form-group col-md-4 col-sm-12">
+                <app-input-text 
+                    [form]="formIdentityData"
+                    label="{{ 'carpeta_ciudadana.identification.identity_data.nif' | translate }}"
+                    controlName="nif"
+                    idValue="nif"
+                    nameValue="nif"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.nifTitular"
+                ></app-input-text>
+            </div>
+        </div>
+    </form>
+</div>

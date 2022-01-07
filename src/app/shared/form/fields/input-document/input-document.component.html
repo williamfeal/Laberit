@@ -1,0 +1,35 @@
+
+<form [formGroup]="form">
+    <div class="m-3 pb-3">
+    <div class="row">
+        <div class="col-sm-5">
+        <span maxlength="30">{{label}} <span *ngIf="isRequired" class="requiredField"><b>*</b></span> </span>
+    </div>
+    <div class="col-sm-4">
+        <div class="file-container center-text" [ngClass]="{ 'error-input': error && isRequired == true }">
+            <div *ngIf="!documentExist; else nameFile" class="ml-2">
+                <input type="file" (change)="uploadFile($event)" [formControlName]="controlName" [name]="idValue" [readOnly]="isReadOnly" [required]="isRequired" [id]="idValue"
+                    [accept]="fileExtension" class="cursor-pointer">
+                <i class="fas fa-cloud-upload-alt mr-2"></i>
+                <span>
+                    {{ 'carpeta_ciudadana.instance.doc.drag' | translate }} <label class="primary-link"><u>{{
+                            'carpeta_ciudadana.instance.doc.explore' | translate }}</u>.</label>
+                </span>
+            </div>
+            <ng-template #nameFile>
+
+                {{document.naturalName}} <i *ngIf="!isReadOnly" class="fas fa-times mr-2 float-right" (click)="deleteFile()"></i>
+            </ng-template>
+        </div>
+    </div>
+        <div *ngIf="idplantilla != ''" class="col-sm-2 centrarDivBajo">
+            <button type="button" class="btn btn-rounded-circle btn-outline-primary" (click)="verPlantilla(idplantilla)"
+                data-cy="descargarPlantilla">
+                <i class="fas fa-file-download mr-1"></i>
+                {{ 'carpeta_ciudadana.documentation.download' | translate }}
+            </button>
+        </div>
+    </div>
+    <p class="error-p pl-3" [ngClass]="{ 'd-none': !error || !isRequired == true }" [innerHTML]="textError"></p>
+</div>
+</form>

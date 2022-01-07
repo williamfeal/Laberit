@@ -1,0 +1,23 @@
+<app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<app-breadcrum *ngIf="procedure" 
+[procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
+<div class="container-fluid">
+  <div class="card mb-2">
+    <div class="card-header background-card-header pb-0">
+      <div class="card-title">
+        <strong>
+        <label innerHtml="{{ 'carpeta_ciudadana.instance.present_request.title' | translate }}"></label>
+      </strong>
+      </div>
+    </div>
+    <div class="m-4">
+      <label innerHtml="{{ 'carpeta_ciudadana.instance.present_request.text' | translate }}"></label>
+        <!-- <a class="btn btn-link m-link" href="../../../../assets/docs/PRUEBITA.pdf"
+                        target="_blank" role="button" data-cy="btnSolicitud"> <i class="fa fa-file-pdf-o text-primary"></i> {{ 'carpeta_ciudadana.instance.present_request.text_link' | translate }}</a> -->
+    </div>
+  </div>
+</div>
+<div class="foot-buttons">
+  <button class="btn-app-primary-rounded" (click)="reviewDoc()" [disabled]="!data64"><i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>{{ 'carpeta_ciudadana.instance.present_request.button' | translate}}</button>
+</div>

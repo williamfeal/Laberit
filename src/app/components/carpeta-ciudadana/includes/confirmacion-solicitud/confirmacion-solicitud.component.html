@@ -1,0 +1,98 @@
+<app-header-carpeta-ciudadana *ngIf="procedure" [procedure]="procedure"></app-header-carpeta-ciudadana><app-button-back></app-button-back>
+<div class="container-fluid">
+    <div class="mb-3" *ngIf="info">
+            <div class="p-0">
+                <div class="presentada p-2">
+                    <div class="mb-0">
+                        <i class="fas fa-check pt-3 pb-3"></i> {{ 'carpeta_ciudadana.confirmation.exit' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mt-3">
+                <div class="row border">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-user-circle pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3  pt-3 pb-3">
+                        {{ 'carpeta_ciudadana.confirmation.interested' | translate }}
+                        <div class="">
+                            {{info.tercero.personaNombre}} {{info.tercero.personaApellido1}} {{info.tercero.personaApellido2}}
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-calendar pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 pt-3 pb-3">
+                        {{ 'carpeta_ciudadana.confirmation.date' | translate }}
+                        <div class="">
+                            {{info.tercero.fechaPresentado | date}}
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+
+                </div>                
+                <div class="w-100"></div>
+                <div class="row border">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-edit pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 small-text-size pt-3 pb-3">
+                        {{ 'carpeta_ciudadana.confirmation.thing' | translate }}
+                        <div class="">
+                          {{infoProcedure.name}}
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-sort-numeric-asc pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 pt-3 pb-3">
+                        {{ 'carpeta_ciudadana.confirmation.register_number' | translate }}
+                        <div class="">
+                            {{registerCode}}
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="w-100"></div>
+                <div class="row border">
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-file-pdf-o pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3 small-text-size pt-3 pb-3">
+                        {{ 'carpeta_ciudadana.confirmation.resum_pdf' | translate }}
+                        <div class="color-link">
+                            <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  data64}"></i>
+                            <a [ngClass]="{ 'd-none':  !data64}" download="Solicitud firmada" class="color-link" (click)="viewDoc(base64Request)"
+                                title="Solicitud firmada">
+                                <i class="fa fa-external-link"></i>  {{ 'carpeta_ciudadana.confirmation.download_resum' | translate }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <h1 class="col-sm-1">
+                        <i class="fa fa-file-pdf-o pt-3 pb-3"></i>
+                    </h1>
+                    <div class="col-sm-3">
+                        {{ 'carpeta_ciudadana.confirmation.sup_doc' | translate }}
+                        <div class="color-link">
+                            <i class="fas fa-spinner fa-pulse mr-2" [ngClass]="{ 'd-none':  dataR64}"></i>
+                            <a [ngClass]="{ 'd-none':  !dataR64}" download="Justificante de Registro"
+                            (click)="viewDoc(base64Resum)"
+                                title="Justificante de Registro">
+                                <i class="fa fa-external-link"></i>{{ 'carpeta_ciudadana.confirmation.download_sup' | translate }}</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-center pt-3">{{ 'carpeta_ciudadana.confirmation.footer_tab' | translate }} <a
+                                    href="/">{{ 'carpeta_ciudadana.title' | translate }}</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

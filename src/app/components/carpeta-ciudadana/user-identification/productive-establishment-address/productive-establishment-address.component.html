@@ -1,0 +1,113 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <em class="fas fa-building mr-3"></em>
+            <strong>
+                {{ 'carpeta_ciudadana.identification.productive_establishment_address.title' | translate }}
+            </strong>
+        </div>
+    </div>
+    <div class="card-body row mx-0">
+        <div class="form-group col-md-3">
+            <app-input-select [form]="formProductiveEstablishment" 
+                [draft]="draftProductiveEstablishmentData"
+                placeholder="{{ 'carpeta_ciudadana.instance.notification.selectStreet' | translate }}"
+                label="{{ 'carpeta_ciudadana.instance.notification.type' | translate }}" 
+                idSelected="{{infos.via_type}}"
+                controlName="productive_establishment_via_type" 
+                idValue="productive_establishment_via_type"
+                nameValue="productive_establishment_via_type" 
+                [isReadOnly]="readOnly" 
+                [isRequired]="isRequired"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_via_type']?.invalid"
+                [fieldOptions]="typeStreet" [errorText]="errorCharacterLeng"></app-input-select>
+
+        </div>
+        <div class="form-group col-md-6">
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
+                label="{{ 'carpeta_ciudadana.identification.address.address' | translate }}"
+                value="{{infos.address}}"
+                controlName="productive_establishment_address" idValue="productive_establishment_address"
+                nameValue="productive_establishment_address" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                [error]="validate && formProductiveEstablishment.controls['productive_establishment_address']?.invalid"
+                [errorText]="errorCharacterLeng"></app-input-text>
+        </div>
+        <div class="form-group col-md-3 px-0">
+            <div class="col-md-6">
+                <app-input-number
+                    [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
+                    label="{{ 'carpeta_ciudadana.identification.address.number' | translate }}"
+                    value="{{infos.number}}"
+                    controlName="productive_establishment_number" idValue="productive_establishment_number"
+                    nameValue="productive_establishment_number" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [negativos]="true"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_number']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-number>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}"
+                [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
+                value="{{infos.extra}}"
+                label="{{ 'carpeta_ciudadana.identification.address.extra' | translate }}"
+                controlName="productive_establishment_extra" idValue="productive_establishment_extra"
+                nameValue="productive_establishment_extra" [isReadOnly]="readOnly" 
+                [error]=""
+                [errorText]=""></app-input-text>
+        </div>
+        <div class="form-group col-md-6 px-0">
+            <div class="col-md-6">
+                <app-input-number
+                    [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData"
+                    label="{{ 'carpeta_ciudadana.identification.address.CP' | translate }}"
+                    value="{{infos.social_cp}}"
+                    controlName="productive_establishment_CP" idValue="productive_establishment_CP"
+                    nameValue="productive_establishment_CP" [isReadOnly]="readOnly" [isRequired]="isRequired" [negativos]="true"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_CP']?.invalid"
+                    [errorText]="errorCharacterLeng"></app-input-number>
+            </div>
+        </div>
+        <div class="d-flex w-100">
+            <div class="form-group col-md-3">
+                <app-input-select [form]="formProductiveEstablishment" [draft]="draftProductiveEstablishmentData" 
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_country']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectCountry' | translate }}"
+                    idSelected="{{infos.social_country}}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.country' | translate }}" (change)="onChangeCountry($event.target.value)"
+                    controlName="productive_establishment_country" idValue="productive_establishment_country"
+                    nameValue="productive_establishment_country" [isReadOnly]="readOnly" [isRequired]="isRequired"
+                    [fieldOptions]="paises" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3"  [ngClass]="{ 'd-none':  countrySelected !== countriesSpain }">
+                <app-input-select [form]="formProductiveEstablishment" (change)="onChangeSpainCountry($event.target.value)" [draft]="draftProductiveEstablishmentData"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_province']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectProvince' | translate }}"
+                    idSelected="{{prov}}"
+                    label=" {{ 'carpeta_ciudadana.instance.notification.province' | translate }}"
+                    controlName="productive_establishment_province" idValue="productive_establishment_province"
+                    nameValue="productive_establishment_province" [isReadOnly]="readOnly" [isRequired]="isRequired && !countriesSpain"
+                    [fieldOptions]="provincias" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3" [ngClass]="{ 'd-none':  countrySelected !== countriesSpain }">
+                <app-input-select [form]="formProductiveEstablishment"  [draft]="draftProductiveEstablishmentData"
+                    [error]="validate && formProductiveEstablishment.controls['productive_establishment_municipality']?.invalid"
+                    placeholder="{{ 'carpeta_ciudadana.instance.notification.selectMunicipality' | translate }}"
+                    idSelected="{{muni}}"
+                    label="{{ 'carpeta_ciudadana.instance.notification.municipality' | translate }}"
+                    controlName="productive_establishment_municipality" idValue="productive_establishment_municipality"
+                    nameValue="productive_establishment_municipality" [isReadOnly]="readOnly" [isRequired]="isRequired && !countriesSpain"
+                    [fieldOptions]="municipios" [errorText]="errorCharacterLeng">
+                </app-input-select>
+            </div>
+            <div class="form-group col-md-3" *ngIf="countrySelected !== countriesSpain">
+                <app-input-text placeholder="{{ 'carpeta_ciudadana.placeholder.input' | translate }}" [draft]="draftProductiveEstablishmentData"
+                [form]="formProductiveEstablishment" label="{{ 'carpeta_ciudadana.identification.address.social_region' | translate }}"
+                value="{{infos.social_region}}" [isReadOnly]="readOnly"
+                controlName="productive_establishment_region" idValue="productive_establishment_region" nameValue="productive_establishment_region"></app-input-text>
+            </div>
+        </div>
+    </div>
+</div>

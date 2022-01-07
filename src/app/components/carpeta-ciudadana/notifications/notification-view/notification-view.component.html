@@ -1,0 +1,109 @@
+<app-header-carpeta-ciudadana></app-header-carpeta-ciudadana>
+<app-button-back></app-button-back>
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<div class="mx-3" *ngIf="notification">
+    <div class="card">
+        <div class="card-header background-primary-color">
+            <div class="card-title mb-0 font-weight-bold text-white font-family-default">
+                {{ 'carpeta_ciudadana.notification-view.notification-info' | translate }}
+            </div>
+        </div>
+        <div class="card-body row mx-0 p-0">
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-info-circle fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.notification-id' | translate }} </span>
+                    <span> {{ identificador }} </span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="far fa-clone fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.concept' | translate }} 
+                    </span>
+                    <span> {{ notification.concepto }} </span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-landmark fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.cif' | translate }} 
+                    </span>
+                    <span>{{ notification.organismoEmisor.codigoDir3 }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="fas fa-landmark fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.transmitter-name' | translate }} 
+                    </span>
+                    <span>{{ notification.organismoEmisor.nombre }}</span>
+                </div>
+            </div>
+            <div class="col-md-6  d-flex">
+                <em class="far fa-envelope fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.shipping-type' | translate }} 
+                    </span>
+                    <span>{{ notification.tipoEnvio }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <em class="far fa-calendar fa-25x mt-1"></em>
+                <div class="ml-2 d-flex flex-column">
+                    <span class="d-inline-block text-uppercase font-weight-bold">
+                        {{ 'carpeta_ciudadana.notification-view.reception-date' | translate }} 
+                    </span>
+                    <span>{{ notification.fechaEnvioProgramado | date:'shortDate'}}</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div *ngIf="estado === 'Notificada'" class="card mt-3">
+        <div class="card-header background-primary-color">
+            <div class="card-title mb-0 font-weight-bold text-white font-family-default">
+                {{ 'carpeta_ciudadana.notification-view.documents' | translate }}
+            </div>
+        </div>
+        <div class="card-body">
+        <table class="table mat-elevation-z0 table-bordered w-100">
+            <thead>
+                <th> Fecha </th>
+                <th> Documento </th>
+                <th> Acciones </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th> {{ notification.fechaEnvioProgramado }}</th>
+                    <th class="font-weight-normal"> Documento Notificado </th>
+                    <th> 
+                        <button class="btn btn-app-outline-primary rounded-circle btn-small" (click)="seeNotificationDoc()">
+                            <em class="fa fa-eye"></em>
+                        </button> 
+                    </th>
+                </tr>
+                <tr>
+                    <th> {{ notification.fechaEnvioProgramado }}</th>
+                    <th class="font-weight-normal"> Documento Acuse Recibo </th>
+                    <th> 
+                        <button class="btn btn-app-outline-primary rounded-circle btn-small" (click)="seeAcuseRecibo()">
+                            <em class="fa fa-eye"></em>
+                        </button> 
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="text-center mt-2" *ngIf="estado === 'Pendiente'">
+        <button class="btn btn-app-primary button-round" (click)="navToSign()">
+            {{ 'carpeta_ciudadana.notification-view.open-notification' | translate }} 
+        </button>
+    </div>
+</div>

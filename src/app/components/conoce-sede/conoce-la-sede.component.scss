@@ -1,0 +1,18 @@
+.centrar-izquierda {
+    text-align: justify;  /* For Edge */
+  text-align-last: left;
+}
+
+.activado {
+  /*cambio color 0301*/
+  color: #29993a !important;
+  font-weight: bold;
+}
+
+.nav-link {
+  background: none!important;
+  border: none;
+  color: black;
+  text-align: left !important;
+  text-transform: uppercase;
+}

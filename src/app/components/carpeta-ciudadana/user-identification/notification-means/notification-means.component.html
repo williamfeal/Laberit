@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <em class="fas fa-envelope mr-3"></em>
+            <strong>
+            {{ 'carpeta_ciudadana.identification.means_of_notification.title' | translate }}
+        </strong>
+        </div>
+    </div>
+    <div class="card-body row" *ngIf="selectMeans">
+        <div class="form-group col-md-6">
+            <app-input-text
+                [form] = "formNotificationMeans"
+                label = "{{ 'carpeta_ciudadana.identification.means_of_notification.means' | translate }}"
+                controlName = "notification_means"
+                idValue = "notification_means"
+                nameValue = "notification_means"
+                [isReadOnly] = "true"
+                value="Eléctronico"
+            >
+            </app-input-text>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <app-input-text (change)="capturarCorreo($event.target.value)"
+            [form]="formNotificationMeans"
+            label="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
+            controlName="email"
+            idValue="email"
+            nameValue="email"
+            [isMail]="true"
+            [isReadOnly] = "readOnly"
+            [isRequired]="true"
+            placeholder="{{ 'carpeta_ciudadana.identification.means_of_notification.email' | translate }}"
+            [error]="validate && formNotificationMeans.controls['email']?.invalid"
+            [errorText]="emailErrorText"
+            [draft]="draftNotificationMeansData"
+        ></app-input-text>
+        </div>
+    </div>
+</div>

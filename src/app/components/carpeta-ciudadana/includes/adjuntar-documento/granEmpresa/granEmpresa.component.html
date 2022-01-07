@@ -1,0 +1,16 @@
+<div *ngIf="documentsTypeBigBussines">
+    <app-input-document *ngFor="let doc of documentsTypeBigBussines"
+        label="{{doc.description}}"
+        [idValue]="doc.concept_code" 
+        [form]="formAdjGranEm"
+        [draft]="draftGranEmpresa"
+        [controlName]="doc.concept_code"
+        [isRequired]="true" 
+        idplantilla="{{doc.descriptionPlantilla}}"
+        errorText="document_error"
+        [error]="validate && formAdjGranEm.controls[doc.concept_code].invalid"
+        fileExtension=",.pdf" 
+        (uploadFileDocument)="saveDocument($event)"
+        (deleteFileDocument)="deleteDocument($event)">
+    </app-input-document>
+</div>

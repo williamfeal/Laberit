@@ -1,0 +1,30 @@
+@import '../../../utils/styles/colors.scss';
+.btn-float {
+    position: fixed;
+    right: 10px;
+    bottom:10px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+.btn-app-help {
+    background-color: $primaryColor;
+    border-radius: 35px;
+    border: none;
+    color: $white !important;
+    cursor: pointer;
+    padding: 11px 40px;
+    transition: all .25s linear;
+    outline: none;
+  
+    &:hover {
+      background-color: white;
+      color: $primaryColor;
+      transition: all .25s linear;
+      -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+      -moz-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.38);
+    }
+}

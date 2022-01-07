@@ -1,0 +1,132 @@
+<nav aria-label="breadcrumb" *ngIf="procedure && infoProcedure">
+	<ol class="breadcrumb background-transparent-white ml-5 mt-1">
+        <li class="breadcrumb-item"><a [routerLink]="['/inicio']">Home</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/categories/' + procedure.category.id ]">{{ procedure.category.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ infoProcedure.name }}</li>
+    </ol>
+</nav>
+<div class="row justify-content-center">
+    <app-spinner *ngIf="!infoProcedure"></app-spinner>
+</div>
+<div class="col-md-11 mx-auto mt-5" *ngIf="infoProcedure">
+    <div class="card mb-4">
+        <div class="rectangle card-body w-100 d-web-box font-weight-bold shadow">
+            {{ infoProcedure.name }}
+        </div>
+    </div>
+    <div id="tramitacion" class="card shadow">
+        <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">										
+            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.info }}" id="nav-informacion-tab" 
+                [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}">									
+                <em class="fas fa-info circle-icon info-icon-class color-primary mx-4"></em>
+                {{ 'procedure_detail.info' | translate }}
+            </a>
+            <a class="nav-item nav-link col-sm-12 col-md-4 col-lg-2 text-dark text-uppercase {{ active.online }}"  id="nav-online-tab"
+                [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'online'}">                                    
+                <em class="fas fa-at color-primary circle-icon mx-4"></em>
+                {{ 'procedure_detail.tramit' | translate }}
+                </a>
+        </div>
+        <div class="tab-content" id="nav-tab-content">
+            <div class="tab-pane fade {{ active.info }}" id="nav-home" role="tabpanel" aria-labelledby="nav-informacion-tab">
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.description' | translate }}
+                    </div>
+                    <div class="card-body" >
+                        <span *ngIf="infoProcedure.description" [innerHTML]="infoProcedure.description"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.destinataries' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.destinataries" [innerHTML]="infoProcedure.destinataries"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.associatedDocs' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.associatedDocs" [innerHTML]="infoProcedure.associatedDocs"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.cost' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.cost" [innerHTML]="infoProcedure.cost"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.faqs' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.faqs" [innerHTML]="infoProcedure.faqs"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.start' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.start" [innerHTML]="infoProcedure.start"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.observations' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.observations" [innerHTML]="infoProcedure.observations"></span>
+                    </div>
+                </div>
+                <div class="card m-3 border-0">
+                    <div class="card-header border-0">
+                        {{ 'procedure_detail.contact' | translate }}
+                    </div>
+                    <div class="card-body ">
+                        <span *ngIf="infoProcedure.contact" [innerHTML]="infoProcedure.contact"></span>
+                    </div>
+                </div>
+                </div>   
+        </div>
+        <div class="tab-content " id="nav-tab-content" [ngClass]="{ 'p-3': action== 'online' }" *ngIf="procedure">
+            <div class="tab-pane fade {{ active.online }}" id="nav-home" role="tabpanel" aria-labelledby="nav-online-tab">
+            
+                <div class="row justify-content-center" *ngIf="procedure.tramitacionElectronica == true">
+                    <a class="btn btn-app-primary-rounded mx-auto my-3" 
+                        (click)="navToTransact()"
+                        [routerLink]="['/carpeta-del-ciudadano/transact/' + procedure.id ]" 
+                        href="#" role="button">
+                        {{ 'procedure_detail.transact' | translate }}
+                    </a>
+                </div>		
+                <div class="centered-item-dad mb-4"  *ngIf="!procedure.tramitacionElectronica">
+                    <div class="alert alert-danger col-md-8 mx-auto">
+                    <h4> {{ 'procedure_detail.procedure_not_available' | translate }}  </h4>
+                    <p class="mb-0">{{ 'procedure_detail.procedure_not_available_text1' | translate }}  </p>
+                    <p>{{ 'procedure_detail.procedure_not_available_text2' | translate }} <a href='#'>{{ 'procedure_detail.general_instance' | translate }}</a></p>
+                    </div>		
+                </div>
+            </div>
+        </div>
+        <div class="tab-content p-3 " id="nav-tab-content">
+            <div class="tab-pane fade {{ active.presencial }}" id="nav-presencial" role="tabpanel" aria-labelledby="nav-presencial-tab">
+                <div class="card-header border-0">
+                    <h4 class="mb-0">
+                        {{ 'procedure_detail.face_transaction' | translate }}
+                    </h4>
+                </div>
+                <div class="row justify-content-center">
+                    <a class="btn btn-app-primary text-center text-uppercase my-3 button-round" href="../../../../assets/docs/modelo_solicitud_linea_resistir.pdf"
+                        target="_blank" role="button">{{ 'procedure_detail.download_application_form' | translate }}</a>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

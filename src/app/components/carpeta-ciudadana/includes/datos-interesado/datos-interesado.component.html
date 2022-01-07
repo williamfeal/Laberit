@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title text-white">
+            <em class="fas fa-user mr-2"></em>
+            <label>{{ 'carpeta_ciudadana.instance.interested.title' | translate }}</label>
+        </div>
+    </div>
+    <div class="card-text row pt-3" *ngIf="user">
+        <div class="form-group col-md-8">
+            <app-input-text 
+                    [form]="formdDatosInteresado"
+                    label="{{ 'carpeta_ciudadana.instance.interested.name_and_surname' | translate }}"
+                    controlName="name_and_surname"
+                    idValue="name_and_surname"
+                    nameValue="name_and_surname"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.nombreTitular"
+            ></app-input-text>
+        </div>
+        <div class="form-group col-md-4">
+            <app-input-text 
+                    [form]="formdDatosInteresado"
+                    label="{{ 'carpeta_ciudadana.instance.interested.nifCif' | translate }}"
+                    controlName="nifCif"
+                    idValue="nifCif"
+                    nameValue="nifCif"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.nifTitular"
+            ></app-input-text>
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-5">
+            <app-input-text 
+                    [form]="formdDatosInteresado"
+                    label="{{ 'carpeta_ciudadana.instance.interested.telephone' | translate }}"
+                    controlName="telephone"
+                    idValue="telephone"
+                    nameValue="telephone"
+                    [isReadOnly]="readOnly"
+                    [isRequired]="true"
+                    [value]="user.email"
+            ></app-input-text>
+        </div>
+        <div class="form-group col-md-7">
+            <app-input-text 
+                [form]="formdDatosInteresado"
+                label="{{ 'carpeta_ciudadana.instance.interested.email' | translate }}"
+                controlName="email"
+                idValue="email"
+                nameValue="email"
+                [isReadOnly]="readOnly"
+                [isRequired]="true"
+                [value]="user.email"
+            ></app-input-text>
+        </div>
+    </div>
+    <div class="card-text row">
+        <div class="form-group col-md-12">
+            <label> {{ 'carpeta_ciudadana.instance.interested.linkDates' | translate }} <a href="">{{
+                    'carpeta_ciudadana.instance.interested.link' | translate }}</a> </label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header background-card-header pb-0">
+        <div class="card-title">
+            <em class="fas fa-info-circle mr-3"></em>
+            <strong>
+                {{ 'carpeta_ciudadana.identification.actuation_data.title' | translate }}
+            </strong>
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-3">
+            <app-input-select (change)="onChangeType($event.target.value)"
+            [form]="formRequestData"
+            [draft]="draftRequestData"
+            label=" {{ 'carpeta_ciudadana.identification.requester_data.type' | translate }} "
+            controlName="typeSelectRequest"
+            idValue="type"
+            nameValue="type"
+            [isReadOnly]="readOnly"
+            [fieldOptions] = "actuation"
+            [isRequired]="true"
+            placeholder="{{ 'carpeta_ciudadana.placeholder.select' | translate }} "
+            [error]="validate && formRequestData.controls['typeSelectRequest']?.invalid"
+            [errorText]="errorCharacterLeng"
+    ></app-input-select>
+        </div>
+    </div>
+</div>

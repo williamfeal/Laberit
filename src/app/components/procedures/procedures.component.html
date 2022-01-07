@@ -1,0 +1,44 @@
+<div class="col-md-12 d-flex mb-4 category-header align-items-center" *ngIf="selectedCategory">
+	<h1 class="text-white">{{ selectedCategory.name }}</h1>
+</div>
+<div class="col-md-12" *ngIf="selectedCategory">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table mt-0 mb-3">
+				<thead>
+					<tr>
+						<th scope="col" colspan="2" class="header-table">{{ 'procedure_detail.procedure_name' |
+							translate }}</th>
+					</tr>
+				</thead>
+				<div class="row justify-content-center">
+					<app-spinner *ngIf="!selectedCategory.procedimientos"></app-spinner>
+				</div>
+				<tbody class="table-bordered">
+					<tr *ngFor="let procedure of selectedCategory.procedimientos">
+						<div *ngIf="procedure.publicarEnSede">
+							<td class="col-sm-12">
+								<a [routerLink]="['/procedures/' + procedure.id]" [queryParams]="{action: 'info'}"
+									class="text-dark">
+									{{procedure.name}}
+								</a>
+							</td>
+							<td class="col-sm-1">
+								<div class="d-flex ml-1">
+									<a title="Ir al trámite" [routerLink]="['/procedures/' + procedure.id]"
+										[queryParams]="{action: 'info'}">
+										<em class="fas fa-info circle-icon info-icon-class color-primary mr-4"></em>
+									</a>
+									<a href="#" title="Tramitar online" [routerLink]="['/procedures/' + procedure.id]"
+										[queryParams]="{action: 'online'}">
+										<em class="fas fa-at color-primary mr-4 circle-icon"></em>
+									</a>
+								</div>
+							</td>
+						</div>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

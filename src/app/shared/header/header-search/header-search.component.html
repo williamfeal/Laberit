@@ -1,0 +1,11 @@
+<div class="header-search">
+   <form #searchForm (ngSubmit)="onSearch()">
+       <input id="keywords" class="pl-3 search-input position-absolute" [(ngModel)]="keywords" name="keywords"
+        placeholder="{{ 'header.find_procedures' | translate }}" size="30" title="search" type="text" />
+       <div id="wrap" class="icon-container float-right">
+           <button type="submit" name="Buscar" id="search-button" class="open-search" >
+               <i class="fas fa-search color-primary"></i>
+            </button>
+       </div>
+   </form>
+</div>
