@@ -55,6 +55,9 @@ export class AutonomsComponent implements OnInit, OnChanges {
         })
     }
 
+    // se crea un json con los tipos de documentos para cada idioma y se valida con el consumo
+    // del servicio el idioma actual, luego se envia a la variable los datos creados
+    // autor: @william
     private getMandatoryDocs() {
         let arrayDocs = [
         ]
@@ -123,6 +126,7 @@ export class AutonomsComponent implements OnInit, OnChanges {
                         ]
                      }
                  }
+                 this.mandatoryDocs = arrayDocs;
                  console.log(this.mandatoryDocs)
              }
          )

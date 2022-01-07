@@ -6,11 +6,16 @@
 [procedure]="procedure" [view]="viewMyRequest"></app-breadcrum>
 <div *ngIf="procedure">
     <form [formGroup]="formLineaResistir" (ngSubmit)="goToDocumentation()">
-        <app-procedure-information [draft]="draft" [readOnly]="readOnlyView"
-            [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information>
+        <!-- <app-procedure-information [draft]="draft" [readOnly]="readOnlyView"
+            [formLineaResistir]="formLineaResistir" [validate]="validate"></app-procedure-information> -->
         <app-detail-cost-financed [draft]="draft" [readOnly]="readOnlyView"
             [formLineaResistir]="formLineaResistir" [validate]="validate"></app-detail-cost-financed>
-    </form>
+            <!-- <app-contact-data  [validate]="validate" 
+            [emailErrorContact]="emailErrorContact" 
+            [formContactData]="formUserIdentification.controls.contact_data"
+            [readOnly]="readOnlyView" [draft]="draft">
+        </app-contact-data>     -->
+        </form>
     <div class="foot-buttons">
         <div class="text-right px-3">
             <button class="btn-app-primary mr-2" (click)="goToDocumentation()">{{ 'buttons.continue' | translate}}</button>

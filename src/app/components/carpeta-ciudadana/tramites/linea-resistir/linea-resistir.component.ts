@@ -154,6 +154,7 @@ export class LineaResistirComponent implements OnInit {
             //     'Error',
             //     data.motive
             //   )
+            //Lo envia directmente a adjuntar
             this.router.navigate([UrlConstants.VIEW_ADJUNTAR], { queryParams: { draft: this.draft.key }})
           }
         )

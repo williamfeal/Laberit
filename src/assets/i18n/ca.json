@@ -481,8 +481,12 @@
           "country": "País",
           "province": "Província",
           "municipality": "Municipi",
-          "social_region": "Regió o Ciutat"
-
+          "social_region": "Regió o Ciutat",
+          "direction_leakage": "Dirección de fuga",
+          "reparation_date": "data de reparació",
+          "water_supply_entity": "quina entitat li subministra l'aigua",
+          "bill": "Factura",
+          "period": "Periode"
         }
       },
       "linear_resistance": {

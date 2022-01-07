@@ -88,7 +88,7 @@ export class RequesterDataComponent implements OnInit, OnChanges {
 			let res: any = {};
 			console.log(res)
 			if(item.concept_code == 'ivf-applicant-types-interested'){
-        if (item.description.include('Interesado')){
+        if (item.description.includes('Interesado')){
           res = {
             concept_code: item.concept_code,
             description: 'Interesado'

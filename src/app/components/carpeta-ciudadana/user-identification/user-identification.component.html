@@ -30,13 +30,12 @@
                     [formRepresentativeData]="formUserIdentification.controls.representative_data" [readOnly]="false">
                 </app-representative-data>
             </div>
-            <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
+            <!-- <div class="col-md-12 mt-2" [ngClass]="{ 'd-none': interested == false}">
                 <app-interested-data (businessTypeOutput)="onChangeBusinessTypeOutput($event)" [validate]="validate" 
                     [isRequired]="interested" [draft]="draftUserIdentification" 
                     [formInterestedData]="formUserIdentification.controls.interested_data" [readOnly]="readOnlyView">
                 </app-interested-data>
-            </div>
-            
+            </div> -->            
         </div>
         <div class="row mx-0">
             <div class="col-md-12 mt-2"  [ngClass]="{ 'd-none': representative == false}">
@@ -45,19 +44,19 @@
                  [formRepresentativePower]="formUserIdentification.controls.representative_power" [readOnly]="readOnlyView"></app-poder-representacion>
             </div>
         </div>
-        <div class="row mx-0">
+        <!-- <div class="row mx-0">
             <div class="col-md-12 mt-2">
                 <app-social-address (adreSocial)="handleInfo($event)" [validate]="validate"  isRequired="true" [readOnly]="readOnlyView" [draft]="draftUserIdentification"
                     [formSocialAdress]="formUserIdentification.controls.sosial_address"></app-social-address>
             </div>
-        </div>
-        <div class="row mx-0">
+        </div> -->
+        <!-- <div class="row mx-0">
             <div class="col-md-12 mt-2">
                 <app-productive-establishment-address [subject]="subject" [validate]="validate" isRequired="true"  [draft]="draftUserIdentification"
                     [formProductiveEstablishment]="formUserIdentification.controls.productive_establishment"
                     [readOnly]="readOnlyView"></app-productive-establishment-address>
             </div>
-        </div>
+        </div> -->
         <div class="row mx-0" [ngClass]="{ 'd-none': representative == false || position_contact == false }">
             <div class="col-md-12 mt-2">
                 <app-legal-representative [validate]="validate" [draft]="draftUserIdentification" [emailErrorLegal]="emailErrorLegalRepresnt"
